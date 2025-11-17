@@ -1,0 +1,46 @@
+# Model Configuration
+model_name: answerdotai/ModernBERT-base
+labels_encoder: null
+name: "span level gliner"
+max_width: 63
+fine_tune: true
+subtoken_pooling: first
+span_mode: markerV0
+
+# Training Parameters
+num_steps: 30000
+train_batch_size: 8
+eval_every: 3000
+warmup_ratio: 0.1
+scheduler_type: "cosine"
+
+# loss function
+loss_alpha: -1 
+loss_gamma: 0. 
+label_smoothing: 0.
+loss_reduction: "sum"
+
+# Learning Rate and Weight Decay Configuration
+lr_encoder: 1e-5
+lr_others: 5e-5
+weight_decay_encoder: 0.01
+weight_decay_others: 0.01
+max_grad_norm: 1.0
+
+# Directory Paths
+train_data: "data_1000_ner.json" 
+
+# Pretrained Model Path
+# Use "none" if no pretrained model is being used
+prev_path: null
+
+save_total_limit: 20
+
+# Advanced Training Settings
+size_sup: -1
+max_types: 25
+shuffle_types: true
+random_drop: true
+max_neg_type_ratio: 1
+max_len: 7500
+freeze_token_rep: false
