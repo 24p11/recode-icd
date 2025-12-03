@@ -1,0 +1,23 @@
+,hiera,diag_deb,diag_fin,lib,annee_deb,annee_fin,en_cours,niveau_fin
+0,01,A00,C00,Certaines maladies infectieuses et parasitaires,2009,2025,1,0
+22,02,C00,D50,Tumeurs,2009,2025,1,0
+42,03,D50,E00,Maladies du sang et des organes hématopoïétiques et certains troubles du système immunitaire,2009,2025,1,0
+49,04,E00,F00,"Maladies endocriniennes, nutritionnelles et métaboliques",2009,2025,1,0
+58,05,F00,G00,Troubles mentaux et du comportement,2009,2025,1,0
+70,06,G00,H00,Maladies du système nerveux,2009,2025,1,0
+82,07,H00,H60,Maladies de l'oeil et des annexes,2009,2025,1,0
+94,08,H60,I00,Maladies de l'oreille et de l'apophyse mastoïde,2009,2025,1,0
+99,09,I00,J00,Maladies de l'appareil circulatoire,2009,2025,1,0
+110,10,J00,K00,Maladies de l'appareil respiratoire,2009,2025,1,0
+121,11,K00,L00,Maladies de l'appareil digestif,2009,2025,1,0
+132,12,L00,M00,Maladies de la peau et du tissu cellulaire sous-cutané,2009,2025,1,0
+141,13,M00,N00,"Maladies du système ostéo-articulaire, des muscles et du tissu conjonctif",2009,2025,1,0
+161,14,N00,O00,Maladies de l'appareil génito-urinaire,2009,2025,1,0
+173,15,O00,P00,"Grossesse, accouchement et puerpéralité",2009,2025,1,0
+182,16,P00,Q00,Certaines affections dont l'origine se situe dans la période périnatale,2009,2025,1,0
+193,17,Q00,R00,Malformation congénitales et anomalies chromosomiques,2009,2025,1,0
+205,18,R00,S00,"Symptômes, signes et réultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs",2009,2025,1,0
+219,19,S00,U04,"Lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes",2009,2025,1,0
+244,20,V01,Z00,Causes externes de morbidité et de mortalité,2009,2025,1,0
+247,21,Z00,Z99,Facteurs influant sur l'état de santé et motifs de recours aux services de santé,2009,2025,1,0
+255,22,U04,V01,Codes d'utilisations particulière,2009,2025,1,0

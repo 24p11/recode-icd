@@ -1,0 +1,260 @@
+hiera;diag_deb;diag_fin;lib;annee_deb;annee_fin;en_cours;niveau_fin
+01;A00;C00;Certaines maladies infectieuses et parasitaires;2009;2025;1;0
+01.01;A00;A15;Maladies intestinales infectieuses;2009;2025;1;1
+01.02;A15;A20;Tuberculoses;2009;2025;1;1
+01.03;A20;A30;Certaines anthropozoonoses bactériennes;2009;2025;1;1
+01.04;A30;A50;Autres maladies bactériennes;2009;2025;1;1
+01.05;A50;A65;Infections dont le mode de transmission est essentiellement sexuel;2009;2025;1;1
+01.06;A65;A70;Autres maladies à spirochètes;2009;2025;1;1
+01.07;A70;A75;Autres maladies à Chlamydia;2009;2025;1;1
+01.08;A75;A80;Rickettsioses;2009;2025;1;1
+01.09;A80;A90;Infections virales du système nerveux central;2009;2025;1;1
+01.10;A90;B00;Fièvres virales transmises par les arthropodes et fièvres virales hémorragiques;2009;2025;1;1
+01.11;B00;B15;Infections virales caractérisées par des lésions cutanéo-muqueuses;2009;2025;1;1
+01.12;B15;B20;Hépatite virale;2009;2025;1;1
+01.13;B20;B25;Maladies dues au virus de l'immunodéficience humaine [VIH];2009;2025;1;1
+01.14;B25;B35;Autres maladies virales;2009;2025;1;1
+01.15;B35;B50;Mycoses;2009;2025;1;1
+01.16;B50;B65;Maladies dues à des protozoaires;2009;2025;1;1
+01.17;B65;B85;Helminthiases;2009;2025;1;1
+01.18;B85;B90;Pédiculoses, acariase et autre infestations;2009;2025;1;1
+01.19;B90;B95;Séquelles de maladies infectieuses et parasitaires;2009;2025;1;1
+01.20;B95;B99;Agents d'infections bactériennes, virales et autres;2009;2025;1;1
+01.21;B99;C00;Maladies infectieuses, autres et non précisées;2009;2025;1;1
+02;C00;D50;Tumeurs;2009;2025;1;0
+02.01;C00;D00;Tumeurs malignes;2009;2025;1;0
+02.01.01;C00;C15;Tumeurs malignes de la lèvre, de la cavité buccale et du pharynx;2009;2025;1;1
+02.01.02;C15;C30;Tumeurs malignes des organes digestifs;2009;2025;1;1
+02.01.03;C30;C40;Tumeurs malignes des organes respiratoires et intrathoraciques;2009;2025;1;1
+02.01.04;C40;C43;Tumeurs malignes des os et du cartilage articulaire;2009;2025;1;1
+02.01.05;C43;C45;Mélanome malin et autres tumeurs malignes de la peau;2009;2025;1;1
+02.01.06;C45;C50;Tumeurs malignes du tissu mésothélial et des tissus mous;2009;2025;1;1
+02.01.07;C50;C51;Tumeurs malignes du sein;2009;2025;1;1
+02.01.08;C51;C60;Tumeurs malignes des organes génitaux de la femme;2009;2025;1;1
+02.01.09;C60;C64;Tumeurs malignes des organes génitaux de l'homme;2009;2025;1;1
+02.01.10;C64;C69;Tumeurs malignes des voies urinaires;2009;2025;1;1
+02.01.11;C69;C73;Tumeurs malignes de l'½il, du cerveau et d'autres parties du système nerveux central;2009;2025;1;1
+02.01.12;C73;C76;Tumeurs malignes de la thyroïdes et d'autres glandes endocrines;2009;2025;1;1
+02.01.13;C76;C81;Tumeurs malignes de sièges mal définis, secondaires et non précisés;2009;2025;1;1
+02.01.14;C81;C97;Tumeurs malignes primitives ou présumées primitives des tissus lymphoïde, hématopoïétique et apparentés;2009;2025;1;1
+02.01.15;C97;D00;Tumeurs malignes de sièges multiples indépendants (primitifs);2009;2025;1;1
+02.02;D00;D10;Tumeurs in situ;2009;2025;1;1
+02.03;D10;D37;Tumeurs bénignes;2009;2025;1;1
+02.04;D37;D50;Tumeurs à évolution imprévisibles ou inconnue;2009;2025;1;1
+03;D50;E00;Maladies du sang et des organes hématopoïétiques et certains troubles du système immunitaire;2009;2025;1;0
+03.01;D50;D55;Anémies nutritionnelles;2009;2025;1;1
+03.02;D55;D60;Anémies hémolytiques;2009;2025;1;1
+03.03;D60;D65;Anémies médullaires et autres anémies;2009;2025;1;1
+03.04;D65;D70;Anomalies de la coagulation, purpura et autre affections hémorragiques;2009;2025;1;1
+03.05;D70;D80;Autres maladies du sang et des organes hématopoïétiques;2009;2025;1;1
+03.06;D80;E00;Autres anomalies du système immunitaire;2009;2025;1;1
+04;E00;F00;Maladies endocriniennes, nutritionnelles et métaboliques;2009;2025;1;0
+04.01;E00;E10;Affection de la glande thyroïde;2009;2025;1;1
+04.02;E10;E15;Diabète sucré;2009;2025;1;1
+04.03;E15;E20;Autres anomalies de la régulation du glucose et de la sécrétion pancréatique interne;2009;2025;1;1
+04.04;E20;E40;Maladies des autres glandes endocrines;2009;2025;1;1
+04.05;E40;E50;Malnutrition;2009;2025;1;1
+04.06;E50;E65;Autre carences nutritionnelles;2009;2025;1;1
+04.07;E65;E70;Obésités et autre excès d'apport;2009;2025;1;1
+04.08;E70;F00;Anomalies du métabolisme;2009;2025;1;1
+05;F00;G00;Troubles mentaux et du comportement;2009;2025;1;0
+05.01;F00;F10;Troubles mentaux organiques, y compris les troubles symptomatiques;2009;2025;1;1
+05.02;F10;F20;Troubles mentaux et du comportement liés à l'utilisation de substances psycho-actives;2009;2025;1;1
+05.03;F20;F30;Schyzophrénies, trouble schyzotique et troubles délirants;2009;2025;1;1
+05.04;F30;F40;Troubles de l'humeur [affectifs];2009;2025;1;1
+05.05;F40;F50;Troubles névrotiques, troubles liés à des facteurs de stress et troubles somatoformes;2009;2025;1;1
+05.06;F50;F60;Syndromes comportementaux associés à des perturbations physiologiques et à des facteurs physiques;2009;2025;1;1
+05.07;F60;F70;Trouble de la personnalité et d comportement chez l'adulte;2009;2025;1;1
+05.08;F70;F80;Retard mental;2009;2025;1;1
+05.09;F80;F90;Troubles du développement psychologique;2009;2025;1;1
+05.10;F90;F99;Troubles du comportement et troubles émotionnels apparaissant habituellement durant l'enfance et l'adolescence;2009;2025;1;1
+05.11;F99;G00;Trouble mental, sans précision;2009;2025;1;1
+06;G00;H00;Maladies du système nerveux;2009;2025;1;0
+06.01;G00;G10;Maladies inflammatoires du système nerveux central;2009;2025;1;1
+06.02;G10;G20;Affections dégénératives sytématiques affectant principalement le système nerveux central;2009;2025;1;1
+06.03;G20;G30;Syndromes extrapyramidaux et troubles de la motricité;2009;2025;1;1
+06.04;G30;G35;Autres affections dégénératives du système nerveux;2009;2025;1;1
+06.05;G35;G40;Maladies démyélinisantes du système nerveux central;2009;2025;1;1
+06.06;G40;G50;Affections épisodiques et paroxistiques;2009;2025;1;1
+06.07;G50;G60;Affections des nerfs et des racines et plexus nerveux;2009;2025;1;1
+06.08;G60;G70;Polynévrites et autres affections du système nerveux périphérique;2009;2025;1;1
+06.09;G70;G80;Affections musculaires et neuro-musculaires;2009;2025;1;1
+06.10;G80;G90;Paralysies cérébrales et autre syndromes paralytiques;2009;2025;1;1
+06.11;G90;H00;Autres affections du système nerveux;2009;2025;1;1
+07;H00;H60;Maladies de l'oeil et des annexes;2009;2025;1;0
+07.01;H00;H10;Affections de la paupière, de l'appareil lacrymal et de l'orbite;2009;2025;1;1
+07.02;H10;H15;Affections de la conjonctive;2009;2025;1;1
+07.03;H15;H25;Affections de la scéloritique, de la cornée, de l'iris et du corps ciliaire;2009;2025;1;1
+07.04;H25;H30;Affections du cristallin;2009;2025;1;1
+07.05;H30;H40;Affections de la choroïde et de la rétine;2009;2025;1;1
+07.06;H40;H43;Glaucome;2009;2025;1;1
+07.07;H43;H46;Affections du corps vitré et du globe oculaire;2009;2025;1;1
+07.08;H46;H49;Affections du nerf et des voies optiques;2009;2025;1;1
+07.09;H49;H53;Affections des muscles oculaires, des mouvements binoculaires, de l'accomodation et de la réfraction;2009;2025;1;1
+07.10;H53;H55;Troubles de la vision et cécité;2009;2025;1;1
+07.11;H55;H60;Autres affections de l'oeil et de ses annexes;2009;2025;1;1
+08;H60;I00;Maladies de l'oreille et de l'apophyse mastoïde;2009;2025;1;0
+08.01;H60;H65;Maladies de l'oreille externe;2009;2025;1;1
+08.02;H65;H80;Maladies de l'oreille moyenne et de l'apophyse mastoïde;2009;2025;1;1
+08.03;H80;H90;Maladies de l'oreille interne;2009;2025;1;1
+08.04;H90;I00;Autres affections de l'oreille;2009;2025;1;1
+09;I00;J00;Maladies de l'appareil circulatoire;2009;2025;1;0
+09.01;I00;I05;Rhumatisme articulaire aigu;2009;2025;1;1
+09.02;I05;I10;Cardiopathies rhumatismales chroniques;2009;2025;1;1
+09.03;I10;I20;Maladies hypertensives;2009;2025;1;1
+09.04;I20;I26;Cardiopathies ischémiques;2009;2025;1;1
+09.05;I26;I30;Affections cardiopulmonaires et maladies et de la circulation pulmonaire;2009;2025;1;1
+09.06;I30;I60;Autres formes de cardiopathies;2009;2025;1;1
+09.07;I60;I70;Maladies cérébrovasculaires;2009;2025;1;1
+09.08;I70;I80;Maladies des artères, artérioles et capillaires;2009;2025;1;1
+09.09;I80;I95;Maladies des veines, des vaisseaux et des ganglions lymphatiques non classées ailleurs;2009;2025;1;1
+09.10;I95;J00;Troubles autres et non précisés de l'appareil circulatoire;2009;2025;1;1
+10;J00;K00;Maladies de l'appareil respiratoire;2009;2025;1;0
+10.01;J00;J09;Affections aiguës des voies respiratoires supérieures;2009;2025;1;1
+10.02;J09;J20;Grippe et pneumopathie;2009;2025;1;1
+10.03;J20;J30;Autres affections aiguës des voies respiratoires inférieures;2009;2025;1;1
+10.04;J30;J40;Autres maladies des voies respiratoires supérieures;2009;2025;1;1
+10.05;J40;J60;Maladies chroniques des voies respiratoires inférieures;2009;2025;1;1
+10.06;J60;J80;Maladies du poumon dues à des agents externes;2009;2025;1;1
+10.07;J80;J85;Autres maladies respiratoires touchant principalement le tissu interstitiel;2009;2025;1;1
+10.08;J85;J90;Maladies suppurées et nécrotiques des voies respiratoires inférieures;2009;2025;1;1
+10.09;J90;J95;Autres affections de la plèvre;2009;2025;1;1
+10.10;J95;K00;Autres maladies de l'appareil respiratoire;2009;2025;1;1
+11;K00;L00;Maladies de l'appareil digestif;2009;2025;1;0
+11.01;K00;K20;Maladies de la cavité buccale, des glandes salivaires et des maxillaires;2009;2025;1;1
+11.02;K20;K35;Maladies de l'oesophage, de l'estomac et du duodénum;2009;2025;1;1
+11.03;K35;K40;Maladies de l'appendice;2009;2025;1;1
+11.04;K40;K50;Hernies;2009;2025;1;1
+11.05;K50;K55;Entérites et colites non infectieuses;2009;2025;1;1
+11.06;K55;K65;Autres maladies de l'intestin;2009;2025;1;1
+11.07;K65;K70;Maladies du péritoine;2009;2025;1;1
+11.08;K70;K80;Maladies du foie;2009;2025;1;1
+11.09;K80;K90;Maladies de la vésicule biliaire, des voies biliaires et du pancréas;2009;2025;1;1
+11.10;K90;L00;Autres maladies de l'appareil digestif;2009;2025;1;1
+12;L00;M00;Maladies de la peau et du tissu cellulaire sous-cutané;2009;2025;1;0
+12.01;L00;L10;Infections de la peau et du tissu cellulaire sous-cutané;2009;2025;1;1
+12.02;L10;L20;Dermatoses bulleuses;2009;2025;1;1
+12.03;L20;L40;Dermatoses et eczémas;2009;2025;1;1
+12.04;L40;L50;Lésions papulo-squameuses;2009;2025;1;1
+12.05;L50;L55;Urticaire et érythème;2009;2025;1;1
+12.06;L55;L60;Affections de la peau et du tissu cellulaire sous-cutané liées à une irradiation;2009;2025;1;1
+12.07;L60;L80;Maladies des phanères et des annexes de la peau;2009;2025;1;1
+12.08;L80;M00;Autres affections de la peau et du tissu cellulaire sous-cutané;2009;2025;1;1
+13;M00;N00;Maladies du système ostéo-articulaire, des muscles et du tissu conjonctif;2009;2025;1;0
+13.01;M00;M30;Arthropathies;2009;2025;1;0
+13.01.01;M00;M05;Arthropathies infectieuses;2009;2025;1;1
+13.01.02;M05;M15;Polyarthropathies inflammatoires;2009;2025;1;1
+13.01.03;M15;M20;Arthroses;2009;2025;1;1
+13.01.04;M20;M30;Autres affections articulaires;2009;2025;1;1
+13.02;M30;M40;Affections disséminées du tissu conjonctif;2009;2025;1;1
+13.03;M40;M60;Dorsopathies;2009;2025;1;0
+13.03.01;M40;M45;Dorsopathies avec déformation;2009;2025;1;1
+13.03.02;M45;M50;Spondylopathies;2009;2025;1;1
+13.03.03;M50;M60;Autres dorsopathies;2009;2025;1;1
+13.04;M60;M80;Affections des tissus mous;2009;2025;1;0
+13.04.01;M60;M65;Myopathies;2009;2025;1;1
+13.04.02;M65;M70;Atteintes des synoviales et des tendons;2009;2025;1;1
+13.04.03;M70;M80;Autres affections des tissus mous;2009;2025;1;1
+13.05;M80;M95;Ostéopathies et chondropathies;2009;2025;1;0
+13.05.01;M80;M86;Anomalies de la densité et de la structure osseuses;2009;2025;1;1
+13.05.02;M86;M91;Autres ostéopathies;2009;2025;1;1
+13.05.03;M91;M95;Chondropathies;2009;2025;1;1
+13.06;M95;N00;Autres maladies du système ostéo-articulaire, des muscles et du tissu conjonctifd;2009;2025;1;1
+14;N00;O00;Maladies de l'appareil génito-urinaire;2009;2025;1;0
+14.01;N00;N10;Glomérulopathies;2009;2025;1;1
+14.02;N10;N17;Maladies rénales tubulo-interstitielles;2009;2025;1;1
+14.03;N17;N20;Insuffisance rénale;2009;2025;1;1
+14.04;N20;N25;Lithiases urinaires;2009;2025;1;1
+14.05;N25;N30;Autres affection su rein et de l'uretère;2009;2025;1;1
+14.06;N30;N40;Autres maladies de l'appareil urinaire;2009;2025;1;1
+14.07;N40;N60;Maladies des organe génitaux de l'homme;2009;2025;1;1
+14.08;N60;N70;Affection du sein;2009;2025;1;1
+14.09;N70;N80;Affections inflammatoires des organes pelviens de la femme;2009;2025;1;1
+14.10;N80;N99;Affections non inflammatoires de l'appareil génital de la femme;2009;2025;1;1
+14.11;N99;O00;Autres affections de l'appareil génito-urinaire;2009;2025;1;1
+15;O00;P00;Grossesse, accouchement et puerpéralité;2009;2025;1;0
+15.01;O00;O10;Grossesse se terminant par un avortement;2009;2025;1;1
+15.02;O10;O20;Oedème, protéinurie et hypertension au cours de la grossesse, de l'accouchement et de la puerpéralité;2009;2025;1;1
+15.03;O20;O30;Autres affections maternelles liées principalement à la grossesse;2009;2025;1;1
+15.04;O30;O60;Soins maternels liés au foetus et à la cavité amniotique, et problèmes possibles posés par l'accouchement;2009;2025;1;1
+15.05;O60;O80;Complications du travail et de l'accouchement;2009;2025;1;1
+15.06;O80;O85;Accouchement;2009;2025;1;1
+15.07;O85;O95;Complications principalement liées à la puerpéralité;2009;2025;1;1
+15.08;O95;P00;Autres problèmes obstétricaux, non classés ailleurs;2009;2025;1;1
+16;P00;Q00;Certaines affections dont l'origine se situe dans la période périnatale;2009;2025;1;0
+16.01;P00;P05;F½tus et nouveau-né affectés par des troubles maternels et par des complications de la grossesse, du travail et de l'accouchement;2009;2025;1;1
+16.02;P05;P10;Anomalies liées à la durée de la gestation et à la croissance du f½tus;2009;2025;1;1
+16.03;P10;P20;Traumatismes obstétricaux;2009;2025;1;1
+16.04;P20;P35;Affections respiratoires et cardio-vasculaires spécifiques de la période périnatale;2009;2025;1;1
+16.05;P35;P50;Infections spécifiques de la période périnatale;2009;2025;1;1
+16.06;P50;P70;Affections hémorragiques et hématologiques du f½tus et du nouveau-né;2009;2025;1;1
+16.07;P70;P75;Anomalies endocriniennes et métaboliques transitoires spécifiques du f½tus et du nouveau-né;2009;2025;1;1
+16.08;P75;P80;Affections de l'appareil digestif du f½tus et du nouveau-né;2009;2025;1;1
+16.09;P80;P90;Affections intéressant les téguments et la régulation themique du f½tus et du nouveau-né;2009;2025;1;1
+16.10;P90;Q00;Autres affections dont l'origine se situe dans la période périnatale;2009;2025;1;1
+17;Q00;R00;Malformation congénitales et anomalies chromosomiques;2009;2025;1;0
+17.01;Q00;Q10;Malformation congénitales du système nerveux;2009;2025;1;1
+17.02;Q10;Q20;Malformation congénitales de l'½il, de l'oreille, de la face et du cou;2009;2025;1;1
+17.03;Q20;Q30;Malformation congénitales de l'appareil circulatoire;2009;2025;1;1
+17.04;Q30;Q35;Malformation congénitales de l'appareil respiratoire;2009;2025;1;1
+17.05;Q35;Q38;Fente labiale et fente palatine;2009;2025;1;1
+17.06;Q38;Q50;Autres malformations congénitales de l'appareil digestif;2009;2025;1;1
+17.07;Q50;Q60;Malformations congénitales des organes génitaux;2009;2025;1;1
+17.08;Q60;Q65;Malformations congénitales de l'appareil urinaire;2009;2025;1;1
+17.09;Q65;Q80;Malformations congénitales du système ostéo-articulaire et des muscles;2009;2025;1;1
+17.10;Q80;Q90;Autres malformations congénitales;2009;2025;1;1
+17.11;Q90;R00;Anomalies chomosomiques, non classées ailleurs;2009;2025;1;1
+18;R00;S00;Symptômes, signes et réultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs;2009;2025;1;0
+18.01;R00;R10;Symptômes et signes relatifs aux appareils circulatoire et respiratoire;2009;2025;1;1
+18.02;R10;R20;Symptômes et signes relatifs à l'appareil digestif et à l'abdomen;2009;2025;1;1
+18.03;R20;R25;Symptômes et signes relatifs à la peau et au tissu cellulaire sous-cutané;2009;2025;1;1
+18.04;R25;R30;Symptômes et signes relatifs aux systèmes nerveux et ostéo-musculaire;2009;2025;1;1
+18.05;R30;R40;Symptômes et signes relatifs à l'appareil urinaire;2009;2025;1;1
+18.06;R40;R47;Symptômes et signes relatifs à la connaissance, la perception, l'humeur et le comportement;2009;2025;1;1
+18.07;R47;R50;Symptômes et signes relatifs au langage et à la voix;2009;2025;1;1
+18.08;R50;R70;Symptômes et signes généraux;2009;2025;1;1
+18.09;R70;R80;Résultats anormaux de l'examen du sang, sans diagnostic;2009;2025;1;1
+18.10;R80;R83;Résultats anormaux de l'examen des urines, sans diagnostic;2009;2025;1;1
+18.11;R83;R90;Résultats anormaux de l'examen d'autres liquides, substances et tissus, sans diagnostic;2009;2025;1;1
+18.12;R90;R95;Résultats anormaux d'imagerie diagnostique et d'épreuves fonctionnelles, sans diagnostic;2009;2025;1;1
+18.13;R95;S00;Causes de mortalité mal définies et inconnues;2009;2025;1;1
+19;S00;U04;Lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes;2009;2025;1;0
+19.01;S00;S10;Lésions traumatiques de la tête;2009;2025;1;1
+19.02;S10;S20;Lésions traumatiques du cou;2009;2025;1;1
+19.03;S20;S30;Lésions traumatiques du thorax;2009;2025;1;1
+19.04;S30;S40;Lésions traumatiques de l'abdomen, des lombes, du rachis lombaire et du bassin;2009;2025;1;1
+19.05;S40;S50;Lésions traumatiques de l'épaule et du bras;2009;2025;1;1
+19.06;S50;S60;Lésions traumatiques du coude et de l'avant-bras;2009;2025;1;1
+19.07;S60;S70;Lésions traumatiques du poignet et de la main;2009;2025;1;1
+19.08;S70;S80;Lésions traumatiques de la hanche et de la cuisse;2009;2025;1;1
+19.09;S80;S90;Lésions traumatiques du genou et de la jambe;2009;2025;1;1
+19.10;S90;T00;Lésions traumatiques de la cheville et du pied;2009;2025;1;1
+19.11;T00;T08;Lésions traumatiques de plusieurs parties du corps;2009;2025;1;1
+19.12;T08;T15;Lésions traumatiques de siège non précisé du tronc, membre au autre région du corps;2009;2025;1;1
+19.13;T15;T20;Effets dus à un corps étranger ayant pénétré dans un orifice naturel;2009;2025;1;1
+19.14;T20;T33;Brûlures et corrosions;2009;2025;1;0
+19.14.01;T20;T26;Brûlures et corrosions de la surface externe du corps, selon la localisation;2009;2025;1;1
+19.14.02;T26;T29;Brûlures et corrosions de l'½il et organes internes;2009;2025;1;1
+19.14.03;T29;T33;Brûlures et corrosions de parties du corps, multiples et non précisées;2009;2025;1;1
+19.15;T33;T36;Gelures;2009;2025;1;1
+19.16;T36;T51;Intoxications par des médicaments et des substances biologiques;2009;2025;1;1
+19.17;T51;T66;Effets toxiques de substances d'origine essentielllement non médicinale;2009;2025;1;1
+19.18;T66;T79;Effets de causes externes, autres et non précisés;2009;2025;1;1
+19.19;T79;T80;Certaines complications précoces des traumatismes;2009;2025;1;1
+19.20;T80;T90;Complications de soins chirurgicaux et médicaux, non classées ailleurs;2009;2025;1;1
+19.21;T90;U04;Séquelles de lésions traumatiques, d'empoisennements et d'autres conséquences de couses externes;2009;2025;1;1
+20;V01;Z00;Causes externes de morbidité et de mortalité;2009;2025;1;0
+20.01;V01;X60;Accidents;2009;2025;1;1
+20.02;X60;Z00;Lésions auto-infligées;2009;2025;1;1
+21;Z00;Z99;Facteurs influant sur l'état de santé et motifs de recours aux services de santé;2009;2025;1;0
+21.01;Z00;Z20;Sujets en contact avex les services de santé pour des examens divers;2009;2025;1;1
+21.02;Z20;Z30;Sujets pouvant courir un risque lié à des maladies transmissibles;2009;2025;1;1
+21.03;Z30;Z40;Sujets ayant recours aux services de santé pour des motifs liés à la reproduction;2009;2025;1;1
+21.04;Z40;Z55;Sujets ayant recours aux services de santé pour des actes médicaux et des soins spécifiques;2009;2025;1;1
+21.05;Z55;Z70;Sujets dont la santé peut être menacée par des conditions socio-économiques et psycho-sociales;2009;2025;1;1
+21.06;Z70;Z80;Sujets ayant recours aux services de santé pour d'autres motifs;2009;2025;1;1
+21.07;Z80;Z99;Sujets dont la santé peut être menancée en raison d'antécédents personnels et familiaux et de certaines affections;2009;2025;1;1
+22;U04;V01;Codes d'utilisations particulière;2009;2025;1;0
+22.01;U04;U80;Classement provisoire d'affections nouvelles d'étiologie incertaine;2009;2025;1;1
+22.02;U80;U88;Résistance aux médicaments antimicrobiens et antinéoplasiques;2009;2025;1;1
+22.03;U88;V01;Autres codes d'utilisation particulière;2009;2025;1;1

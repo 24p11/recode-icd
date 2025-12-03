@@ -1,0 +1,28 @@
+type_sous_chapitre;diag;liblong;DP;DAS;TOT;DP_cum;TOT_DP;P_CUM
+Facteurs influençant l'état de santé;Z8000;Antécédents familiaux de tumeur maligne du tube digestif;93904;90288;184192;93904;601027;15,6239237172373
+Facteurs influençant l'état de santé;Z713;Surveillance et conseils diététiques;76161;728809;804970;170065;601027;28,2957338023084
+Facteurs influençant l'état de santé;Z86001;Antécédents personnels de tumeur non maligne du tube digestif;49742;60949;110691;219807;601027;36,5719010959574
+Facteurs influençant l'état de santé;Z940;Greffe de rein;45110;64116;109226;264917;601027;44,0773875383302
+Facteurs influençant l'état de santé;Z8711;Antécédents personnels de maladies du tube digestif;36568;49317;85885;301485;601027;50,1616399928789
+Facteurs influençant l'état de santé;Z762;Surveillance médicale et soins médicaux d'autres nourrissons et enfants en bonne santé;25863;10161;36024;327348;601027;54,4647744610475
+Facteurs influençant l'état de santé;Z8500;Antécédents personnels de tumeur maligne du tube digestif;18199;45144;63343;345547;601027;57,4927582288316
+Facteurs influençant l'état de santé;Z742;Besoin d'assistance à domicile, aucun autre membre du foyer n'étant capable d'assurer les soins;17995;107528;125523;363542;601027;60,4868000938394
+Facteurs influençant l'état de santé;Z941;Greffe du coeur;12978;8053;21031;376520;601027;62,6461040851742
+Facteurs influençant l'état de santé;Z94803;Allogreffe de cellules souches hématopoïétiques, greffon de moelle osseuse ou de cellules souches périphériques de donneur non apparenté;12590;7451;20041;389110;601027;64,7408519084833
+Facteurs influençant l'état de santé;Z8370;Antécédents familiaux de maladies du tube digestif;11353;15334;26687;400463;601027;66,6297853507413
+Facteurs influençant l'état de santé;Z942;Greffe de poumon;10535;8740;19275;410998;601027;68,3826184181410
+Facteurs influençant l'état de santé;Z94802;Allogreffe de cellules souches hématopoïétiques, greffon de moelle osseuse, de cellules souches périphériques ou d'unité de sang placentaire de donneur apparenté;10265;8204;18469;421263;601027;70,0905283789247
+Facteurs influençant l'état de santé;Z714;Conseil et surveillance pour alcoolisme;10118;20311;30429;431381;601027;71,7739802038843
+Facteurs influençant l'état de santé;Z853;Antécédents personnels de tumeur maligne du sein;10067;79195;89262;441448;601027;73,4489465531499
+Facteurs influençant l'état de santé;Z944;Greffe de foie;9493;18879;28372;450941;601027;75,0284097053876
+Facteurs influençant l'état de santé;Z8671;Antécédents personnels de cardiopathies ischémiques et autres maladies de l'appareil circulatoire;9347;95049;104396;460288;601027;76,5835811036775
+Facteurs influençant l'état de santé;Z955;Présence d'implant et de greffe vasculaires coronaires;6961;404807;411768;467249;601027;77,7417653449845
+Facteurs influençant l'état de santé;Z903;Absence acquise de partie d'estomac;6007;34053;40060;473256;601027;78,7412212762488
+Facteurs influençant l'état de santé;Z8670;Antécédents personnels de maladies cérébrovasculaires;5485;134404;139889;478741;601027;79,6538258680558
+Motifs de recours;Z511;Séance de chimiothérapie pour tumeur;3727845;102870;3830715;3727845;14373540;25,9354689241481
+Motifs de recours;Z491;Dialyse extra-corporelle;3351404;68526;3419930;7079249;14373540;49,2519518504140
+Motifs de recours;Z5101;Séance d'irradiation;1885390;45812;1931202;8964639;14373540;62,3690406121248
+Motifs de recours;Z512;Autres formes de chimiothérapie;1115761;134304;1250065;10080400;14373540;70,1316446748678
+Motifs de recours;Z380;Enfant unique, né à l'hôpital;623853;33062;656915;10704253;14373540;74,4719324536614
+Motifs de recours;Z098;Examen de contrôle après d'autres traitements pour d'autres affections;534635;13290;547925;11238888;14373540;78,1915102333872
+Motifs de recours;Z5130;Séance de transfusion de produit sanguin labile;256024;93837;349861;11494912;14373540;79,9727276648620
