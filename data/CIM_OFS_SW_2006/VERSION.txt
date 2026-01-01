@@ -1,0 +1,15 @@
+name¦version¦build¦valid¦date¦expl
+FR_OMS¦V0¦¦0¦31.12.2001 00:00:00¦OMS official Wordperfect French source version, 1993
+FR_CHRONOS¦V0¦¦0¦31.12.2001 00:00:00¦CHRONOS source version version 3, 2000
+EN_OMS¦V0¦¦0¦31.12.2001 00:00:00¦OMS official Wordperfect English source version, 1992
+GE_DIMDI¦V0¦¦0¦31.12.2001 00:00:00¦DIMDI German source version 1.1, 1996
+ICD10 OFS¦V1¦000¦0¦14.1.2002 00:00:00¦ICD10 database, prerelease
+ICD10 OFS¦V1¦001¦0¦5.3.2002 00:00:00¦ICD10 database, official release
+ICD10 OFS¦V1¦002¦0¦29.4.2002 00:00:00¦ICD10 database, corr lot 1 + corr lot 2
+ICD10 OFS¦V1¦003¦0¦19.8.2002 00:00:00¦ICD10 database, ext chap 5, ext lib DIMDI, add CHRONOS, add EN, add IT (syst only)
+ICD10 OFS¦V2¦000¦0¦14.7.2003 00:00:00¦ICD10 database, 3 languages (FR, GE, EN) official initial delivery
+ICD10 OFS¦V1¦004¦0¦30.11.2002 00:00:00¦ICD10 database, finalisation des appariements EN-FR-GE
+ICD10 OFS¦V2¦001¦0¦11.6.2004 00:00:00¦ICD10 database, diverses corrections
+ICD10 OFS¦V2¦002¦0¦21.12.2005 00:00:00¦ICD10 database, version incluse dans la version suivante
+ICD10 OFS¦V2¦003¦0¦21.12.2005 00:00:00¦ICD10 database, diverses corrections au chapitre 19
+ICD10 OFS¦V2¦004¦1¦26.7.2006 00:00:00¦ICD10 database, introduction de J09 grippe aviaire et mises à jour relatives

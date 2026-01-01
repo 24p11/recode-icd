@@ -1,0 +1,1023 @@
+ref¦FR¦EN¦GE
+v1c7n1¦<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c2f5fe","ICDPage","0") -->
+  <TITLE>Chapitre 7: Classification des atteintes de la vision</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="..\BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="..\ICDcab.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Classification des atteintes de la vision</H1>
+  <P>
+   Le tableau ci-dessous pr&eacute;sente une classification des 
+   atteintes de la vision suivant leur gravit&eacute;, recommand&eacute;e
+    par un groupe d'&eacute;tude de l'OMS sur la pr&eacute;vention de la 
+   c&eacute;cit&eacute;, r&eacute;uni &agrave; Gen&egrave;ve du 6 au 10 
+   novembre 1972.</P>
+  <P>
+   Le terme &quot;baisse de vision&quot; dans la rubrique H54 appartient 
+   aux cat&eacute;gories 1 et 2 du tableau, le terme 
+   &quot;c&eacute;cit&eacute;&quot; aux cat&eacute;gories 3, 4 et 5 et 
+   le terme &quot;perte de vision non pr&eacute;cis&eacute;e&quot;, 
+   &agrave; la cat&eacute;gorie 9.</P>
+  <P>
+   Si le champ visuel est pris en consid&eacute;ration, on classera dans 
+   la cat&eacute;gorie 3 les sujets dont le champ visuel est 
+   inf&eacute;rieur &agrave; 10 mais sup&eacute;rieur &agrave; 5 autour 
+   du point central de fixation, et dans la cat&eacute;gorie 4 les 
+   sujets dont le champ visuel n'est pas sup&eacute;rieur &agrave; 5 
+   autour du point central de fixation, m&ecirc;me si l'acuit&eacute; 
+   centrale est intacte.</P>
+  <CENTER>
+   <P STYLE="text-align : center;" ALIGN=CENTER>
+    <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="0" BORDER="3">
+     <TR>
+      <TD WIDTH="21%" BGCOLOR="NAVY" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableTitle">
+        <SPAN STYLE="font-weight : bold;">Cat&eacute;gorie de 
+        d&eacute;ficience possible d'acuit&eacute; visuelle</SPAN></TD>
+      <TD WIDTH="39%" BGCOLOR="NAVY" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableTitle">
+        <SPAN STYLE="font-weight : bold;">Acuit&eacute; visuelle avec la 
+        meilleure correction</SPAN></P>
+       <P STYLE="text-align : center;" CLASS="TableTitle">
+        <SPAN STYLE="font-weight : bold;">Maximum (acuit&eacute; 
+        inf&eacute;rieur &agrave;)</SPAN></TD>
+      <TD WIDTH="40%" BGCOLOR="NAVY" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableTitle">
+        <SPAN STYLE="font-weight : bold;">Acuit&eacute; visuelle avec la 
+        meilleure correction</SPAN></P>
+       <P STYLE="text-align : center;" CLASS="TableTitle">
+        <SPAN STYLE="font-weight : bold;">Maximum (acuit&eacute; &eacute;gale 
+        ou sup&eacute;rieur &agrave;)</SPAN></TD>
+     </TR>
+     <TR>
+      <TD WIDTH="21%" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableCell">
+        1</TD>
+      <TD WIDTH="39%" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        6/18</P>
+       <P CLASS="TableCell">
+        3/10 (0,3)</P>
+       <P CLASS="TableCell">
+        20/70</TD>
+      <TD WIDTH="40%" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        6/60</P>
+       <P CLASS="TableCell">
+        1/10 (0,1)</P>
+       <P CLASS="TableCell">
+        20/200</TD>
+     </TR>
+     <TR>
+      <TD WIDTH="21%" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableCell">
+        2</TD>
+      <TD WIDTH="39%" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        6/60</P>
+       <P CLASS="TableCell">
+        1/10 (0,1)</P>
+       <P CLASS="TableCell">
+        20/200</TD>
+      <TD WIDTH="40%" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        3/60</P>
+       <P CLASS="TableCell">
+        1/20 (0,05)</P>
+       <P Cv1c16ast¦<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c2f5fe","ICDPage","0") -->
+  <TITLE>Chapitre 16: Liste des cat&eacute;gories &agrave; code
+   ast&eacute;risque</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="..\BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="..\ICDcab.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Liste des cat&eacute;gories &agrave; code ast&eacute;risque</H1>
+  <P>
+   Les cat&eacute;gories de ce chapitre comprenant des ast&eacute;risques
+    sont les suivantes:</P>
+  <P>
+   <TABLE WIDTH="596" CELLPADDING="5" CELLSPACING="0" BORDER="3">
+    <TR>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41" X:STR="'Code">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">Code</SPAN></TD>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">Appels</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl42" STYLE="width:288pt">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">Libell&eacute; de la cat&eacute;gorie</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl28" X:STR="'P75">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="P75.htm"><SPAN STYLE="font-weight : bold;">P75</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl28" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl30" STYLE="width:288pt" X:STR="'Il&eacute;us m&eacute;conial">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">il&eacute;us m&eacute;conial</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>¦<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c2f5fe","ICDPage","0") -->
+  <TITLE>Chapter 16: List of asterisk categories</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="..\BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="..\ICDcab.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   List of asterisk categories</H1>
+  <P>
+   Asterisk categories for this chapter are provided as follow:</P>
+  <P>
+   <TABLE WIDTH="596" CELLPADDING="5" CELLSPACING="0" BORDER="3">
+    <TR>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41" X:STR="'Code">
+      <P STYLE="text-align : center;" CLASS="TableTitle" ALIGN=CENTER>
+       Code</TD>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41">
+      <P STYLE="text-align : center;" CLASS="TableTitle" ALIGN=CENTER>
+       Calls</TD>
+     <TD WIDTH="400" BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl42" STYLE="width:288pt">
+      <P STYLE="text-align : center;" CLASS="TableTitle" ALIGN=CENTER>
+       Libell&eacute; of the category</TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl28" X:STR="'P75">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="P75.htm"><SPAN STYLE="font-weight : bold;">P75</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl28" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl30" STYLE="width:288pt" X:STR="'Il&eacute;us m&eacute;conial">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">meconium ileus</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>¦<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c2f5fe","ICDPage","0") -->
+  <TITLE>Kapitel 16: Liste der Sternschl&uuml;sselnummern</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="..\BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="..\ICDcab.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Liste der Sternschl&uuml;sselnummern</H1>
+  <P>
+   Dieses Kapitel enth&auml;lt die folgenden Sternschl&uuml;sselnummern:</P>
+  <P>
+   <TABLE WIDTH="596" CELLPADDING="5" CELLSPACING="0" BORDER="3">
+    <TR>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41" X:STR="'Code">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">Kode</SPAN></TD>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">#</SPAN></TD>
+     <TD WIDTH="486" BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl42" STYLE="width:288pt">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">Text der Kategorie</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl28" X:STR="'P75">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="P75.htm"><SPAN STYLE="font-weight : bold;">P75</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl28" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl30" STYLE="width:288pt" X:STR="'Il&eacute;us m&eacute;conial">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Mekoniumileus</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>
+Cell">
+       <SPAN STYLE="font-weight : bold;">15</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections des organes g&eacute;nitaux de l'homme au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">affections des organes 
+       g&eacute;nitaux de l'homme au cours de maladies class&eacute;es ailleurs</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N74">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N74.htm"><SPAN STYLE="font-weight : bold;">N74</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">6</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections inflammatoires pelviennes de la femme, au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">affections inflammatoires 
+       pelviennes de la femme, au cours de maladies class&eacute;es ailleurs</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N77">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N77.htm"><SPAN STYLE="font-weight : bold;">N77</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">6</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Ulc&eacute;ration et inflammation vulvo-vaginales au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">ulc&eacute;ration et inflammation 
+       vulvo-vaginales au cours de maladies class&eacute;es ailleurs</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>¦<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c2f5fe","ICDPage","0") -->
+  <TITLE>Chapter 14: List of asterisk categories</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="..\BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="..\ICDcab.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   List of asterisk categories</H1>
+  <P>
+   Asterisk categories for this chapter are provided as follow:</P>
+  <P>
+   <TABLE WIDTH="596" CELLPADDING="5" CELLSPACING="0" BORDER="3">
+    <TR>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41" X:STR="'Code">
+      <P STYLE="text-align : center;" CLASS="TableTitle" ALIGN=CENTER>
+       Code</TD>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41">
+      <P STYLE="text-align : center;" CLASS="TableTitle" ALIGN=CENTER>
+       Calls</TD>
+     <TD WIDTH="400" BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl42" STYLE="width:288pt">
+      <P STYLE="text-align : center;" CLASS="TableTitle" ALIGN=CENTER>
+       Libell&eacute; of the category</TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl38" X:STR="'N08">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N08.htm"><SPAN STYLE="font-weight : bold;">N08</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl38" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">28</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl39" STYLE="width:288pt" X:STR="'Glom&eacute;rulopathies au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">glomerular disorders in diseases 
+       classified elsewhere</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N16">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N16.htm"><SPAN STYLE="font-weight : bold;">N16</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">27</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Maladies r&eacute;nales tubulo-interstitielles au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">renal tubulo-interstitial disorders 
+       in diseases classified elsewhere</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N22">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N22.htm"><SPAN STYLE="font-weight : bold;">N22</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Calcul des voies urinaires au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">calculus of urinary tract in 
+       diseases classified elsewhere</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N29">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N29.htm"><SPAN STYLE="font-weight : bold;">N29</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">3</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Autres affections du rein et de l'uret&egrave;re au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">other disorders of kidney and 
+       ureter in diseases classified elsewhere</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N33">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N33.htm"><SPAN STYLE="font-weight : bold;">N33</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">2</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">bladder disorders in diseases 
+       classified elsewhere</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N37">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N37.htm"><SPAN STYLE="font-weight : bold;">N37</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections de l'ur&egrave;tre au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">urethral disorders in diseases 
+       classified elsewhere</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N51">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N51.htm"><SPAN STYLE="font-weight : bold;">N51</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">15</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections des organes g&eacute;nitaux de l'homme au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">disorders of male genital organs in 
+       diseases classified elsewhere</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N74">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N74.htm"><SPAN STYLE="font-weight : bold;">N74</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">6</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections inflammatoires pelviennes de la femme, au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">female pelvic inflammatory 
+       disorders in diseases classified elsewhere</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N77">
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <A HREF="N77.htm"><SPAN STYLE="font-weight : bold;">N77</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+       <SPAN STYLE="font-weight : bold;">6</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Ulc&eacute;ration et inflammation vulvo-vaginales au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">vulvovaginal ulceration and 
+       inflammation in diseases classified elsewhere</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>¦<HTML>
+ <HEAD>
+  <!-- $MVD$:app("RoboHELP HTML Edition by Blue Sky Software, portions by MicroVision Dev. Inc.","769") -->
+  <!-- $MVD$:template("","0","0") -->
+  <!-- $MVD$:color("18","c2f5fe","ICDPage","0") -->
+  <TITLE>Kapitel 14: Liste der Sternschl&uuml;sselnummern</TITLE>
+  <META NAME="generator" CONTENT="RoboHELP by Blue Sky Software www.blue-sky.com HTML Edition">
+  <SCRIPT LANGUAGE="javascript" TITLE="BSSC Special Effects" SRC="..\BSSCDHTM.js">
+ </SCRIPT><LINK
+  REL="StyleSheet" HREF="..\ICDcab.css"></HEAD>
+  <BODY ONLOAD="BSSCOnLoad();" ONCLICK="BSSCOnClick();" ONUNLOAD="BSSCOnUnload();">
+  <H1>
+   Liste der Sternschl&uuml;sselnummern</H1>
+  <P>
+   Dieses Kapitel enth&auml;lt die folgenden Sternschl&uuml;sselnummern:</P>
+  <P>
+   <TABLE WIDTH="596" CELLPADDING="5" CELLSPACING="0" BORDER="3">
+    <TR>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41" X:STR="'Code">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">Kode</SPAN></TD>
+     <TD BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl41">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">#</SPAN></TD>
+     <TD WIDTH="486" BGCOLOR="NAVY" VALIGN=CENTER CLASS="xl42" STYLE="width:288pt">
+      <P STYLE="text-align : center;" CLASS="TableTitle">
+       <SPAN STYLE="font-weight : bold;">Text der Kategorie</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl38" X:STR="'N08">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N08.htm"><SPAN STYLE="font-weight : bold;">N08</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl38" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">28</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl39" STYLE="width:288pt" X:STR="'Glom&eacute;rulopathies au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Glomerul&auml;re Krankheiten bei 
+       anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N16">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N16.htm"><SPAN STYLE="font-weight : bold;">N16</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">27</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Maladies r&eacute;nales tubulo-interstitielles au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Tubulointerstitielle 
+       Nierenkrankheiten bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N22">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N22.htm"><SPAN STYLE="font-weight : bold;">N22</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Calcul des voies urinaires au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Harnstein bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N29">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N29.htm"><SPAN STYLE="font-weight : bold;">N29</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">3</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Autres affections du rein et de l'uret&egrave;re au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Sonstige Krankheiten der Niere und 
+       des Ureters bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N33">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N33.htm"><SPAN STYLE="font-weight : bold;">N33</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">2</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Krankheiten der Harnblase bei 
+       anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N37">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N37.htm"><SPAN STYLE="font-weight : bold;">N37</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections de l'ur&egrave;tre au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Krankheiten der Harnr&ouml;hre bei 
+       anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N51">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N51.htm"><SPAN STYLE="font-weight : bold;">N51</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">15</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections des organes g&eacute;nitaux de l'homme au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Krankheiten der m&auml;nnlichen 
+       Genitalorgane bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N74">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N74.htm"><SPAN STYLE="font-weight : bold;">N74</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">6</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections inflammatoires pelviennes de la femme, au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Entz&uuml;ndung im weiblichen 
+       Becken bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'N77">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="N77.htm"><SPAN STYLE="font-weight : bold;">N77</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">6</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Ulc&eacute;ration et inflammation vulvo-vaginales au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Vulvovaginale Ulzeration und 
+       Entz&uuml;ndung bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>
+lign : center;" CLASS="TableCell">
+       <A HREF="M09.htm"><SPAN STYLE="font-weight : bold;">M09</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">3</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Polyarthrite juv&eacute;nile au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Juvenile Arthritis bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'M14">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="M14.htm"><SPAN STYLE="font-weight : bold;">M14</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">27</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Arthropathies au cours d'autres maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Arthropathien bei sonstigen 
+       anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'M36">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="M36.htm"><SPAN STYLE="font-weight : bold;">M36</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">26</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Atteintes syst&eacute;miques du tissu conjonctif au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Systemkrankheiten des Bindegewebes 
+       bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'M49">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="M49.htm"><SPAN STYLE="font-weight : bold;">M49</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">9</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Spondylopathies au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Spondylopathien bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'M63">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="M63.htm"><SPAN STYLE="font-weight : bold;">M63</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">9</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Atteintes musculaires au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Muskelkrankheiten bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'M68">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="M68.htm"><SPAN STYLE="font-weight : bold;">M68</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">3</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Atteintes de la synoviale et du tendon au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Krankheiten der Synovialis und der 
+       Sehnen bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'M73">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="M73.htm"><SPAN STYLE="font-weight : bold;">M73</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">2</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections des tissus mous au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Krankheiten des Weichteilgewebes 
+       bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'M82">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="M82.htm"><SPAN STYLE="font-weight : bold;">M82</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">18</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Ost&eacute;oporose au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Osteoporose bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl35" X:STR="'M90">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="M90.htm"><SPAN STYLE="font-weight : bold;">M90</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl35" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">16</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl36" STYLE="width:288pt" X:STR="'Ost&eacute;opathie au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Osteopathien bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>
+font-weight : bold;">H58</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl35" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">5</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl36" STYLE="width:288pt" X:STR="'Autres affections de l'oeil et de ses annexes au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Sonstige Affektionen des Auges und 
+       der Augenanhangsgebilde bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>
+>
+       <A HREF="G07.htm"><SPAN STYLE="font-weight : bold;">G07</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">6</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Abc&egrave;s et granulome intracr&acirc;niens et intrarachidiens au cours d'affections class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Intrakranielle und intraspinale 
+       Abszesse und Granulome bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G13">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G13.htm"><SPAN STYLE="font-weight : bold;">G13</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">5</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections d&eacute;g&eacute;n&eacute;ratives syst&eacute;miques affectant principalement le syst&egrave;me nerveux central au cours d'affections class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Systematrophien, vorwiegend das 
+       Zentralnervensystem betreffend, bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G22">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G22.htm"><SPAN STYLE="font-weight : bold;">G22</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Syndrome parkinsonien au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Parkinson-Syndrom bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G32">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G26.htm"><SPAN STYLE="font-weight : bold;">G26</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">0</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Autres affections d&eacute;g&eacute;n&eacute;ratives du syst&egrave;me nerveux au cours d'affections class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Extrapyramidale Krankheiten und 
+       Bewegungsst&ouml;rungen bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G32">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G32.htm"><SPAN STYLE="font-weight : bold;">G32</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">1</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Autres affections d&eacute;g&eacute;n&eacute;ratives du syst&egrave;me nerveux au cours d'affections class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Sonstige degenerative Krankheiten 
+       des Nervensystems bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G46">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G46.htm"><SPAN STYLE="font-weight : bold;">G46</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">59</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Syndromes vasculaires c&eacute;r&eacute;braux au cours de maladies c&eacute;r&eacute;brovasculaires">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Zerebrale Gef&auml;&szlig;syndrome 
+       bei zerebrovaskul&auml;ren Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G53">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G53.htm"><SPAN STYLE="font-weight : bold;">G53</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">4</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections des nerfs cr&acirc;niens au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Krankheiten der Hirnnerven bei 
+       anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G55">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G55.htm"><SPAN STYLE="font-weight : bold;">G55</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">9</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Compression des racines et des plexus nerveux au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Kompression von Nervenwurzeln und 
+       Nervenplexus bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G59">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G59.htm"><SPAN STYLE="font-weight : bold;">G59</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">5</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Monon&eacute;vrite au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Mononeuropathie bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G63">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G63.htm"><SPAN STYLE="font-weight : bold;">G63</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">64</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Polyn&eacute;vrite au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Polyneuropathie bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G73">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G73.htm"><SPAN STYLE="font-weight : bold;">G73</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">21</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Affections musculaires et neuro-musculaires au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Krankheiten im Bereich der 
+       neuromuskul&auml;ren Synapse und des Muskels bei anderenorts 
+       klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G94">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G94.htm"><SPAN STYLE="font-weight : bold;">G94</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">2</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Autres affections du cerveau au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Sonstige Krankheiten des Gehirns 
+       bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+    <TR>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:STR="'G99">
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <A HREF="G99.htm"><SPAN STYLE="font-weight : bold;">G99</SPAN></A></TD>
+     <TD BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl27" X:NUM>
+      <P STYLE="text-align : center;" CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">11</SPAN></TD>
+     <TD WIDTH="400" BGCOLOR="#FEF5C2" VALIGN=CENTER CLASS="xl29" STYLE="width:288pt" X:STR="'Autres affections du syst&egrave;me nerveux au cours de maladies class&eacute;es ailleurs">
+      <P CLASS="TableCell">
+       <SPAN STYLE="font-weight : bold;">Sonstige Krankheiten des 
+       Nervensystems bei anderenorts klassifizierten Krankheiten</SPAN></TD>
+    </TR>
+   </TABLE>
+ </BODY>
+</HTML>
+t-weight : bold;">Exkl.:</SPAN></P>
+       <P CLASS="TableCell">
+        Swimmingpool oder Tennisplatz in Privathaus oder -garten (.0)</TD>
+     </TR>
+     <TR>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+        <SPAN STYLE="font-weight : bold;">.4</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        <SPAN STYLE="font-weight : bold;">Stra&szlig;en und Wege</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=CENTER>
+       <P CLASS="TableCell">
+        Autobahn</P>
+       <P CLASS="TableCell">
+        B&uuml;rgersteig</P>
+       <P CLASS="TableCell">
+        Fu&szlig;weg</P>
+       <P CLASS="TableCell">
+        Schnellstra&szlig;e</P>
+       <P CLASS="TableCell">
+        Stra&szlig;e</P>
+       <P CLASS="TableCell">
+        Trottoir</TD>
+     </TR>
+     <TR>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+        <SPAN STYLE="font-weight : bold;">.5</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        <SPAN STYLE="font-weight : bold;">Gewerbe- und Dienstleistungseinrichtungen</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=CENTER>
+       <P CLASS="TableCell">
+        Autoreparaturwerkstatt</P>
+       <P CLASS="TableCell">
+        Bahnhof oder Busbahnhof</P>
+       <P CLASS="TableCell">
+        Bankgeb&auml;ude</P>
+       <P CLASS="TableCell">
+        B&uuml;rogeb&auml;ude</P>
+       <P CLASS="TableCell">
+        Caf&eacute;</P>
+       <P CLASS="TableCell">
+        Einkaufszentrum</P>
+       <P CLASS="TableCell">
+        Flughafen</P>
+       <P CLASS="TableCell">
+        Hotel</P>
+       <P CLASS="TableCell">
+        Kasino</P>
+       <P CLASS="TableCell">
+        Kaufhaus</P>
+       <P CLASS="TableCell">
+        Ladengesch&auml;ft</P>
+       <P CLASS="TableCell">
+        Markt</P>
+       <P CLASS="TableCell">
+        Restaurant</P>
+       <P CLASS="TableCell">
+        Rundfunk- oder Fernsehanstalt</P>
+       <P CLASS="TableCell">
+        Supermarkt</P>
+       <P CLASS="TableCell">
+        Tankstelle</P>
+       <P CLASS="TableCell">
+        Tea-Room</P>
+       <P CLASS="TableCell">
+        Warenlager</P>
+       <P CLASS="TableCell">
+        Exkl.:</P>
+       <P CLASS="TableCell">
+        Garage in Privathaus (.0)</TD>
+     </TR>
+     <TR>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+        <SPAN STYLE="font-weight : bold;">.6</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        <SPAN STYLE="font-weight : bold;">Industrieanlagen und Baustellen</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=CENTER>
+       <P CLASS="TableCell">
+        Bergwerk</P>
+       <P CLASS="TableCell">
+        Elektrizit&auml;tswerk (Kohle) (Atomkraft) (&Ouml;l)</P>
+       <P CLASS="TableCell">
+        Fabrikgeb&auml;ude</P>
+       <P CLASS="TableCell">
+        Fabrikgel&auml;nde</P>
+       <P CLASS="TableCell">
+        Gaswerk</P>
+       <P CLASS="TableCell">
+        Geb&auml;ude [jeder Art] im Bau</P>
+       <P CLASS="TableCell">
+        Grube (Kohle) (Kies) (Sand)</P>
+       <P CLASS="TableCell">
+        Industriehof</P>
+       <P CLASS="TableCell">
+        &Ouml;lbohrinseln und andere Offshore-Einrichtungen</P>
+       <P CLASS="TableCell">
+        Trockendock</P>
+       <P CLASS="TableCell">
+        Tunnel im Bau</P>
+       <P CLASS="TableCell">
+        Werft</P>
+       <P CLASS="TableCell">
+        Werkstatt</TD>
+     </TR>
+     <TR>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+        <SPAN STYLE="font-weight : bold;">.7</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        <SPAN STYLE="font-weight : bold;">Landwirtschaftlicher Betrieb</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=CENTER>
+       <P CLASS="TableCell">
+        Landwirtschaftlicher Betrieb Anbaufl&auml;che</P>
+       <P CLASS="TableCell">
+        Landwirtschaftlicher Betrieb Geb&auml;ude</P>
+       <P CLASS="TableCell">
+        Viehzuchtbetrieb</P>
+       <P CLASS="TableCell">
+        <SPAN STYLE="font-weight : bold;">Exkl.:</SPAN></P>
+       <P CLASS="TableCell">
+        Wohnhaus und Hausgrundst&uuml;ck eines landwirtschaftlichen Betriebes (.0)</TD>
+     </TR>
+     <TR>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+        <SPAN STYLE="font-weight : bold;">.8</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        <SPAN STYLE="font-weight : bold;">Sonstige n&auml;her bezeichnete Orte</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=CENTER>
+       <P CLASS="TableCell">
+        Berg</P>
+       <P CLASS="TableCell">
+        Campingplatz</P>
+       <P CLASS="TableCell">
+        Dock o.n.A.</P>
+       <P CLASS="TableCell">
+        Flu&szlig;</P>
+       <P CLASS="TableCell">
+        Gleisanlagen</P>
+       <P CLASS="TableCell">
+        Hafen</P>
+       <P CLASS="TableCell">
+        H&uuml;gel</P>
+       <P CLASS="TableCell">
+        Kanal</P>
+       <P CLASS="TableCell">
+        Marschland</P>
+       <P CLASS="TableCell">
+        Meer</P>
+       <P CLASS="TableCell">
+        Meeresk&uuml;ste</P>
+       <P CLASS="TableCell">
+        Moor</P>
+       <P CLASS="TableCell">
+        &Ouml;ffentlicher Platz o.n.A.</P>
+       <P CLASS="TableCell">
+        Park (Vergn&uuml;gungs-) (&ouml;ffentlich)</P>
+       <P CLASS="TableCell">
+        Parkplatz</P>
+       <P CLASS="TableCell">
+        See</P>
+       <P CLASS="TableCell">
+        Steppe</P>
+       <P CLASS="TableCell">
+        Strand</P>
+       <P CLASS="TableCell">
+        Strom</P>
+       <P CLASS="TableCell">
+        Sumpf</P>
+       <P CLASS="TableCell">
+        Teich oder T&uuml;mpel</P>
+       <P CLASS="TableCell">
+        Truppen&uuml;bungsplatz</P>
+       <P CLASS="TableCell">
+        Verlassenes Haus</P>
+       <P CLASS="TableCell">
+        Wald</P>
+       <P CLASS="TableCell">
+        Wasserreservoir</P>
+       <P CLASS="TableCell">
+        Wohnwagenstandplatz o.n.A.</P>
+       <P CLASS="TableCell">
+        W&uuml;ste</P>
+       <P CLASS="TableCell">
+        Zoo</TD>
+     </TR>
+     <TR>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P STYLE="text-align : center;" CLASS="TableCell" ALIGN=CENTER>
+        <SPAN STYLE="font-weight : bold;">.9</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        <SPAN STYLE="font-weight : bold;">Nicht n&auml;her bezeichneter Ort 
+        des Ereignisses</SPAN></TD>
+      <TD HEIGHT="1" BGCOLOR="#FEF5C2" VALIGN=CENTER>
+       <P CLASS="TableCell">
+        <SPAN STYLE="font-weight : bold;">&nbsp;</SPAN></TD>
+     </TR>
+    </TABLE>
+ </DIV></BODY>
+</HTML>
+erletzungen</SPAN></TD>
+      <TD WIDTH="71%" BGCOLOR="#FEF5C2" VALIGN=TOP>
+       <P CLASS="TableCell">
+        &nbsp;</TD>
+     </TR>
+    </TABLE>
+ </DIV></BODY>
+</HTML>

@@ -1,0 +1,104 @@
+field¦table¦col¦def¦type¦range¦comment
+SID¦MASTER¦1¦Systematic unique identifier of code (definition)¦Integer unsigned¦¦
+code¦MASTER¦2¦ICD10 official code¦String¦len=10¦
+sort¦MASTER¦3¦Sort value of official code respecting the natural order¦String¦len=10¦
+level¦MASTER¦5¦Level in the hierarchy (top is 1)¦Integer unsigned¦min=1;max=6¦
+type¦MASTER¦6¦Rubrique type¦String¦[C,G,U,K,S,D]¦
+id1¦MASTER¦7¦Systematic unique identifier at level 1 (pointer)¦Integer unsigned¦¦
+id2¦MASTER¦8¦Systematic unique identifier at level 2 (pointer)¦Integer unsigned¦¦
+id3¦MASTER¦9¦Systematic unique identifier at level 3 (pointer)¦Integer unsigned¦¦
+id4¦MASTER¦10¦Systematic unique identifier at level 4 (pointer)¦Integer unsigned¦¦
+id5¦MASTER¦11¦Systematic unique identifier at level 5 (pointer)¦Integer unsigned¦¦
+id6¦MASTER¦12¦Systematic unique identifier at level 6 (pointer)¦Integer unsigned¦¦
+valid¦MASTER¦14¦Validity flag of the term¦Boolean¦¦
+date¦MASTER¦15¦Date and time of creation or last update¦Date/Time¦¦
+author¦MASTER¦16¦Author of creation or last update¦String¦lim=10¦
+comment¦MASTER¦17¦Comment on this term (for maintenance only)¦String¦len=255¦
+abbrev¦MASTER¦4¦Abbreviated code (without period)¦String¦len=10¦
+col¦FIELDDEF¦3¦Column position in table¦Integer unsigned¦min=1¦
+MID¦MEMO¦1¦Memo unique identifier (definition)¦Integer unsigned¦¦
+SID¦MEMO¦2¦Systematic unique identifier of the term calling this libelle (pointer)¦Integer unsigned¦¦
+source¦MEMO¦3¦Source of text¦String¦[N,G]¦
+memo¦MEMO¦5¦Active content of the memo to be used by default¦Memo¦len=4000¦
+FR_OMS¦MEMO¦6¦French memo field¦Memo¦len=4000¦
+EN_OMS¦MEMO¦7¦English memo field¦Memo¦len=4000¦
+GE_DIMDI¦MEMO¦8¦German memo field¦Memo¦len=4000¦
+valid¦MEMO¦4¦Validation flag of term¦Boolean¦len=4000¦
+date¦MEMO¦9¦Date of creation or last update of this record¦Date/Time¦¦
+author¦MEMO¦10¦Author of creation or last update of this record¦String¦len=10¦
+comment¦MEMO¦11¦Comment of creation or last update of this record¦String¦len=255¦
+SID¦NOTE¦1¦Systematic unique identifier of term with note (pointer)¦Integer unsigned¦¦
+MID¦NOTE¦2¦Memo unique identifier of note text (pointer)¦Integer unsigned¦¦
+SID¦CHAPTER¦2¦Systematic unique identifier of the chapter term (pointer)¦Integer unsigned¦¦
+chap¦CHAPTER¦1¦Chapter number¦Integer unsigned¦min=1; max=21¦
+rom¦CHAPTER¦3¦Chapter number in roman notation¦String¦len=5¦
+SID¦COMMON¦1¦Systematic unique identifier of term with common attribute (pointer)¦Integer unsigned¦¦
+male¦COMMON¦2¦Male sex only flag¦Boolean¦¦
+female¦COMMON¦3¦Female sex only flag¦Boolean¦¦
+sequella¦COMMON¦4¦Sequella from another condition flag¦Boolean¦¦
+post¦COMMON¦5¦Post procedure state flag¦Boolean¦¦
+second¦COMMON¦6¦Secondary diagnosis only flag¦Boolean¦¦
+nocode¦COMMON¦7¦Non codable term flag¦Boolean¦¦
+SID¦DAGSTAR¦1¦Systematic unique identifier of the dag or star start term (pointer)¦Integer unsigned¦¦
+id7¦MASTER¦13¦Systematic unique identifier at level 7 (pointer)¦Integer unsigned¦¦
+LID¦DAGSTAR¦2¦Libelle unique identifier of the dag or star start term (pointer)¦Integer unsigned¦¦
+assoc¦DAGSTAR¦3¦Systematic unique identifier of the dag or star destination term (pointer)¦Integer unsigned¦¦
+daget¦DAGSTAR¦4¦Type of dag or star link¦String¦[F, G, H, S, T, U]¦
+plus¦DAGSTAR¦5¦Extension to the subcategory flag for the dag or star link¦Boolean¦¦
+SID¦DESCR¦1¦Systematic unique identifier of recipient term of the descriptor (pointer)¦Integer unsigned¦¦
+LID¦DESCR¦2¦Libelle unique identifier of the descriptor (pointer)¦Integer unsigned¦¦
+SID¦EXCLUDE¦1¦Systematic unique identifier of the term having the exclusion (pointer)¦Integer unsigned¦¦
+excl¦EXCLUDE¦2¦Systematic unique identifier of the term being excluded (pointer)¦Integer unsigned¦¦
+plus¦EXCLUDE¦3¦Extension to the subcategory flag for the excluded term¦Boolean¦¦
+LID¦EXCLUDE¦4¦Libelle unique identifier of the exclusion (pointer)¦Integer unsigned¦¦
+daget¦EXCLUDE¦5¦Type of dag or star link if any associated to the exclusion¦String¦[F, G, H, S, T, U]¦
+field¦FIELDDEF¦1¦Field name in database table¦String¦len=20¦
+table¦FIELDDEF¦2¦Table name in database¦String¦len=20¦
+def¦FIELDDEF¦4¦Description of field¦String¦len=255¦
+type¦FIELDDEF¦5¦Type of field¦String¦len=20¦
+range¦FIELDDEF¦6¦Range of field¦String¦len=255¦
+comment¦FIELDDEF¦7¦Comment on usage of field¦String¦len=255¦
+SID¦GLOSSAIRE¦1¦Systematic unique identifier of term with glossary (pointer)¦Integer unsigned¦¦
+MID¦GLOSSAIRE¦2¦Memo unique identifier of glossary text (pointer)¦Integer unsigned¦¦
+SID¦INCLUDE¦1¦Systematic unique identifier of the term having the inclusion (pointer)¦Integer unsigned¦¦
+LID¦INCLUDE¦2¦Libelle unique identifier of the inclusion (pointer)¦Integer unsigned¦¦
+SID¦INDIR¦1¦Systematic unique identifier of the term having the indirect exclusion (pointer)¦Integer unsigned¦¦
+LID¦INDIR¦2¦Libelle unique identifier of the indirect exclusion (pointer)¦Integer unsigned¦¦
+SID¦LIBELLE¦2¦Term (or any one of the terms) calling this libelle (pointer)¦Integer unsigned¦¦
+LID¦LIBELLE¦1¦Libelle unique identifier (definition)¦Integer unsigned¦¦
+source¦LIBELLE¦3¦Source of term¦String¦[S, D, I, E, R, N]¦
+valid¦LIBELLE¦4¦Validation flag of term¦Boolean¦¦
+libelle¦LIBELLE¦5¦Active libelle to be used by default¦String¦len=255¦
+FR_OMS¦LIBELLE¦6¦French libelle field (official WHO)¦String¦len=255¦
+EN_OMS¦LIBELLE¦7¦English libelle field (official WHO)¦String¦len=255¦
+GE_DIMDI¦LIBELLE¦8¦German libelle field (official DIMDI)¦String¦len=255¦
+GE_AUTO¦LIBELLE¦9¦German autoexplicative version¦String¦len=255¦
+date¦LIBELLE¦11¦Date of creation or last update of this record¦Date/Time¦¦
+author¦LIBELLE¦12¦Author of creation or last update of this record¦String¦len=10¦
+comment¦LIBELLE¦13¦Comment of creation or last update of this record¦String¦len=255¦
+SID¦REFER¦1¦Systematic unique identifier of reference (pointer)¦Integer unsigned¦¦
+LID¦REFER¦2¦Libelle unique identifier of the reference (pointer)¦Integer unsigned¦¦
+ref¦REFER¦3¦Text reference usually as a filename or HTML page name¦String¦len=20¦
+SID¦SYSTEM¦1¦Systematic unique identifier of the systematic term (pointer)¦Integer unsigned¦¦
+LID¦SYSTEM¦2¦Libelle unique identifier of the systematic term (pointer)¦Integer unsigned¦¦
+no¦TABLE¦1¦Table ordinal (internal usage only)¦Integer unsigned¦min=1;max=19¦
+name¦TABLE¦2¦Table name¦String¦len=20¦
+total¦TABLE¦3¦Current number of records in the table¦Integer unsigned¦¦
+lang¦TABLE¦4¦Type of text marker¦String¦[no,yes,tex]¦
+title¦TABLE¦5¦Descriptive title of the table¦String¦len=255¦
+version¦VERSION¦2¦Version number¦String¦len=20¦
+expl¦VERSION¦6¦Description of this version¦String¦len=255¦
+valid¦VERSION¦4¦Validity flag of this entry (only one per version)¦Boolean¦¦
+date¦VERSION¦5¦Creation or last modification date of this entry¦Date/Time¦¦
+source¦DESCRLIB¦1¦Source of libelle¦String¦[S, D, I, E, R, N]¦
+descr_FR¦DESCRLIB¦2¦Short description of source in French¦String¦len=50¦
+sort¦DESCRLIB¦6¦Sort ordering string of source¦String¦len=1¦
+ref¦HTML¦1¦Text reference usually as a filename or HTML page name¦String¦len=20¦
+FR¦HTML¦2¦HTML French source representation of the page¦Memo¦¦
+EN¦HTML¦3¦HTML English source representation of the page¦Memo¦¦
+GE¦HTML¦4¦HTML German source representation of the page¦Memo¦¦
+name¦VERSION¦1¦Version title¦String¦len=50¦
+descr_EN¦DESCRLIB¦3¦Short description of source in English¦String¦len=50¦
+descr_GE¦DESCRLIB¦4¦Short description of source in German¦String¦len=50¦
+build¦VERSION¦3¦Build number¦String¦len=3¦
+FR_CHRONOS¦LIBELLE¦10¦Adjustment of includes¦String¦len=1, N, Y, Q¦

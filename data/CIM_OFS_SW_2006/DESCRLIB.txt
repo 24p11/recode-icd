@@ -1,0 +1,7 @@
+source¦descr_FR¦descr_EN¦descr_GE¦sort
+S¦systématique¦systematic¦systematisch¦1
+I¦inclusion¦include (indirect)¦inkl. (indirect)¦2
+D¦descripteur¦include¦inkl.¦3
+E¦exclusion¦exclude¦exkl¦4
+N¦exclusion indirecte¦exclude (indirect)¦exkl (indirect)¦5
+R¦référence¦reference¦reference¦6

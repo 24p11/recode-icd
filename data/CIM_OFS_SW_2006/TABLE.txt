@@ -1,0 +1,20 @@
+no¦name¦total¦lang¦title
+1¦TABLE¦19¦serv¦Table description and capacity
+2¦MASTER¦19155¦struc¦Hierarchical structure of ICD10 and code declaration
+3¦CHAPTER¦21¦struc¦Description of the ICD10 chapters
+5¦COMMON¦1872¦struc¦Common attributes of certain codes
+6¦SYSTEM¦19098¦yes¦Links to systematic libelles
+7¦DESCR¦14614¦yes¦Links to descriptor libelles
+8¦INCLUDE¦1312¦yes¦Links to inclusion libelles
+9¦EXCLUDE¦6144¦yes¦Exclusion structure and links to exclusion libelles
+10¦INDIR¦46¦yes¦Links to indirect exclusion libelles
+11¦NOTE¦262¦yes¦Links to note memos
+12¦GLOSSAIRE¦347¦yes¦Links to glossary memos
+13¦DAGSTAR¦1352¦yes¦Dags and stars structure and links to libelles
+14¦REFER¦158¦yes¦Links to references for specific tables and texts
+15¦LIBELLE¦32629¦tex¦Table of libelles
+16¦MEMO¦614¦tex¦Table of memo texts
+17¦VERSION¦14¦serv¦Table of versions
+18¦FIELDDEF¦103¦serv¦Table of fields
+19¦DESCRLIB¦6¦serv¦Descriptive text of source
+20¦HTML¦29¦tex¦HTML tables
