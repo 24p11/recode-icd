@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="JDBOR">
+    <xsd:complexType>
+      <xsd:sequence>
+        <!-- Élément Availability -->
+        <xsd:element name="Availability">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="Licence">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="FullName">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="lang" type="xsd:string" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="ShortIdentifier" type="xsd:string" />
+                    <xsd:element name="LegalCode" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+
+        <!-- Élément DisorderList -->
+        <xsd:element name="DisorderList">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="Disorder" minOccurs="1" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="OrphaCode" type="xsd:integer" />
+                    <xsd:element name="ExpertLink">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="lang" type="xsd:string" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="Name">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="lang" type="xsd:string" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="SynonymList">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="Synonym" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:simpleContent>
+                                <xsd:extension base="xsd:string">
+                                  <xsd:attribute name="lang" type="xsd:string" use="required" />
+                                </xsd:extension>
+                              </xsd:simpleContent>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                        <xsd:attribute name="count" type="xsd:integer" use="required" />
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="ExternalReferenceList">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="ExternalReference" minOccurs="1" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="Source" type="xsd:string" />
+                                <xsd:element name="Reference" type="xsd:string" />
+                                <xsd:element name="DisorderMappingRelation">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="Name">
+                                        <xsd:complexType>
+                                          <xsd:simpleContent>
+                                            <xsd:extension base="xsd:string">
+                                              <xsd:attribute name="lang" type="xsd:string" use="required" />
+                                            </xsd:extension>
+                                          </xsd:simpleContent>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:integer" use="required" />
+                                  </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="DisorderMappingICDRelation">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="Name">
+                                        <xsd:complexType>
+                                          <xsd:simpleContent>
+                                            <xsd:extension base="xsd:string">
+                                              <xsd:attribute name="lang" type="xsd:string" use="required" />
+                                            </xsd:extension>
+                                          </xsd:simpleContent>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:integer" use="required" />
+                                  </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="DisorderMappingValidationStatus">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="Name">
+                                        <xsd:complexType>
+                                          <xsd:simpleContent>
+                                            <xsd:extension base="xsd:string">
+                                              <xsd:attribute name="lang" type="xsd:string" use="required" />
+                                            </xsd:extension>
+                                          </xsd:simpleContent>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:integer" use="required" />
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                              <xsd:attribute name="id" type="xsd:integer" use="required" />
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                        <xsd:attribute name="count" type="xsd:integer" use="required" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="id" type="xsd:integer" use="required" />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="count" type="xsd:integer" use="required" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <!-- Attributs de l'élément racine JDBOR -->
+      <xsd:attribute name="ExtractionDate" type="xsd:string" use="required" />
+      <xsd:attribute name="version" type="xsd:string" use="required" />
+      <xsd:attribute name="copyright" type="xsd:string" use="required" />
+      <xsd:attribute name="dbserver" type="xsd:string" use="required" />
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
