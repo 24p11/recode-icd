@@ -1,0 +1,5 @@
+# Ignore folder 'data' where are stored references data
+__pycache__/
+*.pyc
+config.py
+data/CepiDc/
