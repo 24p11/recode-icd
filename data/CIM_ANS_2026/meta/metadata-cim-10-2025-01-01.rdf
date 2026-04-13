@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://data.esante.gouv.fr/meta#"
+    xmlns:schema="http://schema.org/"
+    xmlns:voaf="http://purl.org/vocommons/voaf#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:metadata="http://topbraid.org/metadata#"
+    xmlns:edg="http://edg.topbraid.solutions/model/"
+    xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:j.1="http://topbraid.org/swa#"
+    xmlns:core="http://open-services.net/ns/core#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:duv="http://www.w3.org/ns/duv#"
+    xmlns:teamwork="http://topbraid.org/teamwork#"
+    xmlns:j.2="http://teamwork.topbraidlive.org/ontologyprojects#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:j.3="https://data.esante.gouv.fr/profile/ns#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://esante.gouv.fr/terminologie-profil-cim10" > 
+  <rdf:Description rdf:about="https://data.esante.gouv.fr/profile/agents/LE00080">
+    <rdfs:label xml:lang="fr">ATIH</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <foaf:name>Agence Technique de l'Information sur l'Hospitalisation</foaf:name>
+    <foaf:homepage rdf:resource="https://www.atih.sante.fr"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/dcat#accessURL">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.esante.gouv.fr/profile/distributions/LicenceCCBYNCND3.0IGO">
+    <rdfs:label xml:lang="fr">CC BY-NC-ND 3.0 IGO</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/dc/terms/LicenseDocument"/>
+    <foaf:homepage rdf:resource="https://creativecommons.org/licenses/by-nc-nd/3.0/igo/legalcode"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://schema.org/price">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/publisher">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.esante.gouv.fr/profile/audience/Etablissements-santé">
+    <rdfs:label xml:lang="fr">Etablissements de santé, éditeurs, chercheurs</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/dc/terms/AgentClass"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://schema.org/author">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/meta#technical">
+    <j.0:formats>rdf</j.0:formats>
+    <j.0:chosenClasses rdf:resource="http://urn/urn#x-evn-master:classification_internationale_des_maladies_cim_10_fr_2025"/>
+    <j.0:publishChoice1>hasConcepts</j.0:publishChoice1>
+    <j.0:publishChoiceFHIR>currentOntology</j.0:publishChoiceFHIR>
+    <j.0:chosenClassesFHIR rdf:resource="http://urn/urn#x-evn-master:classification_internationale_des_maladies_cim_10_fr_2025"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/audience">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/alternative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/language">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.esante.gouv.fr/profile/distributions/mediaTypeOwl">
+    <rdfs:label>OWL</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/dc/terms/MediaTypeOrExtent"/>
+    <rdf:value>application/rdf+xml</rdf:value>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://esante.gouv.fr/terminologie-cim-10">
+    <rdfs:label>CIM-10 FR PMSI</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://data.esante.gouv.fr/profile/ns#Terminology"/>
+    <voaf:classNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19076</voaf:classNumber>
+    <dct:description>La Classification Internationale des Maladies (CIM) permet d’établir les statistiques sanitaires (morbi-mortalité) partout dans le monde. Elle est gérée par l’Organisation Mondiale de la Santé qui publie une mise à jour annuelle. En France l’ATIH édite et publie une version complète du volume 1 de la CIM–10 à usage PMSI. La CIM–10 est aussi utilisée pour alimenter les dossier médicaux électronique des patients.Elle est destinée à être progressivement remplacée par la CIM 11</dct:description>
+    <dcat:distribution rdf:resource="https://data.esante.gouv.fr/profile/distributions/1"/>
+    <dcat:distribution rdf:resource="https://data.esante.gouv.fr/profile/distributions/2"/>
+    <dcat:theme>Motifs de contact et diagnostics</dcat:theme>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">20/12/2024</dct:issued>
+    <schema:author rdf:resource="https://data.esante.gouv.fr/profile/agents/LE00080"/>
+    <dct:publisher rdf:resource="https://data.esante.gouv.fr/profile/agents/LE00010"/>
+    <dct:title>Classification internationale des maladies et des problèmes de santé connexes - 10ème révision - Version française à usage PMSI (Programme Médicalisé des Systèmes d'Information)</dct:title>
+    <dct:identifier>2.16.840.1.113883.6.3</dct:identifier>
+    <duv:hasUsage>Production de soins &amp; coordination interprofessionnelle, Pilotage de politiques de santé, Exploitation de données</duv:hasUsage>
+    <owl:versionInfo>2025-01-01</owl:versionInfo>
+    <schema:producer rdf:resource="https://data.esante.gouv.fr/profile/agents/LE00080"/>
+    <dct:type>Terminologie</dct:type>
+    <dcat:landingPage rdf:resource="https://www.atih.sante.fr/"/>
+    <dct:language rdf:resource="http://publications.europa.eu/resource/authority/language/FRA"/>
+    <dct:audience rdf:resource="https://data.esante.gouv.fr/profile/audience/Etablissements-santé"/>
+    <foaf:isPrimaryTopicOf>Signes, symptômes, pathologies</foaf:isPrimaryTopicOf>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://open-services.net/ns/core#modifiedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/adms#status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <edg:subjectArea rdf:resource="urn:x-tb-governance:Gestion_du_catalogue_de_terminologies"/>
+    <edg:subjectArea rdf:resource="urn:x-tb-governance:Toutes_les_ontologies"/>
+    <metadata:status rdf:resource="http://topbraid.org/metadata#UnderDevelopmentStatus"/>
+    <rdfs:label>CIM-10-META</rdfs:label>
+    <j.1:defaultNamespace>http://esante.gouv.fr/terminologie-profil-cim10#</j.1:defaultNamespace>
+    <edg:subjectArea rdf:resource="urn:x-tb-governance:Les_Terminologies_avec_uniquement_des_métadonnées"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:imports rdf:resource="http://datashapes.org/graphql"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/dcat#mediaType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.esante.gouv.fr/profile/distributions/1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcat:mediaType rdf:resource="https://data.esante.gouv.fr/profile/distributions/mediaTypeOwl"/>
+    <dct:license rdf:resource="https://data.esante.gouv.fr/profile/distributions/LicenceCCBYNCND3.0IGO"/>
+    <dcat:accessURL rdf:resource="https://www.atih.sante.fr/cim-10-fr-usage-pmsi-2025"/>
+    <dcat:downloadURL rdf:resource="https://smt.esante.gouv.fr/wp-content/uploads/terminologies/terminologie-cim-10/CGTS_SEM_CIM10_Fiche-detaillee.pdf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/issued">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.esante.gouv.fr/profile/distributions/2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <dcat:mediaType rdf:resource="https://data.esante.gouv.fr/profile/distributions/mediaTypeXml"/>
+    <dct:license rdf:resource="https://data.esante.gouv.fr/profile/distributions/LicenceCCBYNCND3.0IGO"/>
+    <dcat:accessURL rdf:resource="https://www.atih.sante.fr/cim-10-fr-usage-pmsi-2025"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.esante.gouv.fr/profile/distributions/mediaTypeXml">
+    <rdfs:label>XML</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://purl.org/dc/terms/MediaTypeOrExtent"/>
+    <rdf:value>application/xml</rdf:value>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/vocommons/voaf#classNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/dcat#theme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/ns/dcat#distribution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://data.esante.gouv.fr/profile/agents/LE00010">
+    <rdfs:label xml:lang="fr">ANS</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <foaf:name>Agence du numérique en santé</foaf:name>
+    <foaf:homepage rdf:resource="https://esante.gouv.fr/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/license">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+</rdf:RDF>
