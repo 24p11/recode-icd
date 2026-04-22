@@ -78,3 +78,39 @@ def extract_generations_annotations(json_string_input):
       return (None, None, None)
   else:
     return (None, None, None)
+
+def change_codes_target_format(codes):
+
+  if codes is None:
+    return(codes)
+    
+  p =  r"\b[A-Z][0-9]{2,5}\+?\b"
+  i = 0
+  new_codes = {}
+
+  for c in codes:
+      
+    match = re.search(p, c)
+
+    # Extraire le code en tant que chaîne (ou None si aucun code n'est trouvé)
+    cd = match.group() if match else None
+
+    if cd is not None : 
+          
+      if i==0:
+        new_codes.update({
+                           cd :{ 
+                                'position': 'DP',
+                                'proofs' : codes[c]
+                                }
+                          })
+      else :
+        new_codes.update({
+                            cd :{ 
+                                 'position': 'DAS',
+                                  'proofs' : codes[c]
+                                      }
+                              })
+      i+=1
+
+  return(new_codes)
