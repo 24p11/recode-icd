@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:xkos="http://rdf-vocabulary.ddialliance.org/xkos#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:atih-cim10="http://data.esante.gouv.fr/atih-cim10#"
+    xml:base="http://data.esante.gouv.fr/atih/cim10">
+
+  <!-- Chapter II (C00-D48) — Tumeurs -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/02">
+    <rdfs:label xml:lang="fr">Tumeurs</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10"/>
+    <dc:type>chapter</dc:type>
+    <skos:notation>II</skos:notation>
+  </rdf:Description>
+
+  <!-- Block C00-C14 — sous chapter II -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/C00-C14">
+    <rdfs:label xml:lang="fr">Tumeurs malignes de la lèvre, de la bouche et du pharynx</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/02"/>
+    <dc:type>block</dc:type>
+    <skos:notation>C00-C14</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/C12">
+    <rdfs:label xml:lang="fr">Tumeur maligne du sinus piriforme</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/C00-C14"/>
+    <dc:type>category</dc:type>
+    <skos:notation>C12</skos:notation>
+    <xkos:exclusionNote>marge anale [D48.5]
+peau anale [D48.5]
+peau périanale [D48.5]
+</xkos:exclusionNote>
+    <atih-cim10:exclusion rdf:resource="http://data.esante.gouv.fr/atih/cim10/D48.5"/>
+  </rdf:Description>
+
+  <!-- Block D40-D48 — sous chapter II -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/D40-D48">
+    <rdfs:label xml:lang="fr">Tumeurs à évolution imprévisible ou inconnue</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/02"/>
+    <dc:type>block</dc:type>
+    <skos:notation>D40-D48</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/D48">
+    <rdfs:label xml:lang="fr">Tumeur à évolution imprévisible ou inconnue, autres sièges et sièges non précisés</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/D40-D48"/>
+    <dc:type>category</dc:type>
+    <skos:notation>D48</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/D48.5">
+    <rdfs:label xml:lang="fr">Tumeur à évolution imprévisible ou inconnue de la peau</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/D48"/>
+    <dc:type>category</dc:type>
+    <skos:notation>D48.5</skos:notation>
+  </rdf:Description>
+
+  <!-- Chapter V (F00-F99) — Troubles mentaux -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/05">
+    <rdfs:label xml:lang="fr">Troubles mentaux et du comportement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10"/>
+    <dc:type>chapter</dc:type>
+    <skos:notation>V</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/F00-F09">
+    <rdfs:label xml:lang="fr">Troubles mentaux organiques, y compris les troubles symptomatiques</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/05"/>
+    <dc:type>block</dc:type>
+    <skos:notation>F00-F09</skos:notation>
+    <skos:scopeNote xml:lang="fr">Ce bloc rassemble les troubles mentaux ayant une étiologie organique démontrable.</skos:scopeNote>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/F02">
+    <rdfs:label xml:lang="fr">Démence au cours d'autres maladies classées ailleurs</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/F00-F09"/>
+    <dc:type>category</dc:type>
+    <skos:notation>F02</skos:notation>
+    <xkos:inclusionNote>Démence due à des causes diverses classées dans d'autres chapitres
+</xkos:inclusionNote>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/F02.0">
+    <rdfs:label xml:lang="fr">Démence de la maladie de Pick</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/F02"/>
+    <dc:type>category</dc:type>
+    <skos:notation>F02.0</skos:notation>
+  </rdf:Description>
+
+  <!-- F02.00 — dague/astérisque encodé en triple DIRECT -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/F02.00">
+    <rdfs:label xml:lang="fr">Démence de la maladie de Pick [G31.0] - sans symptôme supplémentaire</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/F02.0"/>
+    <dc:type>category</dc:type>
+    <skos:notation>F02.00</skos:notation>
+    <skos:altLabel xml:lang="fr">Pick (maladie de) avec démence</skos:altLabel>
+    <skos:altLabel xml:lang="fr">Démence frontotemporale type Pick</skos:altLabel>
+    <atih-cim10:hasCausality rdf:resource="http://data.esante.gouv.fr/atih/cim10/G31.0"/>
+  </rdf:Description>
+
+  <!-- F60-F69 et F66.2 avec definition -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/F60-F69">
+    <rdfs:label xml:lang="fr">Troubles de la personnalité et du comportement chez l'adulte</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/05"/>
+    <dc:type>block</dc:type>
+    <skos:notation>F60-F69</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/F66">
+    <rdfs:label xml:lang="fr">Troubles psychologiques et du comportement associés au développement et à l'orientation sexuels</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/F60-F69"/>
+    <dc:type>category</dc:type>
+    <skos:notation>F66</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/F66.2">
+    <rdfs:label xml:lang="fr">Trouble de la relation sexuelle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/F66"/>
+    <dc:type>category</dc:type>
+    <skos:notation>F66.2</skos:notation>
+    <skos:definition xml:lang="fr">L'identité ou l'orientation sexuelle entraine des difficultés dans l'établissement et le maintien de relations sexuelles avec un partenaire.</skos:definition>
+  </rdf:Description>
+
+  <!-- Chapter VI (G00-G99) -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/06">
+    <rdfs:label xml:lang="fr">Maladies du système nerveux</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10"/>
+    <dc:type>chapter</dc:type>
+    <skos:notation>VI</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/G30-G32">
+    <rdfs:label xml:lang="fr">Autres affections dégénératives du système nerveux</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/06"/>
+    <dc:type>block</dc:type>
+    <skos:notation>G30-G32</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/G31">
+    <rdfs:label xml:lang="fr">Autres affections dégénératives du système nerveux, non classées ailleurs</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/G30-G32"/>
+    <dc:type>category</dc:type>
+    <skos:notation>G31</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/G31.0">
+    <rdfs:label xml:lang="fr">Atrophie cérébrale circonscrite - Maladie de Pick</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/G31"/>
+    <dc:type>category</dc:type>
+    <skos:notation>G31.0</skos:notation>
+  </rdf:Description>
+
+  <!-- Chapter IX (I00-I99) -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/09">
+    <rdfs:label xml:lang="fr">Maladies de l'appareil circulatoire</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10"/>
+    <dc:type>chapter</dc:type>
+    <skos:notation>IX</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/I40-I49">
+    <rdfs:label xml:lang="fr">Autres formes de cardiopathies</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/09"/>
+    <dc:type>block</dc:type>
+    <skos:notation>I40-I49</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/I41">
+    <rdfs:label xml:lang="fr">Myocardite au cours de maladies classées ailleurs</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/I40-I49"/>
+    <dc:type>category</dc:type>
+    <skos:notation>I41</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/I41.1">
+    <rdfs:label xml:lang="fr">Myocardite au cours de grippe</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/I41"/>
+    <dc:type>category</dc:type>
+    <skos:notation>I41.1</skos:notation>
+  </rdf:Description>
+
+  <!-- Chapter X (J00-J99) -->
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/10">
+    <rdfs:label xml:lang="fr">Maladies de l'appareil respiratoire</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10"/>
+    <dc:type>chapter</dc:type>
+    <skos:notation>X</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/J10-J18">
+    <rdfs:label xml:lang="fr">Grippe et pneumopathie</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/10"/>
+    <dc:type>block</dc:type>
+    <skos:notation>J10-J18</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/J11">
+    <rdfs:label xml:lang="fr">Grippe à virus non identifié</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/J10-J18"/>
+    <dc:type>category</dc:type>
+    <skos:notation>J11</skos:notation>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://data.esante.gouv.fr/atih/cim10/J11.8">
+    <rdfs:label xml:lang="fr">Grippe à virus non identifié, avec autres manifestations</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://data.esante.gouv.fr/atih/cim10/J11"/>
+    <dc:type>category</dc:type>
+    <skos:notation>J11.8</skos:notation>
+  </rdf:Description>
+
+  <!-- Axiom OWL pour I41.1 -> J11.8 (encodage REIFIED) -->
+  <rdf:Description rdf:nodeID="ax_i411_j118">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedSource rdf:resource="http://data.esante.gouv.fr/atih/cim10/I41.1"/>
+    <owl:annotatedProperty rdf:resource="http://data.esante.gouv.fr/atih-cim10#hasCausality"/>
+    <owl:annotatedTarget rdf:resource="http://data.esante.gouv.fr/atih/cim10/J11.8"/>
+  </rdf:Description>
+
+</rdf:RDF>

@@ -1,0 +1,2 @@
+name¦version¦build¦valid¦date¦expl
+ICD10 OFS test¦V0¦001¦1¦14.7.2003 00:00:00¦fixture de test recode-icd

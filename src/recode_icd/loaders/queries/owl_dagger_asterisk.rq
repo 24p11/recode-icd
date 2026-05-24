@@ -1,0 +1,27 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX atih: <http://data.esante.gouv.fr/atih-cim10#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?asterisk_code ?dagger_code ?evidence WHERE {
+    {
+        ?asterisk_uri atih:hasCausality ?dagger_uri .
+        BIND("direct_causality" AS ?evidence)
+    } UNION {
+        ?ax a owl:Axiom ;
+            owl:annotatedSource   ?asterisk_uri ;
+            owl:annotatedProperty atih:hasCausality ;
+            owl:annotatedTarget   ?dagger_uri .
+        BIND("axiom_causality" AS ?evidence)
+    } UNION {
+        ?dagger_uri atih:hasManifestation ?asterisk_uri .
+        BIND("direct_manifestation" AS ?evidence)
+    } UNION {
+        ?ax a owl:Axiom ;
+            owl:annotatedSource   ?dagger_uri ;
+            owl:annotatedProperty atih:hasManifestation ;
+            owl:annotatedTarget   ?asterisk_uri .
+        BIND("axiom_manifestation" AS ?evidence)
+    }
+    ?asterisk_uri skos:notation ?asterisk_code .
+    ?dagger_uri   skos:notation ?dagger_code .
+}

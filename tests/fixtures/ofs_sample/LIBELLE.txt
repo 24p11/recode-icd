@@ -1,0 +1,17 @@
+LID¦SID¦source¦valid¦libelle¦FR_OMS¦EN_OMS¦GE_DIMDI¦GE_AUTO¦FR_CHRONOS¦date¦author¦comment
+1¦1¦S¦1¦certaines maladies infectieuses et parasitaires¦certaines maladies infectieuses et parasitaires¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+2¦2¦S¦1¦maladies intestinales infectieuses¦maladies intestinales infectieuses¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+3¦3¦S¦1¦choléra¦choléra¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+4¦4¦S¦1¦choléra à Vibrio cholerae 01, biotype cholerae¦choléra à Vibrio cholerae 01, biotype cholerae¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+5¦5¦S¦1¦fièvres typhoïdes et paratyphoïdes¦fièvres typhoïdes et paratyphoïdes¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+6¦6¦S¦1¦autres salmonelloses¦autres salmonelloses¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+7¦7¦S¦1¦shigellose¦shigellose¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+8¦9¦S¦1¦maladies de l'appareil circulatoire¦maladies de l'appareil circulatoire¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+9¦10¦S¦1¦autres formes de cardiopathies¦autres formes de cardiopathies¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+10¦11¦S¦1¦myocardite au cours de maladies classées ailleurs¦myocardite au cours de maladies classées ailleurs¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+11¦12¦S¦1¦maladies de l'appareil respiratoire¦maladies de l'appareil respiratoire¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+12¦13¦S¦1¦grippe et pneumopathie¦grippe et pneumopathie¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+13¦14¦S¦1¦grippe à virus non identifié¦grippe à virus non identifié¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+14¦3¦I¦1¦diarrhée à V. cholerae¦diarrhée à V. cholerae¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+15¦5¦E¦1¦salmonelloses à autres germes¦salmonelloses à autres germes¦¦¦¦¦14.7.2003 00:00:00¦fix¦
+16¦7¦D¦1¦dysenterie bacillaire¦dysenterie bacillaire¦¦¦¦¦14.7.2003 00:00:00¦fix¦

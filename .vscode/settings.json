@@ -1,0 +1,24 @@
+{
+  // Force VSCode à utiliser le Python du venv uv du projet (et pas le
+  // Python 3.14 système). Sans ça, les imports `import polars as pl`
+  // dans les cellules `# %%` lèvent ModuleNotFoundError parce que
+  // ipykernel tourne hors-venv.
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+
+  // Sélection automatique du kernel Jupyter quand on exécute une
+  // cellule `# %%` : on prend celui du venv uv (ipykernel y est
+  // installé via dev deps).
+  "jupyter.kernels.filter": [
+    {
+      "path": "${workspaceFolder}/.venv/bin/python",
+      "type": "pythonEnvironment"
+    }
+  ],
+  "notebook.defaultKernel": "${workspaceFolder}/.venv/bin/python",
+
+  // Pylance / type checking : pointer vers les sources du projet.
+  "python.analysis.extraPaths": ["src"],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false
+}

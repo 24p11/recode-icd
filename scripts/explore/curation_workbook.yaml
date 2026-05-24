@@ -1,0 +1,8 @@
+# Workbook de curation dague/astérisque — généré le 2026-05-20
+# Sélection : prefix=A15-A19
+# Champs à remplir : redundancy_level (subordinate / independent /
+#                   undecided / ""), rationale (optionnel mais recommandé).
+# Les commentaires d'aide (dagger_label, etc.) ne sont PAS recopiés
+# dans le YAML cible.
+
+pairs:

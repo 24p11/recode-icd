@@ -1,7 +1,33 @@
-# Ignore folder 'data' where are stored references data
+# Python / packaging
 __pycache__/
 *.pyc
+*.egg-info/
+build/
+dist/
 config.py
+
+# uv / venv
+.venv/
+
+# Tool caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+
+# Legacy data layout (referentiels bruts volumineux)
 data/CepiDc/
 data/reports/
 test/
+
+# New layout : raw referentials sont volumineux et non-committables par défaut.
+# Les fichiers sources doivent être documentés dans docs/ avec un script de
+# téléchargement reproductible. Les Parquets dérivés (referentials/processed/)
+# sont committés.
+referentials/raw/*
+!referentials/raw/.gitkeep
+reports/

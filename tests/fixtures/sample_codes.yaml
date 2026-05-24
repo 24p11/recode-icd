@@ -1,0 +1,70 @@
+# Codes témoins CIM-10 pour les tests de régression et les notebooks d'exploration.
+#
+# Sélection conforme à CLAUDE.md (Conventions de code) :
+# - dague/astérisque, exclusions multiples, chap XX, chap XXI, C00-C75 avec .8.
+#
+# Pour chaque code :
+#   - rationale : pourquoi il sert de témoin
+#   - features  : phénomènes du pipeline qu'il illustre
+
+codes:
+  - code: A00.0
+    libelle: "Choléra à Vibrio cholerae 01, biovar cholerae"
+    rationale: "Catégorie historique, libellé divergent OFS↔OWL (réforme orthographique)"
+    features:
+      - leaf
+      - merge_label_conflict
+
+  - code: F02.00
+    libelle: "Démence de la maladie de Pick"
+    rationale: "Dague/astérisque OWL via triple direct hasCausality → G31.0"
+    features:
+      - dagger_asterisk_direct
+
+  - code: F66.2
+    libelle: "Trouble de la relation sexuelle"
+    rationale: "Catégorie avec skos:definition OWL (rare, ~387 codes)"
+    features:
+      - owl_definition
+
+  - code: I41.1
+    libelle: "Myocardite au cours de grippe"
+    rationale: "Dague/astérisque OWL via reification owl:Axiom → J11.8"
+    features:
+      - dagger_asterisk_axiom
+
+  - code: J45.8
+    libelle: "Autres asthmes"
+    rationale: "Sous-catégorie .8 avec frères .0/.1 → synthèse d'exclusion"
+    features:
+      - dot8_sibling_synthesis
+
+  - code: C50.8
+    libelle: "Lésion à localisations contiguës du sein"
+    rationale: "Sous-catégorie .8 dans C00-C75 — SKIP de la synthèse (lésion contiguë)"
+    features:
+      - dot8_sibling_skip_c00_c75
+
+  - code: K70.3
+    libelle: "Cirrhose alcoolique du foie"
+    rationale: "Code chap XI avec exclusions OFS multiples (codes liés alcool)"
+    features:
+      - multiple_exclusions
+
+  - code: V03.1
+    libelle: "Piéton blessé dans une collision avec une voiture, accident de la circulation"
+    rationale: "Chapitre XX (causes externes, V01-Y98) — structure 5-char standard"
+    features:
+      - chapter_xx
+
+  - code: Z00.0
+    libelle: "Examen médical général"
+    rationale: "Chapitre XXI (facteurs influant sur l'état de santé) — non-maladie"
+    features:
+      - chapter_xxi
+
+  - code: T81.0
+    libelle: "Hémorragie et hématome compliquant un acte à visée diagnostique"
+    rationale: "Chap XIX (lésions/empoisonnements) — exclusions héritées du bloc"
+    features:
+      - inherited_exclusions

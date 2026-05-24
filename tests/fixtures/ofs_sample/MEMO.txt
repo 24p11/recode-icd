@@ -1,0 +1,2 @@
+'MID'¦'SID'¦'source'¦'valid'¦'memo'¦'FR_OMS'¦'EN_OMS'¦'GE_DIMDI'¦'date'¦'author'¦'comment'
+1¦7¦'N'¦'Yes'¦'Inclut: dysenterie de Sonne et de Flexner.'¦''¦''¦''¦'14.7.2003 00:00:00'¦'fix'¦''
