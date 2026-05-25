@@ -549,7 +549,7 @@ E88,autres anomalies métaboliques,G63.3,polynévrite au cours d'autres maladies
 E89,"anomalies endocriniennes et métaboliques après un acte à visée diagnostique et thérapeutique, non classées ailleurs",G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,,RF,21/05/2026,false
 G10,chorée de Huntington,F02.2,démence de la maladie de Huntington,démence de la maladie de Huntington,G,independent,,RF,21/05/2026,false
 G20,maladie de Parkinson,F02.3,démence de la maladie de Parkinson,démence de la maladie de Parkinson,G,independent,,RF,21/05/2026,false
-G30,maladie d'Alzheimer,"0,00 F",démence de la maladie d'Alzheimer,démence de la maladie d'Alzheimer,G,independent,,RF,21/05/2026,false
+G30,maladie d'Alzheimer,F00,démence de la maladie d'Alzheimer,démence de la maladie d'Alzheimer,G,independent,,RF,21/05/2026,false
 G30.0,maladie d'Alzheimer à début précoce,F00.0,"démence de la maladie d'Alzheimer, à début précoce","démence de la maladie d'Alzheimer, à début précoce",G,independent,,RF,21/05/2026,false
 G30.1,maladie d'Alzheimer à début tardif,F00.1,"démence de la maladie d'Alzheimer, à début tardif","démence de la maladie d'Alzheimer, à début tardif",G,independent,,RF,21/05/2026,false
 G30.8,autres formes de la maladie d'Alzheimer,F00.2,"démence de la maladie d'Alzheimer, forme atypique ou mixte","démence de la maladie d'Alzheimer, forme atypique ou mixte",G,independent,,RF,21/05/2026,false
