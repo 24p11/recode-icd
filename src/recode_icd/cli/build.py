@@ -5,7 +5,7 @@ from typing import Annotated
 
 import typer
 
-from recode_icd import merge, propagation
+from recode_icd import merge, merge_external, propagation
 from recode_icd.exporters import flat_csv
 from recode_icd.loaders import ofs, owl
 from recode_icd.relations import dagger_asterisk, sibling_exclusions
@@ -257,6 +257,84 @@ def build_dagger_asterisk(
         typer.echo(f"Écrit : {curation_report}")
 
 
+@build_app.command("external")
+def build_external(
+    merged_path: Annotated[
+        Path,
+        typer.Option("--merged", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/merged_codes.parquet"),
+    propagated_path: Annotated[
+        Path,
+        typer.Option("--propagated", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/propagated_notes.parquet"),
+    siblings_path: Annotated[
+        Path,
+        typer.Option("--siblings", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/sibling_exclusions.parquet"),
+    owl_path: Annotated[
+        Path,
+        typer.Option("--owl", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/owl_codes.parquet"),
+    ofs_path: Annotated[
+        Path,
+        typer.Option("--ofs", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/ofs_codes.parquet"),
+    orphanet_xml: Annotated[
+        Path,
+        typer.Option(
+            "--orphanet-xml",
+            exists=True,
+            dir_okay=False,
+            readable=True,
+            help="XML ORPHA_ICD10_mapping_fr_2025.xml.",
+        ),
+    ] = Path("data/Orphanet_Nomenclature_Pack_FR_2025/ORPHA_ICD10_mapping_fr_2025.xml"),
+    hector_xlsx: Annotated[
+        Path,
+        typer.Option(
+            "--hector-xlsx",
+            exists=True,
+            dir_okay=False,
+            readable=True,
+            help="Classeur HECTOR (Index CIM-10 vol3 + thésaurus AP-HP).",
+        ),
+    ] = Path("data/CIM_APHP_2019/Dictionnaire_Hector_MAJ062019.xlsx"),
+    output_path: Annotated[
+        Path,
+        typer.Option(
+            "--output",
+            "-o",
+            dir_okay=False,
+            help="Parquet `external_to_add` à consommer par `build flat-csv`.",
+        ),
+    ] = Path("referentials/processed/external_to_add.parquet"),
+    reports_dir: Annotated[
+        Path,
+        typer.Option(
+            "--reports-dir",
+            file_okay=False,
+            help="Répertoire des 3 rapports external_*.csv.",
+        ),
+    ] = Path("reports"),
+) -> None:
+    """Charger ORPHANET + Index CIM-10 + AP-HP, dédupliquer contre
+    OFS/ANS et inter-externes, produire le Parquet `external_to_add`
+    + 3 rapports."""
+    paths = merge_external.to_parquet_and_reports(
+        merged_path=merged_path,
+        propagated_path=propagated_path,
+        siblings_path=siblings_path,
+        owl_path=owl_path,
+        ofs_path=ofs_path,
+        orphanet_xml=orphanet_xml,
+        hector_xlsx=hector_xlsx,
+        output_path=output_path,
+        reports_dir=reports_dir,
+    )
+    for label, path in paths.items():
+        typer.echo(f"Écrit ({label}) : {path}")
+
+
 @build_app.command("flat-csv")
 def build_flat_csv(
     merged_path: Annotated[
@@ -295,8 +373,25 @@ def build_flat_csv(
             help="Rapport curation_applied.csv enrichi avec les stats du CSV final.",
         ),
     ] = Path("reports/curation_applied.csv"),
+    external_path: Annotated[
+        Path | None,
+        typer.Option(
+            "--external",
+            dir_okay=False,
+            help=(
+                "Parquet `external_to_add` produit par `build external`. "
+                "Si fourni et existant, les entrées sont intégrées au CSV final."
+            ),
+        ),
+    ] = Path("referentials/processed/external_to_add.parquet"),
 ) -> None:
     """Construire le CSV maître à 9 colonnes (inclusions / exclusions / synonymes + dague/astérisque)."""
+    effective_external = external_path if (external_path and external_path.is_file()) else None
+    if external_path and not effective_external:
+        typer.echo(
+            f"⚠ External Parquet introuvable ({external_path}) — build sans externes.",
+            err=True,
+        )
     path = flat_csv.to_csv(
         merged_path,
         propagated_path,
@@ -306,5 +401,6 @@ def build_flat_csv(
         dagger_asterisk_path,
         output_path,
         curation_report_path=curation_report,
+        external_path=effective_external,
     )
     typer.echo(f"Écrit : {path}")

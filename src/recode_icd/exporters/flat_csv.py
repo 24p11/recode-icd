@@ -10,17 +10,25 @@ from recode_icd._normalize import normalize_column
 _SOURCE_CSV_MAP: dict[str, str] = {
     "OFS": "CIM-10",
     "OWL_ANS": "ANS",
-    "INDEX_CIM10_VOL3": "CIM-10 index",
     "SYNTHESIZED_SIBLING": "CIM-10 frères",
+    "INDEX_CIM10_VOL3": "CIM-10 index",
     "ORPHANET": "ORPHANET",
-    "AP_HP": "AP-HP",
+    "APHP_DERMATOLOGIE": "AP-HP Dermatologie",
+    "APHP_ENDOCRINOLOGIE": "AP-HP Endocrinologie",
+    "APHP_GRONES": "AP-HP GRONES",
+    "APHP_METABOLISME": "AP-HP Troubles métaboliques",
+    "APHP_NEPHROLOGIE": "AP-HP Néphrologie",
+    "APHP_OPHTALMOLOGIE": "AP-HP Ophtalmologie",
+    "APHP_RHUMATOLOGIE": "AP-HP Rhumatologie",
+    "APHP_GERMES": "AP-HP Germes (SPILF)",
+    "APHP_SRLF": "AP-HP SRLF",
 }
 
 _TYPE_ORDER: dict[str, int] = {"inclusion": 0, "exclusion": 1, "synonyme": 2}
 
 # Colonnes finales du CSV maître (cf docs/source_mapping.md §"Schéma
-# final du CSV principal"). Une ligne par (code, type, source, texte) ×
-# association dague/astérisque ; les codes sans association émettent
+# final du CSV principal"). Une ligne par (code, type, source, texte)
+# par association dague/astérisque ; les codes sans association émettent
 # une seule ligne avec dagger_code/asterisk_code à NULL et
 # redundancy_level="none".
 _FINAL_COLUMNS: tuple[str, ...] = (
@@ -287,6 +295,7 @@ def build(
     owl: pl.DataFrame,
     ofs: pl.DataFrame,
     dagger_asterisk: pl.DataFrame,
+    external: pl.DataFrame | None = None,
 ) -> tuple[pl.DataFrame, FlatCsvStats]:
     """Construit le CSV maître à 9 colonnes (cf source_mapping.md
     §"Schéma final du CSV principal").
@@ -294,10 +303,17 @@ def build(
     Étapes :
       1. Long format inclusions/exclusions/synonymes (priorité OFS).
       2. Filtrage des synonymes redondants côté dague (règle empirique).
-      3. Restriction aux codes feuilles + traduction des sources.
-      4. Expansion par association dague/astérisque (Principe 2 de la
+      3. Concaténation des entrées externes (ORPHANET/Index/AP-HP)
+         déjà dédupliquées et filtrées par `merge_external`.
+      4. Restriction aux codes feuilles + traduction des sources.
+      5. Expansion par association dague/astérisque (Principe 2 de la
          spec : une ligne par association).
-      5. Sort déterministe par (code, type, source, texte, ast, dague).
+      6. Sort déterministe par (code, type, source, texte, ast, dague).
+
+    Args:
+        external : DataFrame `(code, libelle_orig, libelle_norm, type,
+            source)` produit par `merge_external.merge_external_sources`.
+            Si None, comportement strictement identique à avant Phase 2.
 
     Returns:
         `(df, stats)`. `stats` est utilisé pour enrichir
@@ -309,7 +325,16 @@ def build(
     syn_filtered, n_syn_filtered = _filter_redundant_dagger_synonyms(
         syn, dagger_asterisk, leaves
     )
-    long = pl.concat([inex, syn_filtered])
+    parts = [inex, syn_filtered]
+    if external is not None and not external.is_empty():
+        ext_long = external.select(
+            pl.col("code"),
+            pl.col("type"),
+            pl.col("source"),
+            pl.col("libelle_orig").alias("texte"),
+        )
+        parts.append(ext_long)
+    long = pl.concat(parts)
 
     base = (
         long.join(leaves, on="code", how="inner")
@@ -351,6 +376,7 @@ def to_csv(
     dagger_asterisk_path: Path,
     output_path: Path,
     curation_report_path: Path | None = None,
+    external_path: Path | None = None,
 ) -> Path:
     """Construit le CSV maître à 9 colonnes et l'écrit sur disque.
 
@@ -358,6 +384,9 @@ def to_csv(
     `relations.dagger_asterisk.apply_curation`), les stats produites par
     `build()` y sont ajoutées en append. Sinon les stats sont écrites
     seules dans ce chemin si fourni.
+
+    Si `external_path` est fourni et existe, ses lignes sont
+    concaténées au pipeline (cf `merge_external.to_parquet_and_reports`).
     """
     merged = pl.read_parquet(merged_path)
     propagated = pl.read_parquet(propagated_path)
@@ -365,8 +394,15 @@ def to_csv(
     owl = pl.read_parquet(owl_path)
     ofs = pl.read_parquet(ofs_path)
     dag_aster = pl.read_parquet(dagger_asterisk_path)
+    external = (
+        pl.read_parquet(external_path)
+        if external_path is not None and external_path.is_file()
+        else None
+    )
 
-    csv_df, stats = build(merged, propagated, siblings, owl, ofs, dag_aster)
+    csv_df, stats = build(
+        merged, propagated, siblings, owl, ofs, dag_aster, external=external
+    )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     csv_df.write_csv(output_path)

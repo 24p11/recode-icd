@@ -298,9 +298,15 @@ def test_unknown_source_raises() -> None:
 
 
 def test_source_mapping_complete() -> None:
-    # Sanity : chaque source interne doit avoir un mapping français défini
-    expected_keys = {"OFS", "OWL_ANS", "INDEX_CIM10_VOL3", "SYNTHESIZED_SIBLING",
-                     "ORPHANET", "AP_HP"}
+    # Sanity : chaque source interne doit avoir un mapping français défini.
+    # AP-HP est éclaté en 9 valeurs par spécialité depuis Phase 1
+    # (cf CLAUDE.md §"Mapping sources internes ↔ libellés CSV").
+    expected_keys = {
+        "OFS", "OWL_ANS", "SYNTHESIZED_SIBLING", "INDEX_CIM10_VOL3", "ORPHANET",
+        "APHP_DERMATOLOGIE", "APHP_ENDOCRINOLOGIE", "APHP_GRONES",
+        "APHP_METABOLISME", "APHP_NEPHROLOGIE", "APHP_OPHTALMOLOGIE",
+        "APHP_RHUMATOLOGIE", "APHP_GERMES", "APHP_SRLF",
+    }
     assert set(flat_csv._SOURCE_CSV_MAP.keys()) == expected_keys
 
 
