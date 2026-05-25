@@ -8,7 +8,7 @@ import typer
 from recode_icd import merge, propagation
 from recode_icd.exporters import flat_csv
 from recode_icd.loaders import ofs, owl
-from recode_icd.relations import sibling_exclusions
+from recode_icd.relations import dagger_asterisk, sibling_exclusions
 
 build_app = typer.Typer(help="Construire les Parquet de référence.")
 
@@ -185,6 +185,78 @@ def build_siblings(
     typer.echo(f"Écrit : {rep_path}")
 
 
+@build_app.command("dagger-asterisk")
+def build_dagger_asterisk(
+    ofs_dir: Annotated[
+        Path,
+        typer.Option(
+            "--ofs-dir",
+            "-d",
+            exists=True,
+            file_okay=False,
+            dir_okay=True,
+            readable=True,
+            help="Répertoire OFS (MASTER.txt, DAGSTAR.txt, LIBELLE.txt).",
+        ),
+    ],
+    output_dir: Annotated[
+        Path,
+        typer.Option(
+            "--output-dir",
+            "-o",
+            file_okay=False,
+            help="Répertoire pour dagger_asterisk.parquet + .csv.",
+        ),
+    ] = Path("referentials/processed"),
+    summary_report: Annotated[
+        Path,
+        typer.Option(
+            "--summary-report",
+            dir_okay=False,
+            help="Rapport synthèse de la table enrichie.",
+        ),
+    ] = Path("reports/dagger_asterisk_summary.csv"),
+    curation_csv: Annotated[
+        Path | None,
+        typer.Option(
+            "--curation-csv",
+            dir_okay=False,
+            help=(
+                "CSV de curation (optionnel). Si fourni, applique "
+                "redundancy_level=subordinate aux paires curées."
+            ),
+        ),
+    ] = Path("referentials/curation/dagger_curation.csv"),
+    curation_report: Annotated[
+        Path,
+        typer.Option(
+            "--curation-report",
+            dir_okay=False,
+            help="Rapport d'application de la curation.",
+        ),
+    ] = Path("reports/curation_applied.csv"),
+) -> None:
+    """Construire la table DAGSTAR enrichie + appliquer la curation."""
+    effective_curation = curation_csv if (curation_csv and curation_csv.is_file()) else None
+    if curation_csv and not effective_curation:
+        typer.echo(
+            f"⚠ Curation CSV introuvable ({curation_csv}) — build sans curation.",
+            err=True,
+        )
+    parquet_path, csv_path, report_path = dagger_asterisk.to_parquet_and_csv_and_report(
+        ofs_dir=ofs_dir,
+        processed_dir=output_dir,
+        report_path=summary_report,
+        curation_path=effective_curation,
+        curation_report_path=curation_report if effective_curation else None,
+    )
+    typer.echo(f"Écrit : {parquet_path}")
+    typer.echo(f"Écrit : {csv_path}")
+    typer.echo(f"Écrit : {report_path}")
+    if effective_curation:
+        typer.echo(f"Écrit : {curation_report}")
+
+
 @build_app.command("flat-csv")
 def build_flat_csv(
     merged_path: Annotated[
@@ -207,13 +279,32 @@ def build_flat_csv(
         Path,
         typer.Option("--ofs", exists=True, dir_okay=False, readable=True),
     ] = Path("referentials/processed/ofs_codes.parquet"),
+    dagger_asterisk_path: Annotated[
+        Path,
+        typer.Option("--dagger-asterisk", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/dagger_asterisk.parquet"),
     output_path: Annotated[
         Path,
         typer.Option("--output", "-o", dir_okay=False),
     ] = Path("referentials/processed/inclusions_exclusions_synonymes.csv"),
+    curation_report: Annotated[
+        Path,
+        typer.Option(
+            "--curation-report",
+            dir_okay=False,
+            help="Rapport curation_applied.csv enrichi avec les stats du CSV final.",
+        ),
+    ] = Path("reports/curation_applied.csv"),
 ) -> None:
-    """Construire le CSV maître à 5 colonnes (inclusions / exclusions / synonymes)."""
+    """Construire le CSV maître à 9 colonnes (inclusions / exclusions / synonymes + dague/astérisque)."""
     path = flat_csv.to_csv(
-        merged_path, propagated_path, siblings_path, owl_path, ofs_path, output_path
+        merged_path,
+        propagated_path,
+        siblings_path,
+        owl_path,
+        ofs_path,
+        dagger_asterisk_path,
+        output_path,
+        curation_report_path=curation_report,
     )
     typer.echo(f"Écrit : {path}")

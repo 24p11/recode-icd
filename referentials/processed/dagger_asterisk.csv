@@ -1,0 +1,1027 @@
+association_id,dagger_code,dagger_label,asterisk_code,asterisk_label,combination_labels,levels_present,redundancy_level,source_lids
+0,(A00-B99),certaines maladies infectieuses et parasitaires,G53.1,paralysie de plusieurs nerfs crâniens au cours de maladies infectieuses et parasitaires classées ailleurs,paralysie de plusieurs nerfs crâniens au cours de maladies infectieuses et parasitaires classées ailleurs,G,independent,3528
+1,(A00-B99),certaines maladies infectieuses et parasitaires,G94.0,hydrocéphalie au cours de maladies infectieuses et parasitaires classées ailleurs,hydrocéphalie au cours de maladies infectieuses et parasitaires classées ailleurs,G,independent,3691
+2,(B15-B19),hépatite virale,M03.2,autres arthropathies post-infectieuses au cours de maladies classées ailleurs,arthropathie post-infectieuse au cours de hépatite virale,H,independent,17827
+3,(B35-B49),mycoses,M01.6,arthrite au cours de mycoses,arthrite au cours de mycoses,G,independent,5356
+4,(B35-B49),mycoses,M63.2,myosite au cours d'autres maladies infectieuses classées ailleurs,myosite au cours de mycoses,H,independent,19585
+5,(C00-C75),tumeurs malignes,G13.0,neuromyopathie et neuropathie paranéoplasiques,neuromyopathie carcinomateuse,H,independent,15393
+6,(C00-D48),tumeurs,D63.0,anémie au cours de maladies tumorales,anémie au cours de maladies tumorales,G,independent,1882
+7,(C00-D48),tumeurs,G13.0,neuromyopathie et neuropathie paranéoplasiques,neuropathie sensitive paranéoplasique [Denny-Brown],H,independent,15394
+8,(C00-D48),tumeurs,G13.1,autres affections dégénératives systémiques affectant principalement le système nerveux central au cours de maladies tumorales,encéphalopathie limbique paranéoplasique,H,independent,15395
+9,(C00-D48),tumeurs,G53.3,paralysie de plusieurs nerfs crâniens au cours de maladies tumorales,paralysie de plusieurs nerfs crâniens au cours de maladies tumorales,G,independent,3530
+10,(C00-D48),tumeurs,G55.0,compression des racines et des plexus nerveux au cours de maladies tumorales,compression des racines et des plexus nerveux au cours de maladies tumorales,G,independent,3544
+11,(C00-D48),tumeurs,G63.1,polynévrite au cours de maladies tumorales,polynévrite au cours de maladies tumorales,G,independent,3596
+12,(C00-D48),tumeurs,G73.2,autres syndromes myasthéniques au cours de maladies tumorales,autres syndromes myasthéniques au cours de maladies tumorales,G,independent,3629
+13,(C00-D48),tumeurs,G94.1,hydrocéphalie au cours de maladies tumorales,hydrocéphalie au cours de maladies tumorales,G,independent,3692
+14,(C00-D48),tumeurs,G99.2,myélopathies au cours de maladies classées ailleurs,myélopathie au cours de maladies tumorales,H,independent,15627
+15,(C00-D48),tumeurs,M36.0,dermato(poly)myosite au cours de maladies tumorales,dermato(poly)myosite au cours de maladies tumorales,G,independent,5588
+16,(C00-D48),tumeurs,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de maladies tumorales classées ailleurs,G,independent,5589
+17,(C00-D48),tumeurs,M90.6,ostéite déformante au cours de maladies tumorales,ostéite déformante au cours de maladies tumorales,G,independent,5916
+18,(C00-D48),tumeurs,M90.7,fracture osseuse au cours de maladies tumorales,fracture osseuse au cours de maladies tumorales,G,independent,5917
+19,(D50-D53),anémies nutritionnelles,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+20,(D50-D53),anémies nutritionnelles,M90.4,ostéonécrose due à une hémoglobinopathie,ostéonécrose due à une hémoglobinopathie,G,independent,5914
+21,(D55-D59),anémies hémolytiques,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+22,(D55-D59),anémies hémolytiques,M90.4,ostéonécrose due à une hémoglobinopathie,ostéonécrose due à une hémoglobinopathie,G,independent,5914
+23,(D60-D64),aplasies médullaires et autres anémies,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+24,(D60-D64),aplasies médullaires et autres anémies,M90.4,ostéonécrose due à une hémoglobinopathie,ostéonécrose due à une hémoglobinopathie,G,independent,5914
+25,(D65-D69),"anomalies de la coagulation, purpura et autres affections hémorragiques",M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+26,(E00-E07),affections de la glande thyroïde,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+27,(E00-E07),affections de la glande thyroïde,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+28,(E10-E14),diabète sucré,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+29,(E15-E16),autres anomalies de la régulation du glucose et de la sécrétion pancréatique interne,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+30,(E15-E16),autres anomalies de la régulation du glucose et de la sécrétion pancréatique interne,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+31,(E40-E46),malnutrition,G63.4,polynévrite par carence nutritionnelle,polynévrite par carence nutritionnelle,G,independent,3599
+32,(E40-E46),malnutrition,H28.1,"cataracte au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",cataracte au cours de malnutrition-déshydratation,H,independent,15811
+33,(E50-E64),autres carences nutritionnelles,G63.4,polynévrite par carence nutritionnelle,polynévrite par carence nutritionnelle,G,independent,3599
+34,(M00-M25),arthropathies,G63.6,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,G,independent,3601
+35,(M40-M54),dorsopathies,G63.6,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,G,independent,3601
+36,(M60-M79),affections des tissus mous,G63.6,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,G,independent,3601
+37,(M80-M94),ostéopathies et chondropathies,G63.6,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,G,independent,3601
+38,(T36-T50),intoxications par des médicaments et des substances biologiques,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de intoxications,H,independent,14405
+39,(T51-T65),effets toxiques de substances d'origine essentiellement non médicinale,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de intoxications,H,independent,14405
+40,A01,fièvres typhoïde et paratyphoïde,M01.3,arthrite au cours d'autres maladies bactériennes classées ailleurs,arthrite (au cours de) fièvre typhoïde ou paratyphoïde,H,independent,17690
+41,A01,fièvres typhoïde et paratyphoïde,M49.2,spondylite entérobactérienne,spondylite entérobactérienne,G,independent,5655
+42,A01.0,fièvre typhoïde,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite (au cours de) fièvre typhoïde,H,independent,15305
+43,A01.0,fièvre typhoïde,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,atteinte de l'endocarde (à) (au cours de) typhoïdique,H,independent,27026
+44,A01.0,fièvre typhoïde,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie (au cours de) (due à) fièvre typhoïde,H,independent,16574
+45,A02,autres salmonelloses,M49.2,spondylite entérobactérienne,spondylite entérobactérienne,G,independent,5655
+46,A02.2,infection localisée à Salmonella,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite à Salmonella | méningite (au cours de) infection à Salmonella,"H,U",independent,"12326,15303"
+47,A02.2,infection localisée à Salmonella,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie à Salmonella | pneumopathie (au cours de) (due à) salmonellose,"H,U",independent,"12322,16576"
+48,A02.2,infection localisée à Salmonella,M01.3,arthrite au cours d'autres maladies bactériennes classées ailleurs,arthrite à Salmonella | arthrite (au cours de) infection localisée à Salmonella,"H,U",independent,"12325,17689"
+49,A02.2,infection localisée à Salmonella,M90.2,ostéopathie au cours d'autres maladies infectieuses classées ailleurs,ostéomyélite à Salmonella | ostéomyélite due à Salmonella,"H,U",independent,"12323,20748"
+50,A02.2,infection localisée à Salmonella,N16.0,maladie rénale tubulo-interstitielle au cours de maladies infectieuses et parasitaires classées ailleurs,maladie rénale tubulo-interstitielle à Salmonella | maladie rénale tubulo-interstitielle au cours de salmonellose,"H,U",independent,"12324,21076"
+51,A02.2,infection localisée à Salmonella,,,infection localisée à Salmonella,S,none,16
+52,A03,shigellose,M49.2,spondylite entérobactérienne,spondylite entérobactérienne,G,independent,5655
+53,A04,autres infections intestinales bactériennes,M49.2,spondylite entérobactérienne,spondylite entérobactérienne,G,independent,5655
+54,A04.6,entérite à Yersinia enterocolitica,M03.2,autres arthropathies post-infectieuses au cours de maladies classées ailleurs,arthropathie post-infectieuse au cours de entérite due à Yersinia enterocolitica,H,independent,17826
+55,A06.5,abcès amibien du poumon,J99.8,troubles respiratoires au cours d'autres maladies classées ailleurs,abcès amibien du poumon | troubles respiratoires au cours de abcès amibien du poumon,"H,T",independent,"51,16807"
+56,A06.6,abcès amibien du cerveau,G07,abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,abcès amibien du cerveau | abcès du cerveau amibien,"H,T",independent,"52,15360"
+57,A06.8,autres localisations d'une infection amibienne,N51.2,balanite au cours de maladies classées ailleurs,balanite amibienne | balanite (à) amibienne,"H,U",independent,"12344,21235"
+58,A17,tuberculose du système nerveux,,,tuberculose du système nerveux,S,none,93
+59,A17.0,méningite tuberculeuse,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite tuberculeuse | méningite (au cours de) tuberculeuse,"H,T",subordinate,"94,15297"
+60,A17.1,tuberculome méningé,G07,abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,tuberculome méningé,"H,T",subordinate,"95,15365"
+61,A17.8,autres formes de tuberculose du système nerveux,G05.0,"encéphalite, myélite et encéphalomyélite au cours d'infections bactériennes classées ailleurs","méningo-encéphalite tuberculeuse | myélite tuberculeuse | encéphalite, myélite ou encéphalomyélite tuberculeuse","H,U",subordinate,"12443,12444,15329"
+62,A17.8,autres formes de tuberculose du système nerveux,G07,abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,abcès tuberculeux du cerveau | tuberculome de moelle épinière | tuberculome de cerveau | tuberculose de moelle épinière | tuberculose de cerveau | abcès du cerveau tuberculeux | tuberculome cérébral,"H,U",subordinate,"12442,12446,12447,12448,12449,15362,15364"
+63,A17.8,autres formes de tuberculose du système nerveux,G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,polynévrite tuberculeuse | polynévrite (au cours de) tuberculeuse,"H,U",subordinate,"12445,15543"
+64,A17.8,autres formes de tuberculose du système nerveux,,,autres formes de tuberculose du système nerveux,S,none,96
+65,A17.9,"tuberculose du système nerveux, sans précision",G99.8,autres affections précisées du système nerveux au cours de maladies classées ailleurs,"tuberculose du système nerveux, sans précision",T,independent,97
+66,A18.0,tuberculose des os et des articulations,H75.0,mastoïdite au cours de maladies infectieuses et parasitaires classées ailleurs,mastoïdite tuberculeuse | tuberculose mastoïdienne,"H,U",subordinate,"12452,16103"
+67,A18.0,tuberculose des os et des articulations,M01.1,arthrite tuberculeuse,arthrite tuberculeuse | tuberculose de genou [tumeur blanche du genou] | tuberculose de hanche,"G,U",subordinate,"5351,12450,12451,12459"
+68,A18.0,tuberculose des os et des articulations,M49.0,tuberculose vertébrale,tuberculose vertébrale | tuberculose de colonne vertébrale [mal de Pott],"G,U",subordinate,"5653,12458"
+69,A18.0,tuberculose des os et des articulations,M68.0,synovite et ténosynovite au cours de maladies bactériennes classées ailleurs,synovite tuberculeuse | ténosynovite tuberculeuse | synovite ou ténosynovite tuberculeuse,"H,U",subordinate,"12456,12457,19748"
+70,A18.0,tuberculose des os et des articulations,M90.0,tuberculose osseuse,tuberculose osseuse | ostéite tuberculeuse | ostéomyélite tuberculeuse | ostéonécrose tuberculeuse,"G,U",subordinate,"5910,12453,12454,12455"
+71,A18.0,tuberculose des os et des articulations,,,tuberculose des os et des articulations,S,none,99
+72,A18.1,tuberculose de l'appareil génito-urinaire,N29.1,autres affections du rein et de l'uretère au cours de maladies infectieuses et parasitaires classées ailleurs,tuberculose (de) uretère | tuberculose (de) rénale | affections du rein et de l'uretère au cours de tuberculose,"H,U",subordinate,"12460,12464,21136"
+73,A18.1,tuberculose de l'appareil génito-urinaire,N33.0,cystite tuberculeuse,cystite tuberculeuse | tuberculose (de) vessie,"G,U",subordinate,"6549,12461"
+74,A18.1,tuberculose de l'appareil génito-urinaire,N51,affections des organes génitaux de l'homme au cours de maladies classées ailleurs,tuberculose (de) organes génitaux de l'homme,U,subordinate,12462
+75,A18.1,tuberculose de l'appareil génito-urinaire,N51.0,affections de la prostate au cours de maladies classées ailleurs,prostatite (à) tuberculeuse,H,subordinate,21226
+76,A18.1,tuberculose de l'appareil génito-urinaire,N51.1,affections du testicule et de l'épididyme au cours de maladies classées ailleurs,tuberculose de épididyme | tuberculose de testicule,H,subordinate,"21228,21233"
+77,A18.1,tuberculose de l'appareil génito-urinaire,N51.8,autres affections des organes génitaux de l'homme au cours de maladies classées ailleurs,tuberculose des vésicules séminales,H,subordinate,21238
+78,A18.1,tuberculose de l'appareil génito-urinaire,N74.0,tuberculose du col de l'utérus,tuberculose du col de l'utérus | tuberculose (de) col de l'utérus,"G,U",subordinate,"6674,12463"
+79,A18.1,tuberculose de l'appareil génito-urinaire,N74.1,affection inflammatoire pelvienne tuberculeuse de la femme,affection inflammatoire pelvienne tuberculeuse de la femme | affection inflammatoire tuberculeuse des organes pelviens de la femme,"G,U",independent,"6675,12465"
+80,A18.1,tuberculose de l'appareil génito-urinaire,N77.0,ulcération de la vulve au cours de maladies infectieuses et parasitaires classées ailleurs,ulcération de la vulve au cours de tuberculose,H,subordinate,21277
+81,A18.1,tuberculose de l'appareil génito-urinaire,,,tuberculose de l'appareil génito-urinaire,S,none,100
+82,A18.3,"tuberculose de l'intestin, du péritoine et des ganglions mésentériques",K67.3,péritonite tuberculeuse,péritonite tuberculeuse,"G,U",subordinate,"2166,12467"
+83,A18.3,"tuberculose de l'intestin, du péritoine et des ganglions mésentériques",K93.0,"atteintes tuberculeuses de l'intestin, du péritoine et des ganglions mésentériques","atteintes tuberculeuses de l'intestin, du péritoine et des ganglions mésentériques | tuberculose (de) anus et rectum | entérite tuberculeuse | tuberculose (de) intestin (côlon) (grêle)","G,U",subordinate,"2293,12469,12470,12472"
+84,A18.4,tuberculose de la peau et du tissu cellulaire sous-cutané,H03.1,atteinte de la paupière au cours d'autres maladies infectieuses classées ailleurs,lupus vulgaire (de) paupière | atteinte de la paupière au cours de tuberculose,"H,U",subordinate,"12475,15653"
+85,A18.5,tuberculose de l'oeil,H19.0,sclérite et épisclérite au cours de maladies classées ailleurs,épisclérite tuberculeuse,"H,U",subordinate,"12482,15754"
+86,A18.5,tuberculose de l'oeil,H19.2,kératite et kératoconjonctivite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,kératoconjonctivite (interstitielle) (phlycténulaire) tuberculeuse | kératite interstitielle tuberculeuse | kératite et kératoconjonctivite (insterstitielles) au cours de (dues à) tuberculose,"H,U",subordinate,"12479,12480,15758"
+87,A18.5,tuberculose de l'oeil,H22.0,iridocyclite au cours de maladies infectieuses et parasitaires classées ailleurs,iridocyclite tuberculeuse | iridocyclite au cours de tuberculose,"H,U",subordinate,"12481,15793"
+88,A18.5,tuberculose de l'oeil,H32.0,affections choriorétiniennes au cours de maladies infectieuses et parasitaires classées ailleurs,choriorétinite tuberculeuse | choriorétinite (à) tuberculeuse,"H,U",subordinate,"12478,15835"
+89,A18.5,tuberculose de l'oeil,,,tuberculose de l'oeil,S,none,104
+90,A18.6,tuberculose de l'oreille,H67.0,otite moyenne au cours de maladies bactériennes classées ailleurs,otite moyenne tuberculeuse | otite moyenne au cours de tuberculose,"H,U",subordinate,"12483,16082"
+91,A18.6,tuberculose de l'oreille,,,tuberculose de l'oreille,S,none,105
+92,A18.7,tuberculose des surrénales,E35.1,anomalies de la glande surrénale au cours de maladies classées ailleurs,tuberculose des surrénales | maladie d'Addison tuberculeuse,"H,T",subordinate,"106,14062"
+93,A18.8,tuberculose d'autres organes précisés,E35.0,anomalies de la glande thyroïde au cours de maladies classées ailleurs,tuberculose de thyroïde | tuberculose de la thyroïde,"H,U",subordinate,"12485,14061"
+94,A18.8,tuberculose d'autres organes précisés,I32.0,péricardite au cours de maladies bactériennes classées ailleurs,tuberculose de péricarde | péricardite tuberculeuse,"H,U",subordinate,"12490,16276"
+95,A18.8,tuberculose d'autres organes précisés,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,atteinte de l'endocarde (à) (au cours de) tuberculeuse,H,subordinate,27025
+96,A18.8,tuberculose d'autres organes précisés,I39.8,"endocardite, valvule non précisée, au cours de maladies classées ailleurs",tuberculose de endocarde,U,subordinate,12488
+97,A18.8,tuberculose d'autres organes précisés,I41.0,myocardite au cours de maladies bactériennes classées ailleurs,tuberculose de myocarde | myocardite tuberculeuse,"H,U",subordinate,"12486,16313"
+98,A18.8,tuberculose d'autres organes précisés,I68.1,artérite cérébrale au cours de maladies infectieuses et parasitaires,artérite cérébrale tuberculeuse | artérite cérébrale au cours de tuberculose,"H,U",subordinate,"12489,16421"
+99,A18.8,tuberculose d'autres organes précisés,K23.0,oesophagite tuberculeuse,oesophagite tuberculeuse | tuberculose de oesophage,"G,U",subordinate,"5009,12487"
+100,A18.8,tuberculose d'autres organes précisés,,,tuberculose d'autres organes précisés,S,none,107
+101,A21.2,tularémie pulmonaire,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie (au cours de) (due à) tularémie,H,subordinate,16575
+102,A22.1,charbon pulmonaire,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie (au cours de) (due à) charbon,H,subordinate,16579
+103,A22.8,autres formes de charbon,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite charbonneuse | méningite (au cours de) charbonneuse,"H,U",subordinate,"12501,15306"
+104,A23,brucellose,M49.1,spondylite au cours de brucellose,spondylite au cours de brucellose,G,subordinate,5654
+105,A23,brucellose,N16.0,maladie rénale tubulo-interstitielle au cours de maladies infectieuses et parasitaires classées ailleurs,maladie rénale tubulo-interstitielle au cours de brucellose,H,subordinate,21078
+106,A27,leptospirose,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite (au cours de) leptospirose,H,subordinate,15301
+107,A30,lèpre [maladie de Hansen],G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,polynévrite (au cours de) lèpre,H,subordinate,15536
+108,A30,lèpre [maladie de Hansen],H03.1,atteinte de la paupière au cours d'autres maladies infectieuses classées ailleurs,atteinte de la paupière au cours de lèpre,H,subordinate,15652
+109,A30,lèpre [maladie de Hansen],M01.3,arthrite au cours d'autres maladies bactériennes classées ailleurs,arthrite (au cours de) lèpre [maladie de Hansen],H,subordinate,17691
+110,A30,lèpre [maladie de Hansen],M63.0,myosite au cours de maladies bactériennes classées ailleurs,myosite au cours de lèpre [maladie de Hansen],H,subordinate,19580
+111,A32.1,méningite et méningo-encéphalite listériennes,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite listérienne | méningite (au cours de) listérienne,"H,U",subordinate,"12529,15296"
+112,A32.1,méningite et méningo-encéphalite listériennes,G05.0,"encéphalite, myélite et encéphalomyélite au cours d'infections bactériennes classées ailleurs","méningo-encéphalite listérienne | encéphalite, myélite ou encéphalomyélite listérienne","H,U",subordinate,"12530,15332"
+113,A32.1,méningite et méningo-encéphalite listériennes,,,méningite et méningo-encéphalite listériennes,S,none,187
+114,A32.8,autres formes de listériose,I39.8,"endocardite, valvule non précisée, au cours de maladies classées ailleurs",endocardite listérienne,U,subordinate,12532
+115,A32.8,autres formes de listériose,I68.1,artérite cérébrale au cours de maladies infectieuses et parasitaires,artérite cérébrale listérienne | artérite cérébrale au cours de listériose,"H,U",subordinate,"12531,16419"
+116,A36.8,autres formes de diphtérie,G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,polynévrite diphtérique | polynévrite (au cours de) diphtérie,"H,U",subordinate,"12540,15535"
+117,A36.8,autres formes de diphtérie,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite diphtérique | conjonctivite (à) (de) diphtérique,"H,U",subordinate,"12538,15703"
+118,A36.8,autres formes de diphtérie,I41.0,myocardite au cours de maladies bactériennes classées ailleurs,myocardite diphtérique,"H,U",subordinate,"12539,16309"
+119,A36.8,autres formes de diphtérie,I43.0,myocardiopathie au cours de maladies infectieuses et parasitaires classées ailleurs,myocardiopathie diphtérique,H,subordinate,16328
+120,A36.8,autres formes de diphtérie,N16.0,maladie rénale tubulo-interstitielle au cours de maladies infectieuses et parasitaires classées ailleurs,maladie rénale tubulo-interstitielle au cours de diphtérie,H,subordinate,21080
+121,A37,coqueluche,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie (au cours de) (due à) coqueluche,H,subordinate,16578
+122,A38,scarlatine,H67.0,otite moyenne au cours de maladies bactériennes classées ailleurs,otite moyenne au cours de scarlatine,H,subordinate,16081
+123,A39.0,méningite à méningocoques,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite à méningocoques | méningite (au cours de) méningococcique,"H,T",subordinate,"208,15307"
+124,A39.1,syndrome de Waterhouse-Friderichsen,E35.1,anomalies de la glande surrénale au cours de maladies classées ailleurs,syndrome de Waterhouse-Friderichsen | syndrome de Waterhouse-Friderichsen (méningococcique),"H,T",subordinate,"209,14063"
+125,A39.5,cardite à méningocoques,I32.0,péricardite au cours de maladies bactériennes classées ailleurs,péricardite méningococcique,"H,U",subordinate,"12547,16278"
+126,A39.5,cardite à méningocoques,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,atteinte de l'endocarde (à) (au cours de) méningococcique,H,subordinate,27030
+127,A39.5,cardite à méningocoques,I39.8,"endocardite, valvule non précisée, au cours de maladies classées ailleurs",endocardite méningococcique,U,subordinate,12545
+128,A39.5,cardite à méningocoques,I41.0,myocardite au cours de maladies bactériennes classées ailleurs,myocardite méningococcique,"H,U",subordinate,"12546,16311"
+129,A39.5,cardite à méningocoques,I52.0,autres cardiopathies au cours de maladies bactériennes classées ailleurs,cardite méningococcique SAI | cardite à méningocoques NCA,"H,U",subordinate,"12544,16394"
+130,A39.5,cardite à méningocoques,,,cardite à méningocoques,S,none,213
+131,A39.8,autres infections à méningocoques,G05.0,"encéphalite, myélite et encéphalomyélite au cours d'infections bactériennes classées ailleurs","encéphalite méningococcique | encéphalite, myélite ou encéphalomyélite méningococcique","H,U",subordinate,"12549,15331"
+132,A39.8,autres infections à méningocoques,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite méningococcique | conjonctivite (à) (de) méningococcique,"H,U",subordinate,"12550,15707"
+133,A39.8,autres infections à méningocoques,H48.1,névrite rétrobulbaire au cours de maladies classées ailleurs,névrite rétrobulbaire méningococcique | névrite rétrobulbaire au cours de infection à méningocoques,"H,U",subordinate,"12548,15944"
+134,A39.8,autres infections à méningocoques,M01.0,arthrite méningococcique,arthrite méningococcique,"G,U",subordinate,"5350,12551"
+135,A39.8,autres infections à méningocoques,M03.0,arthrite post-méningococcique,arthrite post-méningococcique,"G,U",subordinate,"5366,12552"
+136,A40,septicémie à streptocoques,N08.0,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,glomérulopathie au cours de septicémie,H,independent,21037
+137,A40,septicémie à streptocoques,N16.0,maladie rénale tubulo-interstitielle au cours de maladies infectieuses et parasitaires classées ailleurs,maladie rénale tubulo-interstitielle au cours de septicémie,H,independent,21077
+138,A41,autres septicémies,N08.0,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,glomérulopathie au cours de septicémie,H,independent,21037
+139,A41,autres septicémies,N16.0,maladie rénale tubulo-interstitielle au cours de maladies infectieuses et parasitaires classées ailleurs,maladie rénale tubulo-interstitielle au cours de septicémie,H,independent,21077
+140,A42.0,actinomycose pulmonaire,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie (au cours de) (due à) actinomycose,H,independent,16580
+141,A43.0,nocardiose pulmonaire,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie (au cours de) (due à) nocardiose,H,independent,16581
+142,A46,érysipèle,H62.0,otite externe au cours de maladies bactériennes classées ailleurs,otite externe au cours d'érysipèle,H,independent,16041
+143,A50.0,"syphilis congénitale précoce, symptomatique",H58.8,autres affections précisées de l'oeil et de ses annexes au cours de maladies classées ailleurs,oculopathie syphilitique NCA congénitale précoce,H,independent,16016
+144,A50.3,oculopathie syphilitique congénitale tardive,H19.2,kératite et kératoconjonctivite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,kératite interstitielle syphilitique congénitale tardive | kératite et kératoconjonctivite (insterstitielles) au cours de (dues à) syphilis,"H,U",subordinate,"12578,15757"
+145,A50.3,oculopathie syphilitique congénitale tardive,H58.8,autres affections précisées de l'oeil et de ses annexes au cours de maladies classées ailleurs,oculopathie syphilitique congénitale tardive NCA | oculopathie syphilitique NCA congénitale tardive,"H,U",independent,"12577,16017"
+146,A50.4,syphilis congénitale nerveuse tardive [neuro-syphilis juvénile],G01,méningite au cours d'affections bactériennes classées ailleurs,méningite syphilitique congénitale tardive | méningite (au cours de) syphilitique congénitale,"H,U",independent,"12581,15299"
+147,A50.4,syphilis congénitale nerveuse tardive [neuro-syphilis juvénile],G05.0,"encéphalite, myélite et encéphalomyélite au cours d'infections bactériennes classées ailleurs","encéphalite syphilitique congénitale tardive | encéphalite, myélite ou encéphalomyélite syphilitique congénitale","H,U",independent,"12580,15330"
+148,A50.4,syphilis congénitale nerveuse tardive [neuro-syphilis juvénile],G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,"polynévrite syphilitique congénitale tardive | polynévrite (au cours de) syphilis, tardive congénitale","H,U",independent,"12583,15542"
+149,A50.5,"autres formes tardives de syphilis congénitale, symptomatique",I98.0,syphilis cardio-vasculaire,syphilis cardio-vasculaire congénitale tardive,"H,U",independent,"12589,16511"
+150,A50.5,"autres formes tardives de syphilis congénitale, symptomatique",M03.1,arthropathie syphilitique post-infectieuse,maladie de Clutton | arthropathie syphilitique congénitale tardive,"H,U",independent,"12586,12592,17815"
+151,A50.5,"autres formes tardives de syphilis congénitale, symptomatique",M90.2,ostéopathie au cours d'autres maladies infectieuses classées ailleurs,ostéochondropathie syphilitique congénitale tardive | ostéopathie ou ostéochondropathie syphilitique,"H,U",independent,"12593,20747"
+152,A51.3,syphilis secondaire de la peau et des muqueuses,L99.8,autres affections précisées de la peau et du tissu cellulaire sous-cutané au cours de maladies classées ailleurs,alopécie syphilitique | leucodermie syphilitique,"H,U",independent,"12597,12599,17606,17607"
+153,A51.4,autres formes de syphilis secondaire,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite syphilitique secondaire | méningite (au cours de) syphilitique secondaire,"H,U",independent,"12601,15298"
+154,A51.4,autres formes de syphilis secondaire,H22.0,iridocyclite au cours de maladies infectieuses et parasitaires classées ailleurs,iridocyclite syphilitique secondaire | iridocyclite au cours de syphilis (secondaire),"H,U",independent,"12605,15792"
+155,A51.4,autres formes de syphilis secondaire,H58.8,autres affections précisées de l'oeil et de ses annexes au cours de maladies classées ailleurs,oculopathie NCA syphilitique secondaire | oculopathie syphilitique NCA précoce (secondaire),"H,U",independent,"12607,16018"
+156,A51.4,autres formes de syphilis secondaire,M63.0,myosite au cours de maladies bactériennes classées ailleurs,myosite syphilitique secondaire | myosite au cours de syphilis,"H,U",independent,"12603,19579"
+157,A51.4,autres formes de syphilis secondaire,M90.1,périostite au cours d'autres maladies infectieuses classées ailleurs,périostite syphilitique secondaire,"H,U",independent,"12602,20735"
+158,A51.4,autres formes de syphilis secondaire,N74.2,affection inflammatoire pelvienne syphilitique de la femme,affection inflammatoire pelvienne syphilitique de la femme | affection inflammatoire des organes pelviens de la femme syphilitique secondaire,"G,U",independent,"6676,12606"
+159,A52.0,syphilis cardio-vasculaire,I32.0,péricardite au cours de maladies bactériennes classées ailleurs,péricardite syphilitique,"H,U",independent,"12611,16279"
+160,A52.0,syphilis cardio-vasculaire,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,atteinte de l'endocarde (à) (au cours de) syphilitique,H,subordinate,27027
+161,A52.0,syphilis cardio-vasculaire,I39.1,atteintes de la valvule aortique au cours de maladies classées ailleurs,insuffisance aortique syphilitique,U,subordinate,12617
+162,A52.0,syphilis cardio-vasculaire,I39.3,atteintes de la valvule pulmonaire au cours de maladies classées ailleurs,insuffisance pulmonaire syphilitique,U,subordinate,12609
+163,A52.0,syphilis cardio-vasculaire,I39.8,"endocardite, valvule non précisée, au cours de maladies classées ailleurs",endocardite SAI syphilitique,U,subordinate,12614
+164,A52.0,syphilis cardio-vasculaire,I41.0,myocardite au cours de maladies bactériennes classées ailleurs,myocardite syphilitique,"H,U",subordinate,"12613,16312"
+165,A52.0,syphilis cardio-vasculaire,I68.1,artérite cérébrale au cours de maladies infectieuses et parasitaires,artérite cérébrale syphilitique | artérite cérébrale au cours de syphilis,"H,U",subordinate,"12616,16420"
+166,A52.0,syphilis cardio-vasculaire,I79.0,anévrisme de l'aorte au cours de maladies classées ailleurs,anévrisme syphilitique de l'aorte,"H,U",subordinate,"12610,16454"
+167,A52.0,syphilis cardio-vasculaire,I79.1,aortite au cours de maladies classées ailleurs,aortite syphilitique,"H,U",subordinate,"12615,16455"
+168,A52.0,syphilis cardio-vasculaire,I98.0,syphilis cardio-vasculaire,syphilis cardio-vasculaire SAI,"H,U",subordinate,"12612,16510"
+169,A52.0,syphilis cardio-vasculaire,,,syphilis cardio-vasculaire,S,none,284
+170,A52.1,syphilis nerveuse symptomatique,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de neurosyphilis,H,subordinate,14398
+171,A52.1,syphilis nerveuse symptomatique,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite syphilitique tardive | méningite (au cours de) neurosyphilis,"H,U",subordinate,"12622,15300"
+172,A52.1,syphilis nerveuse symptomatique,G05.0,"encéphalite, myélite et encéphalomyélite au cours d'infections bactériennes classées ailleurs","encéphalite syphilitique tardive | encéphalite, myélite ou encéphalomyélite syphilitique tardive","H,U",subordinate,"12621,15328"
+173,A52.1,syphilis nerveuse symptomatique,G22,syndrome parkinsonien au cours de maladies classées ailleurs,parkinsonisme syphilitique,"H,U",subordinate,"12625,15401"
+174,A52.1,syphilis nerveuse symptomatique,G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,"polynévrite syphilitique tardive | polynévrite (au cours de) syphilis, tardive","H,U",subordinate,"12626,15541"
+175,A52.1,syphilis nerveuse symptomatique,H48.0,atrophie optique au cours de maladies classées ailleurs,atrophie optique syphilitique tardive | atrophie optique au cours de syphilis tardive,"H,U",subordinate,"12620,15943"
+176,A52.1,syphilis nerveuse symptomatique,H48.1,névrite rétrobulbaire au cours de maladies classées ailleurs,névrite rétrobulbaire syphilitique tardive | névrite rétrobulbaire au cours de syphilis tardive,"H,U",subordinate,"12624,15946"
+177,A52.1,syphilis nerveuse symptomatique,H58.0,anomalies fonctionnelles de la pupille au cours de maladies classées ailleurs,signe d'Argyll Robertson (syphilitique),H,subordinate,16015
+178,A52.1,syphilis nerveuse symptomatique,H94.0,névrite acoustique au cours de maladies infectieuses et parasitaires classées ailleurs,névrite acoustique syphilitique tardive | névrite acoustique au cours de la syphilis,"H,U",subordinate,"12623,16136"
+179,A52.1,syphilis nerveuse symptomatique,M14.6,arthropathie neuropathique,arthropathie de Charcot | arthropathie de Charcot ou tabétique,"H,U",subordinate,"12619,18372"
+180,A52.1,syphilis nerveuse symptomatique,M49.4,spondylopathie neurologique,spondylopathie neurologique au cours de tabès,H,subordinate,19258
+181,A52.7,autres formes tardives de syphilis symptomatique,H19.0,sclérite et épisclérite au cours de maladies classées ailleurs,épisclérite syphilitique tardive | épisclérite syphilitique,"H,U",subordinate,"12636,15753"
+182,A52.7,autres formes tardives de syphilis symptomatique,H32.0,affections choriorétiniennes au cours de maladies infectieuses et parasitaires classées ailleurs,choriorétinite syphilitique tardive | choriorétinite (à) syphilitique tardive,"H,U",subordinate,"12641,15834"
+183,A52.7,autres formes tardives de syphilis symptomatique,H58.8,autres affections précisées de l'oeil et de ses annexes au cours de maladies classées ailleurs,oculopathie NCA syphilitique tardive | oculopathie syphilitique NCA tardive,"H,U",subordinate,"12644,16019"
+184,A52.7,autres formes tardives de syphilis symptomatique,J99.8,troubles respiratoires au cours d'autres maladies classées ailleurs,syphilis [stade non précisé] pulmonaire | troubles respiratoires au cours de syphilis,"H,U",subordinate,"12632,16806"
+185,A52.7,autres formes tardives de syphilis symptomatique,K67.2,péritonite syphilitique,péritonite syphilitique | péritonite syphilitique tardive,"G,U",subordinate,"2165,12630"
+186,A52.7,autres formes tardives de syphilis symptomatique,K77.0,atteintes hépatiques au cours de maladies infectieuses et parasitaires classées ailleurs,syphilis [stade non précisé] hépatique | syphilis hépatique,"H,U",subordinate,"12635,17330"
+187,A52.7,autres formes tardives de syphilis symptomatique,L99.8,autres affections précisées de la peau et du tissu cellulaire sous-cutané au cours de maladies classées ailleurs,leucodermie syphilitique tardive | leucodermie syphilitique,"H,U",subordinate,"12638,17607"
+188,A52.7,autres formes tardives de syphilis symptomatique,M63.0,myosite au cours de maladies bactériennes classées ailleurs,syphilis [stade non précisé] musculaire | myosite au cours de syphilis,"H,U",subordinate,"12634,19579"
+189,A52.7,autres formes tardives de syphilis symptomatique,M68.0,synovite et ténosynovite au cours de maladies bactériennes classées ailleurs,synovite syphilitique [stade non précisé] | synovite ou ténosynovite syphilitique,"H,U",subordinate,"12637,19747"
+190,A52.7,autres formes tardives de syphilis symptomatique,M73.1,bursite syphilitique,bursite syphilitique | bursite syphilitique tardive,"G,U",subordinate,"5784,12642"
+191,A52.7,autres formes tardives de syphilis symptomatique,M90.2,ostéopathie au cours d'autres maladies infectieuses classées ailleurs,syphilis [stade non précisé] osseuse | ostéopathie ou ostéochondropathie syphilitique,"H,U",subordinate,"12633,20747"
+192,A52.7,autres formes tardives de syphilis symptomatique,N08.0,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,glomérulite syphilitique | glomérulopathie au cours de syphilis,"H,U",subordinate,"12639,21032"
+193,A52.7,autres formes tardives de syphilis symptomatique,N29.0,syphilis tardive du rein,syphilis tardive du rein,G,subordinate,6522
+194,A52.7,autres formes tardives de syphilis symptomatique,N74.2,affection inflammatoire pelvienne syphilitique de la femme,affection inflammatoire pelvienne syphilitique de la femme | affection inflammatoire des organes pelviens de la femme syphilitique tardive,"G,U",subordinate,"6676,12643"
+195,A54.2,pelvipéritonite gonococcique et autres infections génito-urinaires gonococciques,N51.0,affections de la prostate au cours de maladies classées ailleurs,prostatite gonococcique | prostatite (à) gonococcique,"H,U",subordinate,"12658,21225"
+196,A54.2,pelvipéritonite gonococcique et autres infections génito-urinaires gonococciques,N51.1,affections du testicule et de l'épididyme au cours de maladies classées ailleurs,épididymite gonococcique | orchite gonococcique,"H,U",subordinate,"12656,12657,21229,21231"
+197,A54.2,pelvipéritonite gonococcique et autres infections génito-urinaires gonococciques,N74.3,affection inflammatoire pelvienne gonococcique de la femme,affection inflammatoire pelvienne gonococcique de la femme | affection inflammatoire des organes pelviens de la femme gonococcique,"G,U",subordinate,"6677,12655"
+198,A54.2,pelvipéritonite gonococcique et autres infections génito-urinaires gonococciques,,,pelvipéritonite gonococcique et autres infections génito-urinaires gonococciques,S,none,297
+199,A54.3,infection gonococcique de l'oeil,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite gonococcique | conjonctivite (à) (de) gonococcique,"H,U",subordinate,"12660,15705"
+200,A54.3,infection gonococcique de l'oeil,H22.0,iridocyclite au cours de maladies infectieuses et parasitaires classées ailleurs,iridocyclite gonococcique | iridocyclite au cours de infection gonococcique,"H,U",subordinate,"12661,15789"
+201,A54.4,infection gonococcique du système ostéo-articulaire et des muscles,M01.3,arthrite au cours d'autres maladies bactériennes classées ailleurs,arthrite gonococcique | arthrite (au cours de) gonococcique,"H,U",subordinate,"12666,17692"
+202,A54.4,infection gonococcique du système ostéo-articulaire et des muscles,M68.0,synovite et ténosynovite au cours de maladies bactériennes classées ailleurs,synovite gonococcique | ténosynovite gonococcique | synovite ou ténosynovite gonococcique,"H,U",subordinate,"12664,12665,19746"
+203,A54.4,infection gonococcique du système ostéo-articulaire et des muscles,M73.0,bursite gonococcique,bursite gonococcique,"G,U",subordinate,"5783,12662"
+204,A54.4,infection gonococcique du système ostéo-articulaire et des muscles,M90.2,ostéopathie au cours d'autres maladies infectieuses classées ailleurs,ostéomyélite gonococcique | ostéomyélite due à gonocoques,"H,U",subordinate,"12663,20749"
+205,A54.4,infection gonococcique du système ostéo-articulaire et des muscles,,,infection gonococcique du système ostéo-articulaire et des muscles,S,none,299
+206,A54.8,autres infections gonococciques,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite gonococcique(s) | méningite (au cours de) gonococcique,"H,U",subordinate,"12672,15304"
+207,A54.8,autres infections gonococciques,G07,abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,abcès du cerveau gonococcique(s) | abcès du cerveau gonococcique,"H,U",subordinate,"12668,15361"
+208,A54.8,autres infections gonococciques,I32.0,péricardite au cours de maladies bactériennes classées ailleurs,péricardite gonococcique(s) | péricardite gonococcique,"H,U",subordinate,"12667,16277"
+209,A54.8,autres infections gonococciques,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,atteinte de l'endocarde (à) (au cours de) gonococcique,H,subordinate,27028
+210,A54.8,autres infections gonococciques,I39.8,"endocardite, valvule non précisée, au cours de maladies classées ailleurs",endocardite gonococcique(s),U,subordinate,12673
+211,A54.8,autres infections gonococciques,I41.0,myocardite au cours de maladies bactériennes classées ailleurs,myocardite gonococcique(s) | myocardite gonococcique,"H,U",subordinate,"12675,16310"
+212,A54.8,autres infections gonococciques,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie gonococcique(s) | pneumopathie (au cours de) (due à) gonorrhée,"H,U",subordinate,"12669,16577"
+213,A54.8,autres infections gonococciques,K67.1,péritonite gonococcique,péritonite gonococcique | péritonite gonococcique(s),"G,U",subordinate,"2164,12671"
+214,A56.1,"infection à Chlamydia, pelvi-péritonéale et des autres organes génito-urinaires",N51.1,affections du testicule et de l'épididyme au cours de maladies classées ailleurs,épididymite à Chlamydia | orchite à Chlamydia,"H,U",subordinate,"12685,12686,21230,21232"
+215,A56.1,"infection à Chlamydia, pelvi-péritonéale et des autres organes génito-urinaires",N74.4,"affection inflammatoire pelvienne à Chlamydia, de la femme","affection inflammatoire pelvienne à Chlamydia, de la femme | affection inflammatoire des organes pelviens de la femme à Chlamydia","G,U",subordinate,"6678,12684"
+216,A56.1,"infection à Chlamydia, pelvi-péritonéale et des autres organes génito-urinaires",,,"infection à Chlamydia, pelvi-péritonéale et des autres organes génito-urinaires",S,none,307
+217,A59.0,trichomonase uro-génitale,N51.0,affections de la prostate au cours de maladies classées ailleurs,prostatite à Trichomonas (vaginalis) | prostatite (à) Trichomonas,"H,U",subordinate,"12690,21224"
+218,A60.0,infection des organes génitaux et de l'appareil génito-urinaire par le virus de l'herpès,N51,affections des organes génitaux de l'homme au cours de maladies classées ailleurs,infection des organes génitaux par le virus de l'herpès homme,U,subordinate,12692
+219,A60.0,infection des organes génitaux et de l'appareil génito-urinaire par le virus de l'herpès,N51.8,autres affections des organes génitaux de l'homme au cours de maladies classées ailleurs,infection de l'appareil génital de l'homme par le virus de l'herpès [herpes simplex],H,subordinate,21237
+220,A60.0,infection des organes génitaux et de l'appareil génito-urinaire par le virus de l'herpès,N77.0,ulcération de la vulve au cours de maladies infectieuses et parasitaires classées ailleurs,infection des organes génitaux par le virus de l'herpès femme | ulcération de la vulve au cours de infection due au virus de l'herpès [herpes simplex],"H,U",subordinate,"12691,21276"
+221,A60.0,infection des organes génitaux et de l'appareil génito-urinaire par le virus de l'herpès,N77.1,"vaginite, vulvite et vulvo-vaginite au cours de maladies infectieuses et parasitaires classées ailleurs","infection des organes génitaux par le virus de l'herpès femme | vaginite, vulvite et vulvo-vaginite au cours de infection due au virus de l'herpès [herpes simplex]","H,U",subordinate,"12691,21279"
+222,A66,pian,H03.1,atteinte de la paupière au cours d'autres maladies infectieuses classées ailleurs,atteinte de la paupière au cours de pian,H,independent,15654
+223,A67.2,lésions tardives de la pinta,I98.1,troubles cardio-vasculaires au cours d'autres maladies infectieuses et parasitaires classées ailleurs,lésions cardio-vasculaires de la pinta [caraté] | lésions de la pinta [caraté] avec atteinte cardio-vasculaire,"H,U",independent,"12733,16513"
+224,A69.2,maladie de Lyme,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite (au cours de) maladie de Lyme,H,independent,15302
+225,A69.2,maladie de Lyme,G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,polynévrite (au cours de) maladie de Lyme,H,independent,15537
+226,A69.2,maladie de Lyme,M01.2,arthrite au cours de la maladie de Lyme,arthrite au cours de la maladie de Lyme,G,independent,5352
+227,A69.8,autres infections à spirochètes précisées,J17.8,pneumopathie au cours d'autres maladies classées ailleurs,pneumopathie au cours de infection à spirochètes NCA,H,independent,16596
+228,A70,infection à Chlamydia psittaci,J17.8,pneumopathie au cours d'autres maladies classées ailleurs,pneumopathie au cours de ornithose,H,independent,16593
+229,A74.0,conjonctivite à Chlamydia,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite à Chlamydia | conjonctivite (à) (de) Chlamydia,"H,T",independent,"362,15701"
+230,A74.8,autres infections à Chlamydia précisées,K67.0,péritonite à Chlamydia,péritonite à Chlamydia,"G,U",independent,"2163,12758"
+231,A78,fièvre Q,J17.8,pneumopathie au cours d'autres maladies classées ailleurs,pneumopathie au cours de fièvre Q,H,independent,16595
+232,A81.0,maladie de Creutzfeldt-Jakob,F02.1,démence de la maladie de Creutzfeldt-Jakob,démence de la maladie de Creutzfeldt-Jakob,G,independent,2857
+233,A85.0,encéphalite à entérovirus,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite à entérovirus | encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) entérovirus","H,T",subordinate,"419,15336"
+234,A85.1,encéphalite à adénovirus,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite à adénovirus | encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) adénovirus","H,T",subordinate,"420,15334"
+235,A87.0,méningite à entérovirus,G02.0,méningite au cours d'infections virales classées ailleurs,méningite à entérovirus | méningite (au cours de) (consécutive à) (due à) entérovirus,"H,T",subordinate,"425,15314"
+236,A87.1,méningite à adénovirus,G02.0,méningite au cours d'infections virales classées ailleurs,méningite à adénovirus | méningite (au cours de) (consécutive à) (due à) adénovirus,"H,T",subordinate,"426,15315"
+237,A92.1,fièvre due au virus Onyong-nyong,M01.5,arthrite au cours d'autres maladies virales classées ailleurs,arthrite au cours de fièvre de Onyong-nyong,H,independent,17713
+238,B00.1,dermite vésiculaire due au virus de l'herpès,H62.1,otite externe au cours de maladies virales classées ailleurs,otite externe au cours de infection due au virus de l'herpès [herpes simplex],H,independent,16042
+239,B00.3,méningite due au virus de l'herpès,G02.0,méningite au cours d'infections virales classées ailleurs,méningite due au virus de l'herpès | méningite (au cours de) (consécutive à) (due à) virus (de) herpès [herpes simplex],"H,T",subordinate,"476,15309"
+240,B00.4,encéphalite due au virus de l'herpès,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite due au virus de l'herpès | encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) virus de herpès [herpes simplex]","H,T",subordinate,"477,15341"
+241,B00.5,affections oculaires dues au virus de l'herpès,H03.1,atteinte de la paupière au cours d'autres maladies infectieuses classées ailleurs,dermite de la paupière due au virus de l'herpès | atteinte de la paupière au cours de infection due au virus de l'herpès [herpes simplex],"H,U",subordinate,"12838,15651"
+242,B00.5,affections oculaires dues au virus de l'herpès,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite due au virus de l'herpès | conjonctivite (à) (de) virale herpétique [herpes simplex],"H,U",subordinate,"12839,15708"
+243,B00.5,affections oculaires dues au virus de l'herpès,H19.1,kératite et kératoconjonctivite dues au virus de l'herpès,kératite et kératoconjonctivite dues au virus de l'herpès | kératite due au virus de l'herpès | kératoconjonctivite due au virus de l'herpès,"G,U",subordinate,"3823,12834,12835"
+244,B00.5,affections oculaires dues au virus de l'herpès,H22.0,iridocyclite au cours de maladies infectieuses et parasitaires classées ailleurs,uvéite due au virus de l'herpès | iridocyclite due au virus de l'herpès | iritis due au virus de l'herpès | iridocyclite au cours de infection herpétique [herpes simplex],"H,U",subordinate,"12836,12837,12840,15790"
+245,B00.5,affections oculaires dues au virus de l'herpès,,,affections oculaires dues au virus de l'herpès,S,none,478
+246,B00.8,autres formes d'infection due au virus de l'herpès,K77.0,atteintes hépatiques au cours de maladies infectieuses et parasitaires classées ailleurs,hépatite herpétique | hépatite (à) herpétique [herpes simplex],"H,U",subordinate,"12842,17332"
+247,B01.0,méningite varicelleuse,G02.0,méningite au cours d'infections virales classées ailleurs,méningite varicelleuse | méningite (au cours de) (consécutive à) (due à) varicelle,"H,T",subordinate,"483,15311"
+248,B01.1,encéphalite varicelleuse,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite varicelleuse | encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) varicelle","H,T",subordinate,"484,15340"
+249,B01.2,pneumopathie varicelleuse,J17.1,pneumopathie au cours de maladies virales classées ailleurs,pneumopathie varicelleuse | pneumopathie au cours de varicelle,"H,T",subordinate,"485,16585"
+250,B02.0,encéphalite zostérienne,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite zostérienne | encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) zona","H,T",subordinate,"489,15333"
+251,B02.1,méningite zostérienne,G02.0,méningite au cours d'infections virales classées ailleurs,méningite zostérienne | méningite (au cours de) (consécutive à) (due à) zona,"H,T",subordinate,"490,15313"
+252,B02.2,zona accompagné d'autres manifestations neurologiques,G53.0,névralgie post-zostérienne,névralgie post-zostérienne | atteinte post-herpétique du ganglion géniculé | névralgie trigéminée post-herpétique,"G,U",independent,"3527,12849,12851"
+253,B02.2,zona accompagné d'autres manifestations neurologiques,G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,polynévrite post-zostérienne | polynévrite (au cours de) post-herpétique,"H,U",independent,"12850,15540"
+254,B02.2,zona accompagné d'autres manifestations neurologiques,,,zona accompagné d'autres manifestations neurologiques,S,none,491
+255,B02.3,zona ophtalmique,H03.1,atteinte de la paupière au cours d'autres maladies infectieuses classées ailleurs,blépharite zostérienne | atteinte de la paupière au cours de zona,"H,U",independent,"12852,15655"
+256,B02.3,zona ophtalmique,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite zostérienne | conjonctivite (à) (de) zostérienne,"H,U",independent,"12853,15699"
+257,B02.3,zona ophtalmique,H19.0,sclérite et épisclérite au cours de maladies classées ailleurs,sclérite zostérienne,"H,U",independent,"12858,15755"
+258,B02.3,zona ophtalmique,H19.2,kératite et kératoconjonctivite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,kératite zostérienne | kératoconjonctivite zostérienne | kératite et kératoconjonctivite (insterstitielles) au cours de (dues à) zona,"H,U",independent,"12856,12857,15759"
+259,B02.3,zona ophtalmique,H22.0,iridocyclite au cours de maladies infectieuses et parasitaires classées ailleurs,iridocyclite zostérienne | iritis zostérienne | iridocyclite au cours de infection zostérienne,"H,U",independent,"12854,12855,15791"
+260,B02.3,zona ophtalmique,,,zona ophtalmique,S,none,492
+261,B02.8,zona avec autres complications,H62.1,otite externe au cours de maladies virales classées ailleurs,otite externe au cours de zona,H,independent,16043
+262,B05.0,rougeole compliquée d'une encéphalite,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","rougeole compliquée d'une encéphalite | encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) rougeole","H,T",subordinate,"499,15338"
+263,B05.1,rougeole compliquée d'une méningite,G02.0,méningite au cours d'infections virales classées ailleurs,rougeole compliquée d'une méningite | méningite (au cours de) (consécutive à) (due à) rougeole,"H,T",subordinate,"500,15316"
+264,B05.2,rougeole compliquée d'une pneumopathie,J17.1,pneumopathie au cours de maladies virales classées ailleurs,rougeole compliquée d'une pneumopathie | pneumopathie au cours de rougeole,"H,T",subordinate,"501,16583"
+265,B05.3,rougeole compliquée d'une otite moyenne,H67.1,otite moyenne au cours de maladies virales classées ailleurs,rougeole compliquée d'une otite moyenne | otite moyenne au cours de rougeole,"H,T",subordinate,"502,16084"
+266,B05.8,rougeole avec autres complications,H19.2,kératite et kératoconjonctivite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,rougeole compliquée de kératite et de kératoconjonctivite | kératite et kératoconjonctivite (insterstitielles) au cours de (dues à) rougeole,"H,U",independent,"12864,15762"
+267,B06.0,rubéole avec complications neurologiques,G02.0,méningite au cours d'infections virales classées ailleurs,méningite rubéoleuse | méningite (au cours de) (consécutive à) (due à) rubéole,"H,U",subordinate,"12867,15308"
+268,B06.0,rubéole avec complications neurologiques,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite rubéoleuse | méningo-encéphalite rubéoleuse | encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) rubéole","H,U",subordinate,"12866,12868,15339"
+269,B06.0,rubéole avec complications neurologiques,,,rubéole avec complications neurologiques,S,none,507
+270,B06.8,rubéole avec autres complications,J17.1,pneumopathie au cours de maladies virales classées ailleurs,pneumopathie rubéoleuse | pneumopathie au cours de rubéole,"H,U",independent,"12870,16584"
+271,B06.8,rubéole avec autres complications,M01.4,arthrite au cours de la rubéole,arthrite au cours de la rubéole | arthrite rubéoleuse,"G,U",independent,"5354,12869"
+272,B08.1,molluscum contagiosum,H03.1,atteinte de la paupière au cours d'autres maladies infectieuses classées ailleurs,atteinte de la paupière au cours de molluscum contagiosum,H,independent,15650
+273,B22.0,maladie par VIH à l'origine d'une encéphalopathie,F02.4,démence de la maladie due au virus de l'immunodéficience humaine [VIH],démence de la maladie due au virus de l'immunodéficience humaine [VIH],G,independent,2860
+274,B25.0,pneumopathie à cytomégalovirus,J17.1,pneumopathie au cours de maladies virales classées ailleurs,pneumopathie à cytomégalovirus | pneumopathie au cours de maladie à cytomégalovirus,"H,T",subordinate,"576,16582"
+275,B25.1,hépatite à cytomégalovirus,K77.0,atteintes hépatiques au cours de maladies infectieuses et parasitaires classées ailleurs,hépatite à cytomégalovirus,"H,T",subordinate,"577,17328"
+276,B25.2,pancréatite à cytomégalovirus,K87.1,atteinte du pancréas au cours de maladies classées ailleurs,pancréatite à cytomégalovirus,"H,T",subordinate,"578,17427"
+277,B25.8,autres maladies à cytomégalovirus,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) cytomégalovirus",H,independent,15335
+278,B26.0,orchite ourlienne,N51.1,affections du testicule et de l'épididyme au cours de maladies classées ailleurs,orchite ourlienne,"H,T",subordinate,"582,21227"
+279,B26.1,méningite ourlienne,G02.0,méningite au cours d'infections virales classées ailleurs,méningite ourlienne | méningite (au cours de) (consécutive à) (due à) virus (de) ourlien,"H,T",subordinate,"583,15310"
+280,B26.2,encéphalite ourlienne,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite ourlienne | encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) virus de ourlien","H,T",subordinate,"584,15342"
+281,B26.3,pancréatite ourlienne,K87.1,atteinte du pancréas au cours de maladies classées ailleurs,pancréatite ourlienne | pancréatite (à) ourlienne,"H,T",subordinate,"585,17428"
+282,B26.8,oreillons avec autres complications,G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,polynévrite ourlienne | polynévrite (au cours de) oreillons,"H,U",subordinate,"12903,15539"
+283,B26.8,oreillons avec autres complications,I41.1,myocardite au cours de maladies virales classées ailleurs,myocardite ourlienne,"H,U",independent,"12901,16316"
+284,B26.8,oreillons avec autres complications,M01.5,arthrite au cours d'autres maladies virales classées ailleurs,arthrite ourlienne | arthrite au cours de oreillons,"H,U",independent,"12900,17714"
+285,B26.8,oreillons avec autres complications,N08.0,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,néphrite ourlienne | glomérulopathie au cours de oreillons,"H,U",independent,"12902,21033"
+286,B27,mononucléose infectieuse,G02.0,méningite au cours d'infections virales classées ailleurs,méningite (au cours de) (consécutive à) (due à) mononucléose infectieuse,H,independent,15312
+287,B27,mononucléose infectieuse,G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,polynévrite (au cours de) mononucléose infectieuse,H,independent,15538
+288,B30.0,kératoconjonctivite due à un adénovirus,H19.2,kératite et kératoconjonctivite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,kératoconjonctivite due à un adénovirus | kératoconjonctivite épidémique,"H,T",subordinate,"594,15761"
+289,B30.1,conjonctivite due à un adénovirus,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite due à un adénovirus | conjonctivite (à) (de) folliculaire (aiguë) à adénovirus,"H,T",subordinate,"595,15704"
+290,B30.3,conjonctivite hémorragique aiguë épidémique (entérovirale),H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite hémorragique aiguë épidémique (entérovirale) | conjonctivite (à) (de) hémorragique (aiguë) (épidémique),"H,T",independent,"597,15706"
+291,B30.8,autres conjonctivites virales,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,autres conjonctivites virales | conjonctivite (à) (de) Newcastle,"H,T",independent,"598,15702"
+292,B36.9,"mycose superficielle, sans précision",H62.2,otite externe au cours de mycoses,otomycose SAI,H,independent,16045
+293,B37.1,candidose pulmonaire,J17.2,pneumopathie au cours de mycoses,pneumopathie au cours de candidose,H,subordinate,16589
+294,B37.2,candidose de la peau et des ongles,H62.2,otite externe au cours de mycoses,otite externe au cours de candidose,H,independent,16046
+295,B37.3,candidose de la vulve et du vagin,N77.1,"vaginite, vulvite et vulvo-vaginite au cours de maladies infectieuses et parasitaires classées ailleurs","candidose de la vulve et du vagin | vaginite, vulvite et vulvo-vaginite au cours de candidose","H,T",independent,"636,21278"
+296,B37.4,candidose d'autres localisations uro-génitales,N37.0,urétrite au cours de maladies classées ailleurs,urétrite à Candida,"H,U",independent,"12950,21168"
+297,B37.4,candidose d'autres localisations uro-génitales,N51.2,balanite au cours de maladies classées ailleurs,balanite à Candida,"H,U",independent,"12949,21234"
+298,B37.4,candidose d'autres localisations uro-génitales,,,candidose d'autres localisations uro-génitales,S,none,637
+299,B37.5,méningite à Candida,G02.1,méningite au cours de mycoses classées ailleurs,méningite à Candida,"H,T",independent,"638,15317"
+300,B37.6,endocardite à Candida,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,atteinte de l'endocarde (à) (au cours de) Candida,H,subordinate,27024
+301,B37.6,endocardite à Candida,I39.8,"endocardite, valvule non précisée, au cours de maladies classées ailleurs",endocardite à Candida,T,subordinate,639
+302,B38.0,coccidioïdomycose pulmonaire aiguë,J17.2,pneumopathie au cours de mycoses,pneumopathie au cours de coccidioïdomycose,H,independent,16588
+303,B38.1,coccidioïdomycose pulmonaire chronique,J17.2,pneumopathie au cours de mycoses,pneumopathie au cours de coccidioïdomycose,H,independent,16588
+304,B38.2,"coccidioïdomycose pulmonaire, sans précision",J17.2,pneumopathie au cours de mycoses,pneumopathie au cours de coccidioïdomycose,H,independent,16588
+305,B38.4,méningite à coccidioïdomycose,G02.1,méningite au cours de mycoses classées ailleurs,méningite à coccidioïdomycose,"H,T",subordinate,"648,15318"
+306,B39,histoplasmose,J17.2,pneumopathie au cours de mycoses,pneumopathie au cours de histoplasmose,H,independent,16587
+307,B42.0,sporotrichose pulmonaire,J99.8,troubles respiratoires au cours d'autres maladies classées ailleurs,sporotrichose pulmonaire | troubles respiratoires au cours de sporotrichose,"H,T",independent,"674,16809"
+308,B44.0,aspergillose pulmonaire invasive,J17.2,pneumopathie au cours de mycoses,pneumopathie au cours de aspergillose,H,independent,16586
+309,B44.1,autres aspergilloses pulmonaires,J17.2,pneumopathie au cours de mycoses,pneumopathie au cours de aspergillose,H,independent,16586
+310,B44.8,autres formes d'aspergillose,H62.2,otite externe au cours de mycoses,otite externe au cours de aspergillose,H,independent,16044
+311,B45.1,cryptococcose cérébrale,G02.1,méningite au cours de mycoses classées ailleurs,méningite à cryptocoques,"H,U",independent,"12965,15319"
+312,B52.0,"paludisme à Plasmodium malariae, avec atteinte rénale",N08.0,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,glomérulopathie au cours de paludisme à Plasmodium malariae,H,independent,21034
+313,B55,leishmaniose,H03.0,infection parasitaire de la paupière au cours de maladies classées ailleurs,infection parasitaire de la paupière au cours de leishmaniose,H,independent,15646
+314,B56,trypanosomiase africaine,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de trypanosomiase,H,independent,14394
+315,B56,trypanosomiase africaine,G02.8,méningite au cours d'autres maladies infectieuses et parasitaires précisées classées ailleurs,méningite due à trypanosomiase africaine,H,independent,15320
+316,B56,trypanosomiase africaine,G05.2,"encéphalite, myélite et encéphalomyélite au cours d'autres maladies infectieuses et parasitaires classées ailleurs","encéphalite, myélite ou encéphalomyélite au cours de trypanosomiase africaine",H,independent,15345
+317,B57,maladie de Chagas,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de trypanosomiase,H,independent,14394
+318,B57.0,"forme aiguë de la maladie de Chagas, avec atteinte cardiaque",I41.2,myocardite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,"forme aiguë de la maladie de Chagas, avec atteinte cardiaque | forme aiguë de la maladie de Chagas avec myocardite | myocardite au cours de maladie de Chagas (chronique) aiguë","H,T,U",independent,"750,12995,16319"
+319,B57.0,"forme aiguë de la maladie de Chagas, avec atteinte cardiaque",I98.1,troubles cardio-vasculaires au cours d'autres maladies infectieuses et parasitaires classées ailleurs,"forme aiguë de la maladie de Chagas, avec atteinte cardiaque | forme aiguë de la maladie de Chagas avec atteinte cardio-vasculaire NCA","T,U",independent,"750,12994"
+320,B57.2,maladie de Chagas (chronique) avec atteinte cardiaque,I41.2,myocardite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,maladie de Chagas (chronique) avec atteinte cardiaque | maladie de Chagas (chronique) (avec) myocardite | myocardite au cours de maladie de Chagas (chronique),"H,T,U",independent,"752,12998,16318"
+321,B57.2,maladie de Chagas (chronique) avec atteinte cardiaque,I98.1,troubles cardio-vasculaires au cours d'autres maladies infectieuses et parasitaires classées ailleurs,maladie de Chagas (chronique) avec atteinte cardiaque | maladie de Chagas (chronique) (avec) atteinte cardio-vasculaire | maladie de Chagas avec atteinte cardio-vasculaire NCA,"H,T,U",independent,"752,12997,16512"
+322,B57.3,maladie de Chagas (chronique) avec atteinte de l'appareil digestif,K23.1,méga-oesophage au cours de la maladie de Chagas,méga-oesophage au cours de la maladie de Chagas,G,independent,5010
+323,B57.3,maladie de Chagas (chronique) avec atteinte de l'appareil digestif,K93.1,mégacôlon au cours de la maladie de Chagas,mégacôlon au cours de la maladie de Chagas,G,independent,2294
+324,B57.4,maladie de Chagas (chronique) avec atteinte du système nerveux,G02.8,méningite au cours d'autres maladies infectieuses et parasitaires précisées classées ailleurs,méningite due à maladie de Chagas (chronique),H,independent,15321
+325,B57.4,maladie de Chagas (chronique) avec atteinte du système nerveux,G05.2,"encéphalite, myélite et encéphalomyélite au cours d'autres maladies infectieuses et parasitaires classées ailleurs","encéphalite, myélite ou encéphalomyélite au cours de maladie de Chagas (chronique)",H,independent,15346
+326,B58.0,oculopathie à Toxoplasma,H32.0,affections choriorétiniennes au cours de maladies infectieuses et parasitaires classées ailleurs,choriorétinite à Toxoplasma,"H,U",independent,"13002,15833"
+327,B58.0,oculopathie à Toxoplasma,,,oculopathie à Toxoplasma,S,none,757
+328,B58.1,hépatite à Toxoplasma,K77.0,atteintes hépatiques au cours de maladies infectieuses et parasitaires classées ailleurs,hépatite à Toxoplasma | hépatite (à) toxoplasme,"H,T",independent,"758,17331"
+329,B58.2,méningo-encéphalite à Toxoplasma,G05.2,"encéphalite, myélite et encéphalomyélite au cours d'autres maladies infectieuses et parasitaires classées ailleurs","méningo-encéphalite à Toxoplasma | encéphalite, myélite ou encéphalomyélite au cours de toxoplasmose","H,T",independent,"759,15344"
+330,B58.3,toxoplasmose pulmonaire,J17.3,pneumopathie au cours de maladies parasitaires,toxoplasmose pulmonaire | pneumopathie au cours de toxoplasmose,"H,T",subordinate,"760,16592"
+331,B58.8,toxoplasmose avec atteinte d'autres organes,I41.2,myocardite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,myocardite à Toxoplasma | myocardite au cours de toxoplasmose,"H,U",independent,"13003,16317"
+332,B58.8,toxoplasmose avec atteinte d'autres organes,M63.1,myosite au cours d'infections parasitaires et à protozoaires classées ailleurs,myosite à Toxoplasma | myosite au cours de toxoplasmose,"H,U",independent,"13004,19583"
+333,B58.8,toxoplasmose avec atteinte d'autres organes,N16.0,maladie rénale tubulo-interstitielle au cours de maladies infectieuses et parasitaires classées ailleurs,maladie rénale tubulo-interstitielle au cours de toxoplasmose,H,independent,21079
+334,B60.1,acanthamoebiose,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite due à Acanthamoeba | conjonctivite (à) (de) Acanthamoeba,"H,U",independent,"13007,15700"
+335,B60.1,acanthamoebiose,H19.2,kératite et kératoconjonctivite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,kératoconjonctivite due à Acanthamoeba | kératite et kératoconjonctivite (insterstitielles) au cours de (dues à) Acanthamoeba,"H,U",independent,"13008,15760"
+336,B60.2,naegleriase,G05.2,"encéphalite, myélite et encéphalomyélite au cours d'autres maladies infectieuses et parasitaires classées ailleurs","méningo-encéphalite amibienne primitive | encéphalite, myélite ou encéphalomyélite au cours de naegleriase","H,U",independent,"13009,15343"
+337,B65,schistosomiase [bilharziose],D77,autres maladies du sang et des organes hématopoïétiques au cours de maladies classées ailleurs,fibrose splénique due à la schistosomiase [bilharziose],H,independent,13772
+338,B65,schistosomiase [bilharziose],G07,abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,granulome schistosomien du cerveau,H,independent,15363
+339,B65,schistosomiase [bilharziose],I52.1,autres cardiopathies au cours d'autres maladies infectieuses et parasitaires classées ailleurs,affection cardiopulmonaire au cours de schistosomiase,H,independent,16395
+340,B65,schistosomiase [bilharziose],I98.2,varices oesophagiennes au cours de maladies classées ailleurs,varices oesophagiennes au cours de schistosomiase,H,independent,16514
+341,B65,schistosomiase [bilharziose],J17.3,pneumopathie au cours de maladies parasitaires,pneumopathie au cours de schistosomiase,H,independent,16591
+342,B65,schistosomiase [bilharziose],K77.0,atteintes hépatiques au cours de maladies infectieuses et parasitaires classées ailleurs,schistosomiase hépato-splénique | hypertension portale au cours de schistosomiase,H,independent,"17329,17333"
+343,B65,schistosomiase [bilharziose],M63.1,myosite au cours d'infections parasitaires et à protozoaires classées ailleurs,myosite au cours de schistosomiase [bilharziose],H,independent,19582
+344,B65,schistosomiase [bilharziose],N08.0,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,glomérulopathie au cours de schistosomiase [bilharziose],H,independent,21035
+345,B65,schistosomiase [bilharziose],N22.0,calcul urinaire au cours de schistosomiase [bilharziose],calcul urinaire au cours de schistosomiase [bilharziose],G,independent,6502
+346,B65,schistosomiase [bilharziose],N29.1,autres affections du rein et de l'uretère au cours de maladies infectieuses et parasitaires classées ailleurs,affections du rein et de l'uretère au cours de schistosomiase [bilharziose],H,independent,21135
+347,B65,schistosomiase [bilharziose],N33.8,affections de la vessie au cours d'autres maladies classées ailleurs,affections de la vessie au cours de schistosomiase [bilharziose],H,independent,21148
+348,B67,échinococcose,H06.1,infection parasitaire de l'orbite au cours de maladies classées ailleurs,infection de l'orbite due à Echinococcus,H,independent,15687
+349,B67.2,infection osseuse à Echinococcus granulosus,M90.2,ostéopathie au cours d'autres maladies infectieuses classées ailleurs,ostéomyélite due à échinocoques,H,independent,20746
+350,B69.1,cysticercose de l'oeil,H45.1,endophtalmie au cours de maladies classées ailleurs,endophtalmie au cours de cysticercose,H,independent,15931
+351,B69.8,"cysticercose, autres localisations",M63.1,myosite au cours d'infections parasitaires et à protozoaires classées ailleurs,myosite au cours de cysticercose,H,independent,19581
+352,B73,onchocercose,H03.0,infection parasitaire de la paupière au cours de maladies classées ailleurs,infection parasitaire de la paupière au cours de onchocercose,H,independent,15649
+353,B73,onchocercose,H42.8,glaucome au cours d'autres maladies classées ailleurs,glaucome au cours d'onchocercose,H,independent,15903
+354,B73,onchocercose,H45.1,endophtalmie au cours de maladies classées ailleurs,endophtalmie au cours de onchocercose,H,independent,15930
+355,B74,filariose,H13.0,parasitose filarienne de la conjonctive,parasitose filarienne de la conjonctive,G,independent,3786
+356,B74,filariose,N51.8,autres affections des organes génitaux de l'homme au cours de maladies classées ailleurs,chylocèle filarienne de la tunique vaginale du testicule,H,independent,21236
+357,B74.3,loase,H03.0,infection parasitaire de la paupière au cours de maladies classées ailleurs,infection parasitaire de la paupière au cours de loase,H,independent,15647
+358,B75,trichinose,M63.1,myosite au cours d'infections parasitaires et à protozoaires classées ailleurs,myosite au cours de trichinose,H,independent,19584
+359,B77.8,ascaridiase avec autres complications,J17.3,pneumopathie au cours de maladies parasitaires,pneumopathie au cours de ascaridiase,H,independent,16590
+360,B78,anguillulose [strongyloïdose],N08.0,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,glomérulopathie au cours de anguillulose [strongyloïdose],H,independent,21036
+361,B80,oxyurose,N77.1,"vaginite, vulvite et vulvo-vaginite au cours de maladies infectieuses et parasitaires classées ailleurs","vaginite, vulvite et vulvo-vaginite au cours de oxyurose",H,independent,21280
+362,B83.0,larva migrans viscérale,H45.1,endophtalmie au cours de maladies classées ailleurs,endophtalmie au cours de toxocarose,H,independent,15932
+363,B83.2,angiostrongyloïdose à Parastrongylus cantonensis,G05.2,"encéphalite, myélite et encéphalomyélite au cours d'autres maladies infectieuses et parasitaires classées ailleurs",méningo-encéphalite à éosinophiles,"H,U",independent,"13092,15347"
+364,B85.3,phtiriase,H03.0,infection parasitaire de la paupière au cours de maladies classées ailleurs,infection parasitaire de la paupière au cours de phtiriase,H,independent,15648
+365,B87.2,myiase oculaire,H06.1,infection parasitaire de l'orbite au cours de maladies classées ailleurs,myiase de l'orbite,H,independent,15688
+366,B88.0,autres acariases,H03.0,infection parasitaire de la paupière au cours de maladies classées ailleurs,dermite de la paupière due à Demodex,H,independent,15645
+367,C40,tumeur maligne des os et du cartilage articulaire des membres,M90.6,ostéite déformante au cours de maladies tumorales,ostéite déformante au cours de tumeurs osseuses malignes,H,independent,20790
+368,C41,"tumeur maligne des os et du cartilage articulaire, de sièges autres et non précisés",M90.6,ostéite déformante au cours de maladies tumorales,ostéite déformante au cours de tumeurs osseuses malignes,H,independent,20790
+369,C79.5,tumeur maligne secondaire des os et de la moelle osseuse,M49.5,tassement vertébral au cours de maladies classées ailleurs,fracture métastatique d'une vertèbre,H,independent,19270
+370,C80,tumeur maligne de siège non précisé,G73.1,syndrome de Lambert-Eaton,syndrome de Lambert-Eaton,G,independent,3628
+371,C81,maladie de Hodgkin,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de lymphome,H,independent,21082
+372,C82,lymphome folliculaire [nodulaire] non hodgkinien,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de lymphome,H,independent,21082
+373,C83,lymphome diffus non hodgkinien,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de lymphome,H,independent,21082
+374,C84,lymphomes périphériques et cutanés à cellules T,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de lymphome,H,independent,21082
+375,C85,"lymphome non hodgkinien, de types autres et non précisés",N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de lymphome,H,independent,21082
+376,C88.0,macroglobulinémie de Waldenström,N08.1,glomérulopathie au cours de maladies tumorales,glomérulopathie au cours de macroglobulinémie de Waldenström,H,independent,21038
+377,C90.0,myélome multiple,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de myélome multiple,H,independent,18787
+378,C90.0,myélome multiple,M82.0,ostéoporose au cours de myélomatose multiple,ostéoporose au cours de myélomatose multiple,G,independent,5847
+379,C90.0,myélome multiple,N08.1,glomérulopathie au cours de maladies tumorales,glomérulopathie au cours de myélome multiple,H,independent,21039
+380,C90.0,myélome multiple,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de myélome multiple,H,independent,21083
+381,C91,leucémie lymphoïde,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de leucémie,H,independent,18786
+382,C91,leucémie lymphoïde,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de leucémie,H,independent,21081
+383,C92,leucémie myéloïde,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de leucémie,H,independent,18786
+384,C92,leucémie myéloïde,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de leucémie,H,independent,21081
+385,C93,leucémie monocytaire,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de leucémie,H,independent,18786
+386,C93,leucémie monocytaire,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de leucémie,H,independent,21081
+387,C94,autres leucémies à cellules précisées,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de leucémie,H,independent,18786
+388,C94,autres leucémies à cellules précisées,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de leucémie,H,independent,21081
+389,C95,leucémie à cellules non précisées,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de leucémie,H,independent,18786
+390,C95,leucémie à cellules non précisées,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de leucémie,H,independent,21081
+391,C96,"tumeurs malignes des tissus lymphoïde, hématopoïétique et apparentés, autres et non précisées",N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de lymphome,H,independent,21082
+392,C96.1,histiocytose maligne,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de histiocytose maligne,H,independent,18785
+393,D57,affections à hématies falciformes [drépanocytaires],H36.8,autres affections rétiniennes au cours de maladies classées ailleurs,rétinopathie proliférante au cours de l'anémie à hématies falciformes,H,independent,15891
+394,D57,affections à hématies falciformes [drépanocytaires],M14.0,arthropathie goutteuse due à un déficit enzymatique et autres troubles héréditaires,arthropathie goutteuse au cours de drépanocytose,H,independent,18365
+395,D57,affections à hématies falciformes [drépanocytaires],N08.2,glomérulopathie au cours de maladies du sang et des anomalies du système immunitaire,glomérulopathie au cours de maladie à hématies falciformes [drépanocytaires],H,independent,21040
+396,D59.3,syndrome hémolytique urémique,N08.2,glomérulopathie au cours de maladies du sang et des anomalies du système immunitaire,glomérulopathie au cours de syndrome hémolytique urémique,H,independent,21044
+397,D65,coagulation intravasculaire disséminée [syndrome de défibrination],N08.2,glomérulopathie au cours de maladies du sang et des anomalies du système immunitaire,glomérulopathie au cours de coagulation intravasculaire disséminée [syndrome de défibrination],H,independent,21043
+398,D66,carence héréditaire en facteur VIII,M36.2,arthropathie hémophilique,arthropathie hémophilique,G,independent,5590
+399,D67,carence héréditaire en facteur IX,M36.2,arthropathie hémophilique,arthropathie hémophilique,G,independent,5590
+400,D68,autres anomalies de la coagulation,M36.2,arthropathie hémophilique,arthropathie hémophilique,G,independent,5590
+401,D69.0,purpura allergique,M36.4,arthropathie au cours de réactions d'hypersensibilité classées ailleurs,arthropathie au cours du purpura de Schönlein-Henoch,H,independent,18788
+402,D69.0,purpura allergique,N08.2,glomérulopathie au cours de maladies du sang et des anomalies du système immunitaire,glomérulopathie au cours de purpura rhumatoïde [syndrome de Schönlein-Henoch],H,independent,21041
+403,D70,agranulocytose,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+404,D71,anomalies fonctionnelles des granulocytes neutrophiles,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+405,D72,autres anomalies des leucocytes,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+406,D73,maladies de la rate,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+407,D74,méthémoglobinémie,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+408,D75,autres maladies du sang et des organes hématopoïétiques,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+409,D76,certaines maladies du tissu lymphoréticulaire et du système réticulo-histiocytaire,M36.3,arthropathie au cours d'autres maladies du sang classées ailleurs,arthropathie au cours d'autres maladies du sang classées ailleurs,G,independent,5591
+410,D80,déficit immunitaire avec déficit prédominant de la production d'anticorps,M36.8,atteintes systémiques du tissu conjonctif au cours d'autres maladies classées ailleurs,atteintes systémiques du tissu conjonctif au cours de hypogammaglobulinémie,H,independent,18790
+411,D86,sarcoïdose,N16.2,maladie rénale tubulo-interstitielle au cours de maladies du sang et des troubles du système immunitaire,maladie rénale tubulo-interstitielle au cours de sarcoïdose,H,independent,21084
+412,D86.8,sarcoïdose de localisations autres et associées,G53.2,paralysie de plusieurs nerfs crâniens au cours de sarcoïdose,paralysie de plusieurs nerfs crâniens au cours de sarcoïdose | paralysie multiple des nerfs crâniens de la sarcoïdose,"G,U",independent,"3529,13793"
+413,D86.8,sarcoïdose de localisations autres et associées,H22.1,iridocyclite au cours d'autres maladies classées ailleurs,iridocyclite de la sarcoïdose | iridocyclite au cours de sarcoïdose,"H,U",independent,"13790,15795"
+414,D86.8,sarcoïdose de localisations autres et associées,I41.8,myocardite au cours d'autres maladies classées ailleurs,myocardite de la sarcoïdose | myocardite (au cours de) sarcoïdose,"H,U",independent,"13791,16320"
+415,D86.8,sarcoïdose de localisations autres et associées,K77.8,atteintes hépatiques au cours d'autres maladies classées ailleurs,granulomes hépatiques au cours de sarcoïdose,H,independent,17335
+416,D86.8,sarcoïdose de localisations autres et associées,M14.8,arthropathie au cours d'autres maladies précisées classées ailleurs,arthropathie de la sarcoïdose | arthropathie au cours de sarcoïdose,"H,U",independent,"13788,18377"
+417,D86.8,sarcoïdose de localisations autres et associées,M63.3,myosite au cours de sarcoïdose,myosite au cours de sarcoïdose | myosite de la sarcoïdose,"G,U",independent,"5723,13792"
+418,D89.1,cryoglobulinémie,J99.8,troubles respiratoires au cours d'autres maladies classées ailleurs,troubles respiratoires au cours de cryoglobulinémie,H,independent,16808
+419,D89.1,cryoglobulinémie,N08.2,glomérulopathie au cours de maladies du sang et des anomalies du système immunitaire,glomérulopathie au cours de cryoglobulinémie,H,independent,21042
+420,D89.1,cryoglobulinémie,N16.2,maladie rénale tubulo-interstitielle au cours de maladies du sang et des troubles du système immunitaire,maladie rénale tubulo-interstitielle au cours de cryoglobulinémie mixte,H,independent,21085
+421,E00,syndrome d'insuffisance thyroïdienne congénitale,M14.5,"arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",arthropathie au cours de hypothyroïdie,H,independent,18370
+422,E00.1,syndrome d'insuffisance thyroïdienne congénitale de type myxoedémateux,G13.2,affections dégénératives systémiques affectant principalement le système nerveux central au cours d'un myxoedème,affections dégénératives systémiques affectant principalement le système nerveux central au cours d'un myxoedème,G,independent,3377
+423,E01,affections thyroïdiennes et apparentées liées à une carence en iode,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de hypothyroïdie acquise,H,independent,14400
+424,E01,affections thyroïdiennes et apparentées liées à une carence en iode,M14.5,"arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",arthropathie au cours de hypothyroïdie,H,independent,18370
+425,E02,hypothyroïdie par carence inapparente en iode,M14.5,"arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",arthropathie au cours de hypothyroïdie,H,independent,18370
+426,E03,autres hypothyroïdies,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de hypothyroïdie acquise,H,independent,14400
+427,E03,autres hypothyroïdies,G13.2,affections dégénératives systémiques affectant principalement le système nerveux central au cours d'un myxoedème,affections dégénératives systémiques affectant principalement le système nerveux central au cours d'un myxoedème,G,independent,3377
+428,E03,autres hypothyroïdies,M14.5,"arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",arthropathie au cours de hypothyroïdie,H,independent,18370
+429,E05,thyréotoxicose [hyperthyroïdie],G73.0,syndrome myasthénique au cours de maladies endocriniennes,syndrome myasthénique au cours de thyréotoxicose [hyperthyroïdie],H,independent,15580
+430,E05,thyréotoxicose [hyperthyroïdie],G73.5,myopathie au cours de maladies endocriniennes,myopathie thyréotoxique,H,independent,15583
+431,E05,thyréotoxicose [hyperthyroïdie],H06.2,exophtalmie thyréotoxique,exophtalmie thyréotoxique,G,independent,3765
+432,E05,thyréotoxicose [hyperthyroïdie],M14.5,"arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",arthropathie au cours de thyréotoxicose [hyperthyroïdie],H,independent,18371
+433,E05.9,"thyréotoxicose, sans précision",I43.8,myocardiopathie au cours d'autres maladies classées ailleurs,cardiopathie thyréotoxique,"H,U",independent,"13834,16331"
+434,E10.2,diabète sucré insulino-dépendant | avec complications rénales,N08.3,glomérulopathie au cours du diabète sucré,glomérulopathie au cours du diabète sucré | glomérulonéphrite intracapillaire | néphropathie diabétique | syndrome de Kimmelstiel-Wilson,"G,U",independent,"6436,13867,13868,13869"
+435,E10.2,diabète sucré insulino-dépendant | avec complications rénales,,,diabète sucré insulino-dépendant | avec complications rénales,S,none,2476
+436,E10.3,diabète sucré insulino-dépendant | avec complications oculaires,H28.0,cataracte diabétique,cataracte diabétique,"G,U",independent,"3867,13871"
+437,E10.3,diabète sucré insulino-dépendant | avec complications oculaires,H36.0,rétinopathie diabétique,rétinopathie diabétique,"G,U",independent,"3914,13870"
+438,E10.3,diabète sucré insulino-dépendant | avec complications oculaires,,,diabète sucré insulino-dépendant | avec complications oculaires,S,none,2477
+439,E10.4,diabète sucré insulino-dépendant | avec complications neurologiques,G59.0,mononévrite diabétique,mononévrite diabétique,"G,U",independent,"3573,13873"
+440,E10.4,diabète sucré insulino-dépendant | avec complications neurologiques,G63.2,polynévrite diabétique,polynévrite diabétique,"G,U",independent,"3597,13875"
+441,E10.4,diabète sucré insulino-dépendant | avec complications neurologiques,G73.0,syndrome myasthénique au cours de maladies endocriniennes,amyotrophie diabétique | syndrome myasthénique au cours de amyotrophie diabétique,"H,U",independent,"13872,15579"
+442,E10.4,diabète sucré insulino-dépendant | avec complications neurologiques,G99.0,neuropathie du système nerveux autonome au cours de maladies endocriniennes et métaboliques,neuropathie végétative diabétique | polynévrite système nerveux autonome diabétique,"H,U",independent,"13874,13876,15625"
+443,E10.4,diabète sucré insulino-dépendant | avec complications neurologiques,,,diabète sucré insulino-dépendant | avec complications neurologiques,S,none,2478
+444,E10.5,diabète sucré insulino-dépendant | avec complications vasculaires périphériques,I79.2,angiopathie périphérique au cours de maladies classées ailleurs,angiopathie périphérique diabétique,"H,U",independent,"13878,16456"
+445,E10.6,diabète sucré insulino-dépendant | avec autres complications précisées,M14.2,arthropathie diabétique,arthropathie diabétique,"G,U",independent,"5436,13881"
+446,E10.6,diabète sucré insulino-dépendant | avec autres complications précisées,M14.6,arthropathie neuropathique,arthropathie diabétique nerveuse | arthropathie neuropathique diabétique,"H,U",independent,"13880,18373"
+447,E11.2,diabète sucré non insulino-dépendant | avec complications rénales,N08.3,glomérulopathie au cours du diabète sucré,glomérulopathie au cours du diabète sucré | glomérulonéphrite intracapillaire | néphropathie diabétique | syndrome de Kimmelstiel-Wilson,"G,U",independent,"6436,13889,13890,13891"
+448,E11.2,diabète sucré non insulino-dépendant | avec complications rénales,,,diabète sucré non insulino-dépendant | avec complications rénales,S,none,2487
+449,E11.3,diabète sucré non insulino-dépendant | avec complications oculaires,H28.0,cataracte diabétique,cataracte diabétique,"G,U",independent,"3867,13892"
+450,E11.3,diabète sucré non insulino-dépendant | avec complications oculaires,H36.0,rétinopathie diabétique,rétinopathie diabétique,"G,U",independent,"3914,13893"
+451,E11.3,diabète sucré non insulino-dépendant | avec complications oculaires,,,diabète sucré non insulino-dépendant | avec complications oculaires,S,none,2488
+452,E11.4,diabète sucré non insulino-dépendant | avec complications neurologiques,G59.0,mononévrite diabétique,mononévrite diabétique,"G,U",independent,"3573,13895"
+453,E11.4,diabète sucré non insulino-dépendant | avec complications neurologiques,G63.2,polynévrite diabétique,polynévrite diabétique,"G,U",independent,"3597,13897"
+454,E11.4,diabète sucré non insulino-dépendant | avec complications neurologiques,G73.0,syndrome myasthénique au cours de maladies endocriniennes,amyotrophie diabétique | syndrome myasthénique au cours de amyotrophie diabétique,"H,U",independent,"13894,15579"
+455,E11.4,diabète sucré non insulino-dépendant | avec complications neurologiques,G99.0,neuropathie du système nerveux autonome au cours de maladies endocriniennes et métaboliques,neuropathie végétative diabétique | polynévrite système nerveux autonome diabétique,"H,U",independent,"13896,13898,15625"
+456,E11.4,diabète sucré non insulino-dépendant | avec complications neurologiques,,,diabète sucré non insulino-dépendant | avec complications neurologiques,S,none,2489
+457,E11.5,diabète sucré non insulino-dépendant | avec complications vasculaires périphériques,I79.2,angiopathie périphérique au cours de maladies classées ailleurs,angiopathie périphérique diabétique,"H,U",independent,"13899,16456"
+458,E11.6,diabète sucré non insulino-dépendant | avec autres complications précisées,M14.2,arthropathie diabétique,arthropathie diabétique,"G,U",independent,"5436,13902"
+459,E11.6,diabète sucré non insulino-dépendant | avec autres complications précisées,M14.6,arthropathie neuropathique,arthropathie diabétique nerveuse | arthropathie neuropathique diabétique,"H,U",independent,"13903,18373"
+460,E12.2,diabète sucré de malnutrition | avec complications rénales,N08.3,glomérulopathie au cours du diabète sucré,glomérulopathie au cours du diabète sucré | néphropathie diabétique | glomérulonéphrite intracapillaire,"G,U",independent,"6436,13911,13912,13913"
+461,E12.2,diabète sucré de malnutrition | avec complications rénales,,,diabète sucré de malnutrition | avec complications rénales,S,none,2498
+462,E12.3,diabète sucré de malnutrition | avec complications oculaires,H28.0,cataracte diabétique,cataracte diabétique,"G,U",independent,"3867,13914"
+463,E12.3,diabète sucré de malnutrition | avec complications oculaires,H36.0,rétinopathie diabétique,rétinopathie diabétique,"G,U",independent,"3914,13915"
+464,E12.3,diabète sucré de malnutrition | avec complications oculaires,,,diabète sucré de malnutrition | avec complications oculaires,S,none,2499
+465,E12.4,diabète sucré de malnutrition | avec complications neurologiques,G59.0,mononévrite diabétique,mononévrite diabétique,"G,U",independent,"3573,13918"
+466,E12.4,diabète sucré de malnutrition | avec complications neurologiques,G63.2,polynévrite diabétique,polynévrite diabétique,"G,U",independent,"3597,13920"
+467,E12.4,diabète sucré de malnutrition | avec complications neurologiques,G73.0,syndrome myasthénique au cours de maladies endocriniennes,amyotrophie diabétique | syndrome myasthénique au cours de amyotrophie diabétique,"H,U",independent,"13917,15579"
+468,E12.4,diabète sucré de malnutrition | avec complications neurologiques,G99.0,neuropathie du système nerveux autonome au cours de maladies endocriniennes et métaboliques,polynévrite système nerveux autonome diabétique | neuropathie végétative diabétique,"H,U",independent,"13916,13919,15625"
+469,E12.4,diabète sucré de malnutrition | avec complications neurologiques,,,diabète sucré de malnutrition | avec complications neurologiques,S,none,2500
+470,E12.5,diabète sucré de malnutrition | avec complications vasculaires périphériques,I79.2,angiopathie périphérique au cours de maladies classées ailleurs,angiopathie périphérique diabétique,"H,U",independent,"13923,16456"
+471,E12.6,diabète sucré de malnutrition | avec autres complications précisées,M14.2,arthropathie diabétique,arthropathie diabétique,"G,U",independent,"5436,13924"
+472,E12.6,diabète sucré de malnutrition | avec autres complications précisées,M14.6,arthropathie neuropathique,arthropathie diabétique nerveuse | arthropathie neuropathique diabétique,"H,U",independent,"13925,18373"
+473,E13.2,autres diabètes sucrés précisés | avec complications rénales,N08.3,glomérulopathie au cours du diabète sucré,glomérulopathie au cours du diabète sucré | néphropathie diabétique | syndrome de Kimmelstiel-Wilson | glomérulonéphrite intracapillaire,"G,U",independent,"6436,13933,13934,13935"
+474,E13.2,autres diabètes sucrés précisés | avec complications rénales,,,autres diabètes sucrés précisés | avec complications rénales,S,none,2509
+475,E13.3,autres diabètes sucrés précisés | avec complications oculaires,H28.0,cataracte diabétique,cataracte diabétique,"G,U",independent,"3867,13936"
+476,E13.3,autres diabètes sucrés précisés | avec complications oculaires,H36.0,rétinopathie diabétique,rétinopathie diabétique,"G,U",independent,"3914,13937"
+477,E13.3,autres diabètes sucrés précisés | avec complications oculaires,,,autres diabètes sucrés précisés | avec complications oculaires,S,none,2510
+478,E13.4,autres diabètes sucrés précisés | avec complications neurologiques,G59.0,mononévrite diabétique,mononévrite diabétique,"G,U",independent,"3573,13942"
+479,E13.4,autres diabètes sucrés précisés | avec complications neurologiques,G63.2,polynévrite diabétique,polynévrite diabétique,"G,U",independent,"3597,13940"
+480,E13.4,autres diabètes sucrés précisés | avec complications neurologiques,G73.0,syndrome myasthénique au cours de maladies endocriniennes,amyotrophie diabétique | syndrome myasthénique au cours de amyotrophie diabétique,"H,U",independent,"13938,15579"
+481,E13.4,autres diabètes sucrés précisés | avec complications neurologiques,G99.0,neuropathie du système nerveux autonome au cours de maladies endocriniennes et métaboliques,polynévrite système nerveux autonome diabétique | neuropathie végétative diabétique,"H,U",independent,"13939,13941,15625"
+482,E13.4,autres diabètes sucrés précisés | avec complications neurologiques,,,autres diabètes sucrés précisés | avec complications neurologiques,S,none,2511
+483,E13.5,autres diabètes sucrés précisés | avec complications vasculaires périphériques,I79.2,angiopathie périphérique au cours de maladies classées ailleurs,angiopathie périphérique diabétique,"H,U",independent,"13943,16456"
+484,E13.6,autres diabètes sucrés précisés | avec autres complications précisées,M14.2,arthropathie diabétique,arthropathie diabétique,"G,U",independent,"5436,13947"
+485,E13.6,autres diabètes sucrés précisés | avec autres complications précisées,M14.6,arthropathie neuropathique,arthropathie diabétique nerveuse | arthropathie neuropathique diabétique,"H,U",independent,"13946,18373"
+486,E14.2,"diabète sucré, sans précision | avec complications rénales",N08.3,glomérulopathie au cours du diabète sucré,glomérulopathie au cours du diabète sucré | glomérulonéphrite intracapillaire | néphropathie diabétique | syndrome de Kimmelstiel-Wilson,"G,U",independent,"6436,13955,13956,13957"
+487,E14.2,"diabète sucré, sans précision | avec complications rénales",,,"diabète sucré, sans précision | avec complications rénales",S,none,2520
+488,E14.3,"diabète sucré, sans précision | avec complications oculaires",H28.0,cataracte diabétique,cataracte diabétique,"G,U",independent,"3867,13959"
+489,E14.3,"diabète sucré, sans précision | avec complications oculaires",H36.0,rétinopathie diabétique,rétinopathie diabétique,"G,U",independent,"3914,13958"
+490,E14.3,"diabète sucré, sans précision | avec complications oculaires",,,"diabète sucré, sans précision | avec complications oculaires",S,none,2521
+491,E14.4,"diabète sucré, sans précision | avec complications neurologiques",G59.0,mononévrite diabétique,mononévrite diabétique,"G,U",independent,"3573,13960"
+492,E14.4,"diabète sucré, sans précision | avec complications neurologiques",G63.2,polynévrite diabétique,polynévrite diabétique,"G,U",independent,"3597,13962"
+493,E14.4,"diabète sucré, sans précision | avec complications neurologiques",G73.0,syndrome myasthénique au cours de maladies endocriniennes,amyotrophie diabétique | syndrome myasthénique au cours de amyotrophie diabétique,"H,U",independent,"13964,15579"
+494,E14.4,"diabète sucré, sans précision | avec complications neurologiques",G99.0,neuropathie du système nerveux autonome au cours de maladies endocriniennes et métaboliques,neuropathie végétative diabétique | polynévrite système nerveux autonome diabétique,"H,U",independent,"13961,13963,15625"
+495,E14.4,"diabète sucré, sans précision | avec complications neurologiques",,,"diabète sucré, sans précision | avec complications neurologiques",S,none,2522
+496,E14.5,"diabète sucré, sans précision | avec complications vasculaires périphériques",I79.2,angiopathie périphérique au cours de maladies classées ailleurs,angiopathie périphérique diabétique,"H,U",independent,"13966,16456"
+497,E14.6,"diabète sucré, sans précision | avec autres complications précisées",M14.2,arthropathie diabétique,arthropathie diabétique,"G,U",independent,"5436,13968"
+498,E14.6,"diabète sucré, sans précision | avec autres complications précisées",M14.6,arthropathie neuropathique,arthropathie diabétique nerveuse | arthropathie neuropathique diabétique,"H,U",independent,"13969,18373"
+499,E20,hypoparathyroïdie,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+500,E20,hypoparathyroïdie,G73.5,myopathie au cours de maladies endocriniennes,myopathie au cours de hypoparathyroïdie,H,independent,15582
+501,E20,hypoparathyroïdie,H28.1,"cataracte au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",cataracte au cours de hypoparathyroïdie,H,independent,15810
+502,E20,hypoparathyroïdie,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+503,E21,hyperparathyroïdie et autres maladies de la glande parathyroïde,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+504,E21,hyperparathyroïdie et autres maladies de la glande parathyroïde,M14.1,arthropathie à microcristaux au cours d'autres troubles métaboliques classés ailleurs,arthropathie à microcristaux au cours d'hyperparathyroïdie,H,independent,18367
+505,E21,hyperparathyroïdie et autres maladies de la glande parathyroïde,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+506,E21.0,hyperparathyroïdie primaire,G73.5,myopathie au cours de maladies endocriniennes,myopathie au cours de hyperparathyroïdie,H,independent,15581
+507,E21.1,"hyperparathyroïdie secondaire, non classée ailleurs",G73.5,myopathie au cours de maladies endocriniennes,myopathie au cours de hyperparathyroïdie,H,independent,15581
+508,E21.2,autres hyperparathyroïdies,G73.5,myopathie au cours de maladies endocriniennes,myopathie au cours de hyperparathyroïdie,H,independent,15581
+509,E21.3,"hyperparathyroïdie, sans précision",G73.5,myopathie au cours de maladies endocriniennes,myopathie au cours de hyperparathyroïdie,H,independent,15581
+510,E22,hypersécrétion de l'hypophyse,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+511,E22,hypersécrétion de l'hypophyse,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+512,E22.0,acromégalie et gigantisme,M14.5,"arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",arthropathie associée à l'acromégalie | arthropathie au cours de acromégalie et gigantisme,"H,U",independent,"13990,18368"
+513,E23,hyposécrétion et autres anomalies de l'hypophyse,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+514,E23,hyposécrétion et autres anomalies de l'hypophyse,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+515,E24,syndrome de Cushing,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+516,E24,syndrome de Cushing,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+517,E25,anomalies génito-surrénaliennes,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+518,E25,anomalies génito-surrénaliennes,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+519,E26,hyperaldostéronisme,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+520,E26,hyperaldostéronisme,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+521,E27,autres maladies de la glande surrénale,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+522,E27,autres maladies de la glande surrénale,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+523,E28,dysfonction ovarienne,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+524,E28,dysfonction ovarienne,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+525,E29,dysfonction testiculaire,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+526,E29,dysfonction testiculaire,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+527,E30,"anomalies de la puberté, non classées ailleurs",G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+528,E30,"anomalies de la puberté, non classées ailleurs",M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+529,E31,dysfonctionnement pluriglandulaire,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+530,E31,dysfonctionnement pluriglandulaire,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+531,E32,maladies du thymus,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+532,E32,maladies du thymus,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+533,E34,autres troubles endocriniens,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+534,E34,autres troubles endocriniens,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,G,independent,5848
+535,E50.8,autres manifestations de l'avitaminose A,L86,kératodermie au cours de maladies classées ailleurs,kératose folliculaire due à l'avitaminose A | xérodermie due à l'avitaminose A,"H,U",independent,"14076,14077,17579"
+536,E51.1,béribéri,I98.8,autres troubles précisés de l'appareil circulatoire au cours de maladies classées ailleurs,béribéri humide,U,independent,14079
+537,E52,carence en acide nicotinique [pellagre],F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de carence en acide nicotinique [pellagre],H,independent,14404
+538,E53.8,autres avitaminoses précisées du groupe B,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de carence en vitamine B12,H,independent,14397
+539,E53.8,autres avitaminoses précisées du groupe B,G32.0,dégénérescence combinée subaiguë de la moelle épinière au cours de maladies classées ailleurs,dégénérescence combinée subaiguë de la moelle épinière au cours de carence en vitamine B12,H,independent,15422
+540,E63.9,"carence nutritionnelle, sans précision",I43.2,myocardiopathie au cours de maladies nutritionnelles,myocardiopathie nutritionnelle SAI | myocardiopathie nutritionnelle,"H,U",independent,"14098,16330"
+541,E70,anomalies du métabolisme des acides aminés aromatiques,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+542,E70.2,anomalies du métabolisme de la tyrosine,M36.8,atteintes systémiques du tissu conjonctif au cours d'autres maladies classées ailleurs,atteintes systémiques du tissu conjonctif au cours de ochronose,H,independent,18789
+543,E71,anomalies du métabolisme des acides aminés à chaîne ramifiée et du métabolisme des acides gras,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+544,E72,autres anomalies du métabolisme des acides aminés,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+545,E72.0,anomalies du transport des acides aminés,H42.0,"glaucome au cours de maladies endocriniennes, nutritionnelles et métaboliques",glaucome au cours de syndrome de Lowe,H,independent,15901
+546,E72.0,anomalies du transport des acides aminés,N16.3,maladie rénale tubulo-interstitielle au cours de maladies métaboliques,maladie rénale tubulo-interstitielle au cours de cystinose,H,independent,21088
+547,E73,intolérance au lactose,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+548,E74,autres anomalies du métabolisme des hydrates de carbone,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+549,E74.0,thésaurismose glycogénique,G73.6,myopathie au cours de maladies métaboliques,myopathie au cours d'anomalies de stockage (du) (des) glycogène,H,independent,15585
+550,E74.0,thésaurismose glycogénique,N16.3,maladie rénale tubulo-interstitielle au cours de maladies métaboliques,maladie rénale tubulo-interstitielle au cours de glycogénose,H,independent,21086
+551,E75,anomalies du métabolisme des sphingolipides et autres anomalies du stockage des lipides,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de lipidose cérébrale,H,independent,14393
+552,E75,anomalies du métabolisme des sphingolipides et autres anomalies du stockage des lipides,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+553,E75,anomalies du métabolisme des sphingolipides et autres anomalies du stockage des lipides,G73.6,myopathie au cours de maladies métaboliques,myopathie au cours d'anomalies de stockage (du) (des) lipides,H,independent,15584
+554,E75,anomalies du métabolisme des sphingolipides et autres anomalies du stockage des lipides,H36.8,autres affections rétiniennes au cours de maladies classées ailleurs,dystrophie rétinienne au cours des anomalies du stockage des lipides,H,independent,15892
+555,E75.2,autres sphingolipidoses,N08.4,"glomérulopathie au cours de maladies endocriniennes, nutritionnelles et métaboliques",glomérulopathie au cours de maladie de Fabry(-Anderson),H,independent,21047
+556,E76,anomalies du métabolisme des glucosaminoglycanes,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+557,E77,anomalies du métabolisme des glycoprotéines,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+558,E78,anomalies du métabolisme des lipoprotéines et autres lipidémies,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+559,E78.6,déficit en lipoprotéines,N08.4,"glomérulopathie au cours de maladies endocriniennes, nutritionnelles et métaboliques",glomérulopathie au cours de déficit en lécithine-cholestérol-acyltransférase,H,independent,21046
+560,E78.8,autres anomalies du métabolisme des lipoprotéines,M14.3,dermato-arthrite lipoïde,dermato-arthrite lipoïde,G,independent,5437
+561,E79,anomalies du métabolisme de la purine et de la pyrimidine,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+562,E79.1,syndrome de Lesch-Nyhan,M14.0,arthropathie goutteuse due à un déficit enzymatique et autres troubles héréditaires,arthropathie goutteuse au cours de syndrome de Lesch-Nyhan,H,independent,18366
+563,E80,anomalies du métabolisme de la porphyrine et de la bilirubine,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+564,E83,anomalies du métabolisme des minéraux,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+565,E83.0,anomalies du métabolisme du cuivre,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de dégénérescence hépatolenticulaire,H,independent,14402
+566,E83.0,anomalies du métabolisme du cuivre,N16.3,maladie rénale tubulo-interstitielle au cours de maladies métaboliques,maladie rénale tubulo-interstitielle au cours de maladie de Wilson,H,independent,21087
+567,E83.1,anomalies du métabolisme du fer,M14.5,"arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",arthropathie au cours de hémochromatose,H,independent,18369
+568,E83.5,anomalies du métabolisme du calcium,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de hypercalcémie,H,independent,14401
+569,E84,fibrose kystique,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+570,E84.1,fibrose kystique avec manifestations intestinales,P75,iléus méconial,iléus méconial,"G,U",independent,"7377,14268"
+571,E85,amylose,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+572,E85,amylose,G99.0,neuropathie du système nerveux autonome au cours de maladies endocriniennes et métaboliques,neuropathie végétative amyloïde,H,independent,15624
+573,E85,amylose,H42.0,"glaucome au cours de maladies endocriniennes, nutritionnelles et métaboliques",glaucome au cours de amylose,H,independent,15902
+574,E85,amylose,I43.1,myocardiopathie au cours de maladies métaboliques,amylose cardiaque,H,independent,16329
+575,E85,amylose,I68.0,angiopathie amyloïde cérébrale,angiopathie amyloïde cérébrale,G,independent,4435
+576,E85,amylose,L99.0,amylose cutanée,amylose cutanée,G,independent,5338
+577,E85,amylose,M14.4,arthropathie au cours d'amylose,arthropathie au cours d'amylose,G,independent,5438
+578,E85,amylose,N08.4,"glomérulopathie au cours de maladies endocriniennes, nutritionnelles et métaboliques",glomérulopathie au cours de amylose,H,independent,21045
+579,E86,hypovolémie,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+580,E87,autres déséquilibres hydro-électrolytiques et acido-basiques,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+581,E88,autres anomalies métaboliques,G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+582,E89,"anomalies endocriniennes et métaboliques après un acte à visée diagnostique et thérapeutique, non classées ailleurs",G63.3,polynévrite au cours d'autres maladies endocriniennes et métaboliques,polynévrite au cours d'autres maladies endocriniennes et métaboliques,G,independent,3598
+583,G10,chorée de Huntington,F02.2,démence de la maladie de Huntington,démence de la maladie de Huntington,G,independent,2858
+584,G20,maladie de Parkinson,F02.3,démence de la maladie de Parkinson,démence de la maladie de Parkinson,G,independent,2859
+585,G30,maladie d'Alzheimer,F00,démence de la maladie d'Alzheimer,démence de la maladie d'Alzheimer,G,independent,2843
+586,G30.0,maladie d'Alzheimer à début précoce,F00.0,"démence de la maladie d'Alzheimer, à début précoce","démence de la maladie d'Alzheimer, à début précoce",G,independent,2844
+587,G30.1,maladie d'Alzheimer à début tardif,F00.1,"démence de la maladie d'Alzheimer, à début tardif","démence de la maladie d'Alzheimer, à début tardif",G,independent,2845
+588,G30.8,autres formes de la maladie d'Alzheimer,F00.2,"démence de la maladie d'Alzheimer, forme atypique ou mixte","démence de la maladie d'Alzheimer, forme atypique ou mixte",G,independent,2846
+589,G30.9,"maladie d'Alzheimer, sans précision",F00.9,"démence de la maladie d'Alzheimer, sans précision","démence de la maladie d'Alzheimer, sans précision",G,independent,2847
+590,G31.0,atrophie cérébrale circonscrite,F02.0,démence de la maladie de Pick,démence de la maladie de Pick,G,independent,2856
+591,G35,sclérose en plaques,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de sclérose en plaques,H,independent,14395
+592,G35,sclérose en plaques,H48.1,névrite rétrobulbaire au cours de maladies classées ailleurs,névrite rétrobulbaire au cours de sclérose en plaques,H,independent,15945
+593,G40,épilepsie,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de épilepsie,H,independent,14403
+594,G71.1,affections myotoniques,H28.2,cataracte au cours d'autres maladies classées ailleurs,cataracte myotonique,H,independent,15812
+595,G93.4,"encéphalopathie, sans précision",F02.8,démence au cours d'autres maladies classées ailleurs,"",H,independent,32500
+596,G95.0,syringomyélie et syringobulbie,M49.4,spondylopathie neurologique,spondylopathie neurologique au cours de syringomyélie et syringobulbie,H,independent,19259
+597,I00,"rhumatisme articulaire aigu, sans mention d'atteinte cardiaque",J17.8,pneumopathie au cours d'autres maladies classées ailleurs,pneumopathie au cours de rhumatisme articulaire aigu,H,independent,16594
+598,I00,"rhumatisme articulaire aigu, sans mention d'atteinte cardiaque",L54.0,érythème marginé discoïde de Besnier au cours d'un rhumatisme articulaire aigu,érythème marginé discoïde de Besnier au cours d'un rhumatisme articulaire aigu,G,independent,5131
+599,I33.0,endocardite infectieuse aiguë et subaiguë,M03.6,arthropathie réactionnelle au cours d'autres maladies classées ailleurs,arthropathie au cours d'endocardite infectieuse,H,independent,17838
+600,I33.0,endocardite infectieuse aiguë et subaiguë,N08.8,glomérulopathie au cours d'autres maladies classées ailleurs,glomérulopathie au cours d'endocardite bactérienne subaiguë,H,independent,21053
+601,I60,hémorragie sous-arachnoïdienne,G46,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3486
+602,I60,hémorragie sous-arachnoïdienne,G46.3,syndromes vasculaires du tronc cérébral,syndromes vasculaires du tronc cérébral,G,independent,3490
+603,I60,hémorragie sous-arachnoïdienne,G46.4,syndrome cérébelleux vasculaire,syndrome cérébelleux vasculaire,G,independent,3491
+604,I60,hémorragie sous-arachnoïdienne,G46.5,syndrome lacunaire moteur pur,syndrome lacunaire moteur pur,G,independent,3492
+605,I60,hémorragie sous-arachnoïdienne,G46.6,syndrome lacunaire sensitif pur,syndrome lacunaire sensitif pur,G,independent,3493
+606,I60,hémorragie sous-arachnoïdienne,G46.7,autres syndromes lacunaires,autres syndromes lacunaires,G,independent,3494
+607,I60,hémorragie sous-arachnoïdienne,G46.8,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3495
+608,I61,hémorragie intracérébrale,G46,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3486
+609,I61,hémorragie intracérébrale,G46.3,syndromes vasculaires du tronc cérébral,syndromes vasculaires du tronc cérébral,G,independent,3490
+610,I61,hémorragie intracérébrale,G46.4,syndrome cérébelleux vasculaire,syndrome cérébelleux vasculaire,G,independent,3491
+611,I61,hémorragie intracérébrale,G46.5,syndrome lacunaire moteur pur,syndrome lacunaire moteur pur,G,independent,3492
+612,I61,hémorragie intracérébrale,G46.6,syndrome lacunaire sensitif pur,syndrome lacunaire sensitif pur,G,independent,3493
+613,I61,hémorragie intracérébrale,G46.7,autres syndromes lacunaires,autres syndromes lacunaires,G,independent,3494
+614,I61,hémorragie intracérébrale,G46.8,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3495
+615,I62,autres hémorragies intracrâniennes non traumatiques,G46,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3486
+616,I62,autres hémorragies intracrâniennes non traumatiques,G46.3,syndromes vasculaires du tronc cérébral,syndromes vasculaires du tronc cérébral,G,independent,3490
+617,I62,autres hémorragies intracrâniennes non traumatiques,G46.4,syndrome cérébelleux vasculaire,syndrome cérébelleux vasculaire,G,independent,3491
+618,I62,autres hémorragies intracrâniennes non traumatiques,G46.5,syndrome lacunaire moteur pur,syndrome lacunaire moteur pur,G,independent,3492
+619,I62,autres hémorragies intracrâniennes non traumatiques,G46.6,syndrome lacunaire sensitif pur,syndrome lacunaire sensitif pur,G,independent,3493
+620,I62,autres hémorragies intracrâniennes non traumatiques,G46.7,autres syndromes lacunaires,autres syndromes lacunaires,G,independent,3494
+621,I62,autres hémorragies intracrâniennes non traumatiques,G46.8,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3495
+622,I63,infarctus cérébral,G46,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3486
+623,I63,infarctus cérébral,G46.3,syndromes vasculaires du tronc cérébral,syndromes vasculaires du tronc cérébral,G,independent,3490
+624,I63,infarctus cérébral,G46.4,syndrome cérébelleux vasculaire,syndrome cérébelleux vasculaire,G,independent,3491
+625,I63,infarctus cérébral,G46.5,syndrome lacunaire moteur pur,syndrome lacunaire moteur pur,G,independent,3492
+626,I63,infarctus cérébral,G46.6,syndrome lacunaire sensitif pur,syndrome lacunaire sensitif pur,G,independent,3493
+627,I63,infarctus cérébral,G46.7,autres syndromes lacunaires,autres syndromes lacunaires,G,independent,3494
+628,I63,infarctus cérébral,G46.8,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3495
+629,I64,"accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",G46,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3486
+630,I64,"accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",G46.3,syndromes vasculaires du tronc cérébral,syndromes vasculaires du tronc cérébral,G,independent,3490
+631,I64,"accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",G46.4,syndrome cérébelleux vasculaire,syndrome cérébelleux vasculaire,G,independent,3491
+632,I64,"accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",G46.5,syndrome lacunaire moteur pur,syndrome lacunaire moteur pur,G,independent,3492
+633,I64,"accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",G46.6,syndrome lacunaire sensitif pur,syndrome lacunaire sensitif pur,G,independent,3493
+634,I64,"accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",G46.7,autres syndromes lacunaires,autres syndromes lacunaires,G,independent,3494
+635,I64,"accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",G46.8,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3495
+636,I65,"occlusion et sténose des artères précérébrales, n'entraînant pas un infarctus cérébral",G46,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3486
+637,I65,"occlusion et sténose des artères précérébrales, n'entraînant pas un infarctus cérébral",G46.3,syndromes vasculaires du tronc cérébral,syndromes vasculaires du tronc cérébral,G,independent,3490
+638,I65,"occlusion et sténose des artères précérébrales, n'entraînant pas un infarctus cérébral",G46.4,syndrome cérébelleux vasculaire,syndrome cérébelleux vasculaire,G,independent,3491
+639,I65,"occlusion et sténose des artères précérébrales, n'entraînant pas un infarctus cérébral",G46.5,syndrome lacunaire moteur pur,syndrome lacunaire moteur pur,G,independent,3492
+640,I65,"occlusion et sténose des artères précérébrales, n'entraînant pas un infarctus cérébral",G46.6,syndrome lacunaire sensitif pur,syndrome lacunaire sensitif pur,G,independent,3493
+641,I65,"occlusion et sténose des artères précérébrales, n'entraînant pas un infarctus cérébral",G46.7,autres syndromes lacunaires,autres syndromes lacunaires,G,independent,3494
+642,I65,"occlusion et sténose des artères précérébrales, n'entraînant pas un infarctus cérébral",G46.8,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3495
+643,I66,"occlusion et sténose des artères cérébrales, n'entraînant pas un infarctus cérébral",G46,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3486
+644,I66,"occlusion et sténose des artères cérébrales, n'entraînant pas un infarctus cérébral",G46.3,syndromes vasculaires du tronc cérébral,syndromes vasculaires du tronc cérébral,G,independent,3490
+645,I66,"occlusion et sténose des artères cérébrales, n'entraînant pas un infarctus cérébral",G46.4,syndrome cérébelleux vasculaire,syndrome cérébelleux vasculaire,G,independent,3491
+646,I66,"occlusion et sténose des artères cérébrales, n'entraînant pas un infarctus cérébral",G46.5,syndrome lacunaire moteur pur,syndrome lacunaire moteur pur,G,independent,3492
+647,I66,"occlusion et sténose des artères cérébrales, n'entraînant pas un infarctus cérébral",G46.6,syndrome lacunaire sensitif pur,syndrome lacunaire sensitif pur,G,independent,3493
+648,I66,"occlusion et sténose des artères cérébrales, n'entraînant pas un infarctus cérébral",G46.7,autres syndromes lacunaires,autres syndromes lacunaires,G,independent,3494
+649,I66,"occlusion et sténose des artères cérébrales, n'entraînant pas un infarctus cérébral",G46.8,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3495
+650,I66.0,occlusion et sténose de l'artère cérébrale moyenne,G46.0,syndrome de l'artère cérébrale moyenne,syndrome de l'artère cérébrale moyenne,G,independent,3487
+651,I66.1,occlusion et sténose de l'artère cérébrale antérieure,G46.1,syndrome de l'artère cérébrale antérieure,syndrome de l'artère cérébrale antérieure,G,independent,3488
+652,I66.2,occlusion et sténose de l'artère cérébrale postérieure,G46.2,syndrome de l'artère cérébrale postérieure,syndrome de l'artère cérébrale postérieure,G,independent,3489
+653,I67,autres maladies cérébrovasculaires,G46,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3486
+654,I67,autres maladies cérébrovasculaires,G46.3,syndromes vasculaires du tronc cérébral,syndromes vasculaires du tronc cérébral,G,independent,3490
+655,I67,autres maladies cérébrovasculaires,G46.4,syndrome cérébelleux vasculaire,syndrome cérébelleux vasculaire,G,independent,3491
+656,I67,autres maladies cérébrovasculaires,G46.5,syndrome lacunaire moteur pur,syndrome lacunaire moteur pur,G,independent,3492
+657,I67,autres maladies cérébrovasculaires,G46.6,syndrome lacunaire sensitif pur,syndrome lacunaire sensitif pur,G,independent,3493
+658,I67,autres maladies cérébrovasculaires,G46.7,autres syndromes lacunaires,autres syndromes lacunaires,G,independent,3494
+659,I67,autres maladies cérébrovasculaires,G46.8,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,autres syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,G,independent,3495
+660,I70.8,athérosclérose d'autres artères,H36.8,autres affections rétiniennes au cours de maladies classées ailleurs,rétinopathie athéroscléreuse,H,independent,15890
+661,J09,"grippe, à virus aviaire identifié",G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) grippe",H,independent,15337
+662,J09,"grippe, à virus aviaire identifié",H67.1,otite moyenne au cours de maladies virales classées ailleurs,otite moyenne au cours de grippe,H,independent,16083
+663,J09,"grippe, à virus aviaire identifié",I41.1,myocardite au cours de maladies virales classées ailleurs,myocardite grippale (aiguë) grippe aviaire virus identifié,H,independent,70603
+664,J10,"grippe, à autre virus grippal identifié",H67.1,otite moyenne au cours de maladies virales classées ailleurs,otite moyenne au cours de grippe,H,independent,16083
+665,J10.8,"grippe avec d'autres manifestations, autre virus grippal identifié",G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) grippe",H,independent,15337
+666,J10.8,"grippe avec d'autres manifestations, autre virus grippal identifié",I41.1,myocardite au cours de maladies virales classées ailleurs,myocardite grippale (aiguë) autre virus identifié,H,independent,16314
+667,J11,"grippe, virus non identifié",H67.1,otite moyenne au cours de maladies virales classées ailleurs,otite moyenne au cours de grippe,H,independent,16083
+668,J11.8,"grippe avec d'autres manifestations, virus non identifié",G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite, myélite ou encéphalomyélite (au cours de) (consécutive à) (due à) grippe",H,independent,15337
+669,J11.8,"grippe avec d'autres manifestations, virus non identifié",I41.1,myocardite au cours de maladies virales classées ailleurs,myocardite grippale (aiguë) virus non identifié,H,independent,16315
+670,J63.2,bérylliose,K77.8,atteintes hépatiques au cours d'autres maladies classées ailleurs,granulomes hépatiques au cours de bérylliose,H,independent,17334
+671,K50,maladie de Crohn [entérite régionale],M07.4,arthropathie au cours de la maladie de Crohn [entérite régionale],arthropathie au cours de la maladie de Crohn [entérite régionale],G,independent,5391
+672,K50,maladie de Crohn [entérite régionale],M09.1,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale],polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale],G,independent,5404
+673,K51,recto-colite hémorragique [colite ulcéreuse],M07.5,arthropathie au cours de colite ulcéreuse,arthropathie au cours de colite ulcéreuse,G,independent,5392
+674,K51,recto-colite hémorragique [colite ulcéreuse],M09.2,polyarthrite juvénile au cours de colite ulcéreuse,polyarthrite juvénile au cours de colite ulcéreuse,G,independent,5405
+675,K70,maladie alcoolique du foie,I98.2,varices oesophagiennes au cours de maladies classées ailleurs,varices oesophagiennes au cours de maladies du foie,H,independent,16515
+676,K71,maladie toxique du foie,I98.2,varices oesophagiennes au cours de maladies classées ailleurs,varices oesophagiennes au cours de maladies du foie,H,independent,16515
+677,K74,fibrose et cirrhose du foie,I98.2,varices oesophagiennes au cours de maladies classées ailleurs,varices oesophagiennes au cours de maladies du foie,H,independent,16515
+678,K90.8,autres malabsorptions intestinales,M14.8,arthropathie au cours d'autres maladies précisées classées ailleurs,maladie de Whipple | arthropathie au cours de maladie de Whipple,"H,U",independent,"17439,18376"
+679,L01,impétigo,H62.4,otite externe au cours d'autres maladies classées ailleurs,otite externe au cours d'impétigo,H,independent,16047
+680,L01.0,impétigo [tout micro-organisme] [toute localisation],H03.8,atteinte de la paupière au cours d'autres maladies classées ailleurs,atteinte de la paupière au cours d'impétigo,H,independent,15656
+681,L12,pemphigoïde,H13.3,pemphigoïde oculaire,pemphigoïde oculaire,G,independent,3789
+682,L40.5,psoriasis arthropathique,M07.0,arthropathie psoriasique distale interphalangienne,arthropathie psoriasique distale interphalangienne | psoriasis arthropathique,"G,T",independent,"5387,6336"
+683,L40.5,psoriasis arthropathique,M07.1,arthrite mutilante,arthrite mutilante | psoriasis arthropathique,"G,T",independent,"5388,6336"
+684,L40.5,psoriasis arthropathique,M07.2,spondylite psoriasique,spondylite psoriasique | psoriasis arthropathique,"G,T",independent,"5389,6336"
+685,L40.5,psoriasis arthropathique,M07.3,autres arthropathies psoriasiques,autres arthropathies psoriasiques | psoriasis arthropathique,"G,T",independent,"5390,6336"
+686,L40.5,psoriasis arthropathique,M09.0,polyarthrite juvénile au cours de psoriasis,polyarthrite juvénile au cours de psoriasis | psoriasis arthropathique,"G,T",independent,"5403,6336"
+687,L51,érythème polymorphe,M14.8,arthropathie au cours d'autres maladies précisées classées ailleurs,arthropathie au cours de érythème polymorphe,H,independent,18375
+688,L52,érythème noueux,M14.8,arthropathie au cours d'autres maladies précisées classées ailleurs,arthropathie au cours de érythème noueux,H,independent,18374
+689,M05,polyarthrite rhumatoïde séropositive,G73.7,myopathie au cours d'autres maladies classées ailleurs,myopathie au cours de polyarthrite rhumatoïde,H,independent,15586
+690,M05.1,maladie pulmonaire rhumatoïde,J99.0,maladie pulmonaire rhumatoïde,maladie pulmonaire rhumatoïde,"G,T",independent,"4866,5373"
+691,M05.3,polyarthrite rhumatoïde avec atteinte d'autres organes et appareils,G63.6,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,polynévrite rhumatoïde,U,independent,17884
+692,M05.3,polyarthrite rhumatoïde avec atteinte d'autres organes et appareils,G73.7,myopathie au cours d'autres maladies classées ailleurs,myopathie rhumatoïde,U,independent,17880
+693,M05.3,polyarthrite rhumatoïde avec atteinte d'autres organes et appareils,I32.8,péricardite au cours d'autres maladies classées ailleurs,péricardite (au cours de) rhumatoïde | péricardite rhumatoïde,"H,U",independent,"16282,17881"
+694,M05.3,polyarthrite rhumatoïde avec atteinte d'autres organes et appareils,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,endocardite rhumatoïde | atteinte de l'endocarde (à) (au cours de) arthrite rhumatoïde,"H,U",independent,"17882,27029"
+695,M05.3,polyarthrite rhumatoïde avec atteinte d'autres organes et appareils,I41.8,myocardite au cours d'autres maladies classées ailleurs,myocardite (au cours de) rhumatoïde | myocardite rhumatoïde,"H,U",independent,"16321,17885"
+696,M05.3,polyarthrite rhumatoïde avec atteinte d'autres organes et appareils,I52.8,autres cardiopathies au cours d'autres maladies classées ailleurs,cardite rhumatoïde,"H,U",independent,"16396,17883"
+697,M05.3,polyarthrite rhumatoïde avec atteinte d'autres organes et appareils,,,polyarthrite rhumatoïde avec atteinte d'autres organes et appareils,S,none,5375
+698,M06,autres polyarthrites rhumatoïdes,G73.7,myopathie au cours d'autres maladies classées ailleurs,myopathie au cours de polyarthrite rhumatoïde,H,independent,15586
+699,M10.0,goutte idiopathique,I43.8,myocardiopathie au cours d'autres maladies classées ailleurs,tophus goutteux du coeur,"H,U",independent,"16332,18147"
+700,M30,périartérite noueuse et affections apparentées,G63.5,polynévrite au cours d'affections disséminées du tissu conjonctif,polynévrite au cours d'affections disséminées du tissu conjonctif,G,independent,3600
+701,M30.0,périartérite noueuse,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de périartérite noueuse,H,independent,14396
+702,M30.0,périartérite noueuse,N08.5,glomérulopathie au cours d'affections disséminées du tissu conjonctif,glomérulopathie au cours de périartérite noueuse,H,independent,21052
+703,M31,autres vasculopathies nécrosantes,G63.5,polynévrite au cours d'affections disséminées du tissu conjonctif,polynévrite au cours d'affections disséminées du tissu conjonctif,G,independent,3600
+704,M31.0,angéite d'hypersensibilité,N08.5,glomérulopathie au cours d'affections disséminées du tissu conjonctif,glomérulopathie au cours de syndrome de Goodpasture,H,independent,21051
+705,M31.1,microangiopathie thrombotique,N08.5,glomérulopathie au cours d'affections disséminées du tissu conjonctif,glomérulopathie au cours de purpura thrombocytopénique thrombotique,H,independent,21049
+706,M31.3,granulomatose de Wegener,J99.1,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,troubles respiratoires au cours de granulomatose de Wegener,H,independent,16800
+707,M31.3,granulomatose de Wegener,N08.5,glomérulopathie au cours d'affections disséminées du tissu conjonctif,glomérulopathie au cours de granulomatose de Wegener,H,independent,21050
+708,M32,lupus érythémateux disséminé,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours de lupus érythémateux disséminé,H,independent,14399
+709,M32,lupus érythémateux disséminé,G63.5,polynévrite au cours d'affections disséminées du tissu conjonctif,polynévrite au cours d'affections disséminées du tissu conjonctif,G,independent,3600
+710,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,G05.8,"encéphalite, myélite et encéphalomyélite au cours d'autres affections classées ailleurs",encéphalite au cours d'un lupus érythémateux disséminé,H,independent,15348
+711,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,G73.7,myopathie au cours d'autres maladies classées ailleurs,myopathie au cours de lupus érythémateux disséminé,H,independent,15589
+712,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,I32.8,péricardite au cours d'autres maladies classées ailleurs,péricardite (au cours de) lupus érythémateux disséminé | péricardite lupique,"H,U",independent,"16281,18773"
+713,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,maladie de Libman-Sacks | atteinte de l'endocarde (à) (au cours de) maladie de Libman-Sacks,"H,U",independent,"18772,27031"
+714,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,I68.2,artérite cérébrale au cours d'autres maladies classées ailleurs,artérite cérébrale au cours d'un lupus érythémateux disséminé,H,independent,16422
+715,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,J99.1,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,troubles respiratoires au cours de lupus érythémateux disséminé | lupus érythémateux disséminé avec atteinte des poumons,"H,U",independent,"16803,18770"
+716,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,N08.5,glomérulopathie au cours d'affections disséminées du tissu conjonctif,lupus érythémateux disséminé avec atteinte des reins | glomérulopathie au cours de lupus érythémateux disséminé,"H,U",independent,"18771,21048"
+717,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,N16.4,maladie rénale tubulo-interstitielle au cours d'affections disséminées du tissu conjonctif,lupus érythémateux disséminé avec atteinte des reins | maladie rénale tubulo-interstitielle au cours de lupus érythémateux disséminé,"H,U",independent,"18771,21089"
+718,M32.1,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,,,lupus érythémateux disséminé avec atteinte d'organes et d'appareils,S,none,5562
+719,M33,dermatopolymyosite,G63.5,polynévrite au cours d'affections disséminées du tissu conjonctif,polynévrite au cours d'affections disséminées du tissu conjonctif,G,independent,3600
+720,M33.0,dermatomyosite juvénile,J99.1,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,troubles respiratoires au cours de dermatomyosite,H,independent,16799
+721,M33.1,autres dermatomyosites,J99.1,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,troubles respiratoires au cours de dermatomyosite,H,independent,16799
+722,M33.2,polymyosite,J99.1,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,troubles respiratoires au cours de polymyosite,H,independent,16801
+723,M34,sclérose systémique,G63.5,polynévrite au cours d'affections disséminées du tissu conjonctif,polynévrite au cours d'affections disséminées du tissu conjonctif,G,independent,3600
+724,M34.8,autres formes de sclérose systémique,G73.7,myopathie au cours d'autres maladies classées ailleurs,myopathie au cours de sclérodermie | sclérose systémique avec myopathie,"H,U",independent,"15587,18776"
+725,M34.8,autres formes de sclérose systémique,J99.1,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,troubles respiratoires au cours de sclérodermie | sclérose systémique avec atteinte pulmonaire,"H,U",independent,"16802,18775"
+726,M35,autres atteintes systémiques du tissu conjonctif,G63.5,polynévrite au cours d'affections disséminées du tissu conjonctif,polynévrite au cours d'affections disséminées du tissu conjonctif,G,independent,3600
+727,M35.0,syndrome de Gougerot-Sjögren,G73.7,myopathie au cours d'autres maladies classées ailleurs,myopathie au cours de syndrome de Gougerot-Sjögren | syndrome de Gougerot-Sjögren avec myopathie,"H,U",independent,"15588,18780"
+728,M35.0,syndrome de Gougerot-Sjögren,H19.3,kératite et kératoconjonctivite au cours d'autres maladies classées ailleurs,kératoconjonctivite sèche | syndrome de Gougerot-Sjögren avec kératoconjonctivite,"H,U",independent,"15763,18778"
+729,M35.0,syndrome de Gougerot-Sjögren,J99.1,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,troubles respiratoires au cours de syndrome de Gougerot-Sjögren | syndrome de Gougerot-Sjögren avec atteinte pulmonaire,"H,U",independent,"16804,18777"
+730,M35.0,syndrome de Gougerot-Sjögren,N16.4,maladie rénale tubulo-interstitielle au cours d'affections disséminées du tissu conjonctif,syndrome de Gougerot-Sjögren avec maladie rénale tubulo-interstitielle | maladie rénale tubulo-interstitielle au cours de syndrome de Gougerot-Sjögren,"H,U",independent,"18779,21090"
+731,M35.2,syndrome de Behçet,N77.8,ulcération et inflammation vulvo-vaginales au cours d'autres maladies classées ailleurs,ulcération de la vulve au cours de la maladie de Behçet,H,independent,21281
+732,M45,spondylarthrite ankylosante,G55.3,compression des racines et des plexus nerveux au cours d'autres dorsopathies,compression des racines et des plexus nerveux au cours d'autres dorsopathies,G,independent,3547
+733,M45,spondylarthrite ankylosante,H22.1,iridocyclite au cours d'autres maladies classées ailleurs,iridocyclite au cours de spondylarthrite ankylosante,H,independent,15794
+734,M45,spondylarthrite ankylosante,J99.8,troubles respiratoires au cours d'autres maladies classées ailleurs,troubles respiratoires au cours de spondylarthrite ankylosante,H,independent,16805
+735,M46,autres spondylopathies inflammatoires,G55.3,compression des racines et des plexus nerveux au cours d'autres dorsopathies,compression des racines et des plexus nerveux au cours d'autres dorsopathies,G,independent,3547
+736,M47,spondylarthrose,G55.2,compression des racines et des plexus nerveux au cours de spondylarthroses,compression des racines et des plexus nerveux au cours de spondylarthroses,G,independent,3546
+737,M47,spondylarthrose,G99.2,myélopathies au cours de maladies classées ailleurs,myélopathie au cours de spondylarthrose,H,independent,15626
+738,M47.0,syndromes de compression des artères vertébrale et spinale antérieure,G99.2,myélopathies au cours de maladies classées ailleurs,syndromes de compression des artères vertébrale et spinale antérieure,"H,T",independent,"5638,15628"
+739,M47.1,autres spondylarthroses avec myélopathie,G99.2,myélopathies au cours de maladies classées ailleurs,compression de la moelle épinière due à une spondylarthrose,U,independent,19087
+740,M48,autres spondylopathies,G55.3,compression des racines et des plexus nerveux au cours d'autres dorsopathies,compression des racines et des plexus nerveux au cours d'autres dorsopathies,G,independent,3547
+741,M50,atteintes des disques cervicaux,G55.1,compression des racines et des plexus nerveux au cours d'atteintes des disques intervertébraux,compression des racines et des plexus nerveux au cours d'atteintes des disques intervertébraux,G,independent,3545
+742,M50.0,atteinte d'un disque cervical avec myélopathie,G99.2,myélopathies au cours de maladies classées ailleurs,atteinte d'un disque cervical avec myélopathie | myélopathie au cours d'atteinte des disques intervertébraux,"H,T",independent,"5662,15629"
+743,M51,atteintes d'autres disques intervertébraux,G55.1,compression des racines et des plexus nerveux au cours d'atteintes des disques intervertébraux,compression des racines et des plexus nerveux au cours d'atteintes des disques intervertébraux,G,independent,3545
+744,M51.0,atteintes d'un disque lombaire et d'autres disques intervertébraux avec myélopathie,G99.2,myélopathies au cours de maladies classées ailleurs,atteintes d'un disque lombaire et d'autres disques intervertébraux avec myélopathie | myélopathie au cours d'atteinte des disques intervertébraux,"H,T",independent,"5669,15629"
+745,M53,"autres dorsopathies, non classées ailleurs",G55.3,compression des racines et des plexus nerveux au cours d'autres dorsopathies,compression des racines et des plexus nerveux au cours d'autres dorsopathies,G,independent,3547
+746,M54,dorsalgies,G55.3,compression des racines et des plexus nerveux au cours d'autres dorsopathies,compression des racines et des plexus nerveux au cours d'autres dorsopathies,G,independent,3547
+747,M89.4,autres ostéoarthropathies hypertrophiantes,L62.0,pachydermopériostose avec ongle hippocratique,pachydermopériostose avec ongle hippocratique,G,independent,5176
+748,M95,"autres déformations du système ostéo-articulaire, des muscles et du tissu conjonctif",G63.6,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,G,independent,3601
+749,M96,"affections du système ostéo-articulaire et des muscles après un acte à visée diagnostique et thérapeutique, non classées ailleurs",G63.6,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,polynévrite au cours d'autres affections ostéo-articulaires et des muscles,G,independent,3601
+750,N18.8,autres insuffisances rénales chroniques,G63.8,polynévrite au cours d'autres maladies classées ailleurs,neuropathie urémique,"H,U",independent,"15544,21100"
+751,N18.8,autres insuffisances rénales chroniques,I32.8,péricardite au cours d'autres maladies classées ailleurs,péricardite (au cours de) urémique | péricardite urémique,"H,U",independent,"16283,21101"
+752,N25.0,ostéodystrophie rénale,M90.8,ostéopathie au cours d'autres maladies classées ailleurs,ostéopathie au cours d'ostéodystrophie rénale,H,independent,20811
+753,Q90,syndrome de Down,H19.8,autres affections de la sclérotique et de la cornée au cours de maladies classées ailleurs,Kératocône au cours du syndrome de Down,H,independent,15764
+754,T70.3,maladie des caissons [maladie de la décompression],M90.3,ostéonécrose de la maladie des caissons,ostéonécrose de la maladie des caissons,G,independent,5913
+755,T86,échec et rejet d'organes et de tissus greffés,N16.5,maladie rénale tubulo-interstitielle au cours d'un rejet de greffe,maladie rénale tubulo-interstitielle au cours d'un rejet de greffe,G,independent,6476
+756,T90,séquelles de lésions traumatiques de la tête,F02.8,démence au cours d'autres maladies classées ailleurs,"",H,independent,32499
+757,,,D63,anémie au cours de maladies chroniques classées ailleurs,anémie au cours de maladies chroniques classées ailleurs,F,none,1881
+758,,,D63.8,anémie au cours d'autres maladies chroniques classées ailleurs,anémie au cours d'autres maladies chroniques classées ailleurs,F,none,1883
+759,,,D77,autres maladies du sang et des organes hématopoïétiques au cours de maladies classées ailleurs,autres maladies du sang et des organes hématopoïétiques au cours de maladies classées ailleurs,F,none,1946
+760,,,E35,anomalies endocriniennes au cours de maladies classées ailleurs,anomalies endocriniennes au cours de maladies classées ailleurs,F,none,2625
+761,,,E35.0,anomalies de la glande thyroïde au cours de maladies classées ailleurs,anomalies de la glande thyroïde au cours de maladies classées ailleurs,F,none,2626
+762,,,E35.1,anomalies de la glande surrénale au cours de maladies classées ailleurs,anomalies de la glande surrénale au cours de maladies classées ailleurs,F,none,2627
+763,,,E35.8,anomalies d'autres glandes endocrines au cours de maladies classées ailleurs,anomalies d'autres glandes endocrines au cours de maladies classées ailleurs,F,none,2628
+764,,,E90,anomalies nutritionnelles et métaboliques au cours de maladies classées ailleurs,anomalies nutritionnelles et métaboliques au cours de maladies classées ailleurs,F,none,2840
+765,,,F02,démence au cours d'autres maladies classées ailleurs,démence au cours d'autres maladies classées ailleurs,F,none,2855
+766,,,F02.8,démence au cours d'autres maladies classées ailleurs,démence au cours d'autres maladies classées ailleurs,F,none,2861
+767,,,G01,méningite au cours d'affections bactériennes classées ailleurs,méningite au cours d'affections bactériennes classées ailleurs,F,none,3329
+768,,,G02,méningite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,méningite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,3330
+769,,,G02.0,méningite au cours d'infections virales classées ailleurs,méningite au cours d'infections virales classées ailleurs,F,none,3331
+770,,,G02.1,méningite au cours de mycoses classées ailleurs,méningite au cours de mycoses classées ailleurs,F,none,3332
+771,,,G02.8,méningite au cours d'autres maladies infectieuses et parasitaires précisées classées ailleurs,méningite au cours d'autres maladies infectieuses et parasitaires précisées classées ailleurs,F,none,3333
+772,,,G05,"encéphalite, myélite et encéphalomyélite au cours d'affections classées ailleurs","encéphalite, myélite et encéphalomyélite au cours d'affections classées ailleurs",F,none,3346
+773,,,G05.0,"encéphalite, myélite et encéphalomyélite au cours d'infections bactériennes classées ailleurs","encéphalite, myélite et encéphalomyélite au cours d'infections bactériennes classées ailleurs",F,none,3347
+774,,,G05.1,"encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs","encéphalite, myélite et encéphalomyélite au cours d'infections virales classées ailleurs",F,none,3348
+775,,,G05.2,"encéphalite, myélite et encéphalomyélite au cours d'autres maladies infectieuses et parasitaires classées ailleurs","encéphalite, myélite et encéphalomyélite au cours d'autres maladies infectieuses et parasitaires classées ailleurs",F,none,3349
+776,,,G05.8,"encéphalite, myélite et encéphalomyélite au cours d'autres affections classées ailleurs","encéphalite, myélite et encéphalomyélite au cours d'autres affections classées ailleurs",F,none,3350
+777,,,G07,abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,F,none,3355
+778,,,G13,affections dégénératives systémiques affectant principalement le système nerveux central au cours d'affections classées ailleurs,affections dégénératives systémiques affectant principalement le système nerveux central au cours d'affections classées ailleurs,F,none,3374
+779,,,G13.0,neuromyopathie et neuropathie paranéoplasiques,neuromyopathie et neuropathie paranéoplasiques,F,none,3375
+780,,,G13.1,autres affections dégénératives systémiques affectant principalement le système nerveux central au cours de maladies tumorales,autres affections dégénératives systémiques affectant principalement le système nerveux central au cours de maladies tumorales,F,none,3376
+781,,,G13.8,affections dégénératives systémiques affectant principalement le système nerveux central au cours d'autres affections classées ailleurs,affections dégénératives systémiques affectant principalement le système nerveux central au cours d'autres affections classées ailleurs,F,none,3378
+782,,,G22,syndrome parkinsonien au cours de maladies classées ailleurs,syndrome parkinsonien au cours de maladies classées ailleurs,F,none,3388
+783,,,G26,syndromes extrapyramidaux et troubles de la motricité au cours d'affections classées ailleurs,syndromes extrapyramidaux et troubles de la motricité au cours d'affections classées ailleurs,F,none,3414
+784,,,G32,autres affections dégénératives du système nerveux au cours d'affections classées ailleurs,autres affections dégénératives du système nerveux au cours d'affections classées ailleurs,F,none,3427
+785,,,G32.0,dégénérescence combinée subaiguë de la moelle épinière au cours de maladies classées ailleurs,dégénérescence combinée subaiguë de la moelle épinière au cours de maladies classées ailleurs,F,none,3428
+786,,,G32.8,autres affections dégénératives précisées du système nerveux au cours de maladies classées ailleurs,autres affections dégénératives précisées du système nerveux au cours de maladies classées ailleurs,F,none,3429
+787,,,G53,affections des nerfs crâniens au cours de maladies classées ailleurs,affections des nerfs crâniens au cours de maladies classées ailleurs,F,none,3526
+788,,,G53.8,autres affections des nerfs crâniens au cours d'autres maladies classées ailleurs,autres affections des nerfs crâniens au cours d'autres maladies classées ailleurs,F,none,3531
+789,,,G55,compression des racines et des plexus nerveux au cours de maladies classées ailleurs,compression des racines et des plexus nerveux au cours de maladies classées ailleurs,F,none,3543
+790,,,G55.8,compression des racines et des plexus nerveux au cours d'autres maladies classées ailleurs,compression des racines et des plexus nerveux au cours d'autres maladies classées ailleurs,F,none,3548
+791,,,G59,mononévrite au cours de maladies classées ailleurs,mononévrite au cours de maladies classées ailleurs,F,none,3572
+792,,,G59.8,autres mononévrites au cours de maladies classées ailleurs,autres mononévrites au cours de maladies classées ailleurs,F,none,3574
+793,,,G63,polynévrite au cours de maladies classées ailleurs,polynévrite au cours de maladies classées ailleurs,F,none,3594
+794,,,G63.0,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,polynévrite au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,3595
+795,,,G63.8,polynévrite au cours d'autres maladies classées ailleurs,polynévrite au cours d'autres maladies classées ailleurs,F,none,3602
+796,,,G73,affections musculaires et neuro-musculaires au cours de maladies classées ailleurs,affections musculaires et neuro-musculaires au cours de maladies classées ailleurs,F,none,3626
+797,,,G73.0,syndrome myasthénique au cours de maladies endocriniennes,syndrome myasthénique au cours de maladies endocriniennes,F,none,3627
+798,,,G73.3,syndrome myasthénique au cours d'autres maladies classées ailleurs,syndrome myasthénique au cours d'autres maladies classées ailleurs,F,none,3630
+799,,,G73.4,myopathie au cours de maladies infectieuses et parasitaires classées ailleurs,myopathie au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,3631
+800,,,G73.5,myopathie au cours de maladies endocriniennes,myopathie au cours de maladies endocriniennes,F,none,3632
+801,,,G73.6,myopathie au cours de maladies métaboliques,myopathie au cours de maladies métaboliques,F,none,3633
+802,,,G73.7,myopathie au cours d'autres maladies classées ailleurs,myopathie au cours d'autres maladies classées ailleurs,F,none,3634
+803,,,G94,autres affections du cerveau au cours de maladies classées ailleurs,autres affections du cerveau au cours de maladies classées ailleurs,F,none,3690
+804,,,G94.2,hydrocéphalie au cours d'autres maladies classées ailleurs,hydrocéphalie au cours d'autres maladies classées ailleurs,F,none,3693
+805,,,G94.8,autres affections précisées du cerveau au cours de maladies classées ailleurs,autres affections précisées du cerveau au cours de maladies classées ailleurs,F,none,3694
+806,,,G99,autres affections du système nerveux au cours de maladies classées ailleurs,autres affections du système nerveux au cours de maladies classées ailleurs,F,none,3713
+807,,,G99.0,neuropathie du système nerveux autonome au cours de maladies endocriniennes et métaboliques,neuropathie du système nerveux autonome au cours de maladies endocriniennes et métaboliques,F,none,3714
+808,,,G99.1,autres affections du système nerveux autonome au cours d'autres maladies classées ailleurs,autres affections du système nerveux autonome au cours d'autres maladies classées ailleurs,F,none,3715
+809,,,G99.2,myélopathies au cours de maladies classées ailleurs,myélopathies au cours de maladies classées ailleurs,F,none,3716
+810,,,G99.8,autres affections précisées du système nerveux au cours de maladies classées ailleurs,autres affections précisées du système nerveux au cours de maladies classées ailleurs,F,none,3717
+811,,,H03,affections de la paupière au cours de maladies classées ailleurs,affections de la paupière au cours de maladies classées ailleurs,F,none,3739
+812,,,H03.0,infection parasitaire de la paupière au cours de maladies classées ailleurs,infection parasitaire de la paupière au cours de maladies classées ailleurs,F,none,3740
+813,,,H03.1,atteinte de la paupière au cours d'autres maladies infectieuses classées ailleurs,atteinte de la paupière au cours d'autres maladies infectieuses classées ailleurs,F,none,3741
+814,,,H03.8,atteinte de la paupière au cours d'autres maladies classées ailleurs,atteinte de la paupière au cours d'autres maladies classées ailleurs,F,none,3742
+815,,,H06,affections de l'appareil lacrymal et de l'orbite au cours de maladies classées ailleurs,affections de l'appareil lacrymal et de l'orbite au cours de maladies classées ailleurs,F,none,3762
+816,,,H06.0,affections de l'appareil lacrymal au cours de maladies classées ailleurs,affections de l'appareil lacrymal au cours de maladies classées ailleurs,F,none,3763
+817,,,H06.1,infection parasitaire de l'orbite au cours de maladies classées ailleurs,infection parasitaire de l'orbite au cours de maladies classées ailleurs,F,none,3764
+818,,,H06.3,autres affections de l'orbite au cours de maladies classées ailleurs,autres affections de l'orbite au cours de maladies classées ailleurs,F,none,3766
+819,,,H13,affections de la conjonctive au cours de maladies classées ailleurs,affections de la conjonctive au cours de maladies classées ailleurs,F,none,3785
+820,,,H13.1,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,conjonctivite au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,3787
+821,,,H13.2,conjonctivite au cours d'autres maladies classées ailleurs,conjonctivite au cours d'autres maladies classées ailleurs,F,none,3788
+822,,,H13.8,autres affections de la conjonctive au cours de maladies classées ailleurs,autres affections de la conjonctive au cours de maladies classées ailleurs,F,none,3790
+823,,,H19,affections de la sclérotique et de la cornée au cours de maladies classées ailleurs,affections de la sclérotique et de la cornée au cours de maladies classées ailleurs,F,none,3821
+824,,,H19.0,sclérite et épisclérite au cours de maladies classées ailleurs,sclérite et épisclérite au cours de maladies classées ailleurs,F,none,3822
+825,,,H19.2,kératite et kératoconjonctivite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,kératite et kératoconjonctivite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,3824
+826,,,H19.3,kératite et kératoconjonctivite au cours d'autres maladies classées ailleurs,kératite et kératoconjonctivite au cours d'autres maladies classées ailleurs,F,none,3825
+827,,,H19.8,autres affections de la sclérotique et de la cornée au cours de maladies classées ailleurs,autres affections de la sclérotique et de la cornée au cours de maladies classées ailleurs,F,none,3826
+828,,,H22,affections de l'iris et du corps ciliaire au cours de maladies classées ailleurs,affections de l'iris et du corps ciliaire au cours de maladies classées ailleurs,F,none,3842
+829,,,H22.0,iridocyclite au cours de maladies infectieuses et parasitaires classées ailleurs,iridocyclite au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,3843
+830,,,H22.1,iridocyclite au cours d'autres maladies classées ailleurs,iridocyclite au cours d'autres maladies classées ailleurs,F,none,3844
+831,,,H22.8,autres affections de l'iris et du corps ciliaire au cours de maladies classées ailleurs,autres affections de l'iris et du corps ciliaire au cours de maladies classées ailleurs,F,none,3845
+832,,,H28,cataracte et autres affections du cristallin au cours de maladies classées ailleurs,cataracte et autres affections du cristallin au cours de maladies classées ailleurs,F,none,3866
+833,,,H28.1,"cataracte au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques","cataracte au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",F,none,3868
+834,,,H28.2,cataracte au cours d'autres maladies classées ailleurs,cataracte au cours d'autres maladies classées ailleurs,F,none,3869
+835,,,H28.8,autres affections du cristallin au cours de maladies classées ailleurs,autres affections du cristallin au cours de maladies classées ailleurs,F,none,3870
+836,,,H32,affections choriorétiniennes au cours de maladies classées ailleurs,affections choriorétiniennes au cours de maladies classées ailleurs,F,none,3886
+837,,,H32.0,affections choriorétiniennes au cours de maladies infectieuses et parasitaires classées ailleurs,affections choriorétiniennes au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,3887
+838,,,H32.8,autres affections choriorétiniennes au cours de maladies classées ailleurs,autres affections choriorétiniennes au cours de maladies classées ailleurs,F,none,3888
+839,,,H36,affections rétiniennes au cours de maladies classées ailleurs,affections rétiniennes au cours de maladies classées ailleurs,F,none,3913
+840,,,H36.8,autres affections rétiniennes au cours de maladies classées ailleurs,autres affections rétiniennes au cours de maladies classées ailleurs,F,none,3915
+841,,,H42,glaucome au cours de maladies classées ailleurs,glaucome au cours de maladies classées ailleurs,F,none,3927
+842,,,H42.0,"glaucome au cours de maladies endocriniennes, nutritionnelles et métaboliques","glaucome au cours de maladies endocriniennes, nutritionnelles et métaboliques",F,none,3928
+843,,,H42.8,glaucome au cours d'autres maladies classées ailleurs,glaucome au cours d'autres maladies classées ailleurs,F,none,3929
+844,,,H45,affections du corps vitré et du globe oculaire au cours de maladies classées ailleurs,affections du corps vitré et du globe oculaire au cours de maladies classées ailleurs,F,none,3949
+845,,,H45.0,hémorragie du corps vitré au cours de maladies classées ailleurs,hémorragie du corps vitré au cours de maladies classées ailleurs,F,none,3950
+846,,,H45.1,endophtalmie au cours de maladies classées ailleurs,endophtalmie au cours de maladies classées ailleurs,F,none,3951
+847,,,H45.8,autres affections du corps vitré et du globe oculaire au cours de maladies classées ailleurs,autres affections du corps vitré et du globe oculaire au cours de maladies classées ailleurs,F,none,3952
+848,,,H48,affections du nerf [II] et des voies optiques au cours de maladies classées ailleurs,affections du nerf [II] et des voies optiques au cours de maladies classées ailleurs,F,none,3964
+849,,,H48.0,atrophie optique au cours de maladies classées ailleurs,atrophie optique au cours de maladies classées ailleurs,F,none,3965
+850,,,H48.1,névrite rétrobulbaire au cours de maladies classées ailleurs,névrite rétrobulbaire au cours de maladies classées ailleurs,F,none,3966
+851,,,H48.8,autres affections du nerf et des voies optiques au cours de maladies classées ailleurs,autres affections du nerf et des voies optiques au cours de maladies classées ailleurs,F,none,3967
+852,,,H58,autres affections de l'oeil et de ses annexes au cours de maladies classées ailleurs,autres affections de l'oeil et de ses annexes au cours de maladies classées ailleurs,F,none,4029
+853,,,H58.0,anomalies fonctionnelles de la pupille au cours de maladies classées ailleurs,anomalies fonctionnelles de la pupille au cours de maladies classées ailleurs,F,none,4030
+854,,,H58.1,troubles de la vue au cours de maladies classées ailleurs,troubles de la vue au cours de maladies classées ailleurs,F,none,4031
+855,,,H58.8,autres affections précisées de l'oeil et de ses annexes au cours de maladies classées ailleurs,autres affections précisées de l'oeil et de ses annexes au cours de maladies classées ailleurs,F,none,4032
+856,,,H62,affections de l'oreille externe au cours de maladies classées ailleurs,affections de l'oreille externe au cours de maladies classées ailleurs,F,none,4055
+857,,,H62.0,otite externe au cours de maladies bactériennes classées ailleurs,otite externe au cours de maladies bactériennes classées ailleurs,F,none,4056
+858,,,H62.1,otite externe au cours de maladies virales classées ailleurs,otite externe au cours de maladies virales classées ailleurs,F,none,4057
+859,,,H62.2,otite externe au cours de mycoses,otite externe au cours de mycoses,F,none,4058
+860,,,H62.3,otite externe au cours d'autres maladies infectieuses et parasitaires classées ailleurs,otite externe au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,4059
+861,,,H62.4,otite externe au cours d'autres maladies classées ailleurs,otite externe au cours d'autres maladies classées ailleurs,F,none,4060
+862,,,H62.8,autres affections de l'oreille externe au cours de maladies classées ailleurs,autres affections de l'oreille externe au cours de maladies classées ailleurs,F,none,4061
+863,,,H67,otite moyenne au cours de maladies classées ailleurs,otite moyenne au cours de maladies classées ailleurs,F,none,4077
+864,,,H67.0,otite moyenne au cours de maladies bactériennes classées ailleurs,otite moyenne au cours de maladies bactériennes classées ailleurs,F,none,4078
+865,,,H67.1,otite moyenne au cours de maladies virales classées ailleurs,otite moyenne au cours de maladies virales classées ailleurs,F,none,4079
+866,,,H67.8,otite moyenne au cours d'autres maladies classées ailleurs,otite moyenne au cours d'autres maladies classées ailleurs,F,none,1980
+867,,,H75,autres affections de l'oreille moyenne et de l'apophyse mastoïde au cours de maladies classées ailleurs,autres affections de l'oreille moyenne et de l'apophyse mastoïde au cours de maladies classées ailleurs,F,none,2014
+868,,,H75.0,mastoïdite au cours de maladies infectieuses et parasitaires classées ailleurs,mastoïdite au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,2015
+869,,,H75.8,autres affections précisées de l'oreille moyenne et de l'apophyse mastoïde au cours de maladies classées ailleurs,autres affections précisées de l'oreille moyenne et de l'apophyse mastoïde au cours de maladies classées ailleurs,F,none,2016
+870,,,H82,syndromes vertigineux au cours de maladies classées ailleurs,syndromes vertigineux au cours de maladies classées ailleurs,F,none,2032
+871,,,H94,autres affections de l'oreille au cours de maladies classées ailleurs,autres affections de l'oreille au cours de maladies classées ailleurs,F,none,4109
+872,,,H94.0,névrite acoustique au cours de maladies infectieuses et parasitaires classées ailleurs,névrite acoustique au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,4110
+873,,,H94.8,autres affections précisées de l'oreille au cours de maladies classées ailleurs,autres affections précisées de l'oreille au cours de maladies classées ailleurs,F,none,4111
+874,,,I32,péricardite au cours de maladies classées ailleurs,péricardite au cours de maladies classées ailleurs,F,none,4249
+875,,,I32.0,péricardite au cours de maladies bactériennes classées ailleurs,péricardite au cours de maladies bactériennes classées ailleurs,F,none,4250
+876,,,I32.1,péricardite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,péricardite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,4251
+877,,,I32.8,péricardite au cours d'autres maladies classées ailleurs,péricardite au cours d'autres maladies classées ailleurs,F,none,4252
+878,,,I39,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,F,none,4281
+879,,,I39.0,atteintes de la valvule mitrale au cours de maladies classées ailleurs,atteintes de la valvule mitrale au cours de maladies classées ailleurs,F,none,4282
+880,,,I39.1,atteintes de la valvule aortique au cours de maladies classées ailleurs,atteintes de la valvule aortique au cours de maladies classées ailleurs,F,none,4283
+881,,,I39.2,atteintes de la valvule tricuspide au cours de maladies classées ailleurs,atteintes de la valvule tricuspide au cours de maladies classées ailleurs,F,none,4284
+882,,,I39.3,atteintes de la valvule pulmonaire au cours de maladies classées ailleurs,atteintes de la valvule pulmonaire au cours de maladies classées ailleurs,F,none,4285
+883,,,I39.4,atteintes valvulaires multiples au cours de maladies classées ailleurs,atteintes valvulaires multiples au cours de maladies classées ailleurs,F,none,4286
+884,,,I39.8,"endocardite, valvule non précisée, au cours de maladies classées ailleurs","endocardite, valvule non précisée, au cours de maladies classées ailleurs",F,none,4287
+885,,,I41,myocardite au cours de maladies classées ailleurs,myocardite au cours de maladies classées ailleurs,F,none,4293
+886,,,I41.0,myocardite au cours de maladies bactériennes classées ailleurs,myocardite au cours de maladies bactériennes classées ailleurs,F,none,4294
+887,,,I41.1,myocardite au cours de maladies virales classées ailleurs,myocardite au cours de maladies virales classées ailleurs,F,none,4295
+888,,,I41.2,myocardite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,myocardite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,4296
+889,,,I41.8,myocardite au cours d'autres maladies classées ailleurs,myocardite au cours d'autres maladies classées ailleurs,F,none,4297
+890,,,I43,myocardiopathie au cours de maladies classées ailleurs,myocardiopathie au cours de maladies classées ailleurs,F,none,4309
+891,,,I43.0,myocardiopathie au cours de maladies infectieuses et parasitaires classées ailleurs,myocardiopathie au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,4310
+892,,,I43.1,myocardiopathie au cours de maladies métaboliques,myocardiopathie au cours de maladies métaboliques,F,none,4311
+893,,,I43.2,myocardiopathie au cours de maladies nutritionnelles,myocardiopathie au cours de maladies nutritionnelles,F,none,4312
+894,,,I43.8,myocardiopathie au cours d'autres maladies classées ailleurs,myocardiopathie au cours d'autres maladies classées ailleurs,F,none,4313
+895,,,I52,autres cardiopathies au cours de maladies classées ailleurs,autres cardiopathies au cours de maladies classées ailleurs,F,none,4367
+896,,,I52.0,autres cardiopathies au cours de maladies bactériennes classées ailleurs,autres cardiopathies au cours de maladies bactériennes classées ailleurs,F,none,4368
+897,,,I52.1,autres cardiopathies au cours d'autres maladies infectieuses et parasitaires classées ailleurs,autres cardiopathies au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,4369
+898,,,I52.8,autres cardiopathies au cours d'autres maladies classées ailleurs,autres cardiopathies au cours d'autres maladies classées ailleurs,F,none,4370
+899,,,I68,troubles cérébrovasculaires au cours de maladies classées ailleurs,troubles cérébrovasculaires au cours de maladies classées ailleurs,F,none,4434
+900,,,I68.1,artérite cérébrale au cours de maladies infectieuses et parasitaires,artérite cérébrale au cours de maladies infectieuses et parasitaires,F,none,4436
+901,,,I68.2,artérite cérébrale au cours d'autres maladies classées ailleurs,artérite cérébrale au cours d'autres maladies classées ailleurs,F,none,4437
+902,,,I68.8,autres troubles cérébrovasculaires au cours de maladies classées ailleurs,autres troubles cérébrovasculaires au cours de maladies classées ailleurs,F,none,4438
+903,,,I79,"atteintes des artères, artérioles et capillaires au cours de maladies classées ailleurs","atteintes des artères, artérioles et capillaires au cours de maladies classées ailleurs",F,none,4500
+904,,,I79.0,anévrisme de l'aorte au cours de maladies classées ailleurs,anévrisme de l'aorte au cours de maladies classées ailleurs,F,none,4501
+905,,,I79.1,aortite au cours de maladies classées ailleurs,aortite au cours de maladies classées ailleurs,F,none,4502
+906,,,I79.2,angiopathie périphérique au cours de maladies classées ailleurs,angiopathie périphérique au cours de maladies classées ailleurs,F,none,4503
+907,,,I79.8,"autres atteintes des artères, artérioles et capillaires au cours de maladies classées ailleurs","autres atteintes des artères, artérioles et capillaires au cours de maladies classées ailleurs",F,none,4504
+908,,,I98,autres troubles de l'appareil circulatoire au cours de maladies classées ailleurs,autres troubles de l'appareil circulatoire au cours de maladies classées ailleurs,F,none,4576
+909,,,I98.0,syphilis cardio-vasculaire,syphilis cardio-vasculaire,F,none,4577
+910,,,I98.1,troubles cardio-vasculaires au cours d'autres maladies infectieuses et parasitaires classées ailleurs,troubles cardio-vasculaires au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,4578
+911,,,I98.2,varices oesophagiennes au cours de maladies classées ailleurs,varices oesophagiennes au cours de maladies classées ailleurs,F,none,4579
+912,,,I98.8,autres troubles précisés de l'appareil circulatoire au cours de maladies classées ailleurs,autres troubles précisés de l'appareil circulatoire au cours de maladies classées ailleurs,F,none,4580
+913,,,J17,pneumopathie au cours de maladies classées ailleurs,pneumopathie au cours de maladies classées ailleurs,F,none,4643
+914,,,J17.0,pneumopathie au cours de maladies bactériennes classées ailleurs,pneumopathie au cours de maladies bactériennes classées ailleurs,F,none,4644
+915,,,J17.1,pneumopathie au cours de maladies virales classées ailleurs,pneumopathie au cours de maladies virales classées ailleurs,F,none,4645
+916,,,J17.2,pneumopathie au cours de mycoses,pneumopathie au cours de mycoses,F,none,4646
+917,,,J17.3,pneumopathie au cours de maladies parasitaires,pneumopathie au cours de maladies parasitaires,F,none,4647
+918,,,J17.8,pneumopathie au cours d'autres maladies classées ailleurs,pneumopathie au cours d'autres maladies classées ailleurs,F,none,4648
+919,,,J91,épanchement pleural au cours de maladies classées ailleurs,épanchement pleural au cours de maladies classées ailleurs,F,none,4826
+920,,,J99,troubles respiratoires au cours de maladies classées ailleurs,troubles respiratoires au cours de maladies classées ailleurs,F,none,4865
+921,,,J99.1,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,troubles respiratoires au cours d'autres affections disséminées du tissu conjonctif,F,none,4867
+922,,,J99.8,troubles respiratoires au cours d'autres maladies classées ailleurs,troubles respiratoires au cours d'autres maladies classées ailleurs,F,none,4868
+923,,,K23,atteintes de l'oesophage au cours de maladies classées ailleurs,atteintes de l'oesophage au cours de maladies classées ailleurs,F,none,5008
+924,,,K23.8,atteintes de l'oesophage au cours d'autres maladies classées ailleurs,atteintes de l'oesophage au cours d'autres maladies classées ailleurs,F,none,5011
+925,,,K67,atteintes péritonéales au cours de maladies infectieuses classées ailleurs,atteintes péritonéales au cours de maladies infectieuses classées ailleurs,F,none,2162
+926,,,K67.8,autres atteintes péritonéales au cours de maladies infectieuses classées ailleurs,autres atteintes péritonéales au cours de maladies infectieuses classées ailleurs,F,none,2167
+927,,,K77,atteintes hépatiques au cours de maladies classées ailleurs,atteintes hépatiques au cours de maladies classées ailleurs,F,none,2223
+928,,,K77.0,atteintes hépatiques au cours de maladies infectieuses et parasitaires classées ailleurs,atteintes hépatiques au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,2224
+929,,,K77.8,atteintes hépatiques au cours d'autres maladies classées ailleurs,atteintes hépatiques au cours d'autres maladies classées ailleurs,F,none,2225
+930,,,K87,"atteintes de la vésicule biliaire, des voies biliaires et du pancréas au cours de maladies classées ailleurs","atteintes de la vésicule biliaire, des voies biliaires et du pancréas au cours de maladies classées ailleurs",F,none,2265
+931,,,K87.0,atteinte de la vésicule biliaire et des voies biliaires au cours de maladies classées ailleurs,atteinte de la vésicule biliaire et des voies biliaires au cours de maladies classées ailleurs,F,none,2266
+932,,,K87.1,atteinte du pancréas au cours de maladies classées ailleurs,atteinte du pancréas au cours de maladies classées ailleurs,F,none,2267
+933,,,K93,atteintes d'autres organes de l'appareil digestif au cours de maladies classées ailleurs,atteintes d'autres organes de l'appareil digestif au cours de maladies classées ailleurs,F,none,2292
+934,,,K93.8,atteintes d'autres organes digestifs précisés au cours de maladies classées ailleurs,atteintes d'autres organes digestifs précisés au cours de maladies classées ailleurs,F,none,2295
+935,,,L14,dermatoses bulleuses au cours de maladies classées ailleurs,dermatoses bulleuses au cours de maladies classées ailleurs,F,none,2359
+936,,,L45,lésions papulo-squameuses au cours de maladies classées ailleurs,lésions papulo-squameuses au cours de maladies classées ailleurs,F,none,5104
+937,,,L54,érythèmes au cours de maladies classées ailleurs,érythèmes au cours de maladies classées ailleurs,F,none,5130
+938,,,L54.8,érythème au cours d'autres maladies classées ailleurs,érythème au cours d'autres maladies classées ailleurs,F,none,5132
+939,,,L62,maladies des ongles au cours de maladies classées ailleurs,maladies des ongles au cours de maladies classées ailleurs,F,none,5175
+940,,,L62.8,maladies des ongles au cours d'autres maladies classées ailleurs,maladies des ongles au cours d'autres maladies classées ailleurs,F,none,5177
+941,,,L86,kératodermie au cours de maladies classées ailleurs,kératodermie au cours de maladies classées ailleurs,F,none,5277
+942,,,L99,autres affections de la peau et du tissu cellulaire sous-cutané au cours de maladies classées ailleurs,autres affections de la peau et du tissu cellulaire sous-cutané au cours de maladies classées ailleurs,F,none,5337
+943,,,L99.8,autres affections précisées de la peau et du tissu cellulaire sous-cutané au cours de maladies classées ailleurs,autres affections précisées de la peau et du tissu cellulaire sous-cutané au cours de maladies classées ailleurs,F,none,5339
+944,,,M01,arthrites infectieuses directes au cours de maladies infectieuses et parasitaires classées ailleurs,arthrites infectieuses directes au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,5349
+945,,,M01.3,arthrite au cours d'autres maladies bactériennes classées ailleurs,arthrite au cours d'autres maladies bactériennes classées ailleurs,F,none,5353
+946,,,M01.5,arthrite au cours d'autres maladies virales classées ailleurs,arthrite au cours d'autres maladies virales classées ailleurs,F,none,5355
+947,,,M01.8,arthrite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,arthrite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,5357
+948,,,M03,arthropathies post-infectieuses et réactionnelles au cours de maladies classées ailleurs,arthropathies post-infectieuses et réactionnelles au cours de maladies classées ailleurs,F,none,5365
+949,,,M03.1,arthropathie syphilitique post-infectieuse,arthropathie syphilitique post-infectieuse,F,none,5367
+950,,,M03.2,autres arthropathies post-infectieuses au cours de maladies classées ailleurs,autres arthropathies post-infectieuses au cours de maladies classées ailleurs,F,none,5368
+951,,,M03.6,arthropathie réactionnelle au cours d'autres maladies classées ailleurs,arthropathie réactionnelle au cours d'autres maladies classées ailleurs,F,none,5369
+952,,,M07,arthropathies psoriasiques et entéropathiques,arthropathies psoriasiques et entéropathiques,F,none,5386
+953,,,M07.6,autres arthropathies entéropathiques,autres arthropathies entéropathiques,F,none,5393
+954,,,M09,polyarthrite juvénile au cours de maladies classées ailleurs,polyarthrite juvénile au cours de maladies classées ailleurs,F,none,5402
+955,,,M09.8,polyarthrite juvénile au cours d'autres maladies classées ailleurs,polyarthrite juvénile au cours d'autres maladies classées ailleurs,F,none,5406
+956,,,M14,arthropathies au cours d'autres maladies classées ailleurs,arthropathies au cours d'autres maladies classées ailleurs,F,none,5433
+957,,,M14.0,arthropathie goutteuse due à un déficit enzymatique et autres troubles héréditaires,arthropathie goutteuse due à un déficit enzymatique et autres troubles héréditaires,F,none,5434
+958,,,M14.1,arthropathie à microcristaux au cours d'autres troubles métaboliques classés ailleurs,arthropathie à microcristaux au cours d'autres troubles métaboliques classés ailleurs,F,none,5435
+959,,,M14.2,arthropathie diabétique,arthropathie diabétique,F,none,5436
+960,,,M14.5,"arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques","arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",F,none,5439
+961,,,M14.6,arthropathie neuropathique,arthropathie neuropathique,F,none,5440
+962,,,M14.8,arthropathie au cours d'autres maladies précisées classées ailleurs,arthropathie au cours d'autres maladies précisées classées ailleurs,F,none,5441
+963,,,M36,atteintes systémiques du tissu conjonctif au cours de maladies classées ailleurs,atteintes systémiques du tissu conjonctif au cours de maladies classées ailleurs,F,none,5587
+964,,,M36.1,arthropathie au cours de maladies tumorales classées ailleurs,arthropathie au cours de maladies tumorales classées ailleurs,F,none,5589
+965,,,M36.4,arthropathie au cours de réactions d'hypersensibilité classées ailleurs,arthropathie au cours de réactions d'hypersensibilité classées ailleurs,F,none,5592
+966,,,M36.8,atteintes systémiques du tissu conjonctif au cours d'autres maladies classées ailleurs,atteintes systémiques du tissu conjonctif au cours d'autres maladies classées ailleurs,F,none,5593
+967,,,M49,spondylopathies au cours de maladies classées ailleurs,spondylopathies au cours de maladies classées ailleurs,F,none,5652
+968,,,M49.3,spondylopathie au cours d'autres maladies infectieuses et parasitaires classées ailleurs,spondylopathie au cours d'autres maladies infectieuses et parasitaires classées ailleurs,F,none,5656
+969,,,M49.4,spondylopathie neurologique,spondylopathie neurologique,F,none,5657
+970,,,M49.5,tassement vertébral au cours de maladies classées ailleurs,tassement vertébral au cours de maladies classées ailleurs,F,none,5658
+971,,,M49.8,spondylopathie au cours d'autres maladies classées ailleurs,spondylopathie au cours d'autres maladies classées ailleurs,F,none,5659
+972,,,M63,atteintes musculaires au cours de maladies classées ailleurs,atteintes musculaires au cours de maladies classées ailleurs,F,none,5719
+973,,,M63.0,myosite au cours de maladies bactériennes classées ailleurs,myosite au cours de maladies bactériennes classées ailleurs,F,none,5720
+974,,,M63.1,myosite au cours d'infections parasitaires et à protozoaires classées ailleurs,myosite au cours d'infections parasitaires et à protozoaires classées ailleurs,F,none,5721
+975,,,M63.2,myosite au cours d'autres maladies infectieuses classées ailleurs,myosite au cours d'autres maladies infectieuses classées ailleurs,F,none,5722
+976,,,M63.8,autres atteintes musculaires au cours de maladies classées ailleurs,autres atteintes musculaires au cours de maladies classées ailleurs,F,none,5724
+977,,,M68,atteintes de la synoviale et du tendon au cours de maladies classées ailleurs,atteintes de la synoviale et du tendon au cours de maladies classées ailleurs,F,none,5749
+978,,,M68.0,synovite et ténosynovite au cours de maladies bactériennes classées ailleurs,synovite et ténosynovite au cours de maladies bactériennes classées ailleurs,F,none,5750
+979,,,M68.8,autres atteintes de la synoviale et du tendon au cours de maladies classées ailleurs,autres atteintes de la synoviale et du tendon au cours de maladies classées ailleurs,F,none,5751
+980,,,M73,affections des tissus mous au cours de maladies classées ailleurs,affections des tissus mous au cours de maladies classées ailleurs,F,none,5782
+981,,,M73.8,autres affections des tissus mous au cours d'autres maladies classées ailleurs,autres affections des tissus mous au cours d'autres maladies classées ailleurs,F,none,5785
+982,,,M82,ostéoporose au cours de maladies classées ailleurs,ostéoporose au cours de maladies classées ailleurs,F,none,5846
+983,,,M82.1,ostéoporose au cours de maladies endocriniennes,ostéoporose au cours de maladies endocriniennes,F,none,5848
+984,,,M82.8,ostéoporose au cours d'autres maladies classées ailleurs,ostéoporose au cours d'autres maladies classées ailleurs,F,none,5849
+985,,,M90,ostéopathie au cours de maladies classées ailleurs,ostéopathie au cours de maladies classées ailleurs,F,none,5909
+986,,,M90.1,périostite au cours d'autres maladies infectieuses classées ailleurs,périostite au cours d'autres maladies infectieuses classées ailleurs,F,none,5911
+987,,,M90.2,ostéopathie au cours d'autres maladies infectieuses classées ailleurs,ostéopathie au cours d'autres maladies infectieuses classées ailleurs,F,none,5912
+988,,,M90.5,ostéonécrose au cours d'autres maladies classées ailleurs,ostéonécrose au cours d'autres maladies classées ailleurs,F,none,5915
+989,,,M90.6,ostéite déformante au cours de maladies tumorales,ostéite déformante au cours de maladies tumorales,F,none,5916
+990,,,M90.8,ostéopathie au cours d'autres maladies classées ailleurs,ostéopathie au cours d'autres maladies classées ailleurs,F,none,5918
+991,,,N08,glomérulopathies au cours de maladies classées ailleurs,glomérulopathies au cours de maladies classées ailleurs,F,none,6432
+992,,,N08.0,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,glomérulopathie au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,6433
+993,,,N08.1,glomérulopathie au cours de maladies tumorales,glomérulopathie au cours de maladies tumorales,F,none,6434
+994,,,N08.2,glomérulopathie au cours de maladies du sang et des anomalies du système immunitaire,glomérulopathie au cours de maladies du sang et des anomalies du système immunitaire,F,none,6435
+995,,,N08.4,"glomérulopathie au cours de maladies endocriniennes, nutritionnelles et métaboliques","glomérulopathie au cours de maladies endocriniennes, nutritionnelles et métaboliques",F,none,6437
+996,,,N08.5,glomérulopathie au cours d'affections disséminées du tissu conjonctif,glomérulopathie au cours d'affections disséminées du tissu conjonctif,F,none,6438
+997,,,N08.8,glomérulopathie au cours d'autres maladies classées ailleurs,glomérulopathie au cours d'autres maladies classées ailleurs,F,none,6439
+998,,,N16,maladies rénales tubulo-interstitielles au cours de maladies classées ailleurs,maladies rénales tubulo-interstitielles au cours de maladies classées ailleurs,F,none,6470
+999,,,N16.0,maladie rénale tubulo-interstitielle au cours de maladies infectieuses et parasitaires classées ailleurs,maladie rénale tubulo-interstitielle au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,6471
+1000,,,N16.1,maladie rénale tubulo-interstitielle au cours de maladies tumorales,maladie rénale tubulo-interstitielle au cours de maladies tumorales,F,none,6472
+1001,,,N16.2,maladie rénale tubulo-interstitielle au cours de maladies du sang et des troubles du système immunitaire,maladie rénale tubulo-interstitielle au cours de maladies du sang et des troubles du système immunitaire,F,none,6473
+1002,,,N16.3,maladie rénale tubulo-interstitielle au cours de maladies métaboliques,maladie rénale tubulo-interstitielle au cours de maladies métaboliques,F,none,6474
+1003,,,N16.4,maladie rénale tubulo-interstitielle au cours d'affections disséminées du tissu conjonctif,maladie rénale tubulo-interstitielle au cours d'affections disséminées du tissu conjonctif,F,none,6475
+1004,,,N16.8,maladie rénale tubulo-interstitielle au cours d'autres maladies classées ailleurs,maladie rénale tubulo-interstitielle au cours d'autres maladies classées ailleurs,F,none,6477
+1005,,,N22,calcul des voies urinaires au cours de maladies classées ailleurs,calcul des voies urinaires au cours de maladies classées ailleurs,F,none,6501
+1006,,,N22.8,calcul des voies urinaires au cours d'autres maladies classées ailleurs,calcul des voies urinaires au cours d'autres maladies classées ailleurs,F,none,6503
+1007,,,N29,autres affections du rein et de l'uretère au cours de maladies classées ailleurs,autres affections du rein et de l'uretère au cours de maladies classées ailleurs,F,none,6521
+1008,,,N29.1,autres affections du rein et de l'uretère au cours de maladies infectieuses et parasitaires classées ailleurs,autres affections du rein et de l'uretère au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,6523
+1009,,,N29.8,autres affections du rein et de l'uretère au cours d'autres maladies classées ailleurs,autres affections du rein et de l'uretère au cours d'autres maladies classées ailleurs,F,none,6524
+1010,,,N33,affections de la vessie au cours de maladies classées ailleurs,affections de la vessie au cours de maladies classées ailleurs,F,none,6548
+1011,,,N33.8,affections de la vessie au cours d'autres maladies classées ailleurs,affections de la vessie au cours d'autres maladies classées ailleurs,F,none,6550
+1012,,,N37,affections de l'urètre au cours de maladies classées ailleurs,affections de l'urètre au cours de maladies classées ailleurs,F,none,6568
+1013,,,N37.0,urétrite au cours de maladies classées ailleurs,urétrite au cours de maladies classées ailleurs,F,none,6569
+1014,,,N37.8,autres affections de l'urètre au cours de maladies classées ailleurs,autres affections de l'urètre au cours de maladies classées ailleurs,F,none,6570
+1015,,,N51,affections des organes génitaux de l'homme au cours de maladies classées ailleurs,affections des organes génitaux de l'homme au cours de maladies classées ailleurs,F,none,6627
+1016,,,N51.0,affections de la prostate au cours de maladies classées ailleurs,affections de la prostate au cours de maladies classées ailleurs,F,none,6628
+1017,,,N51.1,affections du testicule et de l'épididyme au cours de maladies classées ailleurs,affections du testicule et de l'épididyme au cours de maladies classées ailleurs,F,none,6629
+1018,,,N51.2,balanite au cours de maladies classées ailleurs,balanite au cours de maladies classées ailleurs,F,none,6630
+1019,,,N51.8,autres affections des organes génitaux de l'homme au cours de maladies classées ailleurs,autres affections des organes génitaux de l'homme au cours de maladies classées ailleurs,F,none,6631
+1020,,,N74,"affections inflammatoires pelviennes de la femme, au cours de maladies classées ailleurs","affections inflammatoires pelviennes de la femme, au cours de maladies classées ailleurs",F,none,6673
+1021,,,N74.8,"affections inflammatoires pelviennes de la femme, au cours d'autres maladies classées ailleurs","affections inflammatoires pelviennes de la femme, au cours d'autres maladies classées ailleurs",F,none,6679
+1022,,,N77,ulcération et inflammation vulvo-vaginales au cours de maladies classées ailleurs,ulcération et inflammation vulvo-vaginales au cours de maladies classées ailleurs,F,none,6694
+1023,,,N77.0,ulcération de la vulve au cours de maladies infectieuses et parasitaires classées ailleurs,ulcération de la vulve au cours de maladies infectieuses et parasitaires classées ailleurs,F,none,6695
+1024,,,N77.1,"vaginite, vulvite et vulvo-vaginite au cours de maladies infectieuses et parasitaires classées ailleurs","vaginite, vulvite et vulvo-vaginite au cours de maladies infectieuses et parasitaires classées ailleurs",F,none,6696
+1025,,,N77.8,ulcération et inflammation vulvo-vaginales au cours d'autres maladies classées ailleurs,ulcération et inflammation vulvo-vaginales au cours d'autres maladies classées ailleurs,F,none,6697

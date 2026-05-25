@@ -1,0 +1,46 @@
+code,label,reason
+C00.8,Tumeur maligne à localisations contiguës de la lèvre,C00-C75 contiguous lesion semantics
+C02.8,Tumeur maligne à localisations contiguës de la langue,C00-C75 contiguous lesion semantics
+C04.8,Tumeur maligne à localisations contiguës du plancher de la bouche,C00-C75 contiguous lesion semantics
+C05.8,Tumeur maligne à localisations contiguës du palais,C00-C75 contiguous lesion semantics
+C06.8,"Tumeur maligne à localisations contiguës de la bouche, parties autres et non précisées",C00-C75 contiguous lesion semantics
+C08.8,Tumeur maligne à localisations contiguës des glandes salivaires principales,C00-C75 contiguous lesion semantics
+C09.8,Tumeur maligne à localisations contiguës de l'amygdale,C00-C75 contiguous lesion semantics
+C10.8,Tumeur maligne à localisations contiguës de l'oropharynx,C00-C75 contiguous lesion semantics
+C11.8,Tumeur maligne à localisations contiguës de rhinopharynx,C00-C75 contiguous lesion semantics
+C13.8,Tumeur maligne à localisations contiguës de l'hypopharynx,C00-C75 contiguous lesion semantics
+C14.8,"Tumeur maligne à localisations contiguës de la lèvre, de la cavité buccale et du pharynx",C00-C75 contiguous lesion semantics
+C15.8,Tumeur maligne à localisations contiguës de l'oesophage,C00-C75 contiguous lesion semantics
+C16.8,Tumeur maligne à localisations contiguës de l'estomac,C00-C75 contiguous lesion semantics
+C17.8,Tumeur maligne à localisations contiguës de l'intestin grêle,C00-C75 contiguous lesion semantics
+C18.8,Tumeur maligne à localisations contiguës du côlon,C00-C75 contiguous lesion semantics
+C21.8,"Tumeur maligne à localisations contiguës du rectum, de l'anus et du canal anal",C00-C75 contiguous lesion semantics
+C24.8,Tumeur maligne à localisations contiguës des voies biliaires,C00-C75 contiguous lesion semantics
+C25.8,Tumeur maligne à localisations contiguës du pancréas,C00-C75 contiguous lesion semantics
+C26.8,Tumeur maligne à localisations contiguës de l'appareil digestif,C00-C75 contiguous lesion semantics
+C31.8,Tumeur maligne à localisations contiguës des sinus de la face,C00-C75 contiguous lesion semantics
+C32.8,Tumeur maligne à localisations contiguës du larynx,C00-C75 contiguous lesion semantics
+C34.8,Tumeur maligne à localisations contiguës des bronches et du poumon,C00-C75 contiguous lesion semantics
+C38.8,"Tumeur maligne à localisations contiguës du coeur, du médiastin et de la plèvre",C00-C75 contiguous lesion semantics
+C39.8,Tumeur maligne à localisations contiguës des organes respiratoires et intrathoraciques,C00-C75 contiguous lesion semantics
+C40.8,Tumeur maligne à localisations contiguës des os et du cartilage articulaire des membres,C00-C75 contiguous lesion semantics
+C41.8,Tumeur maligne à localisations contiguës des os et du cartilage articulaire,C00-C75 contiguous lesion semantics
+C43.8,Lésion à localisations contiguës d'un mélanome malin de la peau,C00-C75 contiguous lesion semantics
+C44.8,Tumeur maligne à localisations contiguës de la peau,C00-C75 contiguous lesion semantics
+C46.8,Sarcome de Kaposi d'organes multiples,C00-C75 contiguous lesion semantics
+C47.8,Tumeur maligne à localisations contiguës des nerfs périphériques et du système nerveux autonome,C00-C75 contiguous lesion semantics
+C48.8,Tumeur maligne à localisations contiguës du rétropéritoine et du péritoine,C00-C75 contiguous lesion semantics
+C49.8,Tumeur maligne à localisations contiguës du tissu conjonctif et des autres tissus mous,C00-C75 contiguous lesion semantics
+C50.8,Tumeur maligne à localisations contiguës du sein,C00-C75 contiguous lesion semantics
+C51.8,Tumeur maligne à localisations contiguës de la vulve,C00-C75 contiguous lesion semantics
+C53.8,Tumeur maligne à localisations contiguës du col de l'utérus,C00-C75 contiguous lesion semantics
+C54.8,Tumeur maligne à localisations contiguës du corps de l'utérus,C00-C75 contiguous lesion semantics
+C57.8,Tumeur maligne à localisations contiguës des organes génitaux de la femme,C00-C75 contiguous lesion semantics
+C60.8,Tumeur maligne à localisations contiguës de la verge,C00-C75 contiguous lesion semantics
+C63.8,Tumeur maligne à localisations contiguës des organes génitaux de l'homme,C00-C75 contiguous lesion semantics
+C67.8,Tumeur maligne à localisations contiguës de la vessie,C00-C75 contiguous lesion semantics
+C68.8,Tumeur maligne à localisations contiguës des organes urinaires,C00-C75 contiguous lesion semantics
+C69.8,Tumeur maligne à localisations contiguës de l'oeil et de ses annexes,C00-C75 contiguous lesion semantics
+C71.8,Tumeur maligne à localisations contiguës de l'encéphale,C00-C75 contiguous lesion semantics
+C72.8,Tumeur maligne à localisations contiguës de l'encéphale et d'autres parties du système nerveux central,C00-C75 contiguous lesion semantics
+C75.8,"Tumeur maligne de plusieurs glandes endocrines, sans précision",C00-C75 contiguous lesion semantics

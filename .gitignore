@@ -19,15 +19,3 @@ htmlcov/
 # OS
 .DS_Store
 
-# Legacy data layout (referentiels bruts volumineux)
-data/CepiDc/
-data/reports/
-test/
-
-# New layout : raw referentials sont volumineux et non-committables par défaut.
-# Les fichiers sources doivent être documentés dans docs/ avec un script de
-# téléchargement reproductible. Les Parquets dérivés (referentials/processed/)
-# sont committés.
-referentials/raw/*
-!referentials/raw/.gitkeep
-reports/

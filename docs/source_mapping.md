@@ -398,8 +398,8 @@ exporté aussi en CSV pour consommation hors Python.
    tolérante par normalisation NFKD + lowercase).
 4. `redundancy_level` initialisé à `independent` par défaut, ou `none`
    si la paire est incomplète (un seul côté présent). Mis à jour à
-   `subordinate` pour les paires listées dans
-   `docs/dagger_subordinate_pairs.yaml`.
+   `subordinate` pour les paires marquées comme telles dans
+   `referentials/curation/dagger_curation.csv`.
 
 ### CSV principal : politique de représentation
  
@@ -440,7 +440,8 @@ lignes du CSV) :
   pour les couples).
 - `subordinate` : le code a une association dague/astérisque où l'un
   des deux codes se "résume" dans la combinaison (typique des
-  maladies infectieuses). Valeur attribuée via le YAML curé.
+  maladies infectieuses). Valeur attribuée via le CSV de curation
+  `referentials/curation/dagger_curation.csv`.
 **Principe 5 — Colonne `is_redundant_dagger`** (booléen, remplie pour
 toutes les lignes du CSV) :
  
@@ -620,127 +621,6 @@ Pour limiter les allers-retours et permettre la validation empirique
   curation a bien été prise en compte.
 
 
-### Principes de représentation dans le CSV final
-
-**Principe 1 — On garde TOUS les codes.** Tant le code dague que le
-code astérisque restent dans le CSV avec leurs libellés
-systématiques, leurs inclusions propres, leurs exclusions propres et
-leurs notes éditoriales. **Aucune suppression**.
-
-Justification : un code dague peut être utilisé seul lorsque la
-manifestation n'est pas précisée. Supprimer ses lignes du dataset
-empêcherait le LLM d'apprendre que ce code existe en tant que tel.
-
-**Principe 2 — Une ligne CSV par association.** Pour les renvois
-multiples (ex : M32.1+ associé à N08.5* ET N16.4*, ou M49.2*
-associé à un intervalle de dagues A01-A04), on produit autant de
-lignes que d'associations. Chaque ligne contient les mêmes
-informations sauf le code apparié.
-
-Justification : symétrique avec la philosophie déjà adoptée pour les
-exclusions OFS multi-cibles (une ligne par code exclu). Le consommateur
-peut toujours faire un `group_by(code)` pour reconsolider.
-
-**Principe 3 — Deux colonnes dédiées dans le CSV final**.
-
-| Colonne          | Remplie quand                                | Contenu                             |
-|------------------|----------------------------------------------|-------------------------------------|
-| `dagger_code`    | la ligne courante est un code astérisque     | le code dague associé (étiologie)   |
-| `asterisk_code`  | la ligne courante est un code dague          | le code astérisque associé (manifestation) |
-
-Ces deux colonnes restent vides pour les codes sans association
-dague/astérisque (la majorité).
-
-**Principe 4 — Colonne `redundancy_level`** (remplie pour TOUTES les
-lignes du CSV) :
-
-- `none` : le code n'a pas d'association dague/astérisque. Valeur
-  par défaut pour la majorité des lignes.
-- `independent` : le code a une association dague/astérisque, mais
-  les deux codes décrivent des réalités cliniques distinctes (par
-  exemple E10.2+ Diabète avec complications rénales / N08.3*
-  Glomérulopathie au cours du diabète : le diabète est une maladie
-  systémique dont la glomérulopathie n'est qu'une manifestation
-  parmi d'autres).
-- `subordinate` : le code a une association dague/astérisque où l'un
-  des deux codes se "résume" dans la combinaison (par exemple
-  A17.8+ Tuberculose du système nerveux / G05.0* Encéphalite au
-  cours d'infections bactériennes : l'étiologie tuberculeuse est
-  entièrement portée par le nom de la combinaison, le code dague
-  apporte peu d'information autonome).
-
-**Valeur par défaut** : `independent` pour les couples dague/astérisque,
-`none` pour les autres codes. Les cas `subordinate` sont identifiés
-au cas par cas via un fichier YAML curé : `docs/dagger_subordinate_pairs.yaml`.
-
-**Pour les renvois multiples** : si un code dague est associé à
-plusieurs astérisques (ou vice-versa), `redundancy_level` reste
-`independent` par défaut, mais le YAML peut surclasser cette valeur
-au cas par cas si l'expert métier le juge pertinent.
-
-### Le fichier `docs/dagger_subordinate_pairs.yaml`
-
-Format proposé :
-
-```yaml
-# Couples dague/astérisque où le code dague est sémantiquement
-# subordonné à la combinaison (typique des maladies infectieuses).
-# Format : liste de couples explicites, identifiés à la main.
-
-subordinate_pairs:
-  - dagger: A17.8
-    asterisk: G05.0
-    rationale: "tuberculose du système nerveux — l'étiologie est portée par le nom de la combinaison"
-  - dagger: ...
-    asterisk: ...
-    rationale: ...
-```
-
-Le fichier est versionné, revu manuellement, et étendu au fil du
-temps par le data scientist ou un expert métier (médecin, codeur).
-Le contenu initial est vide ou contient quelques cas évidents
-identifiés pendant l'exploration.
-
-### Filtrage des synonymes redondants côté dague (TBD)
-
-**Statut** : en attente de validation empirique.
-
-**Hypothèse** : pour les couples dague/astérisque, un descripteur
-OFS (table DESCR) peut être présent côté dague ET côté astérisque
-quand il décrit la combinaison des deux (par exemple "cystite
-tuberculeuse" rattaché à la fois à A18.1 et N33.0). Garder les deux
-crée un doublon sémantique trompeur pour le LLM.
-
-**Règle envisagée** : ne garder le descripteur que côté astérisque
-(manifestation). On exclut donc du CSV final les descripteurs OFS
-(table DESCR) dont le SID apparaît dans DAGSTAR avec un `daget` ∈
-{S, T, U} (les départs dague).
-
-**À valider empiriquement** :
-- Cardinalité du filtrage : combien de descripteurs sont concernés ?
-- Extension à INCLUDE : la même règle s'applique-t-elle aux inclusions ?
-- Extension à EXCLUDE : la même règle s'applique-t-elle aux exclusions ?
-- Cas où le descripteur dague n'est PAS le même que le descripteur
-  astérisque : faut-il alors garder les deux ?
-
-Le script d'exploration `scripts/explore/<date>_dagger_asterisk_dedup.py`
-produit les données nécessaires à cette décision. La règle sera
-gravée dans ce document une fois validée.
-
-### Table DAGSTAR comme livrable séparé (objectif 2 du projet)
-
-En complément du CSV principal, on produit une **table dédiée**
-d'associations dague/astérisque (objectif 2 du projet recode-icd).
-Cette table est plus structurée et conserve les 6 valeurs du champ
-`daget` (F/G/H/S/T/U) qui distinguent les cas (départ astérisque
-non pointé, systématique, descripteur, et symétriquement pour dague).
-
-Cette table sert à des usages où la sémantique fine de l'appariement
-est utile (analyse statistique, validation manuelle, contrôle de
-cohérence). Le CSV principal, lui, expose une vue simplifiée à deux
-colonnes `dagger_code` / `asterisk_code` pour la consommation par le
-prompt builder LLM.
-
 ## Conséquences pratiques pour les loaders
 
 ### Loader OFS (`loaders/ofs.py`)
@@ -791,7 +671,7 @@ La déduplication des synonymes (incluant la déduplication tolérante
 qui dépasse ce que fait `.unique()` upstream) est aussi la
 responsabilité du merger.
 
-Le merger lit aussi `docs/dagger_subordinate_pairs.yaml` pour
+Le merger lit aussi `referentials/curation/dagger_curation.csv` pour
 attribuer `redundancy_level=subordinate` aux couples curés.
 
 ## Cas particuliers et exceptions

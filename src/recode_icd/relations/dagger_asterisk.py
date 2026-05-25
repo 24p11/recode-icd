@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from dataclasses import dataclass
 from pathlib import Path
 
 import polars as pl
@@ -34,6 +35,10 @@ _ASTER_SIDE: frozenset[str] = frozenset({"F", "G", "H"})
 
 _PUNCT_RE = re.compile(r"[^\w\s]", flags=re.UNICODE)
 _WS_RE = re.compile(r"\s+")
+
+_VALID_CURATION_LEVELS: frozenset[str] = frozenset(
+    {"independent", "subordinate", "undecided", ""}
+)
 
 
 def _normalize_label(text: str | None) -> str:
@@ -198,6 +203,160 @@ def build_dagger_asterisk_table(
     return out
 
 
+@dataclass(frozen=True)
+class CurationReport:
+    """Compte-rendu de l'application du CSV de curation à la table DAGSTAR.
+
+    Champs :
+        n_subordinate_applied : paires curées 'subordinate' réellement
+            propagées dans la table enrichie (présentes des deux côtés).
+        n_independent_in_csv  : paires curées 'independent' lues dans
+            le CSV (n'altèrent pas la table — c'est déjà la valeur par
+            défaut — mais comptées pour audit).
+        n_undecided           : paires en attente de décision
+            (`redundancy_level` vide ou "undecided").
+        n_orphan_in_csv       : paires dans le CSV mais absentes de la
+            table enrichie. Warning, ignorées au merge.
+        n_pairs_in_table_absent_from_csv : paires complètes de la table
+            non couvertes par le CSV (gardent leur défaut 'independent').
+    """
+
+    n_subordinate_applied: int
+    n_independent_in_csv: int
+    n_undecided: int
+    n_orphan_in_csv: int
+    n_pairs_in_table_absent_from_csv: int
+
+    def as_long_rows(self) -> list[dict[str, object]]:
+        """Sérialisation long-format pour `reports/curation_applied.csv`."""
+        return [
+            {"dimension": "curation", "value": "subordinate_applied", "count": self.n_subordinate_applied},
+            {"dimension": "curation", "value": "independent_in_csv", "count": self.n_independent_in_csv},
+            {"dimension": "curation", "value": "undecided", "count": self.n_undecided},
+            {"dimension": "coherence", "value": "csv_pairs_absent_from_table", "count": self.n_orphan_in_csv},
+            {"dimension": "coherence", "value": "table_pairs_absent_from_csv", "count": self.n_pairs_in_table_absent_from_csv},
+        ]
+
+
+def _detect_csv_separator(path: Path) -> str:
+    """Sniff léger sur la 1re ligne : `;` si dominant, sinon `,`.
+
+    Excel FR sauvegarde les CSV avec `;` ; on tolère sans forcer
+    l'utilisateur à reconvertir le fichier."""
+    first_line = path.read_text(encoding="utf-8").splitlines()[0]
+    return ";" if first_line.count(";") > first_line.count(",") else ","
+
+
+def _read_curation_csv(path: Path) -> pl.DataFrame:
+    """Lit le CSV de curation en tolérant le séparateur, valide les
+    valeurs de `redundancy_level`.
+
+    Lève `ValueError` si une valeur de `redundancy_level` sort de
+    {'', 'independent', 'subordinate', 'undecided'}.
+    """
+    sep = _detect_csv_separator(path)
+    df = pl.read_csv(path, infer_schema_length=0, separator=sep)
+    for col in ("dagger_code", "asterisk_code", "redundancy_level"):
+        if col not in df.columns:
+            raise ValueError(
+                f"CSV de curation invalide : colonne '{col}' manquante. "
+                f"Colonnes lues : {df.columns}"
+            )
+    levels = df.get_column("redundancy_level").fill_null("").unique().to_list()
+    invalid = [v for v in levels if v not in _VALID_CURATION_LEVELS]
+    if invalid:
+        raise ValueError(
+            f"CSV de curation : valeurs invalides dans 'redundancy_level' : "
+            f"{sorted(invalid)}. Admises : {sorted(_VALID_CURATION_LEVELS)}."
+        )
+    return df
+
+
+def apply_curation(
+    table: pl.DataFrame,
+    curation_path: Path,
+) -> tuple[pl.DataFrame, CurationReport]:
+    """Applique le CSV de curation à la table DAGSTAR enrichie.
+
+    - Les paires avec `redundancy_level=subordinate` dans le CSV
+      voient leur valeur propagée dans la table.
+    - Les paires `independent` (défaut), `undecided` ou vides
+      n'altèrent pas la table.
+    - Les paires du CSV absentes de la table sont logguées comme
+      orphelines puis ignorées (cf. flag `_orphan` côté CSV).
+    - Les paires `_orphan=True` côté CSV sont systématiquement
+      ignorées (la curation référence un état révolu).
+
+    Returns:
+        (table_curée, rapport).
+    """
+    curation = _read_curation_csv(curation_path)
+
+    # Exclure les lignes orphelines (le _orphan côté CSV signale une
+    # paire absente d'une version précédente de la table — la curation
+    # ne s'y applique plus).
+    if "_orphan" in curation.columns:
+        curation = curation.filter(
+            ~pl.col("_orphan").fill_null("False").str.to_lowercase().is_in(["true", "1"])
+        )
+
+    sub = curation.filter(pl.col("redundancy_level") == "subordinate")
+    indep = curation.filter(pl.col("redundancy_level") == "independent")
+    undecided = curation.filter(
+        pl.col("redundancy_level").fill_null("").is_in(["", "undecided"])
+    )
+
+    # Détection des paires orphelines : présentes dans le CSV (côté
+    # subordinate ou independent — celles à effet) mais absentes de la table.
+    table_keys = table.select(["dagger_code", "asterisk_code"])
+    csv_with_decision = pl.concat([sub, indep], how="diagonal").select(
+        ["dagger_code", "asterisk_code"]
+    )
+    orphans = csv_with_decision.join(
+        table_keys, on=["dagger_code", "asterisk_code"], how="anti"
+    )
+
+    # Application : left join table ↔ subordinate, override redundancy_level.
+    sub_keys = sub.select(
+        pl.col("dagger_code"),
+        pl.col("asterisk_code"),
+        pl.lit("subordinate").alias("_curated_level"),
+    )
+    curated = (
+        table.join(sub_keys, on=["dagger_code", "asterisk_code"], how="left")
+        .with_columns(
+            pl.coalesce([pl.col("_curated_level"), pl.col("redundancy_level")])
+            .alias("redundancy_level")
+        )
+        .drop("_curated_level")
+        .select(table.columns)
+    )
+
+    # Combien de paires complètes de la table ne sont pas couvertes par le CSV ?
+    csv_keys_all = curation.select(["dagger_code", "asterisk_code"])
+    complete_table = table.filter(
+        pl.col("dagger_code").is_not_null() & pl.col("asterisk_code").is_not_null()
+    )
+    table_uncovered = complete_table.join(
+        csv_keys_all, on=["dagger_code", "asterisk_code"], how="anti"
+    )
+
+    # Nombre effectivement appliqué = lignes sub jointes à la table
+    # (orphans exclus). On le mesure via l'anti-join inverse.
+    sub_applied = sub.join(table_keys, on=["dagger_code", "asterisk_code"], how="inner")
+
+    report = CurationReport(
+        n_subordinate_applied=sub_applied.height,
+        n_independent_in_csv=indep.height,
+        n_undecided=undecided.height,
+        n_orphan_in_csv=orphans.height,
+        n_pairs_in_table_absent_from_csv=table_uncovered.height,
+    )
+
+    EnrichedDaggerAsteriskSchema.validate(curated)
+    return curated, report
+
+
 def _build_summary(table: pl.DataFrame) -> pl.DataFrame:
     """Rapport long-format (dimension, value, count) pour faciliter la
     curation manuelle de la phase 2."""
@@ -289,11 +448,21 @@ def to_parquet_and_csv_and_report(
     ofs_dir: Path,
     processed_dir: Path,
     report_path: Path,
+    curation_path: Path | None = None,
+    curation_report_path: Path | None = None,
 ) -> tuple[Path, Path, Path]:
-    """Lit les tables OFS brutes, construit la table enrichie, écrit
-    Parquet + CSV + rapport de synthèse.
+    """Lit les tables OFS brutes, construit la table enrichie,
+    applique optionnellement la curation, écrit Parquet + CSV + rapports.
 
-    Returns :
+    Args:
+        ofs_dir : répertoire OFS contenant MASTER/DAGSTAR/LIBELLE.txt.
+        processed_dir : sortie des Parquet + CSV de la table.
+        report_path : `reports/dagger_asterisk_summary.csv` (synthèse).
+        curation_path : chemin du CSV de curation (optionnel).
+        curation_report_path : `reports/curation_applied.csv`. Écrit
+            uniquement si `curation_path` fourni.
+
+    Returns:
         `(parquet_path, csv_path, report_path)`.
     """
     master = _read_ofs_table(ofs_dir / "MASTER.txt")
@@ -301,6 +470,15 @@ def to_parquet_and_csv_and_report(
     libelle = _read_ofs_table(ofs_dir / "LIBELLE.txt")
 
     table = build_dagger_asterisk_table(master, dagstar, libelle)
+
+    if curation_path is not None:
+        table, curation_report = apply_curation(table, curation_path)
+        if curation_report_path is not None:
+            curation_report_path.parent.mkdir(parents=True, exist_ok=True)
+            pl.DataFrame(
+                curation_report.as_long_rows(),
+                schema={"dimension": pl.String, "value": pl.String, "count": pl.Int64},
+            ).write_csv(curation_report_path)
 
     processed_dir.mkdir(parents=True, exist_ok=True)
     report_path.parent.mkdir(parents=True, exist_ok=True)
