@@ -1,0 +1,132 @@
+{
+  "n_disorders": 7534,
+  "n_icd10_refs": 8333,
+  "other_sources": {},
+  "mapping_relation_distribution": {
+    "NTBT": 6883,
+    "E": 611,
+    "BTNT": 826,
+    "ND": 13
+  },
+  "mapping_icd_relation_distribution": {
+    "Code attribué": 6626,
+    "Terme d'inclusion": 452,
+    "Terme index": 187,
+    "Code spécifique": 1068
+  },
+  "relation_E": {
+    "n_entries": 611,
+    "n_distinct_codes": 602,
+    "classification": {
+      "ofs": 566,
+      "owl_only": 37,
+      "unparseable": 8
+    },
+    "examples": [
+      {
+        "orpha": "447",
+        "name": "Hémoglobinurie paroxystique nocturne",
+        "synonyms": [
+          "HPN",
+          "Maladie de Marchiafava-Micheli"
+        ],
+        "icd_raw": "D59.5",
+        "icd_norm": "D59.5",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "856",
+        "name": "NON RARE EN EUROPE : Syndrome de Gilles de la Tourette",
+        "synonyms": [
+          "NON RARE EN EUROPE : GTS",
+          "NON RARE EN EUROPE : SGT"
+        ],
+        "icd_raw": "F95.2",
+        "icd_norm": "F95.2",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "825",
+        "name": "NON RARE EN EUROPE : Spondylarthrite ankylosante",
+        "synonyms": [
+          "NON RARE EN EUROPE : Syndrome de Bechterew"
+        ],
+        "icd_raw": "M45",
+        "icd_norm": "M45",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "848",
+        "name": "Bêta-thalassémie",
+        "synonyms": [
+          "Thalassémie bêta"
+        ],
+        "icd_raw": "D56.1",
+        "icd_norm": "D56.1",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "846",
+        "name": "Alpha-thalassémie",
+        "synonyms": [
+          "Thalassémie alpha"
+        ],
+        "icd_raw": "D56.0",
+        "icd_norm": "D56.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "163927",
+        "name": "Pustulose palmoplantaire",
+        "synonyms": [
+          "PPL",
+          "PPP",
+          "Psoriasis pustuleux localisé"
+        ],
+        "icd_raw": "L40.3",
+        "icd_norm": "L40.3",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "731",
+        "name": "Polykystose rénale autosomique récessive",
+        "synonyms": [
+          "AR-PKD"
+        ],
+        "icd_raw": "Q61.1",
+        "icd_norm": "Q61.1",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "558",
+        "name": "Syndrome de Marfan",
+        "synonyms": [
+          "MFS"
+        ],
+        "icd_raw": "Q87.4",
+        "icd_norm": "Q87.4",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "802",
+        "name": "NON RARE EN EUROPE : Sclérose en plaques",
+        "synonyms": [
+          "NON RARE EN EUROPE : SEP"
+        ],
+        "icd_raw": "G35",
+        "icd_norm": "G35",
+        "icd_classification": "ofs"
+      },
+      {
+        "orpha": "399",
+        "name": "Maladie de Huntington",
+        "synonyms": [
+          "Chorée de Huntington"
+        ],
+        "icd_raw": "G10",
+        "icd_norm": "G10",
+        "icd_classification": "ofs"
+      }
+    ]
+  }
+}

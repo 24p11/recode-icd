@@ -1,0 +1,1193 @@
+{
+  "INDEX_CIM10_VOL3": {
+    "sheet_name": "Cim Alphabétique",
+    "label": "INDEX_CIM10_VOL3",
+    "n_raw": 45266,
+    "raw_lengths": {
+      "4": 39722,
+      "3": 1779,
+      "6": 3758,
+      "5": 7
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 42376,
+      "M902": 41,
+      "M492": 3,
+      "M013": 20,
+      "K938": 60,
+      "K678": 4,
+      "J170": 24,
+      "I410": 17,
+      "I39-": 20,
+      "G01": 57,
+      "N160": 19,
+      "M032": 5,
+      "K770": 67,
+      "J998": 65,
+      "G07": 31,
+      "L998": 64,
+      "N771": 35,
+      "N518": 48,
+      "N512": 7,
+      "D77": 20,
+      "M018": 12,
+      "G630": 16,
+      "G598": 4,
+      "G050": 21,
+      "G998": 15,
+      "N741": 25,
+      "M900": 27,
+      "M680": 12,
+      "M490": 46,
+      "M011": 27,
+      "H750": 7,
+      "N770": 3,
+      "N740": 2,
+      "N511": 28,
+      "N510": 13,
+      "N378": 4,
+      "N370": 9,
+      "N330": 4,
+      "N291": 22,
+      "N080": 39,
+      "K930": 43,
+      "K673": 3,
+      "H031": 18,
+      "H588": 15,
+      "H488": 2,
+      "H428": 9,
+      "H368": 10,
+      "H320": 23,
+      "H220": 41,
+      "H192": 47,
+      "H190": 13,
+      "H131": 51,
+      "H063": 5,
+      "H060": 8,
+      "H670": 6,
+      "E351": 13,
+      "M738": 5,
+      "M630": 9,
+      "M368": 4,
+      "K871": 7,
+      "K870": 2,
+      "K230": 3,
+      "I981": 6,
+      "I798": 12,
+      "I681": 6,
+      "I520": 12,
+      "I430": 1,
+      "I398": 12,
+      "I393": 5,
+      "I392": 4,
+      "I391": 6,
+      "I390": 4,
+      "I320": 10,
+      "E358": 8,
+      "E350": 10,
+      "D638": 11,
+      "M491": 1,
+      "N338": 8,
+      "H228": 1,
+      "M030": 2,
+      "M010": 2,
+      "H481": 6,
+      "H620": 2,
+      "M901": 12,
+      "L14": 2,
+      "K672": 2,
+      "H581": 11,
+      "H458": 5,
+      "H288": 7,
+      "H480": 4,
+      "G948": 22,
+      "G940": 3,
+      "F028": 23,
+      "M031": 6,
+      "I980": 9,
+      "I791": 8,
+      "N742": 11,
+      "I790": 6,
+      "I688": 7,
+      "I394": 2,
+      "M494": 10,
+      "M146": 31,
+      "H948": 5,
+      "H940": 7,
+      "H580": 2,
+      "G538": 2,
+      "G531": 5,
+      "G328": 25,
+      "G320": 23,
+      "G22": 2,
+      "N290": 2,
+      "M828": 1,
+      "M731": 1,
+      "M493": 4,
+      "M148": 18,
+      "K238": 2,
+      "H758": 1,
+      "H450": 1,
+      "N743": 18,
+      "H451": 11,
+      "M730": 1,
+      "L86": 10,
+      "K671": 2,
+      "N744": 9,
+      "N748": 6,
+      "N77-": 1,
+      "N51-": 1,
+      "M012": 1,
+      "J178": 12,
+      "K670": 1,
+      "G051": 45,
+      "G020": 40,
+      "F021": 6,
+      "H82": 2,
+      "M015": 6,
+      "H621": 5,
+      "H191": 11,
+      "J171": 15,
+      "G530": 14,
+      "H671": 6,
+      "M014": 3,
+      "F024": 2,
+      "I411": 11,
+      "I521": 4,
+      "I321": 3,
+      "H622": 6,
+      "J172": 40,
+      "G021": 10,
+      "G052": 32,
+      "M016": 3,
+      "M632": 1,
+      "H030": 16,
+      "G028": 9,
+      "I412": 10,
+      "K931": 2,
+      "K231": 2,
+      "J173": 13,
+      "M631": 7,
+      "I982": 4,
+      "N220": 1,
+      "H061": 3,
+      "K77": 1,
+      "J91": 2,
+      "H130": 3,
+      "H623": 2,
+      "G734": 2,
+      "M906": 2,
+      "M907": 5,
+      "M495": 5,
+      "M638": 1,
+      "G941": 2,
+      "G737": 13,
+      "G732": 2,
+      "G731": 2,
+      "G730": 13,
+      "G631": 2,
+      "G533": 3,
+      "G130": 3,
+      "N161": 5,
+      "N081": 4,
+      "M820": 1,
+      "M361": 4,
+      "M360": 1,
+      "G992": 27,
+      "G550": 1,
+      "G131": 4,
+      "D630": 1,
+      "G634": 18,
+      "M363": 6,
+      "N082": 15,
+      "M140": 4,
+      "M904": 1,
+      "M362": 2,
+      "M364": 2,
+      "N162": 4,
+      "M633": 1,
+      "K778": 14,
+      "I438": 10,
+      "I418": 4,
+      "H221": 8,
+      "G638": 3,
+      "G532": 2,
+      "G735": 17,
+      "M145": 9,
+      "H281": 5,
+      "G132": 2,
+      "H062": 2,
+      "H038": 4,
+      "G990": 19,
+      "N083": 55,
+      "H360": 25,
+      "H280": 5,
+      "H198": 19,
+      "G632": 21,
+      "G590": 10,
+      "I792": 10,
+      "M142": 10,
+      "N163": 9,
+      "M498": 10,
+      "M141": 1,
+      "M821": 1,
+      "H420": 4,
+      "G633": 6,
+      "H138": 7,
+      "I988": 2,
+      "I432": 3,
+      "N298": 4,
+      "I431": 11,
+      "G736": 4,
+      "N084": 12,
+      "I528": 9,
+      "M143": 1,
+      "M908": 6,
+      "P75": 4,
+      "M144": 2,
+      "L990": 4,
+      "I680": 2,
+      "F022": 2,
+      "F023": 2,
+      "F000": 6,
+      "F001": 4,
+      "F002": 3,
+      "F009": 4,
+      "F020": 5,
+      "H282": 1,
+      "G058": 3,
+      "L540": 1,
+      "N088": 8,
+      "M036": 2,
+      "G463": 18,
+      "G468": 3,
+      "G460": 1,
+      "G461": 1,
+      "G462": 1,
+      "G464": 6,
+      "G467": 2,
+      "G466": 1,
+      "G465": 1,
+      "M091": 3,
+      "M074": 2,
+      "M092": 2,
+      "M075": 1,
+      "M098": 1,
+      "M076": 2,
+      "H624": 2,
+      "H133": 3,
+      "M090": 3,
+      "M073": 4,
+      "M072": 1,
+      "M071": 3,
+      "M070": 2,
+      "H193": 4,
+      "H132": 2,
+      "J990": 5,
+      "I328": 7,
+      "G636": 4,
+      "N228": 3,
+      "G991": 1,
+      "H628": 2,
+      "N085": 20,
+      "G635": 6,
+      "J991": 20,
+      "N164": 6,
+      "I682": 1,
+      "N778": 1,
+      "G552": 27,
+      "G551": 44,
+      "G553": 11,
+      "L620": 2,
+      "H328": 1,
+      "M903": 1,
+      "N165": 2
+    },
+    "source_tag_distribution": {
+      "B": 45266
+    },
+    "classification": {
+      "ofs": 41326,
+      "unparseable": 3929,
+      "orphan": 5,
+      "owl_only": 6
+    },
+    "n_valid_ofs": 41326,
+    "n_valid_owl_only": 6,
+    "n_orphan": 5,
+    "n_unparseable": 3929,
+    "n_internal_duplicates": 0,
+    "examples": [
+      {
+        "libelle": "Choléra (asiatique) (épidémique) (malin), classique",
+        "code_raw": "A000",
+        "code_norm": "A00.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Choléra (asiatique) (épidémique) (malin), vibrio cholerae o1, biovar, cholerae",
+        "code_raw": "A000",
+        "code_norm": "A00.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Choléra (asiatique) (épidémique) (malin), el tor",
+        "code_raw": "A001",
+        "code_norm": "A00.1",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Choléra (asiatique) (épidémique) (malin), vibrio cholerae o1, biovar, el tor",
+        "code_raw": "A001",
+        "code_norm": "A00.1",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, el tor",
+        "code_raw": "A001",
+        "code_norm": "A00.1",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Choléra (asiatique) (épidémique) (malin)",
+        "code_raw": "A009",
+        "code_norm": "A00.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Choléra (asiatique) (épidémique) (malin), vibrio cholerae o1",
+        "code_raw": "A009",
+        "code_norm": "A00.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Adénite (de), mésentérique (aiguë) (chronique) (non spécifique) (subaiguë), bacille d'eberth",
+        "code_raw": "A010",
+        "code_norm": "A01.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Eberth, maladie d'",
+        "code_raw": "A010",
+        "code_norm": "A01.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, typhoïdique",
+        "code_raw": "A010",
+        "code_norm": "A01.0",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_DERMATOLOGIE": {
+    "sheet_name": "Dermatologie",
+    "label": "APHP_DERMATOLOGIE",
+    "n_raw": 1834,
+    "raw_lengths": {
+      "4": 1707,
+      "3": 109,
+      "5": 18
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 1834
+    },
+    "source_tag_distribution": {
+      "DR1": 1834
+    },
+    "classification": {
+      "ofs": 1823,
+      "owl_only": 7,
+      "unparseable": 4
+    },
+    "n_valid_ofs": 1823,
+    "n_valid_owl_only": 7,
+    "n_orphan": 0,
+    "n_unparseable": 4,
+    "n_internal_duplicates": 2,
+    "examples": [
+      {
+        "libelle": "Tuberculose pulmonaire SAI",
+        "code_raw": "A159",
+        "code_norm": "A15.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Adénite tuberculeuse",
+        "code_raw": "A182",
+        "code_norm": "A18.2",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Abcès tuberculeux cutané et sous cutané",
+        "code_raw": "A184",
+        "code_norm": "A18.4",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Tuberculose cutanée",
+        "code_raw": "A184",
+        "code_norm": "A18.4",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Lupus tuberculeux",
+        "code_raw": "A184",
+        "code_norm": "A18.4",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_ENDOCRINOLOGIE": {
+    "sheet_name": "Endocrinologie",
+    "label": "APHP_ENDOCRINOLOGIE",
+    "n_raw": 301,
+    "raw_lengths": {
+      "4": 292,
+      "3": 5,
+      "5": 1,
+      "6": 3
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 301
+    },
+    "source_tag_distribution": {
+      "ED1": 301
+    },
+    "classification": {
+      "ofs": 297,
+      "owl_only": 1,
+      "unparseable": 3
+    },
+    "n_valid_ofs": 297,
+    "n_valid_owl_only": 1,
+    "n_orphan": 0,
+    "n_unparseable": 3,
+    "n_internal_duplicates": 0,
+    "examples": [
+      {
+        "libelle": "Insulinome malin",
+        "code_raw": "C254",
+        "code_norm": "C25.4",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Gastrinome malin",
+        "code_raw": "C254",
+        "code_norm": "C25.4",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Tumeur maligne du sein chez la femme",
+        "code_raw": "C509",
+        "code_norm": "C50.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Tumeur maligne du sein chez l'homme",
+        "code_raw": "C509",
+        "code_norm": "C50.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Chorioépithéliome testiculaire malin",
+        "code_raw": "C629",
+        "code_norm": "C62.9",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_GRONES": {
+    "sheet_name": "GRONES",
+    "label": "APHP_GRONES",
+    "n_raw": 166,
+    "raw_lengths": {
+      "4": 124,
+      "5": 4,
+      "3": 18,
+      "6": 20
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 150,
+      "C857": 1,
+      "E888": 1,
+      "G952": 1,
+      "G253": 1,
+      "G908": 1,
+      "B968": 1,
+      "G473": 1,
+      "T8138": 3,
+      "T818": 1,
+      "L30": 1,
+      "G632": 1,
+      "M625": 1,
+      "F408": 1,
+      "T634": 1
+    },
+    "source_tag_distribution": {
+      "GRONES": 166
+    },
+    "classification": {
+      "ofs": 139,
+      "owl_only": 6,
+      "unparseable": 20,
+      "orphan": 1
+    },
+    "n_valid_ofs": 139,
+    "n_valid_owl_only": 6,
+    "n_orphan": 1,
+    "n_unparseable": 20,
+    "n_internal_duplicates": 0,
+    "examples": [
+      {
+        "libelle": "Intoxication alimentaire à Vibrio vulnificus (COCOA)",
+        "code_raw": "A058",
+        "code_norm": "A05.8",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Sigmoidite infectieuse (COCOA)",
+        "code_raw": "A090",
+        "code_norm": "A09.0",
+        "icd_classification": "owl_only"
+      },
+      {
+        "libelle": "Diarrhée sans autre précision",
+        "code_raw": "A099",
+        "code_norm": "A09.9",
+        "icd_classification": "owl_only"
+      },
+      {
+        "libelle": "Epidurite tuberculeuse (AGO LD 060112)",
+        "code_raw": "A170",
+        "code_norm": "A17.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Ehrlichiose (COCOA)",
+        "code_raw": "A798",
+        "code_norm": "A79.8",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_METABOLISME": {
+    "sheet_name": "Troubles métaboliques",
+    "label": "APHP_METABOLISME",
+    "n_raw": 269,
+    "raw_lengths": {
+      "4": 267,
+      "3": 1,
+      "5": 1
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 262,
+      "E888": 1,
+      "R568": 2,
+      "Z358": 1,
+      "G248": 1,
+      "E798": 1,
+      "G318": 1
+    },
+    "source_tag_distribution": {
+      "METABOL": 269
+    },
+    "classification": {
+      "ofs": 268,
+      "unparseable": 1
+    },
+    "n_valid_ofs": 268,
+    "n_valid_owl_only": 0,
+    "n_orphan": 0,
+    "n_unparseable": 1,
+    "n_internal_duplicates": 0,
+    "examples": [
+      {
+        "libelle": "Déficit congénital en facteur intrinsèque [anémie de Biermer congénitale]",
+        "code_raw": "D510",
+        "code_norm": "D51.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Déficit en cubuline et mégaline [Syndrome d'Imerslund-Najman-Gräsbeck]",
+        "code_raw": "D511",
+        "code_norm": "D51.1",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Déficit en transcobalamine II",
+        "code_raw": "D512",
+        "code_norm": "D51.2",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Anomalie du transfert lysosomal de l'hydroxycobalamine [Cbl F]",
+        "code_raw": "D518",
+        "code_norm": "D51.8",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Déficit de synthèse des méthylcobalamines [Cbl E/Cbl G]",
+        "code_raw": "D518",
+        "code_norm": "D51.8",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_NEPHROLOGIE": {
+    "sheet_name": "Néphrologie",
+    "label": "APHP_NEPHROLOGIE",
+    "n_raw": 715,
+    "raw_lengths": {
+      "4": 659,
+      "3": 45,
+      "5": 8,
+      "6": 3
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 715
+    },
+    "source_tag_distribution": {
+      "NP1": 715
+    },
+    "classification": {
+      "ofs": 703,
+      "unparseable": 4,
+      "owl_only": 7,
+      "orphan": 1
+    },
+    "n_valid_ofs": 703,
+    "n_valid_owl_only": 7,
+    "n_orphan": 1,
+    "n_unparseable": 4,
+    "n_internal_duplicates": 0,
+    "examples": [
+      {
+        "libelle": "tuberculose pulmonaire",
+        "code_raw": "A162",
+        "code_norm": "A16.2",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "tuberculose génito-urinaire [coder d'abord 1141NL à 1144NL]",
+        "code_raw": "A181",
+        "code_norm": "A18.1",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "leptospirose",
+        "code_raw": "A279",
+        "code_norm": "A27.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "mycobactérie autre et SAI (infection à) (tuberculose exclue)",
+        "code_raw": "A319",
+        "code_norm": "A31.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "septicémie à bacille gram négatif",
+        "code_raw": "A415",
+        "code_norm": "A41.5",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_OPHTALMOLOGIE": {
+    "sheet_name": "Ophtalmo",
+    "label": "APHP_OPHTALMOLOGIE",
+    "n_raw": 444,
+    "raw_lengths": {
+      "4": 430,
+      "5": 5,
+      "3": 9
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 444
+    },
+    "source_tag_distribution": {
+      "OP1": 444
+    },
+    "classification": {
+      "ofs": 439,
+      "owl_only": 5
+    },
+    "n_valid_ofs": 439,
+    "n_valid_owl_only": 5,
+    "n_orphan": 0,
+    "n_unparseable": 0,
+    "n_internal_duplicates": 0,
+    "examples": [
+      {
+        "libelle": "Tumeur maligne du tissu conjonctif de la paupière",
+        "code_raw": "C490",
+        "code_norm": "C49.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Tumeur maligne de la sclérotique",
+        "code_raw": "C691",
+        "code_norm": "C69.1",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Tumeur maligne primitive de la choroïde",
+        "code_raw": "C693",
+        "code_norm": "C69.3",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Tumeur maligne de la glande lacrymale",
+        "code_raw": "C695",
+        "code_norm": "C69.5",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Tumeur maligne du canal lacrymal",
+        "code_raw": "C695",
+        "code_norm": "C69.5",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_RHUMATOLOGIE": {
+    "sheet_name": "Rhumatologie",
+    "label": "APHP_RHUMATOLOGIE",
+    "n_raw": 1042,
+    "raw_lengths": {
+      "4": 845,
+      "3": 8,
+      "5": 187,
+      "6": 2
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 860,
+      "G992": 1,
+      "C73": 1,
+      "C64": 1,
+      "C61": 1,
+      "C509": 1,
+      "C349": 1,
+      "C229": 1,
+      "C189": 1,
+      "C490": 1,
+      "C491": 1,
+      "C492": 1,
+      "C4938": 1,
+      "C4948": 1,
+      "C4958": 1,
+      "C496": 1,
+      "I418": 2,
+      "H221": 1,
+      "G532": 1,
+      "D351": 1,
+      "C750": 1,
+      "K778": 1,
+      "Z992": 1,
+      "Y420": 1,
+      "G952": 1,
+      "B022": 2,
+      "E144": 6,
+      "M4714": 1,
+      "M4712": 1,
+      "E143": 1,
+      "E145": 2,
+      "B957": 1,
+      "B956": 1,
+      "B968": 3,
+      "B967": 1,
+      "B966": 1,
+      "B965": 1,
+      "B964": 1,
+      "B963": 1,
+      "B962": 1,
+      "B961": 1,
+      "B960": 1,
+      "A398": 2,
+      "A180": 4,
+      "A692": 1,
+      "A544": 2,
+      "A318": 1,
+      "A309": 3,
+      "A280": 1,
+      "A239": 2,
+      "A022": 1,
+      "B068": 1,
+      "B978": 1,
+      "B976": 1,
+      "B973": 1,
+      "B971": 1,
+      "B268": 1,
+      "B238": 1,
+      "B182": 1,
+      "B181": 1,
+      "B169": 1,
+      "B159": 1,
+      "B008": 1,
+      "B458": 1,
+      "B448": 1,
+      "B408": 1,
+      "B399": 1,
+      "B388": 1,
+      "B378": 1,
+      "B749": 1,
+      "B659": 1,
+      "Y580": 1,
+      "B830": 1,
+      "B681": 1,
+      "A748": 1,
+      "A70": 1,
+      "A638": 1,
+      "A568": 1,
+      "A282": 1,
+      "A279": 1,
+      "A071": 1,
+      "A046": 1,
+      "A045": 1,
+      "A039": 1,
+      "J990": 2,
+      "I528": 1,
+      "I398": 2,
+      "I328": 2,
+      "G737": 2,
+      "G636": 1,
+      "L405": 4,
+      "K509": 2,
+      "K519": 2,
+      "K528": 1,
+      "N189": 3,
+      "E798": 4,
+      "E791": 2,
+      "E740": 2,
+      "D550": 1,
+      "E146": 3,
+      "A521": 1,
+      "T860": 1,
+      "K908": 1,
+      "D868": 2,
+      "N164": 1,
+      "N085": 1,
+      "J991": 2,
+      "Y96": 1,
+      "C961": 1,
+      "D681": 2,
+      "D67": 2,
+      "D66": 2,
+      "M4302": 1,
+      "M4304": 1,
+      "M4306": 1,
+      "G552": 4,
+      "G551": 4,
+      "A527": 2,
+      "A514": 1,
+      "C900": 1,
+      "N258": 1,
+      "E872": 1,
+      "E720": 1,
+      "Q958": 1,
+      "B91": 1,
+      "T703": 1,
+      "Y836": 1,
+      "E142": 1,
+      "Y547": 1,
+      "Y623": 2,
+      "Y626": 1,
+      "Y624": 1,
+      "Y620 ": 1,
+      "Y620": 1
+    },
+    "source_tag_distribution": {
+      "RH1": 1042
+    },
+    "classification": {
+      "ofs": 1035,
+      "owl_only": 5,
+      "orphan": 2
+    },
+    "n_valid_ofs": 1035,
+    "n_valid_owl_only": 5,
+    "n_orphan": 2,
+    "n_unparseable": 0,
+    "n_internal_duplicates": 4,
+    "examples": [
+      {
+        "libelle": "Salmonella",
+        "code_raw": "A022",
+        "code_norm": "A02.2",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Mycobacterium atypique",
+        "code_raw": "A318",
+        "code_norm": "A31.8",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Bartonella",
+        "code_raw": "A448",
+        "code_norm": "A44.8",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Borrelia burgdorferii",
+        "code_raw": "A692",
+        "code_norm": "A69.2",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Coxiella burnetii",
+        "code_raw": "A78",
+        "code_norm": "A78",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_GERMES": {
+    "sheet_name": "Germes",
+    "label": "APHP_GERMES",
+    "n_raw": 258,
+    "raw_lengths": {
+      "4": 235,
+      "3": 21,
+      "5": 2
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 258
+    },
+    "source_tag_distribution": {
+      "SPILFG": 258
+    },
+    "classification": {
+      "ofs": 256,
+      "unparseable": 2
+    },
+    "n_valid_ofs": 256,
+    "n_valid_owl_only": 0,
+    "n_orphan": 0,
+    "n_unparseable": 2,
+    "n_internal_duplicates": 0,
+    "examples": [
+      {
+        "libelle": "Vibrio cholerae",
+        "code_raw": "A009",
+        "code_norm": "A00.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Salmonella Typhi",
+        "code_raw": "A010",
+        "code_norm": "A01.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Salmonella Paratyphi A / B / C",
+        "code_raw": "A014",
+        "code_norm": "A01.4",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Autres Salmonella",
+        "code_raw": "A029",
+        "code_norm": "A02.9",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Shigella",
+        "code_raw": "A039",
+        "code_norm": "A03.9",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "APHP_SRLF": {
+    "sheet_name": "SRLF",
+    "label": "APHP_SRLF",
+    "n_raw": 51,
+    "raw_lengths": {
+      "4": 45,
+      "6": 2,
+      "3": 2,
+      "5": 2
+    },
+    "raw_with_dot": 0,
+    "info4_distribution": {
+      "nocode": 46,
+      "Y423": 1,
+      "B250": 1,
+      "B59": 1,
+      "T8138": 1,
+      "K631": 1
+    },
+    "source_tag_distribution": {
+      "SRLF": 51
+    },
+    "classification": {
+      "ofs": 46,
+      "unparseable": 1,
+      "orphan": 1,
+      "owl_only": 3
+    },
+    "n_valid_ofs": 46,
+    "n_valid_owl_only": 3,
+    "n_orphan": 1,
+    "n_unparseable": 1,
+    "n_internal_duplicates": 0,
+    "examples": [
+      {
+        "libelle": "Colite pseudomembraneuse",
+        "code_raw": "A047",
+        "code_norm": "A04.7",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Sepsis à méningocoque",
+        "code_raw": "A392",
+        "code_norm": "A39.2",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Sepsis à pneumocoque",
+        "code_raw": "A403",
+        "code_norm": "A40.3",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Mésothéliome pleural",
+        "code_raw": "C450",
+        "code_norm": "C45.0",
+        "icd_classification": "ofs"
+      },
+      {
+        "libelle": "Hémolyse acquise SAI",
+        "code_raw": "D599",
+        "code_norm": "D59.9",
+        "icd_classification": "ofs"
+      }
+    ]
+  },
+  "__cross__": {
+    "distribution_pairs_by_n_sources": [
+      {
+        "n_sources": 1,
+        "n_pairs": 4991
+      },
+      {
+        "n_sources": 2,
+        "n_pairs": 24
+      }
+    ],
+    "examples_shared": [
+      {
+        "code_norm": "C78.7",
+        "libelle_norm": "metastase hepatique",
+        "sources": [
+          "APHP_NEPHROLOGIE",
+          "APHP_RHUMATOLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "D51.1",
+        "libelle_norm": "deficit en cubuline et megaline syndrome d imerslund najman grasbeck",
+        "sources": [
+          "APHP_GRONES",
+          "APHP_METABOLISME"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "E88.8",
+        "libelle_norm": "cytopathie mitochondriale",
+        "sources": [
+          "APHP_METABOLISME",
+          "APHP_NEPHROLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "E89.2",
+        "libelle_norm": "hypoparathyroidie post chirurgicale",
+        "sources": [
+          "APHP_ENDOCRINOLOGIE",
+          "APHP_NEPHROLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "C79.7",
+        "libelle_norm": "metastase surrenalienne",
+        "sources": [
+          "APHP_NEPHROLOGIE",
+          "APHP_RHUMATOLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "B02.9",
+        "libelle_norm": "zona sai",
+        "sources": [
+          "APHP_DERMATOLOGIE",
+          "APHP_NEPHROLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "E83.5",
+        "libelle_norm": "hypercalcemie",
+        "sources": [
+          "APHP_NEPHROLOGIE",
+          "APHP_RHUMATOLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "D47.2",
+        "libelle_norm": "gammapathie monoclonale",
+        "sources": [
+          "APHP_DERMATOLOGIE",
+          "APHP_RHUMATOLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "N30.9",
+        "libelle_norm": "cystite sai",
+        "sources": [
+          "APHP_DERMATOLOGIE",
+          "APHP_NEPHROLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      },
+      {
+        "code_norm": "B26.9",
+        "libelle_norm": "oreillons sai",
+        "sources": [
+          "APHP_DERMATOLOGIE",
+          "APHP_NEPHROLOGIE"
+        ],
+        "n_occurrences": 2,
+        "n_sources": 2
+      }
+    ],
+    "aphp_in_index": 164
+  }
+}
