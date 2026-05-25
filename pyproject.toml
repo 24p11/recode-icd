@@ -18,6 +18,7 @@ dependencies = [
     "typer>=0.13",
     "loguru>=0.7",
     "smt2parquet",
+    "fastexcel>=0.16",
 ]
 
 [project.scripts]

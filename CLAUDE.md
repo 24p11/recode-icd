@@ -66,10 +66,15 @@ uv run pre-commit install                # hooks git
 
 ```
 src/recode_icd/
+
 ├── loaders/
 │   ├── ofs.py             # base relationnelle OFS suisse (2006)
 │   ├── owl.py             # surcharge locale de smt2parquet (CIM-10 ANS)
-│   └── external/          # ORPHANET, thésaurus AP-HP, etc.
+│   └── external/          # sources tierces de synonymes/inclusions
+│       ├── __init__.py
+│       ├── index_cim10.py # feuille "Cim Alphabétique" du HECTOR (Index vol3 officiel)
+│       ├── aphp_hector.py # 9 feuilles AP-HP métier (loader unifié paramétré)
+│       └── orphanet.py    # XML ORPHANET (relations E + NTBT)
 ├── model.py               # entités pydantic canoniques
 ├── merge.py               # fusion OFS ⊕ OWL avec politique de résolution
 ├── propagation.py         # propagation bloc/catégorie → code (nested set)
@@ -77,12 +82,13 @@ src/recode_icd/
 │   ├── dagger_asterisk.py # table d'associations dague/astérisque (objectif 2)
 │   └── sibling_exclusions.py
 ├── exporters/
-│   └── flat_csv.py        # le fichier 7 colonnes
+│   └── flat_csv.py        # le fichier 9 colonnes
 ├── registry.py            # ReferentialRegistry (inspiré de recode-scenario)
 └── cli/                   # CLI typer
 referentials/
 ├── raw/                   # fichiers sources (gitignored si volumineux)
-└── processed/             # Parquets dérivés (committés)
+├── processed/             # Parquets dérivés (committés)
+└── curation/              # CSV de curation manuelle (dagger_curation.csv)
 tests/
 ├── unit/
 ├── regression/            # golden-files sur 10 codes témoins
@@ -94,10 +100,15 @@ scripts/
 docs/
 ├── owl_extension.md       # quelles propriétés on ajoute à smt2parquet
 ├── source_mapping.md      # mapping canonique OFS ↔ OWL/ANS (RÉFÉRENCE ABSOLUE)
-├── dagger_subordinate_pairs.yaml  # couples dague/astérisque marqués subordinate
 ├── sources/
 │   └── ofs_schema.md      # schéma détaillé de la base OFS
 └── architecture.md
+data/
+├── CIM_APHP_2019/                              # Excel HECTOR (Index CIM-10 + thésaurus AP-HP)
+│   └── Dictionnaire_Hector_MAJ062019.xlsx
+└── Orphanet_Nomenclature_Pack_FR_2025/         # ORPHANET 2025
+    ├── ORPHA_ICD10_mapping_fr_2025.xml
+    └── ORPHA_ICD10_mapping_en_2020.xsd
 ```
 
 
@@ -295,6 +306,107 @@ Cas limites à gérer explicitement dans `relations/sibling_exclusions.py` :
    différente ("lésion à localisations contiguës"). Pour ces codes, **ne
    pas synthétiser** d'exclusion frère — on log un skip dans le rapport.
 
+   ## Sources externes (ORPHANET, Index CIM-10 vol3, AP-HP)
+ 
+En complément d'OFS et OWL/ANS, le projet intègre trois familles de
+sources externes pour enrichir les synonymes et inclusions :
+ 
+1. **ORPHANET** (`data/Orphanet_Nomenclature_Pack_FR_2025/`) — XML
+   officiel des maladies rares avec mapping vers CIM-10. Mise à jour
+   2025. Politique d'intégration différenciée selon la relation :
+   - Relation `E` (Exact) → `type=synonyme`
+   - Relation `NTBT` (Narrower Term, Broader Term) → `type=inclusion`
+     (l'ORPHA décrit une affection plus spécifique rangée sous le code CIM-10)
+   - Relations `BTNT`, `ND` → **ignorées** (l'ORPHA est plus large
+     que le code CIM-10, ou la relation n'est pas définie)
+2. **Index CIM-10 vol3** (feuille "Cim Alphabétique" du fichier HECTOR) —
+   index alphabétique officiel volume 3 de la CIM-10. Quasi figé
+   depuis 1996. Tous les libellés sont importés comme `type=synonyme`
+   par défaut.
+3. **Thésaurus métiers AP-HP** (9 feuilles distinctes du fichier
+   HECTOR) — dictionnaires construits par sociétés savantes (SRLF,
+   SPILF) ou groupes d'experts AP-HP (DIM NESTOR, services métiers).
+   Tous importés comme `type=synonyme` par défaut.
+**Cas particulier piège ORPHANET** : le XML ORPHANET contient deux
+propriétés au nom similaire mais à la sémantique différente :
+- `DisorderMappingRelation/Name` : porte le sigle E/NTBT/BTNT/ND
+  (relation sémantique entre ORPHA et CIM-10)
+- `DisorderMappingICDRelation/Name` : porte "Code attribué / Code
+  spécifique / Terme d'inclusion / Terme index" (axe orthogonal)
+**Le loader ORPHANET doit lire `DisorderMappingRelation/Name`** pour
+identifier les relations. C'est cette propriété qui distingue E de
+NTBT, pas l'autre. (Le code legacy `prep_data_icd_models.ipynb`
+lisait la mauvaise propriété — à corriger).
+ 
+### Politique de fusion avec OFS/ANS
+ 
+**Principe** : OFS reste la source autoritaire. Les sources externes
+**enrichissent** uniquement les codes qui n'ont pas déjà l'information.
+ 
+**Règle de dédup** : pour chaque entrée externe `(code, libellé)`, on
+applique la normalisation tolérante (NFKD + lowercase + ponctuation)
+et on vérifie si le libellé normalisé existe déjà dans OFS ou ANS
+pour ce code :
+ 
+- **Match trouvé** : l'entrée externe est **absorbée**, elle ne crée
+  pas de ligne dans le CSV final. La trace de cette absorption est
+  loggée dans `reports/external_overlaps.csv` (voir Reporting).
+- **Pas de match** : l'entrée externe est ajoutée au CSV avec son
+  `source` propre.
+Cette politique garantit qu'aucune information de la classification
+officielle n'est noyée dans des duplications partielles, tout en
+préservant la traçabilité via le rapport.
+ 
+### Codes orphelins externes
+ 
+Certains codes apparaissent dans les sources externes mais sont
+absents d'OFS et d'OWL/ANS. Trois cas :
+ 
+- **Codes post-2006** (présents en ANS uniquement) : intégrés
+  normalement, le code est créé via OWL/ANS comme documenté.
+- **Codes vraiment orphelins** (absents des deux) : 5 cas observés
+  dans AP-HP, 0 dans ORPHANET. Loggués dans `reports/external_orphan_codes.csv`
+  pour audit, mais leurs synonymes/inclusions sont **ignorés** (pas
+  de code à enrichir).
+- **Codes au format compact non parseable** (ex : `B65-`, `nocode`) :
+  - `nocode` (3756 occurrences dans l'Index) : **ignorés**, ce sont
+    des renvois "voir X" sans code direct.
+  - Intervalles ouverts (`B65-`, `R89-`) : **normalisés** en code
+    racine (`B65`, `R89`) et validés contre OFS. Si le code racine
+    existe, l'entrée est intégrée.
+  - Notations dague exotiques (`I200+0`) : **ignorées**, cas isolés.
+### Schéma uniforme du loader AP-HP / Index
+ 
+Les 10 feuilles utiles du fichier HECTOR (Index + 9 spécialités) ont
+**toutes le même schéma 4 colonnes** :
+ 
+| Position | Rôle                                            |
+|----------|--------------------------------------------------|
+| 1        | libellé / synonyme                              |
+| 2        | étiquette source constante par feuille          |
+| 3        | code CIM-10 format compact sans point           |
+| 4        | drapeau auxiliaire (quasi toujours `nocode`)    |
+ 
+Un **loader unifié** paramétré par `(sheet_name, source_label)`
+suffit, pas besoin de 10 loaders distincts. Le module
+`loaders/external/aphp_hector.py` exporte une fonction
+`load_aphp_hector(xlsx_path)` qui retourne un DataFrame consolidé
+avec une colonne `source` correctement attribuée selon la feuille
+d'origine.
+ 
+**Conversion de format** : les codes sont stockés compacts (`A000`).
+La normalisation vers le format standard (`A00.0`) se fait via
+`^([A-Z]\d{2})(\d{1,3})$` avec insertion du point après les 3
+premiers caractères. Les codes à 3 caractères (`A00`) sont conservés
+tels quels.
+ 
+**Divergence d'étiquettes** : la feuille "Endocrinologie" porte
+l'étiquette `ED1` en colonne B (et non `END1`). Le loader utilise le
+**nom de la feuille Excel** comme clé canonique, pas l'étiquette en
+colonne B (plus robuste).
+
+
+
 ## Codes post-2006 (présents en ANS, absents d'OFS)
 
 Pour les ~2300 codes ajoutés à la classification après le gel OFS
@@ -320,18 +432,35 @@ Le modèle Python utilise des enums UPPERCASE pour les sources. Le CSV
 exporté utilise des libellés français lisibles. Le mapping vit dans
 `exporters/flat_csv.py` :
 
-| `NoteSource` (Python) | `source` (CSV)   |
-|-----------------------|------------------|
-| `OFS`                 | `CIM-10`         |
-| `OWL_ANS`             | `ANS`            |
-| `INDEX_CIM10_VOL3`    | `CIM-10 index`   |
-| `SYNTHESIZED_SIBLING` | `CIM-10 frères`  |
-| `ORPHANET`            | `ORPHANET`       |
-| `AP_HP`               | `AP-HP`          |
+
+| `NoteSource` (Python)    | `source` (CSV)              |
+|--------------------------|------------------------------|
+| `OFS`                    | `CIM-10`                    |
+| `OWL_ANS`                | `ANS`                       |
+| `SYNTHESIZED_SIBLING`    | `CIM-10 frères`             |
+| `INDEX_CIM10_VOL3`       | `CIM-10 index`              |
+| `ORPHANET`               | `ORPHANET`                  |
+| `APHP_DERMATOLOGIE`      | `AP-HP Dermatologie`        |
+| `APHP_ENDOCRINOLOGIE`    | `AP-HP Endocrinologie`      |
+| `APHP_GRONES`            | `AP-HP GRONES`              |
+| `APHP_METABOLISME`       | `AP-HP Troubles métaboliques` |
+| `APHP_NEPHROLOGIE`       | `AP-HP Néphrologie`         |
+| `APHP_OPHTALMOLOGIE`     | `AP-HP Ophtalmologie`       |
+| `APHP_RHUMATOLOGIE`      | `AP-HP Rhumatologie`        |
+| `APHP_GERMES`            | `AP-HP Germes (SPILF)`      |
+| `APHP_SRLF`              | `AP-HP SRLF`                |
 
 Toute nouvelle source ajoutée passe par les DEUX endroits : l'enum
 Python et le mapping d'export. Test de régression vérifie qu'il n'y a
 pas d'enum sans libellé CSV correspondant.
+
+> **Note sur les sources AP-HP** : chaque feuille métier de HECTOR a sa
+> propre valeur d'enum. Cela permet au consommateur de filtrer
+> facilement par préfixe : `df.filter(pl.col("source").str.starts_with("AP-HP"))`
+> récupère toutes les spécialités. La feuille "Cim Alphabétique" du
+> même fichier HECTOR n'est PAS un thésaurus AP-HP mais l'index
+> alphabétique officiel CIM-10 vol3 — elle utilise donc l'enum
+> `INDEX_CIM10_VOL3` distinct.
 
 ## Conventions de code
 
@@ -350,7 +479,13 @@ pas d'enum sans libellé CSV correspondant.
   - **`U07.1`** (COVID-19) comme code post-2006
   - Un couple typique pour tester `redundancy_level=subordinate`
     (par ex `A17.8` / `G05.0`)
-
+- Un code avec un synonyme ORPHANET en relation E (par ex `D59.5`  pour "Hémoglobinurie paroxystique nocturne")
+> - Un code avec une inclusion ORPHANET en relation NTBT (à
+>   identifier au build, par exemple un code D70 avec une variante
+>   de neutropénie)
+> - Un code couvert simultanément par OFS, Index CIM-10 vol3 et une
+>   spécialité AP-HP (pour tester la dédup tolérante inter-sources)
+ 
 ## Workflow Claude Code recommandé
 
 - Avant toute modification non-triviale : `/plan` puis validation du plan
@@ -383,3 +518,4 @@ pas d'enum sans libellé CSV correspondant.
 - Les notes d'inclusion/exclusion contiennent souvent des libellés
   médicaux exotiques (latinismes, abréviations) — **ne jamais "normaliser"
   silencieusement** un texte, toujours préserver le texte source.
+

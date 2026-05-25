@@ -32,6 +32,19 @@ techniques.
 | Terme de glossaire               | MEMO via GLOSSAIRE                  | `xkos:codingHint` (si présent)      | **OFS** puis ANS      |
 | Appariement dague/astérisque     | DAGSTAR (toutes lignes)             | `atih-cim10:hasCausality` + `atih-cim10:hasManifestation` | **OFS** + audit ANS |
 | Hiérarchie parent/enfant         | MASTER champs id1..id7              | `skos:broader` / `skos:narrower`    | identique             |
+| Synonyme ORPHANET (relation E)         | —                         | —                          | XML `Disorder/Name` + `SynonymList` | externe (post-dédup)  |
+| Inclusion ORPHANET (relation NTBT)     | —                         | —                          | XML `Disorder/Name` + `SynonymList` | externe (post-dédup)  |
+| Synonyme Index CIM-10 vol3             | —                         | —                          | Excel "Cim Alphabétique" col 1    | externe (post-dédup)  |
+| Synonyme thésaurus AP-HP               | —                         | —                          | Excel 9 feuilles métier col 1     | externe (post-dédup)  |
+
+
+> **Sources externes** : ces sources sont **complémentaires**, pas
+> concurrentielles avec OFS/ANS. Pour chaque entrée externe, on
+> applique d'abord une dédup tolérante contre les inclusions et
+> synonymes déjà présents dans OFS/ANS pour ce code. Si match, l'entrée
+> externe est absorbée (loggée dans `reports/external_overlaps.csv`).
+> Si pas de match, elle est ajoutée au CSV avec sa source propre.
+
 
 ### Lecture du tableau
 
@@ -620,6 +633,197 @@ Pour limiter les allers-retours et permettre la validation empirique
   etc.). Permet de vérifier rapidement après chaque build que la
   curation a bien été prise en compte.
 
+## Sources externes : politique d'intégration
+ 
+En complément des deux sources principales OFS (relationnelle suisse,
+2006) et OWL/ANS (RDF française, à jour), le projet intègre trois
+familles de sources externes pour enrichir le CSV final en synonymes
+et inclusions.
+ 
+### Les trois sources externes
+ 
+**Source 1 — ORPHANET (maladies rares)**
+ 
+- Format : XML structuré, validé par XSD
+- Fichier : `data/Orphanet_Nomenclature_Pack_FR_2025/ORPHA_ICD10_mapping_fr_2025.xml`
+- Version : 1.3.42, extraction 2025-06-24
+- Encodage : UTF-8 déclaré, sans BOM
+- Volumétrie : 7 534 `Disorder`, 8 333 `ExternalReference` vers ICD-10
+**Source 2 — Index CIM-10 vol3 (index alphabétique officiel)**
+ 
+- Format : feuille Excel "Cim Alphabétique" du fichier HECTOR
+- Fichier : `data/CIM_APHP_2019/Dictionnaire_Hector_MAJ062019.xlsx`
+- Volumétrie : 45 266 lignes brutes
+- Encodage : UTF-8 natif (Office Open XML)
+**Source 3 — Thésaurus métiers AP-HP**
+ 
+- Format : 9 feuilles distinctes du même fichier HECTOR
+- Schéma : identique à l'Index (4 colonnes)
+- Volumétrie totale : 5 080 lignes brutes (réparties sur 9 feuilles)
+- Feuilles : Dermatologie, Endocrinologie, GRONES, Troubles
+  métaboliques, Néphrologie, Ophtalmologie, Rhumatologie, Germes (SPILF),
+  SRLF
+- Feuilles **exclues** du fichier HECTOR : "Cim Analytique" (pas des
+  synonymes), "Orphanet" (redondant avec la source XML directe),
+  "Thesam" (qualité non fiable)
+### Sémantique de la relation ORPHANET → CIM-10
+ 
+Le XML ORPHANET définit plusieurs types de relations entre un code
+ORPHA et un code CIM-10, portées par la propriété
+`DisorderMappingRelation/Name` (à ne pas confondre avec
+`DisorderMappingICDRelation/Name` qui porte un axe orthogonal).
+ 
+| Sigle | Sens                                        | Volumétrie | Politique recode-icd |
+|-------|---------------------------------------------|------------|----------------------|
+| E     | Exact (ORPHA = CIM-10)                      | 611        | `type=synonyme`     |
+| NTBT  | Narrower Term, Broader Term (ORPHA ⊂ CIM-10) | 6 883      | `type=inclusion`    |
+| BTNT  | Broader Term, Narrower Term (ORPHA ⊃ CIM-10) | 826        | **ignoré**          |
+| ND    | Non Déterminé                                | 13         | **ignoré**          |
+ 
+**Justification de la politique** :
+ 
+- **Relation E** : ORPHA et CIM-10 désignent la même entité clinique.
+  Le `Name` ORPHA et ses `SynonymList` sont donc de vrais synonymes
+  du code CIM-10. Type sémantique correct : synonyme.
+- **Relation NTBT** : l'ORPHA décrit une affection plus spécifique
+  rangée sous le code CIM-10. C'est exactement la définition d'une
+  inclusion en CIM-10 OMS (affection plus précise qui se code par
+  cette catégorie). Type sémantique correct : inclusion.
+- **Relation BTNT** : l'ORPHA est plus large que le code CIM-10
+  spécifique. L'inclusion serait sémantiquement incorrecte, le
+  synonyme aussi. On ignore.
+- **Relation ND** : volume négligeable, sémantique floue. On ignore.
+**Piège d'implémentation** : le code legacy `prep_data_icd_models.ipynb`
+lisait `DisorderMappingICDRelation/Name` qui porte "Code attribué /
+Code spécifique / Terme d'inclusion / Terme index" — sémantique
+différente. Le loader recode-icd doit lire
+`DisorderMappingRelation/Name` (sans `ICD`).
+ 
+### Politique de fusion avec OFS/ANS
+ 
+**Principe directeur** : OFS reste la source autoritaire pour la
+classification CIM-10. Les sources externes **enrichissent** uniquement
+les codes là où l'information n'est pas déjà présente.
+ 
+**Règle de dédup tolérante** : pour chaque entrée externe
+`(code, libellé, type)`, le merger :
+ 
+1. Normalise le libellé (NFKD + lowercase + strip ponctuation +
+   collapse whitespace).
+2. Vérifie si une note du même `type` (inclusion ou synonyme) pour
+   le même `code` existe déjà dans OFS ou ANS avec le même libellé
+   normalisé.
+3. Si oui (**match**) : l'entrée externe est **absorbée**, elle ne
+   crée pas de ligne dans le CSV final. Une ligne est loggée dans
+   `reports/external_overlaps.csv` :
+   - `code`
+   - `libelle_externe`
+   - `libelle_ofs_ans` (le libellé qui a matché)
+   - `source_externe` (ORPHANET, INDEX_CIM10_VOL3, APHP_*)
+   - `source_ofs_ans` (CIM-10 ou ANS)
+   - `lid_ofs` (si disponible, pour traçabilité)
+4. Si non (**pas de match**) : l'entrée externe est **ajoutée** au
+   CSV avec :
+   - `type` selon la source (synonyme pour Index/AP-HP, synonyme ou
+     inclusion pour ORPHANET selon la relation)
+   - `source` = le libellé CSV correspondant (cf. CLAUDE.md)
+   - `texte` = le libellé externe original (non normalisé)
+**Cas particulier — dédup tolérante intra-externes** : un même libellé
+peut apparaître dans plusieurs sources externes (par exemple
+"Mucoviscidose" dans ORPHANET et dans AP-HP Endocrinologie). On
+applique la même règle : la première source rencontrée gagne, les
+suivantes sont absorbées et loggées. **Ordre de priorité conventionnel** :
+ORPHANET > Index CIM-10 vol3 > AP-HP (par spécialité, ordre
+alphabétique). Documenté pour reproductibilité.
+ 
+### Codes orphelins externes
+ 
+Trois catégories de codes peuvent apparaître dans les sources externes
+sans être dans OFS :
+ 
+1. **Codes post-2006 valides en ANS** : intégrés normalement, le code
+   est créé via la pipeline OWL/ANS standard.
+2. **Codes vraiment orphelins** (absents d'OFS et d'ANS) : 5 cas
+   observés dans AP-HP, 0 dans ORPHANET. Loggués dans
+   `reports/external_orphan_codes.csv` avec colonnes :
+   - `code`
+   - `libelle`
+   - `source_externe`
+   - `commentaire` (à remplir manuellement après audit : "code
+     déprécié", "faute de frappe", "extension locale", etc.)
+   Leurs synonymes/inclusions sont **ignorés** (pas de code valide à
+   enrichir).
+3. **Codes au format non parseable** :
+   - `nocode` (3 756 dans l'Index, 19 dans GRONES) : renvois "voir X"
+     sans code direct → **ignorés** systématiquement
+   - Intervalles ouverts (`B65-`, `R89-`, ~170 cas) : **normalisés**
+     en code racine (`B65`, `R89`) puis validés contre OFS. Si le
+     code racine existe, intégrés normalement. Sinon, logger dans
+     `external_orphan_codes.csv`.
+   - Notations dague exotiques (`I200+0`, 1 cas isolé) : **ignorées**
+### Format des codes dans les sources externes
+ 
+| Source                | Format brut                          | Conversion nécessaire                              |
+|-----------------------|---------------------------------------|----------------------------------------------------|
+| ORPHANET              | `Q77.3` (standard avec point)         | aucune                                             |
+| Index CIM-10 vol3     | `A000`, `B9688` (compact sans point)  | insertion du point après les 3 premiers caractères |
+| AP-HP toutes feuilles | idem Index (compact)                  | idem                                               |
+ 
+**Regex de normalisation** pour les codes compacts :
+ 
+```python
+import re
+ 
+def normalize_compact_code(code: str) -> str:
+    """Convertit 'A000' en 'A00.0', laisse 'A00' inchangé."""
+    if not isinstance(code, str):
+        return code
+    code = code.strip()
+    match = re.match(r"^([A-Z]\d{2})(\d{1,3})$", code)
+    if match:
+        return f"{match.group(1)}.{match.group(2)}"
+    return code  # ex : 'A00', 'B65-', 'nocode' restent tels quels
+```
+ 
+### Schéma uniforme des feuilles HECTOR (Index + AP-HP)
+ 
+Les 10 feuilles utiles du fichier HECTOR partagent **strictement** le
+même schéma 4 colonnes :
+ 
+| Position | Rôle                                            | Exemple                                          |
+|----------|--------------------------------------------------|--------------------------------------------------|
+| 1        | libellé / synonyme / entrée d'index             | "Choléra (asiatique) (épidémique) (malin)..."   |
+| 2        | étiquette source constante par feuille          | `B` pour l'Index, `DR1` pour dermato, etc.       |
+| 3        | code CIM-10 format compact sans point           | `A000`, `B9688`, `nocode`, `B65-`               |
+| 4        | drapeau auxiliaire — quasi toujours `nocode`    | `nocode`                                         |
+ 
+Un **loader unifié** paramétré par `(sheet_name, source_label)` est
+implémenté dans `loaders/external/aphp_hector.py` (et appelé aussi
+pour la feuille "Cim Alphabétique" via `loaders/external/index_cim10.py`
+qui en est un wrapper).
+ 
+**Divergence connue** : la feuille "Endocrinologie" porte l'étiquette
+`ED1` en colonne 2 (et non `END1`). Le loader doit utiliser le **nom
+de la feuille Excel** comme clé canonique, pas l'étiquette en colonne 2.
+ 
+**Doublons internes** : 6 doublons intra-feuilles observés (4 dans
+Rhumatologie, 2 dans Dermatologie). Déduplication tolérante à
+appliquer après chargement.
+ 
+### Volumétrie estimée
+ 
+| Source                                          | Paires uniques valides |
+|--------------------------------------------------|------------------------|
+| ORPHANET (relations E + NTBT, codes valides)    | ~7 500                 |
+| Index CIM-10 vol3 (codes valides + intervalles) | ~41 500                |
+| AP-HP 9 feuilles métier (codes valides)         | ~5 000                 |
+| **Total brut avant dédup avec OFS/ANS**         | **~54 000**            |
+ 
+L'estimation du **delta net** après dédup avec le CSV courant ne peut
+se faire qu'au build. Pré-mesure conseillée : la fraction d'entrées
+absorbées peut être significative (probablement 30-50% pour
+l'Index/AP-HP, plus faible pour ORPHANET).
+
 
 ## Conséquences pratiques pour les loaders
 
@@ -755,6 +959,32 @@ ajouté à la classification en 2020 et donc absent de l'OFS.
   les appariements dague/astérisque.
 - `reports/synthesized_skipped.csv` : codes .8 où la synthèse a été
   skippée (cf catégories C00-C75 et autres cas limites).
+> - `reports/external_overlaps.csv` : **nouveau**. Logge pour chaque
+>   entrée externe absorbée par dédup avec OFS/ANS :
+>   - `code` : code CIM-10
+>   - `libelle_externe` : libellé tel qu'il apparaît dans la source externe
+>   - `libelle_ofs_ans` : libellé OFS/ANS qui a matché
+>   - `source_externe` : ORPHANET / INDEX_CIM10_VOL3 / APHP_*
+>   - `source_ofs_ans` : CIM-10 / ANS
+>   - `lid_ofs` : LID OFS pour traçabilité (si applicable)
+>   - `match_type` : exact / atomic_regroupement / real_divergence
+>     (réutilise la nomenclature de note_merges.csv pour cohérence)
+>
+> - `reports/external_orphan_codes.csv` : **nouveau**. Logge les codes
+>   cités par les sources externes mais absents d'OFS et d'ANS :
+>   - `code`
+>   - `libelle`
+>   - `source_externe`
+>   - `categorie_orphan` : "vraiment_orphan" / "post_2006_ans_only"
+>     / "non_parseable"
+>
+> - `reports/external_sources_summary.csv` : **nouveau**. Bilan
+>   statistique du build pour chaque source externe :
+>   - Nombre d'entrées brutes lues
+>   - Nombre d'entrées valides (code parseable et présent)
+>   - Nombre d'entrées absorbées (matches OFS/ANS)
+>   - Nombre d'entrées ajoutées au CSV final
+>   - Permet de suivre l'impact des sources externes build par build.
 
 Ces rapports sont les yeux du data scientist sur le merge. Ils ne
 sont pas optionnels.

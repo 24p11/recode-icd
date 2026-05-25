@@ -47,6 +47,51 @@ def normalize_for_match(text: str | None) -> str | None:
     return s.strip()
 
 
+# Code CIM-10 au format compact (sans point, ex `A000`, `B9688`).
+# Conversion vers le format standard `<lettre><2 chiffres>.<reste>`.
+# Cf `docs/source_mapping.md` §"Format des codes dans les sources externes".
+_COMPACT_CODE_RE = re.compile(r"^([A-Z]\d{2})(\d{1,3})$")
+# Code CIM-10 standard avec point optionnel.
+_STANDARD_CODE_RE = re.compile(r"^[A-Z]\d{2}(?:\.\d{1,3})?$")
+# Intervalle ouvert / racine signalée par un tiret final (ex `B65-`).
+# Convention de l'Index CIM-10 vol3 pour les renvois racine.
+_TRAILING_DASH_RE = re.compile(r"^([A-Z]\d{2}(?:\.\d{1,3})?)\.?-+$")
+
+
+def normalize_compact_code(code: str | None) -> str | None:
+    """Convertit un code CIM-10 au format compact des sources externes
+    HECTOR vers le format standard avec point.
+
+    - `A000` → `A00.0`, `B9688` → `B96.88`
+    - `A00` → `A00` (déjà au format standard)
+    - `A00.0` → `A00.0` (idem)
+    - `B65-`, `R89-` → `B65`, `R89` (intervalle ouvert, on retire le
+      tiret final pour valider ensuite contre OFS/ANS — cf
+      source_mapping.md §"Codes orphelins externes")
+    - `nocode`, `""`, `None`, `I200+0` et toute forme exotique → `None`
+
+    Renvoie `None` pour signaler "code non parseable, à filtrer". Les
+    appelants logguent typiquement les cas `None` pour audit.
+    """
+    if code is None:
+        return None
+    s = str(code).strip().upper()
+    if not s or s == "NOCODE":
+        return None
+    # Forme standard déjà valide.
+    if _STANDARD_CODE_RE.match(s):
+        return s
+    # Forme compacte (insertion du point).
+    m = _COMPACT_CODE_RE.match(s)
+    if m:
+        return f"{m.group(1)}.{m.group(2)}"
+    # Intervalle ouvert avec tiret final.
+    m = _TRAILING_DASH_RE.match(s)
+    if m:
+        return m.group(1)
+    return None
+
+
 def normalize_column(col_name: str) -> pl.Expr:
     """Wrapper polars pour appliquer `normalize_for_match` sur une colonne string.
 

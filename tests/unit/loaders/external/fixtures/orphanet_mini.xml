@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JDBOR ExtractionDate="2025-06-24 08:00:00" version="test/1.0">
+  <Availability>
+    <Licence>Test fixture</Licence>
+  </Availability>
+  <DisorderList count="5">
+    <!-- E : Exact match avec synonymes. Doit produire 3 lignes synonyme. -->
+    <Disorder id="1">
+      <OrphaCode>447</OrphaCode>
+      <Name lang="fr">Hémoglobinurie paroxystique nocturne</Name>
+      <SynonymList count="2">
+        <Synonym lang="fr">HPN</Synonym>
+        <Synonym lang="fr">Maladie de Marchiafava-Micheli</Synonym>
+      </SynonymList>
+      <ExternalReferenceList count="1">
+        <ExternalReference id="1001">
+          <Source>ICD-10</Source>
+          <Reference>D59.5</Reference>
+          <DisorderMappingRelation id="100">
+            <Name lang="fr">E (Code ORPHA et code CIM-10 désignent la même entité)</Name>
+          </DisorderMappingRelation>
+          <DisorderMappingICDRelation id="200">
+            <Name lang="fr">Code attribué (CIM-10/CIM-11: Le code cible est assigné par Orphanet)</Name>
+          </DisorderMappingICDRelation>
+        </ExternalReference>
+      </ExternalReferenceList>
+    </Disorder>
+
+    <!-- NTBT : doit produire 2 lignes inclusion (Name + 1 synonyme). -->
+    <Disorder id="2">
+      <OrphaCode>17601</OrphaCode>
+      <Name lang="fr">Syndrome de dysplasie épiphysaire multiple-macrocéphalie</Name>
+      <SynonymList count="1">
+        <Synonym lang="fr">Dysplasie épiphysaire multiple type Al-Gazali</Synonym>
+      </SynonymList>
+      <ExternalReferenceList count="1">
+        <ExternalReference id="1002">
+          <Source>ICD-10</Source>
+          <Reference>Q77.3</Reference>
+          <DisorderMappingRelation id="101">
+            <Name lang="fr">NTBT (Le code ORPHA est plus restreint que le code cible utilisé pour le représenter)</Name>
+          </DisorderMappingRelation>
+          <DisorderMappingICDRelation id="201">
+            <Name lang="fr">Code attribué (CIM-10/CIM-11: Le code cible est assigné par Orphanet)</Name>
+          </DisorderMappingICDRelation>
+        </ExternalReference>
+      </ExternalReferenceList>
+    </Disorder>
+
+    <!-- BTNT : doit être IGNORÉ. -->
+    <Disorder id="3">
+      <OrphaCode>9999</OrphaCode>
+      <Name lang="fr">Maladie BTNT à ignorer</Name>
+      <SynonymList count="0"></SynonymList>
+      <ExternalReferenceList count="1">
+        <ExternalReference id="1003">
+          <Source>ICD-10</Source>
+          <Reference>X99.9</Reference>
+          <DisorderMappingRelation id="102">
+            <Name lang="fr">BTNT (Le code ORPHA est plus large que le code cible)</Name>
+          </DisorderMappingRelation>
+        </ExternalReference>
+      </ExternalReferenceList>
+    </Disorder>
+
+    <!-- Piège : la propriété DisorderMappingICDRelation porte "Code spécifique"
+         mais la relation E vit dans DisorderMappingRelation. Doit produire
+         1 ligne synonyme (Name uniquement, pas de synonymes). -->
+    <Disorder id="4">
+      <OrphaCode>5555</OrphaCode>
+      <Name lang="fr">Test du piège ICD vs non-ICD</Name>
+      <SynonymList count="0"></SynonymList>
+      <ExternalReferenceList count="1">
+        <ExternalReference id="1004">
+          <Source>ICD-10</Source>
+          <Reference>M30.0</Reference>
+          <DisorderMappingRelation id="103">
+            <Name lang="fr">E (Le code ORPHA et le code CIM-10 sont équivalents)</Name>
+          </DisorderMappingRelation>
+          <DisorderMappingICDRelation id="203">
+            <Name lang="fr">Code spécifique (CIM-10/CIM-11)</Name>
+          </DisorderMappingICDRelation>
+        </ExternalReference>
+      </ExternalReferenceList>
+    </Disorder>
+
+    <!-- Code ICD-10 non parseable : doit être IGNORÉ avec log. -->
+    <Disorder id="5">
+      <OrphaCode>7777</OrphaCode>
+      <Name lang="fr">Maladie au code unparseable</Name>
+      <SynonymList count="0"></SynonymList>
+      <ExternalReferenceList count="1">
+        <ExternalReference id="1005">
+          <Source>ICD-10</Source>
+          <Reference>NOT_A_CODE</Reference>
+          <DisorderMappingRelation id="104">
+            <Name lang="fr">E</Name>
+          </DisorderMappingRelation>
+        </ExternalReference>
+      </ExternalReferenceList>
+    </Disorder>
+  </DisorderList>
+</JDBOR>
