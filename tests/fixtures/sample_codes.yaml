@@ -68,3 +68,79 @@ codes:
     rationale: "Chap XIX (lésions/empoisonnements) — exclusions héritées du bloc"
     features:
       - inherited_exclusions
+
+  # ------------------------------------------------------------------
+  # Codes témoins Phase 3 (sources externes) — cf
+  # tests/regression/test_external_sources_witnesses.py et
+  # tests/regression/README.md pour la liste des cas validés.
+  # ------------------------------------------------------------------
+
+  - code: E84.8
+    libelle: "Mucoviscidose avec autres manifestations"
+    rationale: "ORPHANET relation E sur libellé contenant 'mucoviscidose'. E84 (parent) est non-leaf → exclu du CSV, on teste sur la sous-catégorie."
+    features:
+      - external_orphanet_synonym
+
+  - code: D59.5
+    libelle: "Hémoglobinurie paroxystique nocturne"
+    rationale: "Maladie rare, ORPHANET relation E avec plusieurs synonymes."
+    features:
+      - external_orphanet_synonym
+
+  - code: Q87.8
+    libelle: "Autres syndromes congénitaux malformatifs précisés, non classés ailleurs"
+    rationale: "Cas extrême : code-fourre-tout dominé par les inclusions ORPHANET (>1000 entrées NTBT)."
+    features:
+      - external_orphanet_inclusion_dominant
+
+  - code: E74.0
+    libelle: "Thésaurismose glycogénique"
+    rationale: "Inclusions ORPHANET NTBT (sous-classification des glycogénoses)."
+    features:
+      - external_orphanet_inclusion
+
+  - code: A52.7
+    libelle: "Autres formes tardives de syphilis symptomatique"
+    rationale: "Cas extrême CIM-10 index : >2000 entrées (libellés historiques de la syphilis tardive)."
+    features:
+      - external_index_dominant
+
+  - code: I10
+    libelle: "Hypertension essentielle (primitive)"
+    rationale: "Code standard avec entrées Index CIM-10 vol3 — sanity test."
+    features:
+      - external_index_synonym
+
+  - code: H22.0
+    libelle: "Affections inflammatoires de l'iris et du corps ciliaire au cours de maladies infectieuses et parasitaires classées ailleurs"
+    rationale: "Code chap VII avec entrées AP-HP Ophtalmologie non absorbées (~25)."
+    features:
+      - external_aphp_ophtalmologie
+
+  - code: N08.5
+    libelle: "Glomérulopathies au cours d'autres affections systémiques"
+    rationale: "Code chap XIV avec entrées AP-HP Néphrologie non absorbées (~15)."
+    features:
+      - external_aphp_nephrologie
+
+  - code: U07.10
+    libelle: "COVID-19, forme respiratoire, virus identifié"
+    rationale: "Code post-2006 ANS-only (sub-leaf de U07.1). Ne doit pas avoir d'entrées externes (sources externes pré-COVID)."
+    features:
+      - post_2006_no_external
+
+  - code: A90
+    libelle: "(non présent dans CIM-10 ANS 2025)"
+    rationale: "Code retiré par l'ATIH (refonte FR-PMSI). Doit être absent du CSV final et classé pre_2006_dropped_by_atih dans le rapport orphan."
+    features:
+      - orphan_pre_2006_dropped
+
+  # A18.1 est testé pour la coexistence dague/astérisque + sources externes,
+  # mais le code lui-même est documenté en tant que témoin canonique dans
+  # docs/source_mapping.md §"Couples dague/astérisque" et CLAUDE.md.
+  - code: A18.1
+    libelle: "Tuberculose de l'appareil génito-urinaire"
+    rationale: "Témoin dague/astérisque (subordinate vs N33.0) ET témoin de coexistence avec entrées externes (Index CIM-10 + AP-HP Néphro + ORPHANET)."
+    features:
+      - dagger_asterisk_subordinate
+      - dagger_external_coexist
