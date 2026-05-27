@@ -23,7 +23,6 @@ def merge_result(
     ofs_df: pl.DataFrame,
     siblings_df: pl.DataFrame,
     merged_df: pl.DataFrame,
-    post_2006_codes_df: pl.DataFrame,
     external_frames: dict[str, pl.DataFrame],
 ) -> tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame]:
     leaves = merged_df.filter(
@@ -37,7 +36,6 @@ def merge_result(
         siblings=siblings_df,
         leaves=leaves,
         valid_codes=valid_codes,
-        post_2006_codes=post_2006_codes_df,
         external_frames=external_frames,
     )
 
@@ -142,15 +140,104 @@ def test_absorbed_inter_externes_orphanet_wins_over_index(
     assert idx_ov.row(0, named=True)["source_ofs_ans"] == "ORPHANET"
 
 
-def test_orphan_codes_logged_not_added(
+def test_truly_absent_logged_not_added(
     merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
 ) -> None:
-    """X99.9 n'existe pas dans merged → loggé comme orphan, pas dans to_add."""
+    """X99.9 absent d'OFS et de merged → catégorie `truly_absent`."""
     to_add, _, orphans, _ = merge_result
     assert to_add.filter(pl.col("code") == "X99.9").is_empty()
     orph = orphans.filter(pl.col("code") == "X99.9")
     assert orph.height == 1
-    assert orph.row(0, named=True)["categorie_orphan"] == "vraiment_orphan"
+    assert orph.row(0, named=True)["categorie_orphan"] == "truly_absent"
+
+
+def test_pre_2006_dropped_by_atih_logged_not_added(
+    merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
+) -> None:
+    """A90 présent en OFS mais absent de merged_codes → catégorie
+    `pre_2006_dropped_by_atih`. C'est le cas dominant en pratique."""
+    to_add, _, orphans, _ = merge_result
+    assert to_add.filter(pl.col("code") == "A90").is_empty()
+    orph = orphans.filter(pl.col("code") == "A90")
+    assert orph.height == 1
+    assert orph.row(0, named=True)["categorie_orphan"] == "pre_2006_dropped_by_atih"
+
+
+def test_loader_dropped_detected_when_rdf_codes_provided(
+    propagated_df: pl.DataFrame,
+    owl_df: pl.DataFrame,
+    ofs_df: pl.DataFrame,
+    siblings_df: pl.DataFrame,
+    merged_df: pl.DataFrame,
+    rdf_codes_loader_dropped: set[str],
+) -> None:
+    """Si on passe un `rdf_codes` set qui contient un code orphan,
+    ce code doit être classé `loader_dropped` (présent RDF mais perdu
+    par le loader OWL — filet de sécurité)."""
+    external_with_loader_dropped = {
+        "ORPHANET": pl.DataFrame(
+            [
+                {
+                    "code": "Z99.9",
+                    "libelle": "Code RDF perdu par loader",
+                    "type": "synonyme",
+                    "source": "ORPHANET",
+                    "metadata": {"orpha_code": "", "relation": ""},
+                }
+            ],
+            schema={
+                "code": pl.String,
+                "libelle": pl.String,
+                "type": pl.String,
+                "source": pl.String,
+                "metadata": pl.Struct(
+                    {"orpha_code": pl.String, "relation": pl.String}
+                ),
+            },
+        )
+    }
+    leaves = merged_df.filter(
+        (pl.col("type") == "category") & ((pl.col("right") - pl.col("left")) == 1)
+    ).select("code", pl.col("label").alias("libelle"))
+    valid_codes = merged_df.select("code")
+    _, _, orphans, _ = merge_external.merge_external_sources(
+        propagated=propagated_df,
+        owl=owl_df,
+        ofs=ofs_df,
+        siblings=siblings_df,
+        leaves=leaves,
+        valid_codes=valid_codes,
+        external_frames=external_with_loader_dropped,
+        rdf_codes=rdf_codes_loader_dropped,
+    )
+    orph = orphans.filter(pl.col("code") == "Z99.9")
+    assert orph.height == 1
+    assert orph.row(0, named=True)["categorie_orphan"] == "loader_dropped"
+
+
+def test_loader_dropped_falls_back_to_truly_absent_without_rdf(
+    merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
+) -> None:
+    """Sans `rdf_codes` passé, aucun orphan n'est classé `loader_dropped`
+    (détection désactivée). Comportement attendu — pas de fausse alerte."""
+    _, _, orphans, _ = merge_result
+    assert orphans.filter(pl.col("categorie_orphan") == "loader_dropped").is_empty()
+
+
+def test_all_categories_in_valid_set(
+    merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
+) -> None:
+    """Toutes les valeurs émises de `categorie_orphan` appartiennent
+    au schéma valide (4 catégories autorisées)."""
+    _, _, orphans, _ = merge_result
+    valid = {
+        "pre_2006_dropped_by_atih",
+        "truly_absent",
+        "loader_dropped",
+        "unknown_pattern",
+    }
+    observed = set(orphans["categorie_orphan"].unique().to_list())
+    assert observed.issubset(valid), f"valeurs invalides : {observed - valid}"
 
 
 def test_non_terminal_silently_dropped_but_counted(

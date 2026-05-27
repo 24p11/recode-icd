@@ -1,266 +1,266 @@
 code,libelle,source_externe,categorie_orphan
-A90,Dengue (classique),INDEX_CIM10_VOL3,vraiment_orphan
-A90,"Fièvre (de) (des) (due à), aden (voir aussi fièvre, dengue)",INDEX_CIM10_VOL3,vraiment_orphan
-A90,"Fièvre (de) (des) (due à), dengue",INDEX_CIM10_VOL3,vraiment_orphan
-A90,"Fièvre (de) (des) (due à), rouge (voir aussi fièvre, dengue)",INDEX_CIM10_VOL3,vraiment_orphan
-A91,"Dengue (classique), fièvre hémorragique",INDEX_CIM10_VOL3,vraiment_orphan
-A91,"Fièvre (de) (des) (due à), dengue, hémorragique",INDEX_CIM10_VOL3,vraiment_orphan
-A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), asie du sud-est",INDEX_CIM10_VOL3,vraiment_orphan
-A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), bangkok",INDEX_CIM10_VOL3,vraiment_orphan
-A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), philippines",INDEX_CIM10_VOL3,vraiment_orphan
-A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), singapour",INDEX_CIM10_VOL3,vraiment_orphan
-A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), thaïlande",INDEX_CIM10_VOL3,vraiment_orphan
-B23.4,"Syndrome (de) - voir aussi maladie, infection aiguë par vih",INDEX_CIM10_VOL3,vraiment_orphan
-B59,Pneumocystose,INDEX_CIM10_VOL3,vraiment_orphan
-B59,"Pneumopathie, congénitale, interstitielle, plasmocyte",INDEX_CIM10_VOL3,vraiment_orphan
-B59,"Pneumopathie, congénitale, plasmocyte",INDEX_CIM10_VOL3,vraiment_orphan
-B59,"Pneumopathie, congénitale, pneumocystis carinii",INDEX_CIM10_VOL3,vraiment_orphan
-B75.2,"Trypanosomiase, cruzi (voir aussi chagas, maladie de)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.2,"Lymphome (malin) (de) (m9590/3), lymphohistiocytaire, mixte (diffus) (m9675/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.2,"Lymphome (malin) (de) (m9590/3), mixte (lymphohistiocytaire) (diffus) (m9675/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.2,"Lymphome (malin) (de) (m9590/3), mixte (lymphohistiocytaire) (diffus) (m9675/3), lympho-histiocytaire (diffus) (m9675/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.2,"Lymphome (malin) (de) (m9590/3), mixte (lymphohistiocytaire) (diffus) (m9675/3), petites cellules et grandes cellules (diffus) (m9675/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.2,"Lymphome (malin) (de) (m9590/3), à petites cellules (diffus) (m9670/3), et grandes cellules, mixte (diffus) (m9675/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.2,Réticulolymphosarcome (diffus) (m9675/3),INDEX_CIM10_VOL3,vraiment_orphan
-C83.4,Immunoblastosarcome (m9684/3),INDEX_CIM10_VOL3,vraiment_orphan
-C83.4,"Lymphome (malin) (de) (m9590/3), immunoblastique (à grandes cellules) (diffus) (m9684/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.4,"Lymphosarcome (diffus) (m9592/3), immunoblastique (m9684/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.4,"Sarcome (de) (m8800/3) - voir aussi tumeur maligne, tissu, conjonctif, immunoblastique (m9684/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.6,"Lymphome (malin) (de) (m9590/3), indifférencié (diffus) (m9686/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C83.6,"Lymphome (malin) (de) (m9590/3), à cellules, indifférenciées (non burkitt) (m9686/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C84.2,"Lymphome (malin) (de) (m9590/3), zone t (m9703/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C84.3,"Lennert, lymphome de (m9704/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C84.3,"Lymphome (malin) (de) (m9590/3), lennert (m9704/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C84.3,"Lymphome (malin) (de) (m9590/3), lympho-épithélioïde (m9704/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C85.0,"Lymphome (malin) (de) (m9590/3), type, lymphosarcome (m9592/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C85.0,Lymphosarcome (diffus) (m9592/3),INDEX_CIM10_VOL3,vraiment_orphan
-C88.1,"Maladie (à) (de) - voir aussi syndrome ou affection, chaînes lourdes, alpha (m9762/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C91.2,"Leucémie (congénitale) (à) (m9800/3), lymphatique (m9820/3), subaiguë (m9822/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C91.2,"Leucémie (congénitale) (à) (m9800/3), lymphocytaire (m9820/3), subaiguë (m9822/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C91.2,"Leucémie (congénitale) (à) (m9800/3), lymphoïde (m9820/3), subaiguë (m9822/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C93.2,"Leucémie (congénitale) (à) (m9800/3), monocytaire (type schilling) (m9890/3), subaiguë (m9892/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C93.2,"Leucémie (congénitale) (à) (m9800/3), monocytoïde (m9890/3), subaiguë (m9892/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C94.1,"Erythrémie (aiguë) (m9841/3), chronique (m9842/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C94.1,"Heilmeyer-schöner, maladie de (m9842/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C94.5,"Myélofibrose (avec métaplasie myéloïde) (m9961/1), aiguë (m9932/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C95.2,"Leucémie (congénitale) (à) (m9800/3), subaiguë (m9802/3) (voir aussi selon le type de cellules)",INDEX_CIM10_VOL3,vraiment_orphan
-C96.1,"Arthropathie (à) (de) (voir aussi arthrite), associée à, au cours de, due à (voir aussi arthropathie, réactionnelle), histiocytose maligne (m9720/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C96.1,"Histiocytose (à), maligne (m9720/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C96.1,"Réticulose (cutanée) (de), histiocytaire aiguë ou médullaire (m9720/3)",INDEX_CIM10_VOL3,vraiment_orphan
-C96.3,"Lymphome (malin) (de) (m9590/3), histiocytaire (diffus) (m9680/3), vrai (m9723/3)",INDEX_CIM10_VOL3,vraiment_orphan
-D46.3,"Anémie (à) (de), réfractaire (m9980/1), avec, excès de blastes (m9983/1), en transformation (m9984/1)",INDEX_CIM10_VOL3,vraiment_orphan
-D75.2,Thrombocytose essentielle,INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Christian, maladie de",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Granulome (à) (de), osseux, éosinophile",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Granulome (à) (de), poumon (infectieux) (voir aussi fibrose, poumon), éosinophile",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Granulome (à) (de), éosinophile, éosinophilique (de)",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Granulome (à) (de), éosinophile, éosinophilique (de), osseux",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Granulome (à) (de), éosinophile, éosinophilique (de), pulmonaire",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Hand-schüller-christian, maladie ou syndrome de",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Histiocytose (à), cellules de langerhans nca",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Histiocytose (à), phagocytes mononucléés nca, cellules de langerhans",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Histiocytose (à), x (chronique)",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Schüller-christian, maladie ou syndrome de",INDEX_CIM10_VOL3,vraiment_orphan
-D76.0,"Xanthome (familial) (héréditaire) (de), os",INDEX_CIM10_VOL3,vraiment_orphan
-G56.4,Causalgie,INDEX_CIM10_VOL3,vraiment_orphan
-G90.3,"Dégénérescence (de), disséminée (système nerveux autonome)",INDEX_CIM10_VOL3,vraiment_orphan
-G90.3,"Hypotension (artérielle) (essentielle), neurogène, orthostatique",INDEX_CIM10_VOL3,vraiment_orphan
-G90.3,"Hypotension (artérielle) (essentielle), orthostatique, neurogène",INDEX_CIM10_VOL3,vraiment_orphan
-G90.3,"Shy-drager, syndrome de",INDEX_CIM10_VOL3,vraiment_orphan
-G90.3,"Syndrome (de) - voir aussi maladie, parkinsonien (idiopathique) (primitif), associé à hypotension orthostatique (idiopathique) (symptomatique)",INDEX_CIM10_VOL3,vraiment_orphan
-H54.7,"Atteinte (de) - voir aussi affection, vision (de catégorie)",INDEX_CIM10_VOL3,vraiment_orphan
-H54.7,"Baisse (de), vision",INDEX_CIM10_VOL3,vraiment_orphan
-H54.7,"Perte(s) (de), vision, non qualifiée",INDEX_CIM10_VOL3,vraiment_orphan
-I84.0,"Nca, interne, thrombosée",INDEX_CIM10_VOL3,vraiment_orphan
-I84.1,"Etranglement (de), hémorroïdes, internes",INDEX_CIM10_VOL3,vraiment_orphan
-I84.1,"Hémorragie (de) (due à), hémorroïdaire, interne",INDEX_CIM10_VOL3,vraiment_orphan
-I84.1,"Nca, interne, étranglée, hémorragique, procidente ou ulcérée",INDEX_CIM10_VOL3,vraiment_orphan
-I84.2,"Nca, interne",INDEX_CIM10_VOL3,vraiment_orphan
-I84.3,"Nca, externe, thrombosée",INDEX_CIM10_VOL3,vraiment_orphan
-I84.4,"Etranglement (de), hémorroïdes, externes",INDEX_CIM10_VOL3,vraiment_orphan
-I84.4,"Hémorragie (de) (due à), hémorroïdaire, externe",INDEX_CIM10_VOL3,vraiment_orphan
-I84.4,"Nca, externe, étranglée, hémorragique, procidente ou ulcérée",INDEX_CIM10_VOL3,vraiment_orphan
-I84.5,"Nca, externe",INDEX_CIM10_VOL3,vraiment_orphan
-I84.6,Acrochordon de l'anus et du rectum,INDEX_CIM10_VOL3,vraiment_orphan
-I84.6,"Brodie, hémorroïdes de",INDEX_CIM10_VOL3,vraiment_orphan
-I84.6,"Cicatrice (adhérente) (cutanée) (douloureuse) (rétractile) (vicieuse) (de), hémorroïdaire cutanée résiduelle",INDEX_CIM10_VOL3,vraiment_orphan
-I84.6,"Hémorroïde (de), brodie",INDEX_CIM10_VOL3,vraiment_orphan
-I84.6,Protubérance hémorroïdaire résiduelle,INDEX_CIM10_VOL3,vraiment_orphan
-I84.7,"Nca, thrombosée nca",INDEX_CIM10_VOL3,vraiment_orphan
-I84.8,"Etranglement (de), hémorroïdes",INDEX_CIM10_VOL3,vraiment_orphan
-I84.8,"Hémorragie (de) (due à), hémorroïdaire",INDEX_CIM10_VOL3,vraiment_orphan
-I84.9,Hémorroïde (de),INDEX_CIM10_VOL3,vraiment_orphan
-I84.9,"Ulcère (à) (de), anus (sphincter) (solitaire) (stercoral), hémorroïdaire (voir aussi hémorroïde)",INDEX_CIM10_VOL3,vraiment_orphan
-I84.9,"Ulcère (à) (de), hémorroïdaire (voir aussi hémorroïde)",INDEX_CIM10_VOL3,vraiment_orphan
-I84.9,"Ulcère (à) (de), rectum (sphincter) (stercoral), hémorroïdaire (voir aussi hémorroïde)",INDEX_CIM10_VOL3,vraiment_orphan
-I84.9,"Ulcère (à) (de), variqueux (membre inférieur, toute partie) (de), anus (voir aussi hémorroïde)",INDEX_CIM10_VOL3,vraiment_orphan
-I84.9,"Ulcère (à) (de), variqueux (membre inférieur, toute partie) (de), rectum (voir aussi hémorroïde)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Appendicite (à) (avec), aiguë (congestive) (foudroyante) (gangréneuse) (occlusive) (purulente) (avec), perforation, péritonite (généralisée) ou rupture",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Appendicite (à) (avec), perforation, péritonite (généralisée) ou rupture",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Appendicite (à) (avec), rétrocaecale, aiguë (avec), perforation, péritonite (généralisée) ou rupture",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Crise(s) (de), appendicite (aiguë), avec perforation ou péritonite (généralisée)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Gangrène (cutanée) (extensive) (humide) (infectée) (locale) (par stase) (sèche) (septique) (ulcéreuse) (de) (due à), appendice, avec péritonite (généralisée), perforation ou rupture",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Perforation (non traumatique) (de) (due à), appendice",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Perforation (non traumatique) (de) (due à), caecum",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Péritonite (avec épanchement) (fibrineuse) (à), appendiculaire",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Péritonite (avec épanchement) (fibrineuse) (à), avec, appendicite",INDEX_CIM10_VOL3,vraiment_orphan
-K35.0,"Rupture (de) - voir aussi déchirure, appendice (avec péritonite)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), appendice, appendiculaire",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), caecum",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), fosse(s), iliaque droite (dû à appendicite)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), iliaque (région), fosse droite (dû à appendicite)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), iléocaecal",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), périappendiculaire",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), péricaecal",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), péritoine, péritonéal (voir aussi péritonite), avec appendicite",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), rétrocaecal, appendiculaire",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Appendicite (à) (avec), abcès péritonéal",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Appendicite (à) (avec), aiguë (congestive) (foudroyante) (gangréneuse) (occlusive) (purulente) (avec), abcès péritonéal",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Appendicite (à) (avec), rétrocaecale, aiguë (avec), abcès péritonéal",INDEX_CIM10_VOL3,vraiment_orphan
-K35.1,"Phlegmon (avec lymphangite aiguë) (à) (de), fosse iliaque (dû à appendicite)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.9,"Appendicite (à) (avec), aiguë (congestive) (foudroyante) (gangréneuse) (occlusive) (purulente) (avec)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.9,"Appendicite (à) (avec), rétrocaecale, aiguë (avec)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.9,"Crise(s) (de), appendicite (aiguë)",INDEX_CIM10_VOL3,vraiment_orphan
-K35.9,"Gangrène (cutanée) (extensive) (humide) (infectée) (locale) (par stase) (sèche) (septique) (ulcéreuse) (de) (due à), appendice",INDEX_CIM10_VOL3,vraiment_orphan
-K51.1,"Iléo-colite (voir aussi entérite), ulcéreuse (chronique)",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), membraneuse, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), muqueuse, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), spasmodique, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Côlon, irritable, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Côlon, spasmodique, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Diarrhée (estivale) (infantile) (présumée infectieuse) (due à) (voir aussi note sous rubrique, côlon irritable",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Diarrhée (estivale) (infantile) (présumée infectieuse) (due à) (voir aussi note sous rubrique, intestin irritable",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Diarrhée (estivale) (infantile) (présumée infectieuse) (due à) (voir aussi note sous rubrique, syndrome de l'intestin irritable",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, membraneuse, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, muqueuse, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, neurogène, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, spasmodique, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Entérospasme, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Hypermotilité, caecum, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Hypermotilité, côlon, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Hypermotilité, iléon, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Hypermotilité, intestin, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Irritabilité (trouble de l'humeur), côlon, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Irritabilité (trouble de l'humeur), intestin (gros), avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Irritation (de), côlon, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Irritation (de), intestin (gros), avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Mobilité anormale (exagérée) (excessive) (de), caecum, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Mobilité anormale (exagérée) (excessive) (de), côlon, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Sensibilité (à la), exagérée, excessive (voir aussi allergie), côlon, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Spasme (de), caecum, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Spasme (de), côlon (sigmoïde), avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Spasme (de), intestinal, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Spasme (de), sigmoïde, avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.0,"Syndrome (de) - voir aussi maladie, intestin irritable (sans diarrhée), avec diarrhée",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), membraneuse",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), muqueuse",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), spasmodique",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Côlon, irritable",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Côlon, spasmodique",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, membraneuse",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, muqueuse",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, neurogène",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, spasmodique",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,Entérospasme,INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Hypermotilité, caecum",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Hypermotilité, côlon",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Hypermotilité, intestin",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Irritabilité (trouble de l'humeur), côlon",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Irritabilité (trouble de l'humeur), intestin (gros)",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Irritation (de), côlon",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Irritation (de), intestin (gros)",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Mobilité anormale (exagérée) (excessive) (de), caecum",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Mobilité anormale (exagérée) (excessive) (de), côlon",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Sensibilité (à la), exagérée, excessive (voir aussi allergie), côlon",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Spasme (de), caecum",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Spasme (de), côlon (sigmoïde)",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Spasme (de), intestinal",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Spasme (de), sigmoïde",INDEX_CIM10_VOL3,vraiment_orphan
-K58.9,"Syndrome (de) - voir aussi maladie, intestin irritable (sans diarrhée)",INDEX_CIM10_VOL3,vraiment_orphan
-L41.2,Papulose lymphomatoïde,INDEX_CIM10_VOL3,vraiment_orphan
-M31.2,"Granulome (à) (de), facial malin",INDEX_CIM10_VOL3,vraiment_orphan
-M31.2,"Granulome (à) (de), malin de la ligne médiane (face)",INDEX_CIM10_VOL3,vraiment_orphan
-M72.3,"Aponévrosite, nodulaire",INDEX_CIM10_VOL3,vraiment_orphan
-M72.3,"Fasciite, nodulaire",INDEX_CIM10_VOL3,vraiment_orphan
-M72.5,Aponévrosite,INDEX_CIM10_VOL3,vraiment_orphan
-M72.5,"Aponévrosite, post-traumatique (ancienne)",INDEX_CIM10_VOL3,vraiment_orphan
-M72.5,Fasciite,INDEX_CIM10_VOL3,vraiment_orphan
-N18.0,"Insuffisance (de), rénale, chronique, terminale",INDEX_CIM10_VOL3,vraiment_orphan
-N18.0,"Insuffisance (de), rénale, terminale",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Apoplexie (de), urémique",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Démence (par), urémique",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Insuffisance (de), rénale, chronique, précisée nca",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Neuropathie (de), urémique",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Paralysie (de), urémique (voir aussi urémie)",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Polynévrite, associée à, au cours de, due à, urémie",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Péricardite (avec épanchement) (avec tamponnade), aiguë (à), urémique",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Péricardite (avec épanchement) (avec tamponnade), urémique",INDEX_CIM10_VOL3,vraiment_orphan
-N18.8,"Rétinite (voir aussi choriorétinite), albuminurique",INDEX_CIM10_VOL3,vraiment_orphan
-O04.0,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication), avec, infection génitale ou pelvienne (tout état classé en o08.0)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.1,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication), avec, hémorragie retardée ou sévère (tout état classé en o08.1)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.2,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication), avec, embolie (tout état classé en o08.2)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.3,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication), avec, complication précisée nca (tout état classé en o08.3- o08.9)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.4,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.5,"Avortement (avec), médical (complet) (sans complication), avec, infection génitale ou pelvienne (tout état classé en o08.0)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.6,"Avortement (avec), médical (complet) (sans complication), avec, hémorragie retardée ou sévère (tout état classé en o08.1)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.7,"Avortement (avec), médical (complet) (sans complication), avec, embolie (tout état classé en o08.2)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.8,"Avortement (avec), médical (complet) (sans complication), avec, complication précisée nca (tout état classé en o08.3- o08.9)",INDEX_CIM10_VOL3,vraiment_orphan
-O04.9,"Avortement (avec), médical (complet) (sans complication)",INDEX_CIM10_VOL3,vraiment_orphan
-P08.3,"Collapsus (de), vasculaire (périphérique), pendant ou après l'accouchement, affectant foetus ou nouveau-né",INDEX_CIM10_VOL3,vraiment_orphan
-Q31.4,"Laryngisme (striduleux), congénital",INDEX_CIM10_VOL3,vraiment_orphan
-Q31.4,"Spasme (de), larynx, laryngé, congénital",INDEX_CIM10_VOL3,vraiment_orphan
-Q31.4,"Stridor, congénital (laryngé)",INDEX_CIM10_VOL3,vraiment_orphan
-Q35.0,"Fente (congénitale) (de), palais, palatine (unilatérale), voûte (unilatérale), bilatérale",INDEX_CIM10_VOL3,vraiment_orphan
-Q35.2,"Fente (congénitale) (de), palais, palatine (unilatérale), voile (unilatérale), bilatérale",INDEX_CIM10_VOL3,vraiment_orphan
-Q35.4,"Fente (congénitale) (de), palais, palatine (unilatérale), voile (unilatérale), bilatérale, avec fente, voûte du palais",INDEX_CIM10_VOL3,vraiment_orphan
-Q35.4,"Fente (congénitale) (de), palais, palatine (unilatérale), voûte (unilatérale), avec fente, voile du palais, bilatérale",INDEX_CIM10_VOL3,vraiment_orphan
-Q35.4,"Fente (congénitale) (de), palais, palatine (unilatérale), voûte (unilatérale), bilatérale, avec fente, voile du palais",INDEX_CIM10_VOL3,vraiment_orphan
-Q35.6,"Fente (congénitale) (de), palais, palatine (unilatérale), médiane",INDEX_CIM10_VOL3,vraiment_orphan
-Q35.8,"Fente (congénitale) (de), palais, palatine (unilatérale), bilatérale",INDEX_CIM10_VOL3,vraiment_orphan
-R50.0,"Fièvre (de) (des) (due à), avec frissons",INDEX_CIM10_VOL3,vraiment_orphan
-R50.0,"Frissons, avec fièvre",INDEX_CIM10_VOL3,vraiment_orphan
-R50.1,"Fièvre (de) (des) (due à), au long cours",INDEX_CIM10_VOL3,vraiment_orphan
-R50.1,"Fièvre (de) (des) (due à), continue (d'origine inconnue)",INDEX_CIM10_VOL3,vraiment_orphan
-R50.1,"Fièvre (de) (des) (due à), persistante (d'origine inconnue)",INDEX_CIM10_VOL3,vraiment_orphan
-R67.0,"Augmentation (de), taux de, anticorps",INDEX_CIM10_VOL3,vraiment_orphan
-Z10.9,"Examen (de) (pour) (voir aussi observation), santé (de) (voir aussi examen, médical), groupes de population",INDEX_CIM10_VOL3,vraiment_orphan
-Z22.5,"Sujet, porteur (présumé) (de), antigène, australie",INDEX_CIM10_VOL3,vraiment_orphan
-Z22.5,"Sujet, porteur (présumé) (de), antigène, de surface (hépatite virale)",INDEX_CIM10_VOL3,vraiment_orphan
-Z22.5,"Sujet, porteur (présumé) (de), hbsag",INDEX_CIM10_VOL3,vraiment_orphan
-Z22.5,"Sujet, porteur (présumé) (de), hépatite virale",INDEX_CIM10_VOL3,vraiment_orphan
-A90,Fièvre (Dengue),APHP_DERMATOLOGIE,vraiment_orphan
-B59,Pneumonie à pneumocystis carinii,APHP_DERMATOLOGIE,vraiment_orphan
-C85.0,Lymphosarcome,APHP_DERMATOLOGIE,vraiment_orphan
-D76.0,Granulome éosinophile,APHP_DERMATOLOGIE,vraiment_orphan
-D76.0,Granulome éosinophilique périorificielle (h. langerhansienne),APHP_DERMATOLOGIE,vraiment_orphan
-D76.0,Hashimoto-Pritzker (histiocytose de),APHP_DERMATOLOGIE,vraiment_orphan
-D76.0,Histiocytose SAI,APHP_DERMATOLOGIE,vraiment_orphan
-D76.0,Histiocytose X,APHP_DERMATOLOGIE,vraiment_orphan
-D76.0,Histiocytose langerhansienne SAI,APHP_DERMATOLOGIE,vraiment_orphan
-D76.0,Xanthome osseux,APHP_DERMATOLOGIE,vraiment_orphan
-G56.4,Causalgies,APHP_DERMATOLOGIE,vraiment_orphan
-I84.9,Hémorroïdes SAI,APHP_DERMATOLOGIE,vraiment_orphan
-M13.91,Arthropathie sans précision,APHP_DERMATOLOGIE,vraiment_orphan
-M31.2,Granulome facial (Lever),APHP_DERMATOLOGIE,vraiment_orphan
-M31.2,Granulome malin centrofacial,APHP_DERMATOLOGIE,vraiment_orphan
-M72.51,Fasciite nodulaire,APHP_DERMATOLOGIE,vraiment_orphan
-B59,Pneumocystis carinii,APHP_GERMES,vraiment_orphan
-K58.0,Colite spasmodique avec diarrhée (COCOA),APHP_GRONES,vraiment_orphan
-M60.3,Mastose proliférante sans atypie du sein (AGO LD 250512),APHP_GRONES,vraiment_orphan
-B59,pneumocystose,APHP_NEPHROLOGIE,vraiment_orphan
-M62.890,rhabdomyolyse,APHP_NEPHROLOGIE,vraiment_orphan
-N18.0,insuffisance rénale terminale,APHP_NEPHROLOGIE,vraiment_orphan
-N18.8,insuffisance rénale chronique: clairance créat 20-39 ml/min (Cockcroft Schwartz),APHP_NEPHROLOGIE,vraiment_orphan
-N18.8,insuffisance rénale chronique: clairance créat 40-59 ml/min (Cockcroft Schwartz),APHP_NEPHROLOGIE,vraiment_orphan
-N18.8,insuffisance rénale chronique: clairance créat 60-80 ml/min (Cockcroft Schwartz),APHP_NEPHROLOGIE,vraiment_orphan
-N18.8,insuffisance rénale chronique: clairance créat < 20 ml/min (Cockcroft Schwartz),APHP_NEPHROLOGIE,vraiment_orphan
-H54.7,Perte de vision SAI (catégorie 9 SAI),APHP_OPHTALMOLOGIE,vraiment_orphan
-C96.1,Histiocytose maligne {sauf sarcome histiocytaire},APHP_RHUMATOLOGIE,vraiment_orphan
-C96.1,Sarcome histiocytaire [Histiocytose maligne vraie],APHP_RHUMATOLOGIE,vraiment_orphan
-D76.0,Granulome éosinophile osseux,APHP_RHUMATOLOGIE,vraiment_orphan
-D76.0,Syndrome de Hand-Schuller-Christian,APHP_RHUMATOLOGIE,vraiment_orphan
-M13.95,Arthropathie de la symphyse pubienne SAI,APHP_RHUMATOLOGIE,vraiment_orphan
-M62.898,Dégénérescence musculaire paravertébrale [Proclinorachie],APHP_RHUMATOLOGIE,vraiment_orphan
-M62.898,Hernie musculaire,APHP_RHUMATOLOGIE,vraiment_orphan
-M72.5,Fasciite paranéoplasique,APHP_RHUMATOLOGIE,vraiment_orphan
-M62.890,Rhabdomyolyse non traumatique,APHP_SRLF,vraiment_orphan
+A90,Dengue (classique),INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A90,"Fièvre (de) (des) (due à), aden (voir aussi fièvre, dengue)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A90,"Fièvre (de) (des) (due à), dengue",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A90,"Fièvre (de) (des) (due à), rouge (voir aussi fièvre, dengue)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A91,"Dengue (classique), fièvre hémorragique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A91,"Fièvre (de) (des) (due à), dengue, hémorragique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), asie du sud-est",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), bangkok",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), philippines",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), singapour",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A91,"Fièvre (de) (des) (due à), hémorragique (transmise par des arthropodes), thaïlande",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+B23.4,"Syndrome (de) - voir aussi maladie, infection aiguë par vih",INDEX_CIM10_VOL3,truly_absent
+B59,Pneumocystose,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+B59,"Pneumopathie, congénitale, interstitielle, plasmocyte",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+B59,"Pneumopathie, congénitale, plasmocyte",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+B59,"Pneumopathie, congénitale, pneumocystis carinii",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+B75.2,"Trypanosomiase, cruzi (voir aussi chagas, maladie de)",INDEX_CIM10_VOL3,truly_absent
+C83.2,"Lymphome (malin) (de) (m9590/3), lymphohistiocytaire, mixte (diffus) (m9675/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.2,"Lymphome (malin) (de) (m9590/3), mixte (lymphohistiocytaire) (diffus) (m9675/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.2,"Lymphome (malin) (de) (m9590/3), mixte (lymphohistiocytaire) (diffus) (m9675/3), lympho-histiocytaire (diffus) (m9675/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.2,"Lymphome (malin) (de) (m9590/3), mixte (lymphohistiocytaire) (diffus) (m9675/3), petites cellules et grandes cellules (diffus) (m9675/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.2,"Lymphome (malin) (de) (m9590/3), à petites cellules (diffus) (m9670/3), et grandes cellules, mixte (diffus) (m9675/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.2,Réticulolymphosarcome (diffus) (m9675/3),INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.4,Immunoblastosarcome (m9684/3),INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.4,"Lymphome (malin) (de) (m9590/3), immunoblastique (à grandes cellules) (diffus) (m9684/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.4,"Lymphosarcome (diffus) (m9592/3), immunoblastique (m9684/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.4,"Sarcome (de) (m8800/3) - voir aussi tumeur maligne, tissu, conjonctif, immunoblastique (m9684/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.6,"Lymphome (malin) (de) (m9590/3), indifférencié (diffus) (m9686/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C83.6,"Lymphome (malin) (de) (m9590/3), à cellules, indifférenciées (non burkitt) (m9686/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C84.2,"Lymphome (malin) (de) (m9590/3), zone t (m9703/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C84.3,"Lennert, lymphome de (m9704/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C84.3,"Lymphome (malin) (de) (m9590/3), lennert (m9704/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C84.3,"Lymphome (malin) (de) (m9590/3), lympho-épithélioïde (m9704/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C85.0,"Lymphome (malin) (de) (m9590/3), type, lymphosarcome (m9592/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C85.0,Lymphosarcome (diffus) (m9592/3),INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C88.1,"Maladie (à) (de) - voir aussi syndrome ou affection, chaînes lourdes, alpha (m9762/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C91.2,"Leucémie (congénitale) (à) (m9800/3), lymphatique (m9820/3), subaiguë (m9822/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C91.2,"Leucémie (congénitale) (à) (m9800/3), lymphocytaire (m9820/3), subaiguë (m9822/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C91.2,"Leucémie (congénitale) (à) (m9800/3), lymphoïde (m9820/3), subaiguë (m9822/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C93.2,"Leucémie (congénitale) (à) (m9800/3), monocytaire (type schilling) (m9890/3), subaiguë (m9892/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C93.2,"Leucémie (congénitale) (à) (m9800/3), monocytoïde (m9890/3), subaiguë (m9892/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C94.1,"Erythrémie (aiguë) (m9841/3), chronique (m9842/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C94.1,"Heilmeyer-schöner, maladie de (m9842/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C94.5,"Myélofibrose (avec métaplasie myéloïde) (m9961/1), aiguë (m9932/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C95.2,"Leucémie (congénitale) (à) (m9800/3), subaiguë (m9802/3) (voir aussi selon le type de cellules)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C96.1,"Arthropathie (à) (de) (voir aussi arthrite), associée à, au cours de, due à (voir aussi arthropathie, réactionnelle), histiocytose maligne (m9720/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C96.1,"Histiocytose (à), maligne (m9720/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C96.1,"Réticulose (cutanée) (de), histiocytaire aiguë ou médullaire (m9720/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+C96.3,"Lymphome (malin) (de) (m9590/3), histiocytaire (diffus) (m9680/3), vrai (m9723/3)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D46.3,"Anémie (à) (de), réfractaire (m9980/1), avec, excès de blastes (m9983/1), en transformation (m9984/1)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D75.2,Thrombocytose essentielle,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Christian, maladie de",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Granulome (à) (de), osseux, éosinophile",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Granulome (à) (de), poumon (infectieux) (voir aussi fibrose, poumon), éosinophile",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Granulome (à) (de), éosinophile, éosinophilique (de)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Granulome (à) (de), éosinophile, éosinophilique (de), osseux",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Granulome (à) (de), éosinophile, éosinophilique (de), pulmonaire",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Hand-schüller-christian, maladie ou syndrome de",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Histiocytose (à), cellules de langerhans nca",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Histiocytose (à), phagocytes mononucléés nca, cellules de langerhans",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Histiocytose (à), x (chronique)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Schüller-christian, maladie ou syndrome de",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+D76.0,"Xanthome (familial) (héréditaire) (de), os",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+G56.4,Causalgie,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+G90.3,"Dégénérescence (de), disséminée (système nerveux autonome)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+G90.3,"Hypotension (artérielle) (essentielle), neurogène, orthostatique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+G90.3,"Hypotension (artérielle) (essentielle), orthostatique, neurogène",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+G90.3,"Shy-drager, syndrome de",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+G90.3,"Syndrome (de) - voir aussi maladie, parkinsonien (idiopathique) (primitif), associé à hypotension orthostatique (idiopathique) (symptomatique)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+H54.7,"Atteinte (de) - voir aussi affection, vision (de catégorie)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+H54.7,"Baisse (de), vision",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+H54.7,"Perte(s) (de), vision, non qualifiée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.0,"Nca, interne, thrombosée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.1,"Etranglement (de), hémorroïdes, internes",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.1,"Hémorragie (de) (due à), hémorroïdaire, interne",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.1,"Nca, interne, étranglée, hémorragique, procidente ou ulcérée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.2,"Nca, interne",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.3,"Nca, externe, thrombosée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.4,"Etranglement (de), hémorroïdes, externes",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.4,"Hémorragie (de) (due à), hémorroïdaire, externe",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.4,"Nca, externe, étranglée, hémorragique, procidente ou ulcérée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.5,"Nca, externe",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.6,Acrochordon de l'anus et du rectum,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.6,"Brodie, hémorroïdes de",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.6,"Cicatrice (adhérente) (cutanée) (douloureuse) (rétractile) (vicieuse) (de), hémorroïdaire cutanée résiduelle",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.6,"Hémorroïde (de), brodie",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.6,Protubérance hémorroïdaire résiduelle,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.7,"Nca, thrombosée nca",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.8,"Etranglement (de), hémorroïdes",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.8,"Hémorragie (de) (due à), hémorroïdaire",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.9,Hémorroïde (de),INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.9,"Ulcère (à) (de), anus (sphincter) (solitaire) (stercoral), hémorroïdaire (voir aussi hémorroïde)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.9,"Ulcère (à) (de), hémorroïdaire (voir aussi hémorroïde)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.9,"Ulcère (à) (de), rectum (sphincter) (stercoral), hémorroïdaire (voir aussi hémorroïde)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.9,"Ulcère (à) (de), variqueux (membre inférieur, toute partie) (de), anus (voir aussi hémorroïde)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+I84.9,"Ulcère (à) (de), variqueux (membre inférieur, toute partie) (de), rectum (voir aussi hémorroïde)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Appendicite (à) (avec), aiguë (congestive) (foudroyante) (gangréneuse) (occlusive) (purulente) (avec), perforation, péritonite (généralisée) ou rupture",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Appendicite (à) (avec), perforation, péritonite (généralisée) ou rupture",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Appendicite (à) (avec), rétrocaecale, aiguë (avec), perforation, péritonite (généralisée) ou rupture",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Crise(s) (de), appendicite (aiguë), avec perforation ou péritonite (généralisée)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Gangrène (cutanée) (extensive) (humide) (infectée) (locale) (par stase) (sèche) (septique) (ulcéreuse) (de) (due à), appendice, avec péritonite (généralisée), perforation ou rupture",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Perforation (non traumatique) (de) (due à), appendice",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Perforation (non traumatique) (de) (due à), caecum",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Péritonite (avec épanchement) (fibrineuse) (à), appendiculaire",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Péritonite (avec épanchement) (fibrineuse) (à), avec, appendicite",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.0,"Rupture (de) - voir aussi déchirure, appendice (avec péritonite)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), appendice, appendiculaire",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), caecum",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), fosse(s), iliaque droite (dû à appendicite)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), iliaque (région), fosse droite (dû à appendicite)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), iléocaecal",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), périappendiculaire",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), péricaecal",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), péritoine, péritonéal (voir aussi péritonite), avec appendicite",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), rétrocaecal, appendiculaire",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Appendicite (à) (avec), abcès péritonéal",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Appendicite (à) (avec), aiguë (congestive) (foudroyante) (gangréneuse) (occlusive) (purulente) (avec), abcès péritonéal",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Appendicite (à) (avec), rétrocaecale, aiguë (avec), abcès péritonéal",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.1,"Phlegmon (avec lymphangite aiguë) (à) (de), fosse iliaque (dû à appendicite)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.9,"Appendicite (à) (avec), aiguë (congestive) (foudroyante) (gangréneuse) (occlusive) (purulente) (avec)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.9,"Appendicite (à) (avec), rétrocaecale, aiguë (avec)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.9,"Crise(s) (de), appendicite (aiguë)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K35.9,"Gangrène (cutanée) (extensive) (humide) (infectée) (locale) (par stase) (sèche) (septique) (ulcéreuse) (de) (due à), appendice",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K51.1,"Iléo-colite (voir aussi entérite), ulcéreuse (chronique)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), membraneuse, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), muqueuse, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), spasmodique, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Côlon, irritable, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Côlon, spasmodique, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Diarrhée (estivale) (infantile) (présumée infectieuse) (due à) (voir aussi note sous rubrique, côlon irritable",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Diarrhée (estivale) (infantile) (présumée infectieuse) (due à) (voir aussi note sous rubrique, intestin irritable",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Diarrhée (estivale) (infantile) (présumée infectieuse) (due à) (voir aussi note sous rubrique, syndrome de l'intestin irritable",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, membraneuse, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, muqueuse, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, neurogène, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, spasmodique, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Entérospasme, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Hypermotilité, caecum, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Hypermotilité, côlon, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Hypermotilité, iléon, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Hypermotilité, intestin, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Irritabilité (trouble de l'humeur), côlon, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Irritabilité (trouble de l'humeur), intestin (gros), avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Irritation (de), côlon, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Irritation (de), intestin (gros), avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Mobilité anormale (exagérée) (excessive) (de), caecum, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Mobilité anormale (exagérée) (excessive) (de), côlon, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Sensibilité (à la), exagérée, excessive (voir aussi allergie), côlon, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Spasme (de), caecum, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Spasme (de), côlon (sigmoïde), avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Spasme (de), intestinal, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Spasme (de), sigmoïde, avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.0,"Syndrome (de) - voir aussi maladie, intestin irritable (sans diarrhée), avec diarrhée",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), membraneuse",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), muqueuse",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Colite (aiguë) (exsudative) (gangréneuse) (hémorragique) (infectieuse) (nécrotique) (phlegmoneuse) (septique) (due à), spasmodique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Côlon, irritable",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Côlon, spasmodique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, membraneuse",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, muqueuse",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, neurogène",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Entérite (aiguë) (diarrhéique) (épidémique) (présumée infectieuse) (due à) (voir aussi note à la catégorie, spasmodique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,Entérospasme,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Hypermotilité, caecum",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Hypermotilité, côlon",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Hypermotilité, intestin",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Irritabilité (trouble de l'humeur), côlon",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Irritabilité (trouble de l'humeur), intestin (gros)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Irritation (de), côlon",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Irritation (de), intestin (gros)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Mobilité anormale (exagérée) (excessive) (de), caecum",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Mobilité anormale (exagérée) (excessive) (de), côlon",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Sensibilité (à la), exagérée, excessive (voir aussi allergie), côlon",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Spasme (de), caecum",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Spasme (de), côlon (sigmoïde)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Spasme (de), intestinal",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Spasme (de), sigmoïde",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+K58.9,"Syndrome (de) - voir aussi maladie, intestin irritable (sans diarrhée)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+L41.2,Papulose lymphomatoïde,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+M31.2,"Granulome (à) (de), facial malin",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+M31.2,"Granulome (à) (de), malin de la ligne médiane (face)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+M72.3,"Aponévrosite, nodulaire",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+M72.3,"Fasciite, nodulaire",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+M72.5,Aponévrosite,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+M72.5,"Aponévrosite, post-traumatique (ancienne)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+M72.5,Fasciite,INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.0,"Insuffisance (de), rénale, chronique, terminale",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.0,"Insuffisance (de), rénale, terminale",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Apoplexie (de), urémique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Démence (par), urémique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Insuffisance (de), rénale, chronique, précisée nca",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Neuropathie (de), urémique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Paralysie (de), urémique (voir aussi urémie)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Polynévrite, associée à, au cours de, due à, urémie",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Péricardite (avec épanchement) (avec tamponnade), aiguë (à), urémique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Péricardite (avec épanchement) (avec tamponnade), urémique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+N18.8,"Rétinite (voir aussi choriorétinite), albuminurique",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.0,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication), avec, infection génitale ou pelvienne (tout état classé en o08.0)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.1,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication), avec, hémorragie retardée ou sévère (tout état classé en o08.1)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.2,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication), avec, embolie (tout état classé en o08.2)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.3,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication), avec, complication précisée nca (tout état classé en o08.3- o08.9)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.4,"Avortement (avec), médical (complet) (sans complication), incomplet (sans complication)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.5,"Avortement (avec), médical (complet) (sans complication), avec, infection génitale ou pelvienne (tout état classé en o08.0)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.6,"Avortement (avec), médical (complet) (sans complication), avec, hémorragie retardée ou sévère (tout état classé en o08.1)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.7,"Avortement (avec), médical (complet) (sans complication), avec, embolie (tout état classé en o08.2)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.8,"Avortement (avec), médical (complet) (sans complication), avec, complication précisée nca (tout état classé en o08.3- o08.9)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+O04.9,"Avortement (avec), médical (complet) (sans complication)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+P08.3,"Collapsus (de), vasculaire (périphérique), pendant ou après l'accouchement, affectant foetus ou nouveau-né",INDEX_CIM10_VOL3,truly_absent
+Q31.4,"Laryngisme (striduleux), congénital",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+Q31.4,"Spasme (de), larynx, laryngé, congénital",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+Q31.4,"Stridor, congénital (laryngé)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+Q35.0,"Fente (congénitale) (de), palais, palatine (unilatérale), voûte (unilatérale), bilatérale",INDEX_CIM10_VOL3,truly_absent
+Q35.2,"Fente (congénitale) (de), palais, palatine (unilatérale), voile (unilatérale), bilatérale",INDEX_CIM10_VOL3,truly_absent
+Q35.4,"Fente (congénitale) (de), palais, palatine (unilatérale), voile (unilatérale), bilatérale, avec fente, voûte du palais",INDEX_CIM10_VOL3,truly_absent
+Q35.4,"Fente (congénitale) (de), palais, palatine (unilatérale), voûte (unilatérale), avec fente, voile du palais, bilatérale",INDEX_CIM10_VOL3,truly_absent
+Q35.4,"Fente (congénitale) (de), palais, palatine (unilatérale), voûte (unilatérale), bilatérale, avec fente, voile du palais",INDEX_CIM10_VOL3,truly_absent
+Q35.6,"Fente (congénitale) (de), palais, palatine (unilatérale), médiane",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+Q35.8,"Fente (congénitale) (de), palais, palatine (unilatérale), bilatérale",INDEX_CIM10_VOL3,truly_absent
+R50.0,"Fièvre (de) (des) (due à), avec frissons",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+R50.0,"Frissons, avec fièvre",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+R50.1,"Fièvre (de) (des) (due à), au long cours",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+R50.1,"Fièvre (de) (des) (due à), continue (d'origine inconnue)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+R50.1,"Fièvre (de) (des) (due à), persistante (d'origine inconnue)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+R67.0,"Augmentation (de), taux de, anticorps",INDEX_CIM10_VOL3,truly_absent
+Z10.9,"Examen (de) (pour) (voir aussi observation), santé (de) (voir aussi examen, médical), groupes de population",INDEX_CIM10_VOL3,truly_absent
+Z22.5,"Sujet, porteur (présumé) (de), antigène, australie",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+Z22.5,"Sujet, porteur (présumé) (de), antigène, de surface (hépatite virale)",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+Z22.5,"Sujet, porteur (présumé) (de), hbsag",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+Z22.5,"Sujet, porteur (présumé) (de), hépatite virale",INDEX_CIM10_VOL3,pre_2006_dropped_by_atih
+A90,Fièvre (Dengue),APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+B59,Pneumonie à pneumocystis carinii,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+C85.0,Lymphosarcome,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Granulome éosinophile,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Granulome éosinophilique périorificielle (h. langerhansienne),APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Hashimoto-Pritzker (histiocytose de),APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Histiocytose SAI,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Histiocytose X,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Histiocytose langerhansienne SAI,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Xanthome osseux,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+G56.4,Causalgies,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+I84.9,Hémorroïdes SAI,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+M13.91,Arthropathie sans précision,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+M31.2,Granulome facial (Lever),APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+M31.2,Granulome malin centrofacial,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+M72.51,Fasciite nodulaire,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
+B59,Pneumocystis carinii,APHP_GERMES,pre_2006_dropped_by_atih
+K58.0,Colite spasmodique avec diarrhée (COCOA),APHP_GRONES,pre_2006_dropped_by_atih
+M60.3,Mastose proliférante sans atypie du sein (AGO LD 250512),APHP_GRONES,truly_absent
+B59,pneumocystose,APHP_NEPHROLOGIE,pre_2006_dropped_by_atih
+M62.890,rhabdomyolyse,APHP_NEPHROLOGIE,truly_absent
+N18.0,insuffisance rénale terminale,APHP_NEPHROLOGIE,pre_2006_dropped_by_atih
+N18.8,insuffisance rénale chronique: clairance créat 20-39 ml/min (Cockcroft Schwartz),APHP_NEPHROLOGIE,pre_2006_dropped_by_atih
+N18.8,insuffisance rénale chronique: clairance créat 40-59 ml/min (Cockcroft Schwartz),APHP_NEPHROLOGIE,pre_2006_dropped_by_atih
+N18.8,insuffisance rénale chronique: clairance créat 60-80 ml/min (Cockcroft Schwartz),APHP_NEPHROLOGIE,pre_2006_dropped_by_atih
+N18.8,insuffisance rénale chronique: clairance créat < 20 ml/min (Cockcroft Schwartz),APHP_NEPHROLOGIE,pre_2006_dropped_by_atih
+H54.7,Perte de vision SAI (catégorie 9 SAI),APHP_OPHTALMOLOGIE,pre_2006_dropped_by_atih
+C96.1,Histiocytose maligne {sauf sarcome histiocytaire},APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
+C96.1,Sarcome histiocytaire [Histiocytose maligne vraie],APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Granulome éosinophile osseux,APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
+D76.0,Syndrome de Hand-Schuller-Christian,APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
+M13.95,Arthropathie de la symphyse pubienne SAI,APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
+M62.898,Dégénérescence musculaire paravertébrale [Proclinorachie],APHP_RHUMATOLOGIE,truly_absent
+M62.898,Hernie musculaire,APHP_RHUMATOLOGIE,truly_absent
+M72.5,Fasciite paranéoplasique,APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
+M62.890,Rhabdomyolyse non traumatique,APHP_SRLF,truly_absent

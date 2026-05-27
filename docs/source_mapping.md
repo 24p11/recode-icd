@@ -737,30 +737,54 @@ ORPHANET > Index CIM-10 vol3 > AP-HP (par spécialité, ordre
 alphabétique). Documenté pour reproductibilité.
  
 ### Codes orphelins externes
- 
-Trois catégories de codes peuvent apparaître dans les sources externes
-sans être dans OFS :
- 
-1. **Codes post-2006 valides en ANS** : intégrés normalement, le code
-   est créé via la pipeline OWL/ANS standard.
-2. **Codes vraiment orphelins** (absents d'OFS et d'ANS) : 5 cas
-   observés dans AP-HP, 0 dans ORPHANET. Loggués dans
-   `reports/external_orphan_codes.csv` avec colonnes :
-   - `code`
-   - `libelle`
-   - `source_externe`
-   - `commentaire` (à remplir manuellement après audit : "code
-     déprécié", "faute de frappe", "extension locale", etc.)
-   Leurs synonymes/inclusions sont **ignorés** (pas de code valide à
-   enrichir).
-3. **Codes au format non parseable** :
-   - `nocode` (3 756 dans l'Index, 19 dans GRONES) : renvois "voir X"
-     sans code direct → **ignorés** systématiquement
-   - Intervalles ouverts (`B65-`, `R89-`, ~170 cas) : **normalisés**
-     en code racine (`B65`, `R89`) puis validés contre OFS. Si le
-     code racine existe, intégrés normalement. Sinon, logger dans
-     `external_orphan_codes.csv`.
-   - Notations dague exotiques (`I200+0`, 1 cas isolé) : **ignorées**
+
+Les codes externes (issus de ORPHANET, Index CIM-10 vol3 ou AP-HP)
+sont dits **orphans** quand ils ne figurent pas dans `merged_codes`
+(produit par `merge.merge_codes()` selon la politique "ANS prime sur
+OFS pour l'existence"). Ces codes ne peuvent pas enrichir le CSV
+final — leurs entrées sont loggées dans
+`reports/external_orphan_codes.csv` avec une colonne
+`categorie_orphan` qui explique la cause.
+
+**4 catégories** (cf diagnostic dans
+`docs/sessions/phase2_5_diagnostic.md`) :
+
+1. **`pre_2006_dropped_by_atih`** : code présent dans la table OFS
+   MASTER 2006 mais absent du RDF ANS 2025. L'ATIH a retiré ou refondu
+   ce code dans la classification CIM-10 FR-PMSI actuelle (ex : A90
+   Dengue, A91 Fièvre hémorragique de dengue — refondus vers A92.x).
+   **Cas dominant** (~89 % en pratique). Pas un bug — conséquence
+   assumée de la politique de fusion.
+
+2. **`truly_absent`** : code absent à la fois d'OFS MASTER et du
+   RDF ANS. Probablement une faute de transcription dans la source
+   externe (l'Index CIM-10 vol3 date de 2019 et a des approximations)
+   ou un code déprécié de longue date. **~11 %** en pratique.
+
+3. **`loader_dropped`** : code présent dans le RDF ANS brut mais
+   absent du Parquet `owl_codes` produit par le loader. Détectable
+   uniquement si on passe le set des codes RDF en argument à
+   `merge_external.merge_external_sources(rdf_codes=...)`. **Filet de
+   sécurité — 0 cas observé en pratique**. Si détecté, indique un bug
+   du loader OWL à investiguer.
+
+4. **`unknown_pattern`** : filet de sécurité pour des combinaisons de
+   présence/absence non couvertes par les 3 catégories ci-dessus.
+   Aucun cas en pratique avec le code actuel — réservé pour des
+   évolutions futures.
+
+**Schéma** `reports/external_orphan_codes.csv` :
+
+| Colonne | Description |
+|---|---|
+| `code` | Code CIM-10 |
+| `libelle` | Libellé externe (non normalisé) |
+| `source_externe` | ORPHANET / INDEX_CIM10_VOL3 / APHP_* |
+| `categorie_orphan` | Une des 4 valeurs ci-dessus |
+
+Les codes au format non parseable (`nocode`, intervalles `B65-`,
+notations dague `I200+0`) sont filtrés en amont par les **loaders
+Phase 1** et n'apparaissent jamais dans ce rapport.
 ### Format des codes dans les sources externes
  
 | Source                | Format brut                          | Conversion nécessaire                              |

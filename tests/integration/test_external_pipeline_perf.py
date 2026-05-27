@@ -14,7 +14,6 @@ from pathlib import Path
 import polars as pl
 import pytest
 
-from recode_icd import merge as merge_mod
 from recode_icd import merge_external
 
 pytestmark = pytest.mark.integration
@@ -61,7 +60,6 @@ def test_full_pipeline_under_30s() -> None:
         (pl.col("type") == "category") & ((pl.col("right") - pl.col("left")) == 1)
     ).select("code", pl.col("label").alias("libelle"))
     valid_codes = merged.select("code")
-    post_2006 = merge_mod.find_post_2006_codes(owl, ofs)
 
     external_frames = merge_external.load_external_frames(
         ORPHANET_XML, HECTOR_XLSX
@@ -75,7 +73,6 @@ def test_full_pipeline_under_30s() -> None:
         siblings=siblings,
         leaves=leaves,
         valid_codes=valid_codes,
-        post_2006_codes=post_2006,
         external_frames=external_frames,
     )
     elapsed = time.perf_counter() - t0

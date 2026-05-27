@@ -146,11 +146,28 @@ def build_dedup_index(
 def _classify_codes(
     external_df: pl.DataFrame,
     valid_codes: pl.DataFrame,
-    post_2006_codes: pl.DataFrame,
+    ofs_codes: pl.DataFrame,
+    rdf_codes: set[str] | None = None,
 ) -> tuple[pl.DataFrame, pl.DataFrame]:
     """Sépare `external_df` en (`present`, `orphan`) selon présence
-    dans `valid_codes`. Pour les orphans, ajoute la colonne
-    `categorie_orphan` ∈ {`vraiment_orphan`, `post_2006_ans_only`}.
+    dans `valid_codes` (= `merged_codes`). Pour les orphans, attribue
+    une `categorie_orphan` selon le diagnostic Phase 2.5
+    (cf `docs/sessions/phase2_5_diagnostic.md` §4) :
+
+    - `pre_2006_dropped_by_atih` : code présent en OFS mais pas dans
+      `merged_codes`. La CIM-10 ANS 2025 ne contient plus ce code
+      (refonte ATIH). Cas dominant (~89 %).
+    - `truly_absent` : code absent de toutes les sources OFS/ANS.
+      Faute de transcription dans la source externe (~11 %).
+    - `loader_dropped` : code dans le RDF ANS brut mais perdu par
+      le loader OWL. Détectable seulement si `rdf_codes` est passé
+      (set des codes présents dans le RDF). Sans ce paramètre, on
+      ne distingue pas ce cas de `pre_2006_dropped_by_atih` /
+      `truly_absent` — il faudrait que le code soit présent dans le
+      RDF tout en étant absent du Parquet OWL (= absent de
+      `valid_codes` car merged_codes vient d'OWL). 0 cas observé.
+    - `unknown_pattern` : filet de sécurité pour des combinaisons
+      non prévues (typiquement aucun cas en pratique).
 
     Le code "non_parseable" est filtré en amont par les loaders Phase 1.
     """
@@ -162,11 +179,27 @@ def _classify_codes(
         )
         return present, empty_with_cat
 
-    post_2006_set = set(post_2006_codes["code"].to_list())
+    ofs_set = set(ofs_codes["code"].str.strip_chars("()").to_list())
+    rdf_set = rdf_codes if rdf_codes is not None else set()
+
+    def _classify_one(code: str) -> str:
+        in_ofs = code in ofs_set
+        in_rdf = code in rdf_set
+        if in_rdf:
+            # Présent RDF mais absent merged_codes → le loader OWL l'a
+            # perdu. Filet de sécurité, 0 cas observé en pratique.
+            return "loader_dropped"
+        if in_ofs:
+            return "pre_2006_dropped_by_atih"
+        # Absent OFS et absent RDF (si fourni) ou détection RDF
+        # désactivée : on classe `truly_absent` par défaut. Un futur
+        # cas où ce raisonnement deviendrait faux serait capturé par
+        # `unknown_pattern` côté tests.
+        return "truly_absent"
+
     orphans = orphans.with_columns(
-        pl.when(pl.col("code").is_in(list(post_2006_set)))
-        .then(pl.lit("post_2006_ans_only"))
-        .otherwise(pl.lit("vraiment_orphan"))
+        pl.col("code")
+        .map_elements(_classify_one, return_dtype=pl.String)
         .alias("categorie_orphan")
     )
     return present, orphans
@@ -177,8 +210,9 @@ def _process_one_source(
     source_df: pl.DataFrame,
     dedup_index: pl.DataFrame,
     valid_codes: pl.DataFrame,
-    post_2006_codes: pl.DataFrame,
+    ofs_codes: pl.DataFrame,
     leaves: pl.DataFrame,
+    rdf_codes: set[str] | None = None,
 ) -> tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, dict[str, int]]:
     """Traite une source externe. Retourne :
 
@@ -202,7 +236,7 @@ def _process_one_source(
     entries_loaded = src.height
 
     # 1. Séparer code-present / code-orphan.
-    present, orphans = _classify_codes(src, valid_codes, post_2006_codes)
+    present, orphans = _classify_codes(src, valid_codes, ofs_codes, rdf_codes)
     entries_orphan = orphans.height
 
     # 2. Dédup tolérante sur les codes présents.
@@ -282,8 +316,8 @@ def merge_external_sources(
     siblings: pl.DataFrame,
     leaves: pl.DataFrame,
     valid_codes: pl.DataFrame,
-    post_2006_codes: pl.DataFrame,
     external_frames: dict[str, pl.DataFrame],
+    rdf_codes: set[str] | None = None,
 ) -> tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame]:
     """Orchestre la dédup tolérante de toutes les sources externes.
 
@@ -293,11 +327,12 @@ def merge_external_sources(
             `entries_dropped_non_terminal`).
         valid_codes : codes acceptés par `merged_codes` (DataFrame avec
             au moins la colonne `code`).
-        post_2006_codes : sortie de `merge.find_post_2006_codes`,
-            détermine `categorie_orphan`.
         external_frames : dict `{source_label: DataFrame}` avec les
             sorties des loaders Phase 1, déjà séparées par enum source.
             Pour AP-HP, les 9 spécialités doivent figurer séparément.
+        rdf_codes : set optionnel des codes présents dans le RDF ANS
+            brut. Si fourni, permet de distinguer `loader_dropped`
+            dans `categorie_orphan` (cf `_classify_codes` docstring).
 
     Returns :
         `(to_add, overlaps, orphans, summary)`.
@@ -328,8 +363,9 @@ def merge_external_sources(
             source_df=src_df,
             dedup_index=dedup_index,
             valid_codes=valid_codes,
-            post_2006_codes=post_2006_codes,
+            ofs_codes=ofs,
             leaves=leaves,
+            rdf_codes=rdf_codes,
         )
 
         # Update du dedup_index avec les unmatched pour les sources suivantes.
@@ -476,8 +512,6 @@ def to_parquet_and_reports(
 ) -> dict[str, Path]:
     """Pipeline complet : loaders → merge → 1 Parquet `to_add` + 3
     rapports CSV."""
-    from recode_icd.merge import find_post_2006_codes
-
     merged = pl.read_parquet(merged_path)
     propagated = pl.read_parquet(propagated_path)
     siblings = pl.read_parquet(siblings_path)
@@ -488,7 +522,6 @@ def to_parquet_and_reports(
         (pl.col("type") == "category") & ((pl.col("right") - pl.col("left")) == 1)
     ).select("code", pl.col("label").alias("libelle"))
     valid_codes = merged.select("code")
-    post_2006 = find_post_2006_codes(owl, ofs)
 
     external_frames = load_external_frames(orphanet_xml, hector_xlsx)
 
@@ -499,7 +532,6 @@ def to_parquet_and_reports(
         siblings=siblings,
         leaves=leaves,
         valid_codes=valid_codes,
-        post_2006_codes=post_2006,
         external_frames=external_frames,
     )
 

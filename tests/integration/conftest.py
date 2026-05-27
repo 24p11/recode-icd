@@ -109,6 +109,10 @@ def owl_df() -> pl.DataFrame:
 @pytest.fixture
 def ofs_df() -> pl.DataFrame:
     """`ofs_codes.parquet`-like : codes OFS avec leurs synonymes.
+
+    Inclut `A90` qui n'est PAS dans `merged_df` — il sert à tester
+    la catégorie `pre_2006_dropped_by_atih` (OFS-only).
+
     Manque U07.1 et U07.10 (post-2006, ANS seul)."""
     rows = [
         {"code": "A00.0", "synonymes": []},
@@ -117,6 +121,7 @@ def ofs_df() -> pl.DataFrame:
         {"code": "N33.0", "synonymes": []},
         {"code": "C50.8", "synonymes": []},
         {"code": "D59.5", "synonymes": []},
+        {"code": "A90", "synonymes": []},
     ]
     return pl.DataFrame(rows, schema={"code": pl.String, "synonymes": pl.List(pl.String)})
 
@@ -181,8 +186,13 @@ def orphanet_df() -> pl.DataFrame:
             # Match exact d'une inclusion OFS → doit être absorbé.
             {"code": "A00.0", "libelle": "Choléra classique",
              "type": "inclusion", "source": "ORPHANET"},
-            # Code orphan (X99.9 absent de merged)
+            # Code orphan absent partout → catégorie `truly_absent`
             {"code": "X99.9", "libelle": "Maladie inconnue",
+             "type": "synonyme", "source": "ORPHANET"},
+            # Code orphan présent en OFS mais pas dans merged →
+            # catégorie `pre_2006_dropped_by_atih` (cas dominant en
+            # pratique).
+            {"code": "A90", "libelle": "Dengue classique",
              "type": "synonyme", "source": "ORPHANET"},
             # Code non-terminal (U07.1) — silencieusement perdu, compté dans summary
             {"code": "U07.1", "libelle": "SARS-CoV-2 disease",
@@ -228,14 +238,11 @@ def aphp_df() -> pl.DataFrame:
 
 
 @pytest.fixture
-def post_2006_codes_df() -> pl.DataFrame:
-    """`find_post_2006_codes` mock — U07.1 et U07.10 sont post-2006."""
-    return pl.DataFrame(
-        [
-            {"code": "U07.1", "label": "COVID-19", "type": "category", "depth": 3},
-            {"code": "U07.10", "label": "COVID-19, forme...", "type": "category", "depth": 4},
-        ]
-    )
+def rdf_codes_loader_dropped() -> set[str]:
+    """Set RDF custom où `Z99.9` est présent — pour tester la
+    catégorie `loader_dropped` (code dans RDF mais absent du Parquet
+    OWL = absent de `merged_df`)."""
+    return {"Z99.9"}
 
 
 @pytest.fixture
