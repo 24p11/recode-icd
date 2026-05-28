@@ -75,6 +75,9 @@ select = [
 ignore = [
     "E501",          # line length géré par formatter
 ]
+# Caractères Unicode légitimes du domaine médical FR : × (croisé
+# source × type dans les rapports), æ (ligature nævus ANS), etc.
+allowed-confusables = ["×", "æ", "’"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["N802", "N803"]   # noms de tests souples

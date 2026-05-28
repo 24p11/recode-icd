@@ -9,6 +9,7 @@ from recode_icd import merge, merge_external, propagation
 from recode_icd.exporters import flat_csv
 from recode_icd.loaders import ofs, owl
 from recode_icd.relations import dagger_asterisk, sibling_exclusions
+from recode_icd.reports import csv_stats
 
 build_app = typer.Typer(help="Construire les Parquet de référence.")
 
@@ -403,4 +404,20 @@ def build_flat_csv(
         curation_report_path=curation_report,
         external_path=effective_external,
     )
+    typer.echo(f"Écrit : {path}")
+
+
+@build_app.command("stats")
+def build_stats(
+    csv_path: Annotated[
+        Path,
+        typer.Option("--csv", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/inclusions_exclusions_synonymes.csv"),
+    output_path: Annotated[
+        Path,
+        typer.Option("--output", "-o", dir_okay=False),
+    ] = Path("reports/csv_stats.md"),
+) -> None:
+    """Générer reports/csv_stats.md (statistiques déterministes du CSV maître)."""
+    path = csv_stats.generate_csv_stats(csv_path, output_path)
     typer.echo(f"Écrit : {path}")
