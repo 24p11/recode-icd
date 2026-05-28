@@ -172,8 +172,17 @@ for s in (cell(merged_row, "synonymes") or []):
 # %% [markdown]
 # **Observation** : `has_ofs_match=True` (A18.1 existe dans les deux
 # sources). Le libellé retenu vient d'ANS ; les inclusions/exclusions
-# d'OFS quand il en a. Les synonymes sont l'union dédupliquée des deux
-# sources.
+# d'OFS quand il en a. Les synonymes sont l'union des deux sources.
+#
+# **Deux niveaux de déduplication** — à ce stade, `merged.synonymes`
+# applique une dédup **stricte** (égalité de chaîne exacte). On voit
+# donc encore cohabiter des variantes de casse, par ex
+# `"Tuberculose (de) vessie"` (ANS) et `"tuberculose (de) vessie"`
+# (OFS). La dédup **tolérante** (NFKD + lowercase + ponctuation), qui
+# fusionne ces variantes, n'intervient que plus tard dans
+# `flat_csv.py` au moment de produire le CSV final. C'est précisément
+# pour cette raison qu'elle existe : `.unique()` strict ne suffit pas
+# (cf `docs/source_mapping.md` §"Déduplication des synonymes").
 
 # %% [markdown]
 # ## Section 3 — La propagation hiérarchique
