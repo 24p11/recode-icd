@@ -6,6 +6,7 @@ from pathlib import Path
 import polars as pl
 
 from recode_icd._normalize import normalize_column
+from recode_icd.loaders.schemas import FlatCsvSchema
 
 _SOURCE_CSV_MAP: dict[str, str] = {
     "OFS": "CIM-10",
@@ -26,11 +27,23 @@ _SOURCE_CSV_MAP: dict[str, str] = {
 
 _TYPE_ORDER: dict[str, int] = {"inclusion": 0, "exclusion": 1, "synonyme": 2}
 
+# Ordre de priorité du niveau de propagation (cf docs/source_mapping.md
+# §"Propagation des notes hiérarchiques"). En cas de doublon
+# (code, type, source, texte) propre+hérité, on garde la version la
+# plus spécifique : code < category < block < chapter.
+_SOURCE_LEVEL_ORDER: dict[str, int] = {
+    "code": 0,
+    "category": 1,
+    "block": 2,
+    "chapter": 3,
+}
+
 # Colonnes finales du CSV maître (cf docs/source_mapping.md §"Schéma
-# final du CSV principal"). Une ligne par (code, type, source, texte)
-# par association dague/astérisque ; les codes sans association émettent
-# une seule ligne avec dagger_code/asterisk_code à NULL et
-# redundancy_level="none".
+# final du CSV principal" et §"Propagation des notes hiérarchiques").
+# Une ligne par (code, type, source, texte) par association
+# dague/astérisque ; les codes sans association émettent une seule
+# ligne avec dagger_code/asterisk_code à NULL et redundancy_level="none".
+# source_level/inherited_from_code tracent la propagation hiérarchique.
 _FINAL_COLUMNS: tuple[str, ...] = (
     "code",
     "libelle",
@@ -41,6 +54,8 @@ _FINAL_COLUMNS: tuple[str, ...] = (
     "asterisk_code",
     "redundancy_level",
     "is_redundant_dagger",
+    "source_level",
+    "inherited_from_code",
 )
 
 
@@ -83,12 +98,25 @@ def _build_inclusions_exclusions(
         pl.col("note_type").alias("type"),
         pl.col("source"),
         pl.col("texte"),
+        # source_level = type de l'ancêtre si propagé, sinon "code".
+        pl.when(pl.col("inherited_from").is_null())
+        .then(pl.lit("code"))
+        .otherwise(pl.col("inherited_from_type"))
+        .cast(pl.String)
+        .alias("source_level"),
+        # Cast explicite : si propagated a inherited_from tout-null
+        # (cas fixtures), polars infère le type Null — on force String
+        # pour rester concat-compatible avec les autres parties.
+        pl.col("inherited_from").cast(pl.String).alias("inherited_from_code"),
     )
+    # Notes synthétisées frères : attachées directement au code .8.
     sib = siblings.select(
         pl.col("code"),
         pl.col("note_type").alias("type"),
         pl.col("source"),
         pl.col("texte"),
+        pl.lit("code").alias("source_level"),
+        pl.lit(None, dtype=pl.String).alias("inherited_from_code"),
     )
     return pl.concat([prop, sib])
 
@@ -126,8 +154,13 @@ def _build_synonymes(owl: pl.DataFrame, ofs: pl.DataFrame) -> pl.DataFrame:
         .sort(["_is_ofs", "texte"], descending=[True, False])  # OFS first
         .unique(subset=["code", "_norm_texte"], keep="first")
         .drop("_is_ofs", "_norm_texte")
-        .with_columns(pl.lit("synonyme").alias("type"))
-        .select("code", "type", "source", "texte")
+        .with_columns(
+            pl.lit("synonyme").alias("type"),
+            # Les descripteurs/synonymes sont attachés au code feuille.
+            pl.lit("code").alias("source_level"),
+            pl.lit(None, dtype=pl.String).alias("inherited_from_code"),
+        )
+        .select("code", "type", "source", "texte", "source_level", "inherited_from_code")
     )
 
 
@@ -242,7 +275,7 @@ def _attach_dagger_asterisk_columns(
             pl.col("redundancy_level"),
             (pl.col("redundancy_level") == "subordinate").alias("is_redundant_dagger"),
         )
-        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger")
+        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger", "source_level", "inherited_from_code")
     )
 
     # Côté astérisque : pour les codes qui apparaissent comme asterisk_code.
@@ -258,7 +291,7 @@ def _attach_dagger_asterisk_columns(
             pl.col("redundancy_level"),
             pl.lit(False).alias("is_redundant_dagger"),
         )
-        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger")
+        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger", "source_level", "inherited_from_code")
     )
 
     # Codes hors paires : anti-join sur l'union des codes mentionnés
@@ -280,7 +313,7 @@ def _attach_dagger_asterisk_columns(
             pl.lit("none", dtype=pl.String).alias("redundancy_level"),
             pl.lit(False).alias("is_redundant_dagger"),
         )
-        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger")
+        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger", "source_level", "inherited_from_code")
     )
 
     expanded = pl.concat([as_dagger, as_asterisk, none_side])
@@ -297,15 +330,20 @@ def build(
     dagger_asterisk: pl.DataFrame,
     external: pl.DataFrame | None = None,
 ) -> tuple[pl.DataFrame, FlatCsvStats]:
-    """Construit le CSV maître à 9 colonnes (cf source_mapping.md
-    §"Schéma final du CSV principal").
+    """Construit le CSV maître à 11 colonnes (cf source_mapping.md
+    §"Schéma final du CSV principal" et §"Propagation des notes
+    hiérarchiques").
 
     Étapes :
-      1. Long format inclusions/exclusions/synonymes (priorité OFS).
+      1. Long format inclusions/exclusions/synonymes (priorité OFS),
+         avec source_level/inherited_from_code tracés.
       2. Filtrage des synonymes redondants côté dague (règle empirique).
       3. Concaténation des entrées externes (ORPHANET/Index/AP-HP)
-         déjà dédupliquées et filtrées par `merge_external`.
+         déjà dédupliquées et filtrées par `merge_external`
+         (source_level=code, inherited_from_code=null).
       4. Restriction aux codes feuilles + traduction des sources.
+         Dédup (code, type, source, texte) priorisant la version la
+         plus spécifique (source_level=code).
       5. Expansion par association dague/astérisque (Principe 2 de la
          spec : une ligne par association).
       6. Sort déterministe par (code, type, source, texte, ast, dague).
@@ -332,6 +370,8 @@ def build(
             pl.col("type"),
             pl.col("source"),
             pl.col("libelle_orig").alias("texte"),
+            pl.lit("code").alias("source_level"),
+            pl.lit(None, dtype=pl.String).alias("inherited_from_code"),
         )
         parts.append(ext_long)
     long = pl.concat(parts)
@@ -340,13 +380,26 @@ def build(
         long.join(leaves, on="code", how="inner")
         .with_columns(
             pl.col("source").replace_strict(_SOURCE_CSV_MAP).alias("source"),
+            pl.col("source_level")
+            .replace_strict(_SOURCE_LEVEL_ORDER, default=0)
+            .alias("_level_order"),
         )
-        .unique(subset=["code", "type", "source", "texte"])
-        .select("code", "libelle", "type", "source", "texte")
+        # Dédup priorisant la version la plus spécifique : si une note
+        # (code, type, source, texte) existe à la fois propre (code) et
+        # héritée (category/block/chapter), on garde la version `code`.
+        .sort("_level_order")
+        .unique(subset=["code", "type", "source", "texte"], keep="first")
+        .select(
+            "code", "libelle", "type", "source", "texte",
+            "source_level", "inherited_from_code",
+        )
     )
 
     expanded, n_redundant = _attach_dagger_asterisk_columns(
-        base.select("code", "type", "source", "texte"),
+        base.select(
+            "code", "type", "source", "texte",
+            "source_level", "inherited_from_code",
+        ),
         dagger_asterisk,
     )
 
@@ -360,6 +413,7 @@ def build(
         .select(*_FINAL_COLUMNS)
     )
 
+    FlatCsvSchema.validate(final)
     stats = FlatCsvStats(
         n_dagger_lines_redundant=n_redundant,
         n_synonyms_filtered_as_duplicates=n_syn_filtered,

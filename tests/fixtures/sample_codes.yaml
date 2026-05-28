@@ -144,3 +144,13 @@ codes:
     features:
       - dagger_asterisk_subordinate
       - dagger_external_coexist
+
+  # ------------------------------------------------------------------
+  # Codes témoins Chantier A (propagation hiérarchique → source_level)
+  # ------------------------------------------------------------------
+
+  - code: E80.7
+    libelle: "Anomalie du métabolisme de la bilirubine, sans précision"
+    rationale: "Témoin des 4 niveaux de source_level : note propre (code), héritée de la catégorie E80, du bloc E70-E90, et du chapitre IV. Hors dague/astérisque."
+    features:
+      - propagation_all_levels

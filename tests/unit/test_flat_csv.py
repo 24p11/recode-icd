@@ -249,10 +249,28 @@ def test_dedup_on_quadruple() -> None:
     propagated = _make_propagated([
         {"code": "A00.0", "note_type": "inclusion", "texte": "duplicate", "source": "OFS"},
         {"code": "A00.0", "note_type": "inclusion", "texte": "duplicate", "source": "OFS",
-         "inherited_from": "I"},  # propagé d'un ancêtre, même texte
+         "inherited_from": "I", "inherited_from_type": "chapter"},  # propagé, même texte
     ])
     out = _df(flat_csv.build(merged, propagated, _make_siblings([]), _make_owl([]), _make_ofs([]), _make_dagger_asterisk([])))
     assert len(out) == 1
+    # Dédup propre+hérité : on garde la version la plus spécifique (code).
+    row = out.row(0, named=True)
+    assert row["source_level"] == "code"
+    assert row["inherited_from_code"] is None
+
+
+def test_propagated_note_keeps_source_level_and_parent() -> None:
+    """Une note uniquement héritée (pas de version propre) conserve
+    son source_level et inherited_from_code."""
+    merged = _make_merged([{"code": "A00.0", "label": "x", "left": 1, "right": 2}])
+    propagated = _make_propagated([
+        {"code": "A00.0", "note_type": "exclusion", "texte": "héritée du bloc",
+         "source": "OFS", "inherited_from": "A00-A09", "inherited_from_type": "block"},
+    ])
+    out = _df(flat_csv.build(merged, propagated, _make_siblings([]), _make_owl([]), _make_ofs([]), _make_dagger_asterisk([])))
+    row = out.filter(pl.col("texte") == "héritée du bloc").row(0, named=True)
+    assert row["source_level"] == "block"
+    assert row["inherited_from_code"] == "A00-A09"
 
 
 def test_libelle_attached_correctly() -> None:
@@ -347,6 +365,7 @@ def test_to_csv_writes_file(tmp_path: Path) -> None:
     assert loaded.columns == [
         "code", "libelle", "type", "source", "texte",
         "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger",
+        "source_level", "inherited_from_code",
     ]
     row = loaded.row(0, named=True)
     assert row["redundancy_level"] == "none"

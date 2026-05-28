@@ -149,3 +149,25 @@ class MergedCodesSchema(pa.DataFrameModel):
     class Config:
         strict = True
         coerce = False
+
+
+class FlatCsvSchema(pa.DataFrameModel):
+    """Schéma du CSV maître final à 11 colonnes (cf docs/source_mapping.md
+    §"Schéma final du CSV principal" et §"Propagation des notes
+    hiérarchiques")."""
+
+    code: str = pa.Field(str_matches=_CODE_RE)
+    libelle: str = pa.Field(nullable=True)
+    type: str = pa.Field(isin=["inclusion", "exclusion", "synonyme"])
+    source: str = pa.Field()
+    texte: str = pa.Field(nullable=True)
+    dagger_code: str = pa.Field(nullable=True)
+    asterisk_code: str = pa.Field(nullable=True)
+    redundancy_level: str = pa.Field(isin=["none", "independent", "subordinate"])
+    is_redundant_dagger: bool = pa.Field()
+    source_level: str = pa.Field(isin=["chapter", "block", "category", "code"])
+    inherited_from_code: str = pa.Field(nullable=True)
+
+    class Config:
+        strict = True
+        coerce = False

@@ -24,12 +24,15 @@
 
 ## Objectifs métier
 
-1. **Fichier maître `inclusions_exclusions_synonymes.csv`** (9 colonnes) :
-   `code`, `libelle`, `type` ∈ {inclusion, exclusion, synonyme},
-   `source`, `texte`, `dagger_code`, `asterisk_code`, `redundancy_level`, `is_redundant_dagger`.
-   Regroupe toutes les informations textuelles associées à un code
-   CIM-10, avec propagation des notes des niveaux supérieurs (bloc,
-   catégorie) vers les codes feuilles.
+1. **Fichier maître `inclusions_exclusions_synonymes.csv`** (11 colonnes) :
+    `code`, `libelle`, `type` ∈ {inclusion, exclusion, synonyme, note},
+    `source`, `texte`, `dagger_code`, `asterisk_code`, `redundancy_level`,
+    `is_redundant_dagger`, `source_level`, `inherited_from_code`.
+    Regroupe toutes les informations textuelles associées à un code
+    CIM-10, avec propagation des notes des niveaux supérieurs (chapitre,
+    bloc, catégorie) vers les codes feuilles. La propagation est rendue
+    visible via les deux dernières colonnes pour permettre le filtrage
+    et la lecture humaine.
 2. **Table des associations dague (†) / astérisque (*)** comme livrable
    séparé (vue plus structurée que les colonnes du CSV principal,
    préserve les 6 valeurs du champ `daget` F/G/H/S/T/U).
@@ -82,7 +85,7 @@ src/recode_icd/
 │   ├── dagger_asterisk.py # table d'associations dague/astérisque (objectif 2)
 │   └── sibling_exclusions.py
 ├── exporters/
-│   └── flat_csv.py        # le fichier 9 colonnes
+│   └── flat_csv.py        # le fichier 11 colonnes
 ├── registry.py            # ReferentialRegistry (inspiré de recode-scenario)
 └── cli/                   # CLI typer
 referentials/
@@ -190,7 +193,18 @@ bloc ou d'une catégorie.
    pas". Toujours conserver le code de redirection si présent.
 3. **Propagation bloc → code obligatoire**. Les notes au niveau bloc
    s'appliquent à TOUS les codes du bloc, sauf override explicite plus bas.
-   Le champ `inherited_from` doit être renseigné pour traçabilité.
+   Cette propagation est tracée dans le CSV final via 
+   deux colonnes :
+   - `source_level` ∈ {chapter, block, category, code} : indique le niveau 
+   d'origine de la note
+   - `inherited_from_code` : le code parent (chapter, bloc, catégorie) si 
+   la note est propagée, vide si attachée directement au code feuille
+ 
+   Les sources externes (ORPHANET, Index CIM-10 vol3, AP-HP) ne propagent 
+   pas : leurs entrées ont toujours `source_level=code` et 
+   `inherited_from_code` vide. Idem pour les descripteurs/synonymes OFS et 
+   ANS qui sont attachés directement au code feuille.
+ 
 4. **Dague (†) / astérisque (*)**. Le code dague est primaire (maladie
    initiale, étiologie), l'astérisque est la manifestation. Ne **JAMAIS**
    inverser. Voir section "Couples dague/astérisque" pour la politique
@@ -485,7 +499,10 @@ pas d'enum sans libellé CSV correspondant.
 >   de neutropénie)
 > - Un code couvert simultanément par OFS, Index CIM-10 vol3 et une
 >   spécialité AP-HP (pour tester la dédup tolérante inter-sources)
- 
+> - Un code avec note propagée depuis un niveau supérieur (par exemple un 
+>   code dans le bloc A00-A09 qui hérite d'une note attachée au bloc), 
+>   pour tester `source_level` et `inherited_from_code` non vides.
+  
 ## Workflow Claude Code recommandé
 
 - Avant toute modification non-triviale : `/plan` puis validation du plan

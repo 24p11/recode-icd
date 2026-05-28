@@ -327,7 +327,7 @@ def test_csv_final_schema_unchanged_after_external_merge(
     ofs_df: pl.DataFrame,
     dagger_asterisk_df: pl.DataFrame,
 ) -> None:
-    """Le CSV final conserve ses 9 colonnes après intégration externe."""
+    """Le CSV final conserve ses 11 colonnes après intégration externe."""
     to_add, _, _, _ = merge_result
     df, _ = flat_csv.build(
         merged=merged_df,
@@ -341,8 +341,20 @@ def test_csv_final_schema_unchanged_after_external_merge(
     expected_columns = [
         "code", "libelle", "type", "source", "texte",
         "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger",
+        "source_level", "inherited_from_code",
     ]
     assert df.columns == expected_columns
+    # Les entrées externes ont source_level=code et inherited_from_code null.
+    external_rows = df.filter(
+        pl.col("source").is_in(
+            ["ORPHANET", "CIM-10 index", "AP-HP Dermatologie"]
+        )
+    )
+    assert external_rows.height > 0
+    assert external_rows.filter(pl.col("source_level") != "code").is_empty()
+    assert external_rows.filter(
+        pl.col("inherited_from_code").is_not_null()
+    ).is_empty()
 
 
 def test_csv_final_contains_orphanet_E(

@@ -19,6 +19,7 @@ _CSV_PATH = Path("referentials/processed/inclusions_exclusions_synonymes.csv")
 _EXPECTED_COLUMNS = [
     "code", "libelle", "type", "source", "texte",
     "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger",
+    "source_level", "inherited_from_code",
 ]
 
 
@@ -32,12 +33,12 @@ def _final_csv() -> pl.DataFrame:
     if list(df.columns) != _EXPECTED_COLUMNS:
         pytest.skip(
             f"CSV présent mais schéma différent (colonnes : {df.columns}). "
-            "Re-générer après les changements Phase 3."
+            "Re-générer après les changements de schéma."
         )
     return df
 
 
-def test_csv_has_9_columns() -> None:
+def test_csv_has_11_columns() -> None:
     assert list(_final_csv().columns) == _EXPECTED_COLUMNS
 
 

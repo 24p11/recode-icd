@@ -469,18 +469,22 @@ au build. L'usage en aval (entraînement LLM, génération de prompts,
 analyse statistique) peut choisir indépendamment de filtrer ou non.
  
 ### Schéma final du CSV principal
+
  
 | #  | Colonne                | Type | Description                                              |
 |----|------------------------|------|----------------------------------------------------------|
 | 1  | `code`                 | str  | Code CIM-10                                              |
 | 2  | `libelle`              | str  | Libellé systématique du code                             |
-| 3  | `type`                 | str  | inclusion / exclusion / synonyme                         |
-| 4  | `source`               | str  | CIM-10 / ANS / CIM-10 index / CIM-10 frères / ORPHANET / AP-HP |
+| 3  | `type`                 | str  | inclusion / exclusion / synonyme / note                  |
+| 4  | `source`               | str  | CIM-10 / ANS / CIM-10 index / CIM-10 frères / ORPHANET / AP-HP ... |
 | 5  | `texte`                | str  | Texte de la note                                         |
 | 6  | `dagger_code`          | str? | Code dague apparié (rempli côté astérisque uniquement)   |
 | 7  | `asterisk_code`        | str? | Code astérisque apparié (rempli côté dague uniquement)   |
 | 8  | `redundancy_level`     | str  | none / independent / subordinate                         |
 | 9  | `is_redundant_dagger`  | bool | True si ligne dague impliquée dans un couple subordinate |
+| 10 | **`source_level`**     | str  | **chapter / block / category / code** — niveau d'origine de la note |
+| 11 | **`inherited_from_code`** | str? | **Code parent si propagé (chapter, bloc, catégorie), vide si attaché directement** |
+ 
  
 ### Filtrage des synonymes redondants — règle validée empiriquement
  
@@ -608,7 +612,7 @@ Pour limiter les allers-retours et permettre la validation empirique
        DAGSTAR enrichie pour cette paire.
      - Marque `is_redundant_dagger = True` pour la ligne du code dague
        dans le CSV principal.
-   - L'exporter CSV génère bien les 9 colonnes du schéma final.
+   - L'exporter CSV génère bien les 11 colonnes du schéma final.
    - Le filtrage des descripteurs doublons (règle validée
      empiriquement à 15,8 % sur DESCR uniquement) est appliqué.
 4. **Phase 4 — Tests de régression**.
@@ -632,6 +636,89 @@ Pour limiter les allers-retours et permettre la validation empirique
   pour les `subordinate`, nombre de paires `undecided` à reprendre,
   etc.). Permet de vérifier rapidement après chaque build que la
   curation a bien été prise en compte.
+
+## Propagation des notes hiérarchiques
+ 
+### Principe
+ 
+La CIM-10 organise les codes en une hiérarchie à 4 niveaux :
+- **Chapter** : I, II, III, ..., XXII
+- **Block** : A00-A09, A15-A19, ..., U00-U49
+- **Category** : A00, A01, ..., U07
+- **Code** (feuille) : A00.0, A00.1, ...
+Les notes peuvent être attachées à n'importe quel niveau :
+- Une note d'inclusion attachée au bloc A15-A19 s'applique à TOUS ses codes 
+  (A15.0, A15.1, ..., A19.9).
+- Une note éditoriale au chapitre I s'applique à tous les codes du chapitre.
+- Une exclusion à la catégorie A00 s'applique à A00.0, A00.1, A00.9.
+**Le merger propage** ces notes depuis leur niveau d'attachement vers tous 
+les codes feuilles concernés. Sans propagation, le CSV final ne contiendrait 
+les notes que des niveaux supérieurs, et le LLM consommateur ne pourrait pas 
+voir les notes pertinentes au niveau du code feuille qu'il doit annoter.
+ 
+### Traçabilité de la propagation
+ 
+Pour permettre le filtrage et la lecture humaine, le CSV final expose deux 
+colonnes qui tracent la propagation :
+ 
+**`source_level`** : niveau d'origine de la note dans la hiérarchie.
+ 
+| Valeur | Sens |
+|--------|------|
+| `chapter` | La note est attachée au chapitre (propagation maximale) |
+| `block` | La note est attachée au bloc |
+| `category` | La note est attachée à la catégorie 3-caractères |
+| `code` | La note est attachée directement au code feuille (pas de propagation) |
+ 
+**`inherited_from_code`** : le code parent dont la note est propagée.
+ 
+- Vide (null) si `source_level=code` (note attachée directement)
+- Le code du chapitre/bloc/catégorie sinon (ex : "A15-A19" pour un bloc, 
+  "A00" pour une catégorie, "I" pour le chapitre)
+### Conventions par source
+ 
+| Source | `source_level` typique | `inherited_from_code` |
+|--------|------------------------|------------------------|
+| OFS (libellé systématique) | `code` | vide |
+| OFS (inclusions) | `code` / `category` / `block` / `chapter` selon attachement | code parent si propagé |
+| OFS (exclusions) | idem inclusions | idem |
+| OFS (descripteurs/synonymes) | `code` (toujours) | vide |
+| OFS (notes éditoriales) | tous niveaux possibles | code parent si propagé |
+| ANS (toutes notes) | idem OFS | idem |
+| ORPHANET | `code` (toujours) | vide |
+| Index CIM-10 vol3 | `code` (toujours) | vide |
+| AP-HP (toutes spécialités) | `code` (toujours) | vide |
+| Notes synthétisées (frères) | `code` (toujours) | vide |
+ 
+**Justification** : les sources externes (ORPHANET, Index, AP-HP) référencent 
+toujours un code spécifique, jamais un bloc ou un chapitre. Les descripteurs 
+OFS/ANS sont par construction attachés au code feuille (table DESCR en OFS). 
+Seules les inclusions, exclusions et notes éditoriales d'OFS et ANS peuvent 
+être propagées depuis un niveau supérieur.
+ 
+### Filtrage et lecture humaine
+ 
+Cette traçabilité permet plusieurs usages :
+ 
+**Filtrage par spécificité** : un consommateur LLM qui veut maximiser la 
+pertinence peut filtrer les notes propagées depuis un niveau trop haut (par 
+exemple ignorer les notes `chapter` pour ne garder que celles plus 
+spécifiques au code).
+ 
+**Audit humain** : un lecteur du CSV peut comprendre d'où vient chaque note 
+sans avoir à comparer avec d'autres lignes du CSV.
+ 
+**Détection d'anomalies** : si une note "code" apparaît pour un code feuille 
+alors qu'on s'attendrait à une propagation, c'est un signal à investiguer.
+ 
+### Test de régression
+ 
+Le sample `tests/fixtures/sample_codes.yaml` doit inclure au moins un code 
+avec note propagée depuis un niveau supérieur (par exemple un code A00.0 
+qui hérite d'une exclusion attachée au bloc A00-A09), pour vérifier que 
+`source_level` et `inherited_from_code` sont correctement remplis.
+ 
+
 
 ## Sources externes : politique d'intégration
  

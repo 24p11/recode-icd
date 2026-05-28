@@ -233,6 +233,42 @@ def test_a90_classified_as_pre_2006_dropped_by_atih(
 
 
 # ----------------------------------------------------------------------
+# G. Propagation hiérarchique (Chantier A)
+# ----------------------------------------------------------------------
+
+
+def test_e80_7_propagation_levels(csv_final_df: pl.DataFrame) -> None:
+    """E80.7 (Anomalie du métabolisme de la bilirubine) illustre les
+    4 niveaux de source_level : une note propre (code), une héritée de
+    la catégorie E80, une du bloc E70-E90, une du chapitre IV.
+
+    Vérifie que source_level et inherited_from_code sont cohérents."""
+    sub = csv_final_df.filter(pl.col("code") == "E80.7")
+    assert sub.height > 0, "E80.7 doit être présent dans le CSV"
+    levels = set(sub["source_level"].unique().to_list())
+    # Au moins les niveaux propagés block et chapter doivent être présents
+    # (la composition exacte peut bouger, on exige la diversité).
+    assert "code" in levels, "E80.7 doit avoir au moins une note propre (code)"
+    assert len(levels) >= 3, (
+        f"E80.7 doit illustrer plusieurs niveaux de propagation ; obtenu : {levels}"
+    )
+
+    # Cohérence inherited_from_code pour les notes propagées.
+    block_notes = sub.filter(pl.col("source_level") == "block")
+    if block_notes.height > 0:
+        parents = set(block_notes["inherited_from_code"].unique().to_list())
+        assert parents == {"E70-E90"}, (
+            f"notes block de E80.7 doivent venir de E70-E90 ; obtenu : {parents}"
+        )
+    chapter_notes = sub.filter(pl.col("source_level") == "chapter")
+    if chapter_notes.height > 0:
+        parents = set(chapter_notes["inherited_from_code"].unique().to_list())
+        assert parents == {"IV"}, (
+            f"notes chapter de E80.7 doivent venir du chapitre IV ; obtenu : {parents}"
+        )
+
+
+# ----------------------------------------------------------------------
 # Cohérences globales
 # ----------------------------------------------------------------------
 
@@ -288,8 +324,9 @@ def test_external_entries_inherit_subordinate_redundancy(
 
 
 def test_csv_final_schema_unchanged(csv_final_df: pl.DataFrame) -> None:
-    """Le CSV final a toujours exactement 9 colonnes (régression
-    contre l'ajout silencieux d'une colonne)."""
+    """Le CSV final a toujours exactement 11 colonnes (régression
+    contre l'ajout/retrait silencieux d'une colonne). Les 2 dernières
+    (source_level, inherited_from_code) tracent la propagation."""
     expected = [
         "code",
         "libelle",
@@ -300,7 +337,47 @@ def test_csv_final_schema_unchanged(csv_final_df: pl.DataFrame) -> None:
         "asterisk_code",
         "redundancy_level",
         "is_redundant_dagger",
+        "source_level",
+        "inherited_from_code",
     ]
     assert csv_final_df.columns == expected, (
         f"colonnes inattendues : {csv_final_df.columns} vs {expected}"
+    )
+
+
+def test_external_entries_have_source_level_code(csv_final_df: pl.DataFrame) -> None:
+    """Toutes les entrées de sources externes ont source_level=code et
+    inherited_from_code vide (les sources externes ne propagent pas)."""
+    external = csv_final_df.filter(pl.col("source").is_in(list(_EXTERNAL_SOURCES)))
+    bad_level = external.filter(pl.col("source_level") != "code")
+    assert bad_level.is_empty(), (
+        f"{bad_level.height} entrées externes avec source_level != code"
+    )
+    bad_parent = external.filter(pl.col("inherited_from_code").is_not_null())
+    assert bad_parent.is_empty(), (
+        f"{bad_parent.height} entrées externes avec inherited_from_code rempli"
+    )
+
+
+def test_source_level_always_filled(csv_final_df: pl.DataFrame) -> None:
+    """source_level n'est JAMAIS null (valeur 'code' par défaut)."""
+    assert csv_final_df.filter(pl.col("source_level").is_null()).is_empty()
+    valid = {"chapter", "block", "category", "code"}
+    observed = set(csv_final_df["source_level"].unique().to_list())
+    assert observed.issubset(valid), f"valeurs source_level invalides : {observed - valid}"
+
+
+def test_inherited_from_code_consistent_with_source_level(
+    csv_final_df: pl.DataFrame,
+) -> None:
+    """inherited_from_code rempli ⟺ source_level != code."""
+    # source_level=code → inherited_from_code doit être null.
+    code_level = csv_final_df.filter(pl.col("source_level") == "code")
+    assert code_level.filter(pl.col("inherited_from_code").is_not_null()).is_empty(), (
+        "source_level=code ne doit jamais avoir inherited_from_code rempli"
+    )
+    # source_level != code → inherited_from_code doit être rempli.
+    propagated = csv_final_df.filter(pl.col("source_level") != "code")
+    assert propagated.filter(pl.col("inherited_from_code").is_null()).is_empty(), (
+        "source_level propagé doit toujours avoir inherited_from_code rempli"
     )
