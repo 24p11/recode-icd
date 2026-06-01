@@ -603,9 +603,13 @@ def _print_bloc4_final(
                 print("    → ni dans le CSV, ni dans external_orphan_codes.csv.")
         return
 
-    # Compte par (type, source).
+    # Compte par (type, source). Tri secondaire (type, source) pour
+    # un ordre déterministe en cas d'égalité de count (group_by polars
+    # n'est pas stable).
     print(f"  {sub.height} ligne(s). Répartition par (type, source) :")
-    counts = sub.group_by("type", "source").len().sort("len", descending=True)
+    counts = sub.group_by("type", "source").len().sort(
+        ["len", "type", "source"], descending=[True, False, False]
+    )
     for r in counts.iter_rows(named=True):
         print(f"    {r['type']:10s} | {r['source']:28s} : {r['len']}")
 
@@ -623,9 +627,297 @@ def _print_bloc4_final(
         print(f"    … (+{sub.height - _MAX_LIST_DISPLAY} lignes de plus)")
 
 
+# ----------------------------------------------------------------------
+# Blocs supplémentaires en mode verbose (debug)
+# ----------------------------------------------------------------------
+
+
+# Tables OFS reliées au SID maître. Pour chaque table on indique les
+# colonnes à afficher (clé de filtrage = SID, sauf cas particuliers).
+_OFS_TABLES_BY_SID: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("libelle", ("LID", "source", "valid", "libelle")),
+    ("include", ("LID",)),
+    ("exclude", ("LID", "excl", "plus", "daget")),
+    ("descr", ("LID",)),
+    ("indir", ("LID",)),
+    ("note", ("MID",)),
+    ("dagstar", ("SID", "assoc", "daget", "plus")),
+)
+# Colonnes OWL à inspecter dans le BLOC 2bis ANS (liste vs scalaire).
+_OWL_LIST_COLS = (
+    "synonymes",
+    "exclusion_notes",
+    "definitions",
+    "scope_notes",
+    "structured_exclusions",
+)
+_OWL_SCALAR_COLS = ("inclusion_note",)
+
+
+def _print_bloc2bis_raw(code: str, ctx: ExplorationContext) -> None:
+    """Affiche les données brutes OFS (tables liées au SID) et ANS
+    (propriétés agrégées du Parquet `owl_codes`)."""
+    _section("BLOC 2bis : DONNÉES BRUTES (DEBUG)")
+
+    # --- OFS ---
+    print("[OFS — Tables brutes liées au SID]")
+    master = _eager(ctx.ofs.get("master"))
+    if master is None:
+        print("    (table MASTER absente du contexte)")
+    else:
+        master_row = master.filter(pl.col("code") == code)
+        if master_row.is_empty():
+            print(f"    (code {code} absent de MASTER OFS)")
+        else:
+            r = master_row.row(0, named=True)
+            sid = r.get("SID")
+            print(
+                f"  MASTER  : 1 ligne — SID={sid}, code={r.get('code')}, "
+                f"type={r.get('type')}, level={r.get('level')}, "
+                f"abbrev={r.get('abbrev')}"
+            )
+            for table_name, cols in _OFS_TABLES_BY_SID:
+                tbl = _eager(ctx.ofs.get(table_name))
+                if tbl is None:
+                    continue
+                if table_name == "dagstar":
+                    sub = tbl.filter(
+                        (pl.col("SID") == sid) | (pl.col("assoc") == sid)
+                    )
+                else:
+                    sub = tbl.filter(pl.col("SID") == sid)
+                if sub.is_empty():
+                    continue
+                # Pour include/exclude/descr/indir : joindre libelle
+                # pour afficher le texte associé au LID.
+                libelle = _eager(ctx.ofs.get("libelle"))
+                if (
+                    table_name in {"include", "exclude", "descr", "indir"}
+                    and libelle is not None
+                ):
+                    sub = sub.join(
+                        libelle.select("LID", "libelle"), on="LID", how="left"
+                    )
+                print(f"  {table_name.upper():7s} : {sub.height} ligne(s)")
+                # Préfixe SID + cols spécifiques + libelle joint (si
+                # présent) ; dédup en préservant l'ordre.
+                ordered = list(dict.fromkeys(["SID", *cols, "libelle"]))
+                display_cols = [c for c in ordered if c in sub.columns]
+                for row in sub.head(8).iter_rows(named=True):
+                    parts = []
+                    for c in display_cols:
+                        v = row.get(c)
+                        if v is None:
+                            continue
+                        s = str(v)
+                        if len(s) > 70:
+                            s = s[:67] + "…"
+                        parts.append(f"{c}={s}")
+                    print("    " + " | ".join(parts))
+                if sub.height > 8:
+                    print(f"    … (+{sub.height - 8} ligne(s) de plus)")
+
+    # --- ANS ---
+    print("\n[ANS — Propriétés agrégées (owl_codes.parquet)]")
+    ans = _eager(ctx.ans)
+    if ans is None:
+        print("    (Parquet OWL absent du contexte)")
+        return
+    ans_row = ans.filter(pl.col("code") == code)
+    if ans_row.is_empty():
+        print(f"    (code {code} absent d'owl_codes.parquet)")
+        return
+    r = ans_row.row(0, named=True)
+    print(f"  rdfs:label          : {r.get('label')}")
+    print(f"  dc:type             : {r.get('type')}")
+    for col in _OWL_SCALAR_COLS:
+        val = r.get(col)
+        if val:
+            text = str(val).replace("\n", "\n      ")
+            print(f"  {col:20s}: {text[:300]}")
+    for col in _OWL_LIST_COLS:
+        items = r.get(col) or []
+        if items:
+            print(f"  {col:20s}: ({len(items)} valeur(s))")
+            for item in list(items)[:8]:
+                print(f"    - {item}")
+            if len(items) > 8:
+                print(f"    … (+{len(items) - 8} de plus)")
+
+
+def _count_text_in_owl(code: str, text: str, ans: pl.DataFrame | None) -> int:
+    """Compte les occurrences strictes du texte dans owl_codes pour ce
+    code (parmi les listes + scalaires). 0 ou 1 typiquement."""
+    if ans is None:
+        return 0
+    row = ans.filter(pl.col("code") == code)
+    if row.is_empty():
+        return 0
+    r = row.row(0, named=True)
+    n = 0
+    for col in _OWL_LIST_COLS:
+        items = r.get(col) or []
+        n += sum(1 for v in items if v == text)
+    for col in _OWL_SCALAR_COLS:
+        val = r.get(col)
+        if val and (val == text or text in str(val)):
+            n += 1
+    return n
+
+
+def _count_text_in_merged(code: str, text: str, merged: pl.DataFrame | None) -> int:
+    """Compte les occurrences strictes du texte dans merged_codes pour
+    ce code (colonnes lists inclusions/exclusions/synonymes/etc.)."""
+    if merged is None:
+        return 0
+    row = merged.filter(pl.col("code") == code)
+    if row.is_empty():
+        return 0
+    r = row.row(0, named=True)
+    n = 0
+    for col in ("inclusions", "exclusions", "synonymes",
+                "notes_editorial", "definitions", "scope_notes"):
+        items = r.get(col) or []
+        n += sum(1 for v in items if v == text)
+    return n
+
+
+def _print_bloc5_pipeline(code: str, ctx: ExplorationContext) -> None:
+    """Affiche les compteurs de lignes du code à chaque étape du pipeline,
+    plus un sous-tableau de traçage des textes les plus dupliqués dans
+    le CSV final."""
+    _section("BLOC 5 : PARCOURS DANS LE PIPELINE (DEBUG)")
+
+    ofs_codes = _eager(ctx.ofs_codes)
+    ans = _eager(ctx.ans)
+    merged = _eager(ctx.merged)
+    propagated = _eager(ctx.propagated)
+    flat = _eager(ctx.flat)
+    dagger = _eager(ctx.dagger_asterisk)
+
+    def _n(df: pl.DataFrame | None) -> int:
+        return 0 if df is None else df.filter(pl.col("code") == code).height
+
+    n_ofs = _n(ofs_codes)
+    n_owl = _n(ans)
+    n_merged = _n(merged)
+    n_prop = _n(propagated)
+    n_flat = _n(flat)
+    delta_prop = n_prop - n_merged
+    delta_flat = n_flat - n_prop
+
+    # Nombre de paires dague/astérisque impliquant ce code (pour
+    # qualifier l'origine de Δ2).
+    n_pairs = 0
+    if dagger is not None:
+        n_pairs = dagger.filter(
+            (pl.col("dagger_code") == code) | (pl.col("asterisk_code") == code)
+        ).height
+
+    rows = [
+        ("RDF ANS brut (triples)", "(non chargé — coût ~3,5 s)", ""),
+        ("ofs_codes.parquet", str(n_ofs), ""),
+        ("owl_codes.parquet", str(n_owl), ""),
+        ("merged_codes.parquet", str(n_merged), ""),
+        (
+            "propagated_notes.parquet",
+            str(n_prop),
+            f"Δ1 = +{delta_prop} (propagation)" if delta_prop else "Δ1 = 0",
+        ),
+        (
+            "flat_csv (CSV final)",
+            str(n_flat),
+            f"Δ2 = +{delta_flat} (expansion + synonymes + externes)"
+            if delta_flat
+            else "Δ2 = 0",
+        ),
+    ]
+    label_w = max(len(r[0]) for r in rows)
+    count_w = max(len(r[1]) for r in rows)
+    print(f"  {'Étape':<{label_w}} | {'Nb lignes':<{count_w}} | Variation")
+    print(f"  {'-' * label_w}-|-{'-' * count_w}-|----------")
+    for label, count, var in rows:
+        print(f"  {label:<{label_w}} | {count:<{count_w}} | {var}")
+    print()
+    if delta_prop:
+        print(f"  → Δ1 = {delta_prop} : héritage hiérarchique détecté.")
+    if delta_flat:
+        if n_pairs:
+            print(
+                f"  → Δ2 = {delta_flat} : {n_pairs} paire(s) dague/astérisque "
+                f"impliquant {code} → expansion attendue, plus synonymes/externes."
+            )
+        else:
+            print(
+                f"  → Δ2 = {delta_flat} : aucune paire dague/astérisque "
+                f"pour {code} → Δ2 vient des synonymes et sources externes seuls."
+            )
+
+    # Sous-tableau : traçage des textes les plus dupliqués dans flat.
+    # Tri prioritaire sur les textes qui transitent par
+    # `propagated_notes` — c'est là que le saut 1→N révèle l'expansion
+    # dague/astérisque (cas A01.0 "Infection due à Salmonella typhi").
+    # Les synonymes Index restant en deuxième position (count=N sans
+    # passage par propagated) sont moins diagnostiques.
+    if flat is None:
+        return
+    flat_sub = flat.filter(pl.col("code") == code)
+    if flat_sub.is_empty():
+        return
+    flat_counts = (
+        flat_sub.group_by("texte")
+        .len()
+        .rename({"len": "flat_count"})
+        .filter(pl.col("flat_count") > 1)
+    )
+    if flat_counts.is_empty():
+        return
+    if propagated is not None:
+        prop_counts = (
+            propagated.filter(pl.col("code") == code)
+            .group_by("texte")
+            .len()
+            .rename({"len": "prop_count"})
+        )
+    else:
+        prop_counts = pl.DataFrame(
+            schema={"texte": pl.String, "prop_count": pl.UInt32}
+        )
+    joined = (
+        flat_counts.join(prop_counts, on="texte", how="left")
+        .with_columns(pl.col("prop_count").fill_null(0))
+        .with_columns((pl.col("prop_count") > 0).alias("_via_prop"))
+        .sort(
+            ["_via_prop", "flat_count", "texte"],
+            descending=[True, True, False],
+        )
+        .head(5)
+    )
+    print()
+    print(f"  Traçage des {joined.height} texte(s) dupliqué(s) dans flat_csv")
+    print(
+        "  (textes transitant par propagated_notes affichés en premier — "
+        "le saut N→M y révèle l'expansion) :"
+    )
+    for r in joined.iter_rows(named=True):
+        text = r["texte"] or ""
+        n_owl_t = _count_text_in_owl(code, text, ans)
+        n_merged_t = _count_text_in_merged(code, text, merged)
+        n_prop_t = r["prop_count"]
+        n_flat_t = r["flat_count"]
+        preview = text.replace("\n", "\\n")[:60]
+        print(f'\n    "{preview}"')
+        print(
+            f"      owl_codes={n_owl_t} | merged_codes={n_merged_t} | "
+            f"propagated_notes={n_prop_t} | flat_csv={n_flat_t}"
+        )
+
+
 def inspect_code(
     codes: str | list[str],
     ctx: ExplorationContext | None = None,
+    *,
+    verbose: bool = False,
 ) -> None:
     """Affiche un rapport texte complet pour un ou plusieurs codes CIM-10.
 
@@ -635,6 +927,13 @@ def inspect_code(
         ctx : contexte d'exploration. Si None, appelle
             `load_exploration_context(with_external=True)` automatiquement
             (les sources externes brutes sont nécessaires au BLOC 2).
+        verbose : si True, ajoute deux blocs de debug : `BLOC 2bis`
+            (données brutes OFS table par table + propriétés agrégées
+            ANS) et `BLOC 5` (compteurs de lignes du code à chaque
+            étape du pipeline + traçage des textes dupliqués). Utile
+            pour diagnostiquer des cas comme A01.0 où un texte
+            apparaît N fois dans le CSV à cause de l'expansion
+            dague/astérisque.
 
     Outil d'inspection dev only — affichage texte, pas de valeur de
     retour.
@@ -677,6 +976,10 @@ def inspect_code(
         _print_box(f"{code} — {lib}" if lib else f"{code} — (libellé inconnu)")
         _print_bloc1_identite(code, merged, ofs_codes, ans)
         _print_bloc2_sources(code, ofs_codes, ans, ctx.external)
+        if verbose:
+            _print_bloc2bis_raw(code, ctx)
         _print_bloc3_dagger(code, dagger)
         _print_bloc4_final(code, flat, orphan_report)
+        if verbose:
+            _print_bloc5_pipeline(code, ctx)
         print()

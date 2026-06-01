@@ -71,3 +71,56 @@ def test_inspect_code_unknown_token(ctx: ExplorationContext, capsys) -> None:  #
     out = capsys.readouterr().out
     # Le code littéral est affiché ; les blocs signalent l'absence.
     assert "ZZZ99" in out
+
+
+def test_inspect_code_verbose_smoke(ctx: ExplorationContext, capsys) -> None:  # type: ignore[no-untyped-def]
+    """`verbose=True` ajoute BLOC 2bis et BLOC 5 sans planter."""
+    inspect_code("A18.1", ctx=ctx, verbose=True)
+    out = capsys.readouterr().out
+    assert "BLOC 2bis" in out
+    assert "BLOC 5" in out
+    # Le tableau du BLOC 5 doit lister toutes les étapes attendues.
+    for step in (
+        "ofs_codes.parquet",
+        "owl_codes.parquet",
+        "merged_codes.parquet",
+        "propagated_notes.parquet",
+        "flat_csv",
+    ):
+        assert step in out
+
+
+def test_inspect_code_verbose_false_equivalent_to_omitted(
+    ctx: ExplorationContext, capsys,
+) -> None:  # type: ignore[no-untyped-def]
+    """`verbose=False` doit produire la même sortie que sans le param."""
+    inspect_code("A18.1", ctx=ctx)
+    out_default = capsys.readouterr().out
+    inspect_code("A18.1", ctx=ctx, verbose=False)
+    out_explicit = capsys.readouterr().out
+    assert out_default == out_explicit
+    # Sans verbose, aucun bloc debug.
+    assert "BLOC 2bis" not in out_default
+    assert "BLOC 5" not in out_default
+
+
+def test_inspect_code_verbose_no_dagger_pair(
+    ctx: ExplorationContext, capsys,
+) -> None:  # type: ignore[no-untyped-def]
+    """Pour un code sans paire dague/astérisque, le commentaire du
+    BLOC 5 mentionne que Δ2 vient des synonymes/externes seuls."""
+    # Z00.0 (examen médical général) n'a pas d'association.
+    inspect_code("Z00.0", ctx=ctx, verbose=True)
+    out = capsys.readouterr().out
+    assert "BLOC 5" in out
+    # Soit Δ2 = 0 (rare), soit le message "synonymes et sources externes seuls".
+    assert ("Δ2 = 0" in out) or ("synonymes et sources externes seuls" in out)
+
+
+def test_inspect_code_verbose_propagated_delta(
+    ctx: ExplorationContext, capsys,
+) -> None:  # type: ignore[no-untyped-def]
+    """E80.7 illustre les 4 niveaux de propagation → Δ1 > 0."""
+    inspect_code("E80.7", ctx=ctx, verbose=True)
+    out = capsys.readouterr().out
+    assert "héritage hiérarchique détecté" in out
