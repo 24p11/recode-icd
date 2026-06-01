@@ -152,21 +152,27 @@ class MergedCodesSchema(pa.DataFrameModel):
 
 
 class FlatCsvSchema(pa.DataFrameModel):
-    """Schéma du CSV maître final à 11 colonnes (cf docs/source_mapping.md
-    §"Schéma final du CSV principal" et §"Propagation des notes
-    hiérarchiques")."""
+    """Schéma du CSV maître final à 9 colonnes (cf docs/source_mapping.md
+    §"Schéma final du CSV principal", §"Couples dague/astérisque :
+    politique de représentation" et §"Propagation des notes
+    hiérarchiques").
+
+    Refonte 2026-05-30 : suppression de l'expansion par paire
+    dague/astérisque. Chaque note d'un code apparaît une seule fois,
+    avec deux flags booléens (`is_dagger_in_pair` / `is_asterisk_in_pair`)
+    signalant la participation à la mécanique dague/astérisque sans
+    détailler les paires (détail dans `dagger_asterisk.parquet`).
+    """
 
     code: str = pa.Field(str_matches=_CODE_RE)
     libelle: str = pa.Field(nullable=True)
     type: str = pa.Field(isin=["inclusion", "exclusion", "synonyme"])
     source: str = pa.Field()
     texte: str = pa.Field(nullable=True)
-    dagger_code: str = pa.Field(nullable=True)
-    asterisk_code: str = pa.Field(nullable=True)
-    redundancy_level: str = pa.Field(isin=["none", "independent", "subordinate"])
-    is_redundant_dagger: bool = pa.Field()
     source_level: str = pa.Field(isin=["chapter", "block", "category", "code"])
     inherited_from_code: str = pa.Field(nullable=True)
+    is_dagger_in_pair: bool = pa.Field()
+    is_asterisk_in_pair: bool = pa.Field()
 
     class Config:
         strict = True

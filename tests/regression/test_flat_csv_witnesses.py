@@ -18,8 +18,8 @@ pytestmark = pytest.mark.regression
 _CSV_PATH = Path("referentials/processed/inclusions_exclusions_synonymes.csv")
 _EXPECTED_COLUMNS = [
     "code", "libelle", "type", "source", "texte",
-    "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger",
     "source_level", "inherited_from_code",
+    "is_dagger_in_pair", "is_asterisk_in_pair",
 ]
 
 
@@ -38,47 +38,42 @@ def _final_csv() -> pl.DataFrame:
     return df
 
 
-def test_csv_has_11_columns() -> None:
+def test_csv_has_9_columns() -> None:
     assert list(_final_csv().columns) == _EXPECTED_COLUMNS
 
 
-def test_a17_8_has_subordinate_lines_when_curated() -> None:
-    """Si la curation marque A17.8/G05.0 subordinate, toutes les
-    lignes du code dague A17.8 pointant vers G05.0 doivent porter
-    `is_redundant_dagger=True` et `redundancy_level=subordinate`."""
+def test_a17_8_is_dagger_in_pair() -> None:
+    """Refonte 2026-05-30 : A17.8 (côté dague de la paire avec G05.0,
+    subordinate selon la curation) doit avoir `is_dagger_in_pair=True`
+    sur toutes ses lignes. Le détail de la subordinate vit désormais
+    dans dagger_asterisk.parquet, plus dans le CSV."""
     df = _final_csv()
-    subset = df.filter(
-        (pl.col("code") == "A17.8") & (pl.col("asterisk_code") == "G05.0")
-    )
+    subset = df.filter(pl.col("code") == "A17.8")
     if subset.is_empty():
-        pytest.skip("A17.8/G05.0 absent du CSV final (pas curé ou hors fixtures).")
-    # Cohérence : toutes ces lignes doivent être subordinate.
-    levels = set(subset["redundancy_level"].to_list())
-    flags = set(subset["is_redundant_dagger"].to_list())
-    assert levels == {"subordinate"}, f"levels={levels}"
-    assert flags == {True}, f"flags={flags}"
+        pytest.skip("A17.8 absent du CSV final.")
+    assert subset.filter(~pl.col("is_dagger_in_pair")).is_empty(), (
+        "A17.8 doit avoir is_dagger_in_pair=True sur toutes ses lignes"
+    )
 
 
-def test_e10_2_lines_independent_not_redundant() -> None:
+def test_e10_2_is_dagger_in_pair() -> None:
+    """Refonte 2026-05-30 : E10.2 (côté dague de la paire avec N08.3,
+    independent) doit avoir `is_dagger_in_pair=True`."""
     df = _final_csv()
-    subset = df.filter(
-        (pl.col("code") == "E10.2") & (pl.col("asterisk_code") == "N08.3")
-    )
+    subset = df.filter(pl.col("code") == "E10.2")
     if subset.is_empty():
-        pytest.skip("E10.2/N08.3 absent du CSV final.")
-    assert set(subset["redundancy_level"].to_list()) == {"independent"}
-    assert set(subset["is_redundant_dagger"].to_list()) == {False}
+        pytest.skip("E10.2 absent du CSV final.")
+    assert subset.filter(~pl.col("is_dagger_in_pair")).is_empty(), (
+        "E10.2 doit avoir is_dagger_in_pair=True sur toutes ses lignes"
+    )
 
 
-def test_u07_1_has_no_dagger_asterisk_columns_filled() -> None:
+def test_u07_1_has_no_dagger_asterisk_pair() -> None:
     """U07.1 (post-2006) n'a pas d'association dague/astérisque côté OFS.
-    Toutes ses lignes doivent avoir dagger_code/asterisk_code à NULL et
-    redundancy_level='none'."""
+    Refonte 2026-05-30 : doit avoir les deux flags à False."""
     df = _final_csv()
     subset = df.filter(pl.col("code") == "U07.1")
     if subset.is_empty():
         pytest.skip("U07.1 absent du CSV (vérifier que U07.1 est bien dans OWL).")
-    assert subset.filter(pl.col("dagger_code").is_not_null()).is_empty()
-    assert subset.filter(pl.col("asterisk_code").is_not_null()).is_empty()
-    assert set(subset["redundancy_level"].to_list()) == {"none"}
-    assert set(subset["is_redundant_dagger"].to_list()) == {False}
+    assert subset.filter(pl.col("is_dagger_in_pair")).is_empty()
+    assert subset.filter(pl.col("is_asterisk_in_pair")).is_empty()

@@ -111,14 +111,19 @@ def test_e74_0_has_orphanet_ntbt_inclusions(csv_final_df: pl.DataFrame) -> None:
 
 
 def test_a52_7_dominated_by_index_synonyms(csv_final_df: pl.DataFrame) -> None:
-    """A52.7 (Autres formes tardives de syphilis symptomatique) est
-    le cas extrême de l'Index CIM-10 vol3 — la syphilis tardive a
-    historiquement des centaines de manifestations cliniques nommées."""
+    """A52.7 (Autres formes tardives de syphilis symptomatique) reste
+    le cas riche en synonymes Index CIM-10 vol3. Refonte 2026-05-30 :
+    sans expansion par paire, A52.7 passe de ~2478 à ~150 lignes Index
+    (×12 paires éliminées). Reste dominé par l'Index."""
     sub = csv_final_df.filter(pl.col("code") == "A52.7")
-    assert sub.height > 1500, f"A52.7 attendu >1500 lignes, obtenu {sub.height}"
+    assert sub.height > 100, f"A52.7 attendu >100 lignes, obtenu {sub.height}"
     index_syn = sub.filter(pl.col("source") == "CIM-10 index")
-    assert index_syn.height > 1500, (
-        f"A52.7 doit avoir >1500 synonymes Index ; obtenu {index_syn.height}"
+    assert index_syn.height > 100, (
+        f"A52.7 doit avoir >100 synonymes Index ; obtenu {index_syn.height}"
+    )
+    # L'Index doit toujours dominer (majorité des lignes).
+    assert index_syn.height / sub.height > 0.5, (
+        f"A52.7 doit être dominé par l'Index ; obtenu {100*index_syn.height/sub.height:.0f} %"
     )
 
 
@@ -161,26 +166,22 @@ def test_n08_5_has_aphp_nephrologie(csv_final_df: pl.DataFrame) -> None:
 
 
 def test_a18_1_dagger_and_external_coexist(csv_final_df: pl.DataFrame) -> None:
-    """A18.1 (côté dague de la paire A18.1+/N33.0*, subordinate)
-    doit :
-    - avoir ses caractéristiques dague préservées (asterisk_code
-      rempli, is_redundant_dagger=True sur les lignes subordinate)
+    """A18.1 (code dague de paires DAGSTAR avec N33.0 et 9 autres) doit :
+    - avoir `is_dagger_in_pair=True` sur toutes ses lignes (refonte
+      2026-05-30 : le détail des paires est dans dagger_asterisk.parquet,
+      plus dans le CSV)
     - coexister avec des entrées externes (Index, AP-HP Néphro, ORPHANET).
     """
     sub = csv_final_df.filter(pl.col("code") == "A18.1")
-    assert sub.height > 100, f"A18.1 attendu >100 lignes, obtenu {sub.height}"
+    assert sub.height > 50, f"A18.1 attendu >50 lignes, obtenu {sub.height}"
 
-    # Caractéristiques dague préservées (au moins 1 ligne subordinate).
-    subordinate = sub.filter(pl.col("redundancy_level") == "subordinate")
-    assert subordinate.height > 0, "A18.1 doit garder ses lignes subordinate"
-    # Le côté dague subordinate a is_redundant_dagger=True.
-    assert subordinate.filter(pl.col("is_redundant_dagger")).height > 0, (
-        "A18.1 doit avoir des lignes dague marquées is_redundant_dagger=True"
+    # Flag dague True sur toutes les lignes (propriété du code, pas de la ligne).
+    assert sub.filter(~pl.col("is_dagger_in_pair")).is_empty(), (
+        "A18.1 doit avoir is_dagger_in_pair=True sur toutes ses lignes"
     )
-    # asterisk_code rempli sur les lignes dague.
-    with_asterisk = sub.filter(pl.col("asterisk_code").is_not_null())
-    assert with_asterisk.height > 0, (
-        "A18.1 doit avoir des lignes avec asterisk_code rempli"
+    # A18.1 n'est jamais côté astérisque.
+    assert sub.filter(pl.col("is_asterisk_in_pair")).is_empty(), (
+        "A18.1 ne doit jamais avoir is_asterisk_in_pair=True"
     )
 
     # Entrées externes présentes.
@@ -273,72 +274,47 @@ def test_e80_7_propagation_levels(csv_final_df: pl.DataFrame) -> None:
 # ----------------------------------------------------------------------
 
 
-def test_external_sources_never_fill_dagger_columns_for_non_paired_codes(
+def test_external_entries_propagate_dagger_flags_from_code(
     csv_final_df: pl.DataFrame,
 ) -> None:
-    """Les sources externes (ORPHANET, Index, AP-HP) ne fournissent
-    pas d'information dague/astérisque par elles-mêmes.
+    """Refonte 2026-05-30 : les flags is_dagger_in_pair /
+    is_asterisk_in_pair sont calculés au niveau du code (propriété du
+    code, pas de la ligne). Donc une entrée externe sur un code dague
+    porte aussi is_dagger_in_pair=True, sans que l'expansion par paire
+    ne soit faite.
 
-    Pour les codes qui ne sont PAS membres d'une paire dague/astérisque
-    (= `redundancy_level=none`), aucune entrée externe ne doit
-    remplir `dagger_code` ou `asterisk_code`.
-
-    Pour les codes membres d'une paire, les entrées externes héritent
-    de l'expansion comme les autres — c'est testé séparément
-    (`test_external_entries_inherit_subordinate_redundancy`)."""
-    external_no_pair = csv_final_df.filter(
-        pl.col("source").is_in(list(_EXTERNAL_SOURCES))
-        & (pl.col("redundancy_level") == "none")
-    )
-    with_dagger = external_no_pair.filter(pl.col("dagger_code").is_not_null())
-    with_asterisk = external_no_pair.filter(pl.col("asterisk_code").is_not_null())
-    assert with_dagger.is_empty(), (
-        f"{with_dagger.height} entrées externes hors paire ont un "
-        f"dagger_code — incohérent"
-    )
-    assert with_asterisk.is_empty(), (
-        f"{with_asterisk.height} entrées externes hors paire ont un "
-        f"asterisk_code — incohérent"
-    )
-
-
-def test_external_entries_inherit_subordinate_redundancy(
-    csv_final_df: pl.DataFrame,
-) -> None:
-    """Les entrées externes ajoutées sur des codes membres de paires
-    subordinate héritent de `redundancy_level=subordinate` après
-    expansion dague/astérisque. Témoin : A18.1 (dague subordinate)."""
+    Témoin : A18.1 (dague), toutes ses lignes (y compris externes) ont
+    is_dagger_in_pair=True.
+    """
     a18_external = csv_final_df.filter(
         (pl.col("code") == "A18.1")
         & pl.col("source").is_in(list(_EXTERNAL_SOURCES))
     )
     assert a18_external.height > 0, (
-        "A18.1 doit avoir des entrées externes pour valider l'héritage"
+        "A18.1 doit avoir des entrées externes pour valider la propagation des flags"
     )
-    subordinate_external = a18_external.filter(
-        pl.col("redundancy_level") == "subordinate"
-    )
-    assert subordinate_external.height > 0, (
-        "Les entrées externes sur A18.1 doivent hériter de subordinate"
+    assert a18_external.filter(~pl.col("is_dagger_in_pair")).is_empty(), (
+        "toutes les entrées externes sur A18.1 doivent avoir is_dagger_in_pair=True"
     )
 
 
 def test_csv_final_schema_unchanged(csv_final_df: pl.DataFrame) -> None:
-    """Le CSV final a toujours exactement 11 colonnes (régression
-    contre l'ajout/retrait silencieux d'une colonne). Les 2 dernières
-    (source_level, inherited_from_code) tracent la propagation."""
+    """Refonte 2026-05-30 : le CSV a 9 colonnes (au lieu de 11). Les
+    colonnes dague/astérisque détaillées (dagger_code, asterisk_code,
+    redundancy_level, is_redundant_dagger) ont été remplacées par 2
+    flags booléens (is_dagger_in_pair, is_asterisk_in_pair). Le détail
+    des paires vit désormais exclusivement dans
+    dagger_asterisk.parquet."""
     expected = [
         "code",
         "libelle",
         "type",
         "source",
         "texte",
-        "dagger_code",
-        "asterisk_code",
-        "redundancy_level",
-        "is_redundant_dagger",
         "source_level",
         "inherited_from_code",
+        "is_dagger_in_pair",
+        "is_asterisk_in_pair",
     ]
     assert csv_final_df.columns == expected, (
         f"colonnes inattendues : {csv_final_df.columns} vs {expected}"

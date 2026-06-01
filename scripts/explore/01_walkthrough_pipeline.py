@@ -8,7 +8,7 @@ correspondant est généré via nbformat (cf bas de
 
 Fil rouge : on suit le code A18.1 (Tuberculose de l'appareil
 génito-urinaire) à travers TOUTES les étapes du pipeline, des sources
-brutes jusqu'au CSV maître à 11 colonnes.
+brutes jusqu'au CSV maître à 9 colonnes.
 
 Convention recode-icd : ce notebook ne réécrit AUCUNE logique métier.
 Toutes les données viennent des Parquets/CSV déjà produits par le
@@ -25,7 +25,7 @@ le `.ipynb` généré peut être exécuté via
 # # Walkthrough du pipeline `recode-icd`
 #
 # Ce notebook explique pas à pas le pipeline qui produit le fichier
-# maître `inclusions_exclusions_synonymes.csv` (11 colonnes) à partir
+# maître `inclusions_exclusions_synonymes.csv` (9 colonnes) à partir
 # des sources CIM-10, en vue d'enrichir des prompts LLM.
 #
 # ## Schéma global
@@ -38,7 +38,7 @@ le `.ipynb` généré peut être exécuté via
 #    latin-1)          ├─► propagation.py (héritage) ─┐
 #   ANS FR 2025       ─┘   sibling_exclusions.py (.8) ─┤
 #   (RDF/OWL)              dagger_asterisk.py (†/*)    ├─► flat_csv.py ─► inclusions_
-#                          merge_external.py (externes)─┘   (11 colonnes)   exclusions_
+#                          merge_external.py (externes)─┘   (9 colonnes)   exclusions_
 #   ORPHANET ─┐                                                             synonymes.csv
 #   Index vol3├─► loaders/external/                              + dagger_asterisk.parquet
 #   AP-HP    ─┘                                                  + reports/*.csv
@@ -263,16 +263,32 @@ for t in freres.to_series().to_list():
 # Ex : A18.1† (tuberculose, étiologie) / N33.0* (cystite tuberculeuse).
 #
 # La table DAGSTAR de l'OFS distingue **6 niveaux** d'association
-# (`daget` ∈ F/G/H/S/T/U). Une curation manuelle marque certaines paires
-# `redundancy_level=subordinate` (le code dague se "résume" dans la
-# combinaison) ; le flag `is_redundant_dagger` permet de filtrer le code
-# dague à l'usage, **sans le supprimer** (réversibilité).
+# (`daget` ∈ F/G/H/S/T/U).
+#
+# **Politique de représentation (refonte 2026-05-30, cf
+# docs/sessions/2026-05-30_refonte_dagger_asterisk.md)** : l'information
+# de couplage est par nature une **propriété du scénario clinique**,
+# pas d'un code isolé. Le CSV principal porte donc seulement deux
+# **flags booléens** au niveau du code :
+#
+# - `is_dagger_in_pair` : le code apparaît dans DAGSTAR côté dague (`daget ∈ {S,T,U}`).
+# - `is_asterisk_in_pair` : le code apparaît côté astérisque (`daget ∈ {F,G,H}`).
+#
+# Le **détail** des paires (codes appariés, niveaux, `redundancy_level`
+# subordinate/independent, descripteurs cliniques) vit dans la table
+# `dagger_asterisk.parquet` (livrable séparé), consommée par les analyses
+# en aval (notamment `recode-scenario`). Ainsi chaque note d'un code
+# n'apparaît qu'**une fois** dans le CSV (avant : duplication ×3 à ×12
+# selon le nombre de paires — bug corrigé par la refonte).
 
-# %% Section 5 — les associations dague/astérisque de A18.1
+# %% Section 5 — les associations dague/astérisque de A18.1 (table enrichie)
+# La table DAGSTAR enrichie reste la source unique pour le détail des
+# paires. C'est elle qu'on consulte pour comprendre quelles
+# manifestations sont liées à une étiologie.
 dag = ctx.dagger_asterisk.filter(
     (pl.col("dagger_code") == FIL_ROUGE) | (pl.col("asterisk_code") == FIL_ROUGE)
 )
-print(f"A18.1 — {dag.height} associations dague/astérisque :")
+print(f"A18.1 — {dag.height} associations dague/astérisque (table enrichie) :")
 print(dag.select(
     "dagger_code", "asterisk_code", "asterisk_label",
     "redundancy_level", "levels_present",
@@ -283,7 +299,11 @@ print(dag.select(
 # associations. La plupart sont `subordinate` (ex N33.0 cystite
 # tuberculeuse — la tuberculose se résume dans la manifestation), mais
 # N74.1 (affection pelvienne tuberculeuse) est `independent`. La curation
-# manuelle (`referentials/curation/dagger_curation.csv`) tranche ces cas.
+# manuelle (`referentials/curation/dagger_curation.csv`) tranche ces cas
+# et alimente ce `redundancy_level` dans la table enrichie.
+#
+# Dans le CSV principal, A18.1 portera simplement `is_dagger_in_pair=True`
+# sur toutes ses lignes — un signal compact, sans duplication par paire.
 
 # %% [markdown]
 # ## Section 6 — Les sources externes
@@ -329,14 +349,13 @@ for source_label in ("ORPHANET", "INDEX_CIM10_VOL3", "APHP_NEPHROLOGIE"):
 # ## Section 7 — Le CSV final + point d'orgue
 #
 # Le livrable principal `inclusions_exclusions_synonymes.csv` a
-# **11 colonnes** :
+# **9 colonnes** (refonte 2026-05-30) :
 #
 # | # | Colonne | Rôle |
 # |---|---------|------|
 # | 1-5 | `code`, `libelle`, `type`, `source`, `texte` | la note et son origine |
-# | 6-7 | `dagger_code`, `asterisk_code` | association †/* (si applicable) |
-# | 8-9 | `redundancy_level`, `is_redundant_dagger` | curation dague/astérisque |
-# | 10-11 | `source_level`, `inherited_from_code` | traçabilité de la propagation |
+# | 6-7 | `source_level`, `inherited_from_code` | traçabilité de la propagation |
+# | 8-9 | `is_dagger_in_pair`, `is_asterisk_in_pair` | participation à la mécanique dague/astérisque (détail dans `dagger_asterisk.parquet`) |
 #
 # **Régénérer le pipeline complet** :
 #
@@ -349,6 +368,7 @@ for source_label in ("ORPHANET", "INDEX_CIM10_VOL3", "APHP_NEPHROLOGIE"):
 # uv run recode-icd build dagger-asterisk --ofs-dir data/CIM_OFS_SW_2006
 # uv run recode-icd build external
 # uv run recode-icd build flat-csv
+# uv run recode-icd build stats
 # ```
 
 # %% Section 7 — POINT D'ORGUE : la synthèse complète via inspect_code
@@ -368,9 +388,9 @@ inspect_code(FIL_ROUGE, ctx=ctx)
 # | 2. Merge | `merge.py` | libellé ANS, synonymes unifiés, `has_ofs_match=True` |
 # | 3. Propagation | `propagation.py` | hérite des notes du bloc A15-A19 et du chapitre I |
 # | 4. Frères .8 | `sibling_exclusions.py` | (A18.8, son frère, l'exclut explicitement) |
-# | 5. Dague/astérisque | `relations/dagger_asterisk.py` | 10 associations (N33.0 subordinate, ...) |
+# | 5. Dague/astérisque | `relations/dagger_asterisk.py` | 10 associations dans `dagger_asterisk.parquet` ; `is_dagger_in_pair=True` dans le CSV |
 # | 6. Sources externes | `merge_external.py` | +ORPHANET (2), +Index (91), +AP-HP (1) |
-# | 7. CSV final | `exporters/flat_csv.py` | 954 lignes, 11 colonnes |
+# | 7. CSV final | `exporters/flat_csv.py` | ~106 lignes après refonte (avant : 954, ×9 paires éliminées), 9 colonnes |
 #
 # **Pour aller plus loin** :
 #

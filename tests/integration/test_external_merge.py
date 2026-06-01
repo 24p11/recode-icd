@@ -327,7 +327,9 @@ def test_csv_final_schema_unchanged_after_external_merge(
     ofs_df: pl.DataFrame,
     dagger_asterisk_df: pl.DataFrame,
 ) -> None:
-    """Le CSV final conserve ses 11 colonnes après intégration externe."""
+    """Refonte 2026-05-30 : le CSV final a 9 colonnes après intégration
+    externe (suppression de 4 colonnes dague/astérisque, ajout de 2
+    flags booléens)."""
     to_add, _, _, _ = merge_result
     df, _ = flat_csv.build(
         merged=merged_df,
@@ -340,8 +342,8 @@ def test_csv_final_schema_unchanged_after_external_merge(
     )
     expected_columns = [
         "code", "libelle", "type", "source", "texte",
-        "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger",
         "source_level", "inherited_from_code",
+        "is_dagger_in_pair", "is_asterisk_in_pair",
     ]
     assert df.columns == expected_columns
     # Les entrées externes ont source_level=code et inherited_from_code null.
@@ -413,7 +415,7 @@ def test_csv_final_contains_aphp_with_french_label(
     assert aphp.row(0, named=True)["source"] == "AP-HP Dermatologie"
 
 
-def test_csv_final_external_inherits_redundancy_level_none(
+def test_csv_final_external_on_non_paired_code_has_flags_false(
     merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
     merged_df: pl.DataFrame,
     propagated_df: pl.DataFrame,
@@ -422,8 +424,10 @@ def test_csv_final_external_inherits_redundancy_level_none(
     ofs_df: pl.DataFrame,
     dagger_asterisk_df: pl.DataFrame,
 ) -> None:
-    """Les entrées externes pour des codes hors paire dague/astérisque
-    héritent de redundancy_level='none' et is_redundant_dagger=False."""
+    """Refonte 2026-05-30 : pour un code hors paire dague/astérisque
+    (D59.5), les entrées externes ont les deux flags à False (plus de
+    colonnes `redundancy_level` / `is_redundant_dagger` /
+    `dagger_code` / `asterisk_code`)."""
     to_add, _, _, _ = merge_result
     df, _ = flat_csv.build(
         merged=merged_df,
@@ -435,10 +439,8 @@ def test_csv_final_external_inherits_redundancy_level_none(
         external=to_add,
     )
     hpn = df.filter((pl.col("code") == "D59.5") & (pl.col("texte") == "HPN")).row(0, named=True)
-    assert hpn["redundancy_level"] == "none"
-    assert hpn["is_redundant_dagger"] is False
-    assert hpn["dagger_code"] is None
-    assert hpn["asterisk_code"] is None
+    assert hpn["is_dagger_in_pair"] is False
+    assert hpn["is_asterisk_in_pair"] is False
 
 
 def test_build_without_external_unchanged(

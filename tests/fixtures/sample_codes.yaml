@@ -154,3 +154,28 @@ codes:
     rationale: "Témoin des 4 niveaux de source_level : note propre (code), héritée de la catégorie E80, du bloc E70-E90, et du chapitre IV. Hors dague/astérisque."
     features:
       - propagation_all_levels
+
+  # ------------------------------------------------------------------
+  # Codes témoins refonte dague/astérisque (2026-05-30)
+  # cf docs/sessions/2026-05-30_refonte_dagger_asterisk.md
+  # ------------------------------------------------------------------
+
+  - code: A01.0
+    libelle: "Fièvre typhoïde"
+    rationale: "Cas critique de la refonte : 3 paires DAGSTAR provoquaient une ×3 expansion (108 → 36 lignes après refonte). Fil rouge du diagnostic. is_dagger_in_pair=True, is_asterisk_in_pair=False."
+    features:
+      - dagger_in_pair
+      - refonte_volumetry
+
+  - code: G01
+    libelle: "Méningite au cours d'affections bactériennes classées ailleurs"
+    rationale: "Cas extrême de la refonte : 12 paires DAGSTAR côté astérisque provoquaient une ×12 expansion (192 → 16 lignes après refonte). is_dagger_in_pair=False, is_asterisk_in_pair=True."
+    features:
+      - asterisk_in_pair
+      - refonte_volumetry
+
+  - code: L62
+    libelle: "Affections des ongles au cours de maladies classées ailleurs"
+    rationale: "Code astérisque non pointé (daget=F, assoc=0) — code astérisque générique sans dague spécifique. is_dagger_in_pair=False, is_asterisk_in_pair=True (sémantique large des flags : on inclut les non pointés)."
+    features:
+      - asterisk_in_pair_unpointed

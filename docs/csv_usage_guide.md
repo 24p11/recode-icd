@@ -14,7 +14,7 @@
 > jour). Ce guide ne contient que des ordres de grandeur indicatifs,
 > datés de leur dernière révision manuelle.
 >
-> _Dernière révision manuelle : 2026-05-28._
+> _Dernière révision manuelle : 2026-05-30 (refonte dague/astérisque)._
 
 ---
 
@@ -40,7 +40,7 @@ provenance.
 
 ---
 
-## 2. Schéma : les 11 colonnes
+## 2. Schéma : les 9 colonnes
 
 | # | Colonne | Type | Description |
 |---|---------|------|-------------|
@@ -49,16 +49,19 @@ provenance.
 | 3 | `type` | str | Nature de l'information : `inclusion`, `exclusion`, `synonyme` |
 | 4 | `source` | str | Provenance de l'information (voir énumération §3) |
 | 5 | `texte` | str | Le texte de l'information (le libellé de l'inclusion/exclusion/synonyme) |
-| 6 | `dagger_code` | str? | Code dague apparié (rempli quand la ligne concerne un code astérisque) |
-| 7 | `asterisk_code` | str? | Code astérisque apparié (rempli quand la ligne concerne un code dague) |
-| 8 | `redundancy_level` | str | `none` / `independent` / `subordinate` (voir §5) |
-| 9 | `is_redundant_dagger` | bool | `True` si la ligne est un code dague jugé redondant dans un couple subordinate |
-| 10 | `source_level` | str | Niveau hiérarchique d'origine de la note : `chapter` / `block` / `category` / `code` (voir §6) |
-| 11 | `inherited_from_code` | str? | Code parent dont la note est propagée (vide si attachée directement au code) |
+| 6 | `source_level` | str | Niveau hiérarchique d'origine de la note : `chapter` / `block` / `category` / `code` (voir §6) |
+| 7 | `inherited_from_code` | str? | Code parent dont la note est propagée (vide si attachée directement au code) |
+| 8 | `is_dagger_in_pair` | bool | `True` si le code participe à au moins une association DAGSTAR comme code dague (voir §5) |
+| 9 | `is_asterisk_in_pair` | bool | `True` si le code participe à au moins une association DAGSTAR comme code astérisque (voir §5) |
 
 Note : `type` peut aussi contenir `note` pour les notes éditoriales selon
 les versions ; la grande majorité des lignes sont inclusion / exclusion /
 synonyme.
+
+**Pour le détail des paires dague/astérisque** (quel code apparié, niveau
+d'association, redundancy_level, etc.), consulter le livrable séparé
+`dagger_asterisk.parquet`. Le CSV principal ne porte que les deux flags
+booléens ci-dessus pour signaler la participation à des paires.
 
 ---
 
@@ -122,31 +125,60 @@ Points structurels stables (peu susceptibles de changer) :
 
 ---
 
-## 5. Couples dague / astérisque (colonnes 6-9)
+## 5. Couples dague / astérisque (colonnes 8-9)
 
 La CIM-10 permet de coder certains diagnostics avec deux codes : un code
 **dague** (étiologie, maladie initiale) et un code **astérisque**
 (manifestation localisée). Exemple : A18.1 (Tuberculose génito-urinaire)
 + N33.0 (Cystite tuberculeuse).
 
-**Colonnes concernées** :
-- `dagger_code` : rempli quand la ligne concerne un code astérisque, contient le code dague associé
-- `asterisk_code` : rempli quand la ligne concerne un code dague, contient le code astérisque associé
-- Ces colonnes sont vides pour la majorité des codes (sans association)
+### Représentation dans le CSV : deux flags booléens
 
-**`redundancy_level`** (rempli pour toutes les lignes) :
-- `none` : le code n'a pas d'association dague/astérisque (majorité)
-- `independent` : association où les deux codes décrivent des réalités cliniques distinctes
-- `subordinate` : association où le code dague se "résume" dans la combinaison (typique des maladies infectieuses) — identifié par curation manuelle (163 paires curées)
+Le CSV principal ne porte pas l'information détaillée des paires
+dague/astérisque sur ses lignes. Il expose seulement deux colonnes
+booléennes au niveau du code :
 
-**`is_redundant_dagger`** : `True` quand la ligne est un code dague impliqué dans un couple `subordinate`. Permet au consommateur de filtrer ces lignes s'il veut éviter la redondance (décision réversible, non destructive au build).
+- **`is_dagger_in_pair`** : `True` si le code participe à au moins une
+  association DAGSTAR comme code dague (rôle d'étiologie).
+- **`is_asterisk_in_pair`** : `True` si le code participe à au moins une
+  association DAGSTAR comme code astérisque (rôle de manifestation).
 
-Les sources externes ne fournissent jamais d'information dague/astérisque :
-leurs lignes ont toujours `dagger_code` et `asterisk_code` vides.
+Un même code peut avoir les deux flags à `True` simultanément si selon
+les paires considérées, il joue les deux rôles.
+
+Ces flags signalent au consommateur que le code participe à la
+mécanique dague/astérisque, sans détailler les paires spécifiques.
+
+### Pour obtenir le détail des paires : la table DAGSTAR enrichie
+
+Pour connaître quelles paires précises impliquent un code, avec leur
+niveau d'association (`subordinate` / `independent`) et la formulation
+clinique de chaque combinaison, consulter le livrable séparé
+`referentials/processed/dagger_asterisk.parquet`.
+
+Cette table contient une ligne par paire unique (dague, astérisque) avec :
+- Les codes et libellés des deux côtés
+- Les niveaux d'association présents
+- Le `redundancy_level` issu de la curation manuelle (`subordinate` pour
+  les paires où le code dague se "résume" dans la combinaison, typique
+  des maladies infectieuses)
+- Les libellés cliniques observés pour la combinaison
+
+### Pourquoi cette séparation ?
+
+L'information de couplage dague/astérisque est par nature une **propriété
+du scénario clinique** (à exploiter au moment du codage d'un texte
+médical), pas une propriété intrinsèque d'un code isolé. La représenter
+ligne par ligne dans le CSV créait une duplication massive (jusqu'à ×12
+sur certains codes) sans apporter de valeur sémantique au-delà de ce que
+les autres colonnes contiennent déjà.
+
+Pour plus de détails sur cette décision, voir `docs/source_mapping.md`
+section "Couples dague/astérisque : politique de représentation".
 
 ---
 
-## 6. Propagation hiérarchique (colonnes 10-11)
+## 6. Propagation hiérarchique (colonnes 6-7)
 
 Les notes (inclusions, exclusions, notes éditoriales) peuvent être
 attachées à n'importe quel niveau de la hiérarchie CIM-10 (chapitre, bloc,
@@ -255,8 +287,9 @@ qui lui sont propres (`source_level=code`) des notes héritées
 spécifiques.
 
 **Gérer les couples dague/astérisque** : pour les paires `subordinate`,
-envisager de filtrer `is_redundant_dagger=True` pour éviter de présenter
-au LLM un code dague qui se résume dans la combinaison.
+consulter `dagger_asterisk.parquet` pour identifier les codes dagues qui
+se résument dans la combinaison et envisager de les filtrer côté
+consommateur.
 
 ---
 

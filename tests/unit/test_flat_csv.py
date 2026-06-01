@@ -362,47 +362,32 @@ def test_to_csv_writes_file(tmp_path: Path) -> None:
     assert out_path.exists()
     loaded = pl.read_csv(out_path)
     assert len(loaded) == 1
+    # Refonte 2026-05-30 : schéma à 9 colonnes, plus d'expansion par
+    # paire dague/astérisque ; deux flags booléens au niveau du code.
     assert loaded.columns == [
         "code", "libelle", "type", "source", "texte",
-        "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger",
         "source_level", "inherited_from_code",
+        "is_dagger_in_pair", "is_asterisk_in_pair",
     ]
     row = loaded.row(0, named=True)
-    assert row["redundancy_level"] == "none"
-    assert row["dagger_code"] in (None, "")
-    assert row["asterisk_code"] in (None, "")
+    # Le code de test A00.0 n'a aucune paire dague/astérisque.
+    assert row["is_dagger_in_pair"] is False
+    assert row["is_asterisk_in_pair"] is False
 
 
 # --------------------------------------------------------------------------- #
-# Tests dague/astérisque (Phase 3) — expansion par association +
-# filtrage des synonymes redondants côté dague.
+# Tests dague/astérisque — flags booléens + filtrage 15,8 %.
+# Refonte 2026-05-30 : suppression de l'expansion par paire. Chaque
+# note du code apparaît une seule fois ; les flags is_dagger_in_pair /
+# is_asterisk_in_pair signalent la participation à la mécanique sans
+# détailler les paires (cf docs/source_mapping.md §"Couples
+# dague/astérisque : politique de représentation").
 # --------------------------------------------------------------------------- #
-def test_flat_csv_dagger_code_filled_on_asterisk_line() -> None:
-    """Pour une ligne d'un code astérisque, dagger_code = code dague apparié."""
+def test_flat_csv_is_dagger_in_pair_true_for_dagger_code() -> None:
+    """Un code qui apparaît en `dagger_code` dans la table enrichie a
+    is_dagger_in_pair=True (et is_asterisk_in_pair=False)."""
     merged = _make_merged([
-        {"code": "A18.1", "label": "Tuberculose génito-urinaire", "left": 1, "right": 2},
-        {"code": "N33.0", "label": "Cystite tuberculeuse", "left": 3, "right": 4},
-    ])
-    propagated = _make_propagated([
-        {"code": "N33.0", "note_type": "inclusion", "texte": "incl-aster", "source": "OFS"},
-    ])
-    dag = _make_dagger_asterisk([
-        {"dagger_code": "A18.1", "asterisk_code": "N33.0", "redundancy_level": "independent"},
-    ])
-    out = _df(flat_csv.build(
-        merged, propagated, _make_siblings([]), _make_owl([]), _make_ofs([]), dag
-    ))
-    row = out.filter(pl.col("code") == "N33.0").row(0, named=True)
-    assert row["dagger_code"] == "A18.1"
-    assert row["asterisk_code"] is None
-    assert row["redundancy_level"] == "independent"
-    assert row["is_redundant_dagger"] is False
-
-
-def test_flat_csv_asterisk_code_filled_on_dagger_line() -> None:
-    """Pour une ligne d'un code dague, asterisk_code = code astérisque apparié."""
-    merged = _make_merged([
-        {"code": "A18.1", "label": "Tuberculose génito-urinaire", "left": 1, "right": 2},
+        {"code": "A18.1", "label": "TBC génito-urinaire", "left": 1, "right": 2},
         {"code": "N33.0", "label": "Cystite tuberculeuse", "left": 3, "right": 4},
     ])
     propagated = _make_propagated([
@@ -415,38 +400,33 @@ def test_flat_csv_asterisk_code_filled_on_dagger_line() -> None:
         merged, propagated, _make_siblings([]), _make_owl([]), _make_ofs([]), dag
     ))
     row = out.filter(pl.col("code") == "A18.1").row(0, named=True)
-    assert row["asterisk_code"] == "N33.0"
-    assert row["dagger_code"] is None
+    assert row["is_dagger_in_pair"] is True
+    assert row["is_asterisk_in_pair"] is False
 
 
-def test_flat_csv_is_redundant_dagger_true_for_subordinate() -> None:
-    """Code dague d'une paire subordinate → is_redundant_dagger=True."""
+def test_flat_csv_is_asterisk_in_pair_true_for_asterisk_code() -> None:
+    """Un code qui apparaît en `asterisk_code` dans la table enrichie a
+    is_asterisk_in_pair=True (et is_dagger_in_pair=False)."""
     merged = _make_merged([
-        {"code": "A17.8", "label": "TBC SNC", "left": 1, "right": 2},
-        {"code": "G05.0", "label": "Encéphalite", "left": 3, "right": 4},
+        {"code": "A18.1", "label": "TBC génito-urinaire", "left": 1, "right": 2},
+        {"code": "N33.0", "label": "Cystite tuberculeuse", "left": 3, "right": 4},
     ])
     propagated = _make_propagated([
-        {"code": "A17.8", "note_type": "inclusion", "texte": "incl-dag", "source": "OFS"},
-        {"code": "G05.0", "note_type": "inclusion", "texte": "incl-aster", "source": "OFS"},
+        {"code": "N33.0", "note_type": "inclusion", "texte": "incl-aster", "source": "OFS"},
     ])
     dag = _make_dagger_asterisk([
-        {"dagger_code": "A17.8", "asterisk_code": "G05.0", "redundancy_level": "subordinate"},
+        {"dagger_code": "A18.1", "asterisk_code": "N33.0", "redundancy_level": "independent"},
     ])
     out = _df(flat_csv.build(
         merged, propagated, _make_siblings([]), _make_owl([]), _make_ofs([]), dag
     ))
-    dagger_row = out.filter(pl.col("code") == "A17.8").row(0, named=True)
-    aster_row = out.filter(pl.col("code") == "G05.0").row(0, named=True)
-    assert dagger_row["is_redundant_dagger"] is True
-    assert dagger_row["redundancy_level"] == "subordinate"
-    # Côté astérisque, jamais flagué redundant.
-    assert aster_row["is_redundant_dagger"] is False
-    assert aster_row["redundancy_level"] == "subordinate"
+    row = out.filter(pl.col("code") == "N33.0").row(0, named=True)
+    assert row["is_dagger_in_pair"] is False
+    assert row["is_asterisk_in_pair"] is True
 
 
-def test_flat_csv_unrelated_code_gets_none() -> None:
-    """Code sans association : 1 ligne, dagger_code/asterisk_code NULL,
-    redundancy_level='none'."""
+def test_flat_csv_unrelated_code_both_flags_false() -> None:
+    """Code sans aucune entrée DAGSTAR : 1 ligne, deux flags à False."""
     merged = _make_merged([{"code": "A00.0", "label": "x", "left": 1, "right": 2}])
     propagated = _make_propagated([
         {"code": "A00.0", "note_type": "inclusion", "texte": "i", "source": "OFS"},
@@ -457,15 +437,14 @@ def test_flat_csv_unrelated_code_gets_none() -> None:
     ))
     assert out.height == 1
     row = out.row(0, named=True)
-    assert row["dagger_code"] is None
-    assert row["asterisk_code"] is None
-    assert row["redundancy_level"] == "none"
-    assert row["is_redundant_dagger"] is False
+    assert row["is_dagger_in_pair"] is False
+    assert row["is_asterisk_in_pair"] is False
 
 
-def test_flat_csv_multi_association_produces_one_line_per_pair() -> None:
-    """Un code dague associé à deux astérisques → 2 lignes par note du dague.
-    Principe 2 de la spec : une ligne CSV par association."""
+def test_flat_csv_no_expansion_one_line_per_note() -> None:
+    """Refonte 2026-05-30 : un code dague associé à plusieurs
+    astérisques produit toujours une seule ligne par note (plus
+    d'expansion par paire). C'est le bug A01.0 / G01 corrigé."""
     merged = _make_merged([
         {"code": "M32.1", "label": "Lupus", "left": 1, "right": 2},
         {"code": "N08.5", "label": "Glomérulopathie LED", "left": 3, "right": 4},
@@ -482,8 +461,11 @@ def test_flat_csv_multi_association_produces_one_line_per_pair() -> None:
         merged, propagated, _make_siblings([]), _make_owl([]), _make_ofs([]), dag
     ))
     m32_lines = out.filter(pl.col("code") == "M32.1")
-    assert m32_lines.height == 2
-    assert set(m32_lines["asterisk_code"].to_list()) == {"N08.5", "N16.4"}
+    # 1 seule ligne (avant : 2 lignes — une par paire).
+    assert m32_lines.height == 1
+    row = m32_lines.row(0, named=True)
+    assert row["is_dagger_in_pair"] is True
+    assert row["is_asterisk_in_pair"] is False
 
 
 def test_filter_redundant_dagger_synonym_dropped() -> None:
@@ -561,18 +543,21 @@ def test_filter_keeps_distinct_dagger_synonym() -> None:
 
 
 def test_flat_csv_build_returns_stats() -> None:
+    """`FlatCsvStats` ne porte plus `n_dagger_lines_redundant` depuis la
+    refonte 2026-05-30 (suppression de l'expansion par paire). Seul
+    `n_synonyms_filtered_as_duplicates` (règle des 15,8 %) subsiste."""
     merged = _make_merged([
-        {"code": "A17.8", "label": "TBC SNC", "left": 1, "right": 2},
-        {"code": "G05.0", "label": "Encéphalite", "left": 3, "right": 4},
+        {"code": "A18.1", "label": "TBC", "left": 1, "right": 2},
+        {"code": "N33.0", "label": "Cystite", "left": 3, "right": 4},
     ])
-    propagated = _make_propagated([
-        {"code": "A17.8", "note_type": "inclusion", "texte": "i", "source": "OFS"},
+    ofs = _make_ofs([
+        {"code": "A18.1", "synonymes": ["cystite tuberculeuse"]},
+        {"code": "N33.0", "synonymes": ["cystite tuberculeuse"]},
     ])
     dag = _make_dagger_asterisk([
-        {"dagger_code": "A17.8", "asterisk_code": "G05.0", "redundancy_level": "subordinate"},
+        {"dagger_code": "A18.1", "asterisk_code": "N33.0", "redundancy_level": "independent"},
     ])
     _df_out, stats = flat_csv.build(
-        merged, propagated, _make_siblings([]), _make_owl([]), _make_ofs([]), dag
+        merged, _make_propagated([]), _make_siblings([]), _make_owl([]), ofs, dag
     )
-    assert stats.n_dagger_lines_redundant == 1
-    assert stats.n_synonyms_filtered_as_duplicates == 0
+    assert stats.n_synonyms_filtered_as_duplicates == 1

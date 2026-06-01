@@ -13,28 +13,24 @@ pytestmark = pytest.mark.unit
 
 
 def _make_csv(rows: list[dict[str, object]]) -> pl.DataFrame:
-    """Mini-CSV final aux 11 colonnes attendues."""
+    """Mini-CSV final aux 9 colonnes attendues (refonte 2026-05-30)."""
     schema = {
         "code": pl.String,
         "libelle": pl.String,
         "type": pl.String,
         "source": pl.String,
         "texte": pl.String,
-        "dagger_code": pl.String,
-        "asterisk_code": pl.String,
-        "redundancy_level": pl.String,
-        "is_redundant_dagger": pl.Boolean,
         "source_level": pl.String,
         "inherited_from_code": pl.String,
+        "is_dagger_in_pair": pl.Boolean,
+        "is_asterisk_in_pair": pl.Boolean,
     }
     base = {
         "libelle": "lib",
         "texte": "t",
-        "dagger_code": None,
-        "asterisk_code": None,
-        "redundancy_level": "none",
-        "is_redundant_dagger": False,
         "inherited_from_code": None,
+        "is_dagger_in_pair": False,
+        "is_asterisk_in_pair": False,
     }
     return pl.DataFrame([{**base, **r} for r in rows], schema=schema)
 

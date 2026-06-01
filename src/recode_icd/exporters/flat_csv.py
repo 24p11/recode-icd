@@ -38,24 +38,22 @@ _SOURCE_LEVEL_ORDER: dict[str, int] = {
     "chapter": 3,
 }
 
-# Colonnes finales du CSV maître (cf docs/source_mapping.md §"Schéma
-# final du CSV principal" et §"Propagation des notes hiérarchiques").
-# Une ligne par (code, type, source, texte) par association
-# dague/astérisque ; les codes sans association émettent une seule
-# ligne avec dagger_code/asterisk_code à NULL et redundancy_level="none".
-# source_level/inherited_from_code tracent la propagation hiérarchique.
+# Colonnes finales du CSV maître à 9 colonnes (cf docs/source_mapping.md
+# §"Schéma final du CSV principal", §"Couples dague/astérisque :
+# politique de représentation" et §"Propagation des notes hiérarchiques").
+# Refonte 2026-05-30 : une ligne par (code, type, source, texte) avec
+# is_dagger_in_pair / is_asterisk_in_pair signalant la participation à
+# la mécanique dague/astérisque au niveau du code, sans expansion.
 _FINAL_COLUMNS: tuple[str, ...] = (
     "code",
     "libelle",
     "type",
     "source",
     "texte",
-    "dagger_code",
-    "asterisk_code",
-    "redundancy_level",
-    "is_redundant_dagger",
     "source_level",
     "inherited_from_code",
+    "is_dagger_in_pair",
+    "is_asterisk_in_pair",
 )
 
 
@@ -64,16 +62,10 @@ class FlatCsvStats:
     """Compteurs renvoyés par `build()` pour alimentation du rapport
     `reports/curation_applied.csv`."""
 
-    n_dagger_lines_redundant: int
     n_synonyms_filtered_as_duplicates: int
 
     def as_long_rows(self) -> list[dict[str, object]]:
         return [
-            {
-                "dimension": "flat_csv",
-                "value": "dagger_lines_marked_redundant",
-                "count": self.n_dagger_lines_redundant,
-            },
             {
                 "dimension": "flat_csv",
                 "value": "synonyms_filtered_as_duplicates",
@@ -238,87 +230,32 @@ def _filter_redundant_dagger_synonyms(
     return kept, n_filtered
 
 
-def _attach_dagger_asterisk_columns(
-    long: pl.DataFrame,
+def _compute_dagger_flags(
     dagger_asterisk: pl.DataFrame,
-) -> tuple[pl.DataFrame, int]:
-    """Expansion : pour chaque ligne de `long` (code, type, source, texte),
-    produire N lignes selon les associations dague/astérisque de `code`.
+) -> tuple[set[str], set[str]]:
+    """Calcule depuis la table DAGSTAR enrichie les deux sets de codes
+    impliqués dans des paires (cf docs/source_mapping.md §"Couples
+    dague/astérisque : politique de représentation").
 
-    - Si `code` apparaît comme `dagger_code` d'une paire : `asterisk_code`
-      rempli, `dagger_code` NULL.
-    - Si `code` apparaît comme `asterisk_code` d'une paire : `dagger_code`
-      rempli, `asterisk_code` NULL.
-    - Si `code` n'apparaît dans aucune paire complète : 1 ligne, deux
-      colonnes NULL, redundancy_level='none'.
+    Construction (cf section "Table DAGSTAR enrichie") :
+    - daget ∈ {S, T, U} → SID = dague (stocké en `dagger_code`).
+    - daget ∈ {F, G, H} → SID = astérisque (stocké en `asterisk_code`).
 
-    `is_redundant_dagger=True` ssi la ligne correspond à un côté dague
-    d'une paire subordinate. `False` sinon.
+    Donc l'apparition d'un code en `dagger_code` (non-null) est
+    exactement l'équivalent d'`is_dagger_in_pair=True`, et idem
+    pour `asterisk_code` (non-null) ⇔ `is_asterisk_in_pair=True`.
+    Les cas non pointés (assoc=0) y figurent avec l'autre côté NULL.
 
     Returns:
-        `(expanded, n_lignes_redundant)`.
+        `(dagger_codes, asterisk_codes)` : deux sets de codes.
     """
-    complete = dagger_asterisk.filter(
-        pl.col("dagger_code").is_not_null() & pl.col("asterisk_code").is_not_null()
-    ).select(["dagger_code", "asterisk_code", "redundancy_level"])
-
-    # Côté dague : pour les codes qui apparaissent comme dagger_code.
-    as_dagger = (
-        long.join(
-            complete.rename({"dagger_code": "code"}),
-            on="code",
-            how="inner",
-        )
-        .with_columns(
-            pl.lit(None, dtype=pl.String).alias("dagger_code"),
-            pl.col("asterisk_code"),
-            pl.col("redundancy_level"),
-            (pl.col("redundancy_level") == "subordinate").alias("is_redundant_dagger"),
-        )
-        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger", "source_level", "inherited_from_code")
+    dagger_codes = set(
+        dagger_asterisk["dagger_code"].drop_nulls().to_list()
     )
-
-    # Côté astérisque : pour les codes qui apparaissent comme asterisk_code.
-    as_asterisk = (
-        long.join(
-            complete.rename({"asterisk_code": "code"}),
-            on="code",
-            how="inner",
-        )
-        .with_columns(
-            pl.col("dagger_code"),
-            pl.lit(None, dtype=pl.String).alias("asterisk_code"),
-            pl.col("redundancy_level"),
-            pl.lit(False).alias("is_redundant_dagger"),
-        )
-        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger", "source_level", "inherited_from_code")
+    asterisk_codes = set(
+        dagger_asterisk["asterisk_code"].drop_nulls().to_list()
     )
-
-    # Codes hors paires : anti-join sur l'union des codes mentionnés
-    # côté dague OU côté astérisque.
-    involved = (
-        pl.concat(
-            [
-                complete.select(pl.col("dagger_code").alias("code")),
-                complete.select(pl.col("asterisk_code").alias("code")),
-            ]
-        )
-        .unique()
-    )
-    none_side = (
-        long.join(involved, on="code", how="anti")
-        .with_columns(
-            pl.lit(None, dtype=pl.String).alias("dagger_code"),
-            pl.lit(None, dtype=pl.String).alias("asterisk_code"),
-            pl.lit("none", dtype=pl.String).alias("redundancy_level"),
-            pl.lit(False).alias("is_redundant_dagger"),
-        )
-        .select("code", "type", "source", "texte", "dagger_code", "asterisk_code", "redundancy_level", "is_redundant_dagger", "source_level", "inherited_from_code")
-    )
-
-    expanded = pl.concat([as_dagger, as_asterisk, none_side])
-    n_redundant = expanded.filter(pl.col("is_redundant_dagger")).height
-    return expanded, n_redundant
+    return dagger_codes, asterisk_codes
 
 
 def build(
@@ -330,23 +267,29 @@ def build(
     dagger_asterisk: pl.DataFrame,
     external: pl.DataFrame | None = None,
 ) -> tuple[pl.DataFrame, FlatCsvStats]:
-    """Construit le CSV maître à 11 colonnes (cf source_mapping.md
-    §"Schéma final du CSV principal" et §"Propagation des notes
+    """Construit le CSV maître à 9 colonnes (cf source_mapping.md
+    §"Schéma final du CSV principal", §"Couples dague/astérisque :
+    politique de représentation" et §"Propagation des notes
     hiérarchiques").
 
     Étapes :
       1. Long format inclusions/exclusions/synonymes (priorité OFS),
          avec source_level/inherited_from_code tracés.
-      2. Filtrage des synonymes redondants côté dague (règle empirique).
+      2. Filtrage des synonymes redondants côté dague (règle empirique
+         des 15,8 %).
       3. Concaténation des entrées externes (ORPHANET/Index/AP-HP)
          déjà dédupliquées et filtrées par `merge_external`
          (source_level=code, inherited_from_code=null).
       4. Restriction aux codes feuilles + traduction des sources.
          Dédup (code, type, source, texte) priorisant la version la
          plus spécifique (source_level=code).
-      5. Expansion par association dague/astérisque (Principe 2 de la
-         spec : une ligne par association).
-      6. Sort déterministe par (code, type, source, texte, ast, dague).
+      5. Calcul des flags is_dagger_in_pair / is_asterisk_in_pair via
+         la table DAGSTAR enrichie (sans expansion).
+      6. Sort déterministe par (code, type, source, texte).
+
+    Refonte 2026-05-30 : suppression de l'expansion par paire
+    dague/astérisque. Chaque note du code apparaît une seule fois ;
+    le détail des paires reste dans `dagger_asterisk.parquet`.
 
     Args:
         external : DataFrame `(code, libelle_orig, libelle_norm, type,
@@ -395,27 +338,20 @@ def build(
         )
     )
 
-    expanded, n_redundant = _attach_dagger_asterisk_columns(
-        base.select(
-            "code", "type", "source", "texte",
-            "source_level", "inherited_from_code",
-        ),
-        dagger_asterisk,
-    )
+    dagger_codes, asterisk_codes = _compute_dagger_flags(dagger_asterisk)
 
-    # Réattacher `libelle` (perdu pendant l'expansion qui ne consomme
-    # que les colonnes de note). Stable car (code, libelle) est unique
-    # côté `leaves`.
     final = (
-        expanded.join(leaves, on="code", how="left")
-        .with_columns(pl.col("type").replace_strict(_TYPE_ORDER).alias("_type_order"))
-        .sort(["code", "_type_order", "source", "texte", "asterisk_code", "dagger_code"])
+        base.with_columns(
+            pl.col("code").is_in(list(dagger_codes)).alias("is_dagger_in_pair"),
+            pl.col("code").is_in(list(asterisk_codes)).alias("is_asterisk_in_pair"),
+            pl.col("type").replace_strict(_TYPE_ORDER).alias("_type_order"),
+        )
+        .sort(["code", "_type_order", "source", "texte"])
         .select(*_FINAL_COLUMNS)
     )
 
     FlatCsvSchema.validate(final)
     stats = FlatCsvStats(
-        n_dagger_lines_redundant=n_redundant,
         n_synonyms_filtered_as_duplicates=n_syn_filtered,
     )
     return final, stats

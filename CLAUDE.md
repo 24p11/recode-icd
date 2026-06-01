@@ -24,18 +24,25 @@
 
 ## Objectifs métier
 
-1. **Fichier maître `inclusions_exclusions_synonymes.csv`** (11 colonnes) :
+1. **Fichier maître `inclusions_exclusions_synonymes.csv`** (9 colonnes) :
     `code`, `libelle`, `type` ∈ {inclusion, exclusion, synonyme, note},
-    `source`, `texte`, `dagger_code`, `asterisk_code`, `redundancy_level`,
-    `is_redundant_dagger`, `source_level`, `inherited_from_code`.
+    `source`, `texte`, `source_level`, `inherited_from_code`,
+    `is_dagger_in_pair`, `is_asterisk_in_pair`.
     Regroupe toutes les informations textuelles associées à un code
     CIM-10, avec propagation des notes des niveaux supérieurs (chapitre,
     bloc, catégorie) vers les codes feuilles. La propagation est rendue
-    visible via les deux dernières colonnes pour permettre le filtrage
-    et la lecture humaine.
+    visible via les colonnes `source_level` et `inherited_from_code` pour
+    permettre le filtrage et la lecture humaine. Les deux flags booléens
+    `is_dagger_in_pair` / `is_asterisk_in_pair` signalent la
+    participation à des paires dague/astérisque ; le détail des paires
+    vit dans le livrable séparé (cf objectif 2).
 2. **Table des associations dague (†) / astérisque (*)** comme livrable
-   séparé (vue plus structurée que les colonnes du CSV principal,
-   préserve les 6 valeurs du champ `daget` F/G/H/S/T/U).
+   séparé (`dagger_asterisk.parquet`). Source unique pour l'information
+   détaillée des paires (codes appariés, niveaux d'association, redundancy_level,
+   formulations cliniques). Préserve les 6 valeurs du champ `daget`
+   F/G/H/S/T/U. Le CSV principal ne porte que les deux flags
+   `is_dagger_in_pair` / `is_asterisk_in_pair` qui renvoient vers cette
+   table pour le détail.
 3. **API stable** pour enrichir des prompts CIM-10 (réutilisable par
    recode-scenario notamment).
 
@@ -85,7 +92,7 @@ src/recode_icd/
 │   ├── dagger_asterisk.py # table d'associations dague/astérisque (objectif 2)
 │   └── sibling_exclusions.py
 ├── exporters/
-│   └── flat_csv.py        # le fichier 11 colonnes
+│   └── flat_csv.py        # le fichier 9 colonnes
 ├── registry.py            # ReferentialRegistry (inspiré de recode-scenario)
 └── cli/                   # CLI typer
 referentials/
@@ -274,10 +281,26 @@ Détails dans `docs/source_mapping.md` section "Règle de réconciliation".
 Politique synthétique (détails dans `docs/source_mapping.md` section
 "Couples dague/astérisque : politique de représentation") :
 
+- **Le CSV principal ne porte pas l'information détaillée des paires.**
+  Il expose seulement deux flags booléens au niveau du code :
+  `is_dagger_in_pair` (True si le code apparaît dans DAGSTAR avec
+  daget ∈ {S, T, U}) et `is_asterisk_in_pair` (True si daget ∈ {F, G, H}).
+- **Pas d'expansion par paire** : chaque note d'un code apparaît une
+  seule fois dans le CSV, indépendamment du nombre de paires
+  dague/astérisque auxquelles ce code participe.
+- **Le détail des paires** (code apparié, niveau, descripteur clinique,
+  redundancy_level) vit exclusivement dans `dagger_asterisk.parquet`,
+  livrable séparé conçu pour les consommateurs en aval (notamment
+  `recode-scenario` pour l'analyse de scénarios cliniques).
+- **La curation manuelle** (`dagger_curation.csv`) reste utilisée pour
+  attribuer `redundancy_level=subordinate` aux paires dans la table
+  DAGSTAR enrichie. Cette information n'est plus propagée dans le CSV
+  principal.
 
-**Filtrage des synonymes redondants** : règle en cours de validation
-empirique. Le script `scripts/explore/<date>_dagger_asterisk_dedup.py`
-fournit les données nécessaires à la décision.
+**Filtrage des synonymes redondants** : la règle de filtrage des
+descripteurs côté dague (15,8% de doublons exacts mesurés
+empiriquement sur DESCR) reste appliquée par le merger,
+indépendamment de la politique d'expansion.
 
 ## Notes synthétisées (codes "autres" en .8)
 
@@ -433,8 +456,10 @@ Pour les ~2300 codes ajoutés à la classification après le gel OFS
   (pas de parsing automatique, cf domain pitfall #8).
 - Les artefacts ANS (crochets, ligatures, puces) sont préservés
   tels quels dans le CSV.
-- Pas d'association dague/astérisque sauf si présente dans
-  `atih-cim10:hasCausality` ou `atih-cim10:hasManifestation`.
+- Les flags `is_dagger_in_pair` et `is_asterisk_in_pair` valent
+  `False` sauf si une association est présente dans
+  `atih-cim10:hasCausality` ou `atih-cim10:hasManifestation` côté ANS
+  (et donc dans la table DAGSTAR enrichie).
 
 Ces codes sont loggués dans `reports/post_2006_codes.csv` pour audit.
 
@@ -491,8 +516,8 @@ pas d'enum sans libellé CSV correspondant.
   - Un code en chapitre XXI
   - Un code dans C00-C75 avec sous-catégorie `.8` (par ex `C50.8`)
   - **`U07.1`** (COVID-19) comme code post-2006
-  - Un couple typique pour tester `redundancy_level=subordinate`
-    (par ex `A17.8` / `G05.0`)
+  - Un couple typique pour tester `redundancy_level=subordinate` dans
+    la table DAGSTAR enrichie (par ex `A17.8` / `G05.0`)
 - Un code avec un synonyme ORPHANET en relation E (par ex `D59.5`  pour "Hémoglobinurie paroxystique nocturne")
 > - Un code avec une inclusion ORPHANET en relation NTBT (à
 >   identifier au build, par exemple un code D70 avec une variante

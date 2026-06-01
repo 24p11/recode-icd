@@ -30,7 +30,7 @@ techniques.
 | Exclusion indirecte              | LIBELLE via INDIR, source='N'      | `xkos:exclusionNote` (indistinct)   | **OFS** uniquement    |
 | Note éditoriale (4000 car)       | MEMO via NOTE                       | `xkos:note` ou `rdfs:comment`       | **OFS** puis ANS      |
 | Terme de glossaire               | MEMO via GLOSSAIRE                  | `xkos:codingHint` (si présent)      | **OFS** puis ANS      |
-| Appariement dague/astérisque     | DAGSTAR (toutes lignes)             | `atih-cim10:hasCausality` + `atih-cim10:hasManifestation` | **OFS** + audit ANS |
+| Appariement dague/astérisque     | DAGSTAR (toutes lignes)             | `atih-cim10:hasCausality` + `atih-cim10:hasManifestation` | **OFS** + audit ANS, table dédiée hors CSV principal |
 | Hiérarchie parent/enfant         | MASTER champs id1..id7              | `skos:broader` / `skos:narrower`    | identique             |
 | Synonyme ORPHANET (relation E)         | —                         | —                          | XML `Disorder/Name` + `SynonymList` | externe (post-dédup)  |
 | Inclusion ORPHANET (relation NTBT)     | —                         | —                          | XML `Disorder/Name` + `SynonymList` | externe (post-dédup)  |
@@ -337,52 +337,133 @@ génito-urinaire (étiologie) + N33.0* Cystite tuberculeuse
 (manifestation).
  
 ### Les trois niveaux d'association
- 
+
 Les associations dague/astérisque peuvent exister à trois niveaux
 hiérarchiques distincts, reflétés par les 6 valeurs du champ `daget`
 dans la table DAGSTAR de l'OFS :
- 
-| `daget` | Sens                                | Niveau de l'association     | Côté         |
-|---------|-------------------------------------|------------------------------|--------------|
-| F       | Départ astérisque non pointé        | Catégorie / code            | astérisque   |
-| G       | Départ astérisque systématique      | Libellé systématique (code) | astérisque   |
-| H       | Départ astérisque descripteur       | Descripteur (synonyme)      | astérisque   |
-| S       | Départ dague non pointé             | Catégorie / code            | dague        |
-| T       | Départ dague systématique           | Libellé systématique (code) | dague        |
-| U       | Départ dague descripteur            | Descripteur (synonyme)      | dague        |
- 
+
+| `daget` | Sens                                | Niveau de l'association     | Côté         | Type de LID référencé   |
+|---------|-------------------------------------|------------------------------|--------------|--------------------------|
+| F       | Départ astérisque non pointé        | Catégorie / code            | astérisque   | libellé systématique     |
+| G       | Départ astérisque systématique      | Libellé systématique (code) | astérisque   | libellé systématique     |
+| H       | Départ astérisque descripteur       | Descripteur (synonyme)      | astérisque   | **descripteur dédié**    |
+| S       | Départ dague non pointé             | Catégorie / code            | dague        | libellé systématique     |
+| T       | Départ dague systématique           | Libellé systématique (code) | dague        | libellé systématique     |
+| U       | Départ dague descripteur            | Descripteur (synonyme)      | dague        | **descripteur dédié**    |
+
+**Observation empirique** (vérifiée sur les 1352 lignes DAGSTAR) : il
+existe une partition stricte entre `daget` et la source du LID dans
+LIBELLE. Les niveaux H et U sont les niveaux "riches" : ils référencent
+un descripteur clinique spécifique de la combinaison (ex : "méningite
+leptospirose" pour la paire G01+A27). Les autres niveaux référencent le
+libellé systématique du code par défaut.
+
 Une même association sémantique apparaît typiquement plusieurs fois
 dans DAGSTAR.txt, vue depuis chacun des deux côtés et à des niveaux
 potentiellement différents. Par exemple, le couple A18.1+/N33.0* est
 matérialisé par :
 - Une ligne `daget='U'` du côté A18.1 (descripteur "tuberculose (de) vessie")
 - Une ligne `daget='G'` du côté N33.0 (libellé systématique "cystite tuberculeuse")
-### Sémantique des cas non pointés (F, S)
- 
-Les cas F et S correspondent à des associations dague/astérisque qui
-existent dans la classification mais ne sont pas signalées
-typographiquement (pas de symbole + ou * dans le libellé imprimé). Ces
-appariements ne portent pas d'information textuelle additionnelle.
- 
-**Décision** :
-- Les cas F et S ne génèrent **PAS** de lignes spécifiques dans le CSV
-  principal. Ils ne remplissent pas les colonnes `dagger_code` ou
-  `asterisk_code`.
-- Ils restent intégralement préservés dans la table DAGSTAR dédiée
-  (objectif 2 du projet) pour conserver une vision complète de la
-  topologie des associations.
-### Table DAGSTAR enrichie (objectif 2 du projet)
- 
-En complément du CSV principal, on produit une **table relationnelle
-dédiée** d'associations dague/astérisque. Cette table est plus
-structurée et conserve les 6 valeurs du champ `daget`.
- 
+
+### Mécanique relationnelle dans DAGSTAR
+
+Chaque ligne DAGSTAR est un triplet structuré :
+
+```
+(SID, LID, assoc, daget, plus)
+```
+
+- `SID` : le code principal de la ligne
+- `LID` : pointeur vers un libellé de la table LIBELLE (libellé
+  systématique si source=S, ou descripteur si source=D)
+- `assoc` : le code apparié (0 si pas de code apparié fixe — cas non pointés F/S)
+- `daget` : niveau et rôle (cf table ci-dessus)
+- `plus` : flag (sens exact non documenté, peu fréquent)
+
+**Le LID est l'élément clé** : il identifie quelle formulation textuelle
+matérialise la combinaison. Pour les niveaux H et U, c'est un descripteur
+dédié (ex : "méningite leptospirose"). Pour les autres niveaux, c'est le
+libellé systématique du code, qui ne porte pas d'information sémantique
+nouvelle par rapport au libellé du code lui-même.
+
+### Politique de représentation dans le CSV final
+
+**Le CSV `inclusions_exclusions_synonymes.csv` ne porte plus
+l'information détaillée des paires dague/astérisque sur ses lignes.**
+Cette information vit exclusivement dans la table DAGSTAR enrichie
+(`dagger_asterisk.parquet`), conçue pour être utilisée par les
+consommateurs en aval lors de l'analyse de scénarios cliniques.
+
+#### Justification du choix
+
+L'expérience d'usage a montré que l'approche initiale ("une ligne CSV
+par paire d'association") produisait :
+
+- Une **duplication massive** des notes (jusqu'à ×12 sur des codes comme
+  G01 qui ont 12 codes dague appariés)
+- Une **attribution sémantique incorrecte** : une inclusion générique
+  du code (ex : "Infection due à Salmonella typhi" sur A01.0) se
+  retrouvait dupliquée par paire, comme si elle décrivait spécifiquement
+  chaque combinaison
+- Un **signal dilué** pour les consommateurs LLM
+
+L'investigation a révélé que :
+
+- Pour les paires "pointées sans descripteur dédié" (daget G/T) et les
+  codes "non pointés" (daget F/S), le LID référencé par DAGSTAR est le
+  libellé systématique du code lui-même. DAGSTAR n'apporte pas de
+  contenu textuel nouveau.
+- Pour les paires "pointées avec descripteur dédié" (daget H/U), le LID
+  est un descripteur clinique de la combinaison (ex : "méningite
+  leptospirose"). Ces descripteurs sont déjà présents dans le CSV via
+  la table DESCR comme synonymes.
+
+**Conclusion** : DAGSTAR n'enrichit pas sémantiquement le CSV au-delà
+de ce que les tables LIBELLE/DESCR/INCLUDE apportent déjà. L'information
+de couplage est par nature une **propriété du scénario clinique** (à
+exploiter au moment du codage par le consommateur), pas une propriété
+intrinsèque d'un code isolé exposable en CSV.
+
+#### Représentation dans le CSV : deux flags booléens
+
+Le CSV final porte deux colonnes booléennes au niveau du code :
+
+- **`is_dagger_in_pair`** : `True` si le code apparaît dans DAGSTAR
+  avec `daget ∈ {S, T, U}` (rôle de dague, peu importe que la paire
+  soit pointée ou non).
+- **`is_asterisk_in_pair`** : `True` si le code apparaît dans DAGSTAR
+  avec `daget ∈ {F, G, H}` (rôle d'astérisque).
+
+Un même code peut avoir les deux flags à `True` simultanément si selon
+les paires considérées, il joue les deux rôles.
+
+Ces flags signalent au consommateur que le code participe à la
+mécanique dague/astérisque, sans détailler les paires spécifiques.
+Pour le détail (quel code apparié, quel niveau, quel descripteur,
+quel `redundancy_level`), consulter `dagger_asterisk.parquet`.
+
+### Pas d'expansion par paire dans le CSV
+
+Conséquence directe de la politique ci-dessus : **chaque note d'un
+code apparaît une seule fois dans le CSV**, indépendamment du nombre
+de paires dague/astérisque auxquelles ce code participe.
+
+Cela élimine la duplication observée précédemment (jusqu'à ×12 sur
+G01). La logique d'expansion `_attach_dagger_asterisk_columns` qui
+réalisait une jointure cartésienne notes × paires est supprimée.
+
+### Table DAGSTAR enrichie (livrable séparé du CSV)
+
+Cette table reste un livrable du pipeline `recode-icd` car elle est
+utile aux consommateurs en aval (notamment pour l'analyse de scénarios
+cliniques où la détection des paires se fait dynamiquement).
+
 **Format** : une ligne par association sémantique unique
 (paire `(dague, astérisque)`). Les lignes DAGSTAR.txt qui pointent
 vers la même paire sont regroupées via un identifiant `association_id`.
- 
+
 **Schéma** :
- 
+
 | Colonne                | Type      | Description                                        |
 |------------------------|-----------|----------------------------------------------------|
 | `association_id`       | int       | Identifiant unique de l'association                |
@@ -394,16 +475,16 @@ vers la même paire sont regroupées via un identifiant `association_id`.
 | `levels_present`       | list[str] | Sous-ensemble de {F, G, H, S, T, U}                |
 | `redundancy_level`     | str       | none / independent / subordinate                   |
 | `source_lids`          | list[int] | LID des entrées OFS qui contribuent à l'association|
- 
+
 **Stockage** : Parquet dans `referentials/processed/dagger_asterisk.parquet`,
 exporté aussi en CSV pour consommation hors Python.
- 
+
 **Construction** :
 1. Pour chaque ligne DAGSTAR.txt, déterminer la paire `(dagger, asterisk)`
    en fonction du `daget` :
    - daget ∈ {S, T, U} : le SID est le dague, l'assoc est l'astérisque
    - daget ∈ {F, G, H} : le SID est l'astérisque, l'assoc est le dague
-   - Cas daget S ou F sans assoc (SID=0) : la paire n'a pas de code
+   - Cas daget S ou F sans assoc (assoc=0) : la paire n'a pas de code
      opposé pointé, on stocke `asterisk_code=NULL` ou `dagger_code=NULL`
      selon le côté.
 2. Regrouper les lignes DAGSTAR par paire pour obtenir une ligne unique.
@@ -414,76 +495,27 @@ exporté aussi en CSV pour consommation hors Python.
    `subordinate` pour les paires marquées comme telles dans
    `referentials/curation/dagger_curation.csv`.
 
-### CSV principal : politique de représentation
- 
-**Principe 1 — On garde tous les codes dans le CSV par défaut.**
- 
-Tant le code dague que le code astérisque restent dans le CSV avec
-leurs libellés systématiques, leurs inclusions propres, leurs
-exclusions propres et leurs notes éditoriales. Aucune suppression au
-moment du build.
- 
-Justification : un code dague peut être utilisé seul lorsque la
-manifestation n'est pas précisée (cas `independent`). Supprimer ses
-lignes dégraderait la capacité du LLM à coder ce code en tant que tel.
- 
-**Principe 2 — Une ligne CSV par association.** Pour les renvois
-multiples (ex : M32.1+ associé à N08.5* ET N16.4*, ou M49.2* associé
-à un intervalle de dagues A01-A04), on produit autant de lignes que
-d'associations. Chaque ligne contient les mêmes informations sauf le
-code apparié.
- 
-**Principe 3 — Deux colonnes dédiées dans le CSV final** :
- 
-| Colonne          | Remplie quand                                       | Contenu                             |
-|------------------|------------------------------------------------------|-------------------------------------|
-| `dagger_code`    | la ligne courante est un code astérisque (daget G/H) | le code dague associé (étiologie)   |
-| `asterisk_code`  | la ligne courante est un code dague (daget T/U)      | le code astérisque associé          |
- 
-Ces colonnes restent vides pour les codes sans association
-dague/astérisque, et pour les cas non pointés (daget F/S).
- 
-**Principe 4 — Colonne `redundancy_level`** (remplie pour TOUTES les
-lignes du CSV) :
- 
-- `none` : le code n'a pas d'association dague/astérisque. Valeur par
-  défaut pour la majorité des lignes.
-- `independent` : le code a une association dague/astérisque, et les
-  deux codes décrivent des réalités cliniques distinctes (par défaut
-  pour les couples).
-- `subordinate` : le code a une association dague/astérisque où l'un
-  des deux codes se "résume" dans la combinaison (typique des
-  maladies infectieuses). Valeur attribuée via le CSV de curation
-  `referentials/curation/dagger_curation.csv`.
-**Principe 5 — Colonne `is_redundant_dagger`** (booléen, remplie pour
-toutes les lignes du CSV) :
- 
-- `True` quand la ligne correspond à un code dague impliqué dans un
-  couple `subordinate`. Le consommateur peut filtrer cette colonne à
-  l'export pour ne garder que le code astérisque dans les cas
-  subordinate. **Non-destructif au build.**
-- `False` dans tous les autres cas.
-Cette colonne incarne le choix de **réversibilité** : la décision
-clinique "le code dague est redondant" est encodée mais pas appliquée
-au build. L'usage en aval (entraînement LLM, génération de prompts,
-analyse statistique) peut choisir indépendamment de filtrer ou non.
- 
+
 ### Schéma final du CSV principal
 
  
-| #  | Colonne                | Type | Description                                              |
-|----|------------------------|------|----------------------------------------------------------|
-| 1  | `code`                 | str  | Code CIM-10                                              |
-| 2  | `libelle`              | str  | Libellé systématique du code                             |
-| 3  | `type`                 | str  | inclusion / exclusion / synonyme / note                  |
-| 4  | `source`               | str  | CIM-10 / ANS / CIM-10 index / CIM-10 frères / ORPHANET / AP-HP ... |
-| 5  | `texte`                | str  | Texte de la note                                         |
-| 6  | `dagger_code`          | str? | Code dague apparié (rempli côté astérisque uniquement)   |
-| 7  | `asterisk_code`        | str? | Code astérisque apparié (rempli côté dague uniquement)   |
-| 8  | `redundancy_level`     | str  | none / independent / subordinate                         |
-| 9  | `is_redundant_dagger`  | bool | True si ligne dague impliquée dans un couple subordinate |
-| 10 | **`source_level`**     | str  | **chapter / block / category / code** — niveau d'origine de la note |
-| 11 | **`inherited_from_code`** | str? | **Code parent si propagé (chapter, bloc, catégorie), vide si attaché directement** |
+| # | Colonne                  | Type | Description                                              |
+|---|--------------------------|------|----------------------------------------------------------|
+| 1 | `code`                   | str  | Code CIM-10                                              |
+| 2 | `libelle`                | str  | Libellé systématique du code                             |
+| 3 | `type`                   | str  | inclusion / exclusion / synonyme / note                  |
+| 4 | `source`                 | str  | CIM-10 / ANS / CIM-10 index / CIM-10 frères / ORPHANET / AP-HP ... |
+| 5 | `texte`                  | str  | Texte de la note                                         |
+| 6 | `source_level`           | str  | chapter / block / category / code — niveau d'origine de la note |
+| 7 | `inherited_from_code`    | str? | Code parent si propagé (chapter, bloc, catégorie), vide si attaché directement |
+| 8 | `is_dagger_in_pair`      | bool | True si le code participe à au moins une association DAGSTAR comme code dague (daget ∈ {S, T, U}) |
+| 9 | `is_asterisk_in_pair`    | bool | True si le code participe à au moins une association DAGSTAR comme code astérisque (daget ∈ {F, G, H}) |
+
+Note : ce schéma à 9 colonnes remplace l'ancien à 11 colonnes (qui
+portait `dagger_code`, `asterisk_code`, `redundancy_level`,
+`is_redundant_dagger`). Voir la section "Couples dague/astérisque :
+politique de représentation" ci-dessus pour la justification de cette
+refonte.
  
  
 ### Filtrage des synonymes redondants — règle validée empiriquement
@@ -549,12 +581,15 @@ manuellement).
  
 **Consommation par le merger** : règle d'application au build :
  
-- Paire dans le CSV avec `redundancy_level = subordinate` → la ligne
-  du code dague dans le CSV principal reçoit `is_redundant_dagger = True`.
+- Paire dans le CSV avec `redundancy_level = subordinate` → la paire
+  dans `dagger_asterisk.parquet` reçoit `redundancy_level = subordinate`.
 - Paire avec `redundancy_level` ∈ {`independent`, `undecided`, vide}
-  → comportement par défaut (`is_redundant_dagger = False`).
-- Le merger lit la valeur `redundancy_level` du CSV de curation et la
-  propage dans la colonne `redundancy_level` du CSV principal.
+  → comportement par défaut (`independent` ou `none` selon que la
+  paire est complète).
+- **Note** : cette information de curation n'est plus propagée dans
+  le CSV principal (politique acquise lors de la refonte). Elle vit
+  exclusivement dans la table DAGSTAR enrichie pour usage par les
+  consommateurs en aval.
 **Politique de curation** :
  
 - Le CSV est pré-rempli pour toutes les paires complètes de la table
@@ -604,22 +639,24 @@ Pour limiter les allers-retours et permettre la validation empirique
      ou LibreOffice, et cure les paires une par une.
    - Pas de modification de code à cette étape.
    - Sauvegarde régulière, commit dans Git pour conserver l'historique.
-3. **Phase 3 — Mise à jour du merger et de l'exporter**.
+3. **Phase 3 — Mise à jour du merger et de la table DAGSTAR enrichie**.
    - Le merger lit `referentials/curation/dagger_curation.csv`.
    - Pour chaque paire avec `redundancy_level = subordinate` dans le
-     CSV de curation, il :
-     - Met à jour `redundancy_level = subordinate` dans la table
-       DAGSTAR enrichie pour cette paire.
-     - Marque `is_redundant_dagger = True` pour la ligne du code dague
-       dans le CSV principal.
-   - L'exporter CSV génère bien les 11 colonnes du schéma final.
+     CSV de curation, il met à jour `redundancy_level = subordinate`
+     dans la table DAGSTAR enrichie pour cette paire.
+   - Le merger calcule les flags `is_dagger_in_pair` et
+     `is_asterisk_in_pair` pour chaque code (cf section sur la
+     représentation dans le CSV final).
+   - L'exporter CSV génère les 9 colonnes du schéma final.
    - Le filtrage des descripteurs doublons (règle validée
      empiriquement à 15,8 % sur DESCR uniquement) est appliqué.
 4. **Phase 4 — Tests de régression**.
    - Les codes témoins (cf. `CLAUDE.md`) doivent passer.
-   - Au minimum : A17.8/G05.0 (subordinate, dague avec
-     `is_redundant_dagger=True`), A18.1/N33.0 (à curer, probablement
-     subordinate), E10.2/N08.3 (independent).
+   - Au minimum : A17.8/G05.0 (subordinate dans DAGSTAR enrichie),
+     A18.1/N33.0 (à curer, probablement subordinate), E10.2/N08.3
+     (independent). Les flags `is_dagger_in_pair` /
+     `is_asterisk_in_pair` doivent être correctement calculés pour
+     ces codes.
 
 ### Conséquences sur les rapports
  
@@ -631,11 +668,11 @@ Pour limiter les allers-retours et permettre la validation empirique
   paires avec leurs métadonnées (cardinalité des libellés, niveaux
   présents, etc.) pour faciliter l'audit et la curation.
 - `reports/curation_applied.csv` : nouveau. Liste les paires où
-  une décision de curation a été appliquée au build, avec leur
-  impact (nombre de lignes dague marquées `is_redundant_dagger=True`
-  pour les `subordinate`, nombre de paires `undecided` à reprendre,
-  etc.). Permet de vérifier rapidement après chaque build que la
-  curation a bien été prise en compte.
+  une décision de curation a été appliquée au build à la table
+  DAGSTAR enrichie, avec leur impact (nombre de paires marquées
+  `subordinate`, nombre de paires `undecided` à reprendre, etc.).
+  Permet de vérifier rapidement après chaque build que la curation
+  a bien été prise en compte.
 
 ## Propagation des notes hiérarchiques
  
@@ -986,8 +1023,15 @@ La déduplication des synonymes (incluant la déduplication tolérante
 qui dépasse ce que fait `.unique()` upstream) est aussi la
 responsabilité du merger.
 
-Le merger lit aussi `referentials/curation/dagger_curation.csv` pour
-attribuer `redundancy_level=subordinate` aux couples curés.
+Le merger lit `referentials/curation/dagger_curation.csv` pour
+attribuer `redundancy_level=subordinate` aux couples curés dans la
+table DAGSTAR enrichie (`dagger_asterisk.parquet`). Cette information
+n'est plus propagée dans le CSV principal — elle reste exclusivement
+dans la table dédiée.
+
+Le merger calcule également les deux flags `is_dagger_in_pair` et
+`is_asterisk_in_pair` pour chaque code, sur la base de sa présence
+dans DAGSTAR (cf section "Couples dague/astérisque").
 
 ## Cas particuliers et exceptions
 
@@ -1012,11 +1056,14 @@ L'OFS expose 1352 entrées DAGSTAR parfaitement typées avec 6 codes
 `terminologie-cim-10-2025-01-01.rdf`.
 
 **Décision** : OFS est la source primaire pour la table dédiée
-d'associations (objectif 2 du projet) et pour les colonnes
-`dagger_code` / `asterisk_code` du CSV final. L'ANS est chargé en
-parallèle pour permettre un **audit de cohérence** : les 35 entrées
-d'écart peuvent être de vraies absences ANS (à signaler), ou des
-appariements ANS supplémentaires (à étudier pour les codes post-2006).
+d'associations (objectif 2 du projet, `dagger_asterisk.parquet`).
+Pour le CSV final, l'information de couplage n'est plus matérialisée
+sur les lignes individuelles : seuls les flags `is_dagger_in_pair` et
+`is_asterisk_in_pair` signalent la participation à des paires. L'ANS
+est chargé en parallèle pour permettre un **audit de cohérence** :
+les 35 entrées d'écart peuvent être de vraies absences ANS (à
+signaler), ou des appariements ANS supplémentaires (à étudier pour
+les codes post-2006).
 
 Tout désaccord OFS ↔ ANS est loggué dans
 `reports/dagger_asterisk_conflicts.csv` avec colonnes :
@@ -1037,15 +1084,17 @@ Un code présent dans l'ANS mais absent de l'OFS (champ MASTER) doit
   (pas de tentative d'atomisation, cf "Limitation connue").
 - Les artefacts ANS (crochets, ligatures, puces) sont préservés
   tels quels dans le CSV.
-- Pas d'association dague/astérisque sauf si présente dans
-  `atih-cim10:hasCausality` ou `atih-cim10:hasManifestation`.
+- Les flags `is_dagger_in_pair` et `is_asterisk_in_pair` valent
+  `False` sauf si une association est présente dans
+  `atih-cim10:hasCausality` ou `atih-cim10:hasManifestation` côté
+  ANS (et donc dans la table DAGSTAR enrichie).
 
 Loguer ces codes dans `reports/post_2006_codes.csv` pour audit avec
 colonnes :
 - `code`
 - `libelle`
 - `n_inclusions`, `n_exclusions`, `n_synonymes`
-- `has_dagger_asterisk` (bool)
+- `has_dagger_asterisk` (bool — True si le code a au moins une association DAGSTAR, quel que soit le rôle)
 - `notes_atomisees` (bool — False si au moins une note est un bloc
   multi-éléments)
 
