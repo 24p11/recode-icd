@@ -29,19 +29,27 @@ classées ailleurs) participe à 12 paires dague/astérisque côté
 astérisque + 1 cas non pointé. Toutes ses notes sont dupliquées par 12.
 Sur 192 lignes du CSV pour ce code, environ 176 sont redondantes.
 
-**Problème 2 — Notes ANS étiquetées synonyme alors qu'elles sont des inclusions**
+**Problème 2 — Synonymes ANS de qualité douteuse**
 
 Exemples remontés :
-- D21.6 "Tronc" — note de localisation anatomique étiquetée comme
-  synonyme alors que c'est une précision de localisation
-- M01.08 "Arthrite méningococcique [A39.8]" — formulation typique d'une
-  inclusion ANS (avec code dague entre crochets) étiquetée comme
-  synonyme
+- D21.6 "Tronc" — synonyme constitué d'une localisation anatomique pure
+- M01.08 — synonymes constitués de noms anatomiques ("Tronc", "cou",
+  "crâne", "côtes", "tête") qui ne sont pas des reformulations
+  cliniques utiles
 
-Cause sous-jacente probable : l'ANS ne distingue pas clairement
-inclusions et synonymes via ses propriétés RDF, et le loader OWL
-étiquette par défaut. **Non traité dans cette session** — voir section
-"Chantiers identifiés".
+Diagnostic : ces synonymes sont des localisations anatomiques (parfois
+extraites de listes anatomiques au sein de notes ANS) plutôt que des
+reformulations cliniques du code. Ils ne sont pas faux sémantiquement
+mais peu utiles à un consommateur LLM. **Non traité dans cette
+session** — voir section "Chantiers identifiés".
+
+Note historique : ce problème a initialement été mal diagnostiqué
+comme "inclusion ANS avec code dague entre crochets étiquetée
+comme synonyme" (interprétation infirmée empiriquement le
+2026-06-XX : aucun synonyme ANS ne contient de code CIM-10 entre
+crochets dans le CSV). Le vrai problème est celui décrit ci-dessus,
+qui nécessite une approche différente (heuristique sur la nature
+anatomique du texte, ou curation manuelle).
 
 **Problème 3 — Navigation OFS brut impossible**
 
@@ -541,58 +549,164 @@ identifiés :
 
 ## 9. Chantiers identifiés pour les prochaines sessions
 
-### Chantier 2 — Problème 2 : notes ANS étiquetées synonyme à tort
+### Chantier 2 — Qualité des synonymes ANS (localisations anatomiques)
 
 **Symptômes observés** (rappel) :
-- D21.6 "Tronc" — note de localisation anatomique étiquetée comme
-  synonyme alors que c'est une précision de localisation
-- M01.08 "Arthrite méningococcique [A39.8]" — formulation typique d'une
-  inclusion ANS (avec code dague entre crochets) étiquetée comme
-  synonyme
+- D21.6 "Tronc" — synonyme constitué d'une localisation anatomique
+- M01.08 — synonymes "Tronc", "cou", "crâne", "côtes", "tête",
+  "colonne vertébrale" : noms anatomiques bruts
 
-**Hypothèse de cause** : l'ANS ne distingue pas inclusions et synonymes
-via ses propriétés RDF (`xkos:inclusionNote` peut contenir les deux
-types de contenu). Notre loader OWL/ANS étiquette par défaut tout
-`xkos:inclusionNote` comme `INCLUSION`, mais inversement, certains
-contenus dans d'autres propriétés (comme `skos:altLabel`) peuvent être
-des inclusions implicites avec code entre crochets.
+**Diagnostic empirique** (réalisé le 2026-06-XX) :
 
-**Pistes d'investigation pour la prochaine session** :
+Lors d'une investigation pour préparer le chantier 2 initialement
+formulé comme "retypage synonyme/inclusion ANS", on a découvert que :
 
-1. **Diagnostic empirique** :
-   - Combien de lignes ANS sont actuellement étiquetées `synonyme` dans
-     le CSV ?
-   - Combien d'entre elles contiennent un code entre crochets (signal
-     fort d'inclusion ANS) ?
-   - Combien correspondent à des notes anatomiques (D21.6 "Tronc",
-     etc.) ?
-   - Y a-t-il des patterns systématiques (par chapitre, par bloc) ?
+1. **Aucun synonyme ANS du CSV ne contient un code CIM-10 entre
+   crochets** (mesure 2 du diagnostic) — le motif initial supposé
+   ("Arthrite méningococcique [A39.8]") n'existe pas en pratique.
+2. La formulation initiale du problème (extraite des retours d'usage)
+   confondait deux phénomènes distincts : des **synonymes courts
+   anatomiques** (cas D21.6, M01.08) et des **codes entre crochets**
+   (qui existent bien mais dans les inclusions et exclusions, pas
+   dans les synonymes).
+3. Le motif "Arthrite méningococcique [A39.8]" existe dans les
+   **inclusions** ANS (correctement étiquetées) pour d'autres codes
+   comme G05.0, pas comme synonyme.
 
-2. **Inspection du loader OWL/ANS** (`src/recode_icd/loaders/owl.py`) :
-   - Quel mapping est appliqué exactement à `xkos:inclusionNote`,
-     `skos:altLabel`, `xkos:exclusionNote` ?
-   - Pour les codes problématiques (D21.6, M01.08), retracer d'où vient
-     l'étiquette `synonyme`
+**Le vrai problème** : certains synonymes ANS sont des **noms
+anatomiques bruts** ("Tronc", "cou", "côtes") qui ne sont pas des
+reformulations cliniques utiles pour piloter une génération de texte
+ou enrichir un prompt LLM. Probablement issus de l'extraction de
+listes anatomiques (énumérations dans des notes ANS) où chaque
+élément est devenu un synonyme indépendant.
 
-3. **Heuristiques possibles pour réétiqueter** :
-   - Présence de code entre crochets `[X##.#]` → inclusion (forte
-     signal)
-   - Structure préfixée (`au cours de`, `dû à`, etc.) → potentielle
-     inclusion
-   - Localisation anatomique pure (mots clés `tronc`, `membre`,
-     `région`) → potentiellement à reclasser
+**Pistes d'investigation pour la future session** :
 
-4. **Décision de politique** :
-   - Réétiqueter automatiquement via heuristique
-   - Filtrer ces entrées du CSV
-   - Laisser tel quel et documenter le piège
-   - Combinaison (par exemple : heuristique forte pour les codes entre
-     crochets, et tolérance pour le reste)
+1. **Mesurer le volume** :
+   - Combien de synonymes ANS sont courts (< 3 mots) ?
+   - Combien contiennent uniquement du vocabulaire anatomique ?
+   - Distribution par chapitre / catégorie
 
-**Indépendance fonctionnelle** : le chantier 2 ne dépend pas du
-chantier 1. Il peut être traité avant ou après l'implémentation de la
-refonte dague/astérisque. Recommandation : finir l'implémentation du
-chantier 1 d'abord pour éviter d'empiler deux refontes en parallèle.
+2. **Heuristiques de détection possibles** :
+   - Synonyme très court (1-2 mots) + appartenance à un référentiel
+     anatomique connu (liste fermée d'organes/régions)
+   - Patterns d'extraction (synonyme issu d'une énumération dans
+     une note plus large)
+
+3. **Décision de politique** :
+   - Filtrer ces synonymes du CSV
+   - Les retyper en "localisation"
+   - Les garder mais marquer leur nature (nouveau champ)
+   - Curation manuelle (si volume limité)
+
+**Note méthodologique** : le diagnostic erroné initial illustre
+l'importance de **vérifier empiriquement les hypothèses sur les
+données** avant de cadrer un chantier. Le chantier de normalisation
+crochets → parenthèses (chantier 4 ci-dessous), lui, repose sur un
+diagnostic empirique solide (32 232 notes ANS concernées).
+
+**Indépendance fonctionnelle** : ce chantier ne dépend pas du
+chantier 1 (refonte dague/astérisque) ni du chantier 4
+(normalisation crochets).
+
+### Chantier 3 — Validation et enrichissement de scénario dans `recode-scenario`
+
+**Contexte du chantier identifié** (sortie de la session du 30 mai 2026
+sur le prototypage des fiches par code, voir
+`docs/sessions/2026-05-30_prototypage_fiches.md` à créer) :
+
+Lors du prototypage des fiches descriptives par code (destinées à
+enrichir les prompts de génération de comptes-rendus médicaux pour le
+projet de jeu d'apprentissage), un problème de couplage texte ↔ codes a
+émergé : si un code dague est seul dans le scénario (sans ses codes
+astérisque associés), le LLM tend à inventer une localisation
+spécifique dans le compte-rendu, créant une affection qui aurait dû
+être codée mais ne l'est pas. Cela casse le couplage texte ↔ codes du
+jeu d'apprentissage.
+
+**Décision** : la résolution ne se fait pas au niveau de la fiche
+individuelle (qui n'a pas accès au contexte du scénario complet), mais
+au niveau du **constructeur/validateur de scénario** dans
+`recode-scenario`.
+
+**Logique attendue** :
+
+1. Pour chaque code du scénario, identifier s'il est dague (via
+   `is_dagger_in_pair` dans le CSV) ou astérisque (via
+   `is_asterisk_in_pair`)
+2. Pour chaque code dague identifié, consulter `dagger_asterisk.parquet`
+   pour récupérer la liste de ses codes astérisque possibles
+3. Vérifier que le scénario contient au moins un de ces codes astérisque
+4. Si manquant :
+   - soit alerter l'utilisateur ("code dague A18.1 sans manifestation
+     associée, voulez-vous ajouter N33.0 / N29.1 / N74.0 / ... ?")
+   - soit ajouter automatiquement parmi les codes candidats selon une
+     politique configurable
+5. Idem pour les codes astérisque sans dague (cas inverse)
+
+**Importance** : cette logique est l'utilisation concrète et
+opérationnelle de la table DAGSTAR enrichie protégée par la refonte du
+chantier 1. C'est l'analyseur de scénario qui porte la sémantique des
+paires dague/astérisque, conformément au pivot conceptuel acté.
+
+**Indépendance fonctionnelle** : ce chantier ne dépend pas du chantier
+2 (étiquetage synonyme/inclusion ANS). Il dépend en revanche du
+chantier 1 (besoin des flags `is_dagger_in_pair` /
+`is_asterisk_in_pair` dans le CSV et de la table DAGSTAR enrichie
+inchangée).
+
+### Chantier 4 — Normalisation des crochets de redirection ANS
+
+**Contexte du chantier identifié** (sortie d'une investigation
+empirique le 2026-06-XX dans le cadre du prototypage des fiches
+descriptives) :
+
+L'OWL/ANS utilise une convention de notation **non standard** par
+rapport à l'OMS pour les codes de redirection dans les notes :
+- Convention OMS standard : `(Xxx.x)` entre **parenthèses**
+- Convention export ANS : `[Xxx.x]` entre **crochets**
+
+Cette convention est documentée dans `docs/source_mapping.md` section
+"Conventions d'export ANS" comme un artefact d'export à connaître.
+
+Lors du prototypage des fiches descriptives par code (session du
+2026-06-XX), il a été constaté que les crochets ANS produisent un
+rendu peu clair et créent une confusion entre :
+- Les codes de redirection ANS (texte source)
+- Les annotations qu'on ajoute en sortie (`[hérité du bloc...]`,
+  `[→ J18.0]`)
+
+**Diagnostic empirique** :
+- 32 232 notes ANS dans le CSV contiennent au moins un code CIM-10
+  entre crochets (51,7% des 62 365 notes ANS)
+- Quasi-exclusivement des exclusions (31 752 / 32 232) — les
+  inclusions sont moins concernées (480)
+- Aucune contamination des synonymes ANS (0 cas)
+- AP-HP et autres sources contiennent aussi des crochets, mais avec
+  des contenus différents (instructions de codage type "[coder
+  d'abord 1141NL]"), à ne pas toucher
+
+**Décision** : normaliser à la source dans le loader OWL/ANS.
+Transformer `[Xxx.x]` en `(Xxx.x)` pour s'aligner sur la convention
+OMS standard et permettre une lecture homogène.
+
+**Périmètre** :
+- Modification du loader OWL/ANS (regex de transformation sur les
+  textes des notes)
+- Regex : `\[([A-Z]\d{2}(?:\.\d*)?(?:-[A-Z]?\d{2}(?:\.\d*)?)?(?:\.-)?)\]`
+- Sources affectées : `xkos:inclusionNote`, `xkos:exclusionNote`,
+  `skos:altLabel`, `xkos:note`, `xkos:codingHint`, `rdfs:comment`
+- Mise à jour de `docs/source_mapping.md` (sections "Conventions
+  d'export ANS" et règle de réconciliation)
+- Tests de non-régression (codes témoins : A18.1, J18.8, R51, M01.08)
+- Régénération du CSV et des rapports
+
+**Indépendance fonctionnelle** : ce chantier ne dépend ni du chantier 2
+ni du chantier 3. Il peut être conduit indépendamment.
+
+**Bénéfice direct** : le prototype de fiche reprendra automatiquement
+les crochets normalisés une fois le CSV régénéré, sans modification
+du script de fiche.
 
 ### Autres pistes ouvertes
 

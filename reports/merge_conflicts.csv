@@ -789,26 +789,26 @@ E87.8,label,"Autres déséquilibres hydroélectrolytiques, non classés ailleurs
 E88.0,label,"Anomalies du métabolisme des protéines plasmatiques, non classées ailleurs","anomalies du métabolisme des protéines plasmatiques, non classés ailleurs",OWL_ANS
 E89.1,label,Hypo-insulinémie après un acte à visée diagnostique et thérapeutique,hypoinsulinémie après un acte à visée diagnostique et thérapeutique,OWL_ANS
 E89.6,label,Hypofonctionnement surrénal (de la corticale) (de la médullaire) après un acte à visée diagnostique et thérapeutique,hypofonctionnement corticosurrénal (de la médullaire) après un acte à visée diagnostique et thérapeutique,OWL_ANS
-F00.00,label,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - "" sans symptôme supplémentaire ""","démence de la maladie d'Alzheimer, à début précoce | sans symptômes supplémentaires",OWL_ANS
-F00.01,label,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie d'Alzheimer, à début précoce | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F00.02,label,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie d'Alzheimer, à début précoce | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F00.03,label,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie d'Alzheimer, à début précoce | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F00.04,label,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - "" avec d’autres symptômes, mixtes ""","démence de la maladie d'Alzheimer, à début précoce | avec d'autres symptômes mixtes",OWL_ANS
-F00.10,label,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - "" sans symptôme supplémentaire ""","démence de la maladie d'Alzheimer, à début tardif | sans symptômes supplémentaires",OWL_ANS
-F00.11,label,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie d'Alzheimer, à début tardif | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F00.12,label,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie d'Alzheimer, à début tardif | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F00.13,label,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie d'Alzheimer, à début tardif | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F00.14,label,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - "" avec d’autres symptômes, mixtes ""","démence de la maladie d'Alzheimer, à début tardif | avec d'autres symptômes mixtes",OWL_ANS
-F00.20,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - "" sans symptôme supplémentaire ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | sans symptômes supplémentaires",OWL_ANS
-F00.21,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F00.22,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F00.23,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F00.24,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - "" avec d’autres symptômes, mixtes ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | avec d'autres symptômes mixtes",OWL_ANS
-F00.90,label,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - "" sans symptôme supplémentaire ""","démence de la maladie d'Alzheimer, sans précision | sans symptômes supplémentaires",OWL_ANS
-F00.91,label,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie d'Alzheimer, sans précision | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F00.92,label,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie d'Alzheimer, sans précision | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F00.93,label,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie d'Alzheimer, sans précision | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F00.94,label,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - "" avec d’autres symptômes, mixtes ""","démence de la maladie d'Alzheimer, sans précision | avec d'autres symptômes mixtes",OWL_ANS
+F00.00,label,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - "" sans symptôme supplémentaire ""","démence de la maladie d'Alzheimer, à début précoce | sans symptômes supplémentaires",OWL_ANS
+F00.01,label,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie d'Alzheimer, à début précoce | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F00.02,label,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie d'Alzheimer, à début précoce | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F00.03,label,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie d'Alzheimer, à début précoce | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F00.04,label,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - "" avec d’autres symptômes, mixtes ""","démence de la maladie d'Alzheimer, à début précoce | avec d'autres symptômes mixtes",OWL_ANS
+F00.10,label,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - "" sans symptôme supplémentaire ""","démence de la maladie d'Alzheimer, à début tardif | sans symptômes supplémentaires",OWL_ANS
+F00.11,label,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie d'Alzheimer, à début tardif | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F00.12,label,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie d'Alzheimer, à début tardif | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F00.13,label,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie d'Alzheimer, à début tardif | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F00.14,label,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - "" avec d’autres symptômes, mixtes ""","démence de la maladie d'Alzheimer, à début tardif | avec d'autres symptômes mixtes",OWL_ANS
+F00.20,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - "" sans symptôme supplémentaire ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | sans symptômes supplémentaires",OWL_ANS
+F00.21,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F00.22,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F00.23,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F00.24,label,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - "" avec d’autres symptômes, mixtes ""","démence de la maladie d'Alzheimer, forme atypique ou mixte | avec d'autres symptômes mixtes",OWL_ANS
+F00.90,label,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - "" sans symptôme supplémentaire ""","démence de la maladie d'Alzheimer, sans précision | sans symptômes supplémentaires",OWL_ANS
+F00.91,label,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie d'Alzheimer, sans précision | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F00.92,label,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie d'Alzheimer, sans précision | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F00.93,label,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie d'Alzheimer, sans précision | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F00.94,label,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - "" avec d’autres symptômes, mixtes ""","démence de la maladie d'Alzheimer, sans précision | avec d'autres symptômes mixtes",OWL_ANS
 F01.00,label,"Démence vasculaire à début aigu - "" sans symptôme supplémentaire """,démence vasculaire à début aigu | sans symptômes supplémentaires,OWL_ANS
 F01.01,label,"Démence vasculaire à début aigu - "" avec d’autres symptômes, essentiellement délirants ""","démence vasculaire à début aigu | avec d'autres symptômes, essentiellement délirants",OWL_ANS
 F01.02,label,"Démence vasculaire à début aigu - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence vasculaire à début aigu | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
@@ -841,31 +841,31 @@ F01.91,label,"Démence vasculaire, sans précision - "" avec d’autres symptôm
 F01.92,label,"Démence vasculaire, sans précision - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence vasculaire, sans précision | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
 F01.93,label,"Démence vasculaire, sans précision - "" avec d’autres symptômes, essentiellement dépressifs ""","démence vasculaire, sans précision | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
 F01.94,label,"Démence vasculaire, sans précision - "" avec d’autres symptômes, mixtes ""","démence vasculaire, sans précision | avec d'autres symptômes mixtes",OWL_ANS
-F02.00,label,"Démence de la maladie de Pick [G31.0]   - "" sans symptôme supplémentaire """,démence de la maladie de Pick | sans symptômes supplémentaires,OWL_ANS
-F02.01,label,"Démence de la maladie de Pick [G31.0]   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie de Pick | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F02.02,label,"Démence de la maladie de Pick [G31.0]   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie de Pick | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F02.03,label,"Démence de la maladie de Pick [G31.0]   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie de Pick | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F02.04,label,"Démence de la maladie de Pick [G31.0]   - "" avec d’autres symptômes, mixtes """,démence de la maladie de Pick | avec d'autres symptômes mixtes,OWL_ANS
-F02.10,label,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - "" sans symptôme supplémentaire """,démence de la maladie de Creutzfeldt-Jakob | sans symptômes supplémentaires,OWL_ANS
-F02.11,label,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie de Creutzfeldt-Jakob | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F02.12,label,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie de Creutzfeldt-Jakob | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F02.13,label,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie de Creutzfeldt-Jakob | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F02.14,label,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - "" avec d’autres symptômes, mixtes """,démence de la maladie de Creutzfeldt-Jakob | avec d'autres symptômes mixtes,OWL_ANS
-F02.20,label,"Démence de la maladie de Huntington [G10]   - "" sans symptôme supplémentaire """,démence de la maladie de Huntington | sans symptômes supplémentaires,OWL_ANS
-F02.21,label,"Démence de la maladie de Huntington [G10]   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie de Huntington | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F02.22,label,"Démence de la maladie de Huntington [G10]   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie de Huntington | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F02.23,label,"Démence de la maladie de Huntington [G10]   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie de Huntington | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F02.24,label,"Démence de la maladie de Huntington [G10]   - "" avec d’autres symptômes, mixtes """,démence de la maladie de Huntington | avec d'autres symptômes mixtes,OWL_ANS
-F02.30,label,"Démence de la maladie de Parkinson [G20]  - "" sans symptôme supplémentaire """,démence de la maladie de Parkinson | sans symptômes supplémentaires,OWL_ANS
-F02.31,label,"Démence de la maladie de Parkinson [G20]  - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie de Parkinson | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F02.32,label,"Démence de la maladie de Parkinson [G20]  - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie de Parkinson | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F02.33,label,"Démence de la maladie de Parkinson [G20]  - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie de Parkinson | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F02.34,label,"Démence de la maladie de Parkinson [G20]  - "" avec d’autres symptômes, mixtes """,démence de la maladie de Parkinson | avec d'autres symptômes mixtes,OWL_ANS
-F02.40,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - "" sans symptôme supplémentaire """,démence de la maladie due au virus de l'immunodéficience humaine [VIH] | sans symptômes supplémentaires,OWL_ANS
-F02.41,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie due au virus de l'immunodéficience humaine [VIH] | avec d'autres symptômes, essentiellement délirants",OWL_ANS
-F02.42,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie due au virus de l'immunodéficience humaine [VIH] | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
-F02.43,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie due au virus de l'immunodéficience humaine [VIH] | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
-F02.44,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - "" avec d’autres symptômes, mixtes """,démence de la maladie due au virus de l'immunodéficience humaine [VIH] | avec d'autres symptômes mixtes,OWL_ANS
+F02.00,label,"Démence de la maladie de Pick (G31.0)   - "" sans symptôme supplémentaire """,démence de la maladie de Pick | sans symptômes supplémentaires,OWL_ANS
+F02.01,label,"Démence de la maladie de Pick (G31.0)   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie de Pick | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F02.02,label,"Démence de la maladie de Pick (G31.0)   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie de Pick | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F02.03,label,"Démence de la maladie de Pick (G31.0)   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie de Pick | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F02.04,label,"Démence de la maladie de Pick (G31.0)   - "" avec d’autres symptômes, mixtes """,démence de la maladie de Pick | avec d'autres symptômes mixtes,OWL_ANS
+F02.10,label,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - "" sans symptôme supplémentaire """,démence de la maladie de Creutzfeldt-Jakob | sans symptômes supplémentaires,OWL_ANS
+F02.11,label,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie de Creutzfeldt-Jakob | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F02.12,label,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie de Creutzfeldt-Jakob | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F02.13,label,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie de Creutzfeldt-Jakob | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F02.14,label,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - "" avec d’autres symptômes, mixtes """,démence de la maladie de Creutzfeldt-Jakob | avec d'autres symptômes mixtes,OWL_ANS
+F02.20,label,"Démence de la maladie de Huntington (G10)   - "" sans symptôme supplémentaire """,démence de la maladie de Huntington | sans symptômes supplémentaires,OWL_ANS
+F02.21,label,"Démence de la maladie de Huntington (G10)   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie de Huntington | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F02.22,label,"Démence de la maladie de Huntington (G10)   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie de Huntington | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F02.23,label,"Démence de la maladie de Huntington (G10)   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie de Huntington | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F02.24,label,"Démence de la maladie de Huntington (G10)   - "" avec d’autres symptômes, mixtes """,démence de la maladie de Huntington | avec d'autres symptômes mixtes,OWL_ANS
+F02.30,label,"Démence de la maladie de Parkinson (G20)  - "" sans symptôme supplémentaire """,démence de la maladie de Parkinson | sans symptômes supplémentaires,OWL_ANS
+F02.31,label,"Démence de la maladie de Parkinson (G20)  - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie de Parkinson | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F02.32,label,"Démence de la maladie de Parkinson (G20)  - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie de Parkinson | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F02.33,label,"Démence de la maladie de Parkinson (G20)  - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie de Parkinson | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F02.34,label,"Démence de la maladie de Parkinson (G20)  - "" avec d’autres symptômes, mixtes """,démence de la maladie de Parkinson | avec d'autres symptômes mixtes,OWL_ANS
+F02.40,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - "" sans symptôme supplémentaire """,démence de la maladie due au virus de l'immunodéficience humaine [VIH] | sans symptômes supplémentaires,OWL_ANS
+F02.41,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - "" avec d’autres symptômes, essentiellement délirants ""","démence de la maladie due au virus de l'immunodéficience humaine [VIH] | avec d'autres symptômes, essentiellement délirants",OWL_ANS
+F02.42,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence de la maladie due au virus de l'immunodéficience humaine [VIH] | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
+F02.43,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - "" avec d’autres symptômes, essentiellement dépressifs ""","démence de la maladie due au virus de l'immunodéficience humaine [VIH] | avec d'autres symptômes, essentiellement dépressifs",OWL_ANS
+F02.44,label,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - "" avec d’autres symptômes, mixtes """,démence de la maladie due au virus de l'immunodéficience humaine [VIH] | avec d'autres symptômes mixtes,OWL_ANS
 F02.80,label,"Démence au cours d'autres maladies classées ailleurs - "" sans symptôme supplémentaire """,démence au cours d'autres maladies classées ailleurs | sans symptômes supplémentaires,OWL_ANS
 F02.81,label,"Démence au cours d'autres maladies classées ailleurs - "" avec d’autres symptômes, essentiellement délirants ""","démence au cours d'autres maladies classées ailleurs | avec d'autres symptômes, essentiellement délirants",OWL_ANS
 F02.82,label,"Démence au cours d'autres maladies classées ailleurs - "" avec d’autres symptômes, essentiellement hallucinatoires ""","démence au cours d'autres maladies classées ailleurs | avec d'autres symptômes, essentiellement hallucinatoires",OWL_ANS
@@ -1779,36 +1779,36 @@ M00.96,label,"Arthrite à bactéries pyogènes, sans précision - "" Jambe ""","
 M00.97,label,"Arthrite à bactéries pyogènes, sans précision - "" Cheville et pied ""","arthrite à bactéries pyogènes, sans précision | cheville et pied",OWL_ANS
 M00.98,label,"Arthrite à bactéries pyogènes, sans précision - "" Autres ""","arthrite à bactéries pyogènes, sans précision | autres",OWL_ANS
 M00.99,label,"Arthrite à bactéries pyogènes, sans précision - "" Siège non précisé ""","arthrite à bactéries pyogènes, sans précision | siège non précisé",OWL_ANS
-M01.00,label,"Arthrite méningococcique [A39.8]   - "" Sièges multiples """,arthrite méningococcique | sièges multiples,OWL_ANS
-M01.01,label,"Arthrite méningococcique [A39.8]   - "" Région scapulaire """,arthrite méningococcique | région scapulaire,OWL_ANS
-M01.02,label,"Arthrite méningococcique [A39.8]   - "" Bras """,arthrite méningococcique | bras,OWL_ANS
-M01.03,label,"Arthrite méningococcique [A39.8]   - "" Avant-bras """,arthrite méningococcique | avant-bras,OWL_ANS
-M01.04,label,"Arthrite méningococcique [A39.8]   - "" Main """,arthrite méningococcique | main,OWL_ANS
-M01.05,label,"Arthrite méningococcique [A39.8]   - "" Région pelvienne et cuisse """,arthrite méningococcique | région pelvienne et cuisse,OWL_ANS
-M01.06,label,"Arthrite méningococcique [A39.8]   - "" Jambe """,arthrite méningococcique | jambe,OWL_ANS
-M01.07,label,"Arthrite méningococcique [A39.8]   - "" Cheville et pied """,arthrite méningococcique | cheville et pied,OWL_ANS
-M01.08,label,"Arthrite méningococcique [A39.8]   - "" Autres """,arthrite méningococcique | autres,OWL_ANS
-M01.09,label,"Arthrite méningococcique [A39.8]   - "" Siège non précisé """,arthrite méningococcique | siège non précisé,OWL_ANS
-M01.10,label,"Arthrite tuberculeuse [A18.0]   - "" Sièges multiples """,arthrite tuberculeuse | sièges multiples,OWL_ANS
-M01.11,label,"Arthrite tuberculeuse [A18.0]   - "" Région scapulaire """,arthrite tuberculeuse | région scapulaire,OWL_ANS
-M01.12,label,"Arthrite tuberculeuse [A18.0]   - "" Bras """,arthrite tuberculeuse | bras,OWL_ANS
-M01.13,label,"Arthrite tuberculeuse [A18.0]   - "" Avant-bras """,arthrite tuberculeuse | avant-bras,OWL_ANS
-M01.14,label,"Arthrite tuberculeuse [A18.0]   - "" Main """,arthrite tuberculeuse | main,OWL_ANS
-M01.15,label,"Arthrite tuberculeuse [A18.0]   - "" Région pelvienne et cuisse """,arthrite tuberculeuse | région pelvienne et cuisse,OWL_ANS
-M01.16,label,"Arthrite tuberculeuse [A18.0]   - "" Jambe """,arthrite tuberculeuse | jambe,OWL_ANS
-M01.17,label,"Arthrite tuberculeuse [A18.0]   - "" Cheville et pied """,arthrite tuberculeuse | cheville et pied,OWL_ANS
-M01.18,label,"Arthrite tuberculeuse [A18.0]   - "" Autres """,arthrite tuberculeuse | autres,OWL_ANS
-M01.19,label,"Arthrite tuberculeuse [A18.0]   - "" Siège non précisé """,arthrite tuberculeuse | siège non précisé,OWL_ANS
-M01.20,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Sièges multiples """,arthrite au cours de la maladie de Lyme | sièges multiples,OWL_ANS
-M01.21,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Région scapulaire """,arthrite au cours de la maladie de Lyme | région scapulaire,OWL_ANS
-M01.22,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Bras """,arthrite au cours de la maladie de Lyme | bras,OWL_ANS
-M01.23,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Avant-bras """,arthrite au cours de la maladie de Lyme | avant-bras,OWL_ANS
-M01.24,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Main """,arthrite au cours de la maladie de Lyme | main,OWL_ANS
-M01.25,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Région pelvienne et cuisse """,arthrite au cours de la maladie de Lyme | région pelvienne et cuisse,OWL_ANS
-M01.26,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Jambe """,arthrite au cours de la maladie de Lyme | jambe,OWL_ANS
-M01.27,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Cheville et pied """,arthrite au cours de la maladie de Lyme | cheville et pied,OWL_ANS
-M01.28,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Autres """,arthrite au cours de la maladie de Lyme | autres,OWL_ANS
-M01.29,label,"Arthrite au cours de la maladie de Lyme [A69.2]   - "" Siège non précisé """,arthrite au cours de la maladie de Lyme | siège non précisé,OWL_ANS
+M01.00,label,"Arthrite méningococcique (A39.8)   - "" Sièges multiples """,arthrite méningococcique | sièges multiples,OWL_ANS
+M01.01,label,"Arthrite méningococcique (A39.8)   - "" Région scapulaire """,arthrite méningococcique | région scapulaire,OWL_ANS
+M01.02,label,"Arthrite méningococcique (A39.8)   - "" Bras """,arthrite méningococcique | bras,OWL_ANS
+M01.03,label,"Arthrite méningococcique (A39.8)   - "" Avant-bras """,arthrite méningococcique | avant-bras,OWL_ANS
+M01.04,label,"Arthrite méningococcique (A39.8)   - "" Main """,arthrite méningococcique | main,OWL_ANS
+M01.05,label,"Arthrite méningococcique (A39.8)   - "" Région pelvienne et cuisse """,arthrite méningococcique | région pelvienne et cuisse,OWL_ANS
+M01.06,label,"Arthrite méningococcique (A39.8)   - "" Jambe """,arthrite méningococcique | jambe,OWL_ANS
+M01.07,label,"Arthrite méningococcique (A39.8)   - "" Cheville et pied """,arthrite méningococcique | cheville et pied,OWL_ANS
+M01.08,label,"Arthrite méningococcique (A39.8)   - "" Autres """,arthrite méningococcique | autres,OWL_ANS
+M01.09,label,"Arthrite méningococcique (A39.8)   - "" Siège non précisé """,arthrite méningococcique | siège non précisé,OWL_ANS
+M01.10,label,"Arthrite tuberculeuse (A18.0)   - "" Sièges multiples """,arthrite tuberculeuse | sièges multiples,OWL_ANS
+M01.11,label,"Arthrite tuberculeuse (A18.0)   - "" Région scapulaire """,arthrite tuberculeuse | région scapulaire,OWL_ANS
+M01.12,label,"Arthrite tuberculeuse (A18.0)   - "" Bras """,arthrite tuberculeuse | bras,OWL_ANS
+M01.13,label,"Arthrite tuberculeuse (A18.0)   - "" Avant-bras """,arthrite tuberculeuse | avant-bras,OWL_ANS
+M01.14,label,"Arthrite tuberculeuse (A18.0)   - "" Main """,arthrite tuberculeuse | main,OWL_ANS
+M01.15,label,"Arthrite tuberculeuse (A18.0)   - "" Région pelvienne et cuisse """,arthrite tuberculeuse | région pelvienne et cuisse,OWL_ANS
+M01.16,label,"Arthrite tuberculeuse (A18.0)   - "" Jambe """,arthrite tuberculeuse | jambe,OWL_ANS
+M01.17,label,"Arthrite tuberculeuse (A18.0)   - "" Cheville et pied """,arthrite tuberculeuse | cheville et pied,OWL_ANS
+M01.18,label,"Arthrite tuberculeuse (A18.0)   - "" Autres """,arthrite tuberculeuse | autres,OWL_ANS
+M01.19,label,"Arthrite tuberculeuse (A18.0)   - "" Siège non précisé """,arthrite tuberculeuse | siège non précisé,OWL_ANS
+M01.20,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Sièges multiples """,arthrite au cours de la maladie de Lyme | sièges multiples,OWL_ANS
+M01.21,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Région scapulaire """,arthrite au cours de la maladie de Lyme | région scapulaire,OWL_ANS
+M01.22,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Bras """,arthrite au cours de la maladie de Lyme | bras,OWL_ANS
+M01.23,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Avant-bras """,arthrite au cours de la maladie de Lyme | avant-bras,OWL_ANS
+M01.24,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Main """,arthrite au cours de la maladie de Lyme | main,OWL_ANS
+M01.25,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Région pelvienne et cuisse """,arthrite au cours de la maladie de Lyme | région pelvienne et cuisse,OWL_ANS
+M01.26,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Jambe """,arthrite au cours de la maladie de Lyme | jambe,OWL_ANS
+M01.27,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Cheville et pied """,arthrite au cours de la maladie de Lyme | cheville et pied,OWL_ANS
+M01.28,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Autres """,arthrite au cours de la maladie de Lyme | autres,OWL_ANS
+M01.29,label,"Arthrite au cours de la maladie de Lyme (A69.2)   - "" Siège non précisé """,arthrite au cours de la maladie de Lyme | siège non précisé,OWL_ANS
 M01.30,label,"Arthrite au cours d'autres maladies bactériennes classées ailleurs - "" Sièges multiples """,arthrite au cours d'autres maladies bactériennes classées ailleurs | sièges multiples,OWL_ANS
 M01.31,label,"Arthrite au cours d'autres maladies bactériennes classées ailleurs - "" Région scapulaire """,arthrite au cours d'autres maladies bactériennes classées ailleurs | région scapulaire,OWL_ANS
 M01.32,label,"Arthrite au cours d'autres maladies bactériennes classées ailleurs - "" Bras """,arthrite au cours d'autres maladies bactériennes classées ailleurs | bras,OWL_ANS
@@ -1819,16 +1819,16 @@ M01.36,label,"Arthrite au cours d'autres maladies bactériennes classées ailleu
 M01.37,label,"Arthrite au cours d'autres maladies bactériennes classées ailleurs - "" Cheville et pied """,arthrite au cours d'autres maladies bactériennes classées ailleurs | cheville et pied,OWL_ANS
 M01.38,label,"Arthrite au cours d'autres maladies bactériennes classées ailleurs - "" Autres """,arthrite au cours d'autres maladies bactériennes classées ailleurs | autres,OWL_ANS
 M01.39,label,"Arthrite au cours d'autres maladies bactériennes classées ailleurs - "" Siège non précisé """,arthrite au cours d'autres maladies bactériennes classées ailleurs | siège non précisé,OWL_ANS
-M01.40,label,"Arthrite au cours de la rubéole [B06.8]   - "" Sièges multiples """,arthrite au cours de la rubéole | sièges multiples,OWL_ANS
-M01.41,label,"Arthrite au cours de la rubéole [B06.8]   - "" Région scapulaire """,arthrite au cours de la rubéole | région scapulaire,OWL_ANS
-M01.42,label,"Arthrite au cours de la rubéole [B06.8]   - "" Bras """,arthrite au cours de la rubéole | bras,OWL_ANS
-M01.43,label,"Arthrite au cours de la rubéole [B06.8]   - "" Avant-bras """,arthrite au cours de la rubéole | avant-bras,OWL_ANS
-M01.44,label,"Arthrite au cours de la rubéole [B06.8]   - "" Main """,arthrite au cours de la rubéole | main,OWL_ANS
-M01.45,label,"Arthrite au cours de la rubéole [B06.8]   - "" Région pelvienne et cuisse """,arthrite au cours de la rubéole | région pelvienne et cuisse,OWL_ANS
-M01.46,label,"Arthrite au cours de la rubéole [B06.8]   - "" Jambe """,arthrite au cours de la rubéole | jambe,OWL_ANS
-M01.47,label,"Arthrite au cours de la rubéole [B06.8]   - "" Cheville et pied """,arthrite au cours de la rubéole | cheville et pied,OWL_ANS
-M01.48,label,"Arthrite au cours de la rubéole [B06.8]   - "" Autres """,arthrite au cours de la rubéole | autres,OWL_ANS
-M01.49,label,"Arthrite au cours de la rubéole [B06.8]   - "" Siège non précisé """,arthrite au cours de la rubéole | siège non précisé,OWL_ANS
+M01.40,label,"Arthrite au cours de la rubéole (B06.8)   - "" Sièges multiples """,arthrite au cours de la rubéole | sièges multiples,OWL_ANS
+M01.41,label,"Arthrite au cours de la rubéole (B06.8)   - "" Région scapulaire """,arthrite au cours de la rubéole | région scapulaire,OWL_ANS
+M01.42,label,"Arthrite au cours de la rubéole (B06.8)   - "" Bras """,arthrite au cours de la rubéole | bras,OWL_ANS
+M01.43,label,"Arthrite au cours de la rubéole (B06.8)   - "" Avant-bras """,arthrite au cours de la rubéole | avant-bras,OWL_ANS
+M01.44,label,"Arthrite au cours de la rubéole (B06.8)   - "" Main """,arthrite au cours de la rubéole | main,OWL_ANS
+M01.45,label,"Arthrite au cours de la rubéole (B06.8)   - "" Région pelvienne et cuisse """,arthrite au cours de la rubéole | région pelvienne et cuisse,OWL_ANS
+M01.46,label,"Arthrite au cours de la rubéole (B06.8)   - "" Jambe """,arthrite au cours de la rubéole | jambe,OWL_ANS
+M01.47,label,"Arthrite au cours de la rubéole (B06.8)   - "" Cheville et pied """,arthrite au cours de la rubéole | cheville et pied,OWL_ANS
+M01.48,label,"Arthrite au cours de la rubéole (B06.8)   - "" Autres """,arthrite au cours de la rubéole | autres,OWL_ANS
+M01.49,label,"Arthrite au cours de la rubéole (B06.8)   - "" Siège non précisé """,arthrite au cours de la rubéole | siège non précisé,OWL_ANS
 M01.50,label,"Arthrite au cours d'autres maladies virales classées ailleurs - "" Sièges multiples """,arthrite au cours d'autres maladies virales classées ailleurs | sièges multiples,OWL_ANS
 M01.51,label,"Arthrite au cours d'autres maladies virales classées ailleurs - "" Région scapulaire """,arthrite au cours d'autres maladies virales classées ailleurs | région scapulaire,OWL_ANS
 M01.52,label,"Arthrite au cours d'autres maladies virales classées ailleurs - "" Bras """,arthrite au cours d'autres maladies virales classées ailleurs | bras,OWL_ANS
@@ -1839,16 +1839,16 @@ M01.56,label,"Arthrite au cours d'autres maladies virales classées ailleurs - "
 M01.57,label,"Arthrite au cours d'autres maladies virales classées ailleurs - "" Cheville et pied """,arthrite au cours d'autres maladies virales classées ailleurs | cheville et pied,OWL_ANS
 M01.58,label,"Arthrite au cours d'autres maladies virales classées ailleurs - "" Autres """,arthrite au cours d'autres maladies virales classées ailleurs | autres,OWL_ANS
 M01.59,label,"Arthrite au cours d'autres maladies virales classées ailleurs - "" Siège non précisé """,arthrite au cours d'autres maladies virales classées ailleurs | siège non précisé,OWL_ANS
-M01.60,label,"Arthrite au cours de mycoses [B35-B49]   - "" Sièges multiples """,arthrite au cours de mycoses | sièges multiples,OWL_ANS
-M01.61,label,"Arthrite au cours de mycoses [B35-B49]   - "" Région scapulaire """,arthrite au cours de mycoses | région scapulaire,OWL_ANS
-M01.62,label,"Arthrite au cours de mycoses [B35-B49]   - "" Bras """,arthrite au cours de mycoses | bras,OWL_ANS
-M01.63,label,"Arthrite au cours de mycoses [B35-B49]   - "" Avant-bras """,arthrite au cours de mycoses | avant-bras,OWL_ANS
-M01.64,label,"Arthrite au cours de mycoses [B35-B49]   - "" Main """,arthrite au cours de mycoses | main,OWL_ANS
-M01.65,label,"Arthrite au cours de mycoses [B35-B49]   - "" Région pelvienne et cuisse """,arthrite au cours de mycoses | région pelvienne et cuisse,OWL_ANS
-M01.66,label,"Arthrite au cours de mycoses [B35-B49]   - "" Jambe """,arthrite au cours de mycoses | jambe,OWL_ANS
-M01.67,label,"Arthrite au cours de mycoses [B35-B49]   - "" Cheville et pied """,arthrite au cours de mycoses | cheville et pied,OWL_ANS
-M01.68,label,"Arthrite au cours de mycoses [B35-B49]   - "" Autres """,arthrite au cours de mycoses | autres,OWL_ANS
-M01.69,label,"Arthrite au cours de mycoses [B35-B49]   - "" Siège non précisé """,arthrite au cours de mycoses | siège non précisé,OWL_ANS
+M01.60,label,"Arthrite au cours de mycoses (B35-B49)   - "" Sièges multiples """,arthrite au cours de mycoses | sièges multiples,OWL_ANS
+M01.61,label,"Arthrite au cours de mycoses (B35-B49)   - "" Région scapulaire """,arthrite au cours de mycoses | région scapulaire,OWL_ANS
+M01.62,label,"Arthrite au cours de mycoses (B35-B49)   - "" Bras """,arthrite au cours de mycoses | bras,OWL_ANS
+M01.63,label,"Arthrite au cours de mycoses (B35-B49)   - "" Avant-bras """,arthrite au cours de mycoses | avant-bras,OWL_ANS
+M01.64,label,"Arthrite au cours de mycoses (B35-B49)   - "" Main """,arthrite au cours de mycoses | main,OWL_ANS
+M01.65,label,"Arthrite au cours de mycoses (B35-B49)   - "" Région pelvienne et cuisse """,arthrite au cours de mycoses | région pelvienne et cuisse,OWL_ANS
+M01.66,label,"Arthrite au cours de mycoses (B35-B49)   - "" Jambe """,arthrite au cours de mycoses | jambe,OWL_ANS
+M01.67,label,"Arthrite au cours de mycoses (B35-B49)   - "" Cheville et pied """,arthrite au cours de mycoses | cheville et pied,OWL_ANS
+M01.68,label,"Arthrite au cours de mycoses (B35-B49)   - "" Autres """,arthrite au cours de mycoses | autres,OWL_ANS
+M01.69,label,"Arthrite au cours de mycoses (B35-B49)   - "" Siège non précisé """,arthrite au cours de mycoses | siège non précisé,OWL_ANS
 M01.80,label,"Arthrite au cours d'autres maladies infectieuses et  parasitaires classées ailleurs - "" Sièges multiples """,arthrite au cours d'autres maladies infectieuses et parasitaires classées ailleurs | sièges multiples,OWL_ANS
 M01.81,label,"Arthrite au cours d'autres maladies infectieuses et  parasitaires classées ailleurs - "" Région scapulaire """,arthrite au cours d'autres maladies infectieuses et parasitaires classées ailleurs | région scapulaire,OWL_ANS
 M01.82,label,"Arthrite au cours d'autres maladies infectieuses et  parasitaires classées ailleurs - "" Bras """,arthrite au cours d'autres maladies infectieuses et parasitaires classées ailleurs | bras,OWL_ANS
@@ -1923,16 +1923,16 @@ M02.98,label,"Arthropathie réactionnelle, sans précision - "" Autres ""","arth
 M02.99,label,"Arthropathie réactionnelle, sans précision - "" Siège non précisé ""","arthropathie réactionnelle, sans précision | siège non précisé",OWL_ANS
 M03,label,Arthropathies postinfectieuses et réactionnelles au cours de maladies classées ailleurs,arthropathies post-infectieuses et réactionnelles au cours de maladies classées ailleurs,OWL_ANS
 M03.0,label,Arthrite postméningococcique ,arthrite post-méningococcique,OWL_ANS
-M03.00,label,"Arthrite postméningococcique [A39.8]   - "" Sièges multiples """,arthrite post-méningococcique | sièges multiples,OWL_ANS
-M03.01,label,"Arthrite postméningococcique [A39.8]   - "" Région scapulaire """,arthrite post-méningococcique | région scapulaire,OWL_ANS
-M03.02,label,"Arthrite postméningococcique [A39.8]   - "" Bras """,arthrite post-méningococcique | bras,OWL_ANS
-M03.03,label,"Arthrite postméningococcique [A39.8]   - "" Avant-bras """,arthrite post-méningococcique | avant-bras,OWL_ANS
-M03.04,label,"Arthrite postméningococcique [A39.8]   - "" Main """,arthrite post-méningococcique | main,OWL_ANS
-M03.05,label,"Arthrite postméningococcique [A39.8]   - "" Région pelvienne et cuisse """,arthrite post-méningococcique | région pelvienne et cuisse,OWL_ANS
-M03.06,label,"Arthrite postméningococcique [A39.8]   - "" Jambe """,arthrite post-méningococcique | jambe,OWL_ANS
-M03.07,label,"Arthrite postméningococcique [A39.8]   - "" Cheville et pied """,arthrite post-méningococcique | cheville et pied,OWL_ANS
-M03.08,label,"Arthrite postméningococcique [A39.8]   - "" Autres """,arthrite post-méningococcique | autres,OWL_ANS
-M03.09,label,"Arthrite postméningococcique [A39.8]   - "" Siège non précisé """,arthrite post-méningococcique | siège non précisé,OWL_ANS
+M03.00,label,"Arthrite postméningococcique (A39.8)   - "" Sièges multiples """,arthrite post-méningococcique | sièges multiples,OWL_ANS
+M03.01,label,"Arthrite postméningococcique (A39.8)   - "" Région scapulaire """,arthrite post-méningococcique | région scapulaire,OWL_ANS
+M03.02,label,"Arthrite postméningococcique (A39.8)   - "" Bras """,arthrite post-méningococcique | bras,OWL_ANS
+M03.03,label,"Arthrite postméningococcique (A39.8)   - "" Avant-bras """,arthrite post-méningococcique | avant-bras,OWL_ANS
+M03.04,label,"Arthrite postméningococcique (A39.8)   - "" Main """,arthrite post-méningococcique | main,OWL_ANS
+M03.05,label,"Arthrite postméningococcique (A39.8)   - "" Région pelvienne et cuisse """,arthrite post-méningococcique | région pelvienne et cuisse,OWL_ANS
+M03.06,label,"Arthrite postméningococcique (A39.8)   - "" Jambe """,arthrite post-méningococcique | jambe,OWL_ANS
+M03.07,label,"Arthrite postméningococcique (A39.8)   - "" Cheville et pied """,arthrite post-méningococcique | cheville et pied,OWL_ANS
+M03.08,label,"Arthrite postméningococcique (A39.8)   - "" Autres """,arthrite post-méningococcique | autres,OWL_ANS
+M03.09,label,"Arthrite postméningococcique (A39.8)   - "" Siège non précisé """,arthrite post-méningococcique | siège non précisé,OWL_ANS
 M03.1,label,Arthropathie syphilitique postinfectieuse,arthropathie syphilitique post-infectieuse,OWL_ANS
 M03.10,label,"Arthropathie syphilitique postinfectieuse - "" Sièges multiples """,arthropathie syphilitique post-infectieuse | sièges multiples,OWL_ANS
 M03.11,label,"Arthropathie syphilitique postinfectieuse - "" Région scapulaire """,arthropathie syphilitique post-infectieuse | région scapulaire,OWL_ANS
@@ -1975,16 +1975,16 @@ M05.06,label,"Syndrome de Felty - "" Jambe """,syndrome de Felty | jambe,OWL_ANS
 M05.07,label,"Syndrome de Felty - "" Cheville et pied """,syndrome de Felty | cheville et pied,OWL_ANS
 M05.08,label,"Syndrome de Felty - "" Autres """,syndrome de Felty | autres,OWL_ANS
 M05.09,label,"Syndrome de Felty - "" Siège non précisé """,syndrome de Felty | siège non précisé,OWL_ANS
-M05.10,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Sièges multiples """,maladie pulmonaire rhumatoïde | sièges multiples,OWL_ANS
-M05.11,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Région scapulaire """,maladie pulmonaire rhumatoïde | région scapulaire,OWL_ANS
-M05.12,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Bras """,maladie pulmonaire rhumatoïde | bras,OWL_ANS
-M05.13,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Avant-bras """,maladie pulmonaire rhumatoïde | avant-bras,OWL_ANS
-M05.14,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Main """,maladie pulmonaire rhumatoïde | main,OWL_ANS
-M05.15,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Région pelvienne et cuisse """,maladie pulmonaire rhumatoïde | région pelvienne et cuisse,OWL_ANS
-M05.16,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Jambe """,maladie pulmonaire rhumatoïde | jambe,OWL_ANS
-M05.17,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Cheville et pied """,maladie pulmonaire rhumatoïde | cheville et pied,OWL_ANS
-M05.18,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Autres """,maladie pulmonaire rhumatoïde | autres,OWL_ANS
-M05.19,label,"Maladie pulmonaire rhumatoïde [J99.0]   - "" Siège non précisé """,maladie pulmonaire rhumatoïde | siège non précisé,OWL_ANS
+M05.10,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Sièges multiples """,maladie pulmonaire rhumatoïde | sièges multiples,OWL_ANS
+M05.11,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Région scapulaire """,maladie pulmonaire rhumatoïde | région scapulaire,OWL_ANS
+M05.12,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Bras """,maladie pulmonaire rhumatoïde | bras,OWL_ANS
+M05.13,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Avant-bras """,maladie pulmonaire rhumatoïde | avant-bras,OWL_ANS
+M05.14,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Main """,maladie pulmonaire rhumatoïde | main,OWL_ANS
+M05.15,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Région pelvienne et cuisse """,maladie pulmonaire rhumatoïde | région pelvienne et cuisse,OWL_ANS
+M05.16,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Jambe """,maladie pulmonaire rhumatoïde | jambe,OWL_ANS
+M05.17,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Cheville et pied """,maladie pulmonaire rhumatoïde | cheville et pied,OWL_ANS
+M05.18,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Autres """,maladie pulmonaire rhumatoïde | autres,OWL_ANS
+M05.19,label,"Maladie pulmonaire rhumatoïde (J99.0)   - "" Siège non précisé """,maladie pulmonaire rhumatoïde | siège non précisé,OWL_ANS
 M05.20,label,"Vascularite rhumatoïde - "" Sièges multiples """,vascularite rhumatoïde | sièges multiples,OWL_ANS
 M05.21,label,"Vascularite rhumatoïde - "" Région scapulaire """,vascularite rhumatoïde | région scapulaire,OWL_ANS
 M05.22,label,"Vascularite rhumatoïde - "" Bras """,vascularite rhumatoïde | bras,OWL_ANS
@@ -2095,66 +2095,66 @@ M06.96,label,"Polyarthrite rhumatoïde, sans précision - "" Jambe ""","polyarth
 M06.97,label,"Polyarthrite rhumatoïde, sans précision - "" Cheville et pied ""","polyarthrite rhumatoïde, sans précision | cheville et pied",OWL_ANS
 M06.98,label,"Polyarthrite rhumatoïde, sans précision - "" Autres ""","polyarthrite rhumatoïde, sans précision | autres",OWL_ANS
 M06.99,label,"Polyarthrite rhumatoïde, sans précision - "" Siège non précisé ""","polyarthrite rhumatoïde, sans précision | siège non précisé",OWL_ANS
-M07.00,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Sièges multiples """,arthropathie psoriasique distale interphalangienne | sièges multiples,OWL_ANS
-M07.01,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Région scapulaire """,arthropathie psoriasique distale interphalangienne | région scapulaire,OWL_ANS
-M07.02,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Bras """,arthropathie psoriasique distale interphalangienne | bras,OWL_ANS
-M07.03,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Avant-bras """,arthropathie psoriasique distale interphalangienne | avant-bras,OWL_ANS
-M07.04,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Main """,arthropathie psoriasique distale interphalangienne | main,OWL_ANS
-M07.05,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Région pelvienne et cuisse """,arthropathie psoriasique distale interphalangienne | région pelvienne et cuisse,OWL_ANS
-M07.06,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Jambe """,arthropathie psoriasique distale interphalangienne | jambe,OWL_ANS
-M07.07,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Cheville et pied """,arthropathie psoriasique distale interphalangienne | cheville et pied,OWL_ANS
-M07.08,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Autres """,arthropathie psoriasique distale interphalangienne | autres,OWL_ANS
-M07.09,label,"Arthropathie psoriasique distale interphalangienne [L40.5]   - "" Siège non précisé """,arthropathie psoriasique distale interphalangienne | siège non précisé,OWL_ANS
-M07.10,label,"Arthrite mutilante [L40.5]   - "" Sièges multiples """,arthrite mutilante | sièges multiples,OWL_ANS
-M07.11,label,"Arthrite mutilante [L40.5]   - "" Région scapulaire """,arthrite mutilante | région scapulaire,OWL_ANS
-M07.12,label,"Arthrite mutilante [L40.5]   - "" Bras """,arthrite mutilante | bras,OWL_ANS
-M07.13,label,"Arthrite mutilante [L40.5]   - "" Avant-bras """,arthrite mutilante | avant-bras,OWL_ANS
-M07.14,label,"Arthrite mutilante [L40.5]   - "" Main """,arthrite mutilante | main,OWL_ANS
-M07.15,label,"Arthrite mutilante [L40.5]   - "" Région pelvienne et cuisse """,arthrite mutilante | région pelvienne et cuisse,OWL_ANS
-M07.16,label,"Arthrite mutilante [L40.5]   - "" Jambe """,arthrite mutilante | jambe,OWL_ANS
-M07.17,label,"Arthrite mutilante [L40.5]   - "" Cheville et pied """,arthrite mutilante | cheville et pied,OWL_ANS
-M07.18,label,"Arthrite mutilante [L40.5]   - "" Autres """,arthrite mutilante | autres,OWL_ANS
-M07.19,label,"Arthrite mutilante [L40.5]   - "" Siège non précisé """,arthrite mutilante | siège non précisé,OWL_ANS
-M07.20,label,"Spondylite psoriasique [L40.5]   - "" Sièges multiples """,spondylite psoriasique | sièges multiples,OWL_ANS
-M07.21,label,"Spondylite psoriasique [L40.5]   - "" Région scapulaire """,spondylite psoriasique | région scapulaire,OWL_ANS
-M07.22,label,"Spondylite psoriasique [L40.5]   - "" Bras """,spondylite psoriasique | bras,OWL_ANS
-M07.23,label,"Spondylite psoriasique [L40.5]   - "" Avant-bras """,spondylite psoriasique | avant-bras,OWL_ANS
-M07.24,label,"Spondylite psoriasique [L40.5]   - "" Main """,spondylite psoriasique | main,OWL_ANS
-M07.25,label,"Spondylite psoriasique [L40.5]   - "" Région pelvienne et cuisse """,spondylite psoriasique | région pelvienne et cuisse,OWL_ANS
-M07.26,label,"Spondylite psoriasique [L40.5]   - "" Jambe """,spondylite psoriasique | jambe,OWL_ANS
-M07.27,label,"Spondylite psoriasique [L40.5]   - "" Cheville et pied """,spondylite psoriasique | cheville et pied,OWL_ANS
-M07.28,label,"Spondylite psoriasique [L40.5]   - "" Autres """,spondylite psoriasique | autres,OWL_ANS
-M07.29,label,"Spondylite psoriasique [L40.5]   - "" Siège non précisé """,spondylite psoriasique | siège non précisé,OWL_ANS
-M07.30,label,"Autres arthropathies psoriasiques [L40.5]   - "" Sièges multiples """,autres arthropathies psoriasiques | sièges multiples,OWL_ANS
-M07.31,label,"Autres arthropathies psoriasiques [L40.5]   - "" Région scapulaire """,autres arthropathies psoriasiques | région scapulaire,OWL_ANS
-M07.32,label,"Autres arthropathies psoriasiques [L40.5]   - "" Bras """,autres arthropathies psoriasiques | bras,OWL_ANS
-M07.33,label,"Autres arthropathies psoriasiques [L40.5]   - "" Avant-bras """,autres arthropathies psoriasiques | avant-bras,OWL_ANS
-M07.34,label,"Autres arthropathies psoriasiques [L40.5]   - "" Main """,autres arthropathies psoriasiques | main,OWL_ANS
-M07.35,label,"Autres arthropathies psoriasiques [L40.5]   - "" Région pelvienne et cuisse """,autres arthropathies psoriasiques | région pelvienne et cuisse,OWL_ANS
-M07.36,label,"Autres arthropathies psoriasiques [L40.5]   - "" Jambe """,autres arthropathies psoriasiques | jambe,OWL_ANS
-M07.37,label,"Autres arthropathies psoriasiques [L40.5]   - "" Cheville et pied """,autres arthropathies psoriasiques | cheville et pied,OWL_ANS
-M07.38,label,"Autres arthropathies psoriasiques [L40.5]   - "" Autres """,autres arthropathies psoriasiques | autres,OWL_ANS
-M07.39,label,"Autres arthropathies psoriasiques [L40.5]   - "" Siège non précisé """,autres arthropathies psoriasiques | siège non précisé,OWL_ANS
-M07.40,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Sièges multiples """,arthropathie au cours de la maladie de Crohn [entérite régionale] | sièges multiples,OWL_ANS
-M07.41,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Région scapulaire """,arthropathie au cours de la maladie de Crohn [entérite régionale] | région scapulaire,OWL_ANS
-M07.42,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Bras """,arthropathie au cours de la maladie de Crohn [entérite régionale] | bras,OWL_ANS
-M07.43,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Avant-bras """,arthropathie au cours de la maladie de Crohn [entérite régionale] | avant-bras,OWL_ANS
-M07.44,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Main """,arthropathie au cours de la maladie de Crohn [entérite régionale] | main,OWL_ANS
-M07.45,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Région pelvienne et cuisse """,arthropathie au cours de la maladie de Crohn [entérite régionale] | région pelvienne et cuisse,OWL_ANS
-M07.46,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Jambe """,arthropathie au cours de la maladie de Crohn [entérite régionale] | jambe,OWL_ANS
-M07.47,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Cheville et pied """,arthropathie au cours de la maladie de Crohn [entérite régionale] | cheville et pied,OWL_ANS
-M07.48,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Autres """,arthropathie au cours de la maladie de Crohn [entérite régionale] | autres,OWL_ANS
-M07.49,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Siège non précisé """,arthropathie au cours de la maladie de Crohn [entérite régionale] | siège non précisé,OWL_ANS
-M07.50,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Sièges multiples """,arthropathie au cours de colite ulcéreuse | sièges multiples,OWL_ANS
-M07.51,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Région scapulaire """,arthropathie au cours de colite ulcéreuse | région scapulaire,OWL_ANS
-M07.52,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Bras """,arthropathie au cours de colite ulcéreuse | bras,OWL_ANS
-M07.53,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Avant-bras """,arthropathie au cours de colite ulcéreuse | avant-bras,OWL_ANS
-M07.54,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Main """,arthropathie au cours de colite ulcéreuse | main,OWL_ANS
-M07.55,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Région pelvienne et cuisse """,arthropathie au cours de colite ulcéreuse | région pelvienne et cuisse,OWL_ANS
-M07.56,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Jambe """,arthropathie au cours de colite ulcéreuse | jambe,OWL_ANS
-M07.57,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Cheville et pied """,arthropathie au cours de colite ulcéreuse | cheville et pied,OWL_ANS
-M07.58,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Autres """,arthropathie au cours de colite ulcéreuse | autres,OWL_ANS
-M07.59,label,"Arthropathie au cours de colite ulcéreuse [K51.-]   - "" Siège non précisé """,arthropathie au cours de colite ulcéreuse | siège non précisé,OWL_ANS
+M07.00,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Sièges multiples """,arthropathie psoriasique distale interphalangienne | sièges multiples,OWL_ANS
+M07.01,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Région scapulaire """,arthropathie psoriasique distale interphalangienne | région scapulaire,OWL_ANS
+M07.02,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Bras """,arthropathie psoriasique distale interphalangienne | bras,OWL_ANS
+M07.03,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Avant-bras """,arthropathie psoriasique distale interphalangienne | avant-bras,OWL_ANS
+M07.04,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Main """,arthropathie psoriasique distale interphalangienne | main,OWL_ANS
+M07.05,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Région pelvienne et cuisse """,arthropathie psoriasique distale interphalangienne | région pelvienne et cuisse,OWL_ANS
+M07.06,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Jambe """,arthropathie psoriasique distale interphalangienne | jambe,OWL_ANS
+M07.07,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Cheville et pied """,arthropathie psoriasique distale interphalangienne | cheville et pied,OWL_ANS
+M07.08,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Autres """,arthropathie psoriasique distale interphalangienne | autres,OWL_ANS
+M07.09,label,"Arthropathie psoriasique distale interphalangienne (L40.5)   - "" Siège non précisé """,arthropathie psoriasique distale interphalangienne | siège non précisé,OWL_ANS
+M07.10,label,"Arthrite mutilante (L40.5)   - "" Sièges multiples """,arthrite mutilante | sièges multiples,OWL_ANS
+M07.11,label,"Arthrite mutilante (L40.5)   - "" Région scapulaire """,arthrite mutilante | région scapulaire,OWL_ANS
+M07.12,label,"Arthrite mutilante (L40.5)   - "" Bras """,arthrite mutilante | bras,OWL_ANS
+M07.13,label,"Arthrite mutilante (L40.5)   - "" Avant-bras """,arthrite mutilante | avant-bras,OWL_ANS
+M07.14,label,"Arthrite mutilante (L40.5)   - "" Main """,arthrite mutilante | main,OWL_ANS
+M07.15,label,"Arthrite mutilante (L40.5)   - "" Région pelvienne et cuisse """,arthrite mutilante | région pelvienne et cuisse,OWL_ANS
+M07.16,label,"Arthrite mutilante (L40.5)   - "" Jambe """,arthrite mutilante | jambe,OWL_ANS
+M07.17,label,"Arthrite mutilante (L40.5)   - "" Cheville et pied """,arthrite mutilante | cheville et pied,OWL_ANS
+M07.18,label,"Arthrite mutilante (L40.5)   - "" Autres """,arthrite mutilante | autres,OWL_ANS
+M07.19,label,"Arthrite mutilante (L40.5)   - "" Siège non précisé """,arthrite mutilante | siège non précisé,OWL_ANS
+M07.20,label,"Spondylite psoriasique (L40.5)   - "" Sièges multiples """,spondylite psoriasique | sièges multiples,OWL_ANS
+M07.21,label,"Spondylite psoriasique (L40.5)   - "" Région scapulaire """,spondylite psoriasique | région scapulaire,OWL_ANS
+M07.22,label,"Spondylite psoriasique (L40.5)   - "" Bras """,spondylite psoriasique | bras,OWL_ANS
+M07.23,label,"Spondylite psoriasique (L40.5)   - "" Avant-bras """,spondylite psoriasique | avant-bras,OWL_ANS
+M07.24,label,"Spondylite psoriasique (L40.5)   - "" Main """,spondylite psoriasique | main,OWL_ANS
+M07.25,label,"Spondylite psoriasique (L40.5)   - "" Région pelvienne et cuisse """,spondylite psoriasique | région pelvienne et cuisse,OWL_ANS
+M07.26,label,"Spondylite psoriasique (L40.5)   - "" Jambe """,spondylite psoriasique | jambe,OWL_ANS
+M07.27,label,"Spondylite psoriasique (L40.5)   - "" Cheville et pied """,spondylite psoriasique | cheville et pied,OWL_ANS
+M07.28,label,"Spondylite psoriasique (L40.5)   - "" Autres """,spondylite psoriasique | autres,OWL_ANS
+M07.29,label,"Spondylite psoriasique (L40.5)   - "" Siège non précisé """,spondylite psoriasique | siège non précisé,OWL_ANS
+M07.30,label,"Autres arthropathies psoriasiques (L40.5)   - "" Sièges multiples """,autres arthropathies psoriasiques | sièges multiples,OWL_ANS
+M07.31,label,"Autres arthropathies psoriasiques (L40.5)   - "" Région scapulaire """,autres arthropathies psoriasiques | région scapulaire,OWL_ANS
+M07.32,label,"Autres arthropathies psoriasiques (L40.5)   - "" Bras """,autres arthropathies psoriasiques | bras,OWL_ANS
+M07.33,label,"Autres arthropathies psoriasiques (L40.5)   - "" Avant-bras """,autres arthropathies psoriasiques | avant-bras,OWL_ANS
+M07.34,label,"Autres arthropathies psoriasiques (L40.5)   - "" Main """,autres arthropathies psoriasiques | main,OWL_ANS
+M07.35,label,"Autres arthropathies psoriasiques (L40.5)   - "" Région pelvienne et cuisse """,autres arthropathies psoriasiques | région pelvienne et cuisse,OWL_ANS
+M07.36,label,"Autres arthropathies psoriasiques (L40.5)   - "" Jambe """,autres arthropathies psoriasiques | jambe,OWL_ANS
+M07.37,label,"Autres arthropathies psoriasiques (L40.5)   - "" Cheville et pied """,autres arthropathies psoriasiques | cheville et pied,OWL_ANS
+M07.38,label,"Autres arthropathies psoriasiques (L40.5)   - "" Autres """,autres arthropathies psoriasiques | autres,OWL_ANS
+M07.39,label,"Autres arthropathies psoriasiques (L40.5)   - "" Siège non précisé """,autres arthropathies psoriasiques | siège non précisé,OWL_ANS
+M07.40,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Sièges multiples """,arthropathie au cours de la maladie de Crohn [entérite régionale] | sièges multiples,OWL_ANS
+M07.41,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Région scapulaire """,arthropathie au cours de la maladie de Crohn [entérite régionale] | région scapulaire,OWL_ANS
+M07.42,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Bras """,arthropathie au cours de la maladie de Crohn [entérite régionale] | bras,OWL_ANS
+M07.43,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Avant-bras """,arthropathie au cours de la maladie de Crohn [entérite régionale] | avant-bras,OWL_ANS
+M07.44,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Main """,arthropathie au cours de la maladie de Crohn [entérite régionale] | main,OWL_ANS
+M07.45,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Région pelvienne et cuisse """,arthropathie au cours de la maladie de Crohn [entérite régionale] | région pelvienne et cuisse,OWL_ANS
+M07.46,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Jambe """,arthropathie au cours de la maladie de Crohn [entérite régionale] | jambe,OWL_ANS
+M07.47,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Cheville et pied """,arthropathie au cours de la maladie de Crohn [entérite régionale] | cheville et pied,OWL_ANS
+M07.48,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Autres """,arthropathie au cours de la maladie de Crohn [entérite régionale] | autres,OWL_ANS
+M07.49,label,"Arthropathie au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Siège non précisé """,arthropathie au cours de la maladie de Crohn [entérite régionale] | siège non précisé,OWL_ANS
+M07.50,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Sièges multiples """,arthropathie au cours de colite ulcéreuse | sièges multiples,OWL_ANS
+M07.51,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Région scapulaire """,arthropathie au cours de colite ulcéreuse | région scapulaire,OWL_ANS
+M07.52,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Bras """,arthropathie au cours de colite ulcéreuse | bras,OWL_ANS
+M07.53,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Avant-bras """,arthropathie au cours de colite ulcéreuse | avant-bras,OWL_ANS
+M07.54,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Main """,arthropathie au cours de colite ulcéreuse | main,OWL_ANS
+M07.55,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Région pelvienne et cuisse """,arthropathie au cours de colite ulcéreuse | région pelvienne et cuisse,OWL_ANS
+M07.56,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Jambe """,arthropathie au cours de colite ulcéreuse | jambe,OWL_ANS
+M07.57,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Cheville et pied """,arthropathie au cours de colite ulcéreuse | cheville et pied,OWL_ANS
+M07.58,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Autres """,arthropathie au cours de colite ulcéreuse | autres,OWL_ANS
+M07.59,label,"Arthropathie au cours de colite ulcéreuse (K51.-)   - "" Siège non précisé """,arthropathie au cours de colite ulcéreuse | siège non précisé,OWL_ANS
 M07.60,label,"Autres arthropathies entéropathiques - "" Sièges multiples """,autres arthropathies entéropathiques | sièges multiples,OWL_ANS
 M07.61,label,"Autres arthropathies entéropathiques - "" Région scapulaire """,autres arthropathies entéropathiques | région scapulaire,OWL_ANS
 M07.62,label,"Autres arthropathies entéropathiques - "" Bras """,autres arthropathies entéropathiques | bras,OWL_ANS
@@ -2236,36 +2236,36 @@ M08.96,label,"Polyarthrite juvénile, sans précision - "" Jambe ""","polyarthri
 M08.97,label,"Polyarthrite juvénile, sans précision - "" Cheville et pied ""","polyarthrite juvénile, sans précision | cheville et pied",OWL_ANS
 M08.98,label,"Polyarthrite juvénile, sans précision - "" Autres ""","polyarthrite juvénile, sans précision | autres",OWL_ANS
 M08.99,label,"Polyarthrite juvénile, sans précision - "" Siège non précisé ""","polyarthrite juvénile, sans précision | siège non précisé",OWL_ANS
-M09.00,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Sièges multiples """,polyarthrite juvénile au cours de psoriasis | sièges multiples,OWL_ANS
-M09.01,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Région scapulaire """,polyarthrite juvénile au cours de psoriasis | région scapulaire,OWL_ANS
-M09.02,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Bras """,polyarthrite juvénile au cours de psoriasis | bras,OWL_ANS
-M09.03,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Avant-bras """,polyarthrite juvénile au cours de psoriasis | avant-bras,OWL_ANS
-M09.04,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Main """,polyarthrite juvénile au cours de psoriasis | main,OWL_ANS
-M09.05,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Région pelvienne et cuisse """,polyarthrite juvénile au cours de psoriasis | région pelvienne et cuisse,OWL_ANS
-M09.06,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Jambe """,polyarthrite juvénile au cours de psoriasis | jambe,OWL_ANS
-M09.07,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Cheville et pied """,polyarthrite juvénile au cours de psoriasis | cheville et pied,OWL_ANS
-M09.08,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Autres """,polyarthrite juvénile au cours de psoriasis | autres,OWL_ANS
-M09.09,label,"Polyarthrite juvénile au cours de psoriasis [L40.5]   - "" Siège non précisé """,polyarthrite juvénile au cours de psoriasis | siège non précisé,OWL_ANS
-M09.10,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Sièges multiples """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | sièges multiples,OWL_ANS
-M09.11,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Région scapulaire """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | région scapulaire,OWL_ANS
-M09.12,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Bras """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | bras,OWL_ANS
-M09.13,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Avant-bras """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | avant-bras,OWL_ANS
-M09.14,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Main """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | main,OWL_ANS
-M09.15,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Région pelvienne et cuisse """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | région pelvienne et cuisse,OWL_ANS
-M09.16,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Jambe """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | jambe,OWL_ANS
-M09.17,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Cheville et pied """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | cheville et pied,OWL_ANS
-M09.18,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Autres """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | autres,OWL_ANS
-M09.19,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] [K50.-]   - "" Siège non précisé """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | siège non précisé,OWL_ANS
-M09.20,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Sièges multiples """,polyarthrite juvénile au cours de colite ulcéreuse | sièges multiples,OWL_ANS
-M09.21,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Région scapulaire """,polyarthrite juvénile au cours de colite ulcéreuse | région scapulaire,OWL_ANS
-M09.22,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Bras """,polyarthrite juvénile au cours de colite ulcéreuse | bras,OWL_ANS
-M09.23,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Avant-bras """,polyarthrite juvénile au cours de colite ulcéreuse | avant-bras,OWL_ANS
-M09.24,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Main """,polyarthrite juvénile au cours de colite ulcéreuse | main,OWL_ANS
-M09.25,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Région pelvienne et cuisse """,polyarthrite juvénile au cours de colite ulcéreuse | région pelvienne et cuisse,OWL_ANS
-M09.26,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Jambe """,polyarthrite juvénile au cours de colite ulcéreuse | jambe,OWL_ANS
-M09.27,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Cheville et pied """,polyarthrite juvénile au cours de colite ulcéreuse | cheville et pied,OWL_ANS
-M09.28,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Autres """,polyarthrite juvénile au cours de colite ulcéreuse | autres,OWL_ANS
-M09.29,label,"Polyarthrite juvénile au cours de colite ulcéreuse [K51.-]   - "" Siège non précisé """,polyarthrite juvénile au cours de colite ulcéreuse | siège non précisé,OWL_ANS
+M09.00,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Sièges multiples """,polyarthrite juvénile au cours de psoriasis | sièges multiples,OWL_ANS
+M09.01,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Région scapulaire """,polyarthrite juvénile au cours de psoriasis | région scapulaire,OWL_ANS
+M09.02,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Bras """,polyarthrite juvénile au cours de psoriasis | bras,OWL_ANS
+M09.03,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Avant-bras """,polyarthrite juvénile au cours de psoriasis | avant-bras,OWL_ANS
+M09.04,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Main """,polyarthrite juvénile au cours de psoriasis | main,OWL_ANS
+M09.05,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Région pelvienne et cuisse """,polyarthrite juvénile au cours de psoriasis | région pelvienne et cuisse,OWL_ANS
+M09.06,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Jambe """,polyarthrite juvénile au cours de psoriasis | jambe,OWL_ANS
+M09.07,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Cheville et pied """,polyarthrite juvénile au cours de psoriasis | cheville et pied,OWL_ANS
+M09.08,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Autres """,polyarthrite juvénile au cours de psoriasis | autres,OWL_ANS
+M09.09,label,"Polyarthrite juvénile au cours de psoriasis (L40.5)   - "" Siège non précisé """,polyarthrite juvénile au cours de psoriasis | siège non précisé,OWL_ANS
+M09.10,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Sièges multiples """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | sièges multiples,OWL_ANS
+M09.11,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Région scapulaire """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | région scapulaire,OWL_ANS
+M09.12,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Bras """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | bras,OWL_ANS
+M09.13,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Avant-bras """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | avant-bras,OWL_ANS
+M09.14,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Main """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | main,OWL_ANS
+M09.15,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Région pelvienne et cuisse """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | région pelvienne et cuisse,OWL_ANS
+M09.16,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Jambe """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | jambe,OWL_ANS
+M09.17,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Cheville et pied """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | cheville et pied,OWL_ANS
+M09.18,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Autres """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | autres,OWL_ANS
+M09.19,label,"Polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] (K50.-)   - "" Siège non précisé """,polyarthrite juvénile au cours de la maladie de Crohn [entérite régionale] | siège non précisé,OWL_ANS
+M09.20,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Sièges multiples """,polyarthrite juvénile au cours de colite ulcéreuse | sièges multiples,OWL_ANS
+M09.21,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Région scapulaire """,polyarthrite juvénile au cours de colite ulcéreuse | région scapulaire,OWL_ANS
+M09.22,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Bras """,polyarthrite juvénile au cours de colite ulcéreuse | bras,OWL_ANS
+M09.23,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Avant-bras """,polyarthrite juvénile au cours de colite ulcéreuse | avant-bras,OWL_ANS
+M09.24,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Main """,polyarthrite juvénile au cours de colite ulcéreuse | main,OWL_ANS
+M09.25,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Région pelvienne et cuisse """,polyarthrite juvénile au cours de colite ulcéreuse | région pelvienne et cuisse,OWL_ANS
+M09.26,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Jambe """,polyarthrite juvénile au cours de colite ulcéreuse | jambe,OWL_ANS
+M09.27,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Cheville et pied """,polyarthrite juvénile au cours de colite ulcéreuse | cheville et pied,OWL_ANS
+M09.28,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Autres """,polyarthrite juvénile au cours de colite ulcéreuse | autres,OWL_ANS
+M09.29,label,"Polyarthrite juvénile au cours de colite ulcéreuse (K51.-)   - "" Siège non précisé """,polyarthrite juvénile au cours de colite ulcéreuse | siège non précisé,OWL_ANS
 M09.80,label,"Polyarthrite juvénile au cours d'autres maladies classées ailleurs - "" Sièges multiples """,polyarthrite juvénile au cours d'autres maladies classées ailleurs | sièges multiples,OWL_ANS
 M09.81,label,"Polyarthrite juvénile au cours d'autres maladies classées ailleurs - "" Région scapulaire """,polyarthrite juvénile au cours d'autres maladies classées ailleurs | région scapulaire,OWL_ANS
 M09.82,label,"Polyarthrite juvénile au cours d'autres maladies classées ailleurs - "" Bras """,polyarthrite juvénile au cours d'autres maladies classées ailleurs | bras,OWL_ANS
@@ -3274,16 +3274,16 @@ M46.96,label,"Spondylopathie inflammatoire, sans précision - "" Région lombair
 M46.97,label,"Spondylopathie inflammatoire, sans précision - "" Région lombosacrée ""","spondylopathie inflammatoire, sans précision | région lombo-sacrée",OWL_ANS
 M46.98,label,"Spondylopathie inflammatoire, sans précision - "" Région sacrée et sacrococcygienne ""","spondylopathie inflammatoire, sans précision | région sacrée et sacro-coccygienne",OWL_ANS
 M46.99,label,"Spondylopathie inflammatoire, sans précision - "" Localisation non précisée ""","spondylopathie inflammatoire, sans précision | localisation non précisée",OWL_ANS
-M47.00,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Localisations vertébrales multiples """,syndromes de compression des artères vertébrale et spinale antérieure | localisations vertébrales multiples,OWL_ANS
-M47.01,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Région occipito-atloïdo-axoïdienne """,syndromes de compression des artères vertébrale et spinale antérieure | région occipito-atloïdo-axoïdienne,OWL_ANS
-M47.02,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Région cervicale """,syndromes de compression des artères vertébrale et spinale antérieure | région cervicale,OWL_ANS
-M47.03,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Région cervicodorsal """,syndromes de compression des artères vertébrale et spinale antérieure | région cervico-dorsale,OWL_ANS
-M47.04,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Région dorsale """,syndromes de compression des artères vertébrale et spinale antérieure | région dorsale,OWL_ANS
-M47.05,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Région dorsolombaire """,syndromes de compression des artères vertébrale et spinale antérieure | région dorso-lombaire,OWL_ANS
-M47.06,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Région lombaire """,syndromes de compression des artères vertébrale et spinale antérieure | région lombaire,OWL_ANS
-M47.07,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Région lombosacrée """,syndromes de compression des artères vertébrale et spinale antérieure | région lombo-sacrée,OWL_ANS
-M47.08,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Région sacrée et sacrococcygienne """,syndromes de compression des artères vertébrale et spinale antérieure | région sacrée et sacro-coccygienne,OWL_ANS
-M47.09,label,"Syndromes de compression des artères vertébrale et spinale antérieure [G99.2]   - "" Localisation non précisée """,syndromes de compression des artères vertébrale et spinale antérieure | localisation non précisée,OWL_ANS
+M47.00,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Localisations vertébrales multiples """,syndromes de compression des artères vertébrale et spinale antérieure | localisations vertébrales multiples,OWL_ANS
+M47.01,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Région occipito-atloïdo-axoïdienne """,syndromes de compression des artères vertébrale et spinale antérieure | région occipito-atloïdo-axoïdienne,OWL_ANS
+M47.02,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Région cervicale """,syndromes de compression des artères vertébrale et spinale antérieure | région cervicale,OWL_ANS
+M47.03,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Région cervicodorsal """,syndromes de compression des artères vertébrale et spinale antérieure | région cervico-dorsale,OWL_ANS
+M47.04,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Région dorsale """,syndromes de compression des artères vertébrale et spinale antérieure | région dorsale,OWL_ANS
+M47.05,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Région dorsolombaire """,syndromes de compression des artères vertébrale et spinale antérieure | région dorso-lombaire,OWL_ANS
+M47.06,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Région lombaire """,syndromes de compression des artères vertébrale et spinale antérieure | région lombaire,OWL_ANS
+M47.07,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Région lombosacrée """,syndromes de compression des artères vertébrale et spinale antérieure | région lombo-sacrée,OWL_ANS
+M47.08,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Région sacrée et sacrococcygienne """,syndromes de compression des artères vertébrale et spinale antérieure | région sacrée et sacro-coccygienne,OWL_ANS
+M47.09,label,"Syndromes de compression des artères vertébrale et spinale antérieure (G99.2)   - "" Localisation non précisée """,syndromes de compression des artères vertébrale et spinale antérieure | localisation non précisée,OWL_ANS
 M47.10,label,"Autres spondylarthroses avec myélopathie - "" Localisations vertébrales multiples """,autres spondylarthroses avec myélopathie | localisations vertébrales multiples,OWL_ANS
 M47.11,label,"Autres spondylarthroses avec myélopathie - "" Région occipito-atloïdo-axoïdienne """,autres spondylarthroses avec myélopathie | région occipito-atloïdo-axoïdienne,OWL_ANS
 M47.12,label,"Autres spondylarthroses avec myélopathie - "" Région cervicale """,autres spondylarthroses avec myélopathie | région cervicale,OWL_ANS
@@ -3404,36 +3404,36 @@ M48.96,label,"Spondylopathie, sans précision - "" Région lombaire ""","spondyl
 M48.97,label,"Spondylopathie, sans précision - "" Région lombosacrée ""","spondylopathie, sans précision | région lombo-sacrée",OWL_ANS
 M48.98,label,"Spondylopathie, sans précision - "" Région sacrée et sacrococcygienne ""","spondylopathie, sans précision | région sacrée et sacro-coccygienne",OWL_ANS
 M48.99,label,"Spondylopathie, sans précision - "" Localisation non précisée ""","spondylopathie, sans précision | localisation non précisée",OWL_ANS
-M49.00,label,"Tuberculose vertébrale [A18.0]   - "" Localisations vertébrales multiples """,tuberculose vertébrale | localisations vertébrales multiples,OWL_ANS
-M49.01,label,"Tuberculose vertébrale [A18.0]   - "" Région occipito-atloïdo-axoïdienne """,tuberculose vertébrale | région occipito-atloïdo-axoïdienne,OWL_ANS
-M49.02,label,"Tuberculose vertébrale [A18.0]   - "" Région cervicale """,tuberculose vertébrale | région cervicale,OWL_ANS
-M49.03,label,"Tuberculose vertébrale [A18.0]   - "" Région cervicodorsal """,tuberculose vertébrale | région cervico-dorsale,OWL_ANS
-M49.04,label,"Tuberculose vertébrale [A18.0]   - "" Région dorsale """,tuberculose vertébrale | région dorsale,OWL_ANS
-M49.05,label,"Tuberculose vertébrale [A18.0]   - "" Région dorsolombaire """,tuberculose vertébrale | région dorso-lombaire,OWL_ANS
-M49.06,label,"Tuberculose vertébrale [A18.0]   - "" Région lombaire """,tuberculose vertébrale | région lombaire,OWL_ANS
-M49.07,label,"Tuberculose vertébrale [A18.0]   - "" Région lombosacrée """,tuberculose vertébrale | région lombo-sacrée,OWL_ANS
-M49.08,label,"Tuberculose vertébrale [A18.0]   - "" Région sacrée et sacrococcygienne """,tuberculose vertébrale | région sacrée et sacro-coccygienne,OWL_ANS
-M49.09,label,"Tuberculose vertébrale [A18.0]   - "" Localisation non précisée """,tuberculose vertébrale | localisation non précisée,OWL_ANS
-M49.10,label,"Spondylite au cours de brucellose [A23.-]   - "" Localisations vertébrales multiples """,spondylite au cours de brucellose | localisations vertébrales multiples,OWL_ANS
-M49.11,label,"Spondylite au cours de brucellose [A23.-]   - "" Région occipito-atloïdo-axoïdienne """,spondylite au cours de brucellose | région occipito-atloïdo-axoïdienne,OWL_ANS
-M49.12,label,"Spondylite au cours de brucellose [A23.-]   - "" Région cervicale """,spondylite au cours de brucellose | région cervicale,OWL_ANS
-M49.13,label,"Spondylite au cours de brucellose [A23.-]   - "" Région cervicodorsal """,spondylite au cours de brucellose | région cervico-dorsale,OWL_ANS
-M49.14,label,"Spondylite au cours de brucellose [A23.-]   - "" Région dorsale """,spondylite au cours de brucellose | région dorsale,OWL_ANS
-M49.15,label,"Spondylite au cours de brucellose [A23.-]   - "" Région dorsolombaire """,spondylite au cours de brucellose | région dorso-lombaire,OWL_ANS
-M49.16,label,"Spondylite au cours de brucellose [A23.-]   - "" Région lombaire """,spondylite au cours de brucellose | région lombaire,OWL_ANS
-M49.17,label,"Spondylite au cours de brucellose [A23.-]   - "" Région lombosacrée """,spondylite au cours de brucellose | région lombo-sacrée,OWL_ANS
-M49.18,label,"Spondylite au cours de brucellose [A23.-]   - "" Région sacrée et sacrococcygienne """,spondylite au cours de brucellose | région sacrée et sacro-coccygienne,OWL_ANS
-M49.19,label,"Spondylite au cours de brucellose [A23.-]   - "" Localisation non précisée """,spondylite au cours de brucellose | localisation non précisée,OWL_ANS
-M49.20,label,"Spondylite entérobactérienne [A01-A04]   - "" Localisations vertébrales multiples """,spondylite entérobactérienne | localisations vertébrales multiples,OWL_ANS
-M49.21,label,"Spondylite entérobactérienne [A01-A04]   - "" Région occipito-atloïdo-axoïdienne """,spondylite entérobactérienne | région occipito-atloïdo-axoïdienne,OWL_ANS
-M49.22,label,"Spondylite entérobactérienne [A01-A04]   - "" Région cervicale """,spondylite entérobactérienne | région cervicale,OWL_ANS
-M49.23,label,"Spondylite entérobactérienne [A01-A04]   - "" Région cervicodorsal """,spondylite entérobactérienne | région cervico-dorsale,OWL_ANS
-M49.24,label,"Spondylite entérobactérienne [A01-A04]   - "" Région dorsale """,spondylite entérobactérienne | région dorsale,OWL_ANS
-M49.25,label,"Spondylite entérobactérienne [A01-A04]   - "" Région dorsolombaire """,spondylite entérobactérienne | région dorso-lombaire,OWL_ANS
-M49.26,label,"Spondylite entérobactérienne [A01-A04]   - "" Région lombaire """,spondylite entérobactérienne | région lombaire,OWL_ANS
-M49.27,label,"Spondylite entérobactérienne [A01-A04]   - "" Région lombosacrée """,spondylite entérobactérienne | région lombo-sacrée,OWL_ANS
-M49.28,label,"Spondylite entérobactérienne [A01-A04]   - "" Région sacrée et sacrococcygienne """,spondylite entérobactérienne | région sacrée et sacro-coccygienne,OWL_ANS
-M49.29,label,"Spondylite entérobactérienne [A01-A04]   - "" Localisation non précisée """,spondylite entérobactérienne | localisation non précisée,OWL_ANS
+M49.00,label,"Tuberculose vertébrale (A18.0)   - "" Localisations vertébrales multiples """,tuberculose vertébrale | localisations vertébrales multiples,OWL_ANS
+M49.01,label,"Tuberculose vertébrale (A18.0)   - "" Région occipito-atloïdo-axoïdienne """,tuberculose vertébrale | région occipito-atloïdo-axoïdienne,OWL_ANS
+M49.02,label,"Tuberculose vertébrale (A18.0)   - "" Région cervicale """,tuberculose vertébrale | région cervicale,OWL_ANS
+M49.03,label,"Tuberculose vertébrale (A18.0)   - "" Région cervicodorsal """,tuberculose vertébrale | région cervico-dorsale,OWL_ANS
+M49.04,label,"Tuberculose vertébrale (A18.0)   - "" Région dorsale """,tuberculose vertébrale | région dorsale,OWL_ANS
+M49.05,label,"Tuberculose vertébrale (A18.0)   - "" Région dorsolombaire """,tuberculose vertébrale | région dorso-lombaire,OWL_ANS
+M49.06,label,"Tuberculose vertébrale (A18.0)   - "" Région lombaire """,tuberculose vertébrale | région lombaire,OWL_ANS
+M49.07,label,"Tuberculose vertébrale (A18.0)   - "" Région lombosacrée """,tuberculose vertébrale | région lombo-sacrée,OWL_ANS
+M49.08,label,"Tuberculose vertébrale (A18.0)   - "" Région sacrée et sacrococcygienne """,tuberculose vertébrale | région sacrée et sacro-coccygienne,OWL_ANS
+M49.09,label,"Tuberculose vertébrale (A18.0)   - "" Localisation non précisée """,tuberculose vertébrale | localisation non précisée,OWL_ANS
+M49.10,label,"Spondylite au cours de brucellose (A23.-)   - "" Localisations vertébrales multiples """,spondylite au cours de brucellose | localisations vertébrales multiples,OWL_ANS
+M49.11,label,"Spondylite au cours de brucellose (A23.-)   - "" Région occipito-atloïdo-axoïdienne """,spondylite au cours de brucellose | région occipito-atloïdo-axoïdienne,OWL_ANS
+M49.12,label,"Spondylite au cours de brucellose (A23.-)   - "" Région cervicale """,spondylite au cours de brucellose | région cervicale,OWL_ANS
+M49.13,label,"Spondylite au cours de brucellose (A23.-)   - "" Région cervicodorsal """,spondylite au cours de brucellose | région cervico-dorsale,OWL_ANS
+M49.14,label,"Spondylite au cours de brucellose (A23.-)   - "" Région dorsale """,spondylite au cours de brucellose | région dorsale,OWL_ANS
+M49.15,label,"Spondylite au cours de brucellose (A23.-)   - "" Région dorsolombaire """,spondylite au cours de brucellose | région dorso-lombaire,OWL_ANS
+M49.16,label,"Spondylite au cours de brucellose (A23.-)   - "" Région lombaire """,spondylite au cours de brucellose | région lombaire,OWL_ANS
+M49.17,label,"Spondylite au cours de brucellose (A23.-)   - "" Région lombosacrée """,spondylite au cours de brucellose | région lombo-sacrée,OWL_ANS
+M49.18,label,"Spondylite au cours de brucellose (A23.-)   - "" Région sacrée et sacrococcygienne """,spondylite au cours de brucellose | région sacrée et sacro-coccygienne,OWL_ANS
+M49.19,label,"Spondylite au cours de brucellose (A23.-)   - "" Localisation non précisée """,spondylite au cours de brucellose | localisation non précisée,OWL_ANS
+M49.20,label,"Spondylite entérobactérienne (A01-A04)   - "" Localisations vertébrales multiples """,spondylite entérobactérienne | localisations vertébrales multiples,OWL_ANS
+M49.21,label,"Spondylite entérobactérienne (A01-A04)   - "" Région occipito-atloïdo-axoïdienne """,spondylite entérobactérienne | région occipito-atloïdo-axoïdienne,OWL_ANS
+M49.22,label,"Spondylite entérobactérienne (A01-A04)   - "" Région cervicale """,spondylite entérobactérienne | région cervicale,OWL_ANS
+M49.23,label,"Spondylite entérobactérienne (A01-A04)   - "" Région cervicodorsal """,spondylite entérobactérienne | région cervico-dorsale,OWL_ANS
+M49.24,label,"Spondylite entérobactérienne (A01-A04)   - "" Région dorsale """,spondylite entérobactérienne | région dorsale,OWL_ANS
+M49.25,label,"Spondylite entérobactérienne (A01-A04)   - "" Région dorsolombaire """,spondylite entérobactérienne | région dorso-lombaire,OWL_ANS
+M49.26,label,"Spondylite entérobactérienne (A01-A04)   - "" Région lombaire """,spondylite entérobactérienne | région lombaire,OWL_ANS
+M49.27,label,"Spondylite entérobactérienne (A01-A04)   - "" Région lombosacrée """,spondylite entérobactérienne | région lombo-sacrée,OWL_ANS
+M49.28,label,"Spondylite entérobactérienne (A01-A04)   - "" Région sacrée et sacrococcygienne """,spondylite entérobactérienne | région sacrée et sacro-coccygienne,OWL_ANS
+M49.29,label,"Spondylite entérobactérienne (A01-A04)   - "" Localisation non précisée """,spondylite entérobactérienne | localisation non précisée,OWL_ANS
 M49.30,label,"Spondylopathie au cours d'autres maladies infectieuses et  parasitaires classées ailleurs - "" Localisations vertébrales multiples """,spondylopathie au cours d'autres maladies infectieuses et parasitaires classées ailleurs | localisations vertébrales multiples,OWL_ANS
 M49.31,label,"Spondylopathie au cours d'autres maladies infectieuses et  parasitaires classées ailleurs - "" Région occipito-atloïdo-axoïdienne """,spondylopathie au cours d'autres maladies infectieuses et parasitaires classées ailleurs | région occipito-atloïdo-axoïdienne,OWL_ANS
 M49.32,label,"Spondylopathie au cours d'autres maladies infectieuses et  parasitaires classées ailleurs - "" Région cervicale """,spondylopathie au cours d'autres maladies infectieuses et parasitaires classées ailleurs | région cervicale,OWL_ANS
@@ -4203,26 +4203,26 @@ M72.96,label,"Affection fibroblastique, sans précision - "" Jambe ""","affectio
 M72.97,label,"Affection fibroblastique, sans précision - "" Cheville et pied ""","affection fibroblastique, sans précision | cheville et pied",OWL_ANS
 M72.98,label,"Affection fibroblastique, sans précision - "" Autres ""","affection fibroblastique, sans précision | autres",OWL_ANS
 M72.99,label,"Affection fibroblastique, sans précision - "" Siège non précisé ""","affection fibroblastique, sans précision | siège non précisé",OWL_ANS
-M73.00,label,"Bursite gonococcique [A54.4]   - "" Sièges multiples """,bursite gonococcique | sièges multiples,OWL_ANS
-M73.01,label,"Bursite gonococcique [A54.4]   - "" Région scapulaire """,bursite gonococcique | région scapulaire,OWL_ANS
-M73.02,label,"Bursite gonococcique [A54.4]   - "" Bras """,bursite gonococcique | bras,OWL_ANS
-M73.03,label,"Bursite gonococcique [A54.4]   - "" Avant-bras """,bursite gonococcique | avant-bras,OWL_ANS
-M73.04,label,"Bursite gonococcique [A54.4]   - "" Main """,bursite gonococcique | main,OWL_ANS
-M73.05,label,"Bursite gonococcique [A54.4]   - "" Région pelvienne et cuisse """,bursite gonococcique | région pelvienne et cuisse,OWL_ANS
-M73.06,label,"Bursite gonococcique [A54.4]   - "" Jambe """,bursite gonococcique | jambe,OWL_ANS
-M73.07,label,"Bursite gonococcique [A54.4]   - "" Cheville et pied """,bursite gonococcique | cheville et pied,OWL_ANS
-M73.08,label,"Bursite gonococcique [A54.4]   - "" Autres """,bursite gonococcique | autres,OWL_ANS
-M73.09,label,"Bursite gonococcique [A54.4]   - "" Siège non précisé """,bursite gonococcique | siège non précisé,OWL_ANS
-M73.10,label,"Bursite syphilitique [A52.7]   - "" Sièges multiples """,bursite syphilitique | sièges multiples,OWL_ANS
-M73.11,label,"Bursite syphilitique [A52.7]   - "" Région scapulaire """,bursite syphilitique | région scapulaire,OWL_ANS
-M73.12,label,"Bursite syphilitique [A52.7]   - "" Bras """,bursite syphilitique | bras,OWL_ANS
-M73.13,label,"Bursite syphilitique [A52.7]   - "" Avant-bras """,bursite syphilitique | avant-bras,OWL_ANS
-M73.14,label,"Bursite syphilitique [A52.7]   - "" Main """,bursite syphilitique | main,OWL_ANS
-M73.15,label,"Bursite syphilitique [A52.7]   - "" Région pelvienne et cuisse """,bursite syphilitique | région pelvienne et cuisse,OWL_ANS
-M73.16,label,"Bursite syphilitique [A52.7]   - "" Jambe """,bursite syphilitique | jambe,OWL_ANS
-M73.17,label,"Bursite syphilitique [A52.7]   - "" Cheville et pied """,bursite syphilitique | cheville et pied,OWL_ANS
-M73.18,label,"Bursite syphilitique [A52.7]   - "" Autres """,bursite syphilitique | autres,OWL_ANS
-M73.19,label,"Bursite syphilitique [A52.7]   - "" Siège non précisé """,bursite syphilitique | siège non précisé,OWL_ANS
+M73.00,label,"Bursite gonococcique (A54.4)   - "" Sièges multiples """,bursite gonococcique | sièges multiples,OWL_ANS
+M73.01,label,"Bursite gonococcique (A54.4)   - "" Région scapulaire """,bursite gonococcique | région scapulaire,OWL_ANS
+M73.02,label,"Bursite gonococcique (A54.4)   - "" Bras """,bursite gonococcique | bras,OWL_ANS
+M73.03,label,"Bursite gonococcique (A54.4)   - "" Avant-bras """,bursite gonococcique | avant-bras,OWL_ANS
+M73.04,label,"Bursite gonococcique (A54.4)   - "" Main """,bursite gonococcique | main,OWL_ANS
+M73.05,label,"Bursite gonococcique (A54.4)   - "" Région pelvienne et cuisse """,bursite gonococcique | région pelvienne et cuisse,OWL_ANS
+M73.06,label,"Bursite gonococcique (A54.4)   - "" Jambe """,bursite gonococcique | jambe,OWL_ANS
+M73.07,label,"Bursite gonococcique (A54.4)   - "" Cheville et pied """,bursite gonococcique | cheville et pied,OWL_ANS
+M73.08,label,"Bursite gonococcique (A54.4)   - "" Autres """,bursite gonococcique | autres,OWL_ANS
+M73.09,label,"Bursite gonococcique (A54.4)   - "" Siège non précisé """,bursite gonococcique | siège non précisé,OWL_ANS
+M73.10,label,"Bursite syphilitique (A52.7)   - "" Sièges multiples """,bursite syphilitique | sièges multiples,OWL_ANS
+M73.11,label,"Bursite syphilitique (A52.7)   - "" Région scapulaire """,bursite syphilitique | région scapulaire,OWL_ANS
+M73.12,label,"Bursite syphilitique (A52.7)   - "" Bras """,bursite syphilitique | bras,OWL_ANS
+M73.13,label,"Bursite syphilitique (A52.7)   - "" Avant-bras """,bursite syphilitique | avant-bras,OWL_ANS
+M73.14,label,"Bursite syphilitique (A52.7)   - "" Main """,bursite syphilitique | main,OWL_ANS
+M73.15,label,"Bursite syphilitique (A52.7)   - "" Région pelvienne et cuisse """,bursite syphilitique | région pelvienne et cuisse,OWL_ANS
+M73.16,label,"Bursite syphilitique (A52.7)   - "" Jambe """,bursite syphilitique | jambe,OWL_ANS
+M73.17,label,"Bursite syphilitique (A52.7)   - "" Cheville et pied """,bursite syphilitique | cheville et pied,OWL_ANS
+M73.18,label,"Bursite syphilitique (A52.7)   - "" Autres """,bursite syphilitique | autres,OWL_ANS
+M73.19,label,"Bursite syphilitique (A52.7)   - "" Siège non précisé """,bursite syphilitique | siège non précisé,OWL_ANS
 M73.80,label,"Autres affections des tissus mous au cours d'autres  maladies classées ailleurs - "" Sièges multiples """,autres affections des tissus mous au cours d'autres maladies classées ailleurs | sièges multiples,OWL_ANS
 M73.81,label,"Autres affections des tissus mous au cours d'autres  maladies classées ailleurs - "" Région scapulaire """,autres affections des tissus mous au cours d'autres maladies classées ailleurs | région scapulaire,OWL_ANS
 M73.82,label,"Autres affections des tissus mous au cours d'autres  maladies classées ailleurs - "" Bras """,autres affections des tissus mous au cours d'autres maladies classées ailleurs | bras,OWL_ANS
@@ -4682,26 +4682,26 @@ M81.96,label,"Ostéoporose, sans précision - "" Jambe ""","ostéoporose, sans p
 M81.97,label,"Ostéoporose, sans précision - "" Cheville et pied ""","ostéoporose, sans précision | cheville et pied",OWL_ANS
 M81.98,label,"Ostéoporose, sans précision - "" Autres ""","ostéoporose, sans précision | autres",OWL_ANS
 M81.99,label,"Ostéoporose, sans précision - "" Siège non précisé ""","ostéoporose, sans précision | siège non précisé",OWL_ANS
-M82.00,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Sièges multiples """,ostéoporose au cours de myélomatose multiple | sièges multiples,OWL_ANS
-M82.01,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Région scapulaire """,ostéoporose au cours de myélomatose multiple | région scapulaire,OWL_ANS
-M82.02,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Bras """,ostéoporose au cours de myélomatose multiple | bras,OWL_ANS
-M82.03,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Avant-bras """,ostéoporose au cours de myélomatose multiple | avant-bras,OWL_ANS
-M82.04,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Main """,ostéoporose au cours de myélomatose multiple | main,OWL_ANS
-M82.05,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Région pelvienne et cuisse """,ostéoporose au cours de myélomatose multiple | région pelvienne et cuisse,OWL_ANS
-M82.06,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Jambe """,ostéoporose au cours de myélomatose multiple | jambe,OWL_ANS
-M82.07,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Cheville et pied """,ostéoporose au cours de myélomatose multiple | cheville et pied,OWL_ANS
-M82.08,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Autres """,ostéoporose au cours de myélomatose multiple | autres,OWL_ANS
-M82.09,label,"Ostéoporose au cours de myélomatose multiple [C90.0]   - "" Siège non précisé """,ostéoporose au cours de myélomatose multiple | siège non précisé,OWL_ANS
-M82.10,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Sièges multiples """,ostéoporose au cours de maladies endocriniennes | sièges multiples,OWL_ANS
-M82.11,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Région scapulaire """,ostéoporose au cours de maladies endocriniennes | région scapulaire,OWL_ANS
-M82.12,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Bras """,ostéoporose au cours de maladies endocriniennes | bras,OWL_ANS
-M82.13,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Avant-bras """,ostéoporose au cours de maladies endocriniennes | avant-bras,OWL_ANS
-M82.14,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Main """,ostéoporose au cours de maladies endocriniennes | main,OWL_ANS
-M82.15,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Région pelvienne et cuisse """,ostéoporose au cours de maladies endocriniennes | région pelvienne et cuisse,OWL_ANS
-M82.16,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Jambe """,ostéoporose au cours de maladies endocriniennes | jambe,OWL_ANS
-M82.17,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Cheville et pied """,ostéoporose au cours de maladies endocriniennes | cheville et pied,OWL_ANS
-M82.18,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Autres """,ostéoporose au cours de maladies endocriniennes | autres,OWL_ANS
-M82.19,label,"Ostéoporose au cours de maladies endocriniennes [E00-E34]   - "" Siège non précisé """,ostéoporose au cours de maladies endocriniennes | siège non précisé,OWL_ANS
+M82.00,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Sièges multiples """,ostéoporose au cours de myélomatose multiple | sièges multiples,OWL_ANS
+M82.01,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Région scapulaire """,ostéoporose au cours de myélomatose multiple | région scapulaire,OWL_ANS
+M82.02,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Bras """,ostéoporose au cours de myélomatose multiple | bras,OWL_ANS
+M82.03,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Avant-bras """,ostéoporose au cours de myélomatose multiple | avant-bras,OWL_ANS
+M82.04,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Main """,ostéoporose au cours de myélomatose multiple | main,OWL_ANS
+M82.05,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Région pelvienne et cuisse """,ostéoporose au cours de myélomatose multiple | région pelvienne et cuisse,OWL_ANS
+M82.06,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Jambe """,ostéoporose au cours de myélomatose multiple | jambe,OWL_ANS
+M82.07,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Cheville et pied """,ostéoporose au cours de myélomatose multiple | cheville et pied,OWL_ANS
+M82.08,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Autres """,ostéoporose au cours de myélomatose multiple | autres,OWL_ANS
+M82.09,label,"Ostéoporose au cours de myélomatose multiple (C90.0)   - "" Siège non précisé """,ostéoporose au cours de myélomatose multiple | siège non précisé,OWL_ANS
+M82.10,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Sièges multiples """,ostéoporose au cours de maladies endocriniennes | sièges multiples,OWL_ANS
+M82.11,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Région scapulaire """,ostéoporose au cours de maladies endocriniennes | région scapulaire,OWL_ANS
+M82.12,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Bras """,ostéoporose au cours de maladies endocriniennes | bras,OWL_ANS
+M82.13,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Avant-bras """,ostéoporose au cours de maladies endocriniennes | avant-bras,OWL_ANS
+M82.14,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Main """,ostéoporose au cours de maladies endocriniennes | main,OWL_ANS
+M82.15,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Région pelvienne et cuisse """,ostéoporose au cours de maladies endocriniennes | région pelvienne et cuisse,OWL_ANS
+M82.16,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Jambe """,ostéoporose au cours de maladies endocriniennes | jambe,OWL_ANS
+M82.17,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Cheville et pied """,ostéoporose au cours de maladies endocriniennes | cheville et pied,OWL_ANS
+M82.18,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Autres """,ostéoporose au cours de maladies endocriniennes | autres,OWL_ANS
+M82.19,label,"Ostéoporose au cours de maladies endocriniennes (E00-E34)   - "" Siège non précisé """,ostéoporose au cours de maladies endocriniennes | siège non précisé,OWL_ANS
 M82.80,label,"Ostéoporose au cours d'autres maladies classées ailleurs - "" Sièges multiples """,ostéoporose au cours d'autres maladies classées ailleurs | sièges multiples,OWL_ANS
 M82.81,label,"Ostéoporose au cours d'autres maladies classées ailleurs - "" Région scapulaire """,ostéoporose au cours d'autres maladies classées ailleurs | région scapulaire,OWL_ANS
 M82.82,label,"Ostéoporose au cours d'autres maladies classées ailleurs - "" Bras """,ostéoporose au cours d'autres maladies classées ailleurs | bras,OWL_ANS
@@ -5203,16 +5203,16 @@ M89.96,label,"Maladie osseuse, sans précision - "" Jambe ""","maladie osseuse, 
 M89.97,label,"Maladie osseuse, sans précision - "" Cheville et pied ""","maladie osseuse, sans précision | cheville et pied",OWL_ANS
 M89.98,label,"Maladie osseuse, sans précision - "" Autres ""","maladie osseuse, sans précision | autres",OWL_ANS
 M89.99,label,"Maladie osseuse, sans précision - "" Siège non précisé ""","maladie osseuse, sans précision | siège non précisé",OWL_ANS
-M90.00,label,"Tuberculose osseuse [A18.0]   - "" Sièges multiples """,tuberculose osseuse | sièges multiples,OWL_ANS
-M90.01,label,"Tuberculose osseuse [A18.0]   - "" Région scapulaire """,tuberculose osseuse | région scapulaire,OWL_ANS
-M90.02,label,"Tuberculose osseuse [A18.0]   - "" Bras """,tuberculose osseuse | bras,OWL_ANS
-M90.03,label,"Tuberculose osseuse [A18.0]   - "" Avant-bras """,tuberculose osseuse | avant-bras,OWL_ANS
-M90.04,label,"Tuberculose osseuse [A18.0]   - "" Main """,tuberculose osseuse | main,OWL_ANS
-M90.05,label,"Tuberculose osseuse [A18.0]   - "" Région pelvienne et cuisse """,tuberculose osseuse | région pelvienne et cuisse,OWL_ANS
-M90.06,label,"Tuberculose osseuse [A18.0]   - "" Jambe """,tuberculose osseuse | jambe,OWL_ANS
-M90.07,label,"Tuberculose osseuse [A18.0]   - "" Cheville et pied """,tuberculose osseuse | cheville et pied,OWL_ANS
-M90.08,label,"Tuberculose osseuse [A18.0]   - "" Autres """,tuberculose osseuse | autres,OWL_ANS
-M90.09,label,"Tuberculose osseuse [A18.0]   - "" Siège non précisé """,tuberculose osseuse | siège non précisé,OWL_ANS
+M90.00,label,"Tuberculose osseuse (A18.0)   - "" Sièges multiples """,tuberculose osseuse | sièges multiples,OWL_ANS
+M90.01,label,"Tuberculose osseuse (A18.0)   - "" Région scapulaire """,tuberculose osseuse | région scapulaire,OWL_ANS
+M90.02,label,"Tuberculose osseuse (A18.0)   - "" Bras """,tuberculose osseuse | bras,OWL_ANS
+M90.03,label,"Tuberculose osseuse (A18.0)   - "" Avant-bras """,tuberculose osseuse | avant-bras,OWL_ANS
+M90.04,label,"Tuberculose osseuse (A18.0)   - "" Main """,tuberculose osseuse | main,OWL_ANS
+M90.05,label,"Tuberculose osseuse (A18.0)   - "" Région pelvienne et cuisse """,tuberculose osseuse | région pelvienne et cuisse,OWL_ANS
+M90.06,label,"Tuberculose osseuse (A18.0)   - "" Jambe """,tuberculose osseuse | jambe,OWL_ANS
+M90.07,label,"Tuberculose osseuse (A18.0)   - "" Cheville et pied """,tuberculose osseuse | cheville et pied,OWL_ANS
+M90.08,label,"Tuberculose osseuse (A18.0)   - "" Autres """,tuberculose osseuse | autres,OWL_ANS
+M90.09,label,"Tuberculose osseuse (A18.0)   - "" Siège non précisé """,tuberculose osseuse | siège non précisé,OWL_ANS
 M90.10,label,"Périostite au cours d'autres maladies infectieuses classées ailleurs - "" Sièges multiples """,périostite au cours d'autres maladies infectieuses classées ailleurs | sièges multiples,OWL_ANS
 M90.11,label,"Périostite au cours d'autres maladies infectieuses classées ailleurs - "" Région scapulaire """,périostite au cours d'autres maladies infectieuses classées ailleurs | région scapulaire,OWL_ANS
 M90.12,label,"Périostite au cours d'autres maladies infectieuses classées ailleurs - "" Bras """,périostite au cours d'autres maladies infectieuses classées ailleurs | bras,OWL_ANS
@@ -5233,26 +5233,26 @@ M90.26,label,"Ostéopathie au cours d'autres maladies infectieuses  classées ai
 M90.27,label,"Ostéopathie au cours d'autres maladies infectieuses  classées ailleurs - "" Cheville et pied """,ostéopathie au cours d'autres maladies infectieuses classées ailleurs | cheville et pied,OWL_ANS
 M90.28,label,"Ostéopathie au cours d'autres maladies infectieuses  classées ailleurs - "" Autres """,ostéopathie au cours d'autres maladies infectieuses classées ailleurs | autres,OWL_ANS
 M90.29,label,"Ostéopathie au cours d'autres maladies infectieuses  classées ailleurs - "" Siège non précisé """,ostéopathie au cours d'autres maladies infectieuses classées ailleurs | siège non précisé,OWL_ANS
-M90.30,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Sièges multiples """,ostéonécrose de la maladie des caissons | sièges multiples,OWL_ANS
-M90.31,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Région scapulaire """,ostéonécrose de la maladie des caissons | région scapulaire,OWL_ANS
-M90.32,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Bras """,ostéonécrose de la maladie des caissons | bras,OWL_ANS
-M90.33,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Avant-bras """,ostéonécrose de la maladie des caissons | avant-bras,OWL_ANS
-M90.34,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Main """,ostéonécrose de la maladie des caissons | main,OWL_ANS
-M90.35,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Région pelvienne et cuisse """,ostéonécrose de la maladie des caissons | région pelvienne et cuisse,OWL_ANS
-M90.36,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Jambe """,ostéonécrose de la maladie des caissons | jambe,OWL_ANS
-M90.37,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Cheville et pied """,ostéonécrose de la maladie des caissons | cheville et pied,OWL_ANS
-M90.38,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Autres """,ostéonécrose de la maladie des caissons | autres,OWL_ANS
-M90.39,label,"Ostéonécrose de la maladie des caissons [T70.3]   - "" Siège non précisé """,ostéonécrose de la maladie des caissons | siège non précisé,OWL_ANS
-M90.40,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Sièges multiples """,ostéonécrose due à une hémoglobinopathie | sièges multiples,OWL_ANS
-M90.41,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Région scapulaire """,ostéonécrose due à une hémoglobinopathie | région scapulaire,OWL_ANS
-M90.42,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Bras """,ostéonécrose due à une hémoglobinopathie | bras,OWL_ANS
-M90.43,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Avant-bras """,ostéonécrose due à une hémoglobinopathie | avant-bras,OWL_ANS
-M90.44,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Main """,ostéonécrose due à une hémoglobinopathie | main,OWL_ANS
-M90.45,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Région pelvienne et cuisse """,ostéonécrose due à une hémoglobinopathie | région pelvienne et cuisse,OWL_ANS
-M90.46,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Jambe """,ostéonécrose due à une hémoglobinopathie | jambe,OWL_ANS
-M90.47,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Cheville et pied """,ostéonécrose due à une hémoglobinopathie | cheville et pied,OWL_ANS
-M90.48,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Autres """,ostéonécrose due à une hémoglobinopathie | autres,OWL_ANS
-M90.49,label,"Ostéonécrose due à une hémoglobinopathie [D50-D64]   - "" Siège non précisé """,ostéonécrose due à une hémoglobinopathie | siège non précisé,OWL_ANS
+M90.30,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Sièges multiples """,ostéonécrose de la maladie des caissons | sièges multiples,OWL_ANS
+M90.31,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Région scapulaire """,ostéonécrose de la maladie des caissons | région scapulaire,OWL_ANS
+M90.32,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Bras """,ostéonécrose de la maladie des caissons | bras,OWL_ANS
+M90.33,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Avant-bras """,ostéonécrose de la maladie des caissons | avant-bras,OWL_ANS
+M90.34,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Main """,ostéonécrose de la maladie des caissons | main,OWL_ANS
+M90.35,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Région pelvienne et cuisse """,ostéonécrose de la maladie des caissons | région pelvienne et cuisse,OWL_ANS
+M90.36,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Jambe """,ostéonécrose de la maladie des caissons | jambe,OWL_ANS
+M90.37,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Cheville et pied """,ostéonécrose de la maladie des caissons | cheville et pied,OWL_ANS
+M90.38,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Autres """,ostéonécrose de la maladie des caissons | autres,OWL_ANS
+M90.39,label,"Ostéonécrose de la maladie des caissons (T70.3)   - "" Siège non précisé """,ostéonécrose de la maladie des caissons | siège non précisé,OWL_ANS
+M90.40,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Sièges multiples """,ostéonécrose due à une hémoglobinopathie | sièges multiples,OWL_ANS
+M90.41,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Région scapulaire """,ostéonécrose due à une hémoglobinopathie | région scapulaire,OWL_ANS
+M90.42,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Bras """,ostéonécrose due à une hémoglobinopathie | bras,OWL_ANS
+M90.43,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Avant-bras """,ostéonécrose due à une hémoglobinopathie | avant-bras,OWL_ANS
+M90.44,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Main """,ostéonécrose due à une hémoglobinopathie | main,OWL_ANS
+M90.45,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Région pelvienne et cuisse """,ostéonécrose due à une hémoglobinopathie | région pelvienne et cuisse,OWL_ANS
+M90.46,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Jambe """,ostéonécrose due à une hémoglobinopathie | jambe,OWL_ANS
+M90.47,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Cheville et pied """,ostéonécrose due à une hémoglobinopathie | cheville et pied,OWL_ANS
+M90.48,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Autres """,ostéonécrose due à une hémoglobinopathie | autres,OWL_ANS
+M90.49,label,"Ostéonécrose due à une hémoglobinopathie (D50-D64)   - "" Siège non précisé """,ostéonécrose due à une hémoglobinopathie | siège non précisé,OWL_ANS
 M90.50,label,"Ostéonécrose au cours d'autres maladies classées ailleurs - "" Sièges multiples """,ostéonécrose au cours d'autres maladies classées ailleurs | sièges multiples,OWL_ANS
 M90.51,label,"Ostéonécrose au cours d'autres maladies classées ailleurs - "" Région scapulaire """,ostéonécrose au cours d'autres maladies classées ailleurs | région scapulaire,OWL_ANS
 M90.52,label,"Ostéonécrose au cours d'autres maladies classées ailleurs - "" Bras """,ostéonécrose au cours d'autres maladies classées ailleurs | bras,OWL_ANS
@@ -5263,26 +5263,26 @@ M90.56,label,"Ostéonécrose au cours d'autres maladies classées ailleurs - "" 
 M90.57,label,"Ostéonécrose au cours d'autres maladies classées ailleurs - "" Cheville et pied """,ostéonécrose au cours d'autres maladies classées ailleurs | cheville et pied,OWL_ANS
 M90.58,label,"Ostéonécrose au cours d'autres maladies classées ailleurs - "" Autres """,ostéonécrose au cours d'autres maladies classées ailleurs | autres,OWL_ANS
 M90.59,label,"Ostéonécrose au cours d'autres maladies classées ailleurs - "" Siège non précisé """,ostéonécrose au cours d'autres maladies classées ailleurs | siège non précisé,OWL_ANS
-M90.60,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Sièges multiples """,ostéite déformante au cours de maladies tumorales | sièges multiples,OWL_ANS
-M90.61,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Région scapulaire """,ostéite déformante au cours de maladies tumorales | région scapulaire,OWL_ANS
-M90.62,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Bras """,ostéite déformante au cours de maladies tumorales | bras,OWL_ANS
-M90.63,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Avant-bras """,ostéite déformante au cours de maladies tumorales | avant-bras,OWL_ANS
-M90.64,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Main """,ostéite déformante au cours de maladies tumorales | main,OWL_ANS
-M90.65,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Région pelvienne et cuisse """,ostéite déformante au cours de maladies tumorales | région pelvienne et cuisse,OWL_ANS
-M90.66,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Jambe """,ostéite déformante au cours de maladies tumorales | jambe,OWL_ANS
-M90.67,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Cheville et pied """,ostéite déformante au cours de maladies tumorales | cheville et pied,OWL_ANS
-M90.68,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Autres """,ostéite déformante au cours de maladies tumorales | autres,OWL_ANS
-M90.69,label,"Ostéite déformante au cours de maladies tumorales [C00-D48]   - "" Siège non précisé """,ostéite déformante au cours de maladies tumorales | siège non précisé,OWL_ANS
-M90.70,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Sièges multiples """,fracture osseuse au cours de maladies tumorales | sièges multiples,OWL_ANS
-M90.71,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Région scapulaire """,fracture osseuse au cours de maladies tumorales | région scapulaire,OWL_ANS
-M90.72,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Bras """,fracture osseuse au cours de maladies tumorales | bras,OWL_ANS
-M90.73,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Avant-bras """,fracture osseuse au cours de maladies tumorales | avant-bras,OWL_ANS
-M90.74,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Main """,fracture osseuse au cours de maladies tumorales | main,OWL_ANS
-M90.75,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Région pelvienne et cuisse """,fracture osseuse au cours de maladies tumorales | région pelvienne et cuisse,OWL_ANS
-M90.76,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Jambe """,fracture osseuse au cours de maladies tumorales | jambe,OWL_ANS
-M90.77,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Cheville et pied """,fracture osseuse au cours de maladies tumorales | cheville et pied,OWL_ANS
-M90.78,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Autres """,fracture osseuse au cours de maladies tumorales | autres,OWL_ANS
-M90.79,label,"Fracture osseuse au cours de maladies tumorales [C00-D48]   - "" Siège non précisé """,fracture osseuse au cours de maladies tumorales | siège non précisé,OWL_ANS
+M90.60,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Sièges multiples """,ostéite déformante au cours de maladies tumorales | sièges multiples,OWL_ANS
+M90.61,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Région scapulaire """,ostéite déformante au cours de maladies tumorales | région scapulaire,OWL_ANS
+M90.62,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Bras """,ostéite déformante au cours de maladies tumorales | bras,OWL_ANS
+M90.63,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Avant-bras """,ostéite déformante au cours de maladies tumorales | avant-bras,OWL_ANS
+M90.64,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Main """,ostéite déformante au cours de maladies tumorales | main,OWL_ANS
+M90.65,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Région pelvienne et cuisse """,ostéite déformante au cours de maladies tumorales | région pelvienne et cuisse,OWL_ANS
+M90.66,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Jambe """,ostéite déformante au cours de maladies tumorales | jambe,OWL_ANS
+M90.67,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Cheville et pied """,ostéite déformante au cours de maladies tumorales | cheville et pied,OWL_ANS
+M90.68,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Autres """,ostéite déformante au cours de maladies tumorales | autres,OWL_ANS
+M90.69,label,"Ostéite déformante au cours de maladies tumorales (C00-D48)   - "" Siège non précisé """,ostéite déformante au cours de maladies tumorales | siège non précisé,OWL_ANS
+M90.70,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Sièges multiples """,fracture osseuse au cours de maladies tumorales | sièges multiples,OWL_ANS
+M90.71,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Région scapulaire """,fracture osseuse au cours de maladies tumorales | région scapulaire,OWL_ANS
+M90.72,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Bras """,fracture osseuse au cours de maladies tumorales | bras,OWL_ANS
+M90.73,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Avant-bras """,fracture osseuse au cours de maladies tumorales | avant-bras,OWL_ANS
+M90.74,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Main """,fracture osseuse au cours de maladies tumorales | main,OWL_ANS
+M90.75,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Région pelvienne et cuisse """,fracture osseuse au cours de maladies tumorales | région pelvienne et cuisse,OWL_ANS
+M90.76,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Jambe """,fracture osseuse au cours de maladies tumorales | jambe,OWL_ANS
+M90.77,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Cheville et pied """,fracture osseuse au cours de maladies tumorales | cheville et pied,OWL_ANS
+M90.78,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Autres """,fracture osseuse au cours de maladies tumorales | autres,OWL_ANS
+M90.79,label,"Fracture osseuse au cours de maladies tumorales (C00-D48)   - "" Siège non précisé """,fracture osseuse au cours de maladies tumorales | siège non précisé,OWL_ANS
 M90.80,label,"Ostéopathie au cours d'autres maladies classées ailleurs - "" Sièges multiples """,ostéopathie au cours d'autres maladies classées ailleurs | sièges multiples,OWL_ANS
 M90.81,label,"Ostéopathie au cours d'autres maladies classées ailleurs - "" Région scapulaire """,ostéopathie au cours d'autres maladies classées ailleurs | région scapulaire,OWL_ANS
 M90.82,label,"Ostéopathie au cours d'autres maladies classées ailleurs - "" Bras """,ostéopathie au cours d'autres maladies classées ailleurs | bras,OWL_ANS

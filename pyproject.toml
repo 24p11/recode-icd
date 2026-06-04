@@ -82,7 +82,8 @@ allowed-confusables = ["×", "æ", "’"]
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["N802", "N803"]   # noms de tests souples
 "scripts/explore/**" = ["RUF001"]   # typographie française intentionnelle (–, ×, etc.)
-"src/recode_icd/_normalize.py" = ["RUF001", "RUF002"]   # caractères Unicode load-bearing dans le regex
+"src/recode_icd/_normalize.py" = ["RUF001", "RUF002", "RUF003"]   # caractères Unicode load-bearing dans le regex
+"tests/unit/test_normalize.py" = ["RUF001", "RUF002"]   # en-dash U+2013 testés explicitement (limitation assumée)
 "src/recode_icd/merge.py" = ["RUF003"]   # symbole ∪ intentionnel dans les commentaires
 
 [tool.mypy]

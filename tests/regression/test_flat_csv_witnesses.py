@@ -68,6 +68,49 @@ def test_e10_2_is_dagger_in_pair() -> None:
     )
 
 
+def test_a18_1_ans_exclusion_redirects_use_parentheses() -> None:
+    """Chantier 4 (2026-06-03) : les codes de redirection ANS des
+    exclusions de A18.1 doivent apparaître entre parenthèses et plus
+    entre crochets dans le CSV final."""
+    df = _final_csv()
+    subset = df.filter(
+        (pl.col("code") == "A18.1")
+        & (pl.col("type") == "exclusion")
+        & (pl.col("source") == "ANS")
+    )
+    if subset.is_empty():
+        pytest.skip("A18.1 sans exclusion ANS dans le CSV final.")
+    joined = " || ".join(subset["texte"].drop_nulls().to_list())
+    for code in ("B20.0", "J65", "B90.-", "P37.0"):
+        assert f"[{code}]" not in joined, (
+            f"crochet [{code}] résiduel dans A18.1 — normalisation incomplète"
+        )
+        assert f"({code})" in joined, (
+            f"redirection ({code}) attendue dans A18.1"
+        )
+
+
+def test_u07_1_ans_exclusion_redirects_use_parentheses() -> None:
+    """Chantier 4 (2026-06-03) : U07.1 (post-2006, ANS exclusivement)
+    doit voir ses redirections normalisées en parenthèses."""
+    df = _final_csv()
+    subset = df.filter(
+        (pl.col("code") == "U07.1")
+        & (pl.col("type") == "exclusion")
+        & (pl.col("source") == "ANS")
+    )
+    if subset.is_empty():
+        pytest.skip("U07.1 sans exclusion ANS dans le CSV final.")
+    joined = " || ".join(subset["texte"].drop_nulls().to_list())
+    for code in ("B34.2", "B97.2", "U04.9"):
+        assert f"[{code}]" not in joined, (
+            f"crochet [{code}] résiduel dans U07.1"
+        )
+        assert f"({code})" in joined, (
+            f"redirection ({code}) attendue dans U07.1"
+        )
+
+
 def test_u07_1_has_no_dagger_asterisk_pair() -> None:
     """U07.1 (post-2006) n'a pas d'association dague/astérisque côté OFS.
     Refonte 2026-05-30 : doit avoir les deux flags à False."""

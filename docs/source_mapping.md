@@ -78,9 +78,11 @@ Quatre raisons fondamentales :
    atomique distincte. Par exemple, pour I78.1 (exclusions), OFS
    livre 11 lignes EXCLUDE, une par affection exclue, chacune avec
    son propre LID. ANS livre la même information sous forme d'**un
-   seul bloc textuel** avec puces et codes entre crochets, ce qui
-   exige un parsing fragile pour récupérer l'atomicité. Voir la
-   section "Limitation connue : atomisation ANS" ci-dessous.
+   seul bloc textuel** avec puces et codes de redirection (notés
+   entre crochets dans le RDF source, normalisés en parenthèses
+   par le loader), ce qui exige un parsing fragile pour récupérer
+   l'atomicité. Voir la section "Limitation connue : atomisation
+   ANS" ci-dessous.
 
 3. **Cohérence éditoriale.** L'OFS est issu d'une seule équipe de
    curation (Nice Computing pour l'OFS) qui a appliqué des règles
@@ -139,7 +141,8 @@ LID=29903, texte="naevus (à) (en) fraise"
 LID=29911, texte="naevus (à) (en) verruqueux"
 ```
 
-**Côté ANS** — 1 seule chaîne dans `xkos:exclusionNote` :
+**Côté ANS** — 1 seule chaîne dans `xkos:exclusionNote` (contenu RDF brut,
+avant la normalisation crochets → parenthèses appliquée par le loader) :
 
 ```
 "nævus (à) (en) :
@@ -151,6 +154,10 @@ LID=29911, texte="naevus (à) (en) verruqueux"
  ...
  - verruqueux [Q82.5]"
 ```
+
+Après chargement par le loader, ce bloc apparaît dans le CSV avec les
+codes entre parenthèses : `(D22.-)`, `(Q82.5)`. La structure
+multi-ligne avec puces reste préservée telle quelle.
 
 ### Conséquences
 
@@ -176,8 +183,10 @@ Plusieurs raisons :
   d'indentation différents).
 - Distribution du préambule (`"naevus (à) (en) :"`) sur chaque puce
   exige de la sémantique, pas du simple texte.
-- Codes redirigés entre crochets `[D22.-]` à différencier des codes
-  inline qui pourraient apparaître naturellement dans la formulation.
+- Codes redirigés entre parenthèses `(D22.-)` (après normalisation
+  par le loader, cf section "Conventions d'export ANS") à différencier
+  des codes inline qui pourraient apparaître naturellement dans la
+  formulation.
 - Cas particuliers (notes imbriquées, listes mixtes) non détectables
   par regex.
 
@@ -194,19 +203,52 @@ L'OWL/ANS introduit certaines conventions de formatage qui ne sont
 PAS standard CIM-10 OMS et qu'il faut connaître quand on consomme
 les notes ANS directement :
 
-1. **Codes entre crochets = associations dague/astérisque.** ANS
-   écrit `[D22.-]`, `[Q82.5]` dans les notes (inclusions, exclusions)
-   pour référencer les codes vers lesquels rediriger. **Ce ne sont
+1. **Codes de redirection entre parenthèses (après normalisation au loader).** ANS
+   utilise nativement la notation `[D22.-]`, `[Q82.5]` dans les notes (inclusions,
+   exclusions) pour référencer les codes vers lesquels rediriger. **Ce ne sont
    pas un simple choix typographique** : ces codes correspondent
    sémantiquement aux associations dague/astérisque définies dans la
    table DAGSTAR de l'OFS. L'ANS a ainsi aplati dans le texte une
-   information qui était structurée dans la table DAGSTAR. La
-   convention CIM-10 OMS standard utilise les parenthèses
-   `(D22.-)` pour ces mêmes références.
+   information qui était structurée dans la table DAGSTAR.
 
-   **Conséquence** : si on consomme un bloc ANS contenant des codes
-   entre crochets, ces codes sont à traiter comme des références
-   d'association dague/astérisque, pas comme du texte arbitraire.
+   **Politique recode-icd** : la convention ANS native (crochets) **n'est
+   pas standard OMS**. Le loader OWL/ANS normalise les crochets en
+   parenthèses au chargement pour s'aligner sur la convention OMS standard
+   `(D22.-)`. **Tous les consommateurs du CSV et de la table DAGSTAR
+   enrichie voient donc les codes de redirection entre parenthèses**, pas
+   entre crochets. Le texte ANS brut reste préservé dans le RDF source
+   pour audit.
+
+   **Règle de normalisation appliquée** : regex
+   `\[([A-Z]\d{2}(?:\.\d*)?(?:-[A-Z]?\d{2}(?:\.\d*)?)?(?:\.-)?)\]` →
+   `(\1)`. Cette regex est ciblée sur les patterns CIM-10 stricts pour
+   ne pas affecter d'autres usages des crochets dans les textes
+   (par exemple `[coder d'abord 1141NL à 1144NL]` dans certaines
+   entrées AP-HP reste inchangé car le contenu n'est pas un code CIM-10).
+
+   **Sources affectées par la normalisation** : `xkos:inclusionNote`,
+   `xkos:exclusionNote`, `skos:altLabel`, `xkos:note`, `xkos:codingHint`,
+   `rdfs:comment`.
+
+   **Volumétrie de l'impact** (mesurée avant le chantier de
+   normalisation) : 32 232 notes ANS sur 62 365 contenaient au moins un
+   code CIM-10 entre crochets (51,7 %), quasi exclusivement dans les
+   exclusions.
+
+   **Limitation connue** : ~493 lignes ANS (~1,5 % du périmètre)
+   contiennent des crochets avec **en-dash U+2013** (`[F55.–]`,
+   `[T36–T50]`, `[Z34.–]`) ou des plages multi-intervalles avec virgule
+   (`[V01-Y59,Y85-Y87,Y89.-]`, `[Q23.0, Q23.1, Q23.4–Q23.9]`). La regex
+   stricte ne les touche pas par construction : trade-off assumé pour ne
+   pas risquer de matcher du texte libre entre crochets (`[F10-F19 avec
+   le quatrième caractère .7]`, `[VIH]`, `[mal de Pott]`, `[coder
+   d'abord 1141NL]`). Ces lignes restent en crochets dans le CSV.
+
+   **Conséquence pour les consommateurs** : si vous lisez du texte ANS
+   brut depuis le RDF (hors pipeline recode-icd), les codes y sont entre
+   crochets. Si vous consommez le CSV ou la table DAGSTAR enrichie, ils
+   sont entre parenthèses (sauf les ~493 lignes en-dash mentionnées
+   ci-dessus).
 
 2. **Caractères spéciaux** : ANS utilise `nævus` avec ligature æ là
    où OFS utilise `naevus`. La normalisation tolérante (NFKD + strip
@@ -1082,8 +1124,11 @@ Un code présent dans l'ANS mais absent de l'OFS (champ MASTER) doit
 - toutes ses notes (inclusions, exclusions, etc.) avec `source=ANS`
 - **Les notes restent sous forme de blocs si elles le sont en ANS**
   (pas de tentative d'atomisation, cf "Limitation connue").
-- Les artefacts ANS (crochets, ligatures, puces) sont préservés
-  tels quels dans le CSV.
+- Les artefacts structurels ANS (puces, indentation, ligatures comme
+  æ) sont préservés tels quels dans le CSV. Les codes de redirection
+  ANS (notés `[D22.-]` dans le RDF source) sont normalisés en
+  parenthèses `(D22.-)` par le loader (cf section "Conventions
+  d'export ANS").
 - Les flags `is_dagger_in_pair` et `is_asterisk_in_pair` valent
   `False` sauf si une association est présente dans
   `atih-cim10:hasCausality` ou `atih-cim10:hasManifestation` côté

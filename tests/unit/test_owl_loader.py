@@ -84,6 +84,23 @@ def test_scope_note_extracted() -> None:
     assert any("étiologie organique" in n for n in notes)
 
 
+def test_ans_brackets_normalized_in_label() -> None:
+    """Chantier 4 : `[G31.0]` du label F02.00 doit devenir `(G31.0)`."""
+    df = owl.load_codes(FIXTURE)
+    row = df.filter(pl.col("code") == "F02.00").row(0, named=True)
+    assert "[G31.0]" not in row["label"]
+    assert "(G31.0)" in row["label"]
+
+
+def test_ans_brackets_normalized_in_exclusion_notes() -> None:
+    """Chantier 4 : `[D48.5]` dans les exclusions C12 → `(D48.5)`."""
+    df = owl.load_codes(FIXTURE)
+    row = df.filter(pl.col("code") == "C12").row(0, named=True)
+    joined = " | ".join(row["exclusion_notes"])
+    assert "[D48.5]" not in joined
+    assert "(D48.5)" in joined
+
+
 def test_nested_set_hierarchy() -> None:
     df = owl.load_codes(FIXTURE)
     f0200 = df.filter(pl.col("code") == "F02.00").row(0, named=True)

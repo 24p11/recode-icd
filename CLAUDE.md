@@ -234,13 +234,19 @@ bloc ou d'une catégorie.
    tels quels — pas de parsing automatique. Détails dans
    `docs/source_mapping.md` section "Limitation connue : atomisation
    ANS".
-9. **Conventions ANS non standard**. ANS utilise des crochets
-   `[D22.-]` pour les codes redirigés alors que la convention OMS
-   utilise des parenthèses `(D22.-)`. **Ces crochets ne sont pas un
-   choix typographique arbitraire** : ils correspondent sémantiquement
-   aux associations dague/astérisque. ANS utilise aussi `nævus` avec
-   ligature æ. Ces artefacts restent dans le CSV final pour les codes
-   post-2006.
+9. **Conventions ANS non standard et normalisation au loader**. ANS
+   utilise nativement des crochets `[D22.-]` pour les codes redirigés
+   alors que la convention CIM-10 OMS standard utilise des parenthèses
+   `(D22.-)`. **Ces codes de redirection ne sont pas un choix
+   typographique arbitraire** : ils correspondent sémantiquement aux
+   associations dague/astérisque. **Politique recode-icd** : le loader
+   OWL/ANS normalise ces crochets en parenthèses au chargement pour
+   s'aligner sur la convention OMS standard. Le CSV et la table DAGSTAR
+   enrichie contiennent donc les codes de redirection entre parenthèses,
+   pas entre crochets. Le texte ANS brut (crochets) reste préservé dans
+   le RDF source pour audit. ANS utilise aussi `nævus` avec ligature æ ;
+   cet artefact reste dans le CSV (non normalisé). Détails dans
+   `docs/source_mapping.md` section "Conventions d'export ANS".
 10. **Déduplication stricte vs tolérante**. Le `.unique()` de polars
     (utilisé en amont par smt2parquet) ne suffit pas pour les
     synonymes : il laisse passer les variantes de casse, ponctuation,
@@ -454,8 +460,10 @@ Pour les ~2300 codes ajoutés à la classification après le gel OFS
   `source=ANS`.
 - **Les notes multi-éléments restent sous forme de blocs textuels**
   (pas de parsing automatique, cf domain pitfall #8).
-- Les artefacts ANS (crochets, ligatures, puces) sont préservés
-  tels quels dans le CSV.
+- Les artefacts structurels ANS (puces, indentation, ligatures comme
+  æ) sont préservés tels quels dans le CSV. Les codes de redirection
+  ANS (notés `[D22.-]` dans le RDF source) sont normalisés en
+  parenthèses `(D22.-)` par le loader (cf pitfall #9).
 - Les flags `is_dagger_in_pair` et `is_asterisk_in_pair` valent
   `False` sauf si une association est présente dans
   `atih-cim10:hasCausality` ou `atih-cim10:hasManifestation` côté ANS

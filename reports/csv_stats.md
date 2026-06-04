@@ -2,7 +2,7 @@
 
 > Rapport déterministe généré par `recode_icd.reports.csv_stats.generate_csv_stats` (commande `recode-icd build stats`). Aucune observation interprétative — uniquement des chiffres bruts.
 
-- **Généré le** : 2026-05-30
+- **Généré le** : 2026-06-04
 - **Lignes totales** : 199970
 - **Codes uniques** : 15978
 - **Moyenne notes/code** : 12.5

@@ -6,8 +6,24 @@ from pathlib import Path
 import polars as pl
 from smt2parquet import core
 
+from recode_icd._normalize import normalize_ans_brackets_column
 from recode_icd.loaders.queries import load_query
 from recode_icd.loaders.schemas import DaggerAsteriskSchema, OwlCodesSchema
+
+# Colonnes textuelles ANS sujettes à la convention de crochets de
+# redirection. Normalisées en parenthèses au chargement (cf
+# `docs/source_mapping.md` section "Conventions d'export ANS").
+# Ce sont les 7 colonnes textuelles extraites par `owl_attrs.rq`, hors
+# `code` et `type` qui ne portent pas de texte libre.
+_ANS_TEXT_COLUMNS = (
+    "label",
+    "synonyme",
+    "inclusion_note",
+    "exclusion_note",
+    "definition",
+    "scope_note",
+    "structured_exclusion",
+)
 
 BASE_URI = "http://data.esante.gouv.fr/atih/cim10"
 RDF_FILENAME_PREFIX = "terminologie-cim-10-"
@@ -18,6 +34,12 @@ def load_codes(rdf_path: Path) -> pl.DataFrame:
     graph = core.load_graph(rdf_path)
     attrs = core.dataframe_from_sparql(graph, load_query("owl_attrs"))
     edges = core.dataframe_from_sparql(graph, load_query("owl_edges"))
+
+    # Normalisation crochets ANS → parenthèses (avant agrégation : toutes
+    # les colonnes textuelles sont encore scalaires à ce stade).
+    attrs = attrs.with_columns(
+        *(normalize_ans_brackets_column(col) for col in _ANS_TEXT_COLUMNS)
+    )
 
     attrs_agg = attrs.group_by("concept").agg(
         pl.col("code").first(),

@@ -126,6 +126,11 @@ class ExplorationContext:
       `synonymes`/`notes_editorial`) ou `None`.
     - `dagger_asterisk` : `dagger_asterisk.parquet` (table enrichie des
       paires dague/astérisque) ou `None`.
+    - `ofs_dagger_asterisk` : `ofs_dagger_asterisk.parquet` (paires
+      dérivées de DAGSTAR OFS, avant audit ANS) ou `None`.
+    - `owl_dagger_asterisk` : `owl_dagger_asterisk.parquet` (paires
+      dérivées des relations `atih-cim10:hasCausality` /
+      `hasManifestation` côté ANS, pour audit de cohérence) ou `None`.
     - `external` : dict des sources externes BRUTES (sorties des
       loaders Phase 1), indexé par enum source (`ORPHANET`,
       `INDEX_CIM10_VOL3`, `APHP_*`). Vide sauf si
@@ -146,6 +151,8 @@ class ExplorationContext:
     flat: Frame | None = None
     ofs_codes: Frame | None = None
     dagger_asterisk: Frame | None = None
+    ofs_dagger_asterisk: Frame | None = None
+    owl_dagger_asterisk: Frame | None = None
     external: dict[str, pl.DataFrame] = field(default_factory=dict)
     reports: dict[str, Frame] = field(default_factory=dict)
 
@@ -299,6 +306,12 @@ def load_exploration_context(
     dagger_asterisk = _load_parquet(
         actual_processed / "dagger_asterisk.parquet", lazy=lazy
     )
+    ofs_dagger_asterisk = _load_parquet(
+        actual_processed / "ofs_dagger_asterisk.parquet", lazy=lazy
+    )
+    owl_dagger_asterisk = _load_parquet(
+        actual_processed / "owl_dagger_asterisk.parquet", lazy=lazy
+    )
 
     reports: dict[str, Frame] = {}
     for fname in _REPORTS:
@@ -317,6 +330,8 @@ def load_exploration_context(
         flat=flat,
         ofs_codes=ofs_codes,
         dagger_asterisk=dagger_asterisk,
+        ofs_dagger_asterisk=ofs_dagger_asterisk,
+        owl_dagger_asterisk=owl_dagger_asterisk,
         external=external,
         reports=reports,
     )

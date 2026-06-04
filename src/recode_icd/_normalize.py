@@ -99,3 +99,48 @@ def normalize_column(col_name: str) -> pl.Expr:
     Acceptable sur ~20k lignes (≪ 1 s).
     """
     return pl.col(col_name).map_elements(normalize_for_match, return_dtype=pl.String)
+
+
+# Codes CIM-10 entre crochets dans les notes ANS (`[D22.-]`, `[J67-J70]`,
+# `[P00-P96]`). Convention ANS native, non standard OMS.
+# Cf `docs/source_mapping.md` section "Conventions d'export ANS".
+#
+# Décomposition :
+# - `[A-Z]\d{2}` : code racine obligatoire (`A18`, `J18`)
+# - `(?:\.\d*)?` : suffixe décimal optionnel (`.1`, `.88`, point seul)
+# - `(?:-[A-Z]?\d{2}(?:\.\d*)?)?` : extension intervalle (`-Y59`, `-J70`)
+# - `(?:\.-)?` : suffixe "racine générique" (`G50.-`, `B90.-`)
+#
+# La regex est volontairement stricte (ASCII `-`, pas d'en-dash U+2013).
+# ~493 lignes ANS avec en-dash (`[F55.–]`, `[T36–T50]`) restent intactes
+# par construction — trade-off assumé pour ne pas matcher du texte non-CIM-10.
+_ANS_BRACKET_CODE_RE = re.compile(
+    r"\[([A-Z]\d{2}(?:\.\d*)?(?:-[A-Z]?\d{2}(?:\.\d*)?)?(?:\.-)?)\]"
+)
+
+
+def normalize_ans_brackets(text: str | None) -> str | None:
+    """Remplace `[Xxx.x]` (convention ANS) par `(Xxx.x)` (convention OMS).
+
+    L'OWL/ANS encode les codes de redirection dans les notes entre crochets
+    (`[D22.-]`, `[J67-J70]`) là où la convention CIM-10 OMS standard utilise
+    des parenthèses. Cette fonction normalise au chargement pour que tout
+    le pipeline aval voie des parenthèses.
+
+    Pure, idempotente, None-safe :
+    - `None` → `None`
+    - texte sans motif CIM-10 strict → identité (les `[mal de Pott]`,
+      `[VIH]`, `[coder d'abord 1141NL]` restent intacts)
+    - multi-occurrences traitées en un seul passage
+
+    Cf `docs/source_mapping.md` section "Conventions d'export ANS"
+    et chantier 4 dans `docs/sessions/2026-05-30_refonte_dagger_asterisk.md`.
+    """
+    if text is None:
+        return None
+    return _ANS_BRACKET_CODE_RE.sub(r"(\1)", text)
+
+
+def normalize_ans_brackets_column(col_name: str) -> pl.Expr:
+    """Wrapper polars pour appliquer `normalize_ans_brackets` sur une colonne string."""
+    return pl.col(col_name).map_elements(normalize_ans_brackets, return_dtype=pl.String)

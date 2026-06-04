@@ -173,66 +173,66 @@ E87.58,"Hyperkaliémies, autres et sans précision",category,4
 E87.60,"Hypokaliémie inférieure à 2,5 millimoles [mmol] par litre",category,4
 E87.68,"Hypokaliémies, autres et sans précision",category,4
 E88.3,Syndrome de lyse tumorale,category,3
-F00.000,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F00.001,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F00.002,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F00.010,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F00.011,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F00.012,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F00.020,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F00.021,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F00.022,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F00.030,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F00.031,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F00.032,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F00.040,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F00.041,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F00.042,"Démence de la maladie d'Alzheimer, à début précoce [G30.0]   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
-F00.100,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F00.101,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F00.102,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F00.110,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F00.111,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F00.112,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F00.120,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F00.121,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F00.122,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F00.130,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F00.131,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F00.132,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F00.140,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F00.141,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F00.142,"Démence de la maladie d'Alzheimer, à début tardif [G30.1]   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
-F00.200,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F00.201,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F00.202,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F00.210,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F00.211,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F00.212,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F00.220,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F00.221,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F00.222,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F00.230,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F00.231,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F00.232,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F00.240,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F00.241,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F00.242,"Démence de la maladie d'Alzheimer, forme atypique ou mixte [G30.8]   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
-F00.900,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F00.901,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F00.902,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F00.910,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F00.911,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F00.912,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F00.920,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F00.921,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F00.922,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F00.930,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F00.931,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F00.932,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F00.940,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F00.941,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F00.942,"Démence de la maladie d'Alzheimer, sans précision [G30.9]   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F00.000,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F00.001,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F00.002,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F00.010,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F00.011,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F00.012,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F00.020,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F00.021,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F00.022,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F00.030,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F00.031,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F00.032,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F00.040,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F00.041,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F00.042,"Démence de la maladie d'Alzheimer, à début précoce (G30.0)   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F00.100,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F00.101,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F00.102,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F00.110,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F00.111,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F00.112,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F00.120,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F00.121,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F00.122,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F00.130,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F00.131,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F00.132,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F00.140,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F00.141,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F00.142,"Démence de la maladie d'Alzheimer, à début tardif (G30.1)   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F00.200,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F00.201,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F00.202,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F00.210,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F00.211,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F00.212,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F00.220,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F00.221,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F00.222,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F00.230,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F00.231,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F00.232,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F00.240,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F00.241,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F00.242,"Démence de la maladie d'Alzheimer, forme atypique ou mixte (G30.8)   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F00.900,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F00.901,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F00.902,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F00.910,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F00.911,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F00.912,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F00.920,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F00.921,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F00.922,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F00.930,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F00.931,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F00.932,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F00.940,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F00.941,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F00.942,"Démence de la maladie d'Alzheimer, sans précision (G30.9)   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
 F01.000,"Démence vasculaire à début aigu - ""sans symptôme supplémentaire"" - ""légère""",category,5
 F01.001,"Démence vasculaire à début aigu - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
 F01.002,"Démence vasculaire à début aigu - ""sans symptôme supplémentaire"" - ""sévère""",category,5
@@ -323,81 +323,81 @@ F01.932,"Démence vasculaire, sans précision - ""avec d’autres symptômes, es
 F01.940,"Démence vasculaire, sans précision - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
 F01.941,"Démence vasculaire, sans précision - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
 F01.942,"Démence vasculaire, sans précision - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
-F02.000,"Démence de la maladie de Pick [G31.0]   - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F02.001,"Démence de la maladie de Pick [G31.0]   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F02.002,"Démence de la maladie de Pick [G31.0]   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F02.010,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F02.011,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F02.012,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F02.020,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F02.021,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F02.022,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F02.030,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F02.031,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F02.032,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F02.040,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F02.041,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F02.042,"Démence de la maladie de Pick [G31.0]   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
-F02.100,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F02.101,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F02.102,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F02.110,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F02.111,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F02.112,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F02.120,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F02.121,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F02.122,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F02.130,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F02.131,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F02.132,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F02.140,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F02.141,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F02.142,"Démence de la maladie de Creutzfeldt–Jakob [A81.0]   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
-F02.200,"Démence de la maladie de Huntington [G10]   - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F02.201,"Démence de la maladie de Huntington [G10]   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F02.202,"Démence de la maladie de Huntington [G10]   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F02.210,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F02.211,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F02.212,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F02.220,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F02.221,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F02.222,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F02.230,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F02.231,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F02.232,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F02.240,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F02.241,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F02.242,"Démence de la maladie de Huntington [G10]   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
-F02.300,"Démence de la maladie de Parkinson [G20]  - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F02.301,"Démence de la maladie de Parkinson [G20]  - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F02.302,"Démence de la maladie de Parkinson [G20]  - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F02.310,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F02.311,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F02.312,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F02.320,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F02.321,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F02.322,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F02.330,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F02.331,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F02.332,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F02.340,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F02.341,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F02.342,"Démence de la maladie de Parkinson [G20]  - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
-F02.400,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""sans symptôme supplémentaire"" - ""légère""",category,5
-F02.401,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
-F02.402,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
-F02.410,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
-F02.411,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
-F02.412,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
-F02.420,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
-F02.421,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
-F02.422,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
-F02.430,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
-F02.431,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
-F02.432,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
-F02.440,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
-F02.441,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
-F02.442,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] [B22.0]   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F02.000,"Démence de la maladie de Pick (G31.0)   - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F02.001,"Démence de la maladie de Pick (G31.0)   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F02.002,"Démence de la maladie de Pick (G31.0)   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F02.010,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F02.011,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F02.012,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F02.020,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F02.021,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F02.022,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F02.030,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F02.031,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F02.032,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F02.040,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F02.041,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F02.042,"Démence de la maladie de Pick (G31.0)   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F02.100,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F02.101,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F02.102,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F02.110,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F02.111,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F02.112,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F02.120,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F02.121,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F02.122,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F02.130,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F02.131,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F02.132,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F02.140,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F02.141,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F02.142,"Démence de la maladie de Creutzfeldt–Jakob (A81.0)   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F02.200,"Démence de la maladie de Huntington (G10)   - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F02.201,"Démence de la maladie de Huntington (G10)   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F02.202,"Démence de la maladie de Huntington (G10)   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F02.210,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F02.211,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F02.212,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F02.220,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F02.221,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F02.222,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F02.230,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F02.231,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F02.232,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F02.240,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F02.241,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F02.242,"Démence de la maladie de Huntington (G10)   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F02.300,"Démence de la maladie de Parkinson (G20)  - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F02.301,"Démence de la maladie de Parkinson (G20)  - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F02.302,"Démence de la maladie de Parkinson (G20)  - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F02.310,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F02.311,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F02.312,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F02.320,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F02.321,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F02.322,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F02.330,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F02.331,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F02.332,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F02.340,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F02.341,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F02.342,"Démence de la maladie de Parkinson (G20)  - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
+F02.400,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""sans symptôme supplémentaire"" - ""légère""",category,5
+F02.401,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
+F02.402,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""sans symptôme supplémentaire"" - ""sévère""",category,5
+F02.410,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""légère""",category,5
+F02.411,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""moyenne""",category,5
+F02.412,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement délirants"" - ""sévère""",category,5
+F02.420,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""légère""",category,5
+F02.421,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""moyenne""",category,5
+F02.422,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement hallucinatoires"" - ""sévère""",category,5
+F02.430,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""légère""",category,5
+F02.431,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""moyenne""",category,5
+F02.432,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, essentiellement dépressifs"" - ""sévère""",category,5
+F02.440,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, mixtes"" - ""légère""",category,5
+F02.441,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, mixtes"" - ""moyenne""",category,5
+F02.442,"Démence de la maladie due au virus de l'immunodéficience humaine [VIH] (B22.0)   - ""avec d’autres symptômes, mixtes"" - ""sévère""",category,5
 F02.800,"Démence au cours d'autres maladies classées ailleurs - ""sans symptôme supplémentaire"" - ""légère""",category,5
 F02.801,"Démence au cours d'autres maladies classées ailleurs - ""sans symptôme supplémentaire"" - ""moyenne""",category,5
 F02.802,"Démence au cours d'autres maladies classées ailleurs - ""sans symptôme supplémentaire"" - ""sévère""",category,5
@@ -743,36 +743,36 @@ M14.16,"Arthropathie à microcristaux au cours d'autres troubles métaboliques c
 M14.17,"Arthropathie à microcristaux au cours d'autres troubles métaboliques classés ailleurs - "" Cheville et pied """,category,5
 M14.18,"Arthropathie à microcristaux au cours d'autres troubles métaboliques classés ailleurs - "" Autres """,category,5
 M14.19,"Arthropathie à microcristaux au cours d'autres troubles métaboliques classés ailleurs - "" Siège non précisé """,category,5
-M14.20,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Sièges multiples """,category,5
-M14.21,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Région scapulaire """,category,5
-M14.22,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Bras """,category,5
-M14.23,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Avant-bras """,category,5
-M14.24,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Main """,category,5
-M14.25,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Région pelvienne et cuisse """,category,5
-M14.26,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Jambe """,category,5
-M14.27,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Cheville et pied """,category,5
-M14.28,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Autres """,category,5
-M14.29,"Arthropathie diabétique ( [E10-E14]  avec le quatrième caractère .6)  - "" Siège non précisé """,category,5
-M14.30,"Dermatoarthrite lipoïde [E78.8]   - "" Sièges multiples """,category,5
-M14.31,"Dermatoarthrite lipoïde [E78.8]   - "" Région scapulaire """,category,5
-M14.32,"Dermatoarthrite lipoïde [E78.8]   - "" Bras """,category,5
-M14.33,"Dermatoarthrite lipoïde [E78.8]   - "" Avant-bras """,category,5
-M14.34,"Dermatoarthrite lipoïde [E78.8]   - "" Main """,category,5
-M14.35,"Dermatoarthrite lipoïde [E78.8]   - "" Région pelvienne et cuisse """,category,5
-M14.36,"Dermatoarthrite lipoïde [E78.8]   - "" Jambe """,category,5
-M14.37,"Dermatoarthrite lipoïde [E78.8]   - "" Cheville et pied """,category,5
-M14.38,"Dermatoarthrite lipoïde [E78.8]   - "" Autres """,category,5
-M14.39,"Dermatoarthrite lipoïde [E78.8]   - "" Siège non précisé """,category,5
-M14.40,"Arthropathie au cours d'amylose [E85.-]   - "" Sièges multiples """,category,5
-M14.41,"Arthropathie au cours d'amylose [E85.-]   - "" Région scapulaire """,category,5
-M14.42,"Arthropathie au cours d'amylose [E85.-]   - "" Bras """,category,5
-M14.43,"Arthropathie au cours d'amylose [E85.-]   - "" Avant-bras """,category,5
-M14.44,"Arthropathie au cours d'amylose [E85.-]   - "" Main """,category,5
-M14.45,"Arthropathie au cours d'amylose [E85.-]   - "" Région pelvienne et cuisse """,category,5
-M14.46,"Arthropathie au cours d'amylose [E85.-]   - "" Jambe """,category,5
-M14.47,"Arthropathie au cours d'amylose [E85.-]   - "" Cheville et pied """,category,5
-M14.48,"Arthropathie au cours d'amylose [E85.-]   - "" Autres """,category,5
-M14.49,"Arthropathie au cours d'amylose [E85.-]   - "" Siège non précisé """,category,5
+M14.20,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Sièges multiples """,category,5
+M14.21,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Région scapulaire """,category,5
+M14.22,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Bras """,category,5
+M14.23,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Avant-bras """,category,5
+M14.24,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Main """,category,5
+M14.25,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Région pelvienne et cuisse """,category,5
+M14.26,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Jambe """,category,5
+M14.27,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Cheville et pied """,category,5
+M14.28,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Autres """,category,5
+M14.29,"Arthropathie diabétique ( (E10-E14)  avec le quatrième caractère .6)  - "" Siège non précisé """,category,5
+M14.30,"Dermatoarthrite lipoïde (E78.8)   - "" Sièges multiples """,category,5
+M14.31,"Dermatoarthrite lipoïde (E78.8)   - "" Région scapulaire """,category,5
+M14.32,"Dermatoarthrite lipoïde (E78.8)   - "" Bras """,category,5
+M14.33,"Dermatoarthrite lipoïde (E78.8)   - "" Avant-bras """,category,5
+M14.34,"Dermatoarthrite lipoïde (E78.8)   - "" Main """,category,5
+M14.35,"Dermatoarthrite lipoïde (E78.8)   - "" Région pelvienne et cuisse """,category,5
+M14.36,"Dermatoarthrite lipoïde (E78.8)   - "" Jambe """,category,5
+M14.37,"Dermatoarthrite lipoïde (E78.8)   - "" Cheville et pied """,category,5
+M14.38,"Dermatoarthrite lipoïde (E78.8)   - "" Autres """,category,5
+M14.39,"Dermatoarthrite lipoïde (E78.8)   - "" Siège non précisé """,category,5
+M14.40,"Arthropathie au cours d'amylose (E85.-)   - "" Sièges multiples """,category,5
+M14.41,"Arthropathie au cours d'amylose (E85.-)   - "" Région scapulaire """,category,5
+M14.42,"Arthropathie au cours d'amylose (E85.-)   - "" Bras """,category,5
+M14.43,"Arthropathie au cours d'amylose (E85.-)   - "" Avant-bras """,category,5
+M14.44,"Arthropathie au cours d'amylose (E85.-)   - "" Main """,category,5
+M14.45,"Arthropathie au cours d'amylose (E85.-)   - "" Région pelvienne et cuisse """,category,5
+M14.46,"Arthropathie au cours d'amylose (E85.-)   - "" Jambe """,category,5
+M14.47,"Arthropathie au cours d'amylose (E85.-)   - "" Cheville et pied """,category,5
+M14.48,"Arthropathie au cours d'amylose (E85.-)   - "" Autres """,category,5
+M14.49,"Arthropathie au cours d'amylose (E85.-)   - "" Siège non précisé """,category,5
 M14.50,"Arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques - "" Sièges multiples """,category,5
 M14.51,"Arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques - "" Région scapulaire """,category,5
 M14.52,"Arthropathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques - "" Bras """,category,5
@@ -1296,16 +1296,16 @@ M63.26,"Myosite au cours d'autres maladies infectieuses classées ailleurs - "" 
 M63.27,"Myosite au cours d'autres maladies infectieuses classées ailleurs - "" Cheville et pied """,category,5
 M63.28,"Myosite au cours d'autres maladies infectieuses classées ailleurs - "" Autres """,category,5
 M63.29,"Myosite au cours d'autres maladies infectieuses classées ailleurs - "" Siège non précisé """,category,5
-M63.30,"Myosite au cours de sarcoïdose [D86.8]   - "" Sièges multiples """,category,5
-M63.31,"Myosite au cours de sarcoïdose [D86.8]   - "" Région scapulaire """,category,5
-M63.32,"Myosite au cours de sarcoïdose [D86.8]   - "" Bras """,category,5
-M63.33,"Myosite au cours de sarcoïdose [D86.8]   - "" Avant-bras """,category,5
-M63.34,"Myosite au cours de sarcoïdose [D86.8]   - "" Main """,category,5
-M63.35,"Myosite au cours de sarcoïdose [D86.8]   - "" Région pelvienne et cuisse """,category,5
-M63.36,"Myosite au cours de sarcoïdose [D86.8]   - "" Jambe """,category,5
-M63.37,"Myosite au cours de sarcoïdose [D86.8]   - "" Cheville et pied """,category,5
-M63.38,"Myosite au cours de sarcoïdose [D86.8]   - "" Autres """,category,5
-M63.39,"Myosite au cours de sarcoïdose [D86.8]   - "" Siège non précisé """,category,5
+M63.30,"Myosite au cours de sarcoïdose (D86.8)   - "" Sièges multiples """,category,5
+M63.31,"Myosite au cours de sarcoïdose (D86.8)   - "" Région scapulaire """,category,5
+M63.32,"Myosite au cours de sarcoïdose (D86.8)   - "" Bras """,category,5
+M63.33,"Myosite au cours de sarcoïdose (D86.8)   - "" Avant-bras """,category,5
+M63.34,"Myosite au cours de sarcoïdose (D86.8)   - "" Main """,category,5
+M63.35,"Myosite au cours de sarcoïdose (D86.8)   - "" Région pelvienne et cuisse """,category,5
+M63.36,"Myosite au cours de sarcoïdose (D86.8)   - "" Jambe """,category,5
+M63.37,"Myosite au cours de sarcoïdose (D86.8)   - "" Cheville et pied """,category,5
+M63.38,"Myosite au cours de sarcoïdose (D86.8)   - "" Autres """,category,5
+M63.39,"Myosite au cours de sarcoïdose (D86.8)   - "" Siège non précisé """,category,5
 M63.80,"Autres atteintes musculaires au cours de maladies classées ailleurs - "" Sièges multiples """,category,5
 M63.81,"Autres atteintes musculaires au cours de maladies classées ailleurs - "" Région scapulaire """,category,5
 M63.82,"Autres atteintes musculaires au cours de maladies classées ailleurs - "" Bras """,category,5
