@@ -1034,6 +1034,78 @@ Le typage canonique se fait via le mapping :
 - table NOTE (via MEMO) → type=COMMENT
 - table GLOSSAIRE (via MEMO) → type=CODING_HINT
 
+#### Découvertes structurelles complémentaires sur MASTER et LIBELLE
+
+L'investigation du chantier "localisations chapitre XIII" (voir
+`docs/sessions/2026-06-06_localisations_chap13_ofs.md` et son extension
+`docs/sessions/2026-06-06_retypage_altlabel_chap13.md`) a révélé des
+éléments structurels d'OFS qui n'étaient pas encore documentés :
+
+**Type `D` dans MASTER (level=6)** : sémantique "Décliné" ou "Détail".
+Désigne un code feuille à 5 caractères qui matérialise une **5e position**
+appliquée à une sous-catégorie 4-caractères (type=S, level=5).
+
+- Concentration empirique : **100 % des codes type=D sont dans le
+  chapitre XIII** (3 711 codes au total). Aucun autre chapitre n'utilise
+  ce mécanisme dans le référentiel OFS V2B004.
+- Sémantique : ces codes encodent le système de 5e position "Tableau de
+  codage de la localisation ostéo-articulaire" défini par l'OMS pour le
+  chapitre XIII.
+- Convention de libellé MASTER : pattern strict
+  `<parent_libellé> | <localisation>` où la partie après le `|` est la
+  5e position. Exemple pour M01.08 : `"arthrite méningococcique | autres"`.
+
+**Liste canonique des 10 valeurs de 5e position** (extraite par lecture
+des libellés MASTER M01.0X / M02.0X / etc.) :
+
+| 5e pos | Localisation OFS                              |
+|--------|-----------------------------------------------|
+| 0      | sièges multiples                              |
+| 1      | région scapulaire                             |
+| 2      | bras                                          |
+| 3      | avant-bras                                    |
+| 4      | main                                          |
+| 5      | région pelvienne et cuisse                    |
+| 6      | jambe                                         |
+| 7      | cheville et pied                              |
+| 8      | autres                                        |
+| 9      | siège non précisé                             |
+
+La position 8 ("autres") est un **agrégat** couvrant 6 localisations
+anatomiques (tête, cou, tronc, côtes, crâne, colonne vertébrale). Cette
+décomposition atomique n'est **pas exposée dans OFS** : OFS encode
+uniquement le libellé agrégé "autres". La décomposition atomique
+n'existe que dans le RDF ANS via `skos:altLabel` (voir Cas particuliers
+ci-dessous).
+
+**Source `R` dans LIBELLE** : sémantique "Référence". Pointeur de titre
+OMS sans contenu textuel propre. 19 entrées au total dans le référentiel
+V2B004.
+
+- Schéma : ces entrées sont jointes à la table REFER qui associe un SID
+  à une référence externe (champ `ref`).
+- Exemple : pour le chapitre XIII (SID=5401), REFER pointe vers deux
+  entrées LIBELLE source=R :
+  - `LID=31711, ref=v1c13n1` → "tableau de codage de la localisation
+    ostéo-articulaire"
+  - `LID=31790, ref=v1c13ast` → "liste des catégories à code astérisque"
+- Ces entrées sont **uniquement des titres** : le contenu effectif des
+  tableaux référencés est implicite (à reconstruire en lisant les
+  libellés MASTER des codes type=D pour les 5e positions, ou la table
+  DAGSTAR pour les paires dague/astérisque).
+- Volumétrie : 19 LID en source=R, en intersection parfaite avec les
+  19 entrées de REFER.
+
+**Conséquence pour le loader OFS** :
+
+- Type=D doit être préservé au chargement de MASTER (ne pas le filtrer
+  ni le confondre avec type=S).
+- Le pattern de libellé `<parent> | <localisation>` est un témoin
+  structurel exploitable pour identifier les codes 5e position.
+- Les entrées source=R sont des pointeurs sans contenu utile pour le
+  CSV : à ignorer dans les exporters classiques (elles ne donnent ni
+  inclusion, ni exclusion, ni descripteur).
+
 ### Loader OWL/ANS (`loaders/owl.py`)
 
 Doit produire des DataFrames avec le MÊME schéma canonique. Le typage
@@ -1053,6 +1125,72 @@ se fait via le mapping :
 
 Source = `"ANS"`. Le libellé est extrait tel quel (sans
 normalisation, sans tentative d'atomisation).
+
+#### Cas particulier : retypage des localisations du chapitre XIII
+
+L'investigation du chantier "localisations chapitre XIII" a mis en
+évidence que les `skos:altLabel` ANS des codes type=D du chapitre XIII
+ne sont **pas** des synonymes au sens classique, mais des
+**localisations anatomiques** extraites du tableau des 5e positions de
+l'OMS.
+
+Pour ces codes (3 711 au total, tous dans le chapitre XIII), l'ANS a
+distribué les valeurs du tableau des 5e positions au niveau de chaque
+code feuille, en les exposant comme `skos:altLabel`. Pour la position
+"autres" (M*.X8), l'ANS atomise la liste : par exemple, M01.08 a 6
+altLabel ("colonne vertébrale", "cou", "côtes", "crâne", "tête",
+"tronc") qui sont en fait la **décomposition atomique** de la 5e
+position "autres".
+
+**Pattern empirique confirmé** : pour les codes type=D du chapitre XIII
+ayant à la fois `skos:altLabel` et `xkos:inclusionNote`, la relation
+`altLabel ⊆ inclusionNote` est respectée à **100 %** (vérifié sur
+2 280 codes / 9 405 altLabel, zéro exception). C'est une dichotomie
+parfaite : un code type=D a soit les deux, soit aucun des deux.
+
+**Politique recode-icd** : pour les codes type=D du chapitre XIII, les
+`skos:altLabel` ANS sont **retypés en `inclusion`** (et non en
+`synonyme`) au niveau du loader. Justifications :
+
+1. **Sémantique correcte** : ces termes sont des localisations
+   anatomiques, pas des reformulations cliniques du code. Les traiter
+   comme inclusions reflète leur nature réelle.
+2. **Cohérence avec OFS** : OFS encode déjà la 5e position dans le
+   libellé MASTER. Le retypage des altLabel ANS en inclusion produit
+   un CSV où la 5e position est représentée de manière cohérente avec
+   la classification OMS.
+3. **Pas de perte d'information** : les altLabel et le bloc
+   `xkos:inclusionNote` portent la même information sémantique (le
+   pattern altLabel ⊆ inclusionNote le confirme). Le retypage préserve
+   les deux formes (atomique et groupée) sans rien filtrer
+   (cf "Politique de redondance" ci-dessous).
+4. **Détection structurelle robuste** : le critère `type=D` dans MASTER
+   est une caractéristique structurelle stable du référentiel, pas une
+   heuristique sur les textes ANS.
+
+**Politique de redondance** : après retypage, un code comme M01.08 a
+dans le CSV à la fois ses 6 inclusions atomiques (depuis les altLabel
+retypés) et son bloc multi-ligne d'inclusion (depuis l'inclusionNote
+d'origine). Cette redondance est **acceptée** dans le CSV (format
+intermédiaire). Les consommateurs peuvent dédoublonner côté usage si
+nécessaire.
+
+**Critère d'application** : un `skos:altLabel` est retypé en inclusion
+si et seulement si :
+- Le code est `type=D` dans MASTER (équivalent au chapitre XIII en
+  pratique)
+
+Pas de critère textuel sur les altLabel eux-mêmes : la nature
+"localisation" est inférée de la structure du code, pas du contenu du
+texte. Cette approche reste valide même si l'ANS étend à l'avenir le
+contenu des altLabel (les nouveaux altLabel d'un code type=D seront
+toujours sémantiquement des localisations).
+
+**Codes hors périmètre** : 90 codes type=D dans MASTER sont absents
+du RDF ANS (ex : M11.90, M13.00, M62.80). Ils ne sont pas affectés par
+le retypage (rien à retyper). Ils sont signalés dans
+`reports/orphan_type_d_codes.csv` pour audit séparé.
+
 
 ### Merger (`merge.py`)
 
@@ -1146,6 +1284,58 @@ colonnes :
 Le code témoin de référence pour ce cas est **U07.1** (COVID-19),
 ajouté à la classification en 2020 et donc absent de l'OFS.
 
+### 5e position du chapitre XIII (localisations ostéo-articulaires)
+
+Le chapitre XIII (système ostéo-articulaire, muscles et tissu conjonctif)
+utilise un système de **5e position** défini par l'OMS, distinct du
+mécanisme d'extension à 5 caractères classique. Cette 5e position encode
+la **localisation anatomique** de l'affection décrite par le code 4
+caractères parent.
+
+#### Représentation dans les deux sources
+
+**Dans OFS** : chaque combinaison `(code 4-car, 5e position)` est un
+code feuille distinct dans MASTER, marqué `type=D, level=6`. Le libellé
+suit le pattern `<parent_libellé> | <localisation>`. Volumétrie : 3 711
+codes type=D au total, 100 % concentré sur le chapitre XIII.
+
+Voir "Découvertes structurelles complémentaires sur MASTER et LIBELLE"
+dans la section Loader OFS pour la liste canonique des 10 valeurs.
+
+**Dans ANS** : pour chaque code type=D, l'ANS expose :
+- Un libellé `rdfs:label` du même type que OFS (avec parfois des
+  différences typographiques mineures, ex. guillemets autour de la 5e
+  position pour M01.08).
+- Une ou plusieurs entrées `skos:altLabel` contenant la décomposition
+  atomique de la 5e position (1 entrée pour les positions 1-7, 6
+  entrées pour la position 8 "autres", 0 pour la position 9 "siège
+  non précisé").
+- Un `xkos:inclusionNote` multi-ligne qui contient la même information
+  groupée.
+
+#### Politique recode-icd
+
+Voir "Cas particulier : retypage des localisations du chapitre XIII"
+dans la section Loader OWL/ANS pour la règle d'application :
+
+- Les `skos:altLabel` des codes type=D du chapitre XIII sont retypés
+  en `inclusion` au lieu de `synonyme`.
+- La redondance avec `xkos:inclusionNote` est acceptée dans le CSV.
+- 90 codes type=D absents du RDF ANS sont audités séparément.
+
+#### Codes témoins
+
+- **M01.08** (Arthrite méningococcique, position "autres") : 6
+  altLabel atomiques + 1 inclusionNote groupée → après retypage,
+  7 lignes d'inclusion ANS dans le CSV.
+- **M01.05** (Arthrite méningococcique, position "région pelvienne
+  et cuisse") : 1 altLabel ("région pelvienne et cuisse") + 1
+  inclusionNote → après retypage, 2 lignes d'inclusion ANS.
+- **M00.00** (position "sièges multiples", sans expansion ANS) : 0
+  altLabel et 0 inclusionNote → aucun retypage (code neutre).
+- **M11.90** : code type=D absent du RDF ANS → reporting séparé.
+
+
 ## Reporting obligatoire
 
 À chaque build, produire :
@@ -1164,6 +1354,19 @@ ajouté à la classification en 2020 et donc absent de l'OFS.
   les appariements dague/astérisque.
 - `reports/synthesized_skipped.csv` : codes .8 où la synthèse a été
   skippée (cf catégories C00-C75 et autres cas limites).
+  - `reports/orphan_type_d_codes.csv` : **nouveau**. Logge les codes
+  type=D de MASTER absents du RDF ANS (90 codes au build initial,
+  e.g. M11.90, M13.00, M62.80) :
+  - `code` : code CIM-10
+  - `libelle_master` : libellé MASTER (avec son pattern
+    `<parent> | <localisation>`)
+  - `chapter` : chapitre (typiquement XIII)
+  - `categorie_orphan` : raison probable de l'absence
+    (`possibly_obsolete_ofs` / `not_in_french_classification` / `unknown`)
+
+  Ce rapport sert d'audit pour comprendre les écarts de couverture
+  entre OFS V2B004 et le RDF ANS actuel sur le chapitre XIII. Pas de
+  traitement automatique, juste de la visibilité.
 > - `reports/external_overlaps.csv` : **nouveau**. Logge pour chaque
 >   entrée externe absorbée par dédup avec OFS/ANS :
 >   - `code` : code CIM-10

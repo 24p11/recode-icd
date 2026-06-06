@@ -17,6 +17,7 @@ import pytest
 from recode_icd.utils.loaders_dev import (
     ExplorationContext,
     inspect_code,
+    inspect_code_extended,
     load_exploration_context,
 )
 
@@ -28,6 +29,20 @@ def ctx() -> ExplorationContext:
     c = load_exploration_context()
     if c.flat is None or c.merged is None:
         pytest.skip("Artefacts pipeline absents — lancer build flat-csv d'abord.")
+    return c
+
+
+@pytest.fixture(scope="module")
+def ctx_rdf() -> ExplorationContext:
+    """Contexte avec graphe RDF chargé pour inspect_code_extended.
+
+    Skip si le RDF ANS n'est pas disponible (build pipeline-only).
+    """
+    c = load_exploration_context(load_rdf=True)
+    if c.flat is None or c.merged is None:
+        pytest.skip("Artefacts pipeline absents — lancer build flat-csv d'abord.")
+    if c.ans_graph is None:
+        pytest.skip("RDF ANS absent — chemin par défaut introuvable.")
     return c
 
 
@@ -124,3 +139,56 @@ def test_inspect_code_verbose_propagated_delta(
     inspect_code("E80.7", ctx=ctx, verbose=True)
     out = capsys.readouterr().out
     assert "héritage hiérarchique détecté" in out
+
+
+# ----------------------------------------------------------------------
+# inspect_code_extended (variante avec lecture RDF directe)
+# ----------------------------------------------------------------------
+
+
+def test_inspect_code_extended_leaf_smoke(
+    ctx_rdf: ExplorationContext, capsys,
+) -> None:  # type: ignore[no-untyped-def]
+    """Smoke : M01.08 (feuille) doit produire les 5 BLOCs et exposer les
+    propriétés RDF spécifiques (hasCausality vers A39.8, 6 altLabel)."""
+    inspect_code_extended("M01.08", ctx_rdf)
+    out = capsys.readouterr().out
+    assert "M01.08" in out
+    assert "BLOC 1" in out and "BLOC 2" in out and "BLOC 3" in out and "BLOC 4" in out
+    assert "Type de nœud : leaf" in out
+    assert "ANS — RDF source" in out
+    assert "hasCausality" in out
+    assert "A39.8" in out
+
+
+def test_inspect_code_extended_chapter_roman(
+    ctx_rdf: ExplorationContext, capsys,
+) -> None:  # type: ignore[no-untyped-def]
+    """XIII (chiffre romain) doit être mappé vers l'URI RDF 13, et
+    l'affichage doit reprendre la notation romaine."""
+    inspect_code_extended("XIII", ctx_rdf)
+    out = capsys.readouterr().out
+    assert "XIII" in out
+    assert "Type de nœud : chapter" in out
+    assert "/13" in out  # URI RDF
+    # BLOC 4 doit indiquer l'absence du CSV pour un nœud non-feuille.
+    assert "absent du CSV final" in out
+
+
+def test_inspect_code_extended_absent_does_not_crash(
+    ctx_rdf: ExplorationContext, capsys,
+) -> None:  # type: ignore[no-untyped-def]
+    """ZZZ99 (inexistant) ne doit pas lever, et signaler l'absence."""
+    inspect_code_extended("ZZZ99", ctx_rdf)
+    out = capsys.readouterr().out
+    assert "Type de nœud : absent" in out
+    assert "absent du RDF" in out
+
+
+def test_inspect_code_extended_no_rdf_raises(
+    ctx: ExplorationContext,
+) -> None:
+    """Sans ans_graph (load_rdf=False par défaut), la fonction doit
+    lever une erreur claire."""
+    with pytest.raises(RuntimeError, match="ans_graph"):
+        inspect_code_extended("M01.08", ctx)
