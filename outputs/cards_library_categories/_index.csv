@@ -1,0 +1,2055 @@
+code,chapter,filepath,libelle,n_enfants,has_perimetre,has_exclusions,has_formulations,nb_chars
+A00,I,I/A00.md,Choléra,3,true,true,true,1938
+A01,I,I/A01.md,Fièvres typhoïde et paratyphoïde,5,true,true,true,5744
+A02,I,I/A02.md,Autres salmonelloses,5,true,true,true,4659
+A03,I,I/A03.md,Shigellose,6,true,true,true,4201
+A04,I,I/A04.md,Autres infections intestinales bactériennes,10,true,true,true,8391
+A05,I,I/A05.md,"Autres intoxications bactériennes d'origine alimentaire, non classées ailleurs",7,true,true,true,7142
+A06,I,I/A06.md,Amibiase,10,true,true,true,6326
+A07,I,I/A07.md,Autres maladies intestinales à protozoaires,6,true,true,true,6372
+A08,I,I/A08.md,Infections virales intestinales et autres infections intestinales précisées,6,true,true,true,5598
+A09,I,I/A09.md,Autres gastroentérites et colites d'origine infectieuse et non précisée,2,true,true,true,2558
+A15,I,I/A15.md,"Tuberculose de l'appareil respiratoire, avec confirmation bactériologique et histologique",10,true,true,true,12497
+A16,I,I/A16.md,"Tuberculose de l'appareil respiratoire, sans confirmation bactériologique ou histologique",9,true,true,true,11625
+A17,I,I/A17.md,Tuberculose du système nerveux,4,true,true,true,4785
+A18,I,I/A18.md,Tuberculose d'autres organes,9,true,true,true,8775
+A19,I,I/A19.md,Tuberculose miliaire,5,true,true,true,2830
+A20,I,I/A20.md,Peste,7,true,true,true,2572
+A21,I,I/A21.md,Tularémie,7,true,true,true,2947
+A22,I,I/A22.md,Charbon,6,true,true,true,3250
+A23,I,I/A23.md,Brucellose,6,true,true,true,2611
+A24,I,I/A24.md,Morve et mélioïdose,5,true,true,true,2761
+A25,I,I/A25.md,Fièvres causées par morsure de rat,3,true,true,true,2371
+A26,I,I/A26.md,Érysipéloïde,4,true,true,true,2157
+A27,I,I/A27.md,Leptospirose,3,true,true,true,2836
+A28,I,I/A28.md,"Autres anthropozoonoses  bactériennes, non classées ailleurs",5,true,true,true,2980
+A30,I,I/A30.md,Lèpre [maladie de Hansen],8,true,true,true,4638
+A31,I,I/A31.md,Infections dues à d'autres mycobactéries,4,true,true,true,3770
+A32,I,I/A32.md,Listériose,5,true,true,true,3453
+A33,I,I/A33.md,Tétanos du nouveau-né,0,true,true,true,1299
+A34,I,I/A34.md,Tétanos obstétrical,0,true,true,true,1457
+A35,I,I/A35.md,Autres formes de tétanos,0,true,true,true,1500
+A36,I,I/A36.md,Diphtérie,6,true,true,true,5279
+A37,I,I/A37.md,Coqueluche,4,true,true,true,1576
+A38,I,I/A38.md,Scarlatine,0,true,true,true,1760
+A39,I,I/A39.md,Infection à méningocoques,8,true,true,true,6316
+A40,I,I/A40.md,Sepsis à streptocoques,6,true,true,true,4006
+A41,I,I/A41.md,Autres sepsis,8,true,true,true,6710
+A42,I,I/A42.md,Actinomycose,6,true,true,true,2760
+A43,I,I/A43.md,Nocardiose,4,true,true,true,1631
+A44,I,I/A44.md,Bartonellose,4,true,true,true,1829
+A46,I,I/A46.md,Érysipèle,0,true,true,true,1613
+A48,I,I/A48.md,"Autres maladies bactériennes, non classées ailleurs",6,true,true,true,4492
+A49,I,I/A49.md,"Infection bactérienne, siège non précisé",6,true,true,true,3970
+A50,I,I/A50.md,Syphilis congénitale,9,true,true,true,10606
+A51,I,I/A51.md,Syphilis précoce,7,true,true,true,6913
+A52,I,I/A52.md,Syphilis tardive,7,true,true,true,9121
+A53,I,I/A53.md,"Syphilis, autres et sans précision",2,true,true,true,2752
+A54,I,I/A54.md,Infection gonococcique,9,true,true,true,8928
+A55,I,I/A55.md,Lymphogranulomatose vénérienne à Chlamydia,0,true,true,true,2753
+A56,I,I/A56.md,Autres infections à Chlamydia transmises par voie sexuelle,6,true,true,true,6174
+A57,I,I/A57.md,Chancre mou,0,true,true,true,3028
+A58,I,I/A58.md,Granulome inguinal,0,true,true,true,1861
+A59,I,I/A59.md,Trichomonase,3,true,true,true,3877
+A60,I,I/A60.md,Infection anogénitale par le virus de l'herpès [Herpes simplex],3,true,true,true,3789
+A63,I,I/A63.md,"Autres maladies dont le mode de transmission est essentiellement sexuel, non classées ailleurs",2,true,true,true,2465
+A64,I,I/A64.md,"Maladie sexuellement transmise, sans précision",0,true,true,true,1985
+A65,I,I/A65.md,Syphilis non vénérienne,0,true,true,true,1588
+A66,I,I/A66.md,Pian,10,true,true,true,6865
+A67,I,I/A67.md,Pinta [caraté],5,true,true,true,4212
+A68,I,I/A68.md,Fièvres récurrentes [borrélioses],3,true,true,true,2932
+A69,I,I/A69.md,Autres infections à spirochètes,5,true,true,true,5992
+A70,I,I/A70.md,Infection à Chlamydia psittaci,0,true,true,true,1602
+A71,I,I/A71.md,Trachome,3,true,true,true,2395
+A74,I,I/A74.md,Autres infections à Chlamydia,3,true,true,true,2549
+A75,I,I/A75.md,Typhus,5,true,true,true,3658
+A77,I,I/A77.md,Fièvre pourprée [rickettsioses à tiques],6,true,true,true,4026
+A78,I,I/A78.md,Fièvre Q,0,true,true,true,2199
+A79,I,I/A79.md,Autres rickettsioses,4,true,true,true,2579
+A80,I,I/A80.md,Poliomyélite aigüe,6,true,true,true,3558
+A81,I,I/A81.md,"Infections atypiques à virus, du système nerveux central",5,true,true,true,3949
+A82,I,I/A82.md,Rage,3,true,true,true,1689
+A83,I,I/A83.md,Encéphalite virale transmise par des moustiques,9,true,true,true,6943
+A84,I,I/A84.md,Encéphalite virale transmise par des tiques,4,true,true,true,4112
+A85,I,I/A85.md,"Autres encéphalites virales, non classées ailleurs",4,true,true,true,4262
+A86,I,I/A86.md,"Encéphalite virale, sans précision",0,true,true,true,2389
+A87,I,I/A87.md,Méningite virale,5,true,true,true,4463
+A88,I,I/A88.md,"Autres infections virales du système nerveux central, non classées ailleurs",3,true,true,true,2143
+A89,I,I/A89.md,"Infection virale du système nerveux central, sans précision",0,true,true,true,1392
+A92,I,I/A92.md,Autres fièvres virales transmises par des moustiques,8,true,true,true,4111
+A93,I,I/A93.md,"Autres fièvres virales transmises par des arthropodes, non classées ailleurs",4,true,true,true,2785
+A94,I,I/A94.md,"Fièvre virale transmise par des arthropodes, sans précision",0,true,true,true,1753
+A95,I,I/A95.md,Fièvre jaune,3,true,true,true,1846
+A96,I,I/A96.md,Fièvre hémorragique à arénavirus,5,true,true,true,2236
+A97,I,I/A97.md,Dengue,4,true,true,false,1500
+A98,I,I/A98.md,"Autres fièvres hémorragiques virales, non classées ailleurs",7,true,true,true,3840
+A99,I,I/A99.md,"Fièvre hémorragique virale, sans précision",0,true,true,true,1415
+B00,I,I/B00.md,Infections par le virus de l'herpès [Herpes simplex],9,true,true,true,7230
+B01,I,I/B01.md,Varicelle,5,true,true,true,2677
+B02,I,I/B02.md,Zona [herpes zoster],7,true,true,true,5842
+B03,I,I/B03.md,Variole,0,true,true,true,1222
+B04,I,I/B04.md,Monkeypox,0,true,true,true,1189
+B05,I,I/B05.md,Rougeole,7,true,true,true,3748
+B06,I,I/B06.md,Rubéole,3,true,true,true,3202
+B07,I,I/B07.md,Verrues d'origine virale,0,true,true,true,1865
+B08,I,I/B08.md,"Autres infections virales caractérisées par des lésions cutanéomuqueuses, non classées ailleurs",7,true,true,true,5459
+B09,I,I/B09.md,"Infection virale caractérisée par des lésions cutanéomuqueuses, sans précision",0,true,true,true,1642
+B15,I,I/B15.md,Hépatite aigüe A,2,true,true,true,1905
+B16,I,I/B16.md,Hépatite aigüe B,4,true,true,true,2549
+B17,I,I/B17.md,Autres hépatites virales aigües,5,true,true,true,2304
+B18,I,I/B18.md,Hépatite virale chronique,5,true,true,true,2069
+B19,I,I/B19.md,"Hépatite virale, sans précision",2,true,true,true,2131
+B20,I,I/B20.md,"Immunodéficience humaine virale [VIH], à l'origine de maladies infectieuses et parasitaires",10,true,true,true,5033
+B21,I,I/B21.md,"Immunodéficience humaine virale [VIH], à l'origine de tumeurs malignes",7,true,true,true,3155
+B22,I,I/B22.md,"Immunodéficience humaine virale [VIH], à l'origine d'autres affections précisées",4,true,true,true,3423
+B23,I,I/B23.md,"Immunodéficience humaine virale [VIH], à l'origine d'autres maladies",4,true,true,true,2605
+B24,I,I/B24.md,"Immunodéficience humaine virale [VIH], sans précision",0,true,true,false,1517
+B25,I,I/B25.md,Maladie à cytomégalovirus,5,true,true,true,3145
+B26,I,I/B26.md,Oreillons,6,true,true,true,4249
+B27,I,I/B27.md,Mononucléose infectieuse,4,true,true,true,2650
+B30,I,I/B30.md,Conjonctivite virale,6,true,true,true,3644
+B33,I,I/B33.md,"Autres maladies à virus, non classées ailleurs",6,true,true,true,4364
+B34,I,I/B34.md,"Infection virale, siège non précisé",7,true,true,true,3582
+B35,I,I/B35.md,Dermatophytose,9,true,true,true,6318
+B36,I,I/B36.md,Autres mycoses superficielles,6,true,true,true,3842
+B37,I,I/B37.md,Candidose,10,true,true,true,4787
+B38,I,I/B38.md,Coccidioïdomycose,8,true,true,true,3410
+B39,I,I/B39.md,Histoplasmose,7,true,true,true,3399
+B40,I,I/B40.md,Blastomycose,7,true,true,true,2780
+B41,I,I/B41.md,Paracoccidioïdomycose,4,true,true,true,2987
+B42,I,I/B42.md,Sporotrichose,5,true,true,true,2406
+B43,I,I/B43.md,Chromomycose [chromoblastomycose] et abcès phæohyphomycosique,5,true,true,true,3334
+B44,I,I/B44.md,Aspergillose,6,true,true,true,2343
+B45,I,I/B45.md,Cryptococcose,7,true,true,true,2895
+B46,I,I/B46.md,Zygomycose,8,true,true,true,2477
+B47,I,I/B47.md,Mycétome,3,true,true,true,2665
+B48,I,I/B48.md,"Autres mycoses, non classées ailleurs",8,true,true,true,3491
+B49,I,I/B49.md,"Mycose, sans précision",0,true,true,true,2724
+B50,I,I/B50.md,Paludisme à Plasmodium falciparum,3,true,true,true,3532
+B51,I,I/B51.md,Paludisme à Plasmodium vivax,3,true,true,true,2409
+B52,I,I/B52.md,Paludisme à Plasmodium malariae,3,true,true,true,2594
+B53,I,I/B53.md,Autres paludismes confirmés par examen parasitologique,3,true,true,true,2031
+B54,I,I/B54.md,"Paludisme, sans précision",0,true,true,true,2585
+B55,I,I/B55.md,Leishmaniose,4,true,true,true,4523
+B56,I,I/B56.md,Trypanosomiase africaine,3,true,true,true,2895
+B57,I,I/B57.md,Maladie de Chagas,6,true,true,true,5918
+B58,I,I/B58.md,Toxoplasmose,6,true,true,true,4014
+B60,I,I/B60.md,"Autres maladies dues à des protozoaires, non classées ailleurs",4,true,true,true,2910
+B64,I,I/B64.md,"Maladie due à des protozoaires, sans précision",0,true,true,true,1468
+B65,I,I/B65.md,Schistosomiase [bilharziose],6,true,true,true,4551
+B66,I,I/B66.md,Autres infections par douves [distomatoses],8,true,true,true,5746
+B67,I,I/B67.md,Échinococcose,10,true,true,true,4278
+B68,I,I/B68.md,Infection à Taenia [téniase],3,true,true,true,2968
+B69,I,I/B69.md,Cysticercose,4,true,true,true,1990
+B70,I,I/B70.md,Diphyllobothriase et sparganose,2,true,true,true,2931
+B71,I,I/B71.md,Autres infections à cestodes,4,true,true,true,2532
+B72,I,I/B72.md,Dracunculose,0,true,true,true,1972
+B73,I,I/B73.md,Onchocercose,0,true,true,true,2454
+B74,I,I/B74.md,Filariose,7,true,true,true,5192
+B75,I,I/B75.md,Trichinose,0,true,true,true,1574
+B76,I,I/B76.md,Ankylostomiase,4,true,true,true,3153
+B77,I,I/B77.md,Ascaridiase,3,true,true,true,2005
+B78,I,I/B78.md,Anguillulose [strongyloïdose],4,true,true,true,2161
+B79,I,I/B79.md,Infection à Trichuris trichiuria,0,true,true,true,1572
+B80,I,I/B80.md,Oxyurose,0,true,true,true,1880
+B81,I,I/B81.md,"Autres helminthiases intestinales, non classées ailleurs",6,true,true,true,4599
+B82,I,I/B82.md,"Parasitose intestinale, sans précision",2,true,true,true,1951
+B83,I,I/B83.md,Autres helminthiases,7,true,true,true,4291
+B85,I,I/B85.md,Pédiculose et phtiriase,5,true,true,true,3782
+B86,I,I/B86.md,Gale,0,true,true,true,1699
+B87,I,I/B87.md,Myiase,7,true,true,true,2386
+B88,I,I/B88.md,Autres infestations,6,true,true,true,4479
+B89,I,I/B89.md,"Parasitose, sans précision",0,true,true,true,3531
+B90,I,I/B90.md,Séquelles de tuberculose,5,true,true,true,2556
+B91,I,I/B91.md,Séquelles de poliomyélite,0,true,true,true,1382
+B92,I,I/B92.md,Séquelles de lèpre,0,true,true,true,1195
+B94,I,I/B94.md,"Séquelles de maladies infectieuses et parasitaires, autres et non précisées",5,true,true,true,1885
+B95,I,I/B95.md,"Streptocoques et staphylocoques, cause de maladies classées dans d'autres chapitres",9,true,true,true,3981
+B96,I,I/B96.md,"Autres agents bactériens précisés, cause de maladies classées dans d'autres chapitres",9,true,true,true,3903
+B97,I,I/B97.md,"Virus, cause de maladies classées dans d'autres chapitres",9,true,true,true,4039
+B98,I,I/B98.md,"Autres agents infectieux précisés, cause de maladies classées dans d'autres chapitres",2,true,true,false,1393
+B99,I,I/B99.md,"Maladies infectieuses, autres et non précisées",0,true,true,false,1131
+C00,II,II/C00.md,Tumeur maligne de la lèvre,9,true,true,false,2540
+C01,II,II/C01.md,Tumeur maligne de la base de la langue,0,true,false,false,703
+C02,II,II/C02.md,"Tumeur maligne de la langue, parties autres et non précisées",7,true,true,false,1615
+C03,II,II/C03.md,Tumeur maligne de la gencive,3,true,true,false,975
+C04,II,II/C04.md,Tumeur maligne du plancher de la bouche,4,true,false,false,811
+C05,II,II/C05.md,Tumeur maligne du palais,5,true,true,false,876
+C06,II,II/C06.md,"Tumeur maligne de la bouche, parties autres et non précisées",5,true,false,false,1313
+C07,II,II/C07.md,Tumeur maligne de la glande parotide,0,false,false,false,424
+C08,II,II/C08.md,"Tumeur maligne des glandes salivaires principales, autres et non précisées",4,true,true,true,1664
+C09,II,II/C09.md,Tumeur maligne de l'amygdale,4,true,true,false,1067
+C10,II,II/C10.md,Tumeur maligne de l'oropharynx,7,true,true,true,1503
+C11,II,II/C11.md,Tumeur maligne du rhinopharynx,6,true,false,false,1591
+C12,II,II/C12.md,Tumeur maligne du sinus piriforme,0,true,false,false,494
+C13,II,II/C13.md,Tumeur maligne de l'hypopharynx,5,true,true,false,1213
+C14,II,II/C14.md,"Tumeur maligne de la lèvre, de la cavité buccale et du pharynx, de sièges autres et mal définis",3,true,true,false,1027
+C15,II,II/C15.md,Tumeur maligne de l'oesophage,8,false,false,false,862
+C16,II,II/C16.md,Tumeur maligne de l'estomac,9,true,false,false,1679
+C17,II,II/C17.md,Tumeur maligne de l'intestin grêle,6,false,true,false,802
+C18,II,II/C18.md,Tumeur maligne du côlon,10,true,true,true,1510
+C19,II,II/C19.md,Tumeur maligne de la jonction rectosigmoïdienne,0,true,false,false,557
+C20,II,II/C20.md,Tumeur maligne du rectum,0,true,false,false,456
+C21,II,II/C21.md,Tumeur maligne de l'anus et du canal anal,4,true,true,true,1746
+C22,II,II/C22.md,Tumeur maligne du foie et des voies biliaires intrahépatiques,7,true,true,true,4983
+C23,II,II/C23.md,Tumeur maligne de la vésicule biliaire,0,false,false,false,400
+C24,II,II/C24.md,"Tumeurs malignes des voies biliaires, autres et non précisées",4,true,true,false,1350
+C25,II,II/C25.md,Tumeur maligne du pancréas,8,true,false,false,960
+C26,II,II/C26.md,"Tumeur maligne des organes digestifs, de sièges autres et mal définis",4,true,true,false,1549
+C30,II,II/C30.md,Tumeur maligne des fosses nasales et de l'oreille moyenne,2,true,true,true,1982
+C31,II,II/C31.md,Tumeur maligne des sinus de la face,6,true,true,false,1009
+C32,II,II/C32.md,Tumeur maligne du larynx,6,true,true,true,1796
+C33,II,II/C33.md,Tumeur maligne de la trachée,0,true,true,false,600
+C34,II,II/C34.md,Tumeur maligne des bronches et du poumon,6,true,true,true,1870
+C37,II,II/C37.md,Tumeur maligne du thymus,0,true,true,true,772
+C38,II,II/C38.md,"Tumeur maligne du coeur, du médiastin et de la plèvre",6,true,true,false,1080
+C39,II,II/C39.md,"Tumeur maligne de l'appareil respiratoire et des organes intrathoraciques, de sièges autres et mal définis",3,true,true,false,1415
+C40,II,II/C40.md,Tumeur maligne des os et du cartilage articulaire des membres,6,false,true,true,1126
+C41,II,II/C41.md,"Tumeur maligne des os et du cartilage articulaire, de sièges autres et non précisés",7,true,true,true,4686
+C43,II,II/C43.md,Mélanome malin de la peau,10,true,true,true,4991
+C44,II,II/C44.md,Autres tumeurs malignes de la peau,10,true,true,true,3329
+C45,II,II/C45.md,Mésothéliome,5,true,true,true,2138
+C46,II,II/C46.md,Sarcome de Kaposi,7,true,false,true,1246
+C47,II,II/C47.md,Tumeur maligne des nerfs périphériques et du système nerveux autonome,9,true,true,true,1485
+C48,II,II/C48.md,Tumeur maligne du rétropéritoine et du péritoine,4,true,true,false,1069
+C49,II,II/C49.md,Tumeur maligne du tissu conjonctif et des autres tissus mous,9,true,true,true,3542
+C50,II,II/C50.md,Tumeur maligne du sein,9,true,true,true,4268
+C51,II,II/C51.md,Tumeur maligne de la vulve,5,true,false,true,1378
+C52,II,II/C52.md,Tumeur maligne du vagin,0,true,false,false,498
+C53,II,II/C53.md,Tumeur maligne du col de l'utérus,4,true,false,true,922
+C54,II,II/C54.md,Tumeur maligne du corps de l'utérus,6,true,false,true,1658
+C55,II,II/C55.md,"Tumeur maligne de l'utérus, partie non précisée",0,true,false,false,522
+C56,II,II/C56.md,Tumeur maligne de l'ovaire,0,true,false,true,6460
+C57,II,II/C57.md,"Tumeur maligne des organes génitaux de la femme, autres et non précisés",8,true,false,false,1537
+C58,II,II/C58.md,Tumeur maligne du placenta,0,true,true,true,1030
+C60,II,II/C60.md,Tumeur maligne de la verge,5,true,false,true,1030
+C61,II,II/C61.md,Tumeur maligne de la prostate,0,true,false,true,964
+C62,II,II/C62.md,Tumeur maligne du testicule,3,true,false,true,4286
+C63,II,II/C63.md,"Tumeur maligne des organes génitaux de l'homme, autres et non précisés",6,true,false,true,1474
+C64,II,II/C64.md,"Tumeur maligne du rein, à l'exception du bassinet",0,false,true,true,1536
+C65,II,II/C65.md,Tumeur maligne du bassinet,0,true,false,true,637
+C66,II,II/C66.md,Tumeur maligne de l'uretère,0,false,true,true,588
+C67,II,II/C67.md,Tumeur maligne de la vessie,10,true,false,true,1176
+C68,II,II/C68.md,"Tumeur maligne des organes urinaires, autres et non précisés",4,true,true,false,1190
+C69,II,II/C69.md,Tumeur maligne de l'oeil et de ses annexes,9,true,true,true,2814
+C70,II,II/C70.md,Tumeur maligne des méninges,3,false,false,true,698
+C71,II,II/C71.md,Tumeur maligne de l'encéphale,10,true,true,true,4994
+C72,II,II/C72.md,"Tumeur maligne de la moelle épinière, des nerfs crâniens et d'autres parties du système nerveux central",8,true,true,true,1842
+C73,II,II/C73.md,Tumeur maligne de la thyroïde,0,false,false,true,3358
+C74,II,II/C74.md,Tumeur maligne de la surrénale,3,false,false,true,1446
+C75,II,II/C75.md,Tumeur maligne d'autres glandes endocrines et structures apparentées,8,false,true,true,3372
+C76,II,II/C76.md,Tumeur maligne de sièges autres et mal définis,8,true,true,false,1694
+C77,II,II/C77.md,"Tumeur maligne des ganglions lymphatiques, secondaire et non précisée",8,true,true,true,1751
+C78,II,II/C78.md,Tumeur maligne secondaire des organes respiratoires et digestifs,9,true,false,true,1798
+C79,II,II/C79.md,Tumeur maligne secondaire de sièges autres et non précisés,10,true,false,true,3473
+C80,II,II/C80.md,Tumeur maligne de siège non précisé,2,true,true,false,752
+C81,II,II/C81.md,Lymphome de Hodgkin,7,true,true,true,3760
+C82,II,II/C82.md,Lymphome folliculaire,9,true,true,true,6638
+C83,II,II/C83.md,Lymphome non folliculaire,7,true,true,true,7191
+C84,II,II/C84.md,Lymphomes à cellules T/NK matures,8,true,true,true,3512
+C85,II,II/C85.md,"Lymphome non hodgkinien, de types autres et non précisés",4,true,true,true,2797
+C86,II,II/C86.md,Autres types précisés de lymphomes à cellules T/NK,7,true,true,false,1553
+C88,II,II/C88.md,Maladies immunoprolifératives malignes,6,true,true,true,2820
+C90,II,II/C90.md,Myélome multiple et tumeurs malignes à plasmocytes,4,true,true,true,2662
+C91,II,II/C91.md,Leucémie lymphoïde,9,true,true,true,3935
+C92,II,II/C92.md,Leucémie myéloïde,10,true,true,true,5351
+C93,II,II/C93.md,Leucémie monocytaire,5,true,true,true,2215
+C94,II,II/C94.md,Autres leucémies à cellules précisées,6,true,true,true,2463
+C95,II,II/C95.md,Leucémie à cellules non précisées,4,true,true,true,2476
+C96,II,II/C96.md,"Tumeurs malignes des tissus lymphoïde, hématopoïétique et apparentés, autres et non précisées",8,true,true,true,3101
+C97,II,II/C97.md,Tumeurs malignes de sièges multiples indépendants (primitifs),0,false,false,false,291
+D00,II,II/D00.md,"Carcinome in situ de la cavité buccale, de l'œsophage et de l'estomac",3,true,true,false,1298
+D01,II,II/D01.md,"Carcinome in situ des organes digestifs, autres et non précisés",8,true,true,false,1408
+D02,II,II/D02.md,Carcinome in situ de l'oreille moyenne et de l'appareil respiratoire,5,true,true,false,1496
+D03,II,II/D03.md,Mélanome in situ,10,true,false,true,5212
+D04,II,II/D04.md,Carcinome in situ de la peau,10,true,true,true,1891
+D05,II,II/D05.md,Carcinome in situ du sein,4,true,true,true,3837
+D06,II,II/D06.md,Carcinome in situ du col de l'utérus,4,true,true,true,2263
+D07,II,II/D07.md,"Carcinome in situ d'organes génitaux, autres et non précisés",7,true,true,true,2051
+D09,II,II/D09.md,Carcinome in situ de sièges autres et non précisés,6,true,true,false,1110
+D10,II,II/D10.md,Tumeur bénigne de la bouche et du pharynx,9,true,true,true,2272
+D11,II,II/D11.md,Tumeur bénigne des glandes salivaires principales,3,true,true,true,1478
+D12,II,II/D12.md,"Tumeur bénigne du côlon, du rectum, de l'anus et du canal anal",10,true,true,false,1275
+D13,II,II/D13.md,Tumeurs bénignes de parties autres et mal définies de l'appareil digestif,9,true,true,true,4109
+D14,II,II/D14.md,Tumeur bénigne de l'oreille moyenne et de l'appareil respiratoire,5,true,true,true,1589
+D15,II,II/D15.md,"Tumeur bénigne des organes intrathoraciques, autres et non précisés",5,true,true,true,889
+D16,II,II/D16.md,Tumeur bénigne des os et du cartilage articulaire,10,true,true,true,5138
+D17,II,II/D17.md,Tumeur lipomateuse bénigne,9,true,true,true,3078
+D18,II,II/D18.md,"Hémangiome et lymphangiome, tout siège",2,true,true,true,3266
+D19,II,II/D19.md,Tumeur bénigne du tissu mésothélial,4,true,false,true,3605
+D20,II,II/D20.md,Tumeur bénigne des tissus mous du rétropéritoine et du péritoine,2,true,true,false,624
+D21,II,II/D21.md,Autres tumeurs bénignes du tissu conjonctif et des autres tissus mous,8,true,true,true,4502
+D22,II,II/D22.md,Nævus à mélanocytes,9,true,false,true,4685
+D23,II,II/D23.md,Autres tumeurs bénignes de la peau,9,true,true,true,3501
+D24,II,II/D24.md,Tumeur bénigne du sein,0,true,true,true,1945
+D25,II,II/D25.md,Léiomyome de l'utérus,4,true,false,true,1652
+D26,II,II/D26.md,Autres tumeurs bénignes de l'utérus,4,true,false,true,957
+D27,II,II/D27.md,Tumeur bénigne de l'ovaire,0,true,false,true,4526
+D28,II,II/D28.md,"Tumeur bénigne des organes génitaux de la femme, autres et non précisés",5,true,false,true,1411
+D29,II,II/D29.md,Tumeur bénigne des organes génitaux de l'homme,7,true,true,true,3688
+D30,II,II/D30.md,Tumeur bénigne des organes urinaires,7,true,true,true,2175
+D31,II,II/D31.md,Tumeur bénigne de l'œil et de ses annexes,8,true,true,true,2510
+D32,II,II/D32.md,Tumeur bénigne des méninges,3,true,false,true,595
+D33,II,II/D33.md,Tumeur bénigne de l'encéphale et d'autres parties du système nerveux central,7,true,true,true,2173
+D34,II,II/D34.md,Tumeur bénigne de la thyroïde,0,true,false,true,1180
+D35,II,II/D35.md,"Tumeur bénigne des glandes endocrines, autres et non précisées",10,true,true,true,4111
+D36,II,II/D36.md,Tumeur bénigne de sièges autres et non précisés,4,true,true,true,1494
+D37,II,II/D37.md,Tumeur de la cavité buccale et des organes digestifs à évolution imprévisible ou inconnue,9,true,true,true,2394
+D38,II,II/D38.md,Tumeur de l'oreille moyenne et des organes respiratoires et intrathoraciques à évolution imprévisible ou inconnue,7,true,true,true,1861
+D39,II,II/D39.md,Tumeur des organes génitaux de la femme à évolution imprévisible ou inconnue,5,true,true,true,4307
+D40,II,II/D40.md,Tumeur des organes génitaux de l'homme à évolution imprévisible ou inconnue,4,true,false,true,1156
+D41,II,II/D41.md,Tumeur des organes urinaires à évolution imprévisible ou inconnue,7,false,true,true,2030
+D42,II,II/D42.md,Tumeur des méninges à évolution imprévisible ou inconnue,3,false,false,true,563
+D43,II,II/D43.md,Tumeur de l'encéphale et du système nerveux central à évolution imprévisible ou inconnue,7,true,true,true,2347
+D44,II,II/D44.md,Tumeur des glandes endocrines à évolution imprévisible ou inconnue,10,true,true,true,3392
+D45,II,II/D45.md,Polyglobulie essentielle,0,true,false,true,1276
+D46,II,II/D46.md,Syndromes myélodysplasiques,8,true,true,true,2464
+D47,II,II/D47.md,"Autres tumeurs des tissus lymphoïde, hématopoïétique et apparentés à évolution imprévisible ou inconnue",8,true,true,true,3750
+D48,II,II/D48.md,Tumeur de sièges autres et non précisés à évolution imprévisible ou inconnue,9,true,true,true,6230
+D50,III,III/D50.md,Anémie par carence en fer,4,true,true,true,3688
+D51,III,III/D51.md,Anémie par carence en vitamine B_12,6,true,true,true,5326
+D52,III,III/D52.md,Anémie par carence en acide folique,4,true,true,true,2325
+D53,III,III/D53.md,Autres anémies nutritionnelles,5,true,true,true,3691
+D55,III,III/D55.md,Anémie due à des anomalies enzymatiques,6,true,true,true,5717
+D56,III,III/D56.md,Thalassémie,7,true,true,true,4552
+D57,III,III/D57.md,Affections à hématies falciformes [drépanocytaires],5,true,true,true,6095
+D58,III,III/D58.md,Autres anémies hémolytiques héréditaires,5,true,true,true,5253
+D59,III,III/D59.md,Anémie hémolytique acquise,9,true,true,true,6342
+D60,III,III/D60.md,Aplasie médullaire acquise pure des globules rouges [érythroblastopénie],4,true,true,true,2898
+D61,III,III/D61.md,Autres aplasies médullaires,6,true,true,true,6275
+D62,III,III/D62.md,Anémie posthémorragique aigüe,0,false,true,true,1772
+D63,III,III/D63.md,Anémie au cours de maladies chroniques classées ailleurs,2,true,true,false,1326
+D64,III,III/D64.md,Autres anémies,7,true,true,true,4849
+D65,III,III/D65.md,Coagulation intravasculaire disséminée [syndrome de défibrination],0,true,true,true,3211
+D66,III,III/D66.md,Carence héréditaire en facteur VIII,0,true,true,true,2063
+D67,III,III/D67.md,Carence héréditaire en facteur IX,0,true,true,true,1906
+D68,III,III/D68.md,Autres anomalies de la coagulation,9,true,true,true,7758
+D69,III,III/D69.md,Purpura et autres affections hémorragiques,9,true,true,true,5832
+D70,III,III/D70.md,Agranulocytose,0,true,true,true,2441
+D71,III,III/D71.md,Anomalies fonctionnelles des granulocytes neutrophiles,0,true,true,true,1866
+D72,III,III/D72.md,Autres anomalies des leucocytes,4,true,true,true,4219
+D73,III,III/D73.md,Maladies de la rate,8,true,true,true,4322
+D74,III,III/D74.md,Méthémoglobinémie,3,true,true,true,2400
+D75,III,III/D75.md,Autres maladies du sang et des organes hématopoïétiques,4,true,true,true,6235
+D76,III,III/D76.md,Autres maladies précisées avec participation des tissus lymphoréticulaire et réticulohistiocytaire,3,true,true,true,3162
+D77,III,III/D77.md,Autres maladies du sang et des organes hématopoïétiques au cours de maladies classées ailleurs,0,true,true,false,1278
+D80,III,III/D80.md,Déficit immunitaire avec déficit prédominant de la production d'anticorps,10,true,true,true,6838
+D81,III,III/D81.md,Déficits immunitaires combinés,10,true,true,true,4783
+D82,III,III/D82.md,Déficit immunitaire associé à d'autres anomalies majeures,7,true,true,true,4271
+D83,III,III/D83.md,Déficit immunitaire commun variable,5,true,true,true,2856
+D84,III,III/D84.md,Autres déficits immunitaires,4,true,true,true,3807
+D86,III,III/D86.md,Sarcoïdose,6,true,true,true,5457
+D89,III,III/D89.md,"Autres anomalies du système immunitaire, non classées ailleurs",6,true,true,true,5135
+E00,IV,IV/E00.md,Syndrome d'insuffisance thyroïdienne congénitale,4,true,true,true,3753
+E01,IV,IV/E01.md,Affections thyroïdiennes et apparentées liées à une carence en iode,4,true,true,true,2235
+E02,IV,IV/E02.md,Hypothyroïdie par carence inapparente en iode,0,false,true,true,883
+E03,IV,IV/E03.md,Autres hypothyroïdies,8,true,true,true,5205
+E04,IV,IV/E04.md,Autres goitres non toxiques,5,true,true,true,3396
+E05,IV,IV/E05.md,Thyréotoxicose [hyperthyroïdie],8,true,true,true,5539
+E06,IV,IV/E06.md,Thyroïdite,7,true,true,true,4420
+E07,IV,IV/E07.md,Autres affections de la thyroïde,4,true,true,true,3705
+E10,IV,IV/E10.md,Diabète sucré de type 1,10,true,true,true,8594
+E11,IV,IV/E11.md,Diabète sucré de type 2,10,true,true,false,2980
+E12,IV,IV/E12.md,Diabète sucré de malnutrition,10,true,true,true,10936
+E13,IV,IV/E13.md,Autres diabètes sucrés précisés,10,true,true,true,7758
+E14,IV,IV/E14.md,"Diabète sucré, sans précision",10,true,true,true,7651
+E15,IV,IV/E15.md,Coma hypoglycémique non diabétique,0,true,true,true,1631
+E16,IV,IV/E16.md,Autres anomalies de la sécrétion pancréatique interne,7,true,true,true,5461
+E20,IV,IV/E20.md,Hypoparathyroïdie,4,true,true,true,2066
+E21,IV,IV/E21.md,Hyperparathyroïdie et autres maladies de la glande parathyroïde,6,true,true,true,4069
+E22,IV,IV/E22.md,Hypersécrétion de l'hypophyse,5,true,true,true,3642
+E23,IV,IV/E23.md,Hyposécrétion et autres anomalies de l'hypophyse,6,true,true,true,5327
+E24,IV,IV/E24.md,Syndrome de Cushing,7,true,true,true,3074
+E25,IV,IV/E25.md,Anomalies génitosurrénaliennes,3,true,true,true,5369
+E26,IV,IV/E26.md,Hyperaldostéronisme,4,true,true,true,1663
+E27,IV,IV/E27.md,Autres maladies de la glande surrénale,8,true,true,true,5076
+E28,IV,IV/E28.md,Dysfonction ovarienne,6,true,true,true,3943
+E29,IV,IV/E29.md,Dysfonction testiculaire,4,true,true,true,3253
+E30,IV,IV/E30.md,"Anomalies de la puberté, non classées ailleurs",4,true,true,true,2911
+E31,IV,IV/E31.md,Dysfonctionnement pluriglandulaire,4,true,true,true,2674
+E32,IV,IV/E32.md,Maladies du thymus,4,true,true,true,2337
+E34,IV,IV/E34.md,Autres troubles endocriniens,8,true,true,true,5642
+E35,IV,IV/E35.md,Anomalies endocriniennes au cours de maladies classées ailleurs,3,true,true,true,1522
+E40,IV,IV/E40.md,Kwashiorkor,0,true,true,true,1609
+E41,IV,IV/E41.md,Marasme nutritionnel,0,true,true,true,1446
+E42,IV,IV/E42.md,Kwashiorkor avec marasme,0,true,true,true,1780
+E43,IV,IV/E43.md,"Malnutrition protéinoénergétique grave, sans précision",0,true,true,true,1796
+E44,IV,IV/E44.md,Malnutrition protéinoénergétique légère ou modérée,2,false,true,true,1422
+E45,IV,IV/E45.md,Retard de développement après malnutrition protéinoénergétique,0,true,true,true,1794
+E46,IV,IV/E46.md,"Malnutrition protéinoénergétique, sans précision",0,true,true,true,1399
+E50,IV,IV/E50.md,Avitaminose A,10,true,true,true,4095
+E51,IV,IV/E51.md,Carence en thiamine,4,true,true,true,2589
+E52,IV,IV/E52.md,Carence en acide nicotinique [pellagre],0,true,true,true,2138
+E53,IV,IV/E53.md,Autres avitaminoses du groupe B,4,true,true,true,4758
+E54,IV,IV/E54.md,Carence en acide ascorbique,0,true,true,true,1851
+E55,IV,IV/E55.md,Carence en vitamine D,2,true,true,true,2202
+E56,IV,IV/E56.md,Autres avitaminoses,4,false,true,true,2403
+E58,IV,IV/E58.md,Carence alimentaire en calcium,0,false,true,true,961
+E59,IV,IV/E59.md,Carence alimentaire en sélénium,0,true,true,true,1038
+E60,IV,IV/E60.md,Carence alimentaire en zinc,0,false,true,true,822
+E61,IV,IV/E61.md,Carences en autres éléments nutritionnels,10,false,true,true,2226
+E63,IV,IV/E63.md,Autres carences nutritionnelles,4,true,true,true,2532
+E64,IV,IV/E64.md,Séquelles de malnutrition et autres carences nutritionnelles,6,false,true,true,3486
+E65,IV,IV/E65.md,Adiposité localisée,0,true,true,true,861
+E66,IV,IV/E66.md,Obésité et surpoids,5,true,true,false,1275
+E67,IV,IV/E67.md,Autres excès d'apport,5,false,true,true,1775
+E68,IV,IV/E68.md,Séquelles d'excès d'apport,0,false,true,true,698
+E70,IV,IV/E70.md,Anomalies du métabolisme des acides aminés aromatiques,6,true,true,true,4834
+E71,IV,IV/E71.md,Anomalies du métabolisme des acides aminés à chaine ramifiée et du métabolisme des acides gras,4,true,true,true,5120
+E72,IV,IV/E72.md,Autres anomalies du métabolisme des acides aminés,8,true,true,true,6983
+E73,IV,IV/E73.md,Intolérance au lactose,4,false,true,true,1646
+E74,IV,IV/E74.md,Autres anomalies du métabolisme des hydrates de carbone,7,true,true,true,6057
+E75,IV,IV/E75.md,Anomalies du métabolisme des sphingolipides et autres anomalies du stockage des lipides,7,true,true,true,5925
+E76,IV,IV/E76.md,Anomalies du métabolisme des glucosaminoglycanes,6,true,true,true,4826
+E77,IV,IV/E77.md,Anomalies du métabolisme des glycoprotéines,4,true,true,true,2766
+E78,IV,IV/E78.md,Anomalies du métabolisme des lipoprotéines et autres lipidémies,9,true,true,true,6685
+E79,IV,IV/E79.md,Anomalies du métabolisme de la purine et de la pyrimidine,4,true,true,true,3312
+E80,IV,IV/E80.md,Anomalies du métabolisme de la porphyrine et de la bilirubine,8,true,true,true,4616
+E83,IV,IV/E83.md,Anomalies du métabolisme des minéraux,8,true,true,true,6532
+E84,IV,IV/E84.md,Fibrose kystique du pancréas,4,true,true,true,2875
+E85,IV,IV/E85.md,Amylose,7,true,true,true,4940
+E86,IV,IV/E86.md,Hypovolémie,0,true,true,true,1753
+E87,IV,IV/E87.md,Autres déséquilibres hydroélectrolytiques et acidobasiques,9,true,true,true,3552
+E88,IV,IV/E88.md,Autres anomalies métaboliques,6,true,true,true,5194
+E89,IV,IV/E89.md,"Anomalies endocriniennes et métaboliques après un acte à visée diagnostique et thérapeutique, non classées ailleurs",9,true,true,true,5937
+E90,IV,IV/E90.md,Anomalies nutritionnelles et métaboliques au cours de maladies classées ailleurs,0,false,true,false,967
+F00,V,V/F00.md,Démence de la maladie d'Alzheimer,4,true,true,false,1188
+F01,V,V/F01.md,Démence vasculaire,6,true,true,false,963
+F02,V,V/F02.md,Démence au cours d'autres maladies classées ailleurs,6,true,true,false,1594
+F03,V,V/F03.md,"Démence, sans précision",0,false,false,false,251
+F04,V,V/F04.md,"Syndrome amnésique organique, non induit par l'alcool et d'autres substances psychoactives",0,true,true,true,1394
+F05,V,V/F05.md,"Délirium, non induit par l'alcool et d'autres substances psychoactives",4,true,true,true,2393
+F06,V,V/F06.md,"Autres troubles mentaux dus à une lésion cérébrale et un dysfonctionnement cérébral, et à une affection somatique",10,true,true,true,5546
+F07,V,V/F07.md,"Troubles de la personnalité et du comportement dus à une affection, une lésion et un dysfonctionnement cérébraux",5,true,true,true,4014
+F09,V,V/F09.md,"Trouble mental organique ou symptomatique, sans précision",0,true,true,true,1193
+F10,V,V/F10.md,Troubles mentaux et du comportement liés à l'utilisation d'alcool,10,true,true,true,4769
+F11,V,V/F11.md,Troubles mentaux et du comportement liés à l'utilisation d'opiacés,10,true,true,true,3907
+F12,V,V/F12.md,Troubles mentaux et du comportement liés à l'utilisation de dérivés du cannabis,10,true,true,true,4001
+F13,V,V/F13.md,Troubles mentaux et du comportement liés à l'utilisation de sédatifs ou d'hypnotiques,10,true,true,true,4875
+F14,V,V/F14.md,Troubles mentaux et du comportement liés à l'utilisation de cocaïne,10,true,true,true,3918
+F15,V,V/F15.md,"Troubles mentaux et du comportement liés à l'utilisation d'autres stimulants, y compris la caféine",10,true,true,true,4529
+F16,V,V/F16.md,Troubles mentaux et du comportement liés à l'utilisation d'hallucinogènes,10,true,true,true,3927
+F17,V,V/F17.md,Troubles mentaux et du comportement liés à l'utilisation de tabac,10,true,true,true,3602
+F18,V,V/F18.md,Troubles mentaux et du comportement liés à l'utilisation de solvants volatils,10,true,true,true,3980
+F19,V,V/F19.md,Troubles mentaux et du comportement liés à l'utilisation de drogues multiples et troubles liés à l'utilisation d'autres substances psychoactives,10,true,true,true,5391
+F20,V,V/F20.md,Schizophrénie,9,true,true,false,1777
+F21,V,V/F21.md,Trouble schizotypique,0,true,true,true,1323
+F22,V,V/F22.md,Troubles délirants persistants,3,true,true,true,2726
+F23,V,V/F23.md,Troubles psychotiques aigus et transitoires,6,true,true,false,1753
+F24,V,V/F24.md,Trouble délirant induit,0,true,true,true,1114
+F25,V,V/F25.md,Troubles schizoaffectifs,5,true,true,false,1111
+F28,V,V/F28.md,Autres troubles psychotiques non organiques,0,true,true,true,970
+F29,V,V/F29.md,"Psychose non organique, sans précision",0,true,true,true,1294
+F30,V,V/F30.md,Épisode maniaque,5,true,true,true,1547
+F31,V,V/F31.md,Trouble affectif bipolaire,10,true,true,true,3788
+F32,V,V/F32.md,Épisodes dépressifs,6,true,true,true,3663
+F33,V,V/F33.md,Trouble dépressif récurrent,7,true,true,true,4214
+F34,V,V/F34.md,Troubles de l'humeur [affectifs] persistants,4,true,true,true,2294
+F38,V,V/F38.md,Autres troubles de l'humeur [affectifs],3,true,true,true,840
+F39,V,V/F39.md,"Trouble de l'humeur [affectif], sans précision",0,true,true,true,894
+F40,V,V/F40.md,Troubles anxieux phobiques,5,true,true,true,2367
+F41,V,V/F41.md,Autres troubles anxieux,6,true,true,true,2523
+F42,V,V/F42.md,Trouble obsessionnel-compulsif,5,true,true,true,3167
+F43,V,V/F43.md,"Réaction à un facteur de stress sévère, et troubles de l'adaptation",5,true,true,true,2219
+F44,V,V/F44.md,Troubles dissociatifs [de conversion],10,true,true,true,5337
+F45,V,V/F45.md,Troubles somatoformes,7,true,true,true,6968
+F48,V,V/F48.md,Autres troubles névrotiques,4,true,true,true,3421
+F50,V,V/F50.md,Troubles de l'alimentation,8,true,true,true,3335
+F51,V,V/F51.md,Troubles du sommeil non organiques,8,true,true,true,2462
+F52,V,V/F52.md,"Dysfonctionnement sexuel, non dû à un trouble ou à une maladie organique",10,true,true,true,4635
+F53,V,V/F53.md,"Troubles mentaux et du comportement associés à la puerpéralité, non classés ailleurs",4,true,true,true,2793
+F54,V,V/F54.md,Facteurs psychologiques et comportementaux associés à des maladies ou des troubles classés ailleurs,0,true,true,true,2133
+F55,V,V/F55.md,Abus de substances n'entraînant pas de dépendance,0,true,true,false,714
+F59,V,V/F59.md,Syndromes comportementaux non précisés associés à des perturbations physiologiques et à des facteurs physiques,0,true,true,true,1001
+F60,V,V/F60.md,Troubles spécifiques de la personnalité,10,true,true,true,5021
+F61,V,V/F61.md,Troubles mixtes de la personnalité et autres troubles de la personnalité,0,true,true,false,908
+F62,V,V/F62.md,Modification durable de la personnalité non attribuable à une lésion et une maladie cérébrales,4,true,true,true,2941
+F63,V,V/F63.md,Troubles des habitudes et des impulsions,6,true,true,true,3411
+F64,V,V/F64.md,Troubles de l'identité sexuelle,5,true,true,true,2012
+F65,V,V/F65.md,Troubles de la préférence sexuelle,9,true,true,true,2667
+F66,V,V/F66.md,Problèmes psychologiques et comportementaux associés au développement sexuel et à son orientation,5,true,true,true,1842
+F68,V,V/F68.md,Autres troubles de la personnalité et du comportement chez l'adulte,3,true,true,true,2843
+F69,V,V/F69.md,"Trouble de la personnalité et du comportement chez l'adulte, sans précision",0,true,true,true,1001
+F70,V,V/F70.md,Retard mental léger,4,true,true,false,940
+F71,V,V/F71.md,Retard mental moyen,4,true,true,false,941
+F72,V,V/F72.md,Retard mental grave,4,true,true,false,939
+F73,V,V/F73.md,Retard mental profond,4,true,true,false,952
+F78,V,V/F78.md,Autres formes de retard mental,4,true,true,false,923
+F79,V,V/F79.md,"Retard mental, sans précision",4,true,true,true,1125
+F80,V,V/F80.md,Troubles spécifiques du développement de la parole et du langage,6,true,true,true,5339
+F81,V,V/F81.md,Troubles spécifiques du développement des acquisitions scolaires,6,true,true,true,6530
+F82,V,V/F82.md,Trouble spécifique du développement moteur,0,true,true,true,1494
+F83,V,V/F83.md,Troubles spécifiques mixtes du développement,0,true,true,true,740
+F84,V,V/F84.md,Troubles envahissants du développement,8,true,true,true,3606
+F88,V,V/F88.md,Autres troubles du développement psychologique,0,true,true,true,821
+F89,V,V/F89.md,"Trouble du développement psychologique, sans précision",0,true,true,true,743
+F90,V,V/F90.md,Troubles hyperkinétiques,4,true,true,true,3392
+F91,V,V/F91.md,Troubles des conduites,6,true,true,true,4385
+F92,V,V/F92.md,Troubles mixtes des conduites et troubles émotionnels,3,true,true,true,1852
+F93,V,V/F93.md,Troubles émotionnels apparaissant spécifiquement dans l'enfance,6,true,true,true,3193
+F94,V,V/F94.md,Troubles du fonctionnement social apparaissant spécifiquement durant l'enfance et l'adolescence,5,true,true,true,2820
+F95,V,V/F95.md,Tics,5,true,true,true,1310
+F98,V,V/F98.md,Autres troubles du comportement et troubles émotionnels apparaissant habituellement durant l'enfance et l'adolescence,9,true,true,true,4270
+F99,V,V/F99.md,"Trouble mental, sans autre indication",0,true,true,true,1115
+G00,VI,VI/G00.md,"Méningite bactérienne, non classée ailleurs",6,true,true,true,3709
+G01,VI,VI/G01.md,Méningite au cours d'affections bactériennes classées ailleurs,0,true,true,false,2070
+G02,VI,VI/G02.md,Méningite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,3,true,true,false,2833
+G03,VI,VI/G03.md,Méningite due à des causes autres et non précisées,5,true,true,true,3554
+G04,VI,VI/G04.md,"Encéphalite, myélite et encéphalomyélite",5,true,true,true,6272
+G05,VI,VI/G05.md,"Encéphalite, myélite et encéphalomyélite au cours d'affections classées ailleurs",4,true,true,true,4579
+G06,VI,VI/G06.md,Abcès et granulome intracrâniens et intrarachidiens,3,true,true,true,5367
+G07,VI,VI/G07.md,Abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,0,true,true,false,1413
+G08,VI,VI/G08.md,Phlébite et thrombophlébite intracrâniennes et intrarachidiennes,0,true,true,true,3562
+G09,VI,VI/G09.md,Séquelles d'affections inflammatoires du système nerveux central,0,false,true,true,1529
+G10,VI,VI/G10.md,Chorée de Huntington,0,false,true,true,1229
+G11,VI,VI/G11.md,Ataxie héréditaire,7,true,true,true,5409
+G12,VI,VI/G12.md,Amyotrophie spinale et syndromes apparentés,5,true,true,true,5441
+G13,VI,VI/G13.md,Affections dégénératives systémiques affectant principalement le système nerveux central au cours d'affections classées ailleurs,4,true,true,false,1899
+G14,VI,VI/G14.md,Syndrome postpoliomyélitique,0,true,true,false,1083
+G20,VI,VI/G20.md,Maladie de Parkinson,0,true,true,true,2031
+G21,VI,VI/G21.md,Syndrome parkinsonien secondaire,7,false,true,true,2744
+G22,VI,VI/G22.md,Syndrome parkinsonien au cours de maladies classées ailleurs,0,true,true,false,1058
+G23,VI,VI/G23.md,Autres maladies dégénératives des noyaux gris centraux,6,true,true,true,3218
+G24,VI,VI/G24.md,Dystonie,8,true,true,true,2664
+G25,VI,VI/G25.md,Autres syndromes extrapyramidaux et troubles de la motricité,9,true,true,true,4388
+G26,VI,VI/G26.md,Syndromes extrapyramidaux et troubles de la motricité au cours d'affections classées ailleurs,0,false,true,false,966
+G30,VI,VI/G30.md,Maladie d'Alzheimer,4,true,true,true,3397
+G31,VI,VI/G31.md,"Autres affections dégénératives du système nerveux, non classées ailleurs",5,true,true,true,6362
+G32,VI,VI/G32.md,Autres affections dégénératives du système nerveux au cours d'affections classées ailleurs,2,true,true,false,1458
+G35,VI,VI/G35.md,Sclérose en plaques,0,true,true,true,1984
+G36,VI,VI/G36.md,Autres affections démyélinisantes aigües disséminées,4,true,true,true,2666
+G37,VI,VI/G37.md,Autres affections démyélinisantes du système nerveux central,8,true,true,true,3882
+G40,VI,VI/G40.md,Épilepsie,10,true,true,true,8777
+G41,VI,VI/G41.md,État de mal épileptique,5,true,true,true,1883
+G43,VI,VI/G43.md,Migraine,6,true,true,true,3110
+G44,VI,VI/G44.md,Autres syndromes d'algies céphaliques,6,true,true,true,3010
+G45,VI,VI/G45.md,Accidents ischémiques cérébraux transitoires et syndromes apparentés,7,true,true,true,3864
+G46,VI,VI/G46.md,Syndromes vasculaires cérébraux au cours de maladies cérébrovasculaires,9,true,true,false,1752
+G47,VI,VI/G47.md,Troubles du sommeil,7,true,true,true,3434
+G50,VI,VI/G50.md,Affections du nerf trijumeau,4,true,true,true,3886
+G51,VI,VI/G51.md,Affections du nerf facial,7,true,true,true,4215
+G52,VI,VI/G52.md,Affections des autres nerfs crâniens,7,true,true,true,5872
+G53,VI,VI/G53.md,Affections des nerfs crâniens au cours de maladies classées ailleurs,5,true,true,true,2035
+G54,VI,VI/G54.md,Affections des racines et des plexus nerveux,10,true,true,true,5769
+G55,VI,VI/G55.md,Compression des racines et des plexus nerveux au cours de maladies classées ailleurs,5,false,true,false,1768
+G56,VI,VI/G56.md,Mononévrite du membre supérieur,6,true,true,true,3804
+G57,VI,VI/G57.md,Mononévrite du membre inférieur,9,true,true,true,5816
+G58,VI,VI/G58.md,Autres mononévrites,4,false,true,true,2372
+G59,VI,VI/G59.md,Mononévrite au cours de maladies classées ailleurs,2,false,true,true,1833
+G60,VI,VI/G60.md,Neuropathie héréditaire et idiopathique,6,true,true,true,5545
+G61,VI,VI/G61.md,Polynévrites inflammatoires,4,true,true,true,2302
+G62,VI,VI/G62.md,Autres polynévrites,5,true,true,true,2385
+G63,VI,VI/G63.md,Polynévrite au cours de maladies classées ailleurs,8,true,true,true,2922
+G64,VI,VI/G64.md,Autres affections du système nerveux périphérique,0,true,true,true,1338
+G70,VI,VI/G70.md,Myasthénie et autres affections neuromusculaires,5,false,true,true,2468
+G71,VI,VI/G71.md,Affections musculaires primitives,6,true,true,true,6670
+G72,VI,VI/G72.md,Autres myopathies,7,true,true,true,2903
+G73,VI,VI/G73.md,Affections musculaires et neuromusculaires au cours de maladies classées ailleurs,8,true,true,true,3102
+G80,VI,VI/G80.md,Paralysie cérébrale,7,true,true,true,4870
+G81,VI,VI/G81.md,Hémiplégie,3,true,true,true,1559
+G82,VI,VI/G82.md,Paraplégie et tétraplégie,6,true,true,false,1392
+G83,VI,VI/G83.md,Autres syndromes paralytiques,9,true,true,true,4597
+G90,VI,VI/G90.md,Affections du système nerveux autonome,9,true,true,true,4027
+G91,VI,VI/G91.md,Hydrocéphalie,6,true,true,true,2792
+G92,VI,VI/G92.md,Encéphalopathie toxique,0,false,true,true,1159
+G93,VI,VI/G93.md,Autres affections du cerveau,10,true,true,true,5490
+G94,VI,VI/G94.md,Autres affections du cerveau au cours de maladies classées ailleurs,5,false,true,false,1318
+G95,VI,VI/G95.md,Autres affections de la moelle épinière,5,true,true,true,6298
+G96,VI,VI/G96.md,Autres affections du système nerveux central,4,true,true,true,2921
+G97,VI,VI/G97.md,"Affections du système nerveux après un acte à visée diagnostique et thérapeutique, non classées ailleurs",5,false,true,true,2682
+G98,VI,VI/G98.md,"Autres affections du système nerveux, non classées ailleurs",0,true,true,true,1584
+G99,VI,VI/G99.md,Autres affections du système nerveux au cours de maladies classées ailleurs,4,true,true,true,2593
+H00,VII,VII/H00.md,Orgelet et chalazion,2,true,true,true,2242
+H01,VII,VII/H01.md,Autres inflammations de la paupière,4,true,true,true,2611
+H02,VII,VII/H02.md,Autres affections des paupières,10,true,true,true,5307
+H03,VII,VII/H03.md,Affections de la paupière au cours de maladies classées ailleurs,3,true,true,true,2620
+H04,VII,VII/H04.md,Affections de l'appareil lacrymal,9,true,true,true,6269
+H05,VII,VII/H05.md,Affections de l'orbite,8,true,true,true,4927
+H06,VII,VII/H06.md,Affections de l'appareil lacrymal et de l'orbite au cours de maladies classées ailleurs,4,true,true,true,1745
+H10,VII,VII/H10.md,Conjonctivite,8,false,true,true,3031
+H11,VII,VII/H11.md,Autres affections de la conjonctive,7,true,true,true,4623
+H13,VII,VII/H13.md,Affections de la conjonctive au cours de maladies classées ailleurs,5,true,true,true,2370
+H15,VII,VII/H15.md,Affections de la sclérotique,4,true,true,true,2629
+H16,VII,VII/H16.md,Kératite,7,true,true,true,4910
+H17,VII,VII/H17.md,Cicatrices et opacités cornéennes,4,false,true,true,1894
+H18,VII,VII/H18.md,Autres affections de la cornée,10,true,true,true,5596
+H19,VII,VII/H19.md,Affections de la sclérotique et de la cornée au cours de maladies classées ailleurs,5,true,true,true,3276
+H20,VII,VII/H20.md,Iridocyclite,5,true,true,true,3300
+H21,VII,VII/H21.md,Autres affections de l'iris et du corps ciliaire,8,true,true,true,6342
+H22,VII,VII/H22.md,Affections de l'iris et du corps ciliaire au cours de maladies classées ailleurs,3,true,true,true,2594
+H25,VII,VII/H25.md,Cataracte sénile,5,true,true,true,2649
+H26,VII,VII/H26.md,Autres cataractes,7,true,true,true,3495
+H27,VII,VII/H27.md,Autres affections du cristallin,4,false,true,true,2625
+H28,VII,VII/H28.md,Cataracte et autres affections du cristallin au cours de maladies classées ailleurs,4,true,true,true,1800
+H30,VII,VII/H30.md,Choriorétinite,5,true,true,true,3342
+H31,VII,VII/H31.md,Autres affections de la choroïde,7,true,true,true,5011
+H32,VII,VII/H32.md,Affections choriorétiniennes au cours de maladies classées ailleurs,2,true,true,true,1576
+H33,VII,VII/H33.md,Décollement et déchirure de la rétine,6,true,true,true,4783
+H34,VII,VII/H34.md,Occlusions vasculaires rétiniennes,5,true,true,true,4028
+H35,VII,VII/H35.md,Autres affections rétiniennes,10,true,true,true,7180
+H36,VII,VII/H36.md,Affections rétiniennes au cours de maladies classées ailleurs,2,true,true,true,2263
+H40,VII,VII/H40.md,Glaucome,9,true,true,true,4834
+H42,VII,VII/H42.md,Glaucome au cours de maladies classées ailleurs,2,true,true,false,1372
+H43,VII,VII/H43.md,Affections du corps vitré,6,true,true,true,3647
+H44,VII,VII/H44.md,Affections du globe oculaire,10,true,true,true,6972
+H45,VII,VII/H45.md,Affections du corps vitré et du globe oculaire au cours de maladies classées ailleurs,3,true,true,false,1524
+H46,VII,VII/H46.md,Névrite optique,0,true,true,true,1979
+H47,VII,VII/H47.md,Autres affections du nerf [II] et des voies optiques,8,true,true,true,4143
+H48,VII,VII/H48.md,Affections du nerf [II] et des voies optiques au cours de maladies classées ailleurs,3,true,true,true,1827
+H49,VII,VII/H49.md,Strabisme paralytique,7,true,true,true,4746
+H50,VII,VII/H50.md,Autres strabismes,9,true,true,true,4871
+H51,VII,VII/H51.md,Autres anomalies des mouvements binoculaires,5,false,true,true,3189
+H52,VII,VII/H52.md,Vices de réfraction et troubles de l'accommodation,8,true,true,true,3099
+H53,VII,VII/H53.md,Troubles de la vision,9,true,true,true,5960
+H54,VII,VII/H54.md,Déficience visuelle incluant la cécité (binoculaire ou monoculaire),8,true,true,true,4496
+H55,VII,VII/H55.md,Nystagmus et autres anomalies des mouvements oculaires,0,true,true,true,1560
+H57,VII,VII/H57.md,Autres affections de l'œil et de ses annexes,4,false,true,true,2767
+H58,VII,VII/H58.md,Autres affections de l'œil et de ses annexes au cours de maladies classées ailleurs,3,true,true,false,1844
+H59,VII,VII/H59.md,"Affections de l'œil et de ses annexes après un acte à visée diagnostique et thérapeutique, non classées ailleurs",3,true,true,true,2670
+H60,VIII,VIII/H60.md,Otite externe,8,true,true,true,4473
+H61,VIII,VIII/H61.md,Autres affections de l'oreille externe,6,true,true,true,4112
+H62,VIII,VIII/H62.md,Affections de l'oreille externe au cours de maladies classées ailleurs,6,true,true,false,2132
+H65,VIII,VIII/H65.md,Otite moyenne non suppurée,6,true,true,true,5710
+H66,VIII,VIII/H66.md,Otite moyenne suppurée et sans précision,6,true,true,true,4019
+H67,VIII,VIII/H67.md,Otite moyenne au cours de maladies classées ailleurs,3,true,true,false,1727
+H68,VIII,VIII/H68.md,Salpingite et obstruction de la trompe d'Eustache,2,true,true,true,2043
+H69,VIII,VIII/H69.md,Autres affections de la trompe d'Eustache,3,false,true,true,1450
+H70,VIII,VIII/H70.md,Mastoïdite et affections apparentées,5,true,true,true,3214
+H71,VIII,VIII/H71.md,Cholestéatome de l'oreille moyenne,0,true,true,true,1260
+H72,VIII,VIII/H72.md,Perforation du tympan,5,true,true,true,2794
+H73,VIII,VIII/H73.md,Autres affections du tympan,4,true,true,true,2079
+H74,VIII,VIII/H74.md,Autres affections de l'oreille moyenne et de l'apophyse mastoïde,7,true,true,true,2965
+H75,VIII,VIII/H75.md,Autres affections de l'oreille moyenne et de l'apophyse mastoïde au cours de maladies classées ailleurs,2,true,true,false,1366
+H80,VIII,VIII/H80.md,Otosclérose,5,true,true,true,1769
+H81,VIII,VIII/H81.md,Atteintes des fonctions vestibulaires,7,true,true,true,3420
+H82,VIII,VIII/H82.md,Syndromes vertigineux au cours de maladies classées ailleurs,0,false,true,false,933
+H83,VIII,VIII/H83.md,Autres maladies de l'oreille interne,6,true,true,true,3959
+H90,VIII,VIII/H90.md,Surdité de transmission et neurosensorielle,9,true,true,true,3604
+H91,VIII,VIII/H91.md,Autres pertes de l'audition,6,true,true,true,3222
+H92,VIII,VIII/H92.md,Otalgie et écoulement par l'oreille,3,false,true,true,1448
+H93,VIII,VIII/H93.md,"Autres affections de l'oreille, non classées ailleurs",6,true,true,true,3233
+H94,VIII,VIII/H94.md,Autres affections de l'oreille au cours de maladies classées ailleurs,2,true,true,false,1317
+H95,VIII,VIII/H95.md,"Affections de l'oreille et de l'apophyse mastoïde après un acte à visée diagnostique et thérapeutique, non classées ailleurs",4,true,true,true,2993
+I00,IX,IX/I00.md,"Rhumatisme articulaire aigu, sans mention d'atteinte cardiaque",0,true,true,true,1689
+I01,IX,IX/I01.md,"Rhumatisme articulaire aigu, avec atteinte cardiaque",5,true,true,true,7675
+I02,IX,IX/I02.md,Chorée rhumatismale,2,true,true,true,5917
+I05,IX,IX/I05.md,Maladies rhumatismales de la valvule mitrale,5,true,true,true,3250
+I06,IX,IX/I06.md,Maladies rhumatismales de la valvule aortique,5,true,true,true,3032
+I07,IX,IX/I07.md,Maladies rhumatismales de la valvule tricuspide,5,true,true,true,2867
+I08,IX,IX/I08.md,Maladies de plusieurs valvules,6,true,true,true,7891
+I09,IX,IX/I09.md,Autres cardiopathies rhumatismales,5,true,true,true,6566
+I10,IX,IX/I10.md,Hypertension essentielle (primitive),0,true,true,true,2233
+I11,IX,IX/I11.md,Cardiopathie hypertensive,2,true,true,true,2324
+I12,IX,IX/I12.md,Néphropathie hypertensive,2,true,true,true,5844
+I13,IX,IX/I13.md,Cardionéphropathie hypertensive,4,true,true,true,2964
+I15,IX,IX/I15.md,Hypertension secondaire,5,false,true,true,3676
+I20,IX,IX/I20.md,Angine de poitrine,4,true,true,true,4360
+I21,IX,IX/I21.md,Infarctus aigu du myocarde,6,true,true,true,2714
+I22,IX,IX/I22.md,Infarctus du myocarde à répétition,4,true,true,false,2170
+I23,IX,IX/I23.md,Certaines complications récentes d'un infarctus aigu du myocarde,8,true,true,true,4515
+I24,IX,IX/I24.md,Autres cardiopathies ischémiques aigües,4,true,true,true,5693
+I25,IX,IX/I25.md,Cardiopathie ischémique chronique,9,true,true,true,7732
+I26,IX,IX/I26.md,Embolie pulmonaire,2,true,true,true,3596
+I27,IX,IX/I27.md,Autres affections cardiopulmonaires,5,true,true,true,3267
+I28,IX,IX/I28.md,Autres maladies des vaisseaux pulmonaires,4,true,true,true,3754
+I30,IX,IX/I30.md,Péricardite aigüe,4,true,true,true,3934
+I31,IX,IX/I31.md,Autres maladies du péricarde,6,true,true,true,4240
+I32,IX,IX/I32.md,Péricardite au cours de maladies classées ailleurs,3,true,true,true,2069
+I33,IX,IX/I33.md,Endocardite aigüe et subaigüe,2,true,true,true,5707
+I34,IX,IX/I34.md,Atteintes non rhumatismales de la valvule mitrale,5,true,true,true,3904
+I35,IX,IX/I35.md,Atteintes non rhumatismales de la valvule aortique,5,true,true,true,3905
+I36,IX,IX/I36.md,Atteintes non rhumatismales de la valvule tricuspide,5,true,true,true,3330
+I37,IX,IX/I37.md,Atteintes de la valvule pulmonaire,5,true,true,true,2985
+I38,IX,IX/I38.md,"Endocardite, valvule non précisée",0,true,true,true,3365
+I39,IX,IX/I39.md,Endocardite et atteintes valvulaires cardiaques au cours de maladies classées ailleurs,6,true,true,true,2517
+I40,IX,IX/I40.md,Myocardite aigüe,4,true,true,true,3058
+I41,IX,IX/I41.md,Myocardite au cours de maladies classées ailleurs,4,true,true,true,2721
+I42,IX,IX/I42.md,Myocardiopathie,10,true,true,true,5596
+I43,IX,IX/I43.md,Myocardiopathie au cours de maladies classées ailleurs,4,true,true,true,2095
+I44,IX,IX/I44.md,Bloc de branche gauche et auriculoventriculaire,8,true,true,true,4487
+I45,IX,IX/I45.md,Autres troubles de la conduction,9,true,true,true,5211
+I46,IX,IX/I46.md,Arrêt cardiaque,3,false,true,true,2083
+I47,IX,IX/I47.md,Tachycardie paroxystique,4,true,true,true,3106
+I48,IX,IX/I48.md,Fibrillation et flutter auriculaires,6,true,true,false,1472
+I49,IX,IX/I49.md,Autres arythmies cardiaques,8,true,true,true,5287
+I50,IX,IX/I50.md,Insuffisance cardiaque,3,true,true,true,3314
+I51,IX,IX/I51.md,Complications de cardiopathies et maladies cardiaques mal définies,10,true,true,true,7523
+I52,IX,IX/I52.md,Autres cardiopathies au cours de maladies classées ailleurs,3,true,true,false,1818
+I60,IX,IX/I60.md,Hémorragie sousarachnoïdienne,10,true,true,true,10027
+I61,IX,IX/I61.md,Hémorragie intracérébrale,9,true,true,true,5072
+I62,IX,IX/I62.md,Autres hémorragies intracrâniennes non traumatiques,3,true,true,true,3095
+I63,IX,IX/I63.md,Infarctus cérébral,9,true,true,true,8915
+I64,IX,IX/I64.md,"Accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",0,true,true,true,2127
+I65,IX,IX/I65.md,"Occlusion et sténose des artères précérébrales, n'entraînant pas un infarctus cérébral",6,true,true,true,7873
+I66,IX,IX/I66.md,"Occlusion et sténose des artères cérébrales, n'entraînant pas un infarctus cérébral",7,true,true,true,7712
+I67,IX,IX/I67.md,Autres maladies cérébrovasculaires,10,true,true,true,7506
+I68,IX,IX/I68.md,Troubles cérébrovasculaires au cours de maladies classées ailleurs,4,true,true,true,2279
+I69,IX,IX/I69.md,Séquelles de maladies cérébrovasculaires,6,true,true,true,2260
+I70,IX,IX/I70.md,Athérosclérose,5,true,true,true,4545
+I71,IX,IX/I71.md,Anévrisme aortique et dissection,9,true,true,true,8650
+I72,IX,IX/I72.md,Autres anévrismes et dissections,9,true,true,true,6706
+I73,IX,IX/I73.md,Autres maladies vasculaires périphériques,4,true,true,true,4854
+I74,IX,IX/I74.md,Embolie et thrombose artérielles,8,true,true,true,6636
+I77,IX,IX/I77.md,Autres atteintes des artères et artérioles,9,true,true,true,5853
+I78,IX,IX/I78.md,Maladies des capillaires,4,true,true,true,3913
+I79,IX,IX/I79.md,"Atteintes des artères, artérioles et capillaires au cours de maladies classées ailleurs",4,true,true,true,2161
+I80,IX,IX/I80.md,Phlébite et thrombophlébite,6,true,true,true,6375
+I81,IX,IX/I81.md,Thrombose de la veine porte,0,true,true,true,1629
+I82,IX,IX/I82.md,Autres embolies et thromboses veineuses,6,true,true,true,4408
+I83,IX,IX/I83.md,Varices des membres inférieurs,4,true,true,true,6048
+I85,IX,IX/I85.md,Varices œsophagiennes,2,true,true,true,1846
+I86,IX,IX/I86.md,Varices d'autres localisations,6,true,true,true,3196
+I87,IX,IX/I87.md,Autres atteintes veineuses,5,true,true,true,3496
+I88,IX,IX/I88.md,Lymphadénite non spécifique,4,true,true,true,4110
+I89,IX,IX/I89.md,Autres atteintes non infectieuses des vaisseaux et des ganglions lymphatiques,4,true,true,true,5081
+I95,IX,IX/I95.md,Hypotension,5,true,true,true,2613
+I97,IX,IX/I97.md,"Troubles de l'appareil circulatoire après un acte à visée diagnostique et thérapeutique, non classés ailleurs",5,true,true,true,6258
+I98,IX,IX/I98.md,Autres troubles de l'appareil circulatoire au cours de maladies classées ailleurs,5,true,true,true,2664
+I99,IX,IX/I99.md,Troubles autres et non précisés de l'appareil circulatoire,0,false,true,true,2263
+J00,X,X/J00.md,Rhinopharyngite aigüe [rhume banal],0,true,true,true,2323
+J01,X,X/J01.md,Sinusite aigüe,7,true,true,true,3823
+J02,X,X/J02.md,Pharyngite aigüe,3,true,true,true,4770
+J03,X,X/J03.md,Amygdalite aigüe,3,true,true,true,3854
+J04,X,X/J04.md,Laryngite et trachéite aigües,3,true,true,true,3616
+J05,X,X/J05.md,Laryngite obstructive aigüe [croup] et épiglottite aigüe,2,true,true,true,2047
+J06,X,X/J06.md,"Infections aigües des voies respiratoires supérieures, à localisations multiples et non précisées",3,true,true,true,3438
+J09,X,X/J09.md,"Grippe, à virus grippal zoonotique ou pandémique identifié",0,false,true,false,1185
+J10,X,X/J10.md,"Grippe, à virus grippal saisonnier identifié",3,true,true,true,8033
+J11,X,X/J11.md,"Grippe, virus non identifié",3,true,true,true,7461
+J12,X,X/J12.md,"Pneumopathies virales, non classées ailleurs",6,true,true,true,3084
+J13,X,X/J13.md,Pneumonie due à Streptococcus pneumoniae,0,true,true,true,2339
+J14,X,X/J14.md,Pneumopathie due à Haemophilus influenzae,0,true,true,true,1405
+J15,X,X/J15.md,"Pneumopathies bactériennes, non classées ailleurs",10,true,true,true,5052
+J16,X,X/J16.md,"Pneumopathie due à d'autres microorganismes infectieux, non classée ailleurs",2,false,true,true,1711
+J17,X,X/J17.md,Pneumopathie au cours de maladies classées ailleurs,5,true,true,true,3391
+J18,X,X/J18.md,Pneumopathie à microorganisme non précisé,5,false,true,true,4738
+J20,X,X/J20.md,Bronchite aigüe,10,true,true,true,6210
+J21,X,X/J21.md,Bronchiolite aigüe,4,true,true,true,2219
+J22,X,X/J22.md,"Infection aigüe des voies respiratoires inférieures, sans précision",0,true,true,true,1592
+J30,X,X/J30.md,Rhinite allergique et vasomotrice,5,true,true,true,3770
+J31,X,X/J31.md,"Rhinite, rhinopharyngite et pharyngite chroniques",3,true,true,true,3828
+J32,X,X/J32.md,Sinusite chronique,7,true,true,true,4690
+J33,X,X/J33.md,Polype nasal,4,true,true,true,2647
+J34,X,X/J34.md,Autres maladies du nez et des sinus du nez,5,true,true,true,4724
+J35,X,X/J35.md,Maladies chroniques des amygdales et des végétations adénoïdes,6,true,true,true,4874
+J36,X,X/J36.md,Angine phlegmoneuse,0,true,true,true,2095
+J37,X,X/J37.md,Laryngite et laryngotrachéite chroniques,2,true,true,true,3348
+J38,X,X/J38.md,"Maladies des cordes vocales et du larynx, non classées ailleurs",8,true,true,true,6022
+J39,X,X/J39.md,Autres maladies des voies respiratoires supérieures,6,true,true,true,5288
+J40,X,X/J40.md,"Bronchite, non précisée aigüe ou chronique",0,true,true,true,1866
+J41,X,X/J41.md,Bronchite chronique simple et mucopurulente,3,false,true,true,3626
+J42,X,X/J42.md,"Bronchite chronique, sans précision",0,true,true,true,2518
+J43,X,X/J43.md,Emphysème,5,true,true,true,3690
+J44,X,X/J44.md,Autres maladies pulmonaires obstructives chroniques,4,true,true,true,6013
+J45,X,X/J45.md,Asthme,4,true,true,true,6429
+J46,X,X/J46.md,État de mal asthmatique,0,true,true,true,1365
+J47,X,X/J47.md,Bronchectasie,0,true,true,true,1380
+J60,X,X/J60.md,Pneumoconiose des mineurs de charbon,0,true,true,true,2011
+J61,X,X/J61.md,Pneumoconiose due à l'amiante et à d'autres fibres minérales,0,true,true,true,1540
+J62,X,X/J62.md,Pneumoconiose due à la poussière de silice,2,true,true,true,2319
+J63,X,X/J63.md,Pneumoconiose due à d'autres poussières inorganiques,7,false,true,true,2832
+J64,X,X/J64.md,"Pneumoconiose, sans précision",0,false,true,true,1311
+J65,X,X/J65.md,Pneumoconiose associée à la tuberculose,0,true,true,true,5590
+J66,X,X/J66.md,Affections des voies aériennes dues à des poussières organiques précisées,4,true,true,true,2038
+J67,X,X/J67.md,Pneumopathie par hypersensibilité aux poussières organiques,10,true,true,true,7716
+J68,X,X/J68.md,"Affections respiratoires dues à l'inhalation d'agents chimiques, d'émanations, de fumées et de gaz",7,true,true,true,7984
+J69,X,X/J69.md,Pneumopathie due à des substances solides et liquides,3,true,true,true,4429
+J70,X,X/J70.md,Affections respiratoires dues à d'autres agents externes,7,true,true,true,5951
+J80,X,X/J80.md,Syndrome de détresse respiratoire aigüe,0,true,true,true,1833
+J81,X,X/J81.md,Œdème pulmonaire,0,true,true,true,2028
+J82,X,X/J82.md,"Éosinophilie pulmonaire, non classée ailleurs",0,true,true,true,2093
+J84,X,X/J84.md,Autres affections pulmonaires interstitielles,4,true,true,true,5104
+J85,X,X/J85.md,Abcès du poumon et du médiastin,4,true,true,true,2266
+J86,X,X/J86.md,Pyothorax,2,true,true,true,4684
+J90,X,X/J90.md,"Épanchement pleural, non classé ailleurs",0,true,true,true,2432
+J91,X,X/J91.md,Épanchement pleural au cours de maladies classées ailleurs,0,false,true,false,914
+J92,X,X/J92.md,Plaque pleurale,2,true,true,true,1568
+J93,X,X/J93.md,Pneumothorax,4,false,true,true,1837
+J94,X,X/J94.md,Autres affections pleurales,5,true,true,true,2965
+J95,X,X/J95.md,"Troubles respiratoires après un acte à visée diagnostique et thérapeutique, non classés ailleurs",8,true,true,true,5961
+J96,X,X/J96.md,"Insuffisance respiratoire, non classée ailleurs",3,false,true,false,1366
+J98,X,X/J98.md,Autres troubles respiratoires,10,true,true,true,6246
+J99,X,X/J99.md,Troubles respiratoires au cours de maladies classées ailleurs,3,true,true,true,2538
+K00,XI,XI/K00.md,Troubles de l'odontogénèse,10,true,true,true,7317
+K01,XI,XI/K01.md,Dents incluses et enclavées,2,true,true,true,1691
+K02,XI,XI/K02.md,Caries dentaires,8,true,true,true,2001
+K03,XI,XI/K03.md,Autres maladies des tissus dentaires durs,10,true,true,true,5690
+K04,XI,XI/K04.md,Maladies de la pulpe et des tissus périapicaux,10,true,true,true,6834
+K05,XI,XI/K05.md,Gingivite et maladies périodontales,7,true,true,true,3960
+K06,XI,XI/K06.md,Autres affections de la gencive et de la crête alvéolaire édentée,5,true,true,true,4664
+K07,XI,XI/K07.md,Anomalies dentofaciales [y compris les malocclusions],9,true,true,true,8357
+K08,XI,XI/K08.md,Autres affections des dents et du parodonte,6,true,true,true,4440
+K09,XI,XI/K09.md,"Kystes de la région buccale, non classés ailleurs",5,true,true,true,6190
+K10,XI,XI/K10.md,Autres maladies des mâchoires,6,true,true,true,6450
+K11,XI,XI/K11.md,Maladies des glandes salivaires,10,true,true,true,5550
+K12,XI,XI/K12.md,Stomatites et affections apparentées,4,true,true,true,5099
+K13,XI,XI/K13.md,Autres maladies des lèvres et de la muqueuse buccale,8,true,true,true,5915
+K14,XI,XI/K14.md,Maladies de la langue,9,true,true,true,5509
+K20,XI,XI/K20.md,Œsophagite,0,true,true,true,1792
+K21,XI,XI/K21.md,Reflux gastroœsophagien,2,true,true,true,1698
+K22,XI,XI/K22.md,Autres maladies de l'œsophage,10,true,true,true,6246
+K23,XI,XI/K23.md,Atteintes de l'œsophage au cours de maladies classées ailleurs,3,false,true,true,1328
+K25,XI,XI/K25.md,Ulcère de l'estomac,9,true,true,true,3390
+K26,XI,XI/K26.md,Ulcère du duodénum,9,true,true,true,3154
+K27,XI,XI/K27.md,"Ulcère digestif, de siège non précisé",9,true,true,true,4528
+K28,XI,XI/K28.md,Ulcère gastrojéjunal,9,true,true,true,3925
+K29,XI,XI/K29.md,Gastrite et duodénite,10,true,true,true,3510
+K30,XI,XI/K30.md,Dyspepsie fonctionnelle,0,true,true,true,1542
+K31,XI,XI/K31.md,Autres maladies de l'estomac et du duodénum,10,true,true,true,5720
+K35,XI,XI/K35.md,Appendicite aigüe,3,true,true,false,1421
+K36,XI,XI/K36.md,Autres formes d'appendicite,0,true,true,true,1305
+K37,XI,XI/K37.md,"Appendicite, sans précision",0,false,true,true,1149
+K38,XI,XI/K38.md,Autres maladies de l'appendice,6,true,true,true,2711
+K40,XI,XI/K40.md,Hernie inguinale,6,true,true,true,3502
+K41,XI,XI/K41.md,Hernie crurale,6,true,true,true,2907
+K42,XI,XI/K42.md,Hernie ombilicale,3,true,true,true,2348
+K43,XI,XI/K43.md,Autres hernies de la paroi abdominale antérieure,9,true,true,true,5202
+K44,XI,XI/K44.md,Hernie diaphragmatique,3,true,true,true,3209
+K45,XI,XI/K45.md,Autres hernies abdominales,3,true,true,true,5959
+K46,XI,XI/K46.md,Hernie abdominale non précisée,3,true,true,true,4627
+K50,XI,XI/K50.md,Maladie de Crohn [entérite régionale],4,true,true,true,4496
+K51,XI,XI/K51.md,Rectocolite hémorragique [colite ulcéreuse],7,true,true,true,3039
+K52,XI,XI/K52.md,Autres gastroentérites et colites non infectieuses,6,true,true,true,8176
+K55,XI,XI/K55.md,Troubles vasculaires de l'intestin,6,true,true,true,7412
+K56,XI,XI/K56.md,Iléus paralytique et occlusion intestinale sans hernie,8,true,true,true,7195
+K57,XI,XI/K57.md,Diverticulose de l'intestin,8,true,true,true,6411
+K58,XI,XI/K58.md,Syndrome de l'intestin irritable,4,true,true,false,1377
+K59,XI,XI/K59.md,Autres troubles fonctionnels de l'intestin,7,true,true,true,4698
+K60,XI,XI/K60.md,Fissure et fistule des régions anale et rectale,6,true,true,true,2263
+K61,XI,XI/K61.md,Abcès des régions anale et rectale,5,true,true,true,3790
+K62,XI,XI/K62.md,Autres maladies de l'anus et du rectum,10,true,true,true,4756
+K63,XI,XI/K63.md,Autres maladies de l'intestin,8,true,true,true,4836
+K64,XI,XI/K64.md,Hémorroïdes et thrombose veineuse périanale,8,true,true,false,2335
+K65,XI,XI/K65.md,Péritonite,3,true,true,true,6590
+K66,XI,XI/K66.md,Autres maladies du péritoine,5,true,true,true,5459
+K67,XI,XI/K67.md,Atteintes péritonéales au cours de maladies infectieuses classées ailleurs,5,false,true,false,1176
+K70,XI,XI/K70.md,Maladie alcoolique du foie,6,true,true,true,3455
+K71,XI,XI/K71.md,Maladie toxique du foie,10,true,true,true,5243
+K72,XI,XI/K72.md,"Insuffisance hépatique, non classée ailleurs",3,true,true,true,4213
+K73,XI,XI/K73.md,"Hépatite chronique, non classée ailleurs",5,true,true,true,2643
+K74,XI,XI/K74.md,Fibrose et cirrhose du foie,7,true,true,true,5314
+K75,XI,XI/K75.md,Autres maladies inflammatoires du foie,7,true,true,true,3677
+K76,XI,XI/K76.md,Autres maladies du foie,10,true,true,true,6068
+K77,XI,XI/K77.md,Atteintes hépatiques au cours de maladies classées ailleurs,2,true,true,true,2189
+K80,XI,XI/K80.md,Cholélithiase,7,true,true,true,6770
+K81,XI,XI/K81.md,Cholécystite,4,true,true,true,3309
+K82,XI,XI/K82.md,Autres maladies de la vésicule biliaire,7,true,true,true,6295
+K83,XI,XI/K83.md,Autres maladies des voies biliaires,8,true,true,true,6298
+K85,XI,XI/K85.md,Pancréatite aigüe,6,true,true,false,1492
+K86,XI,XI/K86.md,Autres maladies du pancréas,6,true,true,true,4064
+K87,XI,XI/K87.md,"Atteintes de la vésicule biliaire, des voies biliaires et du pancréas au cours de maladies classées ailleurs",2,true,true,false,1404
+K90,XI,XI/K90.md,Malabsorption intestinale,7,true,true,true,5320
+K91,XI,XI/K91.md,"Atteintes de l'appareil digestif après un acte à visée diagnostique et thérapeutique, non classées ailleurs",8,true,true,true,7288
+K92,XI,XI/K92.md,Autres maladies du système digestif,5,true,true,true,3013
+K93,XI,XI/K93.md,Atteintes d'autres organes de l'appareil digestif au cours de maladies classées ailleurs,3,false,true,false,1292
+L00,XII,XII/L00.md,Syndrome d'épidermolyse staphylococcique du nourrisson,0,true,true,true,3135
+L01,XII,XII/L01.md,Impétigo,2,true,true,true,3822
+L02,XII,XII/L02.md,"Abcès cutané, furoncle et anthrax",7,true,true,true,8238
+L03,XII,XII/L03.md,Phlegmon,6,true,true,true,6768
+L04,XII,XII/L04.md,Lymphadénite aigüe,6,true,true,true,5025
+L05,XII,XII/L05.md,Sinus pilonidal,2,true,true,true,2815
+L08,XII,XII/L08.md,Autres infections localisées de la peau et du tissu cellulaire souscutané,4,true,true,true,4284
+L10,XII,XII/L10.md,Pemphigus,8,true,true,true,2603
+L11,XII,XII/L11.md,Autres acantholyses,4,false,true,true,1983
+L12,XII,XII/L12.md,Pemphigoïde,6,true,true,true,3077
+L13,XII,XII/L13.md,Autres dermatoses bulleuses,4,true,true,true,2716
+L14,XII,XII/L14.md,Dermatoses bulleuses au cours de maladies classées ailleurs,0,false,true,false,1236
+L20,XII,XII/L20.md,Dermite atopique,3,true,true,true,3766
+L21,XII,XII/L21.md,Dermite séborrhéique,4,true,true,true,3134
+L22,XII,XII/L22.md,Dermite fessière du nourrisson,0,true,true,true,2127
+L23,XII,XII/L23.md,Dermite allergique de contact,10,true,true,true,7178
+L24,XII,XII/L24.md,Dermite irritante de contact,10,true,true,true,7445
+L25,XII,XII/L25.md,"Dermite de contact, sans précision",8,true,true,true,9429
+L26,XII,XII/L26.md,Dermite exfoliatrice,0,true,true,true,1878
+L27,XII,XII/L27.md,Dermite due à des substances prises par voie interne,5,false,true,true,4364
+L28,XII,XII/L28.md,Lichen simplex chronique et prurigo,3,true,true,true,2925
+L29,XII,XII/L29.md,Prurit,6,true,true,true,2472
+L30,XII,XII/L30.md,Autres dermites,8,true,true,true,3940
+L40,XII,XII/L40.md,Psoriasis,8,true,true,true,4165
+L41,XII,XII/L41.md,Parapsoriasis,7,true,true,true,2457
+L42,XII,XII/L42.md,Pityriasis rosé de Gibert,0,false,true,true,1160
+L43,XII,XII/L43.md,Lichen plan,6,true,true,true,2228
+L44,XII,XII/L44.md,Autres lésions papulosquameuses,7,true,true,true,2274
+L45,XII,XII/L45.md,Lésions papulosquameuses au cours de maladies classées ailleurs,0,false,true,false,1021
+L50,XII,XII/L50.md,Urticaire,9,true,true,true,3635
+L51,XII,XII/L51.md,Érythème polymorphe,5,true,true,true,2462
+L52,XII,XII/L52.md,Érythème noueux,0,false,true,true,1432
+L53,XII,XII/L53.md,Autres formes d'érythème,6,true,true,true,3196
+L54,XII,XII/L54.md,Érythèmes au cours de maladies classées ailleurs,2,false,true,false,1292
+L55,XII,XII/L55.md,Coup de soleil,5,false,true,true,1812
+L56,XII,XII/L56.md,Autres modifications aigües de la peau dues aux rayons ultraviolets,7,false,true,true,3174
+L57,XII,XII/L57.md,Modifications de la peau dues à une exposition chronique aux rayonnements non ionisants,8,true,true,true,3643
+L58,XII,XII/L58.md,Radiodermite,3,false,true,true,1702
+L59,XII,XII/L59.md,Autres affections de la peau et du tissu cellulaire souscutané liées à une irradiation,3,false,true,true,2619
+L60,XII,XII/L60.md,Maladies des ongles,8,false,true,true,3480
+L62,XII,XII/L62.md,Maladies des ongles au cours de maladies classées ailleurs,2,false,true,false,1323
+L63,XII,XII/L63.md,Pelade,5,true,true,true,1813
+L64,XII,XII/L64.md,Alopécie androgénique,3,true,true,true,1738
+L65,XII,XII/L65.md,Autres formes non cicatricielles de raréfaction du système pileux,5,true,true,true,2384
+L66,XII,XII/L66.md,Alopécie cicatricielle,7,true,true,true,2574
+L67,XII,XII/L67.md,Anomalies de la pigmentation et de la gaine capillaires,4,true,true,true,3035
+L68,XII,XII/L68.md,Hypertrichose,6,true,true,true,2014
+L70,XII,XII/L70.md,Acné,8,true,true,true,2702
+L71,XII,XII/L71.md,Acné rosacée,4,false,true,true,1673
+L72,XII,XII/L72.md,Kystes folliculaires de la peau et du tissu cellulaire souscutané,5,true,true,true,3154
+L73,XII,XII/L73.md,Autres affections folliculaires,5,true,true,true,2394
+L74,XII,XII/L74.md,Affections des glandes sudoripares exocrines,7,true,true,true,3078
+L75,XII,XII/L75.md,Affections des glandes sudoripares apocrines,5,true,true,true,2409
+L80,XII,XII/L80.md,Vitiligo,0,false,true,true,1066
+L81,XII,XII/L81.md,Autres anomalies de la pigmentation,10,true,true,true,4192
+L82,XII,XII/L82.md,Kératose séborrhéique,0,true,true,true,1600
+L83,XII,XII/L83.md,Acanthosis nigricans,0,true,true,true,1537
+L84,XII,XII/L84.md,Cors et callosités,0,true,true,true,1308
+L85,XII,XII/L85.md,Autres épaississements de l'épiderme,6,true,true,true,3933
+L86,XII,XII/L86.md,Kératodermie au cours de maladies classées ailleurs,0,true,true,true,1408
+L87,XII,XII/L87.md,Anomalies de l'élimination transépidermique,5,true,true,true,2591
+L88,XII,XII/L88.md,Pyodermite gangréneuse,0,true,true,true,1505
+L89,XII,XII/L89.md,Ulcère de décubitus et zone de pression,5,true,true,false,2216
+L90,XII,XII/L90.md,Affections atrophiques de la peau,9,true,true,true,4187
+L91,XII,XII/L91.md,Affections hypertrophiques de la peau,3,true,true,true,2006
+L92,XII,XII/L92.md,Lésions granulomateuses de la peau et du tissu cellulaire souscutané,6,true,true,true,2955
+L93,XII,XII/L93.md,Lupus érythémateux,3,true,true,true,2512
+L94,XII,XII/L94.md,Autres affections localisées du tissu conjonctif,9,true,true,true,3657
+L95,XII,XII/L95.md,"Vascularite [angéite] limitée à la peau, non classée ailleurs",4,true,true,true,3246
+L97,XII,XII/L97.md,"Ulcère du membre inférieur, non classé ailleurs",0,false,true,true,2014
+L98,XII,XII/L98.md,"Autres affections de la peau et du tissu cellulaire souscutané, non classées ailleurs",10,true,true,true,5183
+L99,XII,XII/L99.md,Autres affections de la peau et du tissu cellulaire souscutané au cours de maladies classées ailleurs,2,true,true,true,1794
+M00,XIII,XIII/M00.md,Arthrites à bactéries pyogènes,5,true,true,false,1618
+M01,XIII,XIII/M01.md,Arthrites infectieuses directes au cours de maladies infectieuses et parasitaires classées ailleurs,8,true,true,false,2156
+M02,XIII,XIII/M02.md,Arthropathies réactionnelles,6,false,true,false,1503
+M03,XIII,XIII/M03.md,Arthropathies postinfectieuses et réactionnelles au cours de maladies classées ailleurs,4,true,true,false,1972
+M05,XIII,XIII/M05.md,Polyarthrite rhumatoïde séropositive,6,true,true,true,1963
+M06,XIII,XIII/M06.md,Autres polyarthrites rhumatoïdes,7,false,true,true,1591
+M07,XIII,XIII/M07.md,Arthropathies psoriasiques et entéropathiques,7,false,true,false,1583
+M08,XIII,XIII/M08.md,Polyarthrites juvéniles,7,true,true,false,1903
+M09,XIII,XIII/M09.md,Polyarthrite juvénile au cours de maladies classées ailleurs,4,false,true,false,1521
+M10,XIII,XIII/M10.md,Goutte,6,true,true,false,1417
+M11,XIII,XIII/M11.md,Autres arthropathies dues à des microcristaux,5,true,true,true,1754
+M12,XIII,XIII/M12.md,Autres arthropathies spécifiques,7,true,true,false,1845
+M13,XIII,XIII/M13.md,Autres arthrites,4,true,true,true,2031
+M14,XIII,XIII/M14.md,Arthropathies au cours d'autres maladies classées ailleurs,8,true,true,false,3358
+M15,XIII,XIII/M15.md,Polyarthrose,7,true,true,false,2315
+M16,XIII,XIII/M16.md,Coxarthrose [arthrose de la hanche],9,true,true,false,2430
+M17,XIII,XIII/M17.md,Gonarthrose [arthrose du genou],7,true,true,false,2277
+M18,XIII,XIII/M18.md,Arthrose de la première articulation carpométacarpienne,7,true,true,false,2740
+M19,XIII,XIII/M19.md,Autres arthroses,5,true,true,true,3181
+M20,XIII,XIII/M20.md,Déformations des doigts et des orteils,7,true,true,false,2587
+M21,XIII,XIII/M21.md,Autres déformations des membres,10,false,true,true,2347
+M22,XIII,XIII/M22.md,Lésion de la rotule,7,true,true,false,2172
+M23,XIII,XIII/M23.md,Lésion interne du genou,9,true,true,false,2157
+M24,XIII,XIII/M24.md,Autres affections articulaires spécifiques,10,true,true,true,3911
+M25,XIII,XIII/M25.md,"Autres affections articulaires, non classées ailleurs",10,true,true,true,3452
+M30,XIII,XIII/M30.md,Périartérite noueuse et affections apparentées,5,true,true,true,3899
+M31,XIII,XIII/M31.md,Autres vasculopathies nécrosantes,9,true,true,true,5829
+M32,XIII,XIII/M32.md,Lupus érythémateux disséminé,4,true,true,true,6613
+M33,XIII,XIII/M33.md,Dermatopolymyosite,4,true,true,true,2953
+M34,XIII,XIII/M34.md,Sclérodermie systémique,5,true,true,true,4334
+M35,XIII,XIII/M35.md,Autres atteintes systémiques du tissu conjonctif,10,true,true,true,6638
+M36,XIII,XIII/M36.md,Atteintes systémiques du tissu conjonctif au cours de maladies classées ailleurs,6,true,true,true,3635
+M40,XIII,XIII/M40.md,Cyphose et lordose,6,true,true,false,1609
+M41,XIII,XIII/M41.md,Scoliose,8,true,true,false,1890
+M42,XIII,XIII/M42.md,Ostéochondrite vertébrale,3,true,true,false,1427
+M43,XIII,XIII/M43.md,Autres dorsopathies avec déformation,9,true,true,true,2827
+M45,XIII,XIII/M45.md,Spondylarthrite ankylosante,0,true,true,true,3195
+M46,XIII,XIII/M46.md,Autres spondylopathies inflammatoires,8,true,true,false,1586
+M47,XIII,XIII/M47.md,Spondylarthrose,5,true,true,true,2666
+M48,XIII,XIII/M48.md,Autres spondylopathies,8,true,true,true,2236
+M49,XIII,XIII/M49.md,Spondylopathies au cours de maladies classées ailleurs,7,true,true,false,1904
+M50,XIII,XIII/M50.md,Atteintes des disques cervicaux,6,true,true,true,5151
+M51,XIII,XIII/M51.md,Atteintes d'autres disques intervertébraux,7,true,true,true,6345
+M53,XIII,XIII/M53.md,"Autres dorsopathies, non classées ailleurs",6,true,true,true,1988
+M54,XIII,XIII/M54.md,Dorsalgies,9,true,true,false,2444
+M60,XIII,XIII/M60.md,Myosite,5,true,true,false,1891
+M61,XIII,XIII/M61.md,Calcification et ossification de muscles,7,true,true,false,2155
+M62,XIII,XIII/M62.md,Autres atteintes musculaires,9,true,true,false,3244
+M63,XIII,XIII/M63.md,Atteintes musculaires au cours de maladies classées ailleurs,5,true,true,false,2895
+M65,XIII,XIII/M65.md,Synovite et ténosynovite,7,true,true,false,1892
+M66,XIII,XIII/M66.md,Déchirure spontanée de la synoviale et du tendon,6,true,true,true,2620
+M67,XIII,XIII/M67.md,Autres atteintes de la synoviale et du tendon,7,true,true,false,2553
+M68,XIII,XIII/M68.md,Atteintes de la synoviale et du tendon au cours de maladies classées ailleurs,2,true,true,false,2094
+M70,XIII,XIII/M70.md,Affections des tissus mous par sollicitation excessive de l'articulation,10,true,true,false,1942
+M71,XIII,XIII/M71.md,Autres bursopathies,8,true,true,true,2331
+M72,XIII,XIII/M72.md,Affections fibroblastiques,7,true,true,true,2474
+M73,XIII,XIII/M73.md,Affections des tissus mous au cours de maladies classées ailleurs,3,false,true,false,1291
+M75,XIII,XIII/M75.md,Lésions de l'épaule,9,true,true,true,3392
+M76,XIII,XIII/M76.md,"Enthésopathies du membre inférieur, sauf le pied",10,true,true,true,2278
+M77,XIII,XIII/M77.md,Autres enthésopathies,8,true,true,true,2197
+M79,XIII,XIII/M79.md,"Autres affections des tissus mous, non classées ailleurs",10,true,true,true,2925
+M80,XIII,XIII/M80.md,Ostéoporose avec fracture pathologique,8,true,true,false,1968
+M81,XIII,XIII/M81.md,Ostéoporose sans fracture pathologique,9,true,true,false,1740
+M82,XIII,XIII/M82.md,Ostéoporose au cours de maladies classées ailleurs,3,false,true,false,1326
+M83,XIII,XIII/M83.md,Ostéomalacie de l'adulte,8,true,true,true,2035
+M84,XIII,XIII/M84.md,Anomalie de la continuité osseuse,7,true,true,false,1931
+M85,XIII,XIII/M85.md,Autres anomalies de la densité et de la structure osseuses,9,true,true,false,2260
+M86,XIII,XIII/M86.md,Ostéomyélite,9,true,true,false,1879
+M87,XIII,XIII/M87.md,Ostéonécrose,6,true,true,false,1729
+M88,XIII,XIII/M88.md,Maladie osseuse de Paget [ostéite déformante],3,false,true,true,1452
+M89,XIII,XIII/M89.md,Autres maladies osseuses,9,true,true,true,2198
+M90,XIII,XIII/M90.md,Ostéopathie au cours de maladies classées ailleurs,9,true,true,false,2354
+M91,XIII,XIII/M91.md,Ostéochondrite juvénile de la hanche et du bassin,6,true,true,false,2064
+M92,XIII,XIII/M92.md,Autres ostéochondrites juvéniles,10,true,true,false,3427
+M93,XIII,XIII/M93.md,Autres ostéochondropathies,5,true,true,false,2613
+M94,XIII,XIII/M94.md,Autres affections du cartilage,6,true,true,false,1679
+M95,XIII,XIII/M95.md,"Autres déformations du système ostéoarticulaire, des muscles et du tissu conjonctif",8,true,true,true,3038
+M96,XIII,XIII/M96.md,"Affections du système ostéoarticulaire et des muscles après un acte à visée diagnostique et thérapeutique, non classées ailleurs",9,true,true,false,2844
+M99,XIII,XIII/M99.md,"Lésions biomécaniques, non classées ailleurs",10,true,true,false,2056
+N00,XIV,XIV/N00.md,Syndrome néphritique aigu,10,true,true,true,5963
+N01,XIV,XIV/N01.md,Syndrome néphritique d'évolution rapide,10,true,true,true,6181
+N02,XIV,XIV/N02.md,Hématurie récidivante et persistante,10,true,true,true,5194
+N03,XIV,XIV/N03.md,Syndrome néphritique chronique,10,true,true,true,5732
+N04,XIV,XIV/N04.md,Syndrome néphrotique,10,true,true,true,8263
+N05,XIV,XIV/N05.md,"Syndrome néphritique, sans précision",10,true,true,true,7010
+N06,XIV,XIV/N06.md,Protéinurie isolée avec lésions morphologiques précisées,10,true,true,true,5537
+N07,XIV,XIV/N07.md,"Néphropathie héréditaire, non classée ailleurs",10,true,true,true,5600
+N08,XIV,XIV/N08.md,Glomérulopathies au cours de maladies classées ailleurs,7,true,true,true,6252
+N10,XIV,XIV/N10.md,Néphrite tubulo-interstitielle aigüe,0,true,true,true,1695
+N11,XIV,XIV/N11.md,Néphrite tubulo-interstitielle chronique,4,true,true,true,5094
+N12,XIV,XIV/N12.md,"Néphrite tubulo-interstitielle, non précisée comme aigüe ou chronique",0,true,true,true,1836
+N13,XIV,XIV/N13.md,Uropathie obstructive et par reflux,10,true,true,true,6351
+N14,XIV,XIV/N14.md,Atteintes tubulo-interstitielles et tubulaires dues à des médicaments et des métaux lourds,5,true,true,true,3870
+N15,XIV,XIV/N15.md,Autres maladies rénales tubulo-interstitielles,4,true,true,true,2562
+N16,XIV,XIV/N16.md,Maladies rénales tubulo-interstitielles au cours de maladies classées ailleurs,7,true,true,true,4504
+N17,XIV,XIV/N17.md,Insuffisance rénale aigüe,5,true,true,true,4480
+N18,XIV,XIV/N18.md,Maladie rénale chronique,6,true,true,true,3293
+N19,XIV,XIV/N19.md,"Défaillance rénale, sans précision",0,true,true,true,1833
+N20,XIV,XIV/N20.md,Calcul du rein et de l'uretère,4,true,true,true,3719
+N21,XIV,XIV/N21.md,Calcul des voies urinaires inférieures,4,true,true,true,2265
+N22,XIV,XIV/N22.md,Calcul des voies urinaires au cours de maladies classées ailleurs,2,false,true,true,1267
+N23,XIV,XIV/N23.md,"Colique néphrétique, sans précision",0,false,true,true,1138
+N25,XIV,XIV/N25.md,Affections dues à une tubulopathie,4,true,true,true,4160
+N26,XIV,XIV/N26.md,"Rein scléreux, sans précision",0,true,true,true,1972
+N27,XIV,XIV/N27.md,Petit rein de cause inconnue,3,false,true,true,1454
+N28,XIV,XIV/N28.md,"Autres affections du rein et de l'uretère, non classées ailleurs",4,true,true,true,5680
+N29,XIV,XIV/N29.md,Autres affections du rein et de l'uretère au cours de maladies classées ailleurs,3,true,true,true,1992
+N30,XIV,XIV/N30.md,Cystite,7,true,true,true,4847
+N31,XIV,XIV/N31.md,"Dysfonctionnement neuromusculaire de la vessie, non classé ailleurs",5,true,true,true,5457
+N32,XIV,XIV/N32.md,Autres affections de la vessie,7,true,true,true,5208
+N33,XIV,XIV/N33.md,Affections de la vessie au cours de maladies classées ailleurs,2,true,true,true,1694
+N34,XIV,XIV/N34.md,Urétrite et syndrome urétral,4,true,true,true,5297
+N35,XIV,XIV/N35.md,Rétrécissement urétral,4,true,true,true,3354
+N36,XIV,XIV/N36.md,Autres affections de l'urètre,6,true,true,true,4767
+N37,XIV,XIV/N37.md,Affections de l'urètre au cours de maladies classées ailleurs,2,true,true,true,1599
+N39,XIV,XIV/N39.md,Autres affections de l'appareil urinaire,7,true,true,true,4170
+N40,XIV,XIV/N40.md,Hyperplasie de la prostate,0,true,true,true,2862
+N41,XIV,XIV/N41.md,Affections inflammatoires de la prostate,6,true,true,true,2462
+N42,XIV,XIV/N42.md,Autres affections de la prostate,6,true,true,true,2382
+N43,XIV,XIV/N43.md,Hydrocèle et spermatocèle,5,true,true,true,1703
+N44,XIV,XIV/N44.md,Torsion du testicule,0,true,true,true,1218
+N45,XIV,XIV/N45.md,Orchite et épididymite,2,true,true,true,2596
+N46,XIV,XIV/N46.md,"Stérilité, chez l'homme",0,true,true,true,1335
+N47,XIV,XIV/N47.md,"Hypertrophie du prépuce, phimosis et paraphimosis",0,true,true,true,1353
+N48,XIV,XIV/N48.md,Autres affections de la verge,9,true,true,true,5223
+N49,XIV,XIV/N49.md,"Affections inflammatoires des organes génitaux de l'homme, non classées ailleurs",5,true,true,true,6044
+N50,XIV,XIV/N50.md,Autres affections des organes génitaux de l'homme,4,true,true,true,6463
+N51,XIV,XIV/N51.md,Affections des organes génitaux de l'homme au cours de maladies classées ailleurs,4,true,true,true,2802
+N60,XIV,XIV/N60.md,Dysplasies mammaires bénignes,7,true,true,true,4885
+N61,XIV,XIV/N61.md,Affections inflammatoires du sein,0,true,true,true,2617
+N62,XIV,XIV/N62.md,Hypertrophie mammaire,0,true,true,true,1678
+N63,XIV,XIV/N63.md,"Tuméfaction mammaire, sans précision",0,true,true,true,1324
+N64,XIV,XIV/N64.md,Autres affections du sein,8,true,true,true,3931
+N70,XIV,XIV/N70.md,Salpingite et ovarite,3,true,true,true,3863
+N71,XIV,XIV/N71.md,"Affections inflammatoires de l'utérus, à l'exclusion du col",3,true,true,true,3585
+N72,XIV,XIV/N72.md,Affections inflammatoires du col de l'utérus,0,true,true,true,3640
+N73,XIV,XIV/N73.md,Autres affections inflammatoires pelviennes de la femme,9,true,true,true,7425
+N74,XIV,XIV/N74.md,"Affections inflammatoires pelviennes de la femme, au cours de maladies classées ailleurs",6,true,true,true,1843
+N75,XIV,XIV/N75.md,Affection de la glande de Bartholin,4,true,true,true,2274
+N76,XIV,XIV/N76.md,Autres inflammations du vagin et de la vulve,8,true,true,true,4852
+N77,XIV,XIV/N77.md,Ulcération et inflammation vulvovaginales au cours de maladies classées ailleurs,3,true,true,true,2643
+N80,XIV,XIV/N80.md,Endométriose,9,true,true,true,2677
+N81,XIV,XIV/N81.md,Prolapsus génital,9,true,true,true,4713
+N82,XIV,XIV/N82.md,Fistules de l'appareil génital de la femme,8,true,true,true,4550
+N83,XIV,XIV/N83.md,"Affections non inflammatoires de l'ovaire, de la trompe de Fallope et du ligament large",10,true,true,true,6373
+N84,XIV,XIV/N84.md,Polype de l'appareil génital de la femme,6,true,true,true,2484
+N85,XIV,XIV/N85.md,"Autres affections non inflammatoires de l'utérus, sauf le col",10,true,true,true,6241
+N86,XIV,XIV/N86.md,Érosion et ectropion du col de l'utérus,0,true,true,true,1739
+N87,XIV,XIV/N87.md,Dysplasie du col de l'utérus,4,true,true,true,3374
+N88,XIV,XIV/N88.md,Autres affections non inflammatoires du col de l'utérus,7,true,true,true,5464
+N89,XIV,XIV/N89.md,Autres affections non inflammatoires du vagin,10,true,true,true,5787
+N90,XIV,XIV/N90.md,Autres affections non inflammatoires de la vulve et du périnée,10,true,true,true,5423
+N91,XIV,XIV/N91.md,"Aménorrhée, oligoménorrhée et hypoménorrhée",6,true,true,true,2675
+N92,XIV,XIV/N92.md,"Ménorragie, polyménorrhée et métrorragie",7,true,true,true,6121
+N93,XIV,XIV/N93.md,Autres saignements anormaux de l'utérus et du vagin,3,true,true,true,2582
+N94,XIV,XIV/N94.md,Douleurs et autres affections des organes génitaux de la femme et du cycle menstruel,9,false,true,true,4801
+N95,XIV,XIV/N95.md,Troubles de la ménopause et autres troubles de la périménopause,6,true,true,true,4978
+N96,XIV,XIV/N96.md,Avortements à répétition,0,true,true,true,1462
+N97,XIV,XIV/N97.md,Stérilité de la femme,7,true,true,true,4167
+N98,XIV,XIV/N98.md,Complications de la fécondation artificielle,6,true,true,true,3112
+N99,XIV,XIV/N99.md,"Affections de l'appareil génito-urinaire après un acte à visée diagnostique et thérapeutique, non classées ailleurs",8,true,true,true,6560
+O00,XV,XV/O00.md,Grossesse extra-utérine,5,true,true,true,4099
+O01,XV,XV/O01.md,Môle hydatiforme,3,true,true,true,2043
+O02,XV,XV/O02.md,Autres produits anormaux de la conception,4,true,true,true,3451
+O03,XV,XV/O03.md,Avortement spontané,10,true,true,true,3677
+O04,XV,XV/O04.md,Avortement médical,0,true,true,false,1588
+O05,XV,XV/O05.md,Autres formes d'avortement,10,true,true,true,3618
+O06,XV,XV/O06.md,"Avortement, sans précision",10,true,true,true,3764
+O07,XV,XV/O07.md,Échec d'une tentative d'avortement,10,true,true,true,5439
+O08,XV,XV/O08.md,"Complications consécutives à un avortement, une grossesse extra-utérine et molaire",10,true,true,true,16064
+O10,XV,XV/O10.md,"Hypertension préexistante compliquant la grossesse, l'accouchement et la puerpéralité",6,true,true,true,7312
+O11,XV,XV/O11.md,Prééclampsie surajoutée à une hypertension chronique,0,true,true,true,2755
+O12,XV,XV/O12.md,Œdème et protéinurie gestationnels [liés à la grossesse] sans hypertension,3,false,true,true,3280
+O13,XV,XV/O13.md,Hypertension gestationnelle [liée à la grossesse],0,true,true,true,1487
+O14,XV,XV/O14.md,Prééclampsie,4,true,true,true,2803
+O15,XV,XV/O15.md,Éclampsie,4,true,true,true,5091
+O16,XV,XV/O16.md,"Hypertension de la mère, sans précision",0,true,true,true,1644
+O20,XV,XV/O20.md,Hémorragie du début de la grossesse,3,true,true,true,3012
+O21,XV,XV/O21.md,Vomissements incoercibles au cours de la grossesse,5,true,true,true,3597
+O22,XV,XV/O22.md,Complications veineuses et hémorroïdes au cours de la grossesse,8,true,true,true,7726
+O23,XV,XV/O23.md,Infections de l'appareil génito-urinaire au cours de la grossesse,7,true,true,true,7362
+O24,XV,XV/O24.md,Diabète sucré au cours de la grossesse,6,true,true,true,4566
+O25,XV,XV/O25.md,Malnutrition au cours de la grossesse,0,true,true,true,1641
+O26,XV,XV/O26.md,Soins maternels pour d'autres affections liées principalement à la grossesse,10,true,true,true,6915
+O28,XV,XV/O28.md,Résultats anormaux constatés au cours de l'examen prénatal systématique de la mère,8,false,true,true,5134
+O29,XV,XV/O29.md,Complications d'une anesthésie au cours de la grossesse,9,true,true,true,7883
+O30,XV,XV/O30.md,Grossesse multiple,5,true,true,true,2581
+O31,XV,XV/O31.md,Complications spécifiques à une grossesse multiple,4,true,true,true,2370
+O32,XV,XV/O32.md,Soins maternels pour présentation anormale connue ou présumée du fœtus,9,true,true,true,6901
+O33,XV,XV/O33.md,Soins maternels pour disproportion fœtopelvienne connue ou présumée,10,true,true,true,8957
+O34,XV,XV/O34.md,Soins maternels pour anomalie connue ou présumée des organes pelviens,10,true,true,true,9866
+O35,XV,XV/O35.md,"Soins maternels pour anomalie et lésion fœtales, connues ou présumées",10,true,true,true,11325
+O36,XV,XV/O36.md,Soins maternels pour d'autres affections connues ou présumées du fœtus,10,true,true,true,8919
+O40,XV,XV/O40.md,Hydramnios,0,false,true,true,1254
+O41,XV,XV/O41.md,Autres anomalies du liquide amniotique et des membranes,4,true,true,true,3991
+O42,XV,XV/O42.md,Rupture prématurée des membranes,4,false,true,true,3274
+O43,XV,XV/O43.md,Anomalies du placenta,5,true,true,true,6543
+O44,XV,XV/O44.md,Placenta prævia,2,true,true,true,4665
+O45,XV,XV/O45.md,Décollement prématuré du placenta [hématome rétroplacentaire],3,true,true,true,6241
+O46,XV,XV/O46.md,"Hémorragie précédant l'accouchement, non classée ailleurs",3,true,true,true,5922
+O47,XV,XV/O47.md,Faux travail,3,false,true,true,2198
+O48,XV,XV/O48.md,Grossesse prolongée,0,true,true,true,1481
+O60,XV,XV/O60.md,Travail et accouchement prématurés [avant terme],4,true,true,false,1612
+O61,XV,XV/O61.md,Échec du déclenchement du travail,4,true,true,true,3474
+O62,XV,XV/O62.md,Anomalies de la contraction utérine et de la dilatation du col,7,true,true,true,6468
+O63,XV,XV/O63.md,Travail prolongé,4,true,true,true,3472
+O64,XV,XV/O64.md,Dystocie due à une position et une présentation anormales du fœtus,8,true,true,true,6898
+O65,XV,XV/O65.md,Dystocie due à une anomalie pelvienne de la mère,8,true,true,true,6563
+O66,XV,XV/O66.md,Autres dystocies,8,true,true,true,6561
+O67,XV,XV/O67.md,"Travail et accouchement compliqués d'une hémorragie, non classée ailleurs",3,true,true,true,4214
+O68,XV,XV/O68.md,Travail et accouchement compliqués d'une détresse fœtale,6,true,true,true,5757
+O69,XV,XV/O69.md,Travail et accouchement compliqués d'anomalies du cordon ombilical,8,true,true,true,6623
+O70,XV,XV/O70.md,Déchirure obstétricale du périnée,5,true,true,true,9804
+O71,XV,XV/O71.md,Autres traumatismes obstétricaux,10,true,true,true,7904
+O72,XV,XV/O72.md,Hémorragie du postpartum,4,true,true,true,4178
+O73,XV,XV/O73.md,"Rétention du placenta et des membranes, sans hémorragie",2,true,true,true,3093
+O74,XV,XV/O74.md,Complications de l'anesthésie au cours du travail et de l'accouchement,10,true,true,true,9805
+O75,XV,XV/O75.md,"Autres complications du travail et de l'accouchement, non classées ailleurs",10,true,true,true,8091
+O80,XV,XV/O80.md,Accouchement unique et spontané,4,true,true,true,2379
+O81,XV,XV/O81.md,Accouchement unique par forceps et ventouse,6,true,true,true,2835
+O82,XV,XV/O82.md,Accouchement unique par césarienne,5,true,true,true,2004
+O83,XV,XV/O83.md,Autres accouchements uniques avec assistance,7,true,true,true,3080
+O84,XV,XV/O84.md,Accouchements multiples,5,true,true,true,2397
+O85,XV,XV/O85.md,Sepsis puerpéral,0,true,true,true,4888
+O86,XV,XV/O86.md,Autres infections puerpérales,6,true,true,true,6145
+O87,XV,XV/O87.md,Complications veineuses et hémorroïdes au cours de la puerpéralité,6,true,true,true,7063
+O88,XV,XV/O88.md,Embolie obstétricale,5,true,true,true,5777
+O89,XV,XV/O89.md,Complications de l'anesthésie au cours de la puerpéralité,9,true,true,true,7499
+O90,XV,XV/O90.md,"Complications puerpérales, non classées ailleurs",8,true,true,true,6139
+O91,XV,XV/O91.md,Infections mammaires associées à l'accouchement,3,true,true,true,6827
+O92,XV,XV/O92.md,Autres mastopathies et anomalies de la lactation associées à l'accouchement,8,true,true,true,5343
+O94,XV,XV/O94.md,"Séquelles de complications de la grossesse, de l’accouchement et de la puerpéralité",0,false,true,false,1026
+O95,XV,XV/O95.md,Mort d'origine obstétricale de cause non précisée,0,true,true,true,1845
+O96,XV,XV/O96.md,"Mort d'origine obstétricale, survenant plus de 42 jours mais moins d'un an après l'accouchement",3,false,true,false,1856
+O97,XV,XV/O97.md,Mort de séquelles relevant d'une cause obstétricale,3,false,true,false,1493
+O98,XV,XV/O98.md,"Maladies infectieuses et parasitaires de la mère classées ailleurs mais compliquant la grossesse, l'accouchement et la puerpéralité",10,true,true,true,6698
+O99,XV,XV/O99.md,"Autres maladies de la mère classées ailleurs, mais compliquant la grossesse, l'accouchement et la puerpéralité",9,true,true,true,9636
+P00,XVI,XVI/P00.md,"Fœtus et nouveau-né affectés par des affections maternelles, éventuellement sans rapport avec la grossesse actuelle",10,true,true,true,11857
+P01,XVI,XVI/P01.md,Fœtus et nouveau-né affectés par les complications de la grossesse chez la mère,10,true,true,true,8098
+P02,XVI,XVI/P02.md,"Fœtus et nouveau-né affectés par des complications concernant le placenta, le cordon ombilical et les membranes",10,true,true,true,9589
+P03,XVI,XVI/P03.md,Fœtus et nouveau-né affectés par d'autres complications du travail et de l'accouchement,9,true,true,true,9675
+P04,XVI,XVI/P04.md,Fœtus et nouveau-né affectés par des effets nocifs transmis par voie transplacentaire ou par le lait maternel,9,true,true,true,10383
+P05,XVI,XVI/P05.md,Retard de croissance et malnutrition du fœtus,4,true,true,true,5241
+P07,XVI,XVI/P07.md,"Anomalies liées à une brièveté de la gestation et un poids insuffisant à la naissance, non classées ailleurs",4,true,true,true,5201
+P08,XVI,XVI/P08.md,Anomalies liées à une gestation prolongée et un poids élevé à la naissance,3,true,true,true,6453
+P10,XVI,XVI/P10.md,Déchirure et hémorragie intracrâniennes dues à un traumatisme obstétrical,7,true,true,true,5771
+P11,XVI,XVI/P11.md,Autres lésions du système nerveux central dues à un traumatisme obstétrical,7,true,true,true,5612
+P12,XVI,XVI/P12.md,Lésion du cuir chevelu due à un traumatisme obstétrical,7,true,true,true,3629
+P13,XVI,XVI/P13.md,Lésion du squelette due à un traumatisme obstétrical,7,true,true,true,4973
+P14,XVI,XVI/P14.md,Lésion du système nerveux périphérique due à un traumatisme obstétrical,6,true,true,true,3245
+P15,XVI,XVI/P15.md,Autres traumatismes obstétricaux,9,true,true,true,6110
+P20,XVI,XVI/P20.md,Hypoxie intra-utérine,3,true,true,true,4204
+P21,XVI,XVI/P21.md,Asphyxie obstétricale,3,true,true,true,2976
+P22,XVI,XVI/P22.md,Détresse respiratoire du nouveau-né,4,true,true,true,2082
+P23,XVI,XVI/P23.md,Pneumopathie congénitale,9,true,true,true,3728
+P24,XVI,XVI/P24.md,Syndromes d'inhalation du nouveau-né,6,true,true,true,4868
+P25,XVI,XVI/P25.md,Emphysème interstitiel et affections apparentées survenant pendant la période périnatale,5,true,true,true,2742
+P26,XVI,XVI/P26.md,Hémorragie pulmonaire survenant pendant la période périnatale,4,true,true,true,1825
+P27,XVI,XVI/P27.md,Maladies respiratoires chroniques survenant pendant la période périnatale,4,true,true,true,2300
+P28,XVI,XVI/P28.md,Autres affections respiratoires survenant pendant la période périnatale,8,true,true,true,4775
+P29,XVI,XVI/P29.md,Affections cardiovasculaires survenant pendant la période périnatale,7,true,true,true,3402
+P35,XVI,XVI/P35.md,Maladies virales congénitales,7,true,true,true,5062
+P36,XVI,XVI/P36.md,Infection bactérienne du nouveau-né,8,true,true,false,2281
+P37,XVI,XVI/P37.md,Autres maladies infectieuses et parasitaires congénitales,8,true,true,true,5911
+P38,XVI,XVI/P38.md,"Omphalite du nouveau-né, avec ou sans hémorragie modérée",0,true,true,true,2094
+P39,XVI,XVI/P39.md,Autres infections spécifiques de la période périnatale,7,true,true,true,4230
+P50,XVI,XVI/P50.md,Perte de sang fœtal,8,true,true,true,4877
+P51,XVI,XVI/P51.md,Hémorragie ombilicale du nouveau-né,3,true,true,true,2583
+P52,XVI,XVI/P52.md,Hémorragie intracrânienne non traumatique du fœtus et du nouveau-né,9,true,true,true,5966
+P53,XVI,XVI/P53.md,Maladie hémorragique du fœtus et du nouveau-né,0,true,true,true,1817
+P54,XVI,XVI/P54.md,Autres hémorragies du nouveau-né,9,true,true,true,4100
+P55,XVI,XVI/P55.md,Maladie hémolytique du fœtus et du nouveau-né,4,true,true,true,4837
+P56,XVI,XVI/P56.md,Anasarque fœtoplacentaire due à une maladie hémolytique,2,true,true,true,1915
+P57,XVI,XVI/P57.md,Ictère nucléaire,3,true,true,true,1903
+P58,XVI,XVI/P58.md,Ictère du nouveau-né dû à d'autres hémolyses excessives,8,true,true,true,3060
+P59,XVI,XVI/P59.md,Ictère du nouveau-né dû à des causes autres et sans précision,6,true,true,true,3988
+P60,XVI,XVI/P60.md,Coagulation intravasculaire disséminée chez le fœtus et le nouveau-né,0,true,true,true,1613
+P61,XVI,XVI/P61.md,Autres affections hématologiques de la période périnatale,9,true,true,true,4788
+P70,XVI,XVI/P70.md,Anomalies transitoires du métabolisme des glucides spécifiques du fœtus et du nouveau-né,7,true,true,true,3935
+P71,XVI,XVI/P71.md,Anomalies transitoires du métabolisme du calcium et du magnésium du nouveau-né,7,true,true,true,2930
+P72,XVI,XVI/P72.md,Autres anomalies endocriniennes transitoires du nouveau-né,5,true,true,true,3231
+P74,XVI,XVI/P74.md,Autres anomalies électrolytiques et métaboliques transitoires du nouveau-né,8,true,true,true,2777
+P75,XVI,XVI/P75.md,Iléus méconial dans la fibrose kystique du pancréas [mucoviscidose],0,true,true,false,909
+P76,XVI,XVI/P76.md,Autres occlusions intestinales du nouveau-né,5,true,true,true,2683
+P77,XVI,XVI/P77.md,Entérocolite nécrosante du fœtus et du nouveau-né,0,true,true,true,1319
+P78,XVI,XVI/P78.md,Autres affections périnatales de l'appareil digestif,6,true,true,true,3213
+P80,XVI,XVI/P80.md,Hypothermie du nouveau-né,3,true,true,true,1868
+P81,XVI,XVI/P81.md,Autres troubles de la régulation thermique du nouveau-né,3,true,true,true,2125
+P83,XVI,XVI/P83.md,Autres affections des téguments spécifiques du fœtus et du nouveau-né,9,true,true,true,4379
+P90,XVI,XVI/P90.md,Convulsions du nouveau-né,0,true,true,true,1182
+P91,XVI,XVI/P91.md,Autres affections cérébrales du nouveau-né,10,true,true,true,2228
+P92,XVI,XVI/P92.md,Problèmes alimentaires du nouveau-né,8,true,true,true,2971
+P93,XVI,XVI/P93.md,Réactions et intoxications médicamenteuses du fœtus et du nouveau-né,0,true,true,true,1892
+P94,XVI,XVI/P94.md,Anomalies du tonus musculaire du nouveau-né,5,true,true,true,1939
+P95,XVI,XVI/P95.md,Mort fœtale (de cause non précisée),0,true,true,false,1026
+P96,XVI,XVI/P96.md,Autres affections dont l'origine se situe dans la période périnatale,8,true,true,true,4553
+Q00,XVII,XVII/Q00.md,Anencéphalie et malformations similaires,3,true,true,true,1554
+Q01,XVII,XVII/Q01.md,Encéphalocèle,5,true,true,true,1937
+Q02,XVII,XVII/Q02.md,Microcéphalie,0,true,true,true,981
+Q03,XVII,XVII/Q03.md,Hydrocéphalie congénitale,4,true,true,true,3756
+Q04,XVII,XVII/Q04.md,Autres malformations congénitales de l'encéphale,9,true,true,true,4803
+Q05,XVII,XVII/Q05.md,Spina bifida,10,true,true,true,4025
+Q06,XVII,XVII/Q06.md,Autres malformations congénitales de la moelle épinière,7,true,true,true,3141
+Q07,XVII,XVII/Q07.md,Autres malformations congénitales du système nerveux,3,true,true,true,2838
+Q10,XVII,XVII/Q10.md,"Malformations congénitales des paupières, de l'appareil lacrymal et de l'orbite",8,true,true,true,5142
+Q11,XVII,XVII/Q11.md,"Anophtalmie, microphtalmie et macrophtalmie",4,true,true,true,1958
+Q12,XVII,XVII/Q12.md,Malformations congénitales du cristallin,7,false,true,true,2239
+Q13,XVII,XVII/Q13.md,Malformations congénitales de la chambre antérieure de l'œil,8,true,true,true,4276
+Q14,XVII,XVII/Q14.md,Malformations congénitales de la chambre postérieure de l'œil,6,true,true,true,5322
+Q15,XVII,XVII/Q15.md,Autres malformations congénitales de l'œil,3,true,true,true,3170
+Q16,XVII,XVII/Q16.md,Malformations congénitales de l'oreille avec atteinte de l'audition,7,true,true,true,5633
+Q17,XVII,XVII/Q17.md,Autres malformations congénitales de l'oreille,8,true,true,true,4534
+Q18,XVII,XVII/Q18.md,Autres malformations congénitales de la face et du cou,10,true,true,true,5127
+Q20,XVII,XVII/Q20.md,Malformations congénitales des cavités et des orifices cardiaques,9,true,true,true,4422
+Q21,XVII,XVII/Q21.md,Malformations congénitales des cloisons cardiaques,7,true,true,true,6098
+Q22,XVII,XVII/Q22.md,Malformations congénitales de la valve pulmonaire et de la valvule tricuspide,9,true,true,true,2982
+Q23,XVII,XVII/Q23.md,Malformations congénitales des valvules aortique et mitrale,7,true,true,true,3624
+Q24,XVII,XVII/Q24.md,Autres malformations congénitales cardiaques,9,true,true,true,5485
+Q25,XVII,XVII/Q25.md,Malformations congénitales des gros vaisseaux,10,true,true,true,6641
+Q26,XVII,XVII/Q26.md,Malformations congénitales des grandes veines,9,true,true,true,4612
+Q27,XVII,XVII/Q27.md,Autres malformations congénitales de l'appareil circulatoire périphérique,7,true,true,true,6142
+Q28,XVII,XVII/Q28.md,Autres malformations congénitales de l'appareil circulatoire,6,true,true,true,6022
+Q30,XVII,XVII/Q30.md,Malformations congénitales du nez,6,true,true,true,3085
+Q31,XVII,XVII/Q31.md,Malformations congénitales du larynx,7,true,true,true,4786
+Q32,XVII,XVII/Q32.md,Malformations congénitales de la trachée et des bronches,5,true,true,true,2947
+Q33,XVII,XVII/Q33.md,Malformations congénitales du poumon,9,true,true,true,3513
+Q34,XVII,XVII/Q34.md,Autres malformations congénitales de l'appareil respiratoire,4,true,true,true,2059
+Q35,XVII,XVII/Q35.md,Fente palatine,5,true,true,true,2018
+Q36,XVII,XVII/Q36.md,Fente labiale,3,true,true,true,1269
+Q37,XVII,XVII/Q37.md,Fente labiopalatine,8,true,true,true,4043
+Q38,XVII,XVII/Q38.md,"Autres malformations congénitales de la langue, de la bouche et du pharynx",9,true,true,true,5900
+Q39,XVII,XVII/Q39.md,Malformations congénitales de l'œsophage,9,true,true,true,3790
+Q40,XVII,XVII/Q40.md,Autres malformations congénitales des voies digestives supérieures,6,true,true,true,6007
+Q41,XVII,XVII/Q41.md,"Absence, atrésie et sténose congénitales de l'intestin grêle",5,true,true,true,3327
+Q42,XVII,XVII/Q42.md,"Absence, atrésie et sténose congénitales du gros intestin",6,true,true,true,5679
+Q43,XVII,XVII/Q43.md,Autres malformations congénitales de l'intestin,10,true,true,true,6719
+Q44,XVII,XVII/Q44.md,"Malformations congénitales de la vésicule biliaire, des voies biliaires et du foie",8,true,true,true,5535
+Q45,XVII,XVII/Q45.md,Autres malformations congénitales de l'appareil digestif,6,true,true,true,4332
+Q50,XVII,XVII/Q50.md,"Malformations congénitales des ovaires, des trompes de Fallope et des ligaments larges",7,true,true,true,5768
+Q51,XVII,XVII/Q51.md,Malformations congénitales de l'utérus et du col de l'utérus,10,true,true,true,5023
+Q52,XVII,XVII/Q52.md,Autres malformations congénitales des organes génitaux de la femme,10,true,true,true,5322
+Q53,XVII,XVII/Q53.md,Cryptorchidie,4,true,true,true,1585
+Q54,XVII,XVII/Q54.md,Hypospadias,7,true,true,true,1434
+Q55,XVII,XVII/Q55.md,Autres malformations congénitales des organes génitaux de l'homme,9,true,true,true,5814
+Q56,XVII,XVII/Q56.md,Non-différenciation sexuelle et pseudohermaphrodisme,5,true,true,true,2067
+Q60,XVII,XVII/Q60.md,Agénésie rénale et autres défauts de développement rénal,7,true,true,true,1804
+Q61,XVII,XVII/Q61.md,Maladies kystiques du rein,8,true,true,true,4325
+Q62,XVII,XVII/Q62.md,Anomalies congénitales obstructives du bassinet et malformations congénitales de l'uretère,9,true,true,true,5595
+Q63,XVII,XVII/Q63.md,Autres malformations congénitales du rein,6,true,true,true,3699
+Q64,XVII,XVII/Q64.md,Autres malformations congénitales de l'appareil urinaire,10,true,true,true,6399
+Q65,XVII,XVII/Q65.md,Anomalies morphologiques congénitales de la hanche,9,true,true,true,2926
+Q66,XVII,XVII/Q66.md,Anomalies morphologiques congénitales du pied,10,true,true,true,5336
+Q67,XVII,XVII/Q67.md,"Anomalies morphologiques congénitales de la tête, de la face, du rachis et du thorax",9,true,true,true,5006
+Q68,XVII,XVII/Q68.md,Autres anomalies morphologiques congénitales ostéoarticulaires et des muscles,7,true,true,true,6013
+Q69,XVII,XVII/Q69.md,Polydactylie,4,true,true,true,1243
+Q70,XVII,XVII/Q70.md,Syndactylie,6,true,true,true,1893
+Q71,XVII,XVII/Q71.md,Raccourcissement du membre supérieur,9,true,true,true,4143
+Q72,XVII,XVII/Q72.md,Raccourcissement du membre inférieur,10,true,true,true,3678
+Q73,XVII,XVII/Q73.md,Raccourcissement d'un membre non précisé,3,true,true,true,1726
+Q74,XVII,XVII/Q74.md,Autres malformations congénitales d'un (des) membre(s),6,true,true,true,5983
+Q75,XVII,XVII/Q75.md,Autres malformations congénitales des os du crâne et de la face,8,true,true,true,4806
+Q76,XVII,XVII/Q76.md,Malformations congénitales du rachis et du thorax osseux,10,true,true,true,6594
+Q77,XVII,XVII/Q77.md,Ostéo-chondro-dysplasie avec anomalies de la croissance des os longs et du rachis,10,true,true,true,3308
+Q78,XVII,XVII/Q78.md,Autres ostéo-chondro-dysplasies,9,true,true,true,3841
+Q79,XVII,XVII/Q79.md,"Malformations congénitales du système ostéoarticulaire et des muscles, non classées ailleurs",9,true,true,true,5046
+Q80,XVII,XVII/Q80.md,Ichtyose congénitale,7,true,true,true,2377
+Q81,XVII,XVII/Q81.md,Épidermolyse bulleuse,5,true,true,true,1724
+Q82,XVII,XVII/Q82.md,Autres malformations congénitales de la peau,8,true,true,true,4590
+Q83,XVII,XVII/Q83.md,Malformations congénitales du sein,6,true,true,true,2215
+Q84,XVII,XVII/Q84.md,Autres malformations congénitales de la peau et des phanères,9,true,true,true,4399
+Q85,XVII,XVII/Q85.md,"Phacomatoses, non classées ailleurs",4,true,true,true,3430
+Q86,XVII,XVII/Q86.md,"Syndromes congénitaux malformatifs dus à des causes exogènes connues, non classés ailleurs",4,true,true,true,1754
+Q87,XVII,XVII/Q87.md,Autres syndromes congénitaux malformatifs précisés atteignant plusieurs systèmes,7,true,true,true,5507
+Q89,XVII,XVII/Q89.md,"Autres malformations congénitales, non classées ailleurs",8,true,true,true,5416
+Q90,XVII,XVII/Q90.md,Syndrome de Down,4,true,true,true,1295
+Q91,XVII,XVII/Q91.md,Syndrome d'Edwards et syndrome de Patau,8,false,true,true,1879
+Q92,XVII,XVII/Q92.md,"Autres trisomies et trisomies partielles des autosomes, non classées ailleurs",10,true,true,true,2971
+Q93,XVII,XVII/Q93.md,"Monosomies et délétions des autosomes, non classées ailleurs",10,true,true,true,2435
+Q95,XVII,XVII/Q95.md,"Réarrangements équilibrés et marqueurs structuraux, non classés ailleurs",8,true,true,true,1950
+Q96,XVII,XVII/Q96.md,Syndrome de Turner,7,false,true,true,2106
+Q97,XVII,XVII/Q97.md,"Autres anomalies des chromosomes sexuels, phénotype féminin, non classées ailleurs",6,false,true,true,2220
+Q98,XVII,XVII/Q98.md,"Autres anomalies des chromosomes sexuels, phénotype masculin, non classées ailleurs",10,false,true,true,2394
+Q99,XVII,XVII/Q99.md,"Autres anomalies des chromosomes, non classées ailleurs",5,true,true,true,2501
+R00,XVIII,XVIII/R00.md,Anomalies du rythme cardiaque,5,true,true,true,1957
+R01,XVIII,XVIII/R01.md,Souffles et autres bruits cardiaques,3,true,true,true,1683
+R02,XVIII,XVIII/R02.md,"Gangrène, non classée ailleurs",0,false,true,true,2751
+R03,XVIII,XVIII/R03.md,"Constatation d'une anomalie de la tension artérielle, sans diagnostic",2,false,true,true,1723
+R04,XVIII,XVIII/R04.md,Hémorragie des voies respiratoires,5,true,true,true,1908
+R05,XVIII,XVIII/R05.md,Toux,0,false,true,true,752
+R06,XVIII,XVIII/R06.md,Anomalies de la respiration,9,true,true,true,3097
+R07,XVIII,XVIII/R07.md,Douleur au niveau de la gorge et du thorax,5,true,true,true,1783
+R09,XVIII,XVIII/R09.md,Autres symptômes et signes relatifs aux appareils circulatoire et respiratoire,5,true,true,true,3677
+R10,XVIII,XVIII/R10.md,Douleur abdominale et pelvienne,5,true,true,true,4026
+R11,XVIII,XVIII/R11.md,Nausées et vomissements,0,false,true,true,1982
+R12,XVIII,XVIII/R12.md,Pyrosis,0,false,true,true,1108
+R13,XVIII,XVIII/R13.md,Dysphagie,0,true,true,true,1271
+R14,XVIII,XVIII/R14.md,Flatulence et troubles apparentés,0,true,true,true,1732
+R15,XVIII,XVIII/R15.md,Incontinence des matières fécales,0,true,true,true,1310
+R16,XVIII,XVIII/R16.md,"Hépatomégalie et splénomégalie, non classées ailleurs",3,true,true,true,1738
+R17,XVIII,XVIII/R17.md,"Hyperbilirubinémie, avec ou sans ictère, non classée ailleurs",2,true,true,false,1481
+R18,XVIII,XVIII/R18.md,Ascite,0,true,true,true,1260
+R19,XVIII,XVIII/R19.md,Autres symptômes et signes relatifs à l'appareil digestif et à l'abdomen,8,true,true,true,3983
+R20,XVIII,XVIII/R20.md,Troubles de la sensibilité cutanée,5,true,true,true,2969
+R21,XVIII,XVIII/R21.md,Rash et autres éruptions cutanées non spécifiques,0,false,true,true,1031
+R22,XVIII,XVIII/R22.md,Autres tuméfactions et masses localisées de la peau et du tissu cellulaire souscutané,7,true,true,true,4034
+R23,XVIII,XVIII/R23.md,Autres modifications de la peau,6,true,true,true,2480
+R25,XVIII,XVIII/R25.md,Mouvements involontaires anormaux,5,true,true,true,1977
+R26,XVIII,XVIII/R26.md,Anomalies de la démarche et de la motilité,5,true,true,true,2240
+R27,XVIII,XVIII/R27.md,Autres troubles de la coordination,2,false,true,true,1152
+R29,XVIII,XVIII/R29.md,Autres symptômes et signes relatifs aux systèmes nerveux et ostéomusculaire,7,true,true,true,3416
+R30,XVIII,XVIII/R30.md,Douleur à la miction,3,true,true,true,1075
+R31,XVIII,XVIII/R31.md,"Hématurie, sans précision",0,false,true,true,1021
+R32,XVIII,XVIII/R32.md,"Incontinence urinaire, sans précision",0,true,true,true,1042
+R33,XVIII,XVIII/R33.md,Rétention d'urine,0,false,true,true,745
+R34,XVIII,XVIII/R34.md,Anurie et oligurie,0,false,true,true,978
+R35,XVIII,XVIII/R35.md,Polyurie,0,true,true,true,1087
+R36,XVIII,XVIII/R36.md,Écoulement urétral,0,true,true,true,834
+R39,XVIII,XVIII/R39.md,Autres symptômes et signes relatifs à l'appareil urinaire,4,true,true,true,1852
+R40,XVIII,XVIII/R40.md,"Somnolence, stupeur et coma",3,true,true,true,1495
+R41,XVIII,XVIII/R41.md,Autres symptômes et signes relatifs aux fonctions cognitives et à la conscience,5,true,true,true,2160
+R42,XVIII,XVIII/R42.md,Étourdissements et éblouissements,0,true,true,true,1059
+R43,XVIII,XVIII/R43.md,Troubles de l'odorat et du gout,4,true,true,true,1789
+R44,XVIII,XVIII/R44.md,Autres symptômes et signes relatifs aux sensations et aux perceptions générales,5,false,true,true,1610
+R45,XVIII,XVIII/R45.md,Symptômes et signes relatifs à l'humeur,9,true,true,true,1916
+R46,XVIII,XVIII/R46.md,Symptômes et signes relatifs à l'apparence et au comportement,9,true,true,true,2364
+R47,XVIII,XVIII/R47.md,"Troubles du langage, non classés ailleurs",3,true,true,true,1456
+R48,XVIII,XVIII/R48.md,"Dyslexie et autres troubles de la fonction symbolique, non classés ailleurs",4,true,true,true,1979
+R49,XVIII,XVIII/R49.md,Troubles de la voix,4,true,true,true,1529
+R50,XVIII,XVIII/R50.md,Fièvre d'origine autre et inconnue,3,true,true,true,1969
+R51,XVIII,XVIII/R51.md,Céphalée,0,true,true,true,910
+R52,XVIII,XVIII/R52.md,"Douleur, non classée ailleurs",4,true,true,true,2281
+R53,XVIII,XVIII/R53.md,Malaise et fatigue,0,true,true,false,1632
+R54,XVIII,XVIII/R54.md,Sénilité,0,true,true,false,782
+R55,XVIII,XVIII/R55.md,Syncope et collapsus,0,true,true,true,1784
+R56,XVIII,XVIII/R56.md,"Convulsions, non classées ailleurs",2,true,true,true,1638
+R57,XVIII,XVIII/R57.md,"Choc, non classé ailleurs",5,true,true,true,2756
+R58,XVIII,XVIII/R58.md,"Hémorragie, non classée ailleurs",0,true,true,true,1261
+R59,XVIII,XVIII/R59.md,Adénopathies,3,true,true,true,2218
+R60,XVIII,XVIII/R60.md,"Œdème, non classé ailleurs",3,true,true,true,2212
+R61,XVIII,XVIII/R61.md,Hyperhidrose,3,true,true,true,1089
+R62,XVIII,XVIII/R62.md,Retard du développement physiologique,3,true,true,true,2493
+R63,XVIII,XVIII/R63.md,Symptômes et signes relatifs à l'absorption d'aliments et de liquides,8,true,true,true,2861
+R64,XVIII,XVIII/R64.md,Cachexie,0,false,true,true,763
+R65,XVIII,XVIII/R65.md,Syndrome de réponse inflammatoire systémique [SRIS],5,true,true,true,1283
+R68,XVIII,XVIII/R68.md,Autres symptômes et signes généraux,5,true,true,true,2408
+R69,XVIII,XVIII/R69.md,Causes inconnues et non précisées de morbidité,0,true,true,true,1100
+R70,XVIII,XVIII/R70.md,Accélération de la vitesse de sédimentation et anomalies de la viscosité plasmatique,2,false,true,true,1450
+R71,XVIII,XVIII/R71.md,Anomalies des globules rouges,0,true,true,true,1696
+R72,XVIII,XVIII/R72.md,"Anomalies des globules blancs, non classées ailleurs",0,true,true,true,1409
+R73,XVIII,XVIII/R73.md,Augmentation de la glycémie,2,true,true,true,2217
+R74,XVIII,XVIII/R74.md,Anomalies des taux d'enzymes sériques,3,true,true,true,3359
+R75,XVIII,XVIII/R75.md,Mise en évidence par des examens de laboratoire du virus de l'immunodéficience humaine [VIH],0,true,true,true,1583
+R76,XVIII,XVIII/R76.md,Autres anomalies de résultats immunologiques sériques,5,true,true,true,3836
+R77,XVIII,XVIII/R77.md,Autres anomalies des protéines plasmatiques,5,true,true,true,2038
+R78,XVIII,XVIII/R78.md,Présence de drogues et d'autres substances non trouvées normalement dans le sang,10,true,true,true,3309
+R79,XVIII,XVIII/R79.md,Autres résultats anormaux des examens chimiques du sang,3,true,true,true,3850
+R80,XVIII,XVIII/R80.md,Protéinurie isolée,0,true,true,true,1736
+R81,XVIII,XVIII/R81.md,Glycosurie,0,false,true,true,1017
+R82,XVIII,XVIII/R82.md,Autres résultats anormaux de l'examen des urines,10,true,true,true,4972
+R83,XVIII,XVIII/R83.md,Résultats anormaux de l'examen du liquide céphalorachidien,10,true,true,false,2241
+R84,XVIII,XVIII/R84.md,Résultats anormaux de prélèvements effectués sur l'appareil respiratoire et le thorax,10,true,true,true,2803
+R85,XVIII,XVIII/R85.md,Résultats anormaux de prélèvements effectués sur l'appareil digestif et la cavité abdominale,10,true,true,false,2722
+R86,XVIII,XVIII/R86.md,Résultats anormaux de prélèvements effectués sur les organes génitaux de l'homme,10,true,true,false,2588
+R87,XVIII,XVIII/R87.md,Résultats anormaux de prélèvements effectués sur les organes génitaux de la femme,10,true,true,true,2882
+R89,XVIII,XVIII/R89.md,"Résultats anormaux de prélèvements effectués sur d'autres organes, appareils et tissus",10,true,true,true,3137
+R90,XVIII,XVIII/R90.md,Résultats anormaux d'imagerie diagnostique du système nerveux central,2,true,true,true,2500
+R91,XVIII,XVIII/R91.md,Résultats anormaux d'imagerie diagnostique du poumon,0,true,true,true,2269
+R92,XVIII,XVIII/R92.md,Résultats anormaux d'imagerie diagnostique du sein,0,true,true,true,1855
+R93,XVIII,XVIII/R93.md,Résultats anormaux d'imagerie diagnostique d'autres parties du corps,9,true,true,true,6620
+R94,XVIII,XVIII/R94.md,Résultats anormaux d'explorations fonctionnelles,9,true,true,true,7529
+R95,XVIII,XVIII/R95.md,Syndrome de la mort subite du nourrisson,2,true,true,false,1401
+R96,XVIII,XVIII/R96.md,Autre mort subite de cause inconnue,2,true,true,true,2201
+R98,XVIII,XVIII/R98.md,Décès sans témoin,0,true,true,true,1167
+R99,XVIII,XVIII/R99.md,Autres causes de mortalité mal définies et non précisées,0,true,true,true,1244
+S00,XIX,XIX/S00.md,Lésion traumatique superficielle de la tête,9,true,true,true,8097
+S01,XIX,XIX/S01.md,Plaie ouverte de la tête,9,true,true,true,8359
+S02,XIX,XIX/S02.md,Fracture du crâne et des os de la face,10,true,true,false,2724
+S03,XIX,XIX/S03.md,"Luxation, entorse et foulure d'articulations et de ligaments de la tête",6,true,true,true,3468
+S04,XIX,XIX/S04.md,Lésion traumatique des nerfs crâniens,10,true,true,true,6703
+S05,XIX,XIX/S05.md,Lésion traumatique de l'œil et de l'orbite,10,true,true,true,8179
+S06,XIX,XIX/S06.md,Lésion traumatique intracrânienne,10,true,true,false,2688
+S07,XIX,XIX/S07.md,Écrasement de la tête,4,true,true,true,2334
+S08,XIX,XIX/S08.md,Amputation traumatique d'une partie de la tête,4,true,true,true,2581
+S09,XIX,XIX/S09.md,"Lésions traumatiques de la tête, autres et sans précision",6,true,true,true,7249
+S10,XIX,XIX/S10.md,Lésion traumatique superficielle du cou,5,true,true,true,3899
+S11,XIX,XIX/S11.md,Plaie ouverte du cou,6,true,true,true,3639
+S12,XIX,XIX/S12.md,Fracture du cou,6,true,true,true,2386
+S13,XIX,XIX/S13.md,"Luxation, entorse et foulure des articulations et des ligaments au niveau du cou",7,true,true,true,4296
+S14,XIX,XIX/S14.md,Lésion traumatique des nerfs et de la moelle épinière au niveau du cou,7,true,true,true,3579
+S15,XIX,XIX/S15.md,Lésion traumatique des vaisseaux sanguins au niveau du cou,7,true,true,true,3434
+S16,XIX,XIX/S16.md,Lésion traumatique des muscles et des tendons au niveau du cou,0,true,true,true,1417
+S17,XIX,XIX/S17.md,Écrasement du cou,3,true,true,true,1673
+S18,XIX,XIX/S18.md,Amputation traumatique au niveau du cou,0,true,true,true,1524
+S19,XIX,XIX/S19.md,"Lésions traumatiques du cou, autres et sans précision",3,true,true,true,3055
+S20,XIX,XIX/S20.md,Lésion traumatique superficielle du thorax,7,true,true,true,6128
+S21,XIX,XIX/S21.md,Plaie ouverte du thorax,6,true,true,true,3498
+S22,XIX,XIX/S22.md,"Fracture de côte(s), du sternum et du rachis dorsal",8,true,true,true,2430
+S23,XIX,XIX/S23.md,"Luxation, entorse et foulure des articulations et des ligaments du thorax",6,true,true,true,3571
+S24,XIX,XIX/S24.md,Lésion traumatique des nerfs et de la moelle épinière au niveau du thorax,7,true,true,true,4456
+S25,XIX,XIX/S25.md,Lésion traumatique de vaisseaux sanguins du thorax,9,true,true,true,5216
+S26,XIX,XIX/S26.md,Lésion traumatique du cœur,3,true,true,false,1788
+S27,XIX,XIX/S27.md,"Lésions traumatiques d'organes intrathoraciques, autres et non précisés",10,true,true,false,2231
+S28,XIX,XIX/S28.md,Écrasement du thorax et amputation traumatique d'une partie du thorax,2,true,true,true,2092
+S29,XIX,XIX/S29.md,"Lésions traumatiques du thorax, autres et sans précision",4,true,true,true,2926
+S30,XIX,XIX/S30.md,"Lésion traumatique superficielle de l'abdomen, des lombes et du bassin",6,true,true,true,7577
+S31,XIX,XIX/S31.md,"Plaie ouverte de l'abdomen, des lombes et du bassin",8,true,true,true,7692
+S32,XIX,XIX/S32.md,Fracture du rachis lombaire et du bassin,8,true,true,true,2467
+S33,XIX,XIX/S33.md,"Luxation, entorse et foulure des articulations et des ligaments du rachis lombaire et du bassin",8,true,true,true,4409
+S34,XIX,XIX/S34.md,"Lésion traumatique des nerfs et de la moelle épinière lombaire au niveau de l'abdomen, des lombes et du bassin",8,true,true,true,6332
+S35,XIX,XIX/S35.md,"Lésion traumatique de vaisseaux sanguins au niveau de l'abdomen, des lombes et du bassin",9,true,true,true,9892
+S36,XIX,XIX/S36.md,Lésion traumatique d'organes intraabdominaux,10,true,true,false,1957
+S37,XIX,XIX/S37.md,Lésion traumatique des organes urinaires et pelviens,10,true,true,false,2151
+S38,XIX,XIX/S38.md,"Écrasement et amputation traumatique d'une partie de l'abdomen, des lombes et du bassin",4,true,true,true,3844
+S39,XIX,XIX/S39.md,"Lésions traumatiques de l'abdomen, des lombes et du bassin, autres et sans précision",5,true,true,true,6954
+S40,XIX,XIX/S40.md,Lésion traumatique superficielle de l'épaule et du bras,4,true,true,true,3334
+S41,XIX,XIX/S41.md,Plaie ouverte de l'épaule et du bras,4,true,true,true,2532
+S42,XIX,XIX/S42.md,Fracture de l'épaule et du bras,8,true,true,true,2428
+S43,XIX,XIX/S43.md,"Luxation, entorse et foulure des articulations et des ligaments de la ceinture scapulaire",8,true,true,true,3976
+S44,XIX,XIX/S44.md,Lésion traumatique de nerfs au niveau de l'épaule et du bras,9,true,true,true,4017
+S45,XIX,XIX/S45.md,Lésion des vaisseaux sanguins au niveau de l'épaule et du bras,7,true,true,true,5873
+S46,XIX,XIX/S46.md,Lésion traumatique de muscles et de tendons au niveau de l'épaule et du bras,7,true,true,true,4033
+S47,XIX,XIX/S47.md,Écrasement de l'épaule et du bras,0,true,true,false,1256
+S48,XIX,XIX/S48.md,Amputation traumatique de l'épaule et du bras,3,true,true,true,2149
+S49,XIX,XIX/S49.md,"Lésions traumatiques de l'épaule et du bras, autres et sans précision",3,true,true,true,3062
+S50,XIX,XIX/S50.md,Lésion traumatique superficielle de l'avant-bras,5,true,true,true,2509
+S51,XIX,XIX/S51.md,Plaie ouverte de l'avant-bras,4,false,true,true,2122
+S52,XIX,XIX/S52.md,Fracture de l'avant-bras,10,true,true,true,2425
+S53,XIX,XIX/S53.md,"Luxation, entorse et foulure des articulations et des ligaments du coude",5,true,true,true,2774
+S54,XIX,XIX/S54.md,Lésion traumatique de nerfs au niveau de l'avant-bras,7,true,true,true,3082
+S55,XIX,XIX/S55.md,Lésion traumatique de vaisseaux sanguins au niveau de l'avant-bras,6,false,true,true,3612
+S56,XIX,XIX/S56.md,Lésion traumatique de muscles et de tendons au niveau de l'avant-bras,8,false,true,true,3408
+S57,XIX,XIX/S57.md,Écrasement de l'avant-bras,3,false,true,true,1492
+S58,XIX,XIX/S58.md,Amputation traumatique de l'avant-bras,3,false,true,true,1734
+S59,XIX,XIX/S59.md,"Lésions traumatiques de l'avant-bras, autres et sans précision",3,true,true,true,2319
+S60,XIX,XIX/S60.md,Lésion traumatique superficielle du poignet et de la main,6,true,true,true,4664
+S61,XIX,XIX/S61.md,Plaie ouverte du poignet et de la main,5,true,true,true,3588
+S62,XIX,XIX/S62.md,Fracture au niveau du poignet et de la main,9,true,true,true,2215
+S63,XIX,XIX/S63.md,"Luxation, entorse et foulure d'articulations et de ligaments au niveau du poignet et de la main",8,true,true,true,6408
+S64,XIX,XIX/S64.md,Lésion traumatique de nerfs au niveau du poignet et de la main,8,false,true,true,4325
+S65,XIX,XIX/S65.md,Lésion traumatique de vaisseaux sanguins au niveau du poignet et de la main,9,false,true,true,4033
+S66,XIX,XIX/S66.md,Lésion traumatique de muscles et de tendons au niveau du poignet et de la main,10,false,true,true,5093
+S67,XIX,XIX/S67.md,Écrasement du poignet et de la main,2,false,true,true,1456
+S68,XIX,XIX/S68.md,Amputation traumatique du poignet et de la main,7,false,true,true,2768
+S69,XIX,XIX/S69.md,"Lésions traumatiques du poignet et de la main, autres et sans précision",3,true,true,true,2810
+S70,XIX,XIX/S70.md,Lésion traumatique superficielle de la hanche et de la cuisse,5,false,true,true,2533
+S71,XIX,XIX/S71.md,Plaie ouverte de la hanche et de la cuisse,4,false,true,true,1942
+S72,XIX,XIX/S72.md,Fracture du fémur,8,true,true,true,1770
+S73,XIX,XIX/S73.md,"Luxation, entorse et foulure de l'articulation et des ligaments de la hanche",2,false,true,true,1848
+S74,XIX,XIX/S74.md,Lésion traumatique de nerfs au niveau de la hanche et de la cuisse,6,false,true,true,4211
+S75,XIX,XIX/S75.md,Lésion traumatique de vaisseaux sanguins au niveau de la hanche et de la cuisse,6,false,true,true,4110
+S76,XIX,XIX/S76.md,Lésion traumatique de muscles et de tendons au niveau de la hanche et de la cuisse,6,true,true,true,3066
+S77,XIX,XIX/S77.md,Écrasement de la hanche et de la cuisse,3,false,true,true,1278
+S78,XIX,XIX/S78.md,Amputation traumatique de la hanche et de la cuisse,3,false,true,true,2018
+S79,XIX,XIX/S79.md,"Lésions traumatiques de la hanche et de la cuisse, autres et sans précision",3,true,true,true,2404
+S80,XIX,XIX/S80.md,Lésion traumatique superficielle de la jambe,5,true,true,true,2691
+S81,XIX,XIX/S81.md,Plaie ouverte de la jambe,4,true,true,true,2286
+S82,XIX,XIX/S82.md,"Fracture de la jambe, y compris la cheville",10,true,true,true,2560
+S83,XIX,XIX/S83.md,"Luxation, entorse et foulure des articulations et des ligaments du genou",8,true,true,true,5857
+S84,XIX,XIX/S84.md,Lésion traumatique des nerfs au niveau de la jambe,6,true,true,true,3120
+S85,XIX,XIX/S85.md,Lésion traumatique de vaisseaux sanguins au niveau de la jambe,9,true,true,true,4048
+S86,XIX,XIX/S86.md,Lésion traumatique de muscles et de tendons au niveau de la jambe,7,true,true,true,3844
+S87,XIX,XIX/S87.md,Écrasement de la jambe,2,true,true,true,1483
+S88,XIX,XIX/S88.md,Amputation traumatique de la jambe,3,true,true,true,1983
+S89,XIX,XIX/S89.md,"Lésions traumatiques de la jambe, autres et sans précision",3,true,true,true,2630
+S90,XIX,XIX/S90.md,Lésion traumatique superficielle de la cheville et du pied,7,true,true,true,4051
+S91,XIX,XIX/S91.md,Plaie ouverte de la cheville et du pied,5,true,true,true,2962
+S92,XIX,XIX/S92.md,"Fracture du pied, sauf la cheville",8,true,true,true,1867
+S93,XIX,XIX/S93.md,"Luxation, entorse et foulure des articulations et des ligaments au niveau de la cheville et du pied",7,true,true,true,4829
+S94,XIX,XIX/S94.md,Lésion traumatique des nerfs au niveau de la cheville et du pied,7,true,true,true,3432
+S95,XIX,XIX/S95.md,Lésion traumatique de vaisseaux sanguins au niveau de la cheville et du pied,6,false,true,true,3685
+S96,XIX,XIX/S96.md,Lésion traumatique de muscles et de tendons au niveau de la cheville et du pied,6,false,true,true,3247
+S97,XIX,XIX/S97.md,Écrasement de la cheville et du pied,3,true,true,true,1485
+S98,XIX,XIX/S98.md,Amputation traumatique de la cheville et du pied,5,true,true,true,2212
+S99,XIX,XIX/S99.md,"Lésions traumatiques de la cheville et du pied, autres et sans précision",3,true,true,true,2797
+T00,XIX,XIX/T00.md,Lésions traumatiques superficielles de plusieurs parties du corps,7,true,true,true,7459
+T01,XIX,XIX/T01.md,Plaies ouvertes de plusieurs parties du corps,7,true,true,true,5224
+T02,XIX,XIX/T02.md,Fractures de plusieurs parties du corps,10,true,true,false,3398
+T03,XIX,XIX/T03.md,"Luxations, entorses et foulures de plusieurs parties du corps",7,true,true,true,5516
+T04,XIX,XIX/T04.md,Écrasements de plusieurs parties du corps,8,true,true,true,5145
+T05,XIX,XIX/T05.md,Amputations traumatiques de plusieurs parties du corps,9,true,true,true,5275
+T06,XIX,XIX/T06.md,"Autres lésions traumatiques de plusieurs parties du corps, non classées ailleurs",7,true,true,true,5698
+T07,XIX,XIX/T07.md,"Lésions traumatiques multiples, sans précision",0,true,true,true,1683
+T08,XIX,XIX/T08.md,"Fracture du rachis, niveau non précisé",0,false,false,false,339
+T09,XIX,XIX/T09.md,"Autres lésions traumatiques du rachis et du tronc, niveau non précisé",9,false,true,true,4632
+T10,XIX,XIX/T10.md,"Fracture du membre supérieur, niveau non précisé",0,false,false,false,349
+T11,XIX,XIX/T11.md,"Autres lésions traumatiques du membre supérieur, niveau non précisé",9,false,true,true,3822
+T12,XIX,XIX/T12.md,"Fracture d'un membre inférieur, niveau non précisé",0,false,false,false,351
+T13,XIX,XIX/T13.md,"Autres lésions traumatiques du membre inférieur, niveau non précisé",9,false,true,true,3846
+T14,XIX,XIX/T14.md,Lésions traumatiques d'une partie du corps non précisée,10,true,true,true,11015
+T15,XIX,XIX/T15.md,Corps étranger dans la partie externe de l'œil,4,true,true,true,3278
+T16,XIX,XIX/T16.md,Corps étranger dans l'oreille,0,true,true,true,1262
+T17,XIX,XIX/T17.md,Corps étranger dans les voies respiratoires,8,true,true,true,5456
+T18,XIX,XIX/T18.md,Corps étranger dans les voies digestives,8,true,true,true,3752
+T19,XIX,XIX/T19.md,Corps étranger dans les voies génito-urinaires,6,false,true,true,2549
+T20,XIX,XIX/T20.md,Brulure et corrosion de la tête et du cou,8,true,true,true,4274
+T21,XIX,XIX/T21.md,Brulure et corrosion du tronc,8,true,true,true,3728
+T22,XIX,XIX/T22.md,"Brulure et corrosion de l'épaule et du membre supérieur, sauf poignet et main",8,true,true,true,4258
+T23,XIX,XIX/T23.md,Brulure et corrosion du poignet et de la main,8,true,true,true,3590
+T24,XIX,XIX/T24.md,"Brulure et corrosion de la hanche et du membre inférieur, sauf cheville et pied",8,true,true,true,4145
+T25,XIX,XIX/T25.md,Brulure et corrosion de la cheville et du pied,8,true,true,true,3523
+T26,XIX,XIX/T26.md,Brulure et corrosion limitées à l'œil et ses annexes,10,true,true,true,6191
+T27,XIX,XIX/T27.md,Brulure et corrosion des voies respiratoires,8,true,true,true,4350
+T28,XIX,XIX/T28.md,Brulure et corrosion d'autres organes internes,10,true,true,true,6156
+T29,XIX,XIX/T29.md,Brulures et corrosions de parties multiples du corps,8,true,true,true,3961
+T30,XIX,XIX/T30.md,"Brulure et corrosion, partie du corps non précisée",8,true,true,true,2851
+T31,XIX,XIX/T31.md,Brulures classées selon l'étendue de la surface du corps atteinte,10,true,true,true,3829
+T32,XIX,XIX/T32.md,Corrosions classées selon l'étendue de la surface du corps atteinte,10,true,true,true,3369
+T33,XIX,XIX/T33.md,Gelure superficielle,10,true,true,true,3355
+T34,XIX,XIX/T34.md,Gelure avec nécrose des tissus,10,true,true,true,3618
+T35,XIX,XIX/T35.md,Gelure de parties multiples du corps et sans précision,8,true,true,true,2641
+T36,XIX,XIX/T36.md,Intoxication par antibiotiques systémiques,10,true,true,false,2663
+T37,XIX,XIX/T37.md,Intoxication par d'autres antiinfectieux et antiparasitaires systémiques,8,true,true,true,3277
+T38,XIX,XIX/T38.md,"Intoxication par hormones et leurs substituts synthétiques et antagonistes, non classés ailleurs",10,true,true,true,4644
+T39,XIX,XIX/T39.md,"Intoxication par analgésiques non opioïdes, antipyrétiques et antirhumatisants",7,true,true,true,2398
+T40,XIX,XIX/T40.md,Intoxication par narcotiques et psychodysleptiques [hallucinogènes],10,true,true,true,2688
+T41,XIX,XIX/T41.md,Intoxication par anesthésiques et gaz thérapeutiques,6,true,true,true,2558
+T42,XIX,XIX/T42.md,"Intoxication par anti-épileptiques, sédatifs, hypnotiques et anti-parkinsoniens",9,true,true,true,2886
+T43,XIX,XIX/T43.md,"Intoxication par médicaments psychotropes, non classés ailleurs",9,true,true,true,2974
+T44,XIX,XIX/T44.md,Intoxication par médicaments agissant essentiellement sur le système nerveux autonome,10,true,true,false,3010
+T45,XIX,XIX/T45.md,"Intoxication par substances essentiellement systémiques et hématologiques, non classées ailleurs",10,true,true,true,3489
+T46,XIX,XIX/T46.md,Intoxication par substances agissant essentiellement sur le système cardio-vasculaire,10,true,true,true,3176
+T47,XIX,XIX/T47.md,Intoxication par substances agissant essentiellement sur le tractus gastro-intestinal,10,true,true,false,2442
+T48,XIX,XIX/T48.md,Intoxication par substances agissant essentiellement sur les muscles lisses et striés et l'appareil respiratoire,8,true,true,true,2804
+T49,XIX,XIX/T49.md,"Intoxication par substances à usage topique agissant essentiellement sur la peau et les muqueuses et par médicaments à usage ophtalmologique, oto-rhino-laryngologique et dentaire",10,true,true,true,2979
+T50,XIX,XIX/T50.md,"Intoxication par diurétiques et médicaments et substances biologiques, autres et sans précision",10,true,true,true,4229
+T51,XIX,XIX/T51.md,Effet toxique de l'alcool,6,true,true,true,1734
+T52,XIX,XIX/T52.md,Effet toxique de solvants organiques,7,true,true,true,2168
+T53,XIX,XIX/T53.md,Effet toxique de dérivés halogénés d'hydrocarbures aliphatiques et aromatiques,9,true,true,true,1860
+T54,XIX,XIX/T54.md,Effet toxique de substances corrosives,5,true,true,false,1511
+T55,XIX,XIX/T55.md,Effet toxique de savons et détergents,0,false,true,false,859
+T56,XIX,XIX/T56.md,Effet toxique des métaux,10,true,true,true,3258
+T57,XIX,XIX/T57.md,Effet toxique d'autres substances non organiques,6,false,true,true,1427
+T58,XIX,XIX/T58.md,Effet toxique du monoxyde de carbone,0,true,true,true,1213
+T59,XIX,XIX/T59.md,"Effets toxiques d'autres émanations, gaz et fumées",10,true,true,true,2217
+T60,XIX,XIX/T60.md,Effet toxique de pesticides,7,true,true,true,1611
+T61,XIX,XIX/T61.md,Effet toxique de substances nocives absorbées par le biais de fruits de mer,5,true,true,true,3121
+T62,XIX,XIX/T62.md,Effet toxique d'autres substances nocives absorbées par le biais d'aliments,5,false,true,true,3394
+T63,XIX,XIX/T63.md,Effet toxique d'un contact avec un animal venimeux,9,true,true,true,4347
+T64,XIX,XIX/T64.md,Effet toxique de l'aflatoxine et d'autres mycotoxines contaminant des aliments,0,false,true,true,1188
+T65,XIX,XIX/T65.md,Effet toxique de substances autres et non précisées,9,true,true,true,2013
+T66,XIX,XIX/T66.md,"Effets de rayonnements, sans précision",0,true,true,true,1456
+T67,XIX,XIX/T67.md,Effets de la chaleur et de la lumière,10,true,true,true,5216
+T68,XIX,XIX/T68.md,Hypothermie,0,true,true,false,944
+T69,XIX,XIX/T69.md,Autres effets d'une baisse de la température,4,true,true,true,2186
+T70,XIX,XIX/T70.md,Effets de la pression atmosphérique et de la pression de l'eau,7,true,true,true,5828
+T71,XIX,XIX/T71.md,Asphyxie,0,true,true,true,2685
+T73,XIX,XIX/T73.md,Effets d'autres privations,6,true,true,true,2381
+T74,XIX,XIX/T74.md,Syndromes dus à de mauvais traitements,6,true,true,true,3253
+T75,XIX,XIX/T75.md,Effets d'autres causes externes,6,true,true,true,4405
+T76,XIX,XIX/T76.md,Effets non précisés de causes externes,0,false,true,false,833
+T78,XIX,XIX/T78.md,"Effets indésirables, non classés ailleurs",7,true,true,true,4930
+T79,XIX,XIX/T79.md,"Certaines complications précoces des traumatismes, non classées ailleurs",10,true,true,true,6487
+T80,XIX,XIX/T80.md,"Complications consécutives à une injection thérapeutique, une perfusion et une transfusion",9,true,true,true,9125
+T81,XIX,XIX/T81.md,"Complications d'actes à visée diagnostique et thérapeutique, non classées ailleurs",10,true,true,true,14757
+T82,XIX,XIX/T82.md,"Complications de prothèses, implants et greffes cardiaques et vasculaires",10,true,true,true,10948
+T83,XIX,XIX/T83.md,"Complications de prothèses, implants et greffes génito-urinaires",9,true,true,true,8553
+T84,XIX,XIX/T84.md,"Complications de prothèses, implants et greffes orthopédiques internes",10,true,true,true,8374
+T85,XIX,XIX/T85.md,"Complications d'autres prothèses, implants et greffes internes",10,true,true,true,9607
+T86,XIX,XIX/T86.md,Échec et rejet d'organes et de tissus greffés,7,true,true,true,5160
+T87,XIX,XIX/T87.md,Complications propres à une réimplantation et une amputation,7,true,true,true,6168
+T88,XIX,XIX/T88.md,"Autres complications de soins chirurgicaux et médicaux, non classées ailleurs",10,true,true,true,10353
+T90,XIX,XIX/T90.md,Séquelles de lésions traumatiques de la tête,8,true,true,true,4033
+T91,XIX,XIX/T91.md,Séquelles de lésions traumatiques du cou et du tronc,8,true,true,true,5390
+T92,XIX,XIX/T92.md,Séquelles de lésions traumatiques du membre supérieur,9,true,true,true,4209
+T93,XIX,XIX/T93.md,Séquelles de lésions traumatiques du membre inférieur,9,true,true,true,3730
+T94,XIX,XIX/T94.md,Séquelles de lésions traumatiques de parties du corps multiples et non précisées,2,true,true,true,2508
+T95,XIX,XIX/T95.md,"Séquelles de brulures, corrosions et gelures",7,true,true,true,3781
+T96,XIX,XIX/T96.md,Séquelles d'intoxications par médicaments et substances biologiques,0,true,true,true,1029
+T97,XIX,XIX/T97.md,Séquelles d'effets toxiques de substances d'origine essentiellement non médicinale,0,true,true,true,1023
+T98,XIX,XIX/T98.md,"Séquelles de causes externes, autres et sans précision",4,true,true,true,1920
+U04,XXII,XXII/U04.md,Syndrome respiratoire aigu sévère [SRAS],1,false,true,false,442
+U07,XXII,XXII/U07.md,Codes pour usage urgent,10,true,true,false,1531
+U08,XXII,XXII/U08.md,Antécédents personnels de COVID-19,1,false,false,false,350
+U09,XXII,XXII/U09.md,Affection post-COVID-19,1,false,false,false,328
+U10,XXII,XXII/U10.md,Syndrome inflammatoire multisystémique associé à la COVID-19,1,true,true,false,895
+U11,XXII,XXII/U11.md,Nécessité d’une vaccination contre la COVID-19,1,false,true,false,466
+U12,XXII,XXII/U12.md,Vaccins contre la COVID-19 ayant provoqué des effets indésirables au cours de leur usage thérapeutique,1,false,false,false,486
+U82,XXII,XXII/U82.md,Résistance aux antibiotiques bétalactamines [bétalactames],5,true,false,false,770
+U83,XXII,XXII/U83.md,Résistance aux autres antibiotiques,6,true,true,false,1020
+U84,XXII,XXII/U84.md,Résistance aux autres antimicrobiens,7,true,true,false,1068
+U85,XXII,XXII/U85.md,Résistance aux médicaments antinéoplasiques,0,true,false,false,385
+U90,XXII,XXII/U90.md,Autres formes de pharmacorésistance,2,false,true,false,642
+V01,XX,XX/V01.md,Piéton blessé dans une collision avec un cycle,3,false,true,false,1426
+V02,XX,XX/V02.md,Piéton blessé dans une collision avec un véhicule à moteur à deux ou trois roues,3,false,true,false,1562
+V03,XX,XX/V03.md,Piéton blessé dans une collision avec une automobile ou une camionnette,3,false,true,false,1526
+V04,XX,XX/V04.md,Piéton blessé dans une collision avec un véhicule lourd ou un autobus,3,false,true,false,1518
+V05,XX,XX/V05.md,Piéton blessé dans une collision avec un train ou un véhicule ferroviaire,3,false,true,false,1534
+V06,XX,XX/V06.md,Piéton blessé dans une collision avec un autre véhicule sans moteur,3,true,true,false,1653
+V09,XX,XX/V09.md,"Piéton blessé dans des accidents de transport, autres et sans précision",5,true,true,false,1768
+V10,XX,XX/V10.md,Cycliste blessé dans une collision avec un piéton ou un animal,7,false,true,false,2168
+V11,XX,XX/V11.md,Cycliste blessé dans une collision avec un autre cycle,7,false,true,false,1949
+V12,XX,XX/V12.md,Cycliste blessé dans une collision avec un véhicule à moteur à deux ou trois roues,7,false,true,false,2173
+V13,XX,XX/V13.md,Cycliste blessé dans une collision avec une automobile ou une camionnette,7,false,true,false,2101
+V14,XX,XX/V14.md,Cycliste blessé dans une collision avec un vehicule lourd ou un autobus,7,false,true,false,2085
+V15,XX,XX/V15.md,Cycliste blessé dans une collision avec un train ou un véhicule ferroviaire,7,false,true,false,2117
+V16,XX,XX/V16.md,Cycliste blessé dans une collision avec un autre véhicule sans moteur,7,true,true,false,2212
+V17,XX,XX/V17.md,Cycliste blessé dans une collision avec un objet fixe ou stationnaire,7,false,true,false,2069
+V18,XX,XX/V18.md,"Cycliste blessé dans un accident de transport, sans collision",7,true,true,false,2286
+V19,XX,XX/V19.md,"Cycliste blessé dans des accidents de transport, autres et sans précision",9,true,true,false,2690
+V20,XX,XX/V20.md,Motocycliste blessé dans une collision avec un piéton ou un animal,7,true,true,false,2443
+V21,XX,XX/V21.md,Motocycliste blessé dans une collision avec un cycle,7,true,true,false,2190
+V22,XX,XX/V22.md,Motocycliste blessé dans une collision avec un véhicule à moteur à deux ou trois roues,7,true,true,false,2462
+V23,XX,XX/V23.md,Motocycliste blessé dans une collision avec une automobile ou une camionnette,7,true,true,false,2390
+V24,XX,XX/V24.md,Motocycliste blessé dans une collision avec un véhicule lourd ou un autobus,7,true,true,false,2374
+V25,XX,XX/V25.md,Motocycliste blessé dans une collision avec un train ou un véhicule ferroviaire,7,true,true,false,2406
+V26,XX,XX/V26.md,Motocycliste blessé dans une collision avec un autre véhicule sans moteur,7,true,true,false,2478
+V27,XX,XX/V27.md,Motocycliste blessé dans une collision avec un objet fixe ou stationnaire,7,true,true,false,2358
+V28,XX,XX/V28.md,"Motocycliste blessé dans un accident de transport, sans collision",7,true,true,false,2548
+V29,XX,XX/V29.md,"Motocycliste blessé dans des accidents de transport, autres et sans précision",9,true,true,false,3043
+V30,XX,XX/V30.md,"Occupant d'un véhicule à moteur à trois roues, blessé dans une collision avec un piéton ou un animal",9,true,true,false,3157
+V31,XX,XX/V31.md,Occupant d'un véhicule à moteur à trois roues blessé dans une collision avec un cycle,9,true,true,false,2866
+V32,XX,XX/V32.md,Occupant d'un véhicule à moteur à trois roues blessé dans une collision avec un véhicule à moteur à deux ou trois roues,9,true,true,false,3206
+V33,XX,XX/V33.md,Occupant d'un véhicule à moteur à trois roues blessé dans une collision avec une automobile ou une camionnette,9,true,true,false,3116
+V34,XX,XX/V34.md,Occupant d'un véhicule à moteur à trois roues blessé dans une collision avec un véhicule lourd ou un autobus,9,true,true,false,3096
+V35,XX,XX/V35.md,Occupant d'un véhicule à moteur à trois roues blessé dans une collision avec un train ou un véhicule ferroviaire,9,true,true,false,3136
+V36,XX,XX/V36.md,Occupant d'un véhicule à moteur à trois roues blessé dans une collision avec un autre véhicule sans moteur,9,true,true,false,3196
+V37,XX,XX/V37.md,Occupant d'un véhicule à moteur à trois roues blessé dans une collision avec un objet fixe ou stationnaire,9,true,true,false,3076
+V38,XX,XX/V38.md,"Occupant d'un véhicule à moteur à trois roues blessé dans un accident de transport, sans collision",9,true,true,false,3229
+V39,XX,XX/V39.md,"Occupant d'un véhicule à moteur à trois roues blessé dans des accidents de transport, autres et sans précision",9,true,true,false,3429
+V40,XX,XX/V40.md,Occupant d'une automobile blessé dans une collision avec un piéton ou un animal,9,true,true,false,2774
+V41,XX,XX/V41.md,Occupant d'une automobile blessé dans une collision avec un cycle,9,true,true,false,2493
+V42,XX,XX/V42.md,Occupant d'une automobile blessé dans une collision avec un véhicule à moteur à deux ou trois roues,9,true,true,false,2833
+V43,XX,XX/V43.md,Occupant d'une automobile blessé dans une collision avec une automobile ou une camionnette,9,true,true,false,2743
+V44,XX,XX/V44.md,Occupant d'une automobile blessé dans une collision avec un véhicule lourd ou un autobus,9,true,true,false,2723
+V45,XX,XX/V45.md,Occupant d'une automobile blessé dans une collision avec un train ou un véhicule ferroviaire,9,true,true,false,2763
+V46,XX,XX/V46.md,Occupant d'une automobile blessé dans une collision avec un autre véhicule sans moteur,9,true,true,false,2823
+V47,XX,XX/V47.md,Occupant d'une automobile blessé dans une collision avec un objet fixe ou stationnaire,9,true,true,false,2703
+V48,XX,XX/V48.md,"Occupant d'une automobile blessé dans un accident de transport, sans collision",9,true,true,false,2744
+V49,XX,XX/V49.md,"Occupant d'une automobile blessé dans des accidents de transport, autres et sans précision",9,true,true,false,2934
+V50,XX,XX/V50.md,Occupant d'une camionnette blessé dans une collision avec un piéton ou un animal,9,false,true,false,2738
+V51,XX,XX/V51.md,Occupant d'une camionnette blessé dans une collision avec un cycle,9,false,true,false,2457
+V52,XX,XX/V52.md,Occupant d'une camionnette blessé dans une collision avec un véhicule à moteur à deux ou trois roues,9,false,true,false,2797
+V53,XX,XX/V53.md,Occupant d'une camionnette blessé dans une collision avec une automobile ou une camionnette,9,false,true,false,2707
+V54,XX,XX/V54.md,Occupant d'une camionnette blessé dans une collision avec un véhicule lourd ou un autobus,9,false,true,false,2687
+V55,XX,XX/V55.md,Occupant d'une camionnette blessé dans une collision avec un train ou un véhicule ferroviaire,9,false,true,false,2727
+V56,XX,XX/V56.md,Occupant d'une camionnette blessé dans une collision avec un autre véhicule sans moteur,9,true,true,false,2810
+V57,XX,XX/V57.md,Occupant d'une camionnette blessé dans une collision avec un objet fixe ou stationnaire,9,false,true,false,2667
+V58,XX,XX/V58.md,"Occupant d'une camionnette blessé dans un accident de transport, sans collision",9,true,true,false,2731
+V59,XX,XX/V59.md,"Occupant d'une camionnette blessé dans des accidents de transport, autres et sans précision",9,true,true,false,3002
+V60,XX,XX/V60.md,Occupant d'un véhicule lourd blessé dans une collision avec un piéton ou un animal,9,false,true,false,2739
+V61,XX,XX/V61.md,Occupant d'un véhicule lourd blessé dans une collision avec un cycle,9,false,true,false,2458
+V62,XX,XX/V62.md,Occupant d'un véhicule lourd blessé dans une collision avec un véhicule à moteur à deux ou à trois roues,9,false,true,false,2818
+V63,XX,XX/V63.md,Occupant d'un véhicule lourd blessé dans une collision avec une automobile ou une camionnette,9,false,true,false,2708
+V64,XX,XX/V64.md,Occupant d'un véhicule lourd blessé dans une collision avec un véhicule lourd ou un autobus,9,false,true,false,2688
+V65,XX,XX/V65.md,Occupant d'un véhicule lourd blessé dans une collision avec un train ou un véhicule ferroviaire,9,false,true,false,2728
+V66,XX,XX/V66.md,Occupant d'un véhicule lourd blessé dans une collision avec un autre véhicule sans moteur,9,true,true,false,2811
+V67,XX,XX/V67.md,Occupant d'un véhicule lourd blessé dans une collision avec un objet fixe ou stationnaire,9,false,true,false,2668
+V68,XX,XX/V68.md,"Occupant d'un véhicule lourd blessé dans un accident de transport, sans collision",9,true,true,false,2732
+V69,XX,XX/V69.md,"Occupant d'un véhicule lourd blessé dans des accidents de transport, autres et sans précision",9,true,true,false,3018
+V70,XX,XX/V70.md,Occupant d'un autobus blessé dans une collision avec un piéton ou un animal,9,false,true,false,2667
+V71,XX,XX/V71.md,Occupant d'un autobus blessé dans une collision avec un cycle,9,false,true,false,2386
+V72,XX,XX/V72.md,Occupant d'un autobus blessé dans une collision avec un véhicule à moteur à deux ou trois roues,9,false,true,false,2726
+V73,XX,XX/V73.md,Occupant d'un autobus blessé dans une collision avec une automobile ou une camionnette,9,false,true,false,2636
+V74,XX,XX/V74.md,Occupant d'un autobus blessé dans une collision avec un véhicule lourd ou un autobus,9,false,true,false,2616
+V75,XX,XX/V75.md,Occupant d'un autobus blessé dans une collision avec un train ou un véhicule ferroviaire,9,false,true,false,2656
+V76,XX,XX/V76.md,Occupant d'un autobus blessé dans une collision avec un autre véhicule sans moteur,9,true,true,false,2739
+V77,XX,XX/V77.md,Occupant d'un autobus blessé dans une collision avec un objet fixe ou stationnaire,9,false,true,false,2596
+V78,XX,XX/V78.md,"Occupant d'un autobus blessé dans un accident de transport, sans collision",9,true,true,false,2660
+V79,XX,XX/V79.md,"Occupant d'un autobus blessé dans des accidents de transport, autres et sans précision",9,true,true,false,2852
+V80,XX,XX/V80.md,Personne montant un animal ou occupant un véhicule à traction animale blessée dans un accident de transport,10,true,true,false,3198
+V81,XX,XX/V81.md,Occupant d'un train ou d'un véhicule ferroviaire blessé dans un accident de transport,10,true,true,false,2988
+V82,XX,XX/V82.md,Occupant d'un tramway blessé dans un accident de transport,10,true,true,false,2355
+V83,XX,XX/V83.md,"Occupant d'un véhicule spécial utilisé essentiellement sur un site industriel, blessé dans un accident de transport",9,true,true,false,2705
+V84,XX,XX/V84.md,"Occupant d'un véhicule spécial utilisé essentiellement pour des travaux agricoles, blessé dans un accident de transport",9,true,true,false,2749
+V85,XX,XX/V85.md,Occupant d'un véhicule spécial de construction blessé dans un accident de transport,9,true,true,false,2355
+V86,XX,XX/V86.md,"Occupant d'un véhicule spécial tout-terrain ou autre véhicule à moteur essentiellement conçu pour être utilisé hors d'une route, blessé dans un accident de transport",9,true,true,false,3338
+V87,XX,XX/V87.md,"Accident de la circulation d'un type précisé, sans que soit connu le mode de transport de la victime",10,false,true,false,2556
+V88,XX,XX/V88.md,"Accident en dehors de la circulation d'un type précisé, sans que soit connu le mode de transport de la victime",10,false,true,false,2636
+V89,XX,XX/V89.md,"Accident avec un véhicule avec ou sans moteur, type de véhicule non précisé",5,true,true,false,2012
+V90,XX,XX/V90.md,Accident de bateau entraînant la noyade et la submersion,10,true,true,false,3119
+V91,XX,XX/V91.md,Accident de bateau provoquant d'autres lésions traumatiques,10,true,true,false,3790
+V92,XX,XX/V92.md,"Noyade et submersion durant un transport par eau, sans accident de bateau",10,true,true,false,3631
+V93,XX,XX/V93.md,"Accident à bord d'un bateau, sans accident du bateau, ne causant ni noyade ni submersion",10,true,true,false,4496
+V94,XX,XX/V94.md,"Accidents de transport par eau, autres et sans précision",10,true,true,false,2713
+V95,XX,XX/V95.md,Accident d'aéronef à moteur dans lequel un occupant est blessé,7,true,true,false,2378
+V96,XX,XX/V96.md,Accident d'aéronef sans moteur dans lequel un occupant est blessé,5,true,true,false,2172
+V97,XX,XX/V97.md,Autres accidents de transport aérien précisés,5,true,true,false,2214
+V98,XX,XX/V98.md,Autres accidents de transport précisés,0,true,true,false,2018
+V99,XX,XX/V99.md,"Accident de transport, sans précision",0,false,true,false,1045
+W00,XX,XX/W00.md,Chute de plain-pied due à la glace et la neige,0,false,true,false,872
+W01,XX,XX/W01.md,"Chute de plain-pied résultant de glissade, faux-pas et trébuchement",0,false,true,false,843
+W02,XX,XX/W02.md,"Chute impliquant des patins à glace, des skis, des patins à roulettes ou une planche à roulettes",0,false,true,false,790
+W03,XX,XX/W03.md,Autre chute de plain-pied due à une collision avec un tiers ou une poussée par un tiers,0,true,true,false,1102
+W04,XX,XX/W04.md,"Chute, en étant porté ou soutenu par des tiers",0,true,true,false,835
+W05,XX,XX/W05.md,Chute d'un fauteuil roulant,0,false,true,false,721
+W06,XX,XX/W06.md,Chute d'un lit,0,false,true,false,708
+W07,XX,XX/W07.md,Chute d'une chaise,0,false,true,false,712
+W08,XX,XX/W08.md,Chute d'un autre meuble,0,false,true,false,717
+W09,XX,XX/W09.md,Chute du haut d'agrès équipant un terrain de jeux,0,false,true,false,831
+W10,XX,XX/W10.md,Chute dans et d'un escalier et de marches,0,true,true,false,1234
+W11,XX,XX/W11.md,Chute sur ou d'une échelle,0,false,true,false,720
+W12,XX,XX/W12.md,Chute sur ou d'un échafaudage,0,false,true,false,723
+W13,XX,XX/W13.md,Chute du haut d'un bâtiment ou d'un autre ouvrage,0,true,true,false,1617
+W14,XX,XX/W14.md,Chute du haut d'un arbre,0,false,true,false,718
+W15,XX,XX/W15.md,Chute d'une falaise,0,false,true,false,713
+W16,XX,XX/W16.md,Plongée ou saut dans l'eau provoquant une lésion traumatique autre que noyade ou submersion,0,true,true,false,1371
+W17,XX,XX/W17.md,Autre chute d'un niveau à un autre,0,true,true,false,1330
+W18,XX,XX/W18.md,Autre chute de plain-pied,0,true,true,false,989
+W19,XX,XX/W19.md,"Chute, sans précision",0,true,true,false,792
+W20,XX,XX/W20.md,Heurt causé par le lancement ou la chute (d'un)(d') objet(s),0,true,true,false,1260
+W21,XX,XX/W21.md,Heurt contre ou par du matériel de sport,0,true,true,false,752
+W22,XX,XX/W22.md,Heurt contre ou par (un)(d')autre(s) objet(s),0,true,true,false,640
+W23,XX,XX/W23.md,"Compression, écrasement ou blocage dans des objets ou entre des objets",0,true,true,false,2397
+W24,XX,XX/W24.md,"Contact avec (un)(des) dispositif(s) de levage et de transmission, non classé(s) ailleurs",0,true,true,false,917
+W25,XX,XX/W25.md,Contact avec du verre tranchant,0,false,true,false,741
+W26,XX,XX/W26.md,Contact avec (un)(d')autre(s) objet(s) tranchant(s),3,true,true,false,1097
+W27,XX,XX/W27.md,Contact avec un outil à main non électrique,0,true,true,false,1189
+W28,XX,XX/W28.md,Contact avec tondeuse à gazon à moteur,0,false,true,false,629
+W29,XX,XX/W29.md,Contact avec d'autres outils manuels électriques et appareils électro-ménagers,0,true,true,false,1344
+W30,XX,XX/W30.md,Contact avec du matériel agricole,0,true,true,false,1078
+W31,XX,XX/W31.md,"Contact avec des appareils, autres et sans précision",0,true,true,false,872
+W32,XX,XX/W32.md,Décharge d'arme de poing,0,true,true,false,781
+W33,XX,XX/W33.md,"Décharge de fusil, de carabine et d'arme de plus grande taille",0,true,true,false,809
+W34,XX,XX/W34.md,"Décharge d'armes, autres et sans précision",0,true,true,false,802
+W35,XX,XX/W35.md,Explosion et éclatement d'une chaudière,0,false,true,false,548
+W36,XX,XX/W36.md,Explosion et éclatement d'une bouteille de gaz,0,true,true,false,753
+W37,XX,XX/W37.md,Explosion et éclatement de pneumatique ou de tuyau sous pression,0,false,true,false,573
+W38,XX,XX/W38.md,Explosion et éclatement d'autres appareils précisés sous pression,0,false,true,false,574
+W39,XX,XX/W39.md,Projections de feu d'artifice,0,false,true,false,538
+W40,XX,XX/W40.md,Explosion d'autres matériaux,0,true,true,false,932
+W41,XX,XX/W41.md,Exposition à un jet à haute pression,0,true,true,false,684
+W42,XX,XX/W42.md,Exposition au bruit,0,true,true,false,669
+W43,XX,XX/W43.md,Exposition aux vibrations,0,true,true,false,597
+W44,XX,XX/W44.md,Corps étranger pénétrant dans l'œil ou un orifice naturel,0,false,true,false,727
+W45,XX,XX/W45.md,Corps étranger ou objet pénétrant dans la peau,0,true,true,false,1021
+W46,XX,XX/W46.md,Contact avec aiguille à usage médical [aiguille hypodermique],0,false,true,false,570
+W49,XX,XX/W49.md,"Exposition à des forces mécaniques, autres et sans précision",0,true,true,false,662
+W50,XX,XX/W50.md,"Coup, torsion, morsure ou écorchure infligés par un tiers",0,false,true,false,600
+W51,XX,XX/W51.md,Collision entre deux personnes,0,false,true,false,663
+W52,XX,XX/W52.md,"Ecrasement, poussée ou piétinement par une foule humaine",0,false,true,false,507
+W53,XX,XX/W53.md,Morsure de rat,0,false,true,false,465
+W54,XX,XX/W54.md,Morsure ou coup donné par un chien,0,false,true,false,485
+W55,XX,XX/W55.md,Morsure ou coup donné par d'autres mammifères,0,false,true,false,577
+W56,XX,XX/W56.md,Contact avec un animal marin,0,true,true,false,575
+W57,XX,XX/W57.md,Morsure ou piqure non venimeuse d'insectes et autres arthropodes,0,false,true,false,515
+W58,XX,XX/W58.md,Morsure ou coup donné par un crocodile ou un alligator,0,false,true,false,505
+W59,XX,XX/W59.md,Morsure ou écrasement par d'autres reptiles,0,true,true,false,621
+W60,XX,XX/W60.md,Contact avec des épines de plantes et des feuilles acérées,0,false,true,false,509
+W64,XX,XX/W64.md,"Exposition à des forces animées, autres et sans précision",0,false,true,false,508
+W65,XX,XX/W65.md,Noyade et submersion dans une baignoire,0,false,true,false,523
+W66,XX,XX/W66.md,Noyade et submersion consécutives à une chute dans une baignoire,0,false,true,false,548
+W67,XX,XX/W67.md,Noyade et submersion dans une piscine,0,false,true,false,521
+W68,XX,XX/W68.md,Noyade et submersion consécutives à une chute dans une piscine,0,false,true,false,546
+W69,XX,XX/W69.md,Noyade et submersion dans des eaux naturelles,0,true,true,false,828
+W70,XX,XX/W70.md,Noyade et submersion consécutives à une chute dans des eaux naturelles,0,false,true,false,554
+W73,XX,XX/W73.md,Autres formes de noyade et submersion précisées,0,true,true,false,742
+W74,XX,XX/W74.md,"Noyade et submersion, sans précision",0,true,true,false,655
+W75,XX,XX/W75.md,Suffocation et strangulation accidentelles dans un lit,0,true,false,false,693
+W76,XX,XX/W76.md,Autre pendaison et strangulation accidentelles,0,false,false,false,361
+W77,XX,XX/W77.md,"Danger pour la respiration dû à un affaissement du sol, une coulée de terre et d'autres substances",0,true,true,false,656
+W78,XX,XX/W78.md,Inhalation du contenu de l'estomac,0,true,true,false,1740
+W79,XX,XX/W79.md,Inhalation et ingestion d'aliments provoquant une obstruction des voies respiratoires,0,true,true,false,1968
+W80,XX,XX/W80.md,Inhalation et ingestion d'autres objets provoquant une obstruction des voies respiratoires,0,true,true,false,2190
+W81,XX,XX/W81.md,Confinement ou emprisonnement dans un environnement pauvre en oxygène,0,true,true,false,820
+W83,XX,XX/W83.md,Autres dangers pour la respiration,0,true,false,false,444
+W84,XX,XX/W84.md,"Danger pour la respiration, sans précision",0,true,false,false,509
+W85,XX,XX/W85.md,Exposition aux lignes électriques,0,false,true,false,854
+W86,XX,XX/W86.md,Exposition à d'autres formes précisées de courant électrique,0,false,true,false,881
+W87,XX,XX/W87.md,"Exposition au courant électrique, sans précision",0,true,true,false,1156
+W88,XX,XX/W88.md,Exposition aux rayonnements ionisants,0,true,true,false,989
+W89,XX,XX/W89.md,Exposition à une source lumineuse artificielle visible et aux ultraviolets,0,true,true,false,981
+W90,XX,XX/W90.md,Exposition à d'autres rayonnements non ionisants,0,true,true,false,1083
+W91,XX,XX/W91.md,"Exposition aux rayonnements, sans précision",0,false,true,false,864
+W92,XX,XX/W92.md,Exposition à une chaleur artificielle excessive,0,false,true,false,868
+W93,XX,XX/W93.md,Exposition à un froid artificiel excessif,0,true,true,false,1325
+W94,XX,XX/W94.md,Exposition à une dépression et une hyperpression et à des changements de pression barométriques,0,true,true,false,2167
+W99,XX,XX/W99.md,"Exposition à des facteurs propres à un environnement artificiel, autres et sans précision",0,false,true,false,910
+X00,XX,XX/X00.md,"Exposition à un feu non maitrisé, dans un bâtiment ou un ouvrage",0,true,true,false,1490
+X01,XX,XX/X01.md,"Exposition à un feu non maitrisé, hors d'un bâtiment ou d'un ouvrage",0,true,true,false,718
+X02,XX,XX/X02.md,"Exposition à un feu maitrisé, dans un bâtiment ou un ouvrage",0,true,true,false,780
+X03,XX,XX/X03.md,"Exposition à un feu maitrisé, hors d'un bâtiment ou d'un ouvrage",0,true,true,false,708
+X04,XX,XX/X04.md,Exposition à l'inflammation d'une substance très inflammable,0,true,true,false,842
+X05,XX,XX/X05.md,Exposition à l'inflammation ou la fonte de vêtements de nuit,0,true,true,false,661
+X06,XX,XX/X06.md,Exposition à l'inflammation ou la fonte d'autres vêtements et parures,0,true,true,false,882
+X08,XX,XX/X08.md,"Exposition à d'autres fumées, feux et flammes précisés",0,true,true,false,655
+X09,XX,XX/X09.md,"Exposition à la fumée, au feu et aux flammes, sans précision",0,true,true,false,791
+X10,XX,XX/X10.md,"Contact avec des boissons, aliments, graisses comestibles et huiles de cuisson brulants",0,false,true,false,591
+X11,XX,XX/X11.md,Contact avec de l'eau bouillante provenant d'un robinet,0,true,true,false,959
+X12,XX,XX/X12.md,Contact avec d'autres liquides brulants,0,true,true,false,702
+X13,XX,XX/X13.md,Contact avec de la vapeur d'eau et des vapeurs brulantes,0,false,true,false,560
+X14,XX,XX/X14.md,Contact avec de l'air et des gaz brulants,0,true,true,false,635
+X15,XX,XX/X15.md,Contact avec des appareils ménagers brulants,0,true,true,false,933
+X16,XX,XX/X16.md,"Contact avec des appareils de chauffage, radiateurs et tuyaux brulants",0,false,true,false,574
+X17,XX,XX/X17.md,"Contact avec des moteurs, des machines et des outils brulants",0,false,true,false,705
+X18,XX,XX/X18.md,Contact avec d'autres métaux chauffés,0,true,true,false,611
+X19,XX,XX/X19.md,"Contact avec des sources de chaleur et des substances brulantes, autres et sans précision",0,false,true,false,741
+X20,XX,XX/X20.md,Contact avec des serpents et des lézards venimeux,0,true,true,false,1354
+X21,XX,XX/X21.md,Contact avec des araignées venimeuses,0,true,true,false,1040
+X22,XX,XX/X22.md,Contact avec des scorpions,0,true,true,false,937
+X23,XX,XX/X23.md,"Contact avec des frelons, guêpes et abeilles",0,true,true,false,1015
+X24,XX,XX/X24.md,Contact avec des centipodes et myriapodes venimeux (tropicaux),0,true,true,false,973
+X25,XX,XX/X25.md,Contact avec d'autres arthropodes venimeux,0,true,true,false,1033
+X26,XX,XX/X26.md,Contact avec des animaux venimeux marins et des plantes vénéneuses marines,0,true,true,false,1284
+X27,XX,XX/X27.md,Contact avec d'autres animaux venimeux précisés,0,true,true,false,958
+X28,XX,XX/X28.md,Contact avec d'autres plantes vénéneuses précisées,0,true,true,false,1225
+X29,XX,XX/X29.md,"Contact avec un animal venimeux ou une plante vénéneuse, sans précision",0,true,true,false,1120
+X30,XX,XX/X30.md,Exposition à une chaleur naturelle excessive,0,true,true,false,654
+X31,XX,XX/X31.md,Exposition à un froid naturel excessif,0,true,true,false,899
+X32,XX,XX/X32.md,Exposition à la lumière solaire,0,false,false,false,339
+X33,XX,XX/X33.md,Victime de la foudre,0,false,true,false,527
+X34,XX,XX/X34.md,Victime d'un tremblement de terre,4,true,false,false,773
+X35,XX,XX/X35.md,Victime d'éruption volcanique,0,false,false,false,337
+X36,XX,XX/X36.md,"Victime d'avalanche, glissement de terrain et autres mouvements telluriques",0,true,true,false,710
+X37,XX,XX/X37.md,Victime de tempête cataclysmique,0,true,true,false,1016
+X38,XX,XX/X38.md,Victime d'inondation,0,true,true,false,1004
+X39,XX,XX/X39.md,"Exposition à des forces de la nature, autres et sans précision",0,true,true,false,628
+X40,XX,XX/X40.md,"Intoxication accidentelle par des analgésiques, antipyrétiques et antirhumatismaux, non opiacés et exposition à ces produits",0,true,true,false,1978
+X41,XX,XX/X41.md,"Intoxication accidentelle par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs",0,true,true,false,2181
+X42,XX,XX/X42.md,"Intoxication accidentelle par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs",0,true,true,false,2019
+X43,XX,XX/X43.md,Intoxication accidentelle par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces substances,0,true,true,false,2163
+X44,XX,XX/X44.md,"Intoxication accidentelle par des médicaments et substances biologiques et exposition à ces produits, autres et sans précision",0,true,true,false,2814
+X45,XX,XX/X45.md,Intoxication accidentelle par l'alcool et exposition à l'alcool,0,true,true,false,2071
+X46,XX,XX/X46.md,Intoxication accidentelle par des solvants organiques et des hydrocarbures halogénés et leurs émanations et exposition à ces produits,0,true,true,false,1985
+X47,XX,XX/X47.md,Intoxication accidentelle par le monoxyde de carbone et d'autres gaz et émanations et exposition à ces produits,7,true,true,false,4009
+X48,XX,XX/X48.md,Intoxication accidentelle par des pesticides et exposition à ces produits,0,true,true,false,2001
+X49,XX,XX/X49.md,"Intoxication accidentelle par des produits chimiques et substances nocives et exposition à ces produits, autres et sans précision",0,true,true,false,2377
+X50,XX,XX/X50.md,Surmenage et mouvements épuisants ou répétés,0,true,true,false,720
+X51,XX,XX/X51.md,Voyage et mouvement,0,false,true,false,463
+X52,XX,XX/X52.md,Séjour prolongé en apesanteur,0,true,true,false,576
+X53,XX,XX/X53.md,Privation d'aliments,0,true,true,false,959
+X54,XX,XX/X54.md,Privation d'eau,0,true,true,false,889
+X57,XX,XX/X57.md,"Privation, sans précision",0,true,true,false,533
+X58,XX,XX/X58.md,Exposition à d'autres facteurs précisés,0,false,false,false,377
+X59,XX,XX/X59.md,"Exposition à des facteurs, sans précision",2,true,false,false,736
+X60,XX,XX/X60.md,"Auto-intoxication par des analgésiques, antipyrétiques et antirhumatismaux non opiacés et exposition à ces produits",0,true,false,false,859
+X61,XX,XX/X61.md,"Auto-intoxication par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs",0,true,false,false,1063
+X62,XX,XX/X62.md,"Auto-intoxication par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs",0,true,false,false,901
+X63,XX,XX/X63.md,Auto-intoxication par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces produits,0,true,false,false,1043
+X64,XX,XX/X64.md,"Auto-intoxication par des médicaments et substances biologiques et exposition à ces produits, autres et sans précision",0,true,false,false,1759
+X65,XX,XX/X65.md,Auto-intoxication par l'alcool et exposition à l'alcool,0,true,false,false,953
+X66,XX,XX/X66.md,Auto-intoxication par des solvants organiques et des hydrocarbures halogénés et leurs émanations et exposition à ces produits,0,true,false,false,867
+X67,XX,XX/X67.md,Auto-intoxication par le monoxyde de carbone et d'autres gaz et émanations et exposition à ces produits,7,true,true,false,2743
+X68,XX,XX/X68.md,Auto-intoxication par des pesticides et exposition à ces produits,0,true,true,false,904
+X69,XX,XX/X69.md,"Auto-intoxication par des produits chimiques et substances nocives et exposition à ces produits, autres et sans précision",0,true,false,false,1134
+X70,XX,XX/X70.md,"Lésion auto-infligée par pendaison, strangulation et suffocation",0,true,false,false,520
+X71,XX,XX/X71.md,Lésion auto-infligée par noyade et submersion,0,true,false,false,501
+X72,XX,XX/X72.md,Lésion auto-infligée par décharge d'une arme de poing,0,true,false,false,509
+X73,XX,XX/X73.md,"Lésion auto-infligée par décharge de fusil, de carabine et d'arme de plus grande taille",0,true,false,false,543
+X74,XX,XX/X74.md,"Lésion auto-infligée par décharge d'armes à feu, autres et sans précision",0,true,false,false,529
+X75,XX,XX/X75.md,Lésion auto-infligée par utilisation de matériel explosif,0,true,false,false,513
+X76,XX,XX/X76.md,"Lésion auto-infligée par exposition à la fumée, au feu et aux flammes",0,true,false,false,525
+X77,XX,XX/X77.md,"Lésion auto-infligée par exposition à la vapeur d'eau, à des gaz et objets brulants",0,true,false,false,539
+X78,XX,XX/X78.md,Lésion auto-infligée par utilisation d'objet tranchant,0,true,false,false,510
+X79,XX,XX/X79.md,Lésion auto-infligée par utilisation d'objet contondant,0,true,false,false,511
+X80,XX,XX/X80.md,Lésion auto-infligée par saut dans le vide,0,true,false,false,573
+X81,XX,XX/X81.md,Lésion auto-infligée en sautant ou en se couchant devant un objet en mouvement,0,true,false,false,534
+X82,XX,XX/X82.md,Lésion auto-infligée par collision d'un véhicule à moteur,0,true,true,false,855
+X83,XX,XX/X83.md,Lésion auto-infligée par d'autres moyens précisés,0,true,false,false,824
+X84,XX,XX/X84.md,Lésion auto-infligée par un moyen non précisé,0,true,false,false,501
+X85,XX,XX/X85.md,Agression par médicaments et substances biologiques,0,true,true,false,1028
+X86,XX,XX/X86.md,Agression par une substance corrosive,0,true,true,false,771
+X87,XX,XX/X87.md,Agression par des pesticides,0,true,true,false,828
+X88,XX,XX/X88.md,Agression par le monoxyde de carbone et d'autres gaz et émanations,7,true,true,false,2508
+X89,XX,XX/X89.md,Agression par d'autres produits chimiques et nocifs précisés,0,true,true,false,780
+X90,XX,XX/X90.md,"Agression par un produit chimique ou nocif, sans précision",0,true,true,false,793
+X91,XX,XX/X91.md,"Agression par pendaison, strangulation et suffocation",0,true,true,false,725
+X92,XX,XX/X92.md,Agression par noyade et submersion,0,true,true,false,706
+X93,XX,XX/X93.md,Agression par arme de poing,0,true,true,false,699
+X94,XX,XX/X94.md,"Agression par fusil, carabine et arme de plus grande taille",0,true,true,false,731
+X95,XX,XX/X95.md,"Agression par des armes à feu, autres et sans précision",0,true,true,false,727
+X96,XX,XX/X96.md,Agression par matériel explosif,0,true,true,false,775
+X97,XX,XX/X97.md,"Agression par la fumée, le feu et les flammes",0,true,true,false,881
+X98,XX,XX/X98.md,"Agression par la vapeur d'eau, des gaz et objets brulants",0,true,true,false,729
+X99,XX,XX/X99.md,Agression par objet tranchant,0,true,true,false,752
+Y00,XX,XX/Y00.md,Agression par objet contondant,0,true,true,false,702
+Y01,XX,XX/Y01.md,Agression par précipitation dans le vide,0,true,true,false,712
+Y02,XX,XX/Y02.md,Agression en poussant ou plaçant la victime devant un objet en mouvement,0,true,true,false,744
+Y03,XX,XX/Y03.md,Agression en provoquant une collision de véhicule à moteur,0,true,true,false,817
+Y04,XX,XX/Y04.md,Agression par la force physique,0,true,true,false,1024
+Y05,XX,XX/Y05.md,Agression sexuelle par la force physique,0,true,true,false,846
+Y06,XX,XX/Y06.md,Délaissement et abandon,5,true,true,false,1040
+Y07,XX,XX/Y07.md,Autres mauvais traitements,6,true,true,false,1565
+Y08,XX,XX/Y08.md,Agression par d'autres moyens précisés,0,true,true,false,710
+Y09,XX,XX/Y09.md,Agression par un moyen non précisé,0,true,true,false,973
+Y10,XX,XX/Y10.md,"Intoxication par des analgésiques, antipyrétiques et antirhumatismaux non opiacés et exposition à ces produits, intention non déterminée",0,true,false,false,667
+Y11,XX,XX/Y11.md,"Intoxication par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs, intention non déterminée",0,true,false,false,871
+Y12,XX,XX/Y12.md,"Intoxication par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs, intention non déterminée",0,true,false,false,709
+Y13,XX,XX/Y13.md,"Intoxication par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces produits, intention non déterminée",0,true,false,false,851
+Y14,XX,XX/Y14.md,"Intoxication par des médicaments et substances biologiques, autres et sans précision et exposition à ces produits, intention non déterminée",0,true,false,false,1513
+Y15,XX,XX/Y15.md,"Intoxication par l'alcool et exposition à l'alcool, intention non déterminée",0,true,false,false,761
+Y16,XX,XX/Y16.md,"Intoxication par des solvants organiques et des hydrocarbures halogénés et leurs émanations et exposition à ces produits, intention non déterminée",0,true,false,false,675
+Y17,XX,XX/Y17.md,"Intoxication par le monoxyde de carbone et d'autres gaz et émanations et exposition à ces produits, intention non déterminée",7,true,true,false,2642
+Y18,XX,XX/Y18.md,"Intoxication par des pesticides et exposition à ces produits, intention non déterminée",0,true,true,false,712
+Y19,XX,XX/Y19.md,"Intoxication par des produits chimiques et substances nocives et exposition à ces produits, autres et sans précision, intention non déterminée",0,true,false,false,925
+Y20,XX,XX/Y20.md,"Pendaison, strangulation et suffocation, intention non déterminée",0,false,false,false,285
+Y21,XX,XX/Y21.md,"Noyade et submersion, intention non déterminée",0,false,false,false,266
+Y22,XX,XX/Y22.md,"Décharge d'une arme de poing, intention non déterminée",0,false,false,false,274
+Y23,XX,XX/Y23.md,"Décharge de fusil, de carabine et d'arme de plus grande taille, intention non déterminée",0,false,false,false,308
+Y24,XX,XX/Y24.md,"Décharge d'armes à feu, autres et sans précision, intention non déterminée",0,false,false,false,294
+Y25,XX,XX/Y25.md,"Contact avec matériel explosif, intention non déterminée",0,false,false,false,276
+Y26,XX,XX/Y26.md,"Exposition à la fumée, au feu et aux flammes, intention non déterminée",0,false,false,false,290
+Y27,XX,XX/Y27.md,"Contact avec de la vapeur d'eau, des gaz et objets brulants, intention non déterminée",0,false,false,false,305
+Y28,XX,XX/Y28.md,"Contact avec objet tranchant, intention non déterminée",0,false,false,false,274
+Y29,XX,XX/Y29.md,"Contact avec objet contondant, intention non déterminée",0,false,false,false,275
+Y30,XX,XX/Y30.md,"Chute, saut ou précipitation dans le vide, intention non déterminée",0,true,false,false,410
+Y31,XX,XX/Y31.md,"Lésion traumatique par un objet en mouvement (la victime étant tombée ou couchée devant l'objet ou entrée en collision avec celui-ci), intention non déterminée",0,false,false,false,379
+Y32,XX,XX/Y32.md,"Collision de véhicule à moteur, intention non déterminée",0,false,false,false,276
+Y33,XX,XX/Y33.md,"Autres événements précisés, intention non déterminée",0,false,false,false,272
+Y34,XX,XX/Y34.md,"Evénement sans précision, intention non déterminée",0,false,false,false,270
+Y35,XX,XX/Y35.md,Intervention de la force publique,8,true,false,false,3980
+Y36,XX,XX/Y36.md,Faits de guerre,10,true,false,false,5742
+Y40,XX,XX/Y40.md,Effets indésirables des antibiotiques systémiques,10,true,true,true,3310
+Y41,XX,XX/Y41.md,Effets indésirables des autres anti-infectieux et antiparasitaires systémiques,8,true,true,true,3096
+Y42,XX,XX/Y42.md,"Effets indésirables des hormones et leurs substituts synthétiques et antagonistes, non classés ailleurs",10,true,true,true,3676
+Y43,XX,XX/Y43.md,Effets indésirables des substances d'action pharmacologique essentiellement systémique,9,true,true,true,3619
+Y44,XX,XX/Y44.md,Effets indésirables des substances agissant essentiellement sur les constituants du sang,9,true,true,true,3170
+Y45,XX,XX/Y45.md,"Effets indésirables des médicaments analgésiques, antipyrétiques et anti-inflammatoires",8,true,true,true,3237
+Y46,XX,XX/Y46.md,Effets indésirables des anti-épileptiques et  antiparkinsoniens,9,true,true,false,2826
+Y47,XX,XX/Y47.md,"Effets indésirables des sédatifs, hypnotiques et tranquillisants",8,true,true,false,2688
+Y48,XX,XX/Y48.md,Effets indésirables des anesthésiques et gaz thérapeutiques,6,true,true,false,2304
+Y49,XX,XX/Y49.md,"Effets indésirables des médicaments psychotropes, non classés ailleurs",10,true,true,true,3388
+Y50,XX,XX/Y50.md,"Effets indésirables des stimulants du système nerveux central, non classés ailleurs",5,true,true,false,2384
+Y51,XX,XX/Y51.md,Effets indésirables des médicaments agissant essentiellement sur le système nerveux autonome,10,true,true,true,3640
+Y52,XX,XX/Y52.md,Effets indésirables des substances agissant essentiellement sur le système cardio-vasculaire,10,true,true,true,3690
+Y53,XX,XX/Y53.md,Effets indésirables des substances agissant essentiellement sur le tractus gastro-intestinal,10,true,true,true,3079
+Y54,XX,XX/Y54.md,"Effets indésirables des médicaments agissant essentiellement sur le métabolisme de l'eau, des sels minéraux et de l'acide urique",10,true,true,true,3345
+Y55,XX,XX/Y55.md,Effets indésirables des substances agissant essentiellement sur les muscles lisses et striés et l'appareil respiratoire,8,true,true,true,3159
+Y56,XX,XX/Y56.md,"Effets indésirables des substances à usage topique agissant essentiellement sur la peau et les muqueuses, médicaments à usage ophtalmologique, oto-rhino-laryngologique et dentaire",10,true,true,true,3321
+Y57,XX,XX/Y57.md,"Effets indésirables des substances médicamenteuses, autres et sans précision",10,true,true,true,3047
+Y58,XX,XX/Y58.md,Effets indésirables des vaccins bactériens,9,true,true,false,2283
+Y59,XX,XX/Y59.md,"Effets indésirables des vaccins et substances biologiques, autres et sans précision",6,true,true,true,2306
+Y60,XX,XX/Y60.md,"Coupure, piqure, perforation ou hémorragie accidentelles au cours d'actes médicaux et chirurgicaux",10,true,true,false,3075
+Y61,XX,XX/Y61.md,Corps étranger accidentellement laissé dans l'organisme au cours d'actes médicaux et chirurgicaux,10,true,true,false,3082
+Y62,XX,XX/Y62.md,Asepsie insuffisante au cours d'actes médicaux et chirurgicaux,9,true,true,false,2605
+Y63,XX,XX/Y63.md,Erreur de dosage au cours d'actes médicaux et chirurgicaux,9,true,true,false,2873
+Y64,XX,XX/Y64.md,Substances médicales ou biologiques contaminées,4,true,true,false,2455
+Y65,XX,XX/Y65.md,Autres accidents et complications au cours d'actes médicaux et chirurgicaux,7,true,true,false,2459
+Y66,XX,XX/Y66.md,Non-administration de soins médicaux et chirurgicaux,0,true,true,false,1962
+Y69,XX,XX/Y69.md,"Accident et complication au cours d'un acte médical et chirurgical, sans précision",0,true,true,false,1911
+Y70,XX,XX/Y70.md,"Appareils d'anesthésiologie, associés à des accidents",5,true,true,false,2642
+Y71,XX,XX/Y71.md,"Appareils cardiovasculaires, associés à des accidents",5,true,true,false,2642
+Y72,XX,XX/Y72.md,"Appareils oto-rhino-laryngologiques, associés à des accidents",5,true,true,false,2690
+Y73,XX,XX/Y73.md,"Appareils utilisés en gastroentérologie et en urologie, associés à des accidents",5,true,true,false,2804
+Y74,XX,XX/Y74.md,"Appareillage hospitalier et d'usage personnel, associé à des accidents",5,true,true,false,2744
+Y75,XX,XX/Y75.md,"Appareils utilisés en neurologie, associés à des accidents",5,true,true,false,2672
+Y76,XX,XX/Y76.md,"Appareils utilisés en obstétrique et en gynécologie, associés à des accidents",5,true,true,false,2786
+Y77,XX,XX/Y77.md,"Appareils utilisés en ophtalmologie, associés à des accidents",5,true,true,false,2690
+Y78,XX,XX/Y78.md,"Appareils utilisés en radiologie, associés à des accidents",5,true,true,false,2672
+Y79,XX,XX/Y79.md,"Appareils orthopédiques, associés à des accidents",5,true,true,false,2618
+Y80,XX,XX/Y80.md,"Appareils de médecine physique, associés à des accidents",5,true,true,false,2660
+Y81,XX,XX/Y81.md,"Appareils utilisés en chirurgie générale et esthétique, associés à des accidents",5,true,true,false,2804
+Y82,XX,XX/Y82.md,"Appareils associés à des accidents, autres et sans précision",5,true,true,false,2684
+Y83,XX,XX/Y83.md,"Opération et autre acte chirurgical à l'origine de réactions anormales du patient ou de complications ultérieures, sans mention d'accident au cours de l'intervention",9,true,true,true,2715
+Y84,XX,XX/Y84.md,"Autres actes médicaux à l'origine de réactions anormales du patient ou de complications ultérieures, sans mention d'accident au cours de l'intervention",10,true,true,true,2716
+Y85,XX,XX/Y85.md,Séquelles d'un accident de transport,2,false,false,false,417
+Y86,XX,XX/Y86.md,Séquelles d'autres accidents,0,false,false,false,257
+Y87,XX,XX/Y87.md,"Séquelles d'une lésion auto-infligée, d'une agression ou d'un événement, d'intention non déterminée",3,false,false,false,499
+Y88,XX,XX/Y88.md,Actes médicaux et chirurgicaux considérés comme cause externe de séquelles,4,false,false,false,888
+Y89,XX,XX/Y89.md,Séquelles d'autres causes externes,3,false,false,false,440
+Y90,XX,XX/Y90.md,Preuves du rôle de l'alcool confirmé par le taux d'alcoolémie,10,false,false,false,888
+Y91,XX,XX/Y91.md,Preuves du rôle de l'alcool confirmé par le degré d'intoxication,5,true,true,false,1514
+Y95,XX,XX/Y95.md,Facteurs nosocomiaux,0,false,false,false,288
+Y96,XX,XX/Y96.md,Facteurs liés aux conditions de travail,0,false,false,false,307
+Y97,XX,XX/Y97.md,Facteurs liés à la pollution de l'environnement,0,false,false,false,315
+Y98,XX,XX/Y98.md,Facteurs liés au mode de vie,0,false,false,false,296
+Z00,XXI,XXI/Z00.md,Examen général et investigations de sujets ne se plaignant de rien ou pour lesquels aucun diagnostic n'est rapporté,8,true,true,true,5838
+Z01,XXI,XXI/Z01.md,Autres examens spéciaux et investigations de sujets ne se plaignant de rien ou pour lesquels aucun diagnostic n'est rapporté,10,true,true,true,4923
+Z02,XXI,XXI/Z02.md,Examen médical et prise de contact à des fins administratives,10,true,true,true,6017
+Z03,XXI,XXI/Z03.md,"Mise en observation et examen médical pour suspicion de maladies, non confirmées",9,true,true,true,5268
+Z04,XXI,XXI/Z04.md,Examen et mise en observation pour d'autres raisons,9,true,true,true,3888
+Z08,XXI,XXI/Z08.md,Examen de contrôle après traitement d'une tumeur maligne,6,true,true,true,3051
+Z09,XXI,XXI/Z09.md,Examen de contrôle après traitement d'affections autres que les tumeurs malignes,8,true,true,true,2859
+Z10,XXI,XXI/Z10.md,Examen général de routine d'une souspopulation définie,5,true,true,true,3199
+Z11,XXI,XXI/Z11.md,Examen spécial de dépistage de maladies infectieuses et parasitaires,9,true,true,true,5620
+Z12,XXI,XXI/Z12.md,Examen spécial de dépistage des tumeurs,9,false,true,true,2492
+Z13,XXI,XXI/Z13.md,Examen spécial de dépistage d'autres maladies et états pathologiques,10,true,true,true,5402
+Z20,XXI,XXI/Z20.md,Sujets en contact avec et exposés à des maladies transmissibles,10,false,true,true,2241
+Z21,XXI,XXI/Z21.md,Infection asymptomatique par le virus de l'immunodéficience humaine [VIH],0,true,true,true,1051
+Z22,XXI,XXI/Z22.md,Sujet porteur de germes responsables d'une maladie infectieuse,9,true,true,true,2906
+Z23,XXI,XXI/Z23.md,Nécessité d'une vaccination contre une seule maladie bactérienne,9,false,true,true,1873
+Z24,XXI,XXI/Z24.md,Nécessité d'une vaccination contre certaines maladies virales uniques,7,false,true,true,1583
+Z25,XXI,XXI/Z25.md,Nécessité d'une vaccination contre d'autres maladies virales uniques,3,false,true,true,1236
+Z26,XXI,XXI/Z26.md,Nécessité d'une vaccination contre d'autres maladies infectieuses uniques,3,true,true,true,1358
+Z27,XXI,XXI/Z27.md,Nécessité d'une vaccination associée contre plusieurs maladies infectieuses,7,false,true,true,2617
+Z28,XXI,XXI/Z28.md,Vaccination non faite,5,false,false,true,1297
+Z29,XXI,XXI/Z29.md,Nécessité d'autres mesures prophylactiques,5,true,true,true,2597
+Z30,XXI,XXI/Z30.md,Prise en charge d'une contraception,8,true,false,true,5352
+Z31,XXI,XXI/Z31.md,Mesures procréatives,9,true,true,true,3446
+Z32,XXI,XXI/Z32.md,Examen et test de grossesse,2,false,false,true,1055
+Z33,XXI,XXI/Z33.md,Grossesse constatée fortuitement,0,true,false,true,467
+Z34,XXI,XXI/Z34.md,Surveillance d'une grossesse normale,3,false,false,true,855
+Z35,XXI,XXI/Z35.md,Surveillance d'une grossesse à haut risque,10,true,true,true,5699
+Z36,XXI,XXI/Z36.md,Dépistage prénatal,8,true,true,true,3248
+Z37,XXI,XXI/Z37.md,Résultat de l'accouchement,9,true,false,false,946
+Z38,XXI,XXI/Z38.md,"Enfants nés vivants, selon le lieu de naissance",9,true,false,true,2112
+Z39,XXI,XXI/Z39.md,Soins et examens du postpartum,3,true,true,true,1663
+Z40,XXI,XXI/Z40.md,Opération prophylactique,3,true,true,true,1136
+Z41,XXI,XXI/Z41.md,Thérapie sans raison médicale,6,true,true,true,1452
+Z42,XXI,XXI/Z42.md,Soins de contrôle comprenant une opération plastique,7,true,true,true,3107
+Z43,XXI,XXI/Z43.md,Surveillance de stomies,10,true,true,true,4925
+Z44,XXI,XXI/Z44.md,Mise en place et ajustement d'appareils de prothèse externe,6,false,true,true,2914
+Z45,XXI,XXI/Z45.md,Ajustement et entretien d'une prothèse interne,6,true,true,true,3465
+Z46,XXI,XXI/Z46.md,Mise en place et ajustement d'autres appareils,10,true,true,true,4478
+Z47,XXI,XXI/Z47.md,Autres soins de contrôle orthopédiques,3,true,true,true,2811
+Z48,XXI,XXI/Z48.md,Autres soins de contrôle chirurgicaux,3,true,true,true,1812
+Z49,XXI,XXI/Z49.md,Surveillance d'une dialyse,3,true,true,true,2070
+Z50,XXI,XXI/Z50.md,Soins impliquant une rééducation,10,true,true,true,3373
+Z51,XXI,XXI/Z51.md,Autres soins médicaux,9,true,true,true,2047
+Z52,XXI,XXI/Z52.md,Donneurs d'organes et de tissus,10,true,true,true,1572
+Z53,XXI,XXI/Z53.md,"Sujets ayant recours aux services de santé pour des actes médicaux spécifiques, non effectués",5,false,true,true,2014
+Z54,XXI,XXI/Z54.md,Convalescence,8,true,true,true,1858
+Z55,XXI,XXI/Z55.md,Difficultés liées à l'éducation et l'alphabétisation,7,true,true,true,3260
+Z56,XXI,XXI/Z56.md,Difficultés liées à l'emploi et au chômage,8,true,true,true,2826
+Z57,XXI,XXI/Z57.md,Exposition professionnelle à des facteurs de risque,10,true,false,true,3226
+Z58,XXI,XXI/Z58.md,Difficultés liées à l'environnement physique,10,true,true,true,3199
+Z59,XXI,XXI/Z59.md,Difficultés liées au logement et aux conditions économiques,10,true,true,true,3658
+Z60,XXI,XXI/Z60.md,Difficultés liées à l'environnement social,8,true,true,true,3428
+Z61,XXI,XXI/Z61.md,Difficultés liées à une enfance malheureuse,10,false,true,true,2559
+Z62,XXI,XXI/Z62.md,Autres difficultés liées à l'éducation,9,true,true,true,3311
+Z63,XXI,XXI/Z63.md,"Autres difficultés liées à l'entourage immédiat, y compris la situation familiale",10,true,true,true,4931
+Z64,XXI,XXI/Z64.md,Difficultés liées à certaines situations psychosociales,5,true,true,true,2417
+Z65,XXI,XXI/Z65.md,Difficultés liées à d'autres situations psychosociales,8,true,true,true,3207
+Z70,XXI,XXI/Z70.md,"Conseils relatifs aux attitudes, comportement et orientation en matière de sexualité",6,true,true,true,4445
+Z71,XXI,XXI/Z71.md,"Sujets en contact avec les services de santé pour d'autres conseils et avis médicaux, non classés ailleurs",10,true,true,true,5314
+Z72,XXI,XXI/Z72.md,Difficultés liées au mode de vie,9,true,true,true,3108
+Z73,XXI,XXI/Z73.md,Difficultés liées à l'orientation de son mode de vie,9,true,true,true,2701
+Z74,XXI,XXI/Z74.md,Difficultés liées à une dépendance envers la personne qui donne les soins,6,true,true,true,2431
+Z75,XXI,XXI/Z75.md,Difficultés liées aux installations médicales et autres soins de santé,8,false,true,true,2509
+Z76,XXI,XXI/Z76.md,Sujet ayant recours aux services de santé dans d'autres circonstances,8,true,true,true,3896
+Z80,XXI,XXI/Z80.md,Antécédents familiaux de tumeur maligne,10,true,true,true,3789
+Z81,XXI,XXI/Z81.md,Antécédents familiaux de troubles mentaux et du comportement,6,true,true,true,2167
+Z82,XXI,XXI/Z82.md,Antécédents familiaux de certaines incapacités et maladies chroniques conduisant à l'invalidité,9,true,true,true,4055
+Z83,XXI,XXI/Z83.md,Antécédents familiaux d'autres maladies spécifiques,8,true,true,true,4298
+Z84,XXI,XXI/Z84.md,Antécédents familiaux d'autres affections,5,true,true,true,2099
+Z85,XXI,XXI/Z85.md,Antécédents personnels de tumeur maligne,10,true,true,true,4321
+Z86,XXI,XXI/Z86.md,Antécédents personnels de certaines autres maladies,8,true,true,true,4687
+Z87,XXI,XXI/Z87.md,Antécédents personnels d'autres maladies,9,true,true,true,4384
+Z88,XXI,XXI/Z88.md,Antécédents personnels d'allergie à des médicaments et des substances biologiques,10,false,true,true,2480
+Z89,XXI,XXI/Z89.md,Absence acquise d'un membre,10,true,true,true,6310
+Z90,XXI,XXI/Z90.md,"Absence acquise d'organes, non classée ailleurs",9,true,true,true,5328
+Z91,XXI,XXI/Z91.md,"Antécédents personnels de facteurs de risque, non classés ailleurs",9,true,true,true,3036
+Z92,XXI,XXI/Z92.md,Antécédents personnels de traitement médical,9,true,true,true,2829
+Z93,XXI,XXI/Z93.md,Stomies,9,true,true,true,4612
+Z94,XXI,XXI/Z94.md,Greffe d'organe et de tissu,10,true,true,true,3254
+Z95,XXI,XXI/Z95.md,Présence d'implants et de greffes cardiaques et vasculaires,8,true,true,true,5117
+Z96,XXI,XXI/Z96.md,Présence d'autres implants fonctionnels,10,true,true,true,4748
+Z97,XXI,XXI/Z97.md,Présence d'autres appareils,7,false,true,true,2777
+Z98,XXI,XXI/Z98.md,Autres états postchirurgicaux,4,true,true,true,3264
+Z99,XXI,XXI/Z99.md,"Dépendance envers des machines et appareils auxiliaires, non classée ailleurs",7,true,true,true,2066

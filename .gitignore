@@ -24,3 +24,10 @@ htmlcov/
 # Seul l'index est conservé comme inventaire de référence.
 outputs/cards_library/*
 !outputs/cards_library/_index.csv
+
+# Idem pour la bibliothèque de fiches catégories 3-car
+# (`recode-icd cards build-categories`, ~2 054 fiches, ~30 s).
+outputs/cards_library_categories/*
+!outputs/cards_library_categories/_index.csv
+outputs/cards_library_categories/*
+!outputs/cards_library_categories/_index.csv

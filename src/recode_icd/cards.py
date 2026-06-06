@@ -654,3 +654,457 @@ def build_cards_library(
         index_path=index_path,
         errors=tuple(errors),
     )
+
+
+# ======================================================================
+# Bibliothèque de fiches catégories 3-car
+# ======================================================================
+#
+# Architecture parallèle à `build_card` / `build_cards_library` mais au
+# niveau des catégories 3-caractères (A18, M01, J18, R51…). Une fiche
+# catégorie agrège les contenus de ses feuilles descendantes depuis le
+# CSV maître, avec des règles spécifiques :
+# - inclusions héritées dédupliquées sans mention de source
+# - inclusions / formulations niveau code agrégées avec mention `(code)`
+# - exclusions toutes sans mention de source
+# - pas de section "Localisations anatomiques" (cf chap XIII : ces
+#   inclusions ANS sont au niveau 5-car, hors scope catégorie)
+# - section "Codes enfants directs" omise pour les catégories qui sont
+#   elles-mêmes des feuilles (R51, J22…)
+
+
+_AMORCE_CATEGORY_CODE_LEVEL = "Au niveau des codes :"
+_CATEGORY_SECTION_TITLES = {
+    "has_perimetre": "Périmètre clinique",
+    "has_exclusions": "À ne pas décrire",
+    "has_formulations": "Formulations cliniques alternatives",
+}
+
+# Échantillonnage des formulations cliniques au niveau catégorie.
+# Sans plafond, une catégorie comme A18 (9 enfants) agrège ~28 KB de
+# formulations Index/AP-HP, ce qui produit une fiche >30 KB difficile
+# à consommer. Avec une limite haute, on plafonne la section
+# Formulations en échantillonnant déterministiquement via `rng` quand
+# le nombre d'entrées dépasse `CATEGORY_FORMULATIONS_MAX`.
+CATEGORY_FORMULATIONS_MAX = 50
+
+
+def _category_direct_children(
+    category_code: str, merged: pl.DataFrame
+) -> list[tuple[str, str]]:
+    """Enfants directs de `category_code` : codes de longueur +2 (point + 1 chiffre).
+
+    Pour A18 (3 chars) : retourne A18.0, A18.1, … (5 chars).
+    Pour M01 : retourne M01.0..M01.8 (4-car au sens CIM, 5 chars) et
+    pas les sous-enfants M01.00..M01.98 (5-car CIM / 6 chars).
+    """
+    expected_len = len(category_code) + 2
+    enfants = (
+        merged.filter(
+            pl.col("code").str.starts_with(f"{category_code}.")
+            & (pl.col("code").str.len_chars() == expected_len)
+        )
+        .select("code", "label")
+        .sort("code")
+    )
+    return [
+        (r["code"], r["label"] or "")
+        for r in enfants.iter_rows(named=True)
+    ]
+
+
+def _category_leaf_codes(category_code: str, csv: pl.DataFrame) -> list[str]:
+    """Feuilles du CSV descendant de la catégorie, plus la catégorie
+    elle-même si présente dans le CSV (cas R51).
+
+    Ordre croissant alpha (déterminisme : la dédup tolérante garde le
+    premier rencontré, donc le code le plus court / le plus petit).
+    """
+    sub = csv.filter(
+        (pl.col("code") == category_code)
+        | pl.col("code").str.starts_with(f"{category_code}.")
+    )
+    return sorted(sub["code"].unique().to_list())
+
+
+def _category_title(code: str, ctx: ExplorationContext) -> str:
+    """Titre fiche catégorie : merged en priorité (canonique), fallback ANS."""
+    merged = _eager(ctx.merged)
+    row = merged.filter(pl.col("code") == code)
+    if not row.is_empty():
+        lib = row.row(0, named=True)["label"]
+        if lib:
+            return f"# {code} — {lib}"
+    ans = _eager(ctx.ans)
+    row_ans = ans.filter(pl.col("code") == code)
+    if not row_ans.is_empty():
+        return f"# {code} — {row_ans.row(0, named=True)['label']}"
+    return f"# {code}"
+
+
+def _category_section_children(
+    category_code: str, ctx: ExplorationContext
+) -> str | None:
+    """Section "Codes enfants directs". Omise si aucun enfant."""
+    merged = _eager(ctx.merged)
+    enfants = _category_direct_children(category_code, merged)
+    if not enfants:
+        return None
+    lines = ["## Codes enfants directs"]
+    for code, label in enfants:
+        lines.append(f"- {code} — {label}")
+    return "\n".join(lines)
+
+
+def _agg_heritage_block(
+    sub: pl.DataFrame, level: str, amorce_template: dict[str, str]
+) -> str | None:
+    """Bloc d'inclusions/exclusions héritées agrégées (dédup tolérante,
+    sans mention de source). Format identique à `_perimeter_heritage_block`
+    mais sans filtre par type (passé via sub déjà filtré)."""
+    rows = sub.filter(pl.col("source_level") == level)
+    if rows.is_empty():
+        return None
+    parents = rows["inherited_from_code"].drop_nulls().to_list()
+    parent = parents[0] if parents else "?"
+    texts = _dedup_tolerant_preserve_order(
+        [t.rstrip() for t in rows["texte"].to_list() if t]
+    )
+    texts.sort(key=lambda t: normalize_for_match(t) or "")
+    amorce = amorce_template[level].format(parent=parent)
+    return amorce + "\n" + "\n".join(f"- {t}" for t in texts)
+
+
+def _category_section_perimeter(
+    category_code: str, ctx: ExplorationContext
+) -> str | None:
+    """Section "Périmètre clinique" agrégée.
+
+    Sous-sections héritées (chapter/block/category) : dédupliquées sans
+    mention de source.
+
+    Sous-section "Au niveau des codes" : descripteurs OFS (synonyme
+    CIM-10 niveau code) + inclusions ANS niveau code des feuilles,
+    avec mention `(code)`, dédupliqués. Pour les codes type=D chap XIII,
+    on ignore les inclusions ANS niveau code (couvertes par
+    "Localisations anatomiques" des fiches feuilles).
+    """
+    csv = _eager(ctx.flat)
+    leaves = _category_leaf_codes(category_code, csv)
+    if not leaves:
+        return None
+    sub = csv.filter(pl.col("code").is_in(leaves))
+
+    # Inclusions héritées (chapter/block/category) — dédup agressive sans source
+    incl = sub.filter(pl.col("type") == "inclusion")
+    parts: list[str] = []
+    for level in ("chapter", "block", "category"):
+        block = _agg_heritage_block(incl, level, _AMORCE_PERIMETRE_HERITAGE)
+        if block:
+            parts.append(block)
+
+    # Niveau code : descripteurs OFS + inclusions ANS (sauf type=D chap XIII)
+    code_entries: list[tuple[str, str]] = []  # (texte, code source)
+    # Descripteurs OFS niveau code
+    desc_ofs = sub.filter(
+        (pl.col("type") == "synonyme")
+        & (pl.col("source") == "CIM-10")
+        & (pl.col("source_level") == "code")
+    )
+    for r in desc_ofs.iter_rows(named=True):
+        if r["texte"]:
+            code_entries.append((r["texte"], r["code"]))
+    # Inclusions CIM-10 niveau code
+    incl_ofs = sub.filter(
+        (pl.col("type") == "inclusion")
+        & (pl.col("source") == "CIM-10")
+        & (pl.col("source_level") == "code")
+    )
+    for r in incl_ofs.iter_rows(named=True):
+        if r["texte"]:
+            code_entries.append((r["texte"], r["code"]))
+    # Inclusions ANS niveau code SAUF si code type=D chap XIII
+    incl_ans = sub.filter(
+        (pl.col("type") == "inclusion")
+        & (pl.col("source") == "ANS")
+        & (pl.col("source_level") == "code")
+    )
+    for r in incl_ans.iter_rows(named=True):
+        code = r["code"]
+        if r["texte"] and not _is_type_d_code(code, ctx):
+            code_entries.append((r["texte"], code))
+
+    if code_entries:
+        # Tri stable : par code croissant pour que le "premier rencontré"
+        # en dédup soit déterministe et le plus court/petit.
+        code_entries.sort(key=lambda e: (e[1], normalize_for_match(e[0]) or ""))
+        seen: set[str] = set()
+        kept: list[tuple[str, str]] = []
+        for text, src_code in code_entries:
+            norm = normalize_for_match(text) or ""
+            if norm in seen:
+                continue
+            seen.add(norm)
+            kept.append((text, src_code))
+        kept.sort(key=lambda e: normalize_for_match(e[0]) or "")
+        lines = [_AMORCE_CATEGORY_CODE_LEVEL]
+        for text, src_code in kept:
+            lines.append(f"- {text} ({src_code})")
+        parts.append("\n".join(lines))
+
+    if not parts:
+        return None
+    return "## Périmètre clinique\n\n" + "\n\n".join(parts)
+
+
+def _category_section_exclusions(
+    category_code: str, ctx: ExplorationContext
+) -> str | None:
+    """Section "À ne pas décrire" agrégée.
+
+    Toutes les sous-sections sans mention de source. ANS primaire
+    (cohérent avec `_section_exclusions` feuille), fallback OFS si ANS
+    vide à un niveau donné. Niveau code agrégé en fin avec amorce
+    `_AMORCE_CODE_LEVEL`. Pas de frères (notion feuille).
+    """
+    csv = _eager(ctx.flat)
+    leaves = _category_leaf_codes(category_code, csv)
+    if not leaves:
+        return None
+    sub = csv.filter(pl.col("code").is_in(leaves))
+
+    excl = sub.filter(pl.col("type") == "exclusion")
+    if excl.is_empty():
+        return None
+
+    parts: list[str] = []
+    for level in _LEVEL_ORDER:
+        # ANS primaire, fallback OFS si vide à ce niveau précis
+        ans_at_level = excl.filter(
+            (pl.col("source") == "ANS") & (pl.col("source_level") == level)
+        )
+        if not ans_at_level.is_empty():
+            primary_at_level = ans_at_level
+        else:
+            primary_at_level = excl.filter(
+                (pl.col("source") == "CIM-10") & (pl.col("source_level") == level)
+            )
+        if primary_at_level.is_empty():
+            continue
+        parents = primary_at_level["inherited_from_code"].drop_nulls().to_list()
+        parent = parents[0] if parents else None
+        texts = _dedup_tolerant_preserve_order(
+            [(t or "").rstrip() for t in primary_at_level["texte"].to_list() if t]
+        )
+        texts = [t for t in texts if t]
+        if not texts:
+            continue
+        amorce = _amorce_for(level, parent)
+        if level == "code":
+            # Niveau code : texte agrégé sans tri spécifique (les exclusions
+            # niveau code sont souvent des textes courts ; tri alpha).
+            texts.sort(key=lambda t: normalize_for_match(t) or "")
+            parts.append(f"{amorce}\n\n" + "\n".join(f"- {t}" for t in texts))
+        else:
+            # Niveaux hérités : bloc multi-ligne ANS rendu tel quel,
+            # joint par \n.
+            parts.append(f"{amorce}\n\n" + "\n".join(texts))
+
+    if not parts:
+        return None
+    return "## À ne pas décrire\n\n" + "\n\n".join(parts)
+
+
+def _category_section_formulations(
+    category_code: str, ctx: ExplorationContext, rng: random.Random
+) -> str | None:
+    """Section "Formulations cliniques alternatives" agrégée.
+
+    Entrées Index CIM-10 vol3 + AP-HP des feuilles descendantes.
+    Mention de source `(code)` pour chaque entrée. Dédup tolérante
+    (premier code rencontré en ordre alpha croissant). Si après dédup
+    le nombre d'entrées dépasse `CATEGORY_FORMULATIONS_MAX`,
+    échantillonnage déterministe via `rng`.
+    """
+    csv = _eager(ctx.flat)
+    leaves = _category_leaf_codes(category_code, csv)
+    if not leaves:
+        return None
+    sub = csv.filter(pl.col("code").is_in(leaves))
+
+    formul = sub.filter(
+        (pl.col("source") == "CIM-10 index")
+        | pl.col("source").str.starts_with("AP-HP")
+    )
+    if formul.is_empty():
+        return None
+
+    entries: list[tuple[str, str]] = [
+        (r["texte"], r["code"])
+        for r in formul.iter_rows(named=True)
+        if r["texte"]
+    ]
+    if not entries:
+        return None
+    # Tri par (code, texte_norm) pour déterminisme de la dédup.
+    entries.sort(key=lambda e: (e[1], normalize_for_match(e[0]) or ""))
+    seen: set[str] = set()
+    kept: list[tuple[str, str]] = []
+    for text, src_code in entries:
+        norm = normalize_for_match(text) or ""
+        if norm in seen:
+            continue
+        seen.add(norm)
+        kept.append((text, src_code))
+
+    # Échantillonnage déterministe si volume excessif.
+    if len(kept) > CATEGORY_FORMULATIONS_MAX:
+        kept = rng.sample(kept, CATEGORY_FORMULATIONS_MAX)
+
+    kept.sort(key=lambda e: normalize_for_match(e[0]) or "")
+
+    lines = ["## Formulations cliniques alternatives"]
+    for text, src_code in kept:
+        lines.append(f"- {text} ({src_code})")
+    return "\n".join(lines)
+
+
+def build_category_card(
+    category_code: str,
+    ctx: ExplorationContext,
+    rng: random.Random,
+) -> str:
+    """Construit la fiche markdown agrégée d'une catégorie 3-car.
+
+    Args:
+        category_code : code catégorie 3-car (ex. "A18", "M01", "R51").
+        ctx : contexte d'exploration avec `with_external=True`.
+        rng : utilisé pour l'échantillonnage déterministe des
+            formulations cliniques quand le volume dépasse
+            `CATEGORY_FORMULATIONS_MAX`.
+
+    Returns:
+        Markdown `<fiche_category code="X">\\n\\n# X — …\\n…\\n</fiche_category>\\n`.
+
+    Sections produites :
+        1. Titre + libellé
+        2. Position dans la classification (chapter + block)
+        3. Codes enfants directs (omise si catégorie = feuille)
+        4. Périmètre clinique (héritages + niveau code agrégé)
+        5. À ne pas décrire (héritages + niveau code agrégé)
+        6. Formulations cliniques alternatives (agrégées, plafonnées
+           à `CATEGORY_FORMULATIONS_MAX`)
+    """
+    sections = [
+        _category_title(category_code, ctx),
+        _section_hierarchy(category_code, ctx),
+        _category_section_children(category_code, ctx),
+        _category_section_perimeter(category_code, ctx),
+        _category_section_exclusions(category_code, ctx),
+        _category_section_formulations(category_code, ctx, rng),
+    ]
+    body = "\n\n".join(s for s in sections if s)
+    return f'<fiche_category code="{category_code}">\n\n{body}\n\n</fiche_category>\n'
+
+
+def _detect_category_sections(card: str) -> dict[str, bool]:
+    """Détecte les sections principales d'une fiche catégorie."""
+    return {
+        key: bool(re.search(rf"^## {re.escape(title)}$", card, re.MULTILINE))
+        for key, title in _CATEGORY_SECTION_TITLES.items()
+    }
+
+
+def build_categories_library(
+    *,
+    ctx: ExplorationContext | None = None,
+    output_dir: Path = Path("outputs/cards_library_categories"),
+    chapter_filter: str | None = None,
+    limit: int | None = None,
+    seed: int = DEFAULT_SEED,
+    progress: bool = True,
+) -> BuildSummary:
+    """Génère la bibliothèque complète de fiches catégories 3-car.
+
+    Itère sur les ~2 054 catégories 3-car de `merged` (type=category,
+    len(code)=3), écrit `<chapter>/<code>.md` et produit `_index.csv`.
+    """
+    if ctx is None:
+        ctx = load_exploration_context(with_external=True)
+    merged = _eager(ctx.merged)
+
+    cat_3car = merged.filter(
+        (pl.col("type") == "category") & (pl.col("code").str.len_chars() == 3)
+    ).with_columns(
+        pl.col("path").str.split("/").list.get(0).alias("chapter")
+    )
+    if chapter_filter is not None:
+        cat_3car = cat_3car.filter(pl.col("chapter") == chapter_filter)
+    cat_3car = cat_3car.sort("code")
+    if limit is not None:
+        cat_3car = cat_3car.head(limit)
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    rng = random.Random(seed)
+    index_rows: list[dict[str, object]] = []
+    errors: list[tuple[str, str]] = []
+    t0 = time.perf_counter()
+    n_written = 0
+    n_total = cat_3car.height
+
+    for i, row in enumerate(cat_3car.iter_rows(named=True), 1):
+        code = row["code"]
+        chapter = row["chapter"]
+        libelle = row["label"] or ""
+        try:
+            card = build_category_card(code, ctx, rng)
+            chap_dir = output_dir / chapter
+            chap_dir.mkdir(parents=True, exist_ok=True)
+            fname = f"{code}.md"
+            (chap_dir / fname).write_text(card, encoding="utf-8")
+            sections = _detect_category_sections(card)
+            n_enfants = len(
+                _category_direct_children(code, merged)
+            )
+            index_rows.append(
+                {
+                    "code": code,
+                    "chapter": chapter,
+                    "filepath": f"{chapter}/{fname}",
+                    "libelle": libelle,
+                    "n_enfants": n_enfants,
+                    "nb_chars": len(card),
+                    **sections,
+                }
+            )
+            n_written += 1
+        except Exception as exc:
+            errors.append((code, str(exc)))
+            log.warning("Échec build_category_card(%s) : %s", code, exc)
+            continue
+
+        if progress and i % 500 == 0:
+            log.info(
+                "Progression catégories : %d / %d (%.1fs écoulées)",
+                i, n_total, time.perf_counter() - t0,
+            )
+
+    index_path = output_dir / "_index.csv"
+    if index_rows:
+        ordered_cols = [
+            "code", "chapter", "filepath", "libelle", "n_enfants",
+            "has_perimetre", "has_exclusions", "has_formulations",
+            "nb_chars",
+        ]
+        pl.DataFrame(index_rows).select(ordered_cols).write_csv(index_path)
+
+    elapsed = time.perf_counter() - t0
+    return BuildSummary(
+        n_codes_total=n_total,
+        n_written=n_written,
+        n_errors=len(errors),
+        elapsed_seconds=elapsed,
+        output_dir=output_dir,
+        index_path=index_path,
+        errors=tuple(errors),
+    )
