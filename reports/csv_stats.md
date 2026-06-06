@@ -2,7 +2,7 @@
 
 > Rapport déterministe généré par `recode_icd.reports.csv_stats.generate_csv_stats` (commande `recode-icd build stats`). Aucune observation interprétative — uniquement des chiffres bruts.
 
-- **Généré le** : 2026-06-04
+- **Généré le** : 2026-06-06
 - **Lignes totales** : 199970
 - **Codes uniques** : 15978
 - **Moyenne notes/code** : 12.5
@@ -31,15 +31,15 @@
 | type | lignes | % |
 |---|---:|---:|
 | exclusion | 90631 | 45.3 % |
-| synonyme | 64504 | 32.3 % |
-| inclusion | 44835 | 22.4 % |
+| synonyme | 55099 | 27.6 % |
+| inclusion | 54240 | 27.1 % |
 
 ## Croisé source × type
 
 | source | total | synonyme | inclusion | exclusion |
 |---|---:|---:|---:|---:|
 | CIM-10 | 74105 | 7123 (9.6 %) | 13868 (18.7 %) | 53114 (71.7 %) |
-| ANS | 62365 | 15567 (25.0 %) | 14312 (22.9 %) | 32486 (52.1 %) |
+| ANS | 62365 | 6162 (9.9 %) | 23717 (38.0 %) | 32486 (52.1 %) |
 | CIM-10 index | 36627 | 36627 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
 | ORPHANET | 17989 | 1334 (7.4 %) | 16655 (92.6 %) | 0 (0.0 %) |
 | CIM-10 frères | 5031 | 0 (0.0 %) | 0 (0.0 %) | 5031 (100.0 %) |

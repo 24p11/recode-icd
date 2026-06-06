@@ -1150,7 +1150,12 @@ parfaite : un code type=D a soit les deux, soit aucun des deux.
 
 **Politique recode-icd** : pour les codes type=D du chapitre XIII, les
 `skos:altLabel` ANS sont **retypés en `inclusion`** (et non en
-`synonyme`) au niveau du loader. Justifications :
+`synonyme`) dans le **merger** (`merge.py::retype_chap13_altlabels`),
+appliqué également côté `flat_csv.py::build` pour neutraliser
+`_build_synonymes` qui lit `owl_codes` directement (idempotent).
+Le loader OWL/ANS reste indépendant d'OFS — le retypage est une
+réconciliation entre les deux sources, propre au merger.
+Justifications :
 
 1. **Sémantique correcte** : ces termes sont des localisations
    anatomiques, pas des reformulations cliniques du code. Les traiter

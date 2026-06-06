@@ -276,7 +276,10 @@ def test_to_parquet_and_reports_writes_all(tmp_path: Path) -> None:
     reports_dir = tmp_path / "reports"
     paths = merge.to_parquet_and_reports(owl_path, ofs_path, out_dir, reports_dir)
 
-    assert set(paths.keys()) == {"merged", "conflicts", "orphans", "note_merges", "post_2006"}
+    assert set(paths.keys()) == {
+        "merged", "conflicts", "orphans", "note_merges", "post_2006",
+        "orphan_type_d",
+    }
     for p in paths.values():
         assert p.exists()
 

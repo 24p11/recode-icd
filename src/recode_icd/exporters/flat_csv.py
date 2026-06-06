@@ -302,7 +302,16 @@ def build(
     """
     leaves = _leaf_codes(merged)
     inex = _build_inclusions_exclusions(propagated, siblings)
-    syn = _build_synonymes(owl, ofs)
+    # Retypage altLabel ANS → inclusion pour codes type=D du chapitre
+    # XIII : `_build_synonymes` lit `owl` directement (pas `merged`), il
+    # faut donc vider les altLabel concernés ici aussi pour qu'ils ne
+    # ré-apparaissent pas comme `synonyme`. Idempotent avec le retypage
+    # déjà appliqué dans `merge.py::merge_codes` (les inclusions ANS
+    # retypées arrivent via `propagated_notes`, indépendamment).
+    # Cf docs/sessions/2026-06-06_localisations_chap13_ofs.md.
+    from recode_icd.merge import retype_chap13_altlabels
+    owl_filtered, _ = retype_chap13_altlabels(owl, ofs)
+    syn = _build_synonymes(owl_filtered, ofs)
     syn_filtered, n_syn_filtered = _filter_redundant_dagger_synonyms(
         syn, dagger_asterisk, leaves
     )

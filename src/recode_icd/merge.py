@@ -24,6 +24,10 @@ def _normalize_ofs(ofs_codes: pl.DataFrame) -> pl.DataFrame:
     niveau bloc + `F99` au niveau catégorie. Strip parens les fait
     collisionner. On dédoublonne en gardant la ligne la plus spécifique
     (catégorie > bloc > chapitre).
+
+    Conserve les colonnes `ofs_type` et `depth` exposées par le loader
+    OFS (utilisées par `retype_chap13_altlabels` pour identifier les
+    codes feuilles type=D du chapitre XIII).
     """
     type_priority = pl.col("ofs_type").replace_strict(
         {"D": 0, "S": 1, "K": 2, "U": 3, "G": 4, "C": 5},
@@ -142,6 +146,120 @@ def _aggregate_notes(notes_long: pl.DataFrame) -> pl.DataFrame:
     )
 
 
+def retype_chap13_altlabels(
+    owl_codes: pl.DataFrame,
+    ofs_codes: pl.DataFrame,
+) -> tuple[pl.DataFrame, pl.DataFrame]:
+    """Retype les `skos:altLabel` ANS des codes type=D du chapitre XIII
+    en `inclusion` ANS.
+
+    Critère strict : `ofs_type == "D"` ET `depth == 5` (feuilles 5e
+    position du tableau de codage de la localisation ostéo-articulaire
+    défini par l'OMS pour le chapitre XIII). 3 711 codes attendus,
+    tous dans le chapitre XIII.
+
+    Cf `docs/sessions/2026-06-06_localisations_chap13_ofs.md` pour le
+    diagnostic structurel et la quantification empirique
+    (pattern altLabel ⊆ inclusionNote vérifié à 100 %).
+
+    Args:
+        owl_codes : Parquet OWL/ANS (avant fusion).
+        ofs_codes : Parquet OFS brut (colonne `code` avec parenthèses
+            pour les chapitres ; `ofs_type` et `depth` exposés par le
+            loader OFS).
+
+    Returns:
+        owl_filtered : copie d'`owl_codes` où la colonne `synonymes`
+            est vidée pour les codes ofs_type=D, depth=5.
+        extra_inclusions : long format
+            `(code, type="inclusion", texte, source="OWL_ANS")` à
+            concaténer dans `notes_long`. Vide si aucun code type=D
+            n'a d'altLabel.
+    """
+    # Dégradation gracieuse : si ofs_codes n'a pas les colonnes
+    # `ofs_type` / `depth` (cas de fixtures minimales en tests), le
+    # retypage est un no-op.
+    if not {"ofs_type", "depth"}.issubset(ofs_codes.columns):
+        return owl_codes, pl.DataFrame(
+            schema={
+                "code": pl.String,
+                "type": pl.String,
+                "texte": pl.String,
+                "source": pl.String,
+            }
+        )
+    type_d_codes = (
+        ofs_codes.filter(
+            (pl.col("ofs_type") == "D") & (pl.col("depth") == 5)
+        )
+        .with_columns(pl.col("code").str.strip_chars("()").alias("code"))
+        .select("code")
+    )
+    type_d_list = type_d_codes["code"].to_list()
+    in_type_d = pl.col("code").is_in(type_d_list)
+
+    extra_inclusions = (
+        owl_codes.filter(in_type_d)
+        .select(pl.col("code"), pl.col("synonymes").alias("texte"))
+        .filter(pl.col("texte").list.len() > 0)
+        .explode("texte")
+        .filter(pl.col("texte").is_not_null())
+        .with_columns(
+            pl.lit("inclusion").alias("type"),
+            pl.lit(_SOURCE_OWL).alias("source"),
+        )
+        .select("code", "type", "texte", "source")
+    )
+
+    empty_list = pl.lit([], dtype=pl.List(pl.String))
+    owl_filtered = owl_codes.with_columns(
+        pl.when(in_type_d)
+        .then(empty_list)
+        .otherwise(pl.col("synonymes"))
+        .alias("synonymes")
+    )
+
+    return owl_filtered, extra_inclusions
+
+
+def find_orphan_type_d_codes(
+    owl_codes: pl.DataFrame,
+    ofs_codes: pl.DataFrame,
+) -> pl.DataFrame:
+    """Codes type=D, depth=5 dans OFS mais absents du RDF ANS.
+
+    Sert le rapport `reports/orphan_type_d_codes.csv` pour audit séparé.
+    Schéma :
+
+    - `code`             : code CIM-10 (parenthèses strippées)
+    - `libelle_master`   : libellé OFS au pattern `<parent> | <localisation>`
+    - `chapter`          : chapitre OFS (toujours `(M00-M99)` en pratique)
+    - `categorie_orphan` : `"unknown"` par défaut. Catégorisation fine
+      (obsolète OFS / non repris en français / autre) à faire dans un
+      chantier d'audit séparé.
+    """
+    type_d = ofs_codes.filter(
+        (pl.col("ofs_type") == "D") & (pl.col("depth") == 5)
+    ).with_columns(
+        pl.col("code").str.strip_chars("()").alias("code_norm"),
+        pl.col("path").str.split("/").list.get(0).alias("chapter"),
+    )
+    orphans = type_d.join(
+        owl_codes.select("code"),
+        left_on="code_norm",
+        right_on="code",
+        how="anti",
+    )
+    return (
+        orphans.select(
+            pl.col("code_norm").alias("code"),
+            pl.col("label").alias("libelle_master"),
+            pl.col("chapter"),
+            pl.lit("unknown").alias("categorie_orphan"),
+        ).sort("code")
+    )
+
+
 def merge_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFrame:
     """Fusion OFS ⊕ OWL conforme à `docs/source_mapping.md`.
 
@@ -150,7 +268,16 @@ def merge_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFram
     Priorité OFS : une note OWL textuellement équivalente (après
     normalisation) à une note OFS est dropée du résultat (mais logguée
     dans `note_merges.csv` par `find_note_merges`).
+
+    Cas particulier chapitre XIII : pour les codes `ofs_type=D, depth=5`
+    (5e position OMS), les `skos:altLabel` ANS sont retypés en
+    inclusions avant la fusion (cf `retype_chap13_altlabels`).
     """
+    # Retypage altLabel → inclusion pour codes type=D chap XIII (avant
+    # toute autre opération de fusion : owl_filtered remplace owl_codes
+    # dans la suite du pipeline).
+    owl_filtered, extra_inclusions = retype_chap13_altlabels(owl_codes, ofs_codes)
+
     ofs = _normalize_ofs(ofs_codes).select(
         pl.col("code_norm").alias("code"),
         pl.col("label").alias("ofs_label"),
@@ -161,7 +288,23 @@ def merge_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFram
         pl.col("notes_editorial"),
     )
 
-    notes_long = _build_notes_long(owl_codes, ofs)
+    notes_long = _build_notes_long(owl_filtered, ofs)
+    if not extra_inclusions.is_empty():
+        # Re-dédup OFS-prio après concat : idempotente sur les lignes
+        # déjà passées par _build_notes_long, absorbe les éventuels
+        # doublons normalisés entre inclusions ANS retypées (atomiques)
+        # et inclusions OFS du même code.
+        notes_long = (
+            pl.concat([notes_long, extra_inclusions])
+            .with_columns(
+                normalize_column("texte").alias("_norm"),
+                (pl.col("source") == _SOURCE_OFS).alias("_is_ofs"),
+            )
+            .sort(["_is_ofs", "texte"], descending=[True, False])
+            .unique(subset=["code", "type", "_norm"], keep="first")
+            .drop("_is_ofs", "_norm")
+            .sort(["code", "type", "texte"])
+        )
     notes_wide = _aggregate_notes(notes_long)
 
     inclusions_wide = notes_wide.filter(pl.col("type") == "inclusion").select(
@@ -181,7 +324,10 @@ def merge_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFram
 
     # Synonymes : union OFS ∪ OWL dédupliquée (la priorité OFS s'applique à
     # l'EXPORT par flat_csv.py ; ici on conserve juste l'union triée).
-    merged = owl_codes.join(ofs, on="code", how="left")
+    # owl_filtered : les altLabel des codes type=D chap XIII ont déjà été
+    # vidés par retype_chap13_altlabels (ils vivent désormais côté
+    # inclusions, dans notes_long).
+    merged = owl_filtered.join(ofs, on="code", how="left")
     synonymes_expr = (
         pl.col("synonymes")
         .fill_null(empty_list)
@@ -416,6 +562,7 @@ def to_parquet_and_reports(
     orphans = find_orphans(owl, ofs)
     note_merges = find_note_merges(owl, ofs)
     post_2006 = find_post_2006_codes(owl, ofs)
+    orphan_type_d = find_orphan_type_d_codes(owl, ofs)
 
     output_dir.mkdir(parents=True, exist_ok=True)
     reports_dir.mkdir(parents=True, exist_ok=True)
@@ -426,10 +573,12 @@ def to_parquet_and_reports(
         "orphans": reports_dir / "orphan_ofs_codes.csv",
         "note_merges": reports_dir / "note_merges.csv",
         "post_2006": reports_dir / "post_2006_codes.csv",
+        "orphan_type_d": reports_dir / "orphan_type_d_codes.csv",
     }
     merged.write_parquet(paths["merged"])
     conflicts.write_csv(paths["conflicts"])
     orphans.write_csv(paths["orphans"])
     note_merges.write_csv(paths["note_merges"])
     post_2006.write_csv(paths["post_2006"])
+    orphan_type_d.write_csv(paths["orphan_type_d"])
     return paths

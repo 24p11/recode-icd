@@ -19,3 +19,8 @@ htmlcov/
 # OS
 .DS_Store
 
+# Bibliothèque de fiches CIM-10 générée par `recode-icd cards build`
+# Les fiches elles-mêmes ne sont pas versionnées (régénérables en ~1,5 min).
+# Seul l'index est conservé comme inventaire de référence.
+outputs/cards_library/*
+!outputs/cards_library/_index.csv
