@@ -31,3 +31,14 @@ outputs/cards_library_categories/*
 !outputs/cards_library_categories/_index.csv
 outputs/cards_library_categories/*
 !outputs/cards_library_categories/_index.csv
+
+# Sorties exploratoires LLM (générations Mistral, etc.)
+outputs/llm_synonymes_test.jsonl
+
+# Génération massive batch LLM phase 2
+# (batches intermédiaires + JSONL consolidé, ~50-100 Mo, ~50 € à régénérer).
+outputs/llm_synonymes/
+
+# Secrets et configuration locale (clés API)
+# Voir config/secrets.yaml.example pour la structure.
+config/secrets.yaml

@@ -21,6 +21,15 @@ dependencies = [
     "fastexcel>=0.16",
 ]
 
+[project.optional-dependencies]
+# Dépendances pour les notebooks LLM exploratoires
+# (génération de synonymes via Mistral, etc.).
+# Installation : `uv sync --extra llm`.
+llm = [
+    "mistralai>=1.0",
+    "pyyaml>=6.0",  # doublon volontaire avec la dep principale, pour expliciter l'usage llm
+]
+
 [project.scripts]
 recode-icd = "recode_icd.cli:app"
 
