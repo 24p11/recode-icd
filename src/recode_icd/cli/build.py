@@ -300,6 +300,17 @@ def build_external(
             help="Classeur HECTOR (Index CIM-10 vol3 + thésaurus AP-HP).",
         ),
     ] = Path("data/CIM_APHP_2019/Dictionnaire_Hector_MAJ062019.xlsx"),
+    cepidc_csv: Annotated[
+        Path | None,
+        typer.Option(
+            "--cepidc-csv",
+            dir_okay=False,
+            help=(
+                "CSV CepiDc_Dictionnaire2015.csv (optionnel). Si fourni "
+                "et existant, CepiDc 2015 est ajouté aux sources externes."
+            ),
+        ),
+    ] = Path("data/CIM_CEPIDC_2015/CepiDc_Dictionnaire2015.csv"),
     output_path: Annotated[
         Path,
         typer.Option(
@@ -318,9 +329,15 @@ def build_external(
         ),
     ] = Path("reports"),
 ) -> None:
-    """Charger ORPHANET + Index CIM-10 + AP-HP, dédupliquer contre
-    OFS/ANS et inter-externes, produire le Parquet `external_to_add`
-    + 3 rapports."""
+    """Charger ORPHANET + Index CIM-10 + AP-HP (+ CepiDc 2015 si
+    `--cepidc-csv` fourni), dédupliquer contre OFS/ANS et inter-externes,
+    produire le Parquet `external_to_add` + rapports."""
+    effective_cepidc = cepidc_csv if (cepidc_csv and cepidc_csv.is_file()) else None
+    if cepidc_csv and not effective_cepidc:
+        typer.echo(
+            f"⚠ CepiDc CSV introuvable ({cepidc_csv}) — build sans CepiDc.",
+            err=True,
+        )
     paths = merge_external.to_parquet_and_reports(
         merged_path=merged_path,
         propagated_path=propagated_path,
@@ -331,6 +348,7 @@ def build_external(
         hector_xlsx=hector_xlsx,
         output_path=output_path,
         reports_dir=reports_dir,
+        cepidc_csv=effective_cepidc,
     )
     for label, path in paths.items():
         typer.echo(f"Écrit ({label}) : {path}")

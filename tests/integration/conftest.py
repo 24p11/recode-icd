@@ -238,6 +238,33 @@ def aphp_df() -> pl.DataFrame:
 
 
 @pytest.fixture
+def cepidc_df() -> pl.DataFrame:
+    """Échantillon CepiDc — formulations vie réelle + cas d'absorption
+    + code orphan."""
+    return _make_external(
+        [
+            # Nouveau libellé pour A18.1 → ajouté au CSV.
+            {"code": "A18.1", "libelle": "tuberculose rénale",
+             "type": "synonyme", "source": "CEPIDC_2015"},
+            # Nouveau libellé pour A01.0 → ajouté au CSV.
+            {"code": "A01.0", "libelle": "fièvre typhoïde aiguë",
+             "type": "synonyme", "source": "CEPIDC_2015"},
+            # Match inter-externes : "HPN" est déjà ajouté par ORPHANET,
+            # doit être absorbé (CEPIDC_2015 placé en dernier dans
+            # _EXTERNAL_ORDER, perd les conflits).
+            {"code": "D59.5", "libelle": "HPN",
+             "type": "synonyme", "source": "CEPIDC_2015"},
+            # Code orphan (absent de merged_df) → loggué dans
+            # cepidc_ignored.csv via _build_cepidc_ignored_report.
+            {"code": "A90", "libelle": "dengue",
+             "type": "synonyme", "source": "CEPIDC_2015"},
+            {"code": "A90", "libelle": "dengue hémorragique",
+             "type": "synonyme", "source": "CEPIDC_2015"},
+        ]
+    )
+
+
+@pytest.fixture
 def rdf_codes_loader_dropped() -> set[str]:
     """Set RDF custom où `Z99.9` est présent — pour tester la
     catégorie `loader_dropped` (code dans RDF mais absent du Parquet
@@ -250,10 +277,12 @@ def external_frames(
     orphanet_df: pl.DataFrame,
     index_cim10_df: pl.DataFrame,
     aphp_df: pl.DataFrame,
+    cepidc_df: pl.DataFrame,
 ) -> dict[str, pl.DataFrame]:
     """Dict source_label → DataFrame, attendu par `merge_external_sources`."""
     return {
         "ORPHANET": orphanet_df,
         "INDEX_CIM10_VOL3": index_cim10_df,
         "APHP_DERMATOLOGIE": aphp_df,
+        "CEPIDC_2015": cepidc_df,
     }

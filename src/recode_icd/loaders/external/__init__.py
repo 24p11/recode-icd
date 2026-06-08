@@ -13,7 +13,8 @@ d'intégration".
 from __future__ import annotations
 
 from recode_icd.loaders.external.aphp_hector import load_aphp_hector
+from recode_icd.loaders.external.cepidc import load_cepidc
 from recode_icd.loaders.external.index_cim10 import load_index_cim10
 from recode_icd.loaders.external.orphanet import load_orphanet
 
-__all__ = ["load_aphp_hector", "load_index_cim10", "load_orphanet"]
+__all__ = ["load_aphp_hector", "load_cepidc", "load_index_cim10", "load_orphanet"]

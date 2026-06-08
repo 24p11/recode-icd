@@ -802,11 +802,11 @@ qui hérite d'une exclusion attachée au bloc A00-A09), pour vérifier que
 ## Sources externes : politique d'intégration
  
 En complément des deux sources principales OFS (relationnelle suisse,
-2006) et OWL/ANS (RDF française, à jour), le projet intègre trois
+2006) et OWL/ANS (RDF française, à jour), le projet intègre quatre
 familles de sources externes pour enrichir le CSV final en synonymes
 et inclusions.
  
-### Les trois sources externes
+### Les sources externes
  
 **Source 1 — ORPHANET (maladies rares)**
  
@@ -832,6 +832,34 @@ et inclusions.
 - Feuilles **exclues** du fichier HECTOR : "Cim Analytique" (pas des
   synonymes), "Orphanet" (redondant avec la source XML directe),
   "Thesam" (qualité non fiable)
+
+**Source 4 — CepiDc 2015 (formulations vie réelle, certificats de décès)**
+
+- Format : CSV séparateur `;`, UTF-8
+- Fichier : `data/CIM_CEPIDC_2015/CepiDc_Dictionnaire2015.csv`
+- Source : CepiDc (Centre d'épidémiologie sur les causes médicales de
+  décès) — formulations cliniques rédigées par des médecins sur les
+  certificats de décès.
+- Volumétrie : 147 340 entrées sur 6 291 codes uniques (médiane 5
+  formulations/code, max 988 pour les AVC).
+- Style : très télégraphique — médiane 26 caractères, 3 mots. Forte
+  présence d'abréviations (AVC, AVP, MI, PTH, OAP, SARM, IDM, etc.).
+- Toutes les entrées importées avec `type=synonyme` (le dictionnaire
+  ne distingue pas synonyme et inclusion).
+- Conversion code : format compact CepiDc (`A181`, `R51`) → format
+  standard (`A18.1`, `R51`) via `normalize_compact_code` (réutilisé
+  des autres loaders externes).
+- **Placement en dernier dans `_EXTERNAL_ORDER`** : les formulations
+  CepiDc sont plus courtes et moins normalisées que celles d'ORPHANET,
+  Index ou AP-HP. La dédup tolérante préserve donc les libellés des
+  sources plus expertes en cas de chevauchement (~1,1 % d'absorption
+  inter-sources mesurée).
+- Rapport spécifique : `reports/cepidc_ignored.csv` (codes CepiDc
+  absents du référentiel `merged_codes` — typiquement codes
+  pré-2006 supprimés par l'ATIH). Colonnes :
+  `(code_cepidc, n_formulations_perdues, exemples_formulations)`,
+  trié par volume décroissant.
+
 ### Sémantique de la relation ORPHANET → CIM-10
  
 Le XML ORPHANET définit plusieurs types de relations entre un code

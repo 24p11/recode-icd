@@ -324,6 +324,7 @@ def test_source_mapping_complete() -> None:
         "APHP_DERMATOLOGIE", "APHP_ENDOCRINOLOGIE", "APHP_GRONES",
         "APHP_METABOLISME", "APHP_NEPHROLOGIE", "APHP_OPHTALMOLOGIE",
         "APHP_RHUMATOLOGIE", "APHP_GERMES", "APHP_SRLF",
+        "CEPIDC_2015",
     }
     assert set(flat_csv._SOURCE_CSV_MAP.keys()) == expected_keys
 

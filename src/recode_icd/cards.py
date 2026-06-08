@@ -414,7 +414,8 @@ def _section_exclusions_from_ans(code: str, ctx: ExplorationContext) -> str | No
 def _section_formulations(
     code: str, ctx: ExplorationContext, rng: random.Random
 ) -> str | None:
-    """Index CIM-10 vol3 (échantillon ≤10) + AP-HP toutes feuilles (tout)."""
+    """Index CIM-10 vol3 (échantillon ≤10) + AP-HP toutes feuilles (tout)
+    + CepiDc 2015 (échantillon ≤10)."""
     csv = _eager(ctx.flat)
     assert csv is not None
 
@@ -430,11 +431,20 @@ def _section_formulations(
         .drop_nulls()
         .to_list()
     )
+    cepidc_entries = (
+        sub.filter(pl.col("source") == "CepiDc_2015")["texte"]
+        .drop_nulls()
+        .to_list()
+    )
 
     if len(index_entries) > INDEX_SAMPLE_SIZE:
         index_entries = rng.sample(index_entries, INDEX_SAMPLE_SIZE)
+    # Échantillonnage symétrique pour CepiDc : certains codes ont
+    # jusqu'à 988 formulations (AVC) — on limite à INDEX_SAMPLE_SIZE.
+    if len(cepidc_entries) > INDEX_SAMPLE_SIZE:
+        cepidc_entries = rng.sample(cepidc_entries, INDEX_SAMPLE_SIZE)
 
-    merged = index_entries + aphp_entries
+    merged = index_entries + aphp_entries + cepidc_entries
     if not merged:
         return None
 
@@ -920,10 +930,10 @@ def _category_section_formulations(
 ) -> str | None:
     """Section "Formulations cliniques alternatives" agrégée.
 
-    Entrées Index CIM-10 vol3 + AP-HP des feuilles descendantes.
-    Mention de source `(code)` pour chaque entrée. Dédup tolérante
-    (premier code rencontré en ordre alpha croissant). Si après dédup
-    le nombre d'entrées dépasse `CATEGORY_FORMULATIONS_MAX`,
+    Entrées Index CIM-10 vol3 + AP-HP + CepiDc 2015 des feuilles
+    descendantes. Mention de source `(code)` pour chaque entrée. Dédup
+    tolérante (premier code rencontré en ordre alpha croissant). Si
+    après dédup le nombre d'entrées dépasse `CATEGORY_FORMULATIONS_MAX`,
     échantillonnage déterministe via `rng`.
     """
     csv = _eager(ctx.flat)
@@ -935,6 +945,7 @@ def _category_section_formulations(
     formul = sub.filter(
         (pl.col("source") == "CIM-10 index")
         | pl.col("source").str.starts_with("AP-HP")
+        | (pl.col("source") == "CepiDc_2015")
     )
     if formul.is_empty():
         return None
