@@ -243,10 +243,104 @@ déterminisme de `cards.py`.
 5. **`ruff format` jamais passé** sur le dépôt (46 fichiers non conformes,
    condition préexistante).
 
-## 6. État git
+---
 
-Trois commits sur `main` : `a84430d` (dépistage `.DS_Store`), `9658f80` (merge),
-plus le commit de session à venir pour le renommage, les témoins, le
-déterminisme et la documentation.
+# Volet A — clôture des questions ouvertes
+
+Trois des cinq constats du § 5 sont traités ; deux restent ouverts et sont
+renvoyés au chantier `chapter_policy`.
+
+## A.1 Verrou sur les libellés de source des fiches (constat n° 3 bis)
+
+Le chemin de rendu de la section Formulations n'était couvert par aucun test :
+`cards.py` filtre par **égalité stricte** sur le libellé CSV, donc un renommage
+non répercuté fait disparaître une source **sans exception ni test rouge**.
+
+Mécanisme retenu, après avoir écarté les alternatives : plutôt que d'énumérer
+des textes attendus (fragile — le contenu bouge à chaque mise à jour de source)
+ou d'analyser le source de `cards.py` (fragile — parsing), les libellés sont
+sortis en **constantes** de `cards.py` (substitution littérale, zéro changement
+de comportement) et confrontés au mapping `_SOURCE_CSV_MAP`.
+
+`tests/regression/test_cards_formulations_sources.py`, 5 tests sur trois
+niveaux :
+
+1. **`test_toute_source_du_mapping_est_tranchee`** — le verrou principal.
+   Chaque libellé du mapping doit être soit inclus (`FORMULATION_SOURCES_EXACT`
+   / `FORMULATION_SOURCE_PREFIXES`), soit explicitement exclu
+   (`FORMULATION_SOURCES_EXCLUDED`). Symétriquement, aucun libellé déclaré dans
+   `cards.py` ne peut être absent du mapping — c'est la signature exacte d'un
+   renommage à moitié fait. **Ajouter une source sans statuer sur son sort fait
+   échouer la suite.**
+2. **`test_source_exacte_produit_des_lignes_dans_le_csv`** — un libellé peut
+   être cohérent entre les deux modules et ne rien produire (faute de frappe
+   partagée, source vidée en amont).
+3. **`test_r51_formulations_couvre_les_sources_plafonnees`** — bout en bout :
+   la fiche R51 rendue contient au moins une entrée dont le CSV atteste
+   qu'elle vient de l'Index, et une de CepiDc.
+
+**Validé par mutation** : en remettant `CepiDc_2015` dans la constante,
+3 des 5 tests virent au rouge, dont le verrou structurel et le contrôle bout
+en bout. Le test détecte donc bien la panne qu'il est censé prévenir.
+
+## A.2 pre-commit (constat n° 1)
+
+`.pre-commit-config.yaml` versionné. Trois hooks : `ruff check --fix`,
+`ruff format`, et une garde `language: fail` interdisant les `.DS_Store`
+(vérifiée : un `git add -f .DS_Store` fait bien échouer le commit).
+
+Deux décisions de conception :
+
+- **Hooks `language: system`** appuyés sur le ruff déjà installé par `uv sync`
+  (0.15.13, épinglé dans `uv.lock`), plutôt que `ruff-pre-commit` avec son
+  propre `rev:`. Le hook et `uv run ruff check` utilisent ainsi strictement la
+  même version, sans seconde installation qui dériverait silencieusement.
+- **Périmètre ruff limité à `src/` et `tests/`**, celui des commandes du
+  CLAUDE.md. `scripts/explore/` est du code exploratoire jamais linté — il y
+  dort 31 erreurs, et l'inclure bloquerait des commits sans rapport. `arXiv/`
+  (archive legacy figée) est ajouté à `extend-exclude` de ruff.
+
+**Effet de bord assumé** : le hook `ruff format` était inutilisable sur un
+dépôt jamais formaté (47 fichiers non conformes) — tout commit les touchant
+aurait été interrompu. Un commit dédié `style: passer ruff format sur src/ et
+tests/` établit la baseline (45 fichiers, +1 697 / −1 207, purement mécanique,
+suite verte avant et après). C'est le prix d'entrée du hook demandé ; il est
+isolé dans son propre commit.
+
+## A.3 Vérifications finales
+
+| Contrôle | Résultat |
+|---|---|
+| `pytest` | **366 passed, 0 skipped** (247 unit / 95 regression / 26 integration) |
+| `ruff check src/ tests/` | All checks passed |
+| `ruff format --check src/ tests/` | 69 files already formatted |
+| `mypy src/recode_icd` | no issues found in 30 source files |
+| Rebuild des fiches | `_index.csv` byte-identiques → l'extraction en constantes n'a rien changé au rendu |
+
+Le passage de 90 à 95 tests de régression correspond aux 5 tests du § A.1.
+
+## A.4 Ce qui reste ouvert
+
+Les constats n° 2 (artefact des codes CepiDc à 5 caractères, 6 928 formulations
+perdues) et n° 3 (déséquilibre CepiDc des fiches catégories) ne sont pas
+traités : ils relèvent du chantier `chapter_policy` et de l'analyse de qualité
+des sources (`docs/analyses/2026-08-09_qualite_sources_par_chapitre.md`). Le
+constat n° 4 (marqueurs pytest incohérents dans `test_cepidc.py`) reste
+signalé, non modifié.
+
+## État git
+
+Sept commits sur `main`, aucun poussé :
+
+| Commit | Objet |
+|---|---|
+| `a84430d` | dépistage des `.DS_Store` |
+| `9658f80` | merge de `feat/cepidc-integration` |
+| `f989d16` | libellé `CepiDc 2015` + correctif des témoins |
+| `fc42373` | déterminisme des sorties externes |
+| `a74200d` | régénération des artefacts |
+| `4fe64c9` | `.pre-commit-config.yaml` |
+| `e13697c` | baseline `ruff format` |
+| `17d22b8` | verrou sur les libellés de source des fiches |
 
 **Rien n'a été poussé sur `origin`.**
