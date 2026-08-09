@@ -62,11 +62,26 @@ CHAPITRES = sorted(_ROMAN_TO_NUM_CHAPTER, key=lambda r: _ROMAN_TO_NUM_CHAPTER[r]
 
 # `path` vaut par exemple "I/A00-A09/A00/A00.0" → chapitre / bloc /
 # catégorie / code.
+#
+# Deux pièges, tous deux rencontrés :
+#
+# - **Blocs imbriqués.** Le chapitre II a deux niveaux de bloc
+#   ("II/C00-C97/C00-C75/C50/C50.8"), donc la position dans le `path`
+#   ne désigne pas le même niveau selon le chapitre. On retient le bloc
+#   le plus *interne* (dernier segment de forme « A00-B99 »), seul
+#   niveau pertinent pour une règle de bloc type T36-T50.
+# - **Catégorie.** `cards.py` définit une catégorie comme le code à 3
+#   caractères (`_category_leaf_codes`), pas comme un segment du path :
+#   on la dérive du code lui-même, partie avant le point.
+_RE_BLOC = r"^[A-Z]\d{2}-[A-Z]?\d{2}$"
 _hier = merged.select(
     pl.col("code"),
     pl.col("path").str.split("/").list.get(0, null_on_oob=True).alias("chapitre"),
-    pl.col("path").str.split("/").list.get(1, null_on_oob=True).alias("bloc"),
-    pl.col("path").str.split("/").list.get(2, null_on_oob=True).alias("categorie"),
+    pl.col("path")
+    .str.split("/")
+    .list.eval(pl.element().filter(pl.element().str.contains(_RE_BLOC)))
+    .alias("blocs"),
+    pl.col("code").str.split(".").list.first().alias("categorie"),
 )
 
 # Familles de sources, exprimées en **libellés CSV** (colonne `source`).
@@ -377,10 +392,17 @@ POLITIQUE_BLOC: dict[str, Politique] = {
 RE_RENVOI_ANS = re.compile(r"(?i)^\s*états?\s+mentionn")
 
 
-def politique_pour(chapitre: str | None, bloc: str | None) -> Politique:
-    """Résolution bloc > chapitre > défaut (remplacement, pas union)."""
-    if bloc and bloc in POLITIQUE_BLOC:
-        return POLITIQUE_BLOC[bloc]
+def politique_pour(chapitre: str | None, blocs: list[str] | None) -> Politique:
+    """Résolution bloc > chapitre > défaut (remplacement, pas union).
+
+    `blocs` est la liste des blocs englobants du plus large au plus
+    étroit — la CIM-10 en imbrique jusqu'à trois niveaux (C50.8 vit sous
+    « C00-C97 / C00-C75 / C50-C50 »). On les teste du plus **interne**
+    au plus large : la règle la plus spécifique gagne.
+    """
+    for bloc in reversed(blocs or []):
+        if bloc in POLITIQUE_BLOC:
+            return POLITIQUE_BLOC[bloc]
     if chapitre and chapitre in POLITIQUE_CHAPITRE:
         return POLITIQUE_CHAPITRE[chapitre]
     return POLITIQUE_DEFAUT
@@ -393,24 +415,28 @@ def applique_r1_formulations(df: pl.DataFrame) -> pl.DataFrame:
     Entrée : lignes candidates à la section Formulations, colonnes
     `chapitre`, `bloc`, `famille`. Fonction pure.
     """
+    combinaisons = (
+        df.select("chapitre", "blocs", "famille")
+        .with_columns(pl.col("blocs").list.join("|").alias("_cle_blocs"))
+        .unique(subset=["chapitre", "_cle_blocs", "famille"])
+    )
     exclues = [
-        (chap, bloc, fam)
-        for chap, bloc, fam in df.select("chapitre", "bloc", "famille")
-        .unique()
-        .iter_rows()
-        if fam in politique_pour(chap, bloc).familles_exclues
+        (chap, cle, fam)
+        for chap, blocs, fam, cle in combinaisons.iter_rows()
+        if fam in politique_pour(chap, list(blocs or [])).familles_exclues
     ]
     if not exclues:
         return df
+    marque = df.with_columns(pl.col("blocs").list.join("|").alias("_cle_blocs"))
     masque = pl.any_horizontal(
         [
             (pl.col("chapitre") == chap)
-            & (pl.col("bloc") == bloc)
+            & (pl.col("_cle_blocs") == cle)
             & (pl.col("famille") == fam)
-            for chap, bloc, fam in exclues
+            for chap, cle, fam in exclues
         ]
     )
-    return df.filter(~masque)
+    return marque.filter(~masque).drop("_cle_blocs")
 
 
 def applique_r1_perimetre(df: pl.DataFrame) -> pl.DataFrame:
@@ -425,18 +451,52 @@ def applique_r1_perimetre(df: pl.DataFrame) -> pl.DataFrame:
 
 
 def applique_r2(df: pl.DataFrame, plafond: int) -> pl.DataFrame:
-    """Plafonne à `plafond` entrées par (catégorie, source).
+    """Plafonne à `plafond` entrées par (catégorie, **famille**).
 
-    Échantillonnage déterministe : tri par (code, texte) puis tête de
-    liste, plutôt qu'un `sample` — la reproductibilité prime ici sur la
-    représentativité, et `cards.py` applique de son côté sa propre
-    graine.
+    On plafonne par famille et non par libellé de source : la question
+    posée est la domination d'un *type* de source, et les neuf feuilles
+    AP-HP forment un seul apport métier. `cards.py` plafonne aujourd'hui
+    Index et CepiDc individuellement et laisse AP-HP libre — la famille
+    unifie les deux régimes.
+
+    L'ordre de troncature est pseudo-aléatoire déterministe (cf
+    `_ordre_pseudo_aleatoire`), pour rester fidèle au `rng.sample` de
+    `cards.py`.
     """
     return (
-        df.sort("categorie", "source", "code", "texte")
-        .with_columns(pl.int_range(pl.len()).over("categorie", "source").alias("_rang"))
+        df.with_columns(_ordre_pseudo_aleatoire())
+        .sort("categorie", "famille", "_alea")
+        .with_columns(pl.int_range(pl.len()).over("categorie", "famille").alias("_rang"))
         .filter(pl.col("_rang") < plafond)
-        .drop("_rang")
+        .drop("_rang", "_alea")
+    )
+
+
+def _ordre_pseudo_aleatoire() -> pl.Expr:
+    """Clé de tri pseudo-aléatoire mais reproductible.
+
+    **Pourquoi pas un simple tri alphabétique + tête de liste** :
+    `cards.py` tronque avec `rng.sample`, un tirage *uniforme*, qui
+    préserve donc en espérance la composition par source du vivier. Une
+    troncature sur l'ordre alphabétique des codes biaiserait la
+    composition (elle privilégierait les premières feuilles de la
+    catégorie) et ferait mesurer un déséquilibre qui n'est pas celui des
+    fiches réelles. Le hash à graine fixe reproduit l'uniformité du
+    tirage tout en restant déterministe d'un run à l'autre.
+    """
+    return (pl.col("code") + "|" + pl.col("texte")).hash(seed=SEED).alias("_alea")
+
+
+def applique_plafond_global(df: pl.DataFrame, plafond: int) -> pl.DataFrame:
+    """Plafond global par catégorie, tel que `cards.py` l'applique après
+    dédup (`CATEGORY_FORMULATIONS_MAX`). Modélisé ici pour mesurer la
+    composition **réellement rendue**, pas celle du vivier."""
+    return (
+        df.with_columns(_ordre_pseudo_aleatoire())
+        .sort("categorie", "_alea")
+        .with_columns(pl.int_range(pl.len()).over("categorie").alias("_rang"))
+        .filter(pl.col("_rang") < plafond)
+        .drop("_rang", "_alea")
     )
 
 
@@ -517,31 +577,88 @@ def profil_categories(df: pl.DataFrame) -> pl.DataFrame:
 
 
 PLAFOND_FEUILLES = cards.INDEX_SAMPLE_SIZE  # 10 — convention des fiches feuilles
+PLAFOND_GLOBAL = cards.CATEGORY_FORMULATIONS_MAX  # 50
+
+
+def _stats_desequilibre(df: pl.DataFrame, etiquette: str) -> dict[str, object]:
+    """Déséquilibre CepiDc des fiches catégories effectivement rendues."""
+    vivier = df.group_by("categorie").len().rename({"len": "vivier"})
+    ref = vivier.filter(pl.col("vivier") > PLAFOND_GLOBAL)
+    rendu = applique_plafond_global(
+        df.join(ref.select("categorie"), on="categorie", how="inner"), PLAFOND_GLOBAL
+    )
+    prof = profil_categories(rendu)
+    return {
+        "etat": etiquette,
+        "categories_vivier_sup_50": ref.height,
+        "part_cepidc_mediane": round(prof["part_cepidc"].median(), 3) if prof.height else 0.0,
+        "categories_sup_80pct": prof.filter(pl.col("part_cepidc") > 0.8).height,
+    }
+
+
+# R1 retire déjà CepiDc des chapitres XIX/XX/XXI, là où sa domination
+# était la plus forte. Mesurer R2 sans cette étape surestimerait donc le
+# problème : on affiche les deux états.
+avant_cat = avant.filter(pl.col("categorie").is_not_null())
+print("Déséquilibre CepiDc des fiches catégories — effet de R1 seul")
+print(
+    pl.DataFrame(
+        [
+            _stats_desequilibre(avant_cat, "avant R1"),
+            _stats_desequilibre(apres.filter(pl.col("categorie").is_not_null()), "après R1"),
+        ]
+    )
+)
+print()
+
+# Jeu de référence **figé** : les catégories dont le vivier dépasse le
+# plafond global, c'est-à-dire celles où l'échantillonnage mord et où le
+# déséquilibre se manifeste. Il doit être calculé une seule fois, sur le
+# vivier non plafonné — le recalculer après chaque plafond mesurerait
+# une population différente à chaque ligne, donc rien du tout.
+_vivier = base_cat.group_by("categorie").len().rename({"len": "vivier"})
+CATEGORIES_REF = _vivier.filter(pl.col("vivier") > PLAFOND_GLOBAL)
+# Composition de référence : ce que la fiche rend aujourd'hui, soit le
+# vivier tronqué au plafond global sans plafond par source.
+_baseline_rendu = applique_plafond_global(
+    base_cat.join(CATEGORIES_REF.select("categorie"), on="categorie", how="inner"),
+    PLAFOND_GLOBAL,
+)
+print(f"Catégories de référence (vivier > {PLAFOND_GLOBAL}) : {CATEGORIES_REF.height}")
+print(f"Formulations rendues aujourd'hui sur ces catégories : {_baseline_rendu.height:,}".replace(",", " "))
+
 lignes_calibration = []
-for plafond in (5, 10, 15, 20, None):
-    plafonne = base_cat if plafond is None else applique_r2(base_cat, plafond)
-    prof = profil_categories(plafonne)
-    grosses = prof.filter(pl.col("total") > cards.CATEGORY_FORMULATIONS_MAX)
+for plafond in (None, 5, 10, 15, 20):
+    sous_ensemble = base_cat.join(
+        CATEGORIES_REF.select("categorie"), on="categorie", how="inner"
+    )
+    if plafond is not None:
+        sous_ensemble = applique_r2(sous_ensemble, plafond)
+    rendu = applique_plafond_global(sous_ensemble, PLAFOND_GLOBAL)
+    prof = profil_categories(rendu)
     lignes_calibration.append(
         {
-            "plafond": "aucun" if plafond is None else str(plafond),
+            "plafond": "aucun (actuel)" if plafond is None else str(plafond),
             "reference": plafond == PLAFOND_FEUILLES,
-            "formulations_conservees": plafonne.height,
-            "formulations_perdues": base_cat.height - plafonne.height,
-            "part_cepidc_mediane": round(
-                grosses["part_cepidc"].median() if grosses.height else 0.0, 3
-            ),
-            "categories_sup_80pct": grosses.filter(pl.col("part_cepidc") > 0.8).height,
-            "categories_au_dessus_plafond_global": grosses.height,
+            "formulations_rendues": rendu.height,
+            "formulations_perdues": _baseline_rendu.height - rendu.height,
+            "part_cepidc_mediane": round(prof["part_cepidc"].median(), 3),
+            "categories_sup_80pct": prof.filter(pl.col("part_cepidc") > 0.8).height,
+            "categories_a_zero_cepidc": prof.filter(pl.col("part_cepidc") == 0).height,
         }
     )
 calibration = pl.DataFrame(lignes_calibration)
+print()
 print("Calibration du plafond R2 — coût en diversité face au bénéfice en équilibre")
-print("(« reference » marque le plafond des fiches feuilles, convention unique si elle convient)")
+print(f"(mesuré sur les {CATEGORIES_REF.height} catégories de référence, après plafond global {PLAFOND_GLOBAL})")
+print("(« reference » marque le plafond des fiches feuilles : convention unique s'il convient)")
 print(calibration)
 
 # %% (d) Validation visuelle — rendu avant/après sur codes témoins
-TEMOINS = ["R51", "S52.50", "Z85.00", "T39.1"]
+# Témoins : un R (conservé intégralement), un S (Index seul, écarté),
+# un Z massivement alimenté par CepiDc, et un T36-T50 (double motif :
+# règle de chapitre XIX + règle de bloc).
+TEMOINS = ["R51", "S52.50", "Z92.4", "T39.1"]
 
 
 def rendu_formulations(code: str, df: pl.DataFrame, limite: int = 12) -> list[str]:
@@ -554,7 +671,7 @@ for code in TEMOINS:
     if chap.is_empty():
         print(f"\n=== {code} : absent du référentiel ===")
         continue
-    print(f"\n=== {code} (chapitre {chap['chapitre'][0]}, bloc {chap['bloc'][0]}) ===")
+    print(f"\n=== {code} (chapitre {chap['chapitre'][0]}, blocs {chap['blocs'][0].to_list()}) ===")
     av = rendu_formulations(code, avant)
     ap = rendu_formulations(code, apres)
     print(f"  avant R1 ({len(avant.filter(pl.col('code') == code))} lignes) :")
