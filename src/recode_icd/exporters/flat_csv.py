@@ -23,7 +23,7 @@ _SOURCE_CSV_MAP: dict[str, str] = {
     "APHP_RHUMATOLOGIE": "AP-HP Rhumatologie",
     "APHP_GERMES": "AP-HP Germes (SPILF)",
     "APHP_SRLF": "AP-HP SRLF",
-    "CEPIDC_2015": "CepiDc_2015",
+    "CEPIDC_2015": "CepiDc 2015",
 }
 
 _TYPE_ORDER: dict[str, int] = {"inclusion": 0, "exclusion": 1, "synonyme": 2}

@@ -382,6 +382,28 @@ sources externes pour enrichir les synonymes et inclusions :
    rapport spécifique `reports/cepidc_ignored.csv` avec format
    `(code_cepidc, n_formulations_perdues, exemples_formulations)`
    listant les codes CepiDc absents du référentiel `merged_codes`.
+   Libellé CSV : **`CepiDc 2015`** (avec espace ; le millésime est
+   conservé, c'est un instantané daté).
+   Chargement via l'option CLI dédiée :
+
+   ```bash
+   uv run recode-icd build external \
+     --cepidc-csv data/CIM_CEPIDC_2015/CepiDc_Dictionnaire2015.csv
+   ```
+
+   L'option a ce chemin pour **défaut** : `build external` sans
+   argument charge donc CepiDc si le fichier est présent. Si le
+   fichier est introuvable, un avertissement est émis sur stderr et le
+   build se poursuit **sans** CepiDc (et sans écrire
+   `cepidc_ignored.csv`) — asymétrie assumée avec `--orphanet-xml` et
+   `--hector-xlsx`, qui eux échouent.
+
+   Apport net : **121 127 lignes** ajoutées au CSV (146 948 chargées,
+   1 658 absorbées par la dédup tolérante, 6 928 orphelines, 17 235 sur
+   des codes non terminaux). L'apport est **quasi disjoint** des
+   sources Index / AP-HP : 99,5 % des formulations CepiDc n'y ont
+   aucun équivalent (99,2 % vs toutes les sources externes, 98,9 % en
+   incluant OFS/ANS).
 **Cas particulier piège ORPHANET** : le XML ORPHANET contient deux
 propriétés au nom similaire mais à la sémantique différente :
 - `DisorderMappingRelation/Name` : porte le sigle E/NTBT/BTNT/ND
@@ -483,7 +505,24 @@ Pour les ~2300 codes ajoutés à la classification après le gel OFS
 
 Ces codes sont loggués dans `reports/post_2006_codes.csv` pour audit.
 
-**Code témoin de référence** : `U07.1` (COVID-19), ajouté en 2020.
+**Codes témoins de référence** : `U07.13` (« Autres examens et mises en
+observation en lien avec l'épidémie COVID-19 ») et `A92.5` (maladie à
+virus Zika).
+
+> **Pitfall — ne pas prendre `U07.1` comme témoin CSV.** `U07.1`
+> (COVID-19) reste le code post-2006 emblématique, mais il porte les
+> sous-divisions ATIH `U07.10`..`U07.15` : ce n'est donc pas une feuille
+> stricte du nested set, et `_leaf_codes()` l'élimine du CSV final. Tout
+> test de régression qui le vise sur le CSV se skippe silencieusement.
+> Les témoins ci-dessus sont de vraies feuilles ; `U07.13` hérite en
+> prime des redirections `(B34.2)`, `(B97.2)`, `(U04.9)` propagées
+> depuis `U07.1`, ce qui préserve la valeur du test. L'absence de
+> `U07.1` est verrouillée par un test dédié
+> (`test_u07_1_absent_du_csv`). Cf
+> `docs/backlog/inclure_codes_intermediaires.md` — si ce backlog est
+> implémenté, ce test doit être inversé. `U07.1` reste en revanche
+> parfaitement valide dans les tests unitaires sur données
+> synthétiques.
 
 ## Mapping sources internes ↔ libellés CSV
 
@@ -508,7 +547,7 @@ exporté utilise des libellés français lisibles. Le mapping vit dans
 | `APHP_RHUMATOLOGIE`      | `AP-HP Rhumatologie`        |
 | `APHP_GERMES`            | `AP-HP Germes (SPILF)`      |
 | `APHP_SRLF`              | `AP-HP SRLF`                |
-| `CEPIDC_2015`            | `CepiDc_2015`               |
+| `CEPIDC_2015`            | `CepiDc 2015`               |
 
 Toute nouvelle source ajoutée passe par les DEUX endroits : l'enum
 Python et le mapping d'export. Test de régression vérifie qu'il n'y a
@@ -536,7 +575,11 @@ pas d'enum sans libellé CSV correspondant.
   - Un code en chapitre XX
   - Un code en chapitre XXI
   - Un code dans C00-C75 avec sous-catégorie `.8` (par ex `C50.8`)
-  - **`U07.1`** (COVID-19) comme code post-2006
+  - **`U07.13`** (COVID-19) et **`A92.5`** (Zika) comme codes post-2006
+    — vraies feuilles, contrairement à `U07.1` (cf pitfall § Codes
+    post-2006)
+  - Un code astérisque **non pointé** (`L62.8`, plus `N16.8` comme
+    témoin riche) — pas `L62` lui-même, qui est un nœud intermédiaire
   - Un couple typique pour tester `redundancy_level=subordinate` dans
     la table DAGSTAR enrichie (par ex `A17.8` / `G05.0`)
 - Un code avec un synonyme ORPHANET en relation E (par ex `D59.5`  pour "Hémoglobinurie paroxystique nocturne")

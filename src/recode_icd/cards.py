@@ -432,7 +432,7 @@ def _section_formulations(
         .to_list()
     )
     cepidc_entries = (
-        sub.filter(pl.col("source") == "CepiDc_2015")["texte"]
+        sub.filter(pl.col("source") == "CepiDc 2015")["texte"]
         .drop_nulls()
         .to_list()
     )
@@ -945,7 +945,7 @@ def _category_section_formulations(
     formul = sub.filter(
         (pl.col("source") == "CIM-10 index")
         | pl.col("source").str.starts_with("AP-HP")
-        | (pl.col("source") == "CepiDc_2015")
+        | (pl.col("source") == "CepiDc 2015")
     )
     if formul.is_empty():
         return None

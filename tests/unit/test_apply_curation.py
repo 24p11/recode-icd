@@ -92,7 +92,11 @@ def test_apply_curation_marks_subordinate(tmp_path: Path) -> None:
     curated, report = dagger_asterisk.apply_curation(table, csv)
 
     levels = dict(zip(
-        zip(curated["dagger_code"].to_list(), curated["asterisk_code"].to_list()),
+        zip(
+            curated["dagger_code"].to_list(),
+            curated["asterisk_code"].to_list(),
+            strict=True,
+        ),
         curated["redundancy_level"].to_list(),
         strict=True,
     ))

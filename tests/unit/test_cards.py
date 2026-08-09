@@ -11,7 +11,6 @@ byte-à-byte sur les 7 fiches témoins (cf workflow chantier).
 from __future__ import annotations
 
 import random
-import re
 
 import pytest
 

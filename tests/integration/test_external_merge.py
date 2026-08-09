@@ -551,7 +551,7 @@ def test_cepidc_in_final_csv(
     merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
 ) -> None:
     """Une entrée CepiDc nouvelle doit apparaître dans le CSV final
-    avec source='CepiDc_2015', type='synonyme', source_level='code'."""
+    avec source='CepiDc 2015', type='synonyme', source_level='code'."""
     to_add, _, _, _ = merge_result
     df, _ = flat_csv.build(
         merged=merged_df,
@@ -567,7 +567,7 @@ def test_cepidc_in_final_csv(
     )
     assert tub_r.height == 1
     row = tub_r.row(0, named=True)
-    assert row["source"] == "CepiDc_2015"
+    assert row["source"] == "CepiDc 2015"
     assert row["type"] == "synonyme"
     assert row["source_level"] == "code"
     assert row["inherited_from_code"] is None

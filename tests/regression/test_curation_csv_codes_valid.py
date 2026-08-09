@@ -3,7 +3,7 @@ dague/astérisque.
 
 Garde-fou anti-corruption Excel : si une cellule de code dague ou
 astérisque est altérée par auto-formatage (ex : "F00" devenu
-"0,00 F" via le format monétaire français), ce test détecte la
+"0,00 F" via le format monétaire français), ce test détecte la
 corruption immédiatement plutôt que de la laisser passer en orpheline
 silencieuse dans `reports/curation_applied.csv`.
 
@@ -78,7 +78,7 @@ def test_asterisk_codes_are_well_formed(curation_df: pl.DataFrame) -> None:
 def test_no_invisible_chars_in_codes(curation_df: pl.DataFrame) -> None:
     """Aucun code ne doit contenir d'espace insécable (U+00A0) ou autre
     caractère de contrôle. Le format monétaire FR d'Excel écrit
-    `0,00 F` avec NBSP, ce qui peut passer un regex naïf mais pas
+    `0,00 F` avec NBSP, ce qui peut passer un regex naïf mais pas
     celui-ci."""
     suspicious: list[tuple[str, str]] = []
     for col in ("dagger_code", "asterisk_code"):

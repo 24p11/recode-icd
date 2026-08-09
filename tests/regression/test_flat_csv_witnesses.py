@@ -90,24 +90,28 @@ def test_a18_1_ans_exclusion_redirects_use_parentheses() -> None:
         )
 
 
-def test_u07_1_ans_exclusion_redirects_use_parentheses() -> None:
-    """Chantier 4 (2026-06-03) : U07.1 (post-2006, ANS exclusivement)
-    doit voir ses redirections normalisées en parenthèses."""
+def test_u07_13_ans_exclusion_redirects_use_parentheses() -> None:
+    """Chantier 4 (2026-06-03) : les codes post-2006 (ANS exclusivement)
+    doivent voir leurs redirections normalisées en parenthèses.
+
+    Témoin U07.13, feuille du bloc COVID. Les trois redirections
+    vérifiées lui sont propagées depuis U07.1 (`source_level=category`),
+    qui est lui-même absent du CSV — cf `test_u07_1_absent_du_csv`.
+    """
     df = _final_csv()
     subset = df.filter(
-        (pl.col("code") == "U07.1")
+        (pl.col("code") == "U07.13")
         & (pl.col("type") == "exclusion")
         & (pl.col("source") == "ANS")
     )
-    if subset.is_empty():
-        pytest.skip("U07.1 sans exclusion ANS dans le CSV final.")
+    assert not subset.is_empty(), "U07.13 sans exclusion ANS dans le CSV final."
     joined = " || ".join(subset["texte"].drop_nulls().to_list())
     for code in ("B34.2", "B97.2", "U04.9"):
         assert f"[{code}]" not in joined, (
-            f"crochet [{code}] résiduel dans U07.1"
+            f"crochet [{code}] résiduel dans U07.13"
         )
         assert f"({code})" in joined, (
-            f"redirection ({code}) attendue dans U07.1"
+            f"redirection ({code}) attendue dans U07.13"
         )
 
 
@@ -202,12 +206,38 @@ def test_orphan_type_d_codes_report_exists() -> None:
     assert set(df["chapter"].unique().to_list()) == {"(M00-M99)"}
 
 
-def test_u07_1_has_no_dagger_asterisk_pair() -> None:
-    """U07.1 (post-2006) n'a pas d'association dague/astérisque côté OFS.
+def test_u07_13_has_no_dagger_asterisk_pair() -> None:
+    """U07.13 (post-2006) n'a pas d'association dague/astérisque côté OFS.
     Refonte 2026-05-30 : doit avoir les deux flags à False."""
     df = _final_csv()
-    subset = df.filter(pl.col("code") == "U07.1")
-    if subset.is_empty():
-        pytest.skip("U07.1 absent du CSV (vérifier que U07.1 est bien dans OWL).")
+    subset = df.filter(pl.col("code") == "U07.13")
+    assert not subset.is_empty(), "U07.13 absent du CSV (vérifier qu'il est bien dans OWL)."
     assert subset.filter(pl.col("is_dagger_in_pair")).is_empty()
     assert subset.filter(pl.col("is_asterisk_in_pair")).is_empty()
+
+
+def test_u07_1_absent_du_csv() -> None:
+    """U07.1 est un nœud intermédiaire, donc hors du CSV — fait assumé.
+
+    `_leaf_codes()` (`exporters/flat_csv.py`) restreint le CSV aux
+    feuilles strictes du nested set. U07.1 porte les sous-divisions
+    ATIH U07.10..U07.15 et n'est donc pas une feuille, alors qu'il est
+    codable en pratique. Décision RF du 2026-05-25 : on reste sur les
+    codes terminaux ; cf `docs/backlog/inclure_codes_intermediaires.md`.
+
+    Ce test verrouille l'état actuel plutôt que de le laisser passer en
+    skip silencieux. **Si le backlog est implémenté (option B, inclusion
+    des codes intermédiaires), ce test doit être inversé** et les deux
+    témoins ci-dessus repassés sur U07.1.
+    """
+    df = _final_csv()
+    assert df.filter(pl.col("code") == "U07.1").is_empty(), (
+        "U07.1 est présent dans le CSV : le backlog `inclure_codes_intermediaires` "
+        "a-t-il été implémenté ? Si oui, inverser ce test et rebasculer "
+        "test_u07_13_* sur U07.1."
+    )
+    # Les feuilles du bloc, elles, doivent bien être là.
+    for code in ("U07.10", "U07.13", "U07.15"):
+        assert not df.filter(pl.col("code") == code).is_empty(), (
+            f"{code} (feuille du bloc COVID) absent du CSV"
+        )

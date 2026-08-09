@@ -1314,8 +1314,19 @@ colonnes :
 - `notes_atomisees` (bool — False si au moins une note est un bloc
   multi-éléments)
 
-Le code témoin de référence pour ce cas est **U07.1** (COVID-19),
-ajouté à la classification en 2020 et donc absent de l'OFS.
+Les codes témoins de référence pour ce cas sont **U07.13** (bloc
+COVID-19, ajouté en 2020) et **A92.5** (maladie à virus Zika), tous
+deux absents de l'OFS.
+
+`U07.1` lui-même n'est **pas** utilisable comme témoin sur le CSV
+final : il porte les sous-divisions ATIH `U07.10`..`U07.15` et n'est
+donc pas une feuille stricte du nested set, si bien que
+`_leaf_codes()` l'écarte du CSV (cf
+`docs/backlog/inclure_codes_intermediaires.md`). `U07.13` en hérite
+les redirections `(B34.2)`, `(B97.2)`, `(U04.9)` par propagation, ce
+qui préserve la valeur du test ; `A92.5` complète en couvrant
+l'enrichissement par sources externes, impossible sur le bloc COVID
+(les sources externes sont toutes pré-2020).
 
 ### 5e position du chapitre XIII (localisations ostéo-articulaires)
 

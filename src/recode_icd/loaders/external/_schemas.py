@@ -1,4 +1,4 @@
-"""Schéma pandera commun aux trois loaders des sources externes.
+"""Schéma pandera commun aux quatre loaders des sources externes.
 
 Les loaders émettent un DataFrame uniforme à 5 colonnes ; le champ
 `metadata` est un `pl.Struct` polars dont les sous-champs varient
@@ -22,7 +22,7 @@ from recode_icd.loaders.external._constants import (
 
 class ExternalSourceSchema(pa.DataFrameModel):
     """Schéma uniforme retourné par `load_orphanet`,
-    `load_index_cim10` et `load_aphp_hector`."""
+    `load_index_cim10`, `load_aphp_hector` et `load_cepidc`."""
 
     code: str = pa.Field(str_matches=EXTERNAL_CODE_PATTERN)
     libelle: str = pa.Field(str_matches=r"\S")  # non vide après strip

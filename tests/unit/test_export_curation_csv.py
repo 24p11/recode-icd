@@ -186,13 +186,14 @@ def test_re_export_adds_new_pairs(mod: ModuleType, tmp_path: Path) -> None:
     df.write_csv(csv)
 
     # v2 : ajoute A17.8/G05.0
-    rows_v2 = rows_v1 + [
+    rows_v2 = [
+        *rows_v1,
         {
             "dagger_code": "A17.8",
             "dagger_label": "Tuberculose du SNC",
             "asterisk_code": "G05.0",
             "asterisk_label": "Encéphalite",
-        }
+        },
     ]
     _write_parquet(rows_v2, parquet)
     assert mod.main(["--table", str(parquet), "--csv", str(csv)]) == 0

@@ -174,8 +174,35 @@ codes:
       - asterisk_in_pair
       - refonte_volumetry
 
-  - code: L62
-    libelle: "Affections des ongles au cours de maladies classées ailleurs"
-    rationale: "Code astérisque non pointé (daget=F, assoc=0) — code astérisque générique sans dague spécifique. is_dagger_in_pair=False, is_asterisk_in_pair=True (sémantique large des flags : on inclut les non pointés)."
+  - code: L62.8
+    libelle: "Maladies des ongles au cours d'autres maladies classées ailleurs"
+    rationale: "Code astérisque non pointé (daget=F, assoc=0) — code astérisque générique sans dague spécifique. is_dagger_in_pair=False, is_asterisk_in_pair=True (sémantique large des flags : on inclut les non pointés). Remplace L62 le 2026-08-09 : L62 est un nœud intermédiaire (enfants L62.0/L62.8) donc absent du CSV, cf docs/backlog/inclure_codes_intermediaires.md. L62.8 est son jumeau exact dans DAGSTAR (dagger_code=null, redundancy_level=none)."
     features:
       - asterisk_in_pair_unpointed
+
+  - code: N16.8
+    libelle: "Maladie rénale tubulo-interstitielle au cours d'autres maladies classées ailleurs"
+    rationale: "Second témoin astérisque non pointé, choisi pour sa richesse (3 types, 4 sources) là où L62.8 se limite à 4 lignes d'exclusion. Exerce le flag is_asterisk_in_pair sur un code réellement alimenté par le pipeline."
+    features:
+      - asterisk_in_pair_unpointed
+
+  # ------------------------------------------------------------------
+  # Codes témoins post-2006 (2026-08-09) — remplacement de U07.1
+  # U07.1 est un nœud intermédiaire (sous-divisions ATIH U07.10..U07.15)
+  # et n'atteint pas le CSV final ; cf docs/backlog/inclure_codes_intermediaires.md
+  # ------------------------------------------------------------------
+
+  - code: U07.13
+    libelle: "Autres examens et mises en observation en lien avec l'épidémie COVID-19"
+    rationale: "Témoin post-2006 du bloc COVID, vraie feuille présente dans le CSV. Porte les redirections (B34.2), (B97.2), (U04.9) propagées depuis U07.1 — donc témoin à la fois de la normalisation des crochets ANS et de la propagation source_level=category. is_dagger_in_pair=False, is_asterisk_in_pair=False."
+    features:
+      - post_2006_leaf
+      - ans_redirect_parentheses
+      - propagation_from_category
+
+  - code: A92.5
+    libelle: "Maladie due au virus Zika"
+    rationale: "Témoin post-2006 riche : 3 types et 3 sources (ANS, CIM-10, ORPHANET), propagation chapitre + catégorie + code. Couvre l'enrichissement par sources externes, ce que le bloc COVID ne peut pas faire (sources externes toutes pré-2020). Vraie feuille sans sous-division, donc stable."
+    features:
+      - post_2006_leaf
+      - post_2006_with_external

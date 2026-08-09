@@ -34,7 +34,7 @@ _EXTERNAL_SOURCES = {
     "AP-HP Rhumatologie",
     "AP-HP Germes (SPILF)",
     "AP-HP SRLF",
-    "CepiDc_2015",
+    "CepiDc 2015",
 }
 
 
@@ -308,7 +308,7 @@ def test_r51_has_cepidc_synonyms(csv_final_df: pl.DataFrame) -> None:
     """R51 (Céphalée) doit porter plusieurs entrées CepiDc (formulations
     télégraphiques de certificats de décès) — au moins une dizaine."""
     cepidc = csv_final_df.filter(
-        (pl.col("code") == "R51") & (pl.col("source") == "CepiDc_2015")
+        (pl.col("code") == "R51") & (pl.col("source") == "CepiDc 2015")
     )
     assert cepidc.height >= 10, (
         f"R51 doit avoir au moins 10 entrées CepiDc ; obtenu {cepidc.height}"
@@ -320,7 +320,7 @@ def test_r51_has_cepidc_synonyms(csv_final_df: pl.DataFrame) -> None:
 def test_cepidc_global_volumetry(csv_final_df: pl.DataFrame) -> None:
     """CepiDc doit représenter ~120 000 lignes du CSV (mesuré : ~121 426
     avant absorption inter-externes). On accepte une fourchette ±10 %."""
-    cepidc = csv_final_df.filter(pl.col("source") == "CepiDc_2015")
+    cepidc = csv_final_df.filter(pl.col("source") == "CepiDc 2015")
     assert 100_000 <= cepidc.height <= 135_000, (
         f"volumétrie CepiDc inattendue : {cepidc.height}"
     )
@@ -328,7 +328,7 @@ def test_cepidc_global_volumetry(csv_final_df: pl.DataFrame) -> None:
 
 def test_cepidc_all_synonyme(csv_final_df: pl.DataFrame) -> None:
     """Toutes les entrées CepiDc dans le CSV sont en type=synonyme."""
-    cepidc = csv_final_df.filter(pl.col("source") == "CepiDc_2015")
+    cepidc = csv_final_df.filter(pl.col("source") == "CepiDc 2015")
     assert set(cepidc["type"].unique().to_list()) == {"synonyme"}
 
 
