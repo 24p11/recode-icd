@@ -1,0 +1,21 @@
+# Commits à ignorer dans `git blame`.
+#
+# On n'y met que des commits **purement mécaniques** : reformatage,
+# renommage de masse, réindentation. Jamais un commit qui change le
+# comportement du code — l'objectif est de faire remonter l'auteur du
+# choix métier, pas celui du passage d'un outil.
+#
+# Activation locale (à faire une fois par clone) :
+#
+#     git config blame.ignoreRevsFile .git-blame-ignore-revs
+#
+# GitHub prend ce fichier en compte **nativement** : aucune
+# configuration n'est nécessaire côté interface web, le blame y masque
+# automatiquement les révisions listées ici.
+
+# style: passer ruff format sur src/ et tests/ (2026-08-09)
+# Baseline de formatage préalable au hook pre-commit `ruff-format` : le
+# dépôt n'avait jamais été passé au formateur (47 fichiers non
+# conformes). 45 fichiers touchés, +1 697 / −1 207, aucun changement de
+# comportement (suite de tests verte avant et après).
+e13697c8fe433154dd0109d196864e74a6d94beb

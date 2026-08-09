@@ -307,6 +307,25 @@ tests/` établit la baseline (45 fichiers, +1 697 / −1 207, purement mécaniqu
 suite verte avant et après). C'est le prix d'entrée du hook demandé ; il est
 isolé dans son propre commit.
 
+### Préserver la lisibilité de `git blame`
+
+Un reformatage de masse réattribue mécaniquement 1 697 lignes à son propre
+commit, ce qui rend `git blame` inexploitable sur les fichiers touchés.
+`.git-blame-ignore-revs` liste le hash de `e13697c` pour neutraliser cet effet.
+
+- **Localement**, une fois par clone :
+  `git config blame.ignoreRevsFile .git-blame-ignore-revs` (posé dans ce
+  dépôt). Vérifié : sans le fichier, `_normalize.py:117` est attribué au commit
+  de formatage ; avec, il remonte correctement à `037c9b0`
+  (« normaliser les crochets ANS »), son vrai commit d'origine.
+- **Sur GitHub**, aucune configuration n'est nécessaire : l'interface web
+  **prend ce fichier en compte nativement** et masque automatiquement les
+  révisions qu'il liste dans l'affichage du blame.
+
+Règle d'usage inscrite en tête du fichier : n'y inscrire que des commits
+purement mécaniques (reformatage, renommage de masse, réindentation), jamais un
+commit qui change le comportement.
+
 ## A.3 Vérifications finales
 
 | Contrôle | Résultat |
@@ -327,6 +346,15 @@ traités : ils relèvent du chantier `chapter_policy` et de l'analyse de qualit�
 des sources (`docs/analyses/2026-08-09_qualite_sources_par_chapitre.md`). Le
 constat n° 4 (marqueurs pytest incohérents dans `test_cepidc.py`) reste
 signalé, non modifié.
+
+**Nouvelle dette identifiée — les 31 erreurs ruff de `scripts/explore/`.** Le
+périmètre des hooks a été volontairement limité à `src/` et `tests/` parce que
+`scripts/explore/` n'a jamais été linté et héberge 31 erreurs. C'est une dette
+assumée à court terme, **mais à résorber** : ce dossier va accueillir les
+nouveaux notebooks (qualité des sources, synonymes LLM), et plus il grossit
+hors périmètre du linter, plus la remise à niveau coûtera. Deux étapes le jour
+venu : `uv run ruff check scripts/ --fix` (25 des 31 erreurs sont
+auto-corrigeables) puis extension du `files:` des hooks ruff à `^scripts/`.
 
 ## État git
 
