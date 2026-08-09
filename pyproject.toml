@@ -103,7 +103,10 @@ allowed-confusables = ["×", "æ", "’"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["N802", "N803"]   # noms de tests souples
-"scripts/explore/**" = ["RUF001"]   # typographie française intentionnelle (–, ×, etc.)
+# RUF001 : typographie française intentionnelle (–, ×, etc.).
+# B018 : une expression nue en fin de cellule est l'idiome notebook pour
+#        afficher une valeur — ce n'est pas du code mort.
+"scripts/explore/**" = ["RUF001", "B018"]
 "src/recode_icd/_normalize.py" = ["RUF001", "RUF002", "RUF003"]   # caractères Unicode load-bearing dans le regex
 "tests/unit/test_normalize.py" = ["RUF001", "RUF002"]   # en-dash U+2013 testés explicitement (limitation assumée)
 "src/recode_icd/merge.py" = ["RUF003"]   # symbole ∪ intentionnel dans les commentaires

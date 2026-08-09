@@ -4,9 +4,16 @@ Le `.py` est la **source de vérité** : il se lit en diff, se lint et
 s'exécute directement (`uv run python <fichier>.py`). Le `.ipynb` en est
 un rendu régénérable — ne pas l'éditer à la main.
 
-Convention de découpage : chaque marqueur `# %%` démarre une cellule ;
-le texte qui suit le marqueur sur la même ligne devient son titre, rendu
-en cellule markdown. Le docstring de module devient l'en-tête.
+Conventions de découpage (format « percent », compatible jupytext) :
+
+- `# %% <titre>` démarre une **cellule de code**. Le titre, optionnel,
+  est rendu au-dessus en cellule markdown (`## <titre>`).
+- `# %% [markdown]` démarre une **cellule markdown** : son corps est
+  fait de lignes commentées, dont le `# ` initial est retiré. C'est ce
+  qui permet d'écrire un notebook didactique tout en gardant un `.py`
+  exécutable et lintable.
+
+Le docstring de module devient l'en-tête du notebook.
 
 Usage :
     uv run --extra notebook python scripts/explore/_convert_to_ipynb.py <fichier.py>
@@ -26,9 +33,29 @@ import nbformat as nbf
 DEFAUT = Path(__file__).parent / "2026-05-17_divergences_textuelles.py"
 
 
-def split_cells(text: str) -> list[tuple[str, str]]:
-    """Découpe le source `.py` en (titre_cellule, code).
+MARQUEUR_MARKDOWN = "[markdown]"
 
+
+def _demarque(body: list[str]) -> str:
+    """Retire le `# ` de tête des lignes d'une cellule markdown."""
+    out = []
+    for ligne in body:
+        depouillee = ligne.lstrip()
+        if depouillee.startswith("#"):
+            out.append(depouillee[1:].removeprefix(" "))
+        elif not depouillee:
+            out.append("")
+        else:
+            # Ligne non commentée dans une cellule markdown : on la
+            # garde telle quelle plutôt que de la perdre silencieusement.
+            out.append(ligne)
+    return "\n".join(out).strip("\n")
+
+
+def split_cells(text: str) -> list[tuple[str, str]]:
+    """Découpe le source `.py` en (titre_cellule, contenu).
+
+    Le titre vaut `MARQUEUR_MARKDOWN` pour une cellule markdown.
     Le préambule avant le 1er `# %%` (imports, docstring) est conservé
     comme première cellule de code : il porte le chargement du contexte.
     """
@@ -48,10 +75,10 @@ def split_cells(text: str) -> list[tuple[str, str]]:
 
     out: list[tuple[str, str]] = []
     for title, body in cells:
-        code = "\n".join(body).strip("\n")
-        if title == "Preamble" and not code:
+        contenu = _demarque(body) if title == MARQUEUR_MARKDOWN else "\n".join(body).strip("\n")
+        if title == "Preamble" and not contenu:
             continue
-        out.append((title, code))
+        out.append((title, contenu))
     return out
 
 
@@ -73,19 +100,24 @@ def convert(src: Path) -> Path:
     nb = nbf.v4.new_notebook()
     nb_cells: list = [nbf.v4.new_markdown_cell(_entete(src, text))]
 
-    for title, code in split_cells(text):
+    for title, contenu in split_cells(text):
+        if title == MARQUEUR_MARKDOWN:
+            if contenu:
+                nb_cells.append(nbf.v4.new_markdown_cell(contenu))
+            continue
         if title == "Preamble":
             # Docstring + directives ruff déjà rendus dans l'en-tête ;
             # on ne garde que du code exécutable s'il en reste.
             lignes = [
                 ligne
-                for ligne in code.splitlines()
+                for ligne in contenu.splitlines()
                 if not ligne.startswith("#") and ligne.strip()
             ]
             if not lignes:
                 continue
-        nb_cells.append(nbf.v4.new_markdown_cell(f"## {title}"))
-        nb_cells.append(nbf.v4.new_code_cell(code))
+        elif title != "(sans titre)":
+            nb_cells.append(nbf.v4.new_markdown_cell(f"### {title}"))
+        nb_cells.append(nbf.v4.new_code_cell(contenu))
 
     nb["cells"] = nb_cells
     nb["metadata"] = {
