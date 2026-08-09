@@ -188,4 +188,133 @@ et les scripts modifiés, `ruff format --check` propre, `mypy` propre.
 Rien n'a été implémenté dans `src/` hormis l'extension de chargement — R1 et
 R2 restent du prototype, conformément au périmètre.
 
-**Deux commits locaux non poussés** (`2fef41f`, `4e1a807`).
+---
+
+# Second tour — arbitrages appliqués et notebook refondu
+
+Arbitrages rendus après lecture du premier rapport. Quatre décisions, plus une
+demande sur la forme du livrable.
+
+## 9. R2 fixé à 20
+
+Le balayage a été étendu à 30, ce qui éclaire le coude : entre 5 et 20 les
+métriques d'équilibre sont **plates** (part CepiDc médiane 0,455 → 0,488,
+41 → 54 catégories au-delà de 80 %) alors que le volume conservé **triple**
+(6 794 → 22 395). À 30 en revanche le bénéfice se **dégrade** nettement
+(médiane 0,60, 77 catégories). 20 est donc le dernier palier avant
+dégradation, à volume maximal.
+
+| Plafond/source | Rendues | Perdues | Part CepiDc médiane | Catégories > 80 % |
+|---|---|---|---|---|
+| aucun (actuel) | 30 400 | 0 | 0,70 | 226 |
+| 5 | 6 794 | 23 606 | 0,455 | 41 |
+| 10 (convention feuilles) | 12 566 | 17 834 | 0,476 | 47 |
+| **20 — retenu** | **22 395** | **8 005** | **0,488** | **54** |
+| 30 | 27 365 | 3 035 | 0,600 | 77 |
+
+**Deux plafonds distincts coexistent** — 10 sur les feuilles, 20 sur les
+catégories — et le document justifie l'écart plutôt que de le masquer : les
+viviers ne sont pas comparables (une fiche feuille tire d'un seul code, une
+fiche catégorie agrège toutes ses feuilles ; C79 en compte 3 007). Le YAML de
+`chapter_policy` devra donc porter **deux clés distinctes**, pas une constante
+partagée.
+
+## 10. Sous-règle ANS retirée
+
+Actée : la sous-règle « filtrer les renvois ANS de la section Formulations »
+est retirée de R1, sans objet. Les « États mentionnés en … » restent dans
+« Périmètre clinique du code », où un renvoi de plages est une information
+légitime — il dit quelles affections le code recouvre. Le document porte la
+décision datée sous le constat n° 3.
+
+## 11. R3 — nouvelle règle transversale
+
+L'angle mort sur l'Index devient une règle à part entière : **le critère
+d'exclusion est le format de l'entrée, pas son chapitre**. R1 est allégée en
+conséquence — elle ne porte plus l'exclusion Index de XIX/XXI et se concentre
+sur les sources externes métier, le bloc T36-T50 et le flag LLM.
+
+Effet de l'allègement : R1 écarte **31 441** formulations au lieu de 37 071, et
+seulement **713 codes** perdent leur section Formulations au lieu de 2 219 —
+l'Index restant en place, la plupart des codes de XIX/XXI conservent une entrée.
+
+### Détecteur instrumenté, non figé
+
+Trois motifs (`voir`, parenthèses grammaticales, virgules multiples) plus une
+variante stricte (toute virgule, parenthèse ou « voir »). Validation contre
+**30 entrées Index tirées à graine fixe et relues une à une**, critère : *un
+clinicien écrirait-il cette chaîne telle quelle ?* Verdict : 28 chemins
+d'index, 2 entrées utilisables (« Trachéomalacie », « Dysbarisme »).
+
+| Détecteur | VP | FN | FP | VN | Index écarté | Index gardé |
+|---|---|---|---|---|---|---|
+| 3 motifs | 27 | 1 | 0 | 2 | 31 203 (85,2 %) | 5 424 |
+| strict | 28 | 0 | 0 | 2 | 35 434 (96,7 %) | 1 193 |
+
+Aucun faux positif des deux côtés. Le seul faux négatif des trois motifs est
+« Quatrième, maladie (non sexuellement transmissible) » : une seule virgule et
+une parenthèse qui n'est pas un connecteur grammatical.
+
+**Le choix de variante reste ouvert**, et une **troisième voie** est apparue :
+4 231 entrées séparent les deux détecteurs, du type « Rectite (à), amibienne »
+— contenu bon, formatage d'index. Les **normaliser** plutôt que les écarter
+récupérerait une information réelle. Hors périmètre d'un détecteur, à
+instruire séparément.
+
+> Les étiquettes de relecture sont celles d'**une seule lecture**. Le tirage
+> étant reproductible (`seed=1234`), une seconde relecture porte sur exactement
+> les mêmes entrées.
+
+## 12. Backlog — taille du CSV maître
+
+[`docs/backlog/taille_csv_maitre.md`](../backlog/taille_csv_maitre.md) :
+53,15 Mo, seuil GitHub 50, limite dure 100. Trois options pesées — Git LFS
+(quotas et dépendance au clone), dé-versionnement du CSV reconstructible
+(mais c'est le livrable principal, et les tests de régression le lisent),
+publication en artefact de release (piste intermédiaire). À trancher **avant**
+l'intégration des synonymes LLM, dont le volume sera du même ordre que CepiDc.
+
+Coût moins visible signalé : le fichier étant réécrit intégralement à chaque
+build, chaque régénération ajoute ~53 Mo à l'historique git.
+
+## 13. Le notebook, refondu en support didactique
+
+L'ancienne version était un script linéaire avec de simples cellules de titre —
+elle ne répondait pas à la demande. Refonte :
+
+- **50 cellules markdown pour 34 de code.** Chaque étape et chaque décision de
+  modélisation est expliquée.
+- **Fonctions courtes, nommées, dans des cellules dédiées**, séparées de leurs
+  cellules d'appel : `echantillon(plage, famille, type_note, n, graine)`,
+  `applique_r1`, `applique_r2(df, plafond, graine)`, `calibre(df, plafonds)`,
+  `politique_pour`, `marque_motifs_index`, `confusion`. Toutes paramétrables,
+  avec une invitation explicite à rejouer avec d'autres arguments.
+- **Aucun tableau collé en dur** : tout est reproduit par exécution.
+- **Les trois pièges documentés comme encadrés pédagogiques** (« ⚠ Piège »),
+  avec ce qu'ils ont produit comme résultat faux : drapeau `IGNORECASE` perdu
+  au passage vers polars (0 détection au lieu de 204), catégorie lue dans le
+  `path` sur blocs imbriqués (C00-C75 compté comme une catégorie de 13 978
+  formulations), troncature alphabétique au lieu d'un tirage (médiane 0,50 au
+  lieu de 0,76).
+
+Le `.py` reste la source de vérité (diffable, lintable, exécutable) ; le
+`.ipynb` est régénéré. Pour que cela soit possible, le convertisseur a gagné
+le marqueur **`# %% [markdown]`** (format percent, compatible jupytext) : son
+corps commenté devient une vraie cellule markdown.
+
+Notebook exécuté de bout en bout sur `main` à jour : **0 erreur**, toutes les
+cellules exécutées.
+
+## 14. État git
+
+| Commit | Objet |
+|---|---|
+| `2fef41f` | extra `notebook` + convertisseur paramétrable |
+| `4e1a807` | document de trace, notebook corrigé et exécuté |
+| `9cb2675` | cellules markdown dans le convertisseur, B018 toléré dans `scripts/explore` |
+| `774b5cb` | R1 allégée, R2 = 20, R3, backlog CSV, notebook refondu |
+
+Vérifications finales : **366 tests verts**, `ruff check` propre sur `src/`,
+`tests/` et les deux scripts touchés, `ruff format --check` propre, `mypy`
+propre. Toujours **rien dans `src/`** hormis l'extension de chargement — R1,
+R2 et R3 restent du prototype.
