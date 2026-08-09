@@ -30,6 +30,16 @@ llm = [
     "pyyaml>=6.0",  # doublon volontaire avec la dep principale, pour expliciter l'usage llm
 ]
 
+# Conversion et exécution des notebooks d'exploration
+# (`scripts/explore/_convert_to_ipynb.py`). Le convertisseur était
+# committé sans sa dépendance : il ne pouvait pas tourner.
+# Installation : `uv sync --extra notebook`.
+notebook = [
+    "nbformat>=5.10",
+    "nbconvert>=7.16",
+    "ipykernel>=6.29",
+]
+
 [project.scripts]
 recode-icd = "recode_icd.cli:app"
 
