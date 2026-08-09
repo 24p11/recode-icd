@@ -406,11 +406,25 @@ def merge_external_sources(
             counters["entries_added_to_csv"],
         )
 
+    # Même raison que pour `overlaps_df` : `unmatched` sort d'un anti-join,
+    # dont l'ordre n'est pas garanti. Le CSV final n'en dépend pas
+    # (`flat_csv.build()` retrie), mais ce Parquet est un artefact versionné :
+    # sans tri il produit un diff binaire à chaque build.
     to_add_df = (
-        pl.concat(to_add_parts) if to_add_parts else _empty_to_add()
+        pl.concat(to_add_parts).sort(["code", "source", "libelle_orig", "type"])
+        if to_add_parts
+        else _empty_to_add()
     )
+    # Tri explicite : `matched` sort d'un join polars, dont l'ordre des
+    # lignes n'est pas garanti d'un run à l'autre. Sans ce tri le rapport
+    # est byte-instable à contenu identique (cf convention de
+    # déterminisme du CLAUDE.md).
     overlaps_df = (
-        pl.concat(overlaps_parts) if overlaps_parts else _empty_overlaps()
+        pl.concat(overlaps_parts).sort(
+            ["source_externe", "code", "libelle_externe", "source_ofs_ans"]
+        )
+        if overlaps_parts
+        else _empty_overlaps()
     )
     orphans_df = (
         pl.concat(orphans_parts) if orphans_parts else _empty_orphans()
@@ -604,7 +618,12 @@ def _build_cepidc_ignored_report(orphans: pl.DataFrame) -> pl.DataFrame:
             ),
         )
         .rename({"code": "code_cepidc"})
-        .sort("n_formulations_perdues", descending=True)
+        # `code_cepidc` départage les ex æquo : `group_by` ne garantit pas
+        # l'ordre de sortie, et un tri sur le seul volume laisse les codes
+        # à même volume permuter d'un run à l'autre.
+        .sort(
+            ["n_formulations_perdues", "code_cepidc"], descending=[True, False]
+        )
     )
 
 
