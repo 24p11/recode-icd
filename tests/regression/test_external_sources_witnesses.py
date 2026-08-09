@@ -54,8 +54,7 @@ def test_e84_8_has_orphanet_mucoviscidose(csv_final_df: pl.DataFrame) -> None:
     # Vérifie qu'au moins un texte ORPHANET parle de mucoviscidose.
     texts = orphanet["texte"].str.to_lowercase().to_list()
     assert any("mucoviscidose" in t for t in texts), (
-        f"libellé 'mucoviscidose' attendu parmi les entrées ORPHANET ; "
-        f"obtenu : {texts}"
+        f"libellé 'mucoviscidose' attendu parmi les entrées ORPHANET ; obtenu : {texts}"
     )
 
 
@@ -63,12 +62,8 @@ def test_d59_5_has_orphanet_synonym(csv_final_df: pl.DataFrame) -> None:
     """D59.5 (Hémoglobinurie paroxystique nocturne) doit avoir au
     moins une entrée ORPHANET de type synonyme."""
     sub = csv_final_df.filter(pl.col("code") == "D59.5")
-    orphanet_syn = sub.filter(
-        (pl.col("source") == "ORPHANET") & (pl.col("type") == "synonyme")
-    )
-    assert orphanet_syn.height >= 1, (
-        "D59.5 doit avoir au moins une entrée synonyme ORPHANET"
-    )
+    orphanet_syn = sub.filter((pl.col("source") == "ORPHANET") & (pl.col("type") == "synonyme"))
+    assert orphanet_syn.height >= 1, "D59.5 doit avoir au moins une entrée synonyme ORPHANET"
 
 
 # ----------------------------------------------------------------------
@@ -82,9 +77,7 @@ def test_q87_8_dominated_by_orphanet_inclusions(csv_final_df: pl.DataFrame) -> N
     rare précisé non classé ailleurs y est rangé."""
     sub = csv_final_df.filter(pl.col("code") == "Q87.8")
     assert sub.height > 500, f"Q87.8 attendu >500 entrées, obtenu {sub.height}"
-    orphanet_inc = sub.filter(
-        (pl.col("source") == "ORPHANET") & (pl.col("type") == "inclusion")
-    )
+    orphanet_inc = sub.filter((pl.col("source") == "ORPHANET") & (pl.col("type") == "inclusion"))
     assert orphanet_inc.height > 500, (
         f"Q87.8 doit avoir >500 inclusions ORPHANET ; obtenu {orphanet_inc.height}"
     )
@@ -98,9 +91,7 @@ def test_e74_0_has_orphanet_ntbt_inclusions(csv_final_df: pl.DataFrame) -> None:
     """E74.0 (Thésaurismose glycogénique) doit avoir des inclusions
     ORPHANET (sous-classification des glycogénoses)."""
     sub = csv_final_df.filter(pl.col("code") == "E74.0")
-    orphanet_inc = sub.filter(
-        (pl.col("source") == "ORPHANET") & (pl.col("type") == "inclusion")
-    )
+    orphanet_inc = sub.filter((pl.col("source") == "ORPHANET") & (pl.col("type") == "inclusion"))
     assert orphanet_inc.height >= 50, (
         f"E74.0 attendu >=50 inclusions ORPHANET, obtenu {orphanet_inc.height}"
     )
@@ -124,7 +115,7 @@ def test_a52_7_dominated_by_index_synonyms(csv_final_df: pl.DataFrame) -> None:
     )
     # L'Index doit toujours dominer (majorité des lignes).
     assert index_syn.height / sub.height > 0.5, (
-        f"A52.7 doit être dominé par l'Index ; obtenu {100*index_syn.height/sub.height:.0f} %"
+        f"A52.7 doit être dominé par l'Index ; obtenu {100 * index_syn.height / sub.height:.0f} %"
     )
 
 
@@ -146,9 +137,7 @@ def test_h22_0_has_aphp_ophtalmologie(csv_final_df: pl.DataFrame) -> None:
     (témoin du chargement de la feuille Ophtalmologie HECTOR)."""
     sub = csv_final_df.filter(pl.col("code") == "H22.0")
     aphp = sub.filter(pl.col("source") == "AP-HP Ophtalmologie")
-    assert aphp.height >= 1, (
-        "H22.0 doit avoir au moins une entrée AP-HP Ophtalmologie"
-    )
+    assert aphp.height >= 1, "H22.0 doit avoir au moins une entrée AP-HP Ophtalmologie"
 
 
 def test_n08_5_has_aphp_nephrologie(csv_final_df: pl.DataFrame) -> None:
@@ -156,9 +145,7 @@ def test_n08_5_has_aphp_nephrologie(csv_final_df: pl.DataFrame) -> None:
     (témoin du chargement de la feuille Néphrologie HECTOR)."""
     sub = csv_final_df.filter(pl.col("code") == "N08.5")
     aphp = sub.filter(pl.col("source") == "AP-HP Néphrologie")
-    assert aphp.height >= 1, (
-        "N08.5 doit avoir au moins une entrée AP-HP Néphrologie"
-    )
+    assert aphp.height >= 1, "N08.5 doit avoir au moins une entrée AP-HP Néphrologie"
 
 
 # ----------------------------------------------------------------------
@@ -288,8 +275,7 @@ def test_external_entries_propagate_dagger_flags_from_code(
     is_dagger_in_pair=True.
     """
     a18_external = csv_final_df.filter(
-        (pl.col("code") == "A18.1")
-        & pl.col("source").is_in(list(_EXTERNAL_SOURCES))
+        (pl.col("code") == "A18.1") & pl.col("source").is_in(list(_EXTERNAL_SOURCES))
     )
     assert a18_external.height > 0, (
         "A18.1 doit avoir des entrées externes pour valider la propagation des flags"
@@ -307,9 +293,7 @@ def test_external_entries_propagate_dagger_flags_from_code(
 def test_r51_has_cepidc_synonyms(csv_final_df: pl.DataFrame) -> None:
     """R51 (Céphalée) doit porter plusieurs entrées CepiDc (formulations
     télégraphiques de certificats de décès) — au moins une dizaine."""
-    cepidc = csv_final_df.filter(
-        (pl.col("code") == "R51") & (pl.col("source") == "CepiDc 2015")
-    )
+    cepidc = csv_final_df.filter((pl.col("code") == "R51") & (pl.col("source") == "CepiDc 2015"))
     assert cepidc.height >= 10, (
         f"R51 doit avoir au moins 10 entrées CepiDc ; obtenu {cepidc.height}"
     )
@@ -321,9 +305,7 @@ def test_cepidc_global_volumetry(csv_final_df: pl.DataFrame) -> None:
     """CepiDc doit représenter ~120 000 lignes du CSV (mesuré : ~121 426
     avant absorption inter-externes). On accepte une fourchette ±10 %."""
     cepidc = csv_final_df.filter(pl.col("source") == "CepiDc 2015")
-    assert 100_000 <= cepidc.height <= 135_000, (
-        f"volumétrie CepiDc inattendue : {cepidc.height}"
-    )
+    assert 100_000 <= cepidc.height <= 135_000, f"volumétrie CepiDc inattendue : {cepidc.height}"
 
 
 def test_cepidc_all_synonyme(csv_final_df: pl.DataFrame) -> None:
@@ -360,9 +342,7 @@ def test_external_entries_have_source_level_code(csv_final_df: pl.DataFrame) -> 
     inherited_from_code vide (les sources externes ne propagent pas)."""
     external = csv_final_df.filter(pl.col("source").is_in(list(_EXTERNAL_SOURCES)))
     bad_level = external.filter(pl.col("source_level") != "code")
-    assert bad_level.is_empty(), (
-        f"{bad_level.height} entrées externes avec source_level != code"
-    )
+    assert bad_level.is_empty(), f"{bad_level.height} entrées externes avec source_level != code"
     bad_parent = external.filter(pl.col("inherited_from_code").is_not_null())
     assert bad_parent.is_empty(), (
         f"{bad_parent.height} entrées externes avec inherited_from_code rempli"

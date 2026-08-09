@@ -55,10 +55,7 @@ def compute_csv_stats(df: pl.DataFrame) -> dict[str, Any]:
         .sort(["n", "source"], descending=[True, False])
     )
     by_type = (
-        df.group_by("type")
-        .len()
-        .rename({"len": "n"})
-        .sort(["n", "type"], descending=[True, False])
+        df.group_by("type").len().rename({"len": "n"}).sort(["n", "type"], descending=[True, False])
     )
     by_level = (
         df.group_by("source_level")
@@ -107,10 +104,7 @@ def compute_csv_stats(df: pl.DataFrame) -> dict[str, Any]:
         ["n_notes", "code"], descending=[True, False]
     )
     # Libellé systématique : 1re valeur non-nulle par code dans le CSV.
-    labels = (
-        df.group_by("code")
-        .agg(pl.col("libelle").drop_nulls().first().alias("libelle"))
-    )
+    labels = df.group_by("code").agg(pl.col("libelle").drop_nulls().first().alias("libelle"))
     fat = fat.join(labels, on="code", how="left")
     fat_codes = [
         {"code": r["code"], "libelle": r["libelle"] or "", "n_notes": r["n_notes"]}

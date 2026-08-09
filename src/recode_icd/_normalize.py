@@ -114,9 +114,7 @@ def normalize_column(col_name: str) -> pl.Expr:
 # La regex est volontairement stricte (ASCII `-`, pas d'en-dash U+2013).
 # ~493 lignes ANS avec en-dash (`[F55.–]`, `[T36–T50]`) restent intactes
 # par construction — trade-off assumé pour ne pas matcher du texte non-CIM-10.
-_ANS_BRACKET_CODE_RE = re.compile(
-    r"\[([A-Z]\d{2}(?:\.\d*)?(?:-[A-Z]?\d{2}(?:\.\d*)?)?(?:\.-)?)\]"
-)
+_ANS_BRACKET_CODE_RE = re.compile(r"\[([A-Z]\d{2}(?:\.\d*)?(?:-[A-Z]?\d{2}(?:\.\d*)?)?(?:\.-)?)\]")
 
 
 def normalize_ans_brackets(text: str | None) -> str | None:

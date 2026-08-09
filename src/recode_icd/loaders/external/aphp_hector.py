@@ -67,8 +67,7 @@ def _load_hector_sheet(
         )
 
     df = df.rename(
-        {cols[0]: "libelle", cols[1]: "_sheet_label", cols[2]: "code_raw",
-         cols[3]: "_flag"}
+        {cols[0]: "libelle", cols[1]: "_sheet_label", cols[2]: "code_raw", cols[3]: "_flag"}
     )
 
     # `sheet_label` constant par feuille — on prend la 1re valeur

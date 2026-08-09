@@ -38,9 +38,7 @@ def df() -> pl.DataFrame:
 
 def test_returns_correct_schema(df: pl.DataFrame) -> None:
     assert df.columns == ["code", "libelle", "type", "source", "metadata"]
-    assert df.schema["metadata"] == pl.Struct(
-        {"sheet_name": pl.String, "sheet_label": pl.String}
-    )
+    assert df.schema["metadata"] == pl.Struct({"sheet_name": pl.String, "sheet_label": pl.String})
 
 
 def test_loads_all_9_sheets(df: pl.DataFrame) -> None:
@@ -61,12 +59,8 @@ def test_endocrinologie_label_divergence(df: pl.DataFrame) -> None:
     metadata expose le `sheet_label` réel (`ED1`)."""
     endo = df.filter(pl.col("source") == "APHP_ENDOCRINOLOGIE")
     assert endo.height > 0, "feuille Endocrinologie attendue"
-    labels = (
-        endo.select(pl.col("metadata").struct["sheet_label"]).to_series().unique().to_list()
-    )
-    assert labels == ["ED1"], (
-        f"sheet_label attendu = ED1 (et non END1) ; obtenu = {labels}"
-    )
+    labels = endo.select(pl.col("metadata").struct["sheet_label"]).to_series().unique().to_list()
+    assert labels == ["ED1"], f"sheet_label attendu = ED1 (et non END1) ; obtenu = {labels}"
 
 
 def test_volumetry_within_range(df: pl.DataFrame) -> None:

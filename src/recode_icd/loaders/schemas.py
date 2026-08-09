@@ -83,9 +83,7 @@ class EnrichedDaggerAsteriskSchema(pa.DataFrameModel):
     asterisk_label: str = pa.Field(nullable=True)
     combination_labels: list[str] = pa.Field()
     levels_present: list[str] = pa.Field()
-    redundancy_level: str = pa.Field(
-        isin=["none", "independent", "subordinate"]
-    )
+    redundancy_level: str = pa.Field(isin=["none", "independent", "subordinate"])
     source_lids: list[int] = pa.Field()
 
     class Config:

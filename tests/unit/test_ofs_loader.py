@@ -158,9 +158,7 @@ def test_to_parquet_writes_metadata(tmp_path: Path) -> None:
     assert pairs_path.exists()
 
     table = pq.read_table(codes_path)
-    metadata = {
-        k.decode(): v.decode() for k, v in (table.schema.metadata or {}).items()
-    }
+    metadata = {k.decode(): v.decode() for k, v in (table.schema.metadata or {}).items()}
     assert metadata["terminology"] == "cim10_ofs_2006"
     assert metadata["version"] == "V0001"
     assert metadata["source_dir"] == str(FIXTURE)

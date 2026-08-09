@@ -110,9 +110,7 @@ def test_inspection_mode_with_prefix(
 # --------------------------------------------------------------------------- #
 # Mode 2 — génération du workbook
 # --------------------------------------------------------------------------- #
-def test_generate_workbook_creates_correct_structure(
-    mod: ModuleType, tmp_path: Path
-) -> None:
+def test_generate_workbook_creates_correct_structure(mod: ModuleType, tmp_path: Path) -> None:
     table_path = _write_table(tmp_path)
     workbook_path = tmp_path / "wb.yaml"
     yaml_path = tmp_path / "curated.yaml"
@@ -171,9 +169,7 @@ def test_generate_workbook_refuses_to_overwrite(
     assert "existe déjà" in err
 
 
-def test_generate_workbook_filters_already_curated(
-    mod: ModuleType, tmp_path: Path
-) -> None:
+def test_generate_workbook_filters_already_curated(mod: ModuleType, tmp_path: Path) -> None:
     """`--uncurated-only` doit exclure les paires déjà dans le YAML cible."""
     table_path = _write_table(tmp_path)
     yaml_path = tmp_path / "curated.yaml"
@@ -209,9 +205,7 @@ def test_generate_workbook_filters_already_curated(
 # --------------------------------------------------------------------------- #
 # Mode 3 — merge
 # --------------------------------------------------------------------------- #
-def test_merge_workbook_appends_new_pairs(
-    mod: ModuleType, tmp_path: Path
-) -> None:
+def test_merge_workbook_appends_new_pairs(mod: ModuleType, tmp_path: Path) -> None:
     yaml_path = tmp_path / "curated.yaml"  # absent → créé
     workbook_path = tmp_path / "wb.yaml"
     workbook_path.write_text(
@@ -265,10 +259,7 @@ def test_merge_workbook_detects_conflict(
     original_text = yaml_path.read_text(encoding="utf-8")
     workbook_path = tmp_path / "wb.yaml"
     workbook_path.write_text(
-        "pairs:\n"
-        "  - dagger: A17.8\n"
-        "    asterisk: G05.0\n"
-        "    redundancy_level: independent\n",
+        "pairs:\n  - dagger: A17.8\n    asterisk: G05.0\n    redundancy_level: independent\n",
         encoding="utf-8",
     )
     rc = mod.main(
@@ -342,9 +333,7 @@ def test_merge_workbook_validates_redundancy_level(mod: ModuleType) -> None:
 # --------------------------------------------------------------------------- #
 # Sanity helpers
 # --------------------------------------------------------------------------- #
-def test_save_curated_yaml_is_human_readable(
-    mod: ModuleType, tmp_path: Path
-) -> None:
+def test_save_curated_yaml_is_human_readable(mod: ModuleType, tmp_path: Path) -> None:
     """save_curated_yaml produit un YAML trié + commenté + round-trippable."""
     yaml_path = tmp_path / "out.yaml"
     data = {

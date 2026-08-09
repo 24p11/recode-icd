@@ -73,9 +73,7 @@ def _curation_row(dagger: str, asterisk: str) -> dict[str, str] | None:
         return None
     sep = ";" if csv.read_text(encoding="utf-8").splitlines()[0].count(";") > 0 else ","
     df = pl.read_csv(csv, infer_schema_length=0, separator=sep)
-    row = df.filter(
-        (pl.col("dagger_code") == dagger) & (pl.col("asterisk_code") == asterisk)
-    )
+    row = df.filter((pl.col("dagger_code") == dagger) & (pl.col("asterisk_code") == asterisk))
     return row.row(0, named=True) if row.height else None
 
 
@@ -84,9 +82,7 @@ def test_a18_1_n33_0_pair_present() -> None:
     cas canonique cité dans docs/source_mapping.md. `redundancy_level`
     doit refléter la curation manuelle (si CSV présent), sinon le défaut."""
     table = _enriched_table()
-    row = table.filter(
-        (pl.col("dagger_code") == "A18.1") & (pl.col("asterisk_code") == "N33.0")
-    )
+    row = table.filter((pl.col("dagger_code") == "A18.1") & (pl.col("asterisk_code") == "N33.0"))
     assert len(row) == 1, "paire A18.1/N33.0 attendue exactement une fois"
     r = row.row(0, named=True)
     assert "U" in r["levels_present"]
@@ -104,9 +100,7 @@ def test_a17_8_g05_0_pair_is_subordinate_when_curated() -> None:
     pressenti subordinate. Si le CSV de curation est présent et marque
     cette paire `subordinate`, la table doit le refléter."""
     table = _enriched_table()
-    row = table.filter(
-        (pl.col("dagger_code") == "A17.8") & (pl.col("asterisk_code") == "G05.0")
-    )
+    row = table.filter((pl.col("dagger_code") == "A17.8") & (pl.col("asterisk_code") == "G05.0"))
     assert len(row) == 1
     r = row.row(0, named=True)
     assert len(r["levels_present"]) >= 1
@@ -121,9 +115,7 @@ def test_e10_2_n08_3_pair_independent() -> None:
     """E10.2+ Diabète type 1 avec complications rénales / N08.3* Glomérulopathie
     au cours du diabète — independent évident, ne doit pas être curé subordinate."""
     table = _enriched_table()
-    row = table.filter(
-        (pl.col("dagger_code") == "E10.2") & (pl.col("asterisk_code") == "N08.3")
-    )
+    row = table.filter((pl.col("dagger_code") == "E10.2") & (pl.col("asterisk_code") == "N08.3"))
     assert len(row) == 1
     r = row.row(0, named=True)
     assert r["redundancy_level"] == "independent"
@@ -159,9 +151,5 @@ def test_aucun_doublon_dagger_asterisk() -> None:
     table = _enriched_table().filter(
         pl.col("dagger_code").is_not_null() & pl.col("asterisk_code").is_not_null()
     )
-    duplicates = table.group_by(["dagger_code", "asterisk_code"]).len().filter(
-        pl.col("len") > 1
-    )
-    assert duplicates.is_empty(), (
-        f"paires en doublon détectées : {duplicates}"
-    )
+    duplicates = table.group_by(["dagger_code", "asterisk_code"]).len().filter(pl.col("len") > 1)
+    assert duplicates.is_empty(), f"paires en doublon détectées : {duplicates}"

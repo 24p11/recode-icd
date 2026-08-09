@@ -30,9 +30,7 @@ def df() -> pl.DataFrame:
 def test_returns_correct_schema(df: pl.DataFrame) -> None:
     assert df.columns == ["code", "libelle", "type", "source", "metadata"]
     # metadata est un pl.Struct
-    assert df.schema["metadata"] == pl.Struct(
-        {"orpha_code": pl.String, "relation": pl.String}
-    )
+    assert df.schema["metadata"] == pl.Struct({"orpha_code": pl.String, "relation": pl.String})
 
 
 def test_all_sources_are_orphanet(df: pl.DataFrame) -> None:
@@ -42,9 +40,7 @@ def test_all_sources_are_orphanet(df: pl.DataFrame) -> None:
 def test_filters_only_E_and_NTBT(df: pl.DataFrame) -> None:
     """BTNT (Disorder 3) et code non parseable (Disorder 5) sont
     filtrés. Seuls Disorder 1, 2, 4 produisent des lignes."""
-    relations_seen = (
-        df.select(pl.col("metadata").struct["relation"]).to_series().unique().to_list()
-    )
+    relations_seen = df.select(pl.col("metadata").struct["relation"]).to_series().unique().to_list()
     assert set(relations_seen) == {"E", "NTBT"}
 
 
@@ -94,9 +90,9 @@ def test_synonyms_explode_into_separate_rows(df: pl.DataFrame) -> None:
 
 def test_metadata_carries_orpha_code(df: pl.DataFrame) -> None:
     subset = df.filter(pl.col("code") == "D59.5")
-    orpha_codes = subset.select(
-        pl.col("metadata").struct["orpha_code"]
-    ).to_series().unique().to_list()
+    orpha_codes = (
+        subset.select(pl.col("metadata").struct["orpha_code"]).to_series().unique().to_list()
+    )
     assert orpha_codes == ["447"]
 
 

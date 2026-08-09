@@ -30,23 +30,51 @@ def merged_df() -> pl.DataFrame:
     """`merged_codes.parquet`-like avec colonnes minimales utilisées
     par flat_csv et merge_external."""
     rows = [
-        {"code": "A00.0", "label": "Choléra dû à Vibrio cholerae, biovar cholerae",
-         "type": "category", "left": 1, "right": 2},
-        {"code": "A01.0", "label": "Fièvre typhoïde",
-         "type": "category", "left": 3, "right": 4},
-        {"code": "A18.1", "label": "Tuberculose génito-urinaire",
-         "type": "category", "left": 5, "right": 6},
-        {"code": "N33.0", "label": "Cystite tuberculeuse",
-         "type": "category", "left": 7, "right": 8},
-        {"code": "C50.8", "label": "Lésion à localisations contiguës du sein",
-         "type": "category", "left": 9, "right": 10},
-        {"code": "D59.5", "label": "Hémoglobinurie paroxystique nocturne",
-         "type": "category", "left": 11, "right": 12},
+        {
+            "code": "A00.0",
+            "label": "Choléra dû à Vibrio cholerae, biovar cholerae",
+            "type": "category",
+            "left": 1,
+            "right": 2,
+        },
+        {"code": "A01.0", "label": "Fièvre typhoïde", "type": "category", "left": 3, "right": 4},
+        {
+            "code": "A18.1",
+            "label": "Tuberculose génito-urinaire",
+            "type": "category",
+            "left": 5,
+            "right": 6,
+        },
+        {
+            "code": "N33.0",
+            "label": "Cystite tuberculeuse",
+            "type": "category",
+            "left": 7,
+            "right": 8,
+        },
+        {
+            "code": "C50.8",
+            "label": "Lésion à localisations contiguës du sein",
+            "type": "category",
+            "left": 9,
+            "right": 10,
+        },
+        {
+            "code": "D59.5",
+            "label": "Hémoglobinurie paroxystique nocturne",
+            "type": "category",
+            "left": 11,
+            "right": 12,
+        },
         # U07.1 non-leaf (right-left=3 → 1 enfant)
-        {"code": "U07.1", "label": "COVID-19",
-         "type": "category", "left": 13, "right": 16},
-        {"code": "U07.10", "label": "COVID-19, forme respiratoire, virus identifié",
-         "type": "category", "left": 14, "right": 15},
+        {"code": "U07.1", "label": "COVID-19", "type": "category", "left": 13, "right": 16},
+        {
+            "code": "U07.10",
+            "label": "COVID-19, forme respiratoire, virus identifié",
+            "type": "category",
+            "left": 14,
+            "right": 15,
+        },
     ]
     return pl.DataFrame(rows)
 
@@ -58,17 +86,29 @@ def propagated_df() -> pl.DataFrame:
     rows = [
         # A00.0 : 1 inclusion OFS "Choléra classique" pour tester l'absorption
         # par INDEX_CIM10 ou ORPHANET d'un libellé identique normalisé.
-        {"code": "A00.0", "code_label": "Choléra dû à Vibrio cholerae",
-         "code_type": "category", "note_type": "inclusion",
-         "texte": "Choléra classique", "source": "OFS",
-         "inherited_from": None, "inherited_from_label": None,
-         "inherited_from_type": None},
+        {
+            "code": "A00.0",
+            "code_label": "Choléra dû à Vibrio cholerae",
+            "code_type": "category",
+            "note_type": "inclusion",
+            "texte": "Choléra classique",
+            "source": "OFS",
+            "inherited_from": None,
+            "inherited_from_label": None,
+            "inherited_from_type": None,
+        },
         # A01.0 : 1 exclusion OWL_ANS
-        {"code": "A01.0", "code_label": "Fièvre typhoïde",
-         "code_type": "category", "note_type": "exclusion",
-         "texte": "Porteur de la typhoïde", "source": "OWL_ANS",
-         "inherited_from": None, "inherited_from_label": None,
-         "inherited_from_type": None},
+        {
+            "code": "A01.0",
+            "code_label": "Fièvre typhoïde",
+            "code_type": "category",
+            "note_type": "exclusion",
+            "texte": "Porteur de la typhoïde",
+            "source": "OWL_ANS",
+            "inherited_from": None,
+            "inherited_from_label": None,
+            "inherited_from_type": None,
+        },
     ]
     return pl.DataFrame(rows)
 
@@ -156,10 +196,7 @@ def _make_external(rows: list[dict]) -> pl.DataFrame:
     """Crée un DataFrame au schéma `ExternalSourceSchema`. Les sous-
     champs metadata sont vides pour les tests (non utilisés en Phase 2)."""
     return pl.DataFrame(
-        [
-            {**r, "metadata": {"orpha_code": "", "relation": ""}}
-            for r in rows
-        ],
+        [{**r, "metadata": {"orpha_code": "", "relation": ""}} for r in rows],
         schema={
             "code": pl.String,
             "libelle": pl.String,
@@ -177,26 +214,50 @@ def orphanet_df() -> pl.DataFrame:
     return _make_external(
         [
             # E : D59.5 / HPN — sera ajouté au CSV.
-            {"code": "D59.5", "libelle": "Hémoglobinurie paroxystique nocturne",
-             "type": "synonyme", "source": "ORPHANET"},
+            {
+                "code": "D59.5",
+                "libelle": "Hémoglobinurie paroxystique nocturne",
+                "type": "synonyme",
+                "source": "ORPHANET",
+            },
             {"code": "D59.5", "libelle": "HPN", "type": "synonyme", "source": "ORPHANET"},
             # NTBT : A01.0 / "Salmonella typhi" — sera ajouté comme inclusion.
-            {"code": "A01.0", "libelle": "Infection à Salmonella typhi",
-             "type": "inclusion", "source": "ORPHANET"},
+            {
+                "code": "A01.0",
+                "libelle": "Infection à Salmonella typhi",
+                "type": "inclusion",
+                "source": "ORPHANET",
+            },
             # Match exact d'une inclusion OFS → doit être absorbé.
-            {"code": "A00.0", "libelle": "Choléra classique",
-             "type": "inclusion", "source": "ORPHANET"},
+            {
+                "code": "A00.0",
+                "libelle": "Choléra classique",
+                "type": "inclusion",
+                "source": "ORPHANET",
+            },
             # Code orphan absent partout → catégorie `truly_absent`
-            {"code": "X99.9", "libelle": "Maladie inconnue",
-             "type": "synonyme", "source": "ORPHANET"},
+            {
+                "code": "X99.9",
+                "libelle": "Maladie inconnue",
+                "type": "synonyme",
+                "source": "ORPHANET",
+            },
             # Code orphan présent en OFS mais pas dans merged →
             # catégorie `pre_2006_dropped_by_atih` (cas dominant en
             # pratique).
-            {"code": "A90", "libelle": "Dengue classique",
-             "type": "synonyme", "source": "ORPHANET"},
+            {
+                "code": "A90",
+                "libelle": "Dengue classique",
+                "type": "synonyme",
+                "source": "ORPHANET",
+            },
             # Code non-terminal (U07.1) — silencieusement perdu, compté dans summary
-            {"code": "U07.1", "libelle": "SARS-CoV-2 disease",
-             "type": "synonyme", "source": "ORPHANET"},
+            {
+                "code": "U07.1",
+                "libelle": "SARS-CoV-2 disease",
+                "type": "synonyme",
+                "source": "ORPHANET",
+            },
         ]
     )
 
@@ -207,17 +268,24 @@ def index_cim10_df() -> pl.DataFrame:
     return _make_external(
         [
             # Nouveau libellé pour A00.0.
-            {"code": "A00.0", "libelle": "Choléra (asiatique)",
-             "type": "synonyme", "source": "INDEX_CIM10_VOL3"},
+            {
+                "code": "A00.0",
+                "libelle": "Choléra (asiatique)",
+                "type": "synonyme",
+                "source": "INDEX_CIM10_VOL3",
+            },
             # Match exact d'un synonyme ANS existant pour A00.0
             # ("Asiatic cholera" est dans owl.synonymes).
             # Normalisation tolérante : "Asiatic cholera" ≈ "asiatic cholera"
-            {"code": "A00.0", "libelle": "asiatic cholera",
-             "type": "synonyme", "source": "INDEX_CIM10_VOL3"},
+            {
+                "code": "A00.0",
+                "libelle": "asiatic cholera",
+                "type": "synonyme",
+                "source": "INDEX_CIM10_VOL3",
+            },
             # Match inter-externes : "HPN" est déjà ajouté par ORPHANET.
             # Doit être absorbé.
-            {"code": "D59.5", "libelle": "HPN",
-             "type": "synonyme", "source": "INDEX_CIM10_VOL3"},
+            {"code": "D59.5", "libelle": "HPN", "type": "synonyme", "source": "INDEX_CIM10_VOL3"},
         ]
     )
 
@@ -228,11 +296,14 @@ def aphp_df() -> pl.DataFrame:
     (ORPHANET wins over AP-HP)."""
     return _make_external(
         [
-            {"code": "C50.8", "libelle": "Tumeur du sein, sites multiples",
-             "type": "synonyme", "source": "APHP_DERMATOLOGIE"},
+            {
+                "code": "C50.8",
+                "libelle": "Tumeur du sein, sites multiples",
+                "type": "synonyme",
+                "source": "APHP_DERMATOLOGIE",
+            },
             # Doit être absorbé : ORPHANET a déjà inséré "HPN" pour D59.5.
-            {"code": "D59.5", "libelle": "HPN",
-             "type": "synonyme", "source": "APHP_DERMATOLOGIE"},
+            {"code": "D59.5", "libelle": "HPN", "type": "synonyme", "source": "APHP_DERMATOLOGIE"},
         ]
     )
 
@@ -244,22 +315,32 @@ def cepidc_df() -> pl.DataFrame:
     return _make_external(
         [
             # Nouveau libellé pour A18.1 → ajouté au CSV.
-            {"code": "A18.1", "libelle": "tuberculose rénale",
-             "type": "synonyme", "source": "CEPIDC_2015"},
+            {
+                "code": "A18.1",
+                "libelle": "tuberculose rénale",
+                "type": "synonyme",
+                "source": "CEPIDC_2015",
+            },
             # Nouveau libellé pour A01.0 → ajouté au CSV.
-            {"code": "A01.0", "libelle": "fièvre typhoïde aiguë",
-             "type": "synonyme", "source": "CEPIDC_2015"},
+            {
+                "code": "A01.0",
+                "libelle": "fièvre typhoïde aiguë",
+                "type": "synonyme",
+                "source": "CEPIDC_2015",
+            },
             # Match inter-externes : "HPN" est déjà ajouté par ORPHANET,
             # doit être absorbé (CEPIDC_2015 placé en dernier dans
             # _EXTERNAL_ORDER, perd les conflits).
-            {"code": "D59.5", "libelle": "HPN",
-             "type": "synonyme", "source": "CEPIDC_2015"},
+            {"code": "D59.5", "libelle": "HPN", "type": "synonyme", "source": "CEPIDC_2015"},
             # Code orphan (absent de merged_df) → loggué dans
             # cepidc_ignored.csv via _build_cepidc_ignored_report.
-            {"code": "A90", "libelle": "dengue",
-             "type": "synonyme", "source": "CEPIDC_2015"},
-            {"code": "A90", "libelle": "dengue hémorragique",
-             "type": "synonyme", "source": "CEPIDC_2015"},
+            {"code": "A90", "libelle": "dengue", "type": "synonyme", "source": "CEPIDC_2015"},
+            {
+                "code": "A90",
+                "libelle": "dengue hémorragique",
+                "type": "synonyme",
+                "source": "CEPIDC_2015",
+            },
         ]
     )
 

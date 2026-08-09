@@ -81,12 +81,8 @@ def _leaf_codes(merged: pl.DataFrame) -> pl.DataFrame:
     ).select(pl.col("code"), pl.col("label").alias("libelle"))
 
 
-def _build_inclusions_exclusions(
-    propagated: pl.DataFrame, siblings: pl.DataFrame
-) -> pl.DataFrame:
-    prop = propagated.filter(
-        pl.col("note_type").is_in(["inclusion", "exclusion"])
-    ).select(
+def _build_inclusions_exclusions(propagated: pl.DataFrame, siblings: pl.DataFrame) -> pl.DataFrame:
+    prop = propagated.filter(pl.col("note_type").is_in(["inclusion", "exclusion"])).select(
         pl.col("code"),
         pl.col("note_type").alias("type"),
         pl.col("source"),
@@ -208,26 +204,15 @@ def _filter_redundant_dagger_synonyms(
         .with_columns(normalize_column("libelle").alias("_norm"))
         .select(pl.col("dagger_code"), pl.col("_norm"))
     )
-    forbidden = (
-        pl.concat([aster_syn, aster_label])
-        .filter(pl.col("_norm").is_not_null())
-        .unique()
-    )
+    forbidden = pl.concat([aster_syn, aster_label]).filter(pl.col("_norm").is_not_null()).unique()
 
-    annotated = synonymes.with_columns(
-        normalize_column("texte").alias("_norm")
-    ).join(
-        forbidden.rename({"dagger_code": "code"}).with_columns(
-            pl.lit(True).alias("_redundant")
-        ),
+    annotated = synonymes.with_columns(normalize_column("texte").alias("_norm")).join(
+        forbidden.rename({"dagger_code": "code"}).with_columns(pl.lit(True).alias("_redundant")),
         on=["code", "_norm"],
         how="left",
     )
     n_filtered = annotated.filter(pl.col("_redundant")).height
-    kept = (
-        annotated.filter(pl.col("_redundant").is_null())
-        .drop("_norm", "_redundant")
-    )
+    kept = annotated.filter(pl.col("_redundant").is_null()).drop("_norm", "_redundant")
     return kept, n_filtered
 
 
@@ -250,12 +235,8 @@ def _compute_dagger_flags(
     Returns:
         `(dagger_codes, asterisk_codes)` : deux sets de codes.
     """
-    dagger_codes = set(
-        dagger_asterisk["dagger_code"].drop_nulls().to_list()
-    )
-    asterisk_codes = set(
-        dagger_asterisk["asterisk_code"].drop_nulls().to_list()
-    )
+    dagger_codes = set(dagger_asterisk["dagger_code"].drop_nulls().to_list())
+    asterisk_codes = set(dagger_asterisk["asterisk_code"].drop_nulls().to_list())
     return dagger_codes, asterisk_codes
 
 
@@ -311,11 +292,10 @@ def build(
     # retypées arrivent via `propagated_notes`, indépendamment).
     # Cf docs/sessions/2026-06-06_localisations_chap13_ofs.md.
     from recode_icd.merge import retype_chap13_altlabels
+
     owl_filtered, _ = retype_chap13_altlabels(owl, ofs)
     syn = _build_synonymes(owl_filtered, ofs)
-    syn_filtered, n_syn_filtered = _filter_redundant_dagger_synonyms(
-        syn, dagger_asterisk, leaves
-    )
+    syn_filtered, n_syn_filtered = _filter_redundant_dagger_synonyms(syn, dagger_asterisk, leaves)
     parts = [inex, syn_filtered]
     if external is not None and not external.is_empty():
         ext_long = external.select(
@@ -343,8 +323,13 @@ def build(
         .sort("_level_order")
         .unique(subset=["code", "type", "source", "texte"], keep="first")
         .select(
-            "code", "libelle", "type", "source", "texte",
-            "source_level", "inherited_from_code",
+            "code",
+            "libelle",
+            "type",
+            "source",
+            "texte",
+            "source_level",
+            "inherited_from_code",
         )
     )
 
@@ -400,9 +385,7 @@ def to_csv(
         else None
     )
 
-    csv_df, stats = build(
-        merged, propagated, siblings, owl, ofs, dag_aster, external=external
-    )
+    csv_df, stats = build(merged, propagated, siblings, owl, ofs, dag_aster, external=external)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     csv_df.write_csv(output_path)

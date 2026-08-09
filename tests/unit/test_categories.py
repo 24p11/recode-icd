@@ -168,8 +168,7 @@ def test_build_category_card_formulations_plafonnees(
     formul = card[formul_start:]
     n_puces = formul.count("\n- ")
     assert n_puces <= CATEGORY_FORMULATIONS_MAX, (
-        f"A18 formulations : {n_puces} entrées, "
-        f"doit être <= {CATEGORY_FORMULATIONS_MAX}"
+        f"A18 formulations : {n_puces} entrées, doit être <= {CATEGORY_FORMULATIONS_MAX}"
     )
 
 
@@ -178,12 +177,13 @@ def test_build_category_card_formulations_plafonnees(
 # ----------------------------------------------------------------------
 
 
-def test_build_categories_library_with_limit(
-    ctx: ExplorationContext, tmp_path
-) -> None:  # type: ignore[no-untyped-def]
+def test_build_categories_library_with_limit(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
     """Limit=5 produit 5 fiches + _index.csv."""
     summary = build_categories_library(
-        ctx=ctx, output_dir=tmp_path / "cat", limit=5, progress=False,
+        ctx=ctx,
+        output_dir=tmp_path / "cat",
+        limit=5,
+        progress=False,
     )
     assert isinstance(summary, BuildSummary)
     assert summary.n_codes_total == 5
@@ -194,17 +194,21 @@ def test_build_categories_library_with_limit(
 
     index = pl.read_csv(summary.index_path)
     expected = {
-        "code", "chapter", "filepath", "libelle", "n_enfants",
-        "has_perimetre", "has_exclusions", "has_formulations",
+        "code",
+        "chapter",
+        "filepath",
+        "libelle",
+        "n_enfants",
+        "has_perimetre",
+        "has_exclusions",
+        "has_formulations",
         "nb_chars",
     }
     assert set(index.columns) == expected
     assert index.height == 5
 
 
-def test_build_categories_library_chapter_filter(
-    ctx: ExplorationContext, tmp_path
-) -> None:  # type: ignore[no-untyped-def]
+def test_build_categories_library_chapter_filter(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
     """Filtre par chapitre XXII (~12 catégories de codes U)."""
     summary = build_categories_library(
         ctx=ctx,

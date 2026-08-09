@@ -76,9 +76,7 @@ def _build_inherited_rows(merged: pl.DataFrame) -> pl.DataFrame:
     ancestors = (
         merged.with_columns(pl.col("path").str.split("/").alias("_parts"))
         .with_columns(
-            pl.col("_parts")
-            .list.slice(0, pl.col("_parts").list.len() - 1)
-            .alias("ancestors")
+            pl.col("_parts").list.slice(0, pl.col("_parts").list.len() - 1).alias("ancestors")
         )
         .filter(pl.col("ancestors").list.len() > 0)
         .select(
@@ -94,31 +92,22 @@ def _build_inherited_rows(merged: pl.DataFrame) -> pl.DataFrame:
     parts: list[pl.DataFrame] = []
     for col, (note_type, per_source_col) in _NOTE_COLUMNS.items():
         if per_source_col:
-            anc_notes = (
-                merged.select(
-                    pl.col("code").alias("ancestor_code"),
-                    pl.col("label").alias("inherited_from_label"),
-                    pl.col("type").alias("inherited_from_type"),
-                    pl.col(col).alias("texte"),
-                    pl.col(per_source_col).alias("source"),
-                )
-                .filter(pl.col("texte").list.len() > 0)
-            )
+            anc_notes = merged.select(
+                pl.col("code").alias("ancestor_code"),
+                pl.col("label").alias("inherited_from_label"),
+                pl.col("type").alias("inherited_from_type"),
+                pl.col(col).alias("texte"),
+                pl.col(per_source_col).alias("source"),
+            ).filter(pl.col("texte").list.len() > 0)
 
-            joined = (
-                ancestors.join(anc_notes, on="ancestor_code")
-                .explode(["texte", "source"])
-            )
+            joined = ancestors.join(anc_notes, on="ancestor_code").explode(["texte", "source"])
         else:
-            anc_notes = (
-                merged.select(
-                    pl.col("code").alias("ancestor_code"),
-                    pl.col("label").alias("inherited_from_label"),
-                    pl.col("type").alias("inherited_from_type"),
-                    pl.col(col).alias("texte"),
-                )
-                .filter(pl.col("texte").list.len() > 0)
-            )
+            anc_notes = merged.select(
+                pl.col("code").alias("ancestor_code"),
+                pl.col("label").alias("inherited_from_label"),
+                pl.col("type").alias("inherited_from_type"),
+                pl.col(col).alias("texte"),
+            ).filter(pl.col("texte").list.len() > 0)
 
             joined = (
                 ancestors.join(anc_notes, on="ancestor_code")

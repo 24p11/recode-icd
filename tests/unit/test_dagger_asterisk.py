@@ -161,9 +161,7 @@ def test_non_pointe_daget_S_assoc_zero() -> None:
 def test_non_pointe_daget_F_assoc_zero() -> None:
     """daget='F' avec assoc=0 → côté dague NULL."""
     master = _master([{"SID": 6250, "code": "N33.0"}])
-    libelle = _libelle(
-        [{"LID": 2, "SID": 6250, "source": "S", "libelle": "Cystite tuberculeuse"}]
-    )
+    libelle = _libelle([{"LID": 2, "SID": 6250, "source": "S", "libelle": "Cystite tuberculeuse"}])
     dagstar = _dagstar([{"SID": 6250, "LID": 2, "assoc": 0, "daget": "F"}])
 
     out = dagger_asterisk.build_dagger_asterisk_table(master, dagstar, libelle)
@@ -245,9 +243,7 @@ def test_paires_multiples_independantes_recoivent_ids_distincts() -> None:
 
 
 def test_schema_validates() -> None:
-    master = _master(
-        [{"SID": 100, "code": "A18.1"}, {"SID": 6250, "code": "N33.0"}]
-    )
+    master = _master([{"SID": 100, "code": "A18.1"}, {"SID": 6250, "code": "N33.0"}])
     libelle = _libelle(
         [
             {"LID": 1, "SID": 100, "source": "S", "libelle": "x"},
@@ -294,9 +290,7 @@ def test_deterministe() -> None:
 
 def test_libelle_invalid_ignore() -> None:
     """Les lignes LIBELLE valid=0 sont ignorées pour combination_labels."""
-    master = _master(
-        [{"SID": 100, "code": "A18.1"}, {"SID": 6250, "code": "N33.0"}]
-    )
+    master = _master([{"SID": 100, "code": "A18.1"}, {"SID": 6250, "code": "N33.0"}])
     libelle = _libelle(
         [
             {"LID": 1, "SID": 100, "source": "S", "libelle": "Tub."},
@@ -317,16 +311,12 @@ def test_libelle_invalid_ignore() -> None:
 def test_to_parquet_and_csv_and_report_writes_three_files(tmp_path: Path) -> None:
     """Vérifie l'écriture des trois artefacts via le wrapper fichier."""
     # On reconstruit un mini-dossier OFS avec les trois fichiers nécessaires.
-    src_fixture = (
-        Path(__file__).resolve().parents[1] / "fixtures" / "ofs_sample"
-    )
+    src_fixture = Path(__file__).resolve().parents[1] / "fixtures" / "ofs_sample"
     processed = tmp_path / "processed"
     report = tmp_path / "reports" / "dagger_asterisk_summary.csv"
 
-    parquet_path, csv_path, report_path = (
-        dagger_asterisk.to_parquet_and_csv_and_report(
-            src_fixture, processed, report
-        )
+    parquet_path, csv_path, report_path = dagger_asterisk.to_parquet_and_csv_and_report(
+        src_fixture, processed, report
     )
 
     assert parquet_path.exists()

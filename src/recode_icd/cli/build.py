@@ -114,9 +114,7 @@ def build_merged(
     ] = Path("reports"),
 ) -> None:
     """Fusionner owl_codes + ofs_codes selon la politique CLAUDE.md."""
-    paths = merge.to_parquet_and_reports(
-        owl_path, ofs_path, output_dir, reports_dir
-    )
+    paths = merge.to_parquet_and_reports(owl_path, ofs_path, output_dir, reports_dir)
     for p in paths.values():
         typer.echo(f"Écrit : {p}")
 

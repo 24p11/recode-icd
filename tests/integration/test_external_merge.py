@@ -51,7 +51,8 @@ def test_orphanet_E_relations_in_final_csv(
     """ORPHANET relation E (D59.5 / HPN) doit aboutir comme synonyme."""
     to_add, _, _, _ = merge_result
     hpn = to_add.filter(
-        (pl.col("code") == "D59.5") & (pl.col("source") == "ORPHANET")
+        (pl.col("code") == "D59.5")
+        & (pl.col("source") == "ORPHANET")
         & (pl.col("libelle_orig") == "HPN")
     )
     assert hpn.height == 1
@@ -81,8 +82,7 @@ def test_absorbed_when_match_ofs(
         (pl.col("code") == "A00.0") & (pl.col("libelle_orig") == "Choléra classique")
     ).is_empty()
     ov = overlaps.filter(
-        (pl.col("code") == "A00.0")
-        & (pl.col("libelle_externe") == "Choléra classique")
+        (pl.col("code") == "A00.0") & (pl.col("libelle_externe") == "Choléra classique")
     )
     assert ov.height == 1
     row = ov.row(0, named=True)
@@ -112,16 +112,13 @@ def test_absorbed_inter_externes_orphanet_wins_over_aphp(
     AP-HP doit être absorbé avec source_ofs_ans=ORPHANET dans l'overlap."""
     to_add, overlaps, _, _ = merge_result
     # On a 1 entrée "HPN" (celle d'ORPHANET), pas 2.
-    hpn = to_add.filter(
-        (pl.col("code") == "D59.5") & (pl.col("libelle_orig") == "HPN")
-    )
+    hpn = to_add.filter((pl.col("code") == "D59.5") & (pl.col("libelle_orig") == "HPN"))
     assert hpn.height == 1
     assert hpn.row(0, named=True)["source"] == "ORPHANET"
 
     # AP-HP "HPN" est dans overlaps avec source_ofs_ans=ORPHANET.
     aphp_ov = overlaps.filter(
-        (pl.col("source_externe") == "APHP_DERMATOLOGIE")
-        & (pl.col("libelle_externe") == "HPN")
+        (pl.col("source_externe") == "APHP_DERMATOLOGIE") & (pl.col("libelle_externe") == "HPN")
     )
     assert aphp_ov.height == 1
     assert aphp_ov.row(0, named=True)["source_ofs_ans"] == "ORPHANET"
@@ -133,8 +130,7 @@ def test_absorbed_inter_externes_orphanet_wins_over_index(
     """Idem mais Index CIM-10 propose HPN après ORPHANET — Index absorbé."""
     _, overlaps, _, _ = merge_result
     idx_ov = overlaps.filter(
-        (pl.col("source_externe") == "INDEX_CIM10_VOL3")
-        & (pl.col("libelle_externe") == "HPN")
+        (pl.col("source_externe") == "INDEX_CIM10_VOL3") & (pl.col("libelle_externe") == "HPN")
     )
     assert idx_ov.height == 1
     assert idx_ov.row(0, named=True)["source_ofs_ans"] == "ORPHANET"
@@ -162,9 +158,7 @@ def test_pre_2006_dropped_by_atih_logged_not_added(
     assert to_add.filter(pl.col("code") == "A90").is_empty()
     orph = orphans.filter(pl.col("code") == "A90")
     assert orph.height >= 1
-    assert set(orph["categorie_orphan"].unique().to_list()) == {
-        "pre_2006_dropped_by_atih"
-    }
+    assert set(orph["categorie_orphan"].unique().to_list()) == {"pre_2006_dropped_by_atih"}
 
 
 def test_loader_dropped_detected_when_rdf_codes_provided(
@@ -194,9 +188,7 @@ def test_loader_dropped_detected_when_rdf_codes_provided(
                 "libelle": pl.String,
                 "type": pl.String,
                 "source": pl.String,
-                "metadata": pl.Struct(
-                    {"orpha_code": pl.String, "relation": pl.String}
-                ),
+                "metadata": pl.Struct({"orpha_code": pl.String, "relation": pl.String}),
             },
         )
     }
@@ -301,20 +293,32 @@ def test_dedup_index_includes_propagated_and_synonymes(
     """L'index couvre bien inclusions+exclusions+synonymes OFS+ANS+synth."""
     idx = merge_external.build_dedup_index(propagated_df, owl_df, ofs_df, siblings_df)
     # propagated inclusion "Choléra classique"
-    assert idx.filter(
-        (pl.col("code") == "A00.0") & (pl.col("source") == "OFS")
-        & (pl.col("note_type") == "inclusion")
-    ).height == 1
+    assert (
+        idx.filter(
+            (pl.col("code") == "A00.0")
+            & (pl.col("source") == "OFS")
+            & (pl.col("note_type") == "inclusion")
+        ).height
+        == 1
+    )
     # synonyme OWL A00.0 "Asiatic cholera"
-    assert idx.filter(
-        (pl.col("code") == "A00.0") & (pl.col("source") == "OWL_ANS")
-        & (pl.col("note_type") == "synonyme")
-    ).height >= 1
+    assert (
+        idx.filter(
+            (pl.col("code") == "A00.0")
+            & (pl.col("source") == "OWL_ANS")
+            & (pl.col("note_type") == "synonyme")
+        ).height
+        >= 1
+    )
     # synonyme OFS A01.0 "Typhoïde"
-    assert idx.filter(
-        (pl.col("code") == "A01.0") & (pl.col("source") == "OFS")
-        & (pl.col("note_type") == "synonyme")
-    ).height == 1
+    assert (
+        idx.filter(
+            (pl.col("code") == "A01.0")
+            & (pl.col("source") == "OFS")
+            & (pl.col("note_type") == "synonyme")
+        ).height
+        == 1
+    )
 
 
 # ----------------------------------------------------------------------
@@ -345,22 +349,24 @@ def test_csv_final_schema_unchanged_after_external_merge(
         external=to_add,
     )
     expected_columns = [
-        "code", "libelle", "type", "source", "texte",
-        "source_level", "inherited_from_code",
-        "is_dagger_in_pair", "is_asterisk_in_pair",
+        "code",
+        "libelle",
+        "type",
+        "source",
+        "texte",
+        "source_level",
+        "inherited_from_code",
+        "is_dagger_in_pair",
+        "is_asterisk_in_pair",
     ]
     assert df.columns == expected_columns
     # Les entrées externes ont source_level=code et inherited_from_code null.
     external_rows = df.filter(
-        pl.col("source").is_in(
-            ["ORPHANET", "CIM-10 index", "AP-HP Dermatologie"]
-        )
+        pl.col("source").is_in(["ORPHANET", "CIM-10 index", "AP-HP Dermatologie"])
     )
     assert external_rows.height > 0
     assert external_rows.filter(pl.col("source_level") != "code").is_empty()
-    assert external_rows.filter(
-        pl.col("inherited_from_code").is_not_null()
-    ).is_empty()
+    assert external_rows.filter(pl.col("inherited_from_code").is_not_null()).is_empty()
 
 
 def test_csv_final_contains_orphanet_E(
@@ -412,8 +418,7 @@ def test_csv_final_contains_aphp_with_french_label(
         external=to_add,
     )
     aphp = df.filter(
-        (pl.col("code") == "C50.8")
-        & (pl.col("texte") == "Tumeur du sein, sites multiples")
+        (pl.col("code") == "C50.8") & (pl.col("texte") == "Tumeur du sein, sites multiples")
     )
     assert aphp.height >= 1
     assert aphp.row(0, named=True)["source"] == "AP-HP Dermatologie"
@@ -502,8 +507,7 @@ def test_cepidc_overlap_absorbed_by_orphanet(
     assert hpn.row(0, named=True)["source"] == "ORPHANET"
     # CepiDc HPN figure dans overlaps avec source_ofs_ans=ORPHANET.
     cep_ov = overlaps.filter(
-        (pl.col("source_externe") == "CEPIDC_2015")
-        & (pl.col("libelle_externe") == "HPN")
+        (pl.col("source_externe") == "CEPIDC_2015") & (pl.col("libelle_externe") == "HPN")
     )
     assert cep_ov.height == 1
     assert cep_ov.row(0, named=True)["source_ofs_ans"] == "ORPHANET"
@@ -515,9 +519,7 @@ def test_cepidc_orphan_code_logged(
     """A90 absent de merged → entrées CepiDc loggées dans orphans, pas
     dans to_add."""
     to_add, _, orphans, _ = merge_result
-    assert to_add.filter(
-        (pl.col("code") == "A90") & (pl.col("source") == "CEPIDC_2015")
-    ).is_empty()
+    assert to_add.filter((pl.col("code") == "A90") & (pl.col("source") == "CEPIDC_2015")).is_empty()
     cep_orph = orphans.filter(
         (pl.col("code") == "A90") & (pl.col("source_externe") == "CEPIDC_2015")
     )
@@ -562,9 +564,7 @@ def test_cepidc_in_final_csv(
         dagger_asterisk=dagger_asterisk_df,
         external=to_add,
     )
-    tub_r = df.filter(
-        (pl.col("code") == "A18.1") & (pl.col("texte") == "tuberculose rénale")
-    )
+    tub_r = df.filter((pl.col("code") == "A18.1") & (pl.col("texte") == "tuberculose rénale"))
     assert tub_r.height == 1
     row = tub_r.row(0, named=True)
     assert row["source"] == "CepiDc 2015"

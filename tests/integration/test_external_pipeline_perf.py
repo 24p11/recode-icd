@@ -21,12 +21,9 @@ pytestmark = pytest.mark.integration
 
 ROOT = Path(__file__).resolve().parents[2]
 ORPHANET_XML = (
-    ROOT / "data" / "Orphanet_Nomenclature_Pack_FR_2025"
-    / "ORPHA_ICD10_mapping_fr_2025.xml"
+    ROOT / "data" / "Orphanet_Nomenclature_Pack_FR_2025" / "ORPHA_ICD10_mapping_fr_2025.xml"
 )
-HECTOR_XLSX = (
-    ROOT / "data" / "CIM_APHP_2019" / "Dictionnaire_Hector_MAJ062019.xlsx"
-)
+HECTOR_XLSX = ROOT / "data" / "CIM_APHP_2019" / "Dictionnaire_Hector_MAJ062019.xlsx"
 PROCESSED = ROOT / "referentials" / "processed"
 
 
@@ -61,9 +58,7 @@ def test_full_pipeline_under_30s() -> None:
     ).select("code", pl.col("label").alias("libelle"))
     valid_codes = merged.select("code")
 
-    external_frames = merge_external.load_external_frames(
-        ORPHANET_XML, HECTOR_XLSX
-    )
+    external_frames = merge_external.load_external_frames(ORPHANET_XML, HECTOR_XLSX)
 
     t0 = time.perf_counter()
     to_add, _, _, summary = merge_external.merge_external_sources(

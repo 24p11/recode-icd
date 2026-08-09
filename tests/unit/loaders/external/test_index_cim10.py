@@ -45,9 +45,7 @@ def df() -> pl.DataFrame:
 
 def test_returns_correct_schema(df: pl.DataFrame) -> None:
     assert df.columns == ["code", "libelle", "type", "source", "metadata"]
-    assert df.schema["metadata"] == pl.Struct(
-        {"sheet_name": pl.String, "sheet_label": pl.String}
-    )
+    assert df.schema["metadata"] == pl.Struct({"sheet_name": pl.String, "sheet_label": pl.String})
 
 
 def test_all_rows_type_synonyme(df: pl.DataFrame) -> None:
@@ -59,9 +57,7 @@ def test_all_rows_source_INDEX_CIM10_VOL3(df: pl.DataFrame) -> None:
 
 
 def test_metadata_constant(df: pl.DataFrame) -> None:
-    sheet_names = (
-        df.select(pl.col("metadata").struct["sheet_name"]).to_series().unique().to_list()
-    )
+    sheet_names = df.select(pl.col("metadata").struct["sheet_name"]).to_series().unique().to_list()
     sheet_labels = (
         df.select(pl.col("metadata").struct["sheet_label"]).to_series().unique().to_list()
     )

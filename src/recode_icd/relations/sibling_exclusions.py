@@ -15,9 +15,7 @@ _SIBLING_RE = r"^[A-Z][0-9]{2}\.[0-7]$"
 def _is_in_c00_c75(code: pl.Expr) -> pl.Expr:
     # Sémantique différente pour ces codes (lésion à localisations
     # contiguës) — ne pas synthétiser de frères.
-    return code.str.starts_with("C") & (
-        code.str.slice(1, 2).cast(pl.Int64) <= 75
-    )
+    return code.str.starts_with("C") & (code.str.slice(1, 2).cast(pl.Int64) <= 75)
 
 
 def synthesize(merged: pl.DataFrame) -> tuple[pl.DataFrame, pl.DataFrame]:
@@ -59,12 +57,9 @@ def synthesize(merged: pl.DataFrame) -> tuple[pl.DataFrame, pl.DataFrame]:
             pl.lit("category").alias("code_type"),
             pl.lit("exclusion").alias("note_type"),
             pl.lit("SYNTHESIZED_SIBLING").alias("source"),
-            (
-                pl.col("sibling_label").fill_null("")
-                + " ("
-                + pl.col("sibling_code")
-                + ")"
-            ).alias("texte"),
+            (pl.col("sibling_label").fill_null("") + " (" + pl.col("sibling_code") + ")").alias(
+                "texte"
+            ),
         )
         .select(
             "code",

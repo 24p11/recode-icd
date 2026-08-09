@@ -11,11 +11,32 @@ from recode_icd.loaders.schemas import DaggerAsteriskSchema, OwlCodesSchema
 
 FIXTURE = Path(__file__).parent.parent / "fixtures" / "owl_sample.rdf"
 EXPECTED_CODES = {
-    "II", "C00-C14", "C12", "D40-D48", "D48", "D48.5",
-    "V", "F00-F09", "F02", "F02.0", "F02.00", "F60-F69", "F66", "F66.2",
-    "VI", "G30-G32", "G31", "G31.0",
-    "IX", "I40-I49", "I41", "I41.1",
-    "X", "J10-J18", "J11", "J11.8",
+    "II",
+    "C00-C14",
+    "C12",
+    "D40-D48",
+    "D48",
+    "D48.5",
+    "V",
+    "F00-F09",
+    "F02",
+    "F02.0",
+    "F02.00",
+    "F60-F69",
+    "F66",
+    "F66.2",
+    "VI",
+    "G30-G32",
+    "G31",
+    "G31.0",
+    "IX",
+    "I40-I49",
+    "I41",
+    "I41.1",
+    "X",
+    "J10-J18",
+    "J11",
+    "J11.8",
 }
 
 
@@ -116,9 +137,7 @@ def test_nested_set_hierarchy() -> None:
 
 def test_dagger_asterisk_direct() -> None:
     df = owl.load_dagger_asterisk(FIXTURE)
-    pair = df.filter(
-        (pl.col("asterisk_code") == "F02.00") & (pl.col("dagger_code") == "G31.0")
-    )
+    pair = df.filter((pl.col("asterisk_code") == "F02.00") & (pl.col("dagger_code") == "G31.0"))
     assert len(pair) == 1
     evidence = list(pair.row(0, named=True)["evidence"])
     assert "direct_causality" in evidence
@@ -126,9 +145,7 @@ def test_dagger_asterisk_direct() -> None:
 
 def test_dagger_asterisk_axiom() -> None:
     df = owl.load_dagger_asterisk(FIXTURE)
-    pair = df.filter(
-        (pl.col("asterisk_code") == "I41.1") & (pl.col("dagger_code") == "J11.8")
-    )
+    pair = df.filter((pl.col("asterisk_code") == "I41.1") & (pl.col("dagger_code") == "J11.8"))
     assert len(pair) == 1
     evidence = list(pair.row(0, named=True)["evidence"])
     assert "axiom_causality" in evidence

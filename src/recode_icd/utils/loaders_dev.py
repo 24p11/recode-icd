@@ -99,9 +99,7 @@ _REPORTS: tuple[str, ...] = (
 
 # Chemins par défaut des sources externes brutes (chargées seulement
 # si `with_external=True`). Relatifs à la racine du projet.
-_ORPHANET_XML_REL = (
-    "data/Orphanet_Nomenclature_Pack_FR_2025/ORPHA_ICD10_mapping_fr_2025.xml"
-)
+_ORPHANET_XML_REL = "data/Orphanet_Nomenclature_Pack_FR_2025/ORPHA_ICD10_mapping_fr_2025.xml"
 _HECTOR_XLSX_REL = "data/CIM_APHP_2019/Dictionnaire_Hector_MAJ062019.xlsx"
 
 # Chemins candidats du RDF ANS (chargé seulement si `load_rdf=True`).
@@ -114,6 +112,7 @@ _RDF_PATH_CANDIDATES: tuple[str, ...] = (
 # plusieurs fois quand `load_exploration_context(load_rdf=True)` est
 # rappelé dans un notebook).
 _ANS_GRAPH_CACHE: dict[Path, rdflib.Graph] = {}
+
 
 @dataclass(frozen=True)
 class ExplorationContext:
@@ -268,8 +267,7 @@ def _load_external_frames(root: Path) -> dict[str, pl.DataFrame]:
     hector_xlsx = root / _HECTOR_XLSX_REL
     if not orphanet_xml.is_file() or not hector_xlsx.is_file():
         log.warning(
-            "Sources externes introuvables (orphanet=%s, hector=%s) — "
-            "ctx.external restera vide.",
+            "Sources externes introuvables (orphanet=%s, hector=%s) — ctx.external restera vide.",
             orphanet_xml.is_file(),
             hector_xlsx.is_file(),
         )
@@ -358,19 +356,11 @@ def load_exploration_context(
 
     merged = _load_parquet(actual_processed / "merged_codes.parquet", lazy=lazy)
     propagated = _load_parquet(actual_processed / "propagated_notes.parquet", lazy=lazy)
-    flat = _load_csv(
-        actual_processed / "inclusions_exclusions_synonymes.csv", lazy=lazy
-    )
+    flat = _load_csv(actual_processed / "inclusions_exclusions_synonymes.csv", lazy=lazy)
     ofs_codes = _load_parquet(actual_processed / "ofs_codes.parquet", lazy=lazy)
-    dagger_asterisk = _load_parquet(
-        actual_processed / "dagger_asterisk.parquet", lazy=lazy
-    )
-    ofs_dagger_asterisk = _load_parquet(
-        actual_processed / "ofs_dagger_asterisk.parquet", lazy=lazy
-    )
-    owl_dagger_asterisk = _load_parquet(
-        actual_processed / "owl_dagger_asterisk.parquet", lazy=lazy
-    )
+    dagger_asterisk = _load_parquet(actual_processed / "dagger_asterisk.parquet", lazy=lazy)
+    ofs_dagger_asterisk = _load_parquet(actual_processed / "ofs_dagger_asterisk.parquet", lazy=lazy)
+    owl_dagger_asterisk = _load_parquet(actual_processed / "owl_dagger_asterisk.parquet", lazy=lazy)
 
     reports: dict[str, Frame] = {}
     for fname in _REPORTS:
@@ -518,9 +508,7 @@ def _print_bloc1_identite(
     ans: pl.DataFrame | None,
 ) -> None:
     _section("BLOC 1 : IDENTITÉ")
-    merged_row = (
-        merged.filter(pl.col("code") == code) if merged is not None else None
-    )
+    merged_row = merged.filter(pl.col("code") == code) if merged is not None else None
     ofs_row = (
         ofs_codes.filter(pl.col("code").str.strip_chars("()") == code)
         if ofs_codes is not None
@@ -611,8 +599,10 @@ def _print_bloc2_sources(
     # --- Sources externes ---
     print("\n[SOURCES EXTERNES]")
     if not external:
-        print("    (sources externes non chargées — relancer avec "
-              "load_exploration_context(with_external=True))")
+        print(
+            "    (sources externes non chargées — relancer avec "
+            "load_exploration_context(with_external=True))"
+        )
         return
     any_external = False
     for source_label, df in external.items():
@@ -641,27 +631,19 @@ def _print_bloc3_dagger(code: str, dagger: pl.DataFrame | None) -> None:
     if dagger is None:
         print("    (table dague/astérisque non chargée)")
         return
-    involved = dagger.filter(
-        (pl.col("dagger_code") == code) | (pl.col("asterisk_code") == code)
-    )
+    involved = dagger.filter((pl.col("dagger_code") == code) | (pl.col("asterisk_code") == code))
     if involved.is_empty():
         print("    (pas d'association dague/astérisque)")
         return
     for r in involved.iter_rows(named=True):
         role = "dague (†)" if r["dagger_code"] == code else "astérisque (*)"
-        partner_code = (
-            r["asterisk_code"] if r["dagger_code"] == code else r["dagger_code"]
-        )
-        partner_label = (
-            r["asterisk_label"] if r["dagger_code"] == code else r["dagger_label"]
+        partner_code = r["asterisk_code"] if r["dagger_code"] == code else r["dagger_code"]
+        partner_label = r["asterisk_label"] if r["dagger_code"] == code else r["dagger_label"]
+        print(
+            f"  • {code} est {role} ; apparié à {partner_code or '(aucun)'} — {partner_label or ''}"
         )
         print(
-            f"  • {code} est {role} ; apparié à "
-            f"{partner_code or '(aucun)'} — {partner_label or ''}"
-        )
-        print(
-            f"      redundancy_level={r['redundancy_level']} ; "
-            f"levels_present={r['levels_present']}"
+            f"      redundancy_level={r['redundancy_level']} ; levels_present={r['levels_present']}"
         )
 
 
@@ -694,8 +676,10 @@ def _print_bloc4_final(
     # un ordre déterministe en cas d'égalité de count (group_by polars
     # n'est pas stable).
     print(f"  {sub.height} ligne(s). Répartition par (type, source) :")
-    counts = sub.group_by("type", "source").len().sort(
-        ["len", "type", "source"], descending=[True, False, False]
+    counts = (
+        sub.group_by("type", "source")
+        .len()
+        .sort(["len", "type", "source"], descending=[True, False, False])
     )
     for r in counts.iter_rows(named=True):
         print(f"    {r['type']:10s} | {r['source']:28s} : {r['len']}")
@@ -769,9 +753,7 @@ def _print_bloc2bis_raw(code: str, ctx: ExplorationContext) -> None:
                     print(f"  {table_name.upper():7s} : (table absente du contexte)")
                     continue
                 if table_name == "dagstar":
-                    sub = tbl.filter(
-                        (pl.col("SID") == sid) | (pl.col("assoc") == sid)
-                    )
+                    sub = tbl.filter((pl.col("SID") == sid) | (pl.col("assoc") == sid))
                 else:
                     sub = tbl.filter(pl.col("SID") == sid)
                 if sub.is_empty():
@@ -780,13 +762,8 @@ def _print_bloc2bis_raw(code: str, ctx: ExplorationContext) -> None:
                 # Pour include/exclude/descr/indir : joindre libelle
                 # pour afficher le texte associé au LID.
                 libelle = _eager(ctx.ofs.get("libelle"))
-                if (
-                    table_name in {"include", "exclude", "descr", "indir"}
-                    and libelle is not None
-                ):
-                    sub = sub.join(
-                        libelle.select("LID", "libelle"), on="LID", how="left"
-                    )
+                if table_name in {"include", "exclude", "descr", "indir"} and libelle is not None:
+                    sub = sub.join(libelle.select("LID", "libelle"), on="LID", how="left")
                 print(f"  {table_name.upper():7s} : {sub.height} ligne(s)")
                 # Préfixe SID + cols spécifiques + libelle joint (si
                 # présent) ; dédup en préservant l'ordre.
@@ -864,8 +841,14 @@ def _count_text_in_merged(code: str, text: str, merged: pl.DataFrame | None) -> 
         return 0
     r = row.row(0, named=True)
     n = 0
-    for col in ("inclusions", "exclusions", "synonymes",
-                "notes_editorial", "definitions", "scope_notes"):
+    for col in (
+        "inclusions",
+        "exclusions",
+        "synonymes",
+        "notes_editorial",
+        "definitions",
+        "scope_notes",
+    ):
         items = r.get(col) or []
         n += sum(1 for v in items if v == text)
     return n
@@ -916,9 +899,7 @@ def _print_bloc5_pipeline(code: str, ctx: ExplorationContext) -> None:
         (
             "flat_csv (CSV final)",
             str(n_flat),
-            f"Δ2 = +{delta_flat} (expansion + synonymes + externes)"
-            if delta_flat
-            else "Δ2 = 0",
+            f"Δ2 = +{delta_flat} (expansion + synonymes + externes)" if delta_flat else "Δ2 = 0",
         ),
     ]
     label_w = max(len(r[0]) for r in rows)
@@ -969,9 +950,7 @@ def _print_bloc5_pipeline(code: str, ctx: ExplorationContext) -> None:
             .rename({"len": "prop_count"})
         )
     else:
-        prop_counts = pl.DataFrame(
-            schema={"texte": pl.String, "prop_count": pl.UInt32}
-        )
+        prop_counts = pl.DataFrame(schema={"texte": pl.String, "prop_count": pl.UInt32})
     joined = (
         flat_counts.join(prop_counts, on="texte", how="left")
         .with_columns(pl.col("prop_count").fill_null(0))
@@ -1037,12 +1016,8 @@ def inspect_code(
     dagger = _eager(ctx.dagger_asterisk)
     orphan_report = _eager(ctx.reports.get("external_orphan_codes"))
 
-    flat_codes = (
-        set(flat["code"].unique().to_list()) if flat is not None else set()
-    )
-    known_codes = (
-        set(merged["code"].unique().to_list()) if merged is not None else set()
-    )
+    flat_codes = set(flat["code"].unique().to_list()) if flat is not None else set()
+    known_codes = set(merged["code"].unique().to_list()) if merged is not None else set()
 
     tokens = [codes] if isinstance(codes, str) else list(codes)
     resolved: list[str] = []
@@ -1092,11 +1067,28 @@ _BASE_URI = "http://data.esante.gouv.fr/atih/cim10"
 # - L'utilisateur saisit naturellement en romain → on convertit pour
 #   l'URI mais on affiche en romain.
 _ROMAN_TO_NUM_CHAPTER: dict[str, str] = {
-    "I": "01", "II": "02", "III": "03", "IV": "04", "V": "05",
-    "VI": "06", "VII": "07", "VIII": "08", "IX": "09", "X": "10",
-    "XI": "11", "XII": "12", "XIII": "13", "XIV": "14", "XV": "15",
-    "XVI": "16", "XVII": "17", "XVIII": "18", "XIX": "19", "XX": "20",
-    "XXI": "21", "XXII": "22",
+    "I": "01",
+    "II": "02",
+    "III": "03",
+    "IV": "04",
+    "V": "05",
+    "VI": "06",
+    "VII": "07",
+    "VIII": "08",
+    "IX": "09",
+    "X": "10",
+    "XI": "11",
+    "XII": "12",
+    "XIII": "13",
+    "XIV": "14",
+    "XV": "15",
+    "XVI": "16",
+    "XVII": "17",
+    "XVIII": "18",
+    "XIX": "19",
+    "XX": "20",
+    "XXI": "21",
+    "XXII": "22",
 }
 _NUM_TO_ROMAN_CHAPTER: dict[str, str] = {v: k for k, v in _ROMAN_TO_NUM_CHAPTER.items()}
 
@@ -1106,18 +1098,30 @@ _NUM_TO_ROMAN_CHAPTER: dict[str, str] = {v: k for k, v in _ROMAN_TO_NUM_CHAPTER.
 # seulement : le chapitre XXII (codes U provisoires) n'existait pas
 # au gel OFS de novembre 2006.
 _OFS_RANGE_TO_NUM_CHAPTER: dict[str, str] = {
-    "(A00-B99)": "01", "(C00-D48)": "02", "(D50-D89)": "03",
-    "(E00-E90)": "04", "(F00-F99)": "05", "(G00-G99)": "06",
-    "(H00-H59)": "07", "(H60-H95)": "08", "(I00-I99)": "09",
-    "(J00-J99)": "10", "(K00-K93)": "11", "(L00-L99)": "12",
-    "(M00-M99)": "13", "(N00-N99)": "14", "(O00-O99)": "15",
-    "(P00-P96)": "16", "(Q00-Q99)": "17", "(R00-R99)": "18",
-    "(S00-T98)": "19", "(V01-Y98)": "20", "(Z00-Z99)": "21",
+    "(A00-B99)": "01",
+    "(C00-D48)": "02",
+    "(D50-D89)": "03",
+    "(E00-E90)": "04",
+    "(F00-F99)": "05",
+    "(G00-G99)": "06",
+    "(H00-H59)": "07",
+    "(H60-H95)": "08",
+    "(I00-I99)": "09",
+    "(J00-J99)": "10",
+    "(K00-K93)": "11",
+    "(L00-L99)": "12",
+    "(M00-M99)": "13",
+    "(N00-N99)": "14",
+    "(O00-O99)": "15",
+    "(P00-P96)": "16",
+    "(Q00-Q99)": "17",
+    "(R00-R99)": "18",
+    "(S00-T98)": "19",
+    "(V01-Y98)": "20",
+    "(Z00-Z99)": "21",
 }
 # Inverse : URI RDF numérique → code OFS (avec parenthèses).
-_NUM_TO_OFS_RANGE_CHAPTER: dict[str, str] = {
-    v: k for k, v in _OFS_RANGE_TO_NUM_CHAPTER.items()
-}
+_NUM_TO_OFS_RANGE_CHAPTER: dict[str, str] = {v: k for k, v in _OFS_RANGE_TO_NUM_CHAPTER.items()}
 
 # Sections d'affichage du BLOC 2 ANS étendu : (label affiché, prédicat
 # en forme préfixée). Ordre = ordre d'affichage. Tout prédicat non
@@ -1211,6 +1215,7 @@ def _detect_node_type(rdf_code: str, ctx: ExplorationContext) -> str:
     if (uri, None, None) not in g:
         return "absent"
     from rdflib import Namespace
+
     dc = Namespace("http://purl.org/dc/elements/1.1/")
     t = g.value(uri, dc.type)
     if t is None:
@@ -1227,6 +1232,7 @@ def _detect_node_type(rdf_code: str, ctx: ExplorationContext) -> str:
 
 def _uri_for_rdf(rdf_code: str) -> rdflib.term.URIRef:
     from rdflib import URIRef
+
     return URIRef(f"{_BASE_URI}/{rdf_code}")
 
 
@@ -1246,10 +1252,12 @@ def _render_rdf_object(g: rdflib.Graph, o: object, *, max_len: int = _RDF_VALUE_
     - Tronqué à `max_len` (avec ellipse) sauf si max_len <= 0
     """
     from rdflib import URIRef
+
     if isinstance(o, URIRef):
         c = _code_of_uri(o)
         if c is not None:
             from rdflib.namespace import RDFS
+
             label = g.value(o, RDFS.label)
             disp = _display_notation(c, _detect_node_type_for_uri(g, c))
             return f"{disp} — {label}" if label else disp
@@ -1270,6 +1278,7 @@ def _detect_node_type_for_uri(g: rdflib.Graph, rdf_code: str) -> str:
     des références croisées entre codes.
     """
     from rdflib import Namespace
+
     uri = _uri_for_rdf(rdf_code)
     if (uri, None, None) not in g:
         return "absent"
@@ -1300,6 +1309,7 @@ def _reified_axioms_for(g: rdflib.Graph, rdf_code: str) -> list[dict[str, str]]:
     """Axiomes owl:Axiom où le code est annotatedSource OU annotatedTarget."""
     from rdflib import Namespace
     from rdflib.namespace import OWL
+
     prov = Namespace("http://www.w3.org/ns/prov#")
     uri = _uri_for_rdf(rdf_code)
     out: list[dict[str, str]] = []
@@ -1361,6 +1371,7 @@ def _print_bloc1_identite_ext(
     # Libellé ANS — via rdfs:label sur l'URI RDF.
     if g is not None:
         from rdflib.namespace import RDFS
+
         lib_ans = g.value(_uri_for_rdf(rdf_code), RDFS.label)
         print(f"Libellé ANS  : {lib_ans or '(absent)'}")
     print(f"URI RDF      : {_BASE_URI}/{rdf_code}")
@@ -1410,9 +1421,7 @@ def _print_bloc2_sources_ext(
     if matched_ofs_code is None or ofs_codes is None:
         print("    (aucune entrée OFS pour ce code)")
     else:
-        ofs_row = ofs_codes.filter(
-            pl.col("code").str.strip_chars("()") == matched_ofs_code
-        )
+        ofs_row = ofs_codes.filter(pl.col("code").str.strip_chars("()") == matched_ofs_code)
         print("  Inclusions :")
         for line in _fmt_list(_list_col(ofs_row, "inclusions"), "    "):
             print(line)
@@ -1461,8 +1470,7 @@ def _print_bloc2_sources_ext(
     else:
         for ax in axioms:
             print(
-                f"    - [{ax['role_du_code']}] {ax['source']} "
-                f"--{ax['relation']}--> {ax['cible']}"
+                f"    - [{ax['role_du_code']}] {ax['source']} --{ax['relation']}--> {ax['cible']}"
             )
             if ax["libelle_humain"]:
                 print(f"      libellé : {ax['libelle_humain']}")
@@ -1480,8 +1488,10 @@ def _print_bloc2_sources_ext(
     # Sources externes (reprises de l'existant — utile pour les leaves).
     print("\n[SOURCES EXTERNES]")
     if not ctx.external:
-        print("    (sources externes non chargées — relancer avec "
-              "load_exploration_context(with_external=True, load_rdf=True))")
+        print(
+            "    (sources externes non chargées — relancer avec "
+            "load_exploration_context(with_external=True, load_rdf=True))"
+        )
         return
     any_external = False
     disp = _display_notation(rdf_code, node_type)
@@ -1513,9 +1523,7 @@ def _print_bloc2bis_raw_ext(rdf_code: str, ctx: ExplorationContext) -> None:
         # confirmer empiriquement). On essaie d'abord la version
         # convertie depuis le rdf_code.
         disp = _display_notation(rdf_code, _detect_node_type(rdf_code, ctx))
-        master_row = master.filter(
-            (pl.col("code") == disp) | (pl.col("code") == rdf_code)
-        )
+        master_row = master.filter((pl.col("code") == disp) | (pl.col("code") == rdf_code))
         if master_row.is_empty():
             print(f"    (code {disp} absent de MASTER OFS)")
         else:
@@ -1532,22 +1540,15 @@ def _print_bloc2bis_raw_ext(rdf_code: str, ctx: ExplorationContext) -> None:
                     print(f"  {table_name.upper():7s} : (table absente du contexte)")
                     continue
                 if table_name == "dagstar":
-                    sub = tbl.filter(
-                        (pl.col("SID") == sid) | (pl.col("assoc") == sid)
-                    )
+                    sub = tbl.filter((pl.col("SID") == sid) | (pl.col("assoc") == sid))
                 else:
                     sub = tbl.filter(pl.col("SID") == sid)
                 if sub.is_empty():
                     print(f"  {table_name.upper():7s} : 0 ligne (pas de match pour SID={sid})")
                     continue
                 libelle = _eager(ctx.ofs.get("libelle"))
-                if (
-                    table_name in {"include", "exclude", "descr", "indir"}
-                    and libelle is not None
-                ):
-                    sub = sub.join(
-                        libelle.select("LID", "libelle"), on="LID", how="left"
-                    )
+                if table_name in {"include", "exclude", "descr", "indir"} and libelle is not None:
+                    sub = sub.join(libelle.select("LID", "libelle"), on="LID", how="left")
                 print(f"  {table_name.upper():7s} : {sub.height} ligne(s)")
                 ordered = list(dict.fromkeys(["SID", *cols, "libelle"]))
                 display_cols = [c for c in ordered if c in sub.columns]
@@ -1607,9 +1608,7 @@ def _print_bloc3_dagger_ext(rdf_code: str, ctx: ExplorationContext) -> None:
             ofs_pairs_count = involved.height
             for r in involved.iter_rows(named=True):
                 role = "dague (†)" if r["dagger_code"] == disp else "astérisque (*)"
-                partner_code = (
-                    r["asterisk_code"] if r["dagger_code"] == disp else r["dagger_code"]
-                )
+                partner_code = r["asterisk_code"] if r["dagger_code"] == disp else r["dagger_code"]
                 partner_label = (
                     r["asterisk_label"] if r["dagger_code"] == disp else r["dagger_label"]
                 )
@@ -1625,6 +1624,7 @@ def _print_bloc3_dagger_ext(rdf_code: str, ctx: ExplorationContext) -> None:
         print("    (ctx.ans_graph non chargé)")
         return
     from rdflib import Namespace
+
     atih = Namespace("http://data.esante.gouv.fr/atih-cim10#")
     uri = _uri_for_rdf(rdf_code)
     causalities = list(g.objects(uri, atih.hasCausality))
@@ -1644,10 +1644,7 @@ def _print_bloc3_dagger_ext(rdf_code: str, ctx: ExplorationContext) -> None:
     ans_pairs_count = len(causalities) + len(manifestations)
 
     # --- Synthèse cohérence ---
-    print(
-        f"\n  Cohérence : OFS={ofs_pairs_count} paire(s) | "
-        f"ANS={ans_pairs_count} relation(s)."
-    )
+    print(f"\n  Cohérence : OFS={ofs_pairs_count} paire(s) | ANS={ans_pairs_count} relation(s).")
     if ofs_pairs_count != ans_pairs_count:
         print(
             "    ⚠ Divergence OFS/ANS — peut signaler une différence "
@@ -1673,10 +1670,7 @@ def _print_bloc4_final_ext(
             f"    Code absent du CSV final (raison : nœud de type "
             f"{node_type} — le CSV ne contient que les codes feuilles)."
         )
-        print(
-            "    Pour voir ce qui en est dérivé : inspecter ses "
-            "descendants directs."
-        )
+        print("    Pour voir ce qui en est dérivé : inspecter ses descendants directs.")
         return
 
     sub = flat.filter(pl.col("code") == disp)
@@ -1695,8 +1689,10 @@ def _print_bloc4_final_ext(
         return
 
     print(f"  {sub.height} ligne(s). Répartition par (type, source) :")
-    counts = sub.group_by("type", "source").len().sort(
-        ["len", "type", "source"], descending=[True, False, False]
+    counts = (
+        sub.group_by("type", "source")
+        .len()
+        .sort(["len", "type", "source"], descending=[True, False, False])
     )
     for r in counts.iter_rows(named=True):
         print(f"    {r['type']:10s} | {r['source']:28s} : {r['len']}")
@@ -1808,6 +1804,7 @@ def inspect_code_extended(
             lib = row.select("label").row(0)[0] or ""
     if not lib and ctx.ans_graph is not None and node_type != "absent":
         from rdflib.namespace import RDFS
+
         v = ctx.ans_graph.value(_uri_for_rdf(rdf_code), RDFS.label)
         lib = str(v) if v else ""
 

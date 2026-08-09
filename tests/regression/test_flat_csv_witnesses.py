@@ -17,9 +17,15 @@ pytestmark = pytest.mark.regression
 
 _CSV_PATH = Path("referentials/processed/inclusions_exclusions_synonymes.csv")
 _EXPECTED_COLUMNS = [
-    "code", "libelle", "type", "source", "texte",
-    "source_level", "inherited_from_code",
-    "is_dagger_in_pair", "is_asterisk_in_pair",
+    "code",
+    "libelle",
+    "type",
+    "source",
+    "texte",
+    "source_level",
+    "inherited_from_code",
+    "is_dagger_in_pair",
+    "is_asterisk_in_pair",
 ]
 
 
@@ -74,9 +80,7 @@ def test_a18_1_ans_exclusion_redirects_use_parentheses() -> None:
     entre crochets dans le CSV final."""
     df = _final_csv()
     subset = df.filter(
-        (pl.col("code") == "A18.1")
-        & (pl.col("type") == "exclusion")
-        & (pl.col("source") == "ANS")
+        (pl.col("code") == "A18.1") & (pl.col("type") == "exclusion") & (pl.col("source") == "ANS")
     )
     if subset.is_empty():
         pytest.skip("A18.1 sans exclusion ANS dans le CSV final.")
@@ -85,9 +89,7 @@ def test_a18_1_ans_exclusion_redirects_use_parentheses() -> None:
         assert f"[{code}]" not in joined, (
             f"crochet [{code}] résiduel dans A18.1 — normalisation incomplète"
         )
-        assert f"({code})" in joined, (
-            f"redirection ({code}) attendue dans A18.1"
-        )
+        assert f"({code})" in joined, f"redirection ({code}) attendue dans A18.1"
 
 
 def test_u07_13_ans_exclusion_redirects_use_parentheses() -> None:
@@ -100,19 +102,13 @@ def test_u07_13_ans_exclusion_redirects_use_parentheses() -> None:
     """
     df = _final_csv()
     subset = df.filter(
-        (pl.col("code") == "U07.13")
-        & (pl.col("type") == "exclusion")
-        & (pl.col("source") == "ANS")
+        (pl.col("code") == "U07.13") & (pl.col("type") == "exclusion") & (pl.col("source") == "ANS")
     )
     assert not subset.is_empty(), "U07.13 sans exclusion ANS dans le CSV final."
     joined = " || ".join(subset["texte"].drop_nulls().to_list())
     for code in ("B34.2", "B97.2", "U04.9"):
-        assert f"[{code}]" not in joined, (
-            f"crochet [{code}] résiduel dans U07.13"
-        )
-        assert f"({code})" in joined, (
-            f"redirection ({code}) attendue dans U07.13"
-        )
+        assert f"[{code}]" not in joined, f"crochet [{code}] résiduel dans U07.13"
+        assert f"({code})" in joined, f"redirection ({code}) attendue dans U07.13"
 
 
 def test_m01_08_altlabels_retyped_as_inclusion() -> None:
@@ -124,12 +120,9 @@ def test_m01_08_altlabels_retyped_as_inclusion() -> None:
     if sub.is_empty():
         pytest.skip("M01.08 absent du CSV.")
 
-    syn_ans = sub.filter(
-        (pl.col("type") == "synonyme") & (pl.col("source") == "ANS")
-    )
+    syn_ans = sub.filter((pl.col("type") == "synonyme") & (pl.col("source") == "ANS"))
     assert syn_ans.is_empty(), (
-        f"M01.08 ne doit avoir AUCUN synonyme ANS post-retypage "
-        f"(trouvé : {syn_ans.height} lignes)"
+        f"M01.08 ne doit avoir AUCUN synonyme ANS post-retypage (trouvé : {syn_ans.height} lignes)"
     )
 
     incl_ans_code = sub.filter(
@@ -153,12 +146,8 @@ def test_m00_00_type_d_without_altlabel_is_neutral() -> None:
     sub = df.filter(pl.col("code") == "M00.00")
     if sub.is_empty():
         pytest.skip("M00.00 absent du CSV.")
-    syn_ans = sub.filter(
-        (pl.col("type") == "synonyme") & (pl.col("source") == "ANS")
-    )
-    assert syn_ans.is_empty(), (
-        "M00.00 sans altLabel ANS : pas de synonyme ANS attendu."
-    )
+    syn_ans = sub.filter((pl.col("type") == "synonyme") & (pl.col("source") == "ANS"))
+    assert syn_ans.is_empty(), "M00.00 sans altLabel ANS : pas de synonyme ANS attendu."
 
 
 def test_u07_0_synonymes_ans_preserved_outside_chap_xiii() -> None:
@@ -174,9 +163,7 @@ def test_u07_0_synonymes_ans_preserved_outside_chap_xiii() -> None:
         & (pl.col("source") == "ANS")
         & (pl.col("source_level") == "code")
     )
-    assert syn_ans_code.height > 0, (
-        "U07.0 : synonymes ANS niveau code attendus (préservés)"
-    )
+    assert syn_ans_code.height > 0, "U07.0 : synonymes ANS niveau code attendus (préservés)"
     # Texte distinctif présent : « dabbing » est un altLabel propre à U07.0
     joined = " ".join(t or "" for t in syn_ans_code["texte"].to_list()).lower()
     assert "dabbing" in joined or "vapotage" in joined or "cigarette" in joined, (
@@ -190,18 +177,16 @@ def test_orphan_type_d_codes_report_exists() -> None:
     root = Path(__file__).resolve().parents[2]
     path = root / "reports" / "orphan_type_d_codes.csv"
     if not path.is_file():
-        pytest.skip(
-            "Rapport orphan_type_d_codes.csv absent — relance "
-            "`recode-icd build merged`."
-        )
+        pytest.skip("Rapport orphan_type_d_codes.csv absent — relance `recode-icd build merged`.")
     df = pl.read_csv(path)
     assert set(df.columns) == {
-        "code", "libelle_master", "chapter", "categorie_orphan",
+        "code",
+        "libelle_master",
+        "chapter",
+        "categorie_orphan",
     }
     # Empiriquement 90 codes. Tolérance ±10 si l'OFS ou l'ANS bouge.
-    assert 80 <= df.height <= 100, (
-        f"orphan_type_d_codes.csv : {df.height} lignes (attendu ~90)"
-    )
+    assert 80 <= df.height <= 100, f"orphan_type_d_codes.csv : {df.height} lignes (attendu ~90)"
     # Tous dans le chapitre XIII.
     assert set(df["chapter"].unique().to_list()) == {"(M00-M99)"}
 

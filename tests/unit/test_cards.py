@@ -120,9 +120,7 @@ def test_build_card_m01_08_has_localisations_section(ctx: ExplorationContext) ->
 # ----------------------------------------------------------------------
 
 
-def test_build_cards_library_with_limit(
-    ctx: ExplorationContext, tmp_path
-) -> None:  # type: ignore[no-untyped-def]
+def test_build_cards_library_with_limit(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
     """build_cards_library produit N fiches + _index.csv quand limit=N."""
     summary = build_cards_library(
         ctx=ctx,
@@ -140,9 +138,7 @@ def test_build_cards_library_with_limit(
     assert len(md_files) == 5
 
 
-def test_build_cards_library_chapter_filter(
-    ctx: ExplorationContext, tmp_path
-) -> None:  # type: ignore[no-untyped-def]
+def test_build_cards_library_chapter_filter(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
     """build_cards_library filtre par chapitre romain."""
     summary = build_cards_library(
         ctx=ctx,
@@ -159,9 +155,7 @@ def test_build_cards_library_chapter_filter(
     assert len(md_in_xxii) == summary.n_written
 
 
-def test_build_cards_library_index_csv_schema(
-    ctx: ExplorationContext, tmp_path
-) -> None:  # type: ignore[no-untyped-def]
+def test_build_cards_library_index_csv_schema(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
     """Le _index.csv contient les colonnes attendues."""
     import polars as pl
 
@@ -173,9 +167,14 @@ def test_build_cards_library_index_csv_schema(
     )
     index = pl.read_csv(summary.index_path)
     expected = {
-        "code", "chapter", "filepath", "libelle",
-        "has_perimetre", "has_localisations",
-        "has_exclusions", "has_formulations",
+        "code",
+        "chapter",
+        "filepath",
+        "libelle",
+        "has_perimetre",
+        "has_localisations",
+        "has_exclusions",
+        "has_formulations",
         "nb_chars",
     }
     assert set(index.columns) == expected

@@ -109,9 +109,7 @@ def build_dedup_index(
     # Inclusions et exclusions propagées (héritées + propres). On
     # exclut explicitement `note_editorial` qui ne va pas dans le CSV
     # final.
-    prop_notes = propagated.filter(
-        pl.col("note_type").is_in(["inclusion", "exclusion"])
-    ).select(
+    prop_notes = propagated.filter(pl.col("note_type").is_in(["inclusion", "exclusion"])).select(
         pl.col("code"),
         pl.col("texte").alias("libelle_orig"),
         pl.col("source"),
@@ -133,9 +131,7 @@ def build_dedup_index(
 
     combined = pl.concat([prop_notes, sib_notes, syn_owl, syn_ofs])
     return (
-        combined.with_columns(
-            normalize_column("libelle_orig").alias("libelle_norm")
-        )
+        combined.with_columns(normalize_column("libelle_orig").alias("libelle_norm"))
         .filter(pl.col("libelle_norm").is_not_null())
         .filter(pl.col("libelle_norm").str.len_chars() > 0)
         .unique(subset=["code", "libelle_norm"], keep="first")
@@ -203,9 +199,7 @@ def _classify_codes(
         return "truly_absent"
 
     orphans = orphans.with_columns(
-        pl.col("code")
-        .map_elements(_classify_one, return_dtype=pl.String)
-        .alias("categorie_orphan")
+        pl.col("code").map_elements(_classify_one, return_dtype=pl.String).alias("categorie_orphan")
     )
     return present, orphans
 
@@ -246,11 +240,13 @@ def _process_one_source(
 
     # 2. Dédup tolérante sur les codes présents.
     matched = present.join(
-        dedup_index.rename({"source": "source_ofs_ans",
-                            "note_type": "type_ofs_ans",
-                            "libelle_orig": "libelle_ofs_ans"})
-        .select("code", "libelle_norm", "libelle_ofs_ans",
-                "source_ofs_ans", "type_ofs_ans"),
+        dedup_index.rename(
+            {
+                "source": "source_ofs_ans",
+                "note_type": "type_ofs_ans",
+                "libelle_orig": "libelle_ofs_ans",
+            }
+        ).select("code", "libelle_norm", "libelle_ofs_ans", "source_ofs_ans", "type_ofs_ans"),
         on=["code", "libelle_norm"],
         how="inner",
     )
@@ -426,9 +422,7 @@ def merge_external_sources(
         if overlaps_parts
         else _empty_overlaps()
     )
-    orphans_df = (
-        pl.concat(orphans_parts) if orphans_parts else _empty_orphans()
-    )
+    orphans_df = pl.concat(orphans_parts) if orphans_parts else _empty_orphans()
     summary_df = pl.DataFrame(summary_rows, schema=_summary_schema())
 
     return to_add_df, overlaps_df, orphans_df, summary_df
@@ -613,17 +607,13 @@ def _build_cepidc_ignored_report(orphans: pl.DataFrame) -> pl.DataFrame:
         .group_by("code")
         .agg(
             pl.col("libelle").len().alias("n_formulations_perdues"),
-            pl.col("libelle").head(5).str.join(" | ").alias(
-                "exemples_formulations"
-            ),
+            pl.col("libelle").head(5).str.join(" | ").alias("exemples_formulations"),
         )
         .rename({"code": "code_cepidc"})
         # `code_cepidc` départage les ex æquo : `group_by` ne garantit pas
         # l'ordre de sortie, et un tri sur le seul volume laisse les codes
         # à même volume permuter d'un run à l'autre.
-        .sort(
-            ["n_formulations_perdues", "code_cepidc"], descending=[True, False]
-        )
+        .sort(["n_formulations_perdues", "code_cepidc"], descending=[True, False])
     )
 
 

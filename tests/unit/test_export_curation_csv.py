@@ -23,9 +23,7 @@ def mod() -> ModuleType:
         / "explore"
         / "2026-05-21_export_curation_csv.py"
     )
-    spec = importlib.util.spec_from_file_location(
-        "export_curation_csv", script_path
-    )
+    spec = importlib.util.spec_from_file_location("export_curation_csv", script_path)
     assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
     sys.modules["export_curation_csv"] = module
@@ -46,9 +44,7 @@ def _make_table(rows: list[dict]) -> pl.DataFrame:
             "combination_labels": [r.get("combination_labels", []) for r in rows],
             "levels_present": [r.get("levels_present", []) for r in rows],
             "source_lids": [r.get("source_lids", []) for r in rows],
-            "redundancy_level": [
-                r.get("redundancy_level", "independent") for r in rows
-            ],
+            "redundancy_level": [r.get("redundancy_level", "independent") for r in rows],
         },
         schema_overrides={
             "association_id": pl.Int64,
@@ -123,9 +119,7 @@ def test_first_export_creates_csv_with_empty_curation_columns(
     assert row_a17["combination_labels"] == "méningoencéphalite tuberculeuse"
 
 
-def test_re_export_preserves_existing_curation(
-    mod: ModuleType, tmp_path: Path
-) -> None:
+def test_re_export_preserves_existing_curation(mod: ModuleType, tmp_path: Path) -> None:
     parquet = tmp_path / "in.parquet"
     csv = tmp_path / "out.csv"
     _write_parquet(

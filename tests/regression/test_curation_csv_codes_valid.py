@@ -24,10 +24,7 @@ pytestmark = pytest.mark.regression
 
 
 _CURATION_CSV = (
-    Path(__file__).resolve().parents[2]
-    / "referentials"
-    / "curation"
-    / "dagger_curation.csv"
+    Path(__file__).resolve().parents[2] / "referentials" / "curation" / "dagger_curation.csv"
 )
 
 # Code CIM-10 : lettre + 2 chiffres + suffixe optionnel ATIH
@@ -54,9 +51,7 @@ def curation_df() -> pl.DataFrame:
 
 
 def test_dagger_codes_are_well_formed(curation_df: pl.DataFrame) -> None:
-    invalid = [
-        c for c in curation_df["dagger_code"].to_list() if not _is_valid_code(c)
-    ]
+    invalid = [c for c in curation_df["dagger_code"].to_list() if not _is_valid_code(c)]
     assert not invalid, (
         f"{len(invalid)} dagger_code mal formé(s) : {invalid[:5]}. "
         "Vérifier qu'Excel n'a pas auto-formaté de cellule (cf historique "
@@ -65,9 +60,7 @@ def test_dagger_codes_are_well_formed(curation_df: pl.DataFrame) -> None:
 
 
 def test_asterisk_codes_are_well_formed(curation_df: pl.DataFrame) -> None:
-    invalid = [
-        c for c in curation_df["asterisk_code"].to_list() if not _is_valid_code(c)
-    ]
+    invalid = [c for c in curation_df["asterisk_code"].to_list() if not _is_valid_code(c)]
     assert not invalid, (
         f"{len(invalid)} asterisk_code mal formé(s) : {invalid[:5]}. "
         "Vérifier qu'Excel n'a pas auto-formaté de cellule (cf historique "
@@ -87,6 +80,4 @@ def test_no_invisible_chars_in_codes(curation_df: pl.DataFrame) -> None:
                 continue
             if any(ord(c) < 0x20 or c == "\xa0" for c in v):
                 suspicious.append((col, v))
-    assert not suspicious, (
-        f"Caractères invisibles détectés dans des codes : {suspicious[:5]}"
-    )
+    assert not suspicious, f"Caractères invisibles détectés dans des codes : {suspicious[:5]}"

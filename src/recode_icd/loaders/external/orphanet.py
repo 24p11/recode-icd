@@ -84,10 +84,7 @@ def load_orphanet(
     if xsd_path is not None:
         xsd_path = Path(xsd_path)
         if not xsd_path.is_file():
-            log.warning(
-                "XSD ORPHANET fourni mais introuvable : %s — "
-                "validation sautée.", xsd_path
-            )
+            log.warning("XSD ORPHANET fourni mais introuvable : %s — validation sautée.", xsd_path)
         # NB : validation XSD effective non implémentée (xml.etree
         # stdlib ne supporte pas xs:schema). Cf TODO Phase 2.
 
@@ -116,9 +113,7 @@ def load_orphanet(
             # Cf source_mapping.md — l'autre propriété porte un axe
             # orthogonal ("Code attribué / spécifique / ...").
             relation_name_el = ref.find("DisorderMappingRelation/Name")
-            relation_text = (
-                relation_name_el.text if relation_name_el is not None else None
-            )
+            relation_text = relation_name_el.text if relation_name_el is not None else None
             sigle = _extract_sigle(relation_text)
 
             note_type = _RELATION_TO_TYPE.get(sigle)
@@ -176,9 +171,7 @@ def load_orphanet(
                 "libelle": pl.String,
                 "type": pl.String,
                 "source": pl.String,
-                "metadata": pl.Struct(
-                    {"orpha_code": pl.String, "relation": pl.String}
-                ),
+                "metadata": pl.Struct({"orpha_code": pl.String, "relation": pl.String}),
             }
         )
     else:

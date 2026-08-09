@@ -103,8 +103,7 @@ def test_a01_0_volumetry_after_refonte(csv_final_df: pl.DataFrame) -> None:
     refonte : 108 lignes (×3 expansion). Après : ~36 lignes."""
     sub = csv_final_df.filter(pl.col("code") == "A01.0")
     assert 25 <= sub.height <= 50, (
-        f"A01.0 attendu 25-50 lignes après refonte (cible ~36), "
-        f"obtenu {sub.height}"
+        f"A01.0 attendu 25-50 lignes après refonte (cible ~36), obtenu {sub.height}"
     )
 
 
@@ -113,8 +112,7 @@ def test_g01_volumetry_after_refonte(csv_final_df: pl.DataFrame) -> None:
     refonte : 192 lignes (×12 expansion). Après : ~16 lignes."""
     sub = csv_final_df.filter(pl.col("code") == "G01")
     assert 10 <= sub.height <= 25, (
-        f"G01 attendu 10-25 lignes après refonte (cible ~16), "
-        f"obtenu {sub.height}"
+        f"G01 attendu 10-25 lignes après refonte (cible ~16), obtenu {sub.height}"
     )
 
 
@@ -123,9 +121,7 @@ def test_csv_unique_per_note(csv_final_df: pl.DataFrame) -> None:
     l'unicité de (code, type, source, texte, source_level,
     inherited_from_code) — plus de doublons résiduels dans le CSV."""
     key = ["code", "type", "source", "texte", "source_level", "inherited_from_code"]
-    duplicates = (
-        csv_final_df.group_by(key).len().filter(pl.col("len") > 1)
-    )
+    duplicates = csv_final_df.group_by(key).len().filter(pl.col("len") > 1)
     assert duplicates.is_empty(), (
         f"{duplicates.height} clés (code,type,source,texte,source_level,"
         f"inherited_from_code) dupliquées dans le CSV — la refonte "

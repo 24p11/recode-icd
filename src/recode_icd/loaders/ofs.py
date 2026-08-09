@@ -100,25 +100,16 @@ def load_codes(ofs_dir: Path) -> pl.DataFrame:
     )
     excl_redir = (
         exclude.join(
-            master.select(["SID", "code"]).rename(
-                {"SID": "excl", "code": "redirect_code"}
-            ),
+            master.select(["SID", "code"]).rename({"SID": "excl", "code": "redirect_code"}),
             on="excl",
         )
         .group_by("SID")
-        .agg(
-            pl.col("redirect_code")
-            .drop_nulls()
-            .unique()
-            .alias("exclusions_redirect")
-        )
+        .agg(pl.col("redirect_code").drop_nulls().unique().alias("exclusions_redirect"))
     )
 
     note = _read(ofs_dir / "NOTE.txt")
     # MEMO utilise un quoting `'…'` distinct du reste d'OFS (cf. _read).
-    memo = _read(ofs_dir / "MEMO.txt", quote_char="'").filter(
-        pl.col("valid") == "Yes"
-    )
+    memo = _read(ofs_dir / "MEMO.txt", quote_char="'").filter(pl.col("valid") == "Yes")
     notes = (
         note.join(memo.select(["MID", "memo"]), on="MID")
         .group_by("SID")
@@ -142,14 +133,9 @@ def load_codes(ofs_dir: Path) -> pl.DataFrame:
         .then(pl.col("id6"))
         .otherwise(pl.col("id7"))
     )
-    edges = (
-        master.with_columns(parent_col.alias("parent_SID"))
-        .select(["parent_SID", "SID"])
-    )
+    edges = master.with_columns(parent_col.alias("parent_SID")).select(["parent_SID", "SID"])
 
-    code_of = dict(
-        zip(master["SID"].to_list(), master["code"].to_list(), strict=True)
-    )
+    code_of = dict(zip(master["SID"].to_list(), master["code"].to_list(), strict=True))
     nested = core.build_nested_set(
         edges.iter_rows(),
         root=_ROOT_SID,
@@ -231,7 +217,5 @@ def to_parquet(ofs_dir: Path, output_dir: Path) -> tuple[Path, Path]:
     codes_path = output_dir / "ofs_codes.parquet"
     pairs_path = output_dir / "ofs_dagger_asterisk.parquet"
     core.write_parquet_with_metadata(load_codes(ofs_dir), codes_path, metadata)
-    core.write_parquet_with_metadata(
-        load_dagger_asterisk(ofs_dir), pairs_path, metadata
-    )
+    core.write_parquet_with_metadata(load_dagger_asterisk(ofs_dir), pairs_path, metadata)
     return codes_path, pairs_path

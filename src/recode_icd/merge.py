@@ -44,9 +44,7 @@ def _normalize_ofs(ofs_codes: pl.DataFrame) -> pl.DataFrame:
     )
 
 
-def _explode_ofs_notes(
-    ofs: pl.DataFrame, col: str, note_type: str
-) -> pl.DataFrame:
+def _explode_ofs_notes(ofs: pl.DataFrame, col: str, note_type: str) -> pl.DataFrame:
     """OFS notes (list[str]) → long format avec (code, type, texte, source='OFS')."""
     return (
         ofs.select(
@@ -64,9 +62,7 @@ def _explode_ofs_notes(
     )
 
 
-def _explode_owl_singleton(
-    owl: pl.DataFrame, col: str, note_type: str
-) -> pl.DataFrame:
+def _explode_owl_singleton(owl: pl.DataFrame, col: str, note_type: str) -> pl.DataFrame:
     """OWL singleton string (ex. inclusion_note) → long format."""
     return (
         owl.select(pl.col("code"), pl.col(col).alias("texte"))
@@ -79,9 +75,7 @@ def _explode_owl_singleton(
     )
 
 
-def _explode_owl_list(
-    owl: pl.DataFrame, col: str, note_type: str
-) -> pl.DataFrame:
+def _explode_owl_list(owl: pl.DataFrame, col: str, note_type: str) -> pl.DataFrame:
     """OWL list (ex. exclusion_notes) → long format."""
     return (
         owl.select(pl.col("code"), pl.col(col).alias("texte"))
@@ -96,9 +90,7 @@ def _explode_owl_list(
     )
 
 
-def _build_notes_long(
-    owl_codes: pl.DataFrame, ofs_normalized: pl.DataFrame
-) -> pl.DataFrame:
+def _build_notes_long(owl_codes: pl.DataFrame, ofs_normalized: pl.DataFrame) -> pl.DataFrame:
     """Long format toutes notes (inclusions + exclusions), des deux sources, dédoublonnées.
 
     Dédup OFS-prio sur le texte normalisé : si OFS et OWL ont une note dont
@@ -189,9 +181,7 @@ def retype_chap13_altlabels(
             }
         )
     type_d_codes = (
-        ofs_codes.filter(
-            (pl.col("ofs_type") == "D") & (pl.col("depth") == 5)
-        )
+        ofs_codes.filter((pl.col("ofs_type") == "D") & (pl.col("depth") == 5))
         .with_columns(pl.col("code").str.strip_chars("()").alias("code"))
         .select("code")
     )
@@ -213,10 +203,7 @@ def retype_chap13_altlabels(
 
     empty_list = pl.lit([], dtype=pl.List(pl.String))
     owl_filtered = owl_codes.with_columns(
-        pl.when(in_type_d)
-        .then(empty_list)
-        .otherwise(pl.col("synonymes"))
-        .alias("synonymes")
+        pl.when(in_type_d).then(empty_list).otherwise(pl.col("synonymes")).alias("synonymes")
     )
 
     return owl_filtered, extra_inclusions
@@ -238,9 +225,7 @@ def find_orphan_type_d_codes(
       (obsolète OFS / non repris en français / autre) à faire dans un
       chantier d'audit séparé.
     """
-    type_d = ofs_codes.filter(
-        (pl.col("ofs_type") == "D") & (pl.col("depth") == 5)
-    ).with_columns(
+    type_d = ofs_codes.filter((pl.col("ofs_type") == "D") & (pl.col("depth") == 5)).with_columns(
         pl.col("code").str.strip_chars("()").alias("code_norm"),
         pl.col("path").str.split("/").list.get(0).alias("chapter"),
     )
@@ -250,14 +235,12 @@ def find_orphan_type_d_codes(
         right_on="code",
         how="anti",
     )
-    return (
-        orphans.select(
-            pl.col("code_norm").alias("code"),
-            pl.col("label").alias("libelle_master"),
-            pl.col("chapter"),
-            pl.lit("unknown").alias("categorie_orphan"),
-        ).sort("code")
-    )
+    return orphans.select(
+        pl.col("code_norm").alias("code"),
+        pl.col("label").alias("libelle_master"),
+        pl.col("chapter"),
+        pl.lit("unknown").alias("categorie_orphan"),
+    ).sort("code")
 
 
 def merge_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFrame:
@@ -382,9 +365,7 @@ def merge_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFram
     return out
 
 
-def find_note_merges(
-    owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame
-) -> pl.DataFrame:
+def find_note_merges(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFrame:
     """Pour chaque note OFS retenue, logger la version ANS alternative.
 
     Schéma (cf `docs/source_mapping.md` précision sur la dimension
@@ -425,30 +406,26 @@ def find_note_merges(
     ).with_columns(normalize_column("texte").alias("_norm"))
 
     # Jointure 1 : normalisation match (texte_retenu_ofs ↔ texte_owl identique)
-    matched = (
-        ofs_long.select(
+    matched = ofs_long.select(
+        "code",
+        "type",
+        pl.col("texte").alias("texte_retenu"),
+        pl.col("_norm"),
+    ).join(
+        owl_long.select(
             "code",
             "type",
-            pl.col("texte").alias("texte_retenu"),
+            pl.col("texte").alias("texte_owl_match"),
             pl.col("_norm"),
-        )
-        .join(
-            owl_long.select(
-                "code",
-                "type",
-                pl.col("texte").alias("texte_owl_match"),
-                pl.col("_norm"),
-            ),
-            on=["code", "type", "_norm"],
-            how="left",
-        )
+        ),
+        on=["code", "type", "_norm"],
+        how="left",
     )
 
     # Pour les OFS sans match normalisation : trouver un OWL "fallback"
     # = n'importe quelle note OWL du même (code, type) avec un _norm différent.
-    owl_per_code_type = (
-        owl_long.group_by(["code", "type"])
-        .agg(pl.col("texte").first().alias("texte_owl_alt"))
+    owl_per_code_type = owl_long.group_by(["code", "type"]).agg(
+        pl.col("texte").first().alias("texte_owl_alt")
     )
 
     enriched = matched.join(owl_per_code_type, on=["code", "type"], how="left")
@@ -484,9 +461,7 @@ def find_note_merges(
     )
 
 
-def find_conflicts(
-    owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame
-) -> pl.DataFrame:
+def find_conflicts(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFrame:
     """Logge UNIQUEMENT les conflits de libellé (le `label` du code).
 
     Les conflits sur les notes (inclusions, exclusions) sont désormais
@@ -519,9 +494,7 @@ def find_conflicts(
     )
 
 
-def find_orphans(
-    owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame
-) -> pl.DataFrame:
+def find_orphans(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFrame:
     """Codes OFS sans contrepartie OWL après strip parens (dropés du merge)."""
     ofs = _normalize_ofs(ofs_codes)
     owl_set = owl_codes.select("code").rename({"code": "code_norm"})
@@ -532,9 +505,7 @@ def find_orphans(
     )
 
 
-def find_post_2006_codes(
-    owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame
-) -> pl.DataFrame:
+def find_post_2006_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFrame:
     """Codes ANS sans contrepartie OFS (= codes post-2006, par convention).
 
     Cf `docs/source_mapping.md` : OFS est gelé au 1er novembre 2006 ; tous

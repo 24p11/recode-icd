@@ -37,9 +37,7 @@ def load_codes(rdf_path: Path) -> pl.DataFrame:
 
     # Normalisation crochets ANS → parenthèses (avant agrégation : toutes
     # les colonnes textuelles sont encore scalaires à ce stade).
-    attrs = attrs.with_columns(
-        *(normalize_ans_brackets_column(col) for col in _ANS_TEXT_COLUMNS)
-    )
+    attrs = attrs.with_columns(*(normalize_ans_brackets_column(col) for col in _ANS_TEXT_COLUMNS))
 
     attrs_agg = attrs.group_by("concept").agg(
         pl.col("code").first(),
@@ -50,15 +48,10 @@ def load_codes(rdf_path: Path) -> pl.DataFrame:
         pl.col("exclusion_note").drop_nulls().unique().alias("exclusion_notes"),
         pl.col("definition").drop_nulls().unique().alias("definitions"),
         pl.col("scope_note").drop_nulls().unique().alias("scope_notes"),
-        pl.col("structured_exclusion")
-        .drop_nulls()
-        .unique()
-        .alias("structured_exclusions"),
+        pl.col("structured_exclusion").drop_nulls().unique().alias("structured_exclusions"),
     )
 
-    code_of = dict(
-        zip(attrs_agg["concept"].to_list(), attrs_agg["code"].to_list(), strict=True)
-    )
+    code_of = dict(zip(attrs_agg["concept"].to_list(), attrs_agg["code"].to_list(), strict=True))
 
     nested = core.build_nested_set(edges.iter_rows(), root=BASE_URI, code_of=code_of)
 
@@ -123,7 +116,5 @@ def to_parquet(rdf_path: Path, output_dir: Path) -> tuple[Path, Path]:
     codes_path = output_dir / "owl_codes.parquet"
     pairs_path = output_dir / "owl_dagger_asterisk.parquet"
     core.write_parquet_with_metadata(load_codes(rdf_path), codes_path, metadata)
-    core.write_parquet_with_metadata(
-        load_dagger_asterisk(rdf_path), pairs_path, metadata
-    )
+    core.write_parquet_with_metadata(load_dagger_asterisk(rdf_path), pairs_path, metadata)
     return codes_path, pairs_path

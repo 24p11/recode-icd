@@ -46,10 +46,7 @@ class TestNormalizeAnsBracketsRanges:
 
 class TestNormalizeAnsBracketsMultiOccurrence:
     def test_two_codes_in_same_text(self) -> None:
-        assert (
-            normalize_ans_brackets("voir [A18.1] et [B20.0]")
-            == "voir (A18.1) et (B20.0)"
-        )
+        assert normalize_ans_brackets("voir [A18.1] et [B20.0]") == "voir (A18.1) et (B20.0)"
 
     def test_codes_separated_by_newline(self) -> None:
         text = "exclusion [D48.5]\npeau anale [D48.5]\npeau périanale [D48.5]"

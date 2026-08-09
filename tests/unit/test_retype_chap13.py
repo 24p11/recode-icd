@@ -86,9 +86,7 @@ def test_retype_strips_synonymes_for_type_d_depth5() -> None:
 
 def test_retype_ignores_type_d_other_depth() -> None:
     """Code ofs_type=D mais depth=4 (chapitres F/S-T) : non touché."""
-    owl = _make_owl(
-        [{"code": "F00.00", "synonymes": ["démence Alzheimer"]}]
-    )
+    owl = _make_owl([{"code": "F00.00", "synonymes": ["démence Alzheimer"]}])
     ofs = _make_ofs(
         [
             {
@@ -103,9 +101,9 @@ def test_retype_ignores_type_d_other_depth() -> None:
     owl_filtered, extras = retype_chap13_altlabels(owl, ofs)
 
     # Synonymes préservés
-    assert list(
-        owl_filtered.filter(pl.col("code") == "F00.00")["synonymes"][0]
-    ) == ["démence Alzheimer"]
+    assert list(owl_filtered.filter(pl.col("code") == "F00.00")["synonymes"][0]) == [
+        "démence Alzheimer"
+    ]
     # Aucun extra à produire
     assert extras.is_empty()
 
@@ -127,9 +125,7 @@ def test_retype_ignores_non_type_d_depth5() -> None:
     )
     owl_filtered, extras = retype_chap13_altlabels(owl, ofs)
 
-    assert list(owl_filtered.filter(pl.col("code") == "A18.1")["synonymes"][0]) == [
-        "tuberculose"
-    ]
+    assert list(owl_filtered.filter(pl.col("code") == "A18.1")["synonymes"][0]) == ["tuberculose"]
     assert extras.is_empty()
 
 

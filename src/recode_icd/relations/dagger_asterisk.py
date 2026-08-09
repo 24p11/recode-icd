@@ -36,9 +36,7 @@ _ASTER_SIDE: frozenset[str] = frozenset({"F", "G", "H"})
 _PUNCT_RE = re.compile(r"[^\w\s]", flags=re.UNICODE)
 _WS_RE = re.compile(r"\s+")
 
-_VALID_CURATION_LEVELS: frozenset[str] = frozenset(
-    {"independent", "subordinate", "undecided", ""}
-)
+_VALID_CURATION_LEVELS: frozenset[str] = frozenset({"independent", "subordinate", "undecided", ""})
 
 
 def _normalize_label(text: str | None) -> str:
@@ -87,9 +85,7 @@ def build_dagger_asterisk_table(
     Returns :
         DataFrame conforme à `EnrichedDaggerAsteriskSchema`.
     """
-    master_valid = ofs_master.filter(pl.col("valid") == 1).select(
-        ["SID", "code"]
-    )
+    master_valid = ofs_master.filter(pl.col("valid") == 1).select(["SID", "code"])
     libelle_valid = ofs_libelle.filter(pl.col("valid") == 1)
     sys_labels = (
         libelle_valid.filter(pl.col("source") == "S")
@@ -230,11 +226,27 @@ class CurationReport:
     def as_long_rows(self) -> list[dict[str, object]]:
         """Sérialisation long-format pour `reports/curation_applied.csv`."""
         return [
-            {"dimension": "curation", "value": "subordinate_applied", "count": self.n_subordinate_applied},
-            {"dimension": "curation", "value": "independent_in_csv", "count": self.n_independent_in_csv},
+            {
+                "dimension": "curation",
+                "value": "subordinate_applied",
+                "count": self.n_subordinate_applied,
+            },
+            {
+                "dimension": "curation",
+                "value": "independent_in_csv",
+                "count": self.n_independent_in_csv,
+            },
             {"dimension": "curation", "value": "undecided", "count": self.n_undecided},
-            {"dimension": "coherence", "value": "csv_pairs_absent_from_table", "count": self.n_orphan_in_csv},
-            {"dimension": "coherence", "value": "table_pairs_absent_from_csv", "count": self.n_pairs_in_table_absent_from_csv},
+            {
+                "dimension": "coherence",
+                "value": "csv_pairs_absent_from_table",
+                "count": self.n_orphan_in_csv,
+            },
+            {
+                "dimension": "coherence",
+                "value": "table_pairs_absent_from_csv",
+                "count": self.n_pairs_in_table_absent_from_csv,
+            },
         ]
 
 
@@ -302,9 +314,7 @@ def apply_curation(
 
     sub = curation.filter(pl.col("redundancy_level") == "subordinate")
     indep = curation.filter(pl.col("redundancy_level") == "independent")
-    undecided = curation.filter(
-        pl.col("redundancy_level").fill_null("").is_in(["", "undecided"])
-    )
+    undecided = curation.filter(pl.col("redundancy_level").fill_null("").is_in(["", "undecided"]))
 
     # Détection des paires orphelines : présentes dans le CSV (côté
     # subordinate ou independent — celles à effet) mais absentes de la table.
@@ -312,9 +322,7 @@ def apply_curation(
     csv_with_decision = pl.concat([sub, indep], how="diagonal").select(
         ["dagger_code", "asterisk_code"]
     )
-    orphans = csv_with_decision.join(
-        table_keys, on=["dagger_code", "asterisk_code"], how="anti"
-    )
+    orphans = csv_with_decision.join(table_keys, on=["dagger_code", "asterisk_code"], how="anti")
 
     # Application : left join table ↔ subordinate, override redundancy_level.
     sub_keys = sub.select(
@@ -325,8 +333,9 @@ def apply_curation(
     curated = (
         table.join(sub_keys, on=["dagger_code", "asterisk_code"], how="left")
         .with_columns(
-            pl.coalesce([pl.col("_curated_level"), pl.col("redundancy_level")])
-            .alias("redundancy_level")
+            pl.coalesce([pl.col("_curated_level"), pl.col("redundancy_level")]).alias(
+                "redundancy_level"
+            )
         )
         .drop("_curated_level")
         .select(table.columns)
@@ -366,12 +375,8 @@ def _build_summary(table: pl.DataFrame) -> pl.DataFrame:
     ]
 
     # Complétude.
-    both = int(
-        (table["dagger_code"].is_not_null() & table["asterisk_code"].is_not_null()).sum()
-    )
-    dagger_only = int(
-        (table["dagger_code"].is_not_null() & table["asterisk_code"].is_null()).sum()
-    )
+    both = int((table["dagger_code"].is_not_null() & table["asterisk_code"].is_not_null()).sum())
+    dagger_only = int((table["dagger_code"].is_not_null() & table["asterisk_code"].is_null()).sum())
     asterisk_only = int(
         (table["dagger_code"].is_null() & table["asterisk_code"].is_not_null()).sum()
     )
@@ -387,9 +392,7 @@ def _build_summary(table: pl.DataFrame) -> pl.DataFrame:
     # cheap : ne reconstruit pas le mapping bloc → chapitre rom ; sert
     # uniquement à orienter la curation).
     letter_counts = (
-        table.with_columns(
-            pl.col("dagger_code").str.slice(0, 1).alias("letter")
-        )
+        table.with_columns(pl.col("dagger_code").str.slice(0, 1).alias("letter"))
         .group_by("letter")
         .len()
         .sort("letter", nulls_last=True)
@@ -424,9 +427,7 @@ def _build_summary(table: pl.DataFrame) -> pl.DataFrame:
         )
 
     # Distribution du nombre de combination_labels par paire (bucket).
-    nlabels = table.with_columns(
-        pl.col("combination_labels").list.len().alias("nb_labels")
-    )
+    nlabels = table.with_columns(pl.col("combination_labels").list.len().alias("nb_labels"))
     for label, expr in [
         ("0", pl.col("nb_labels") == 0),
         ("1", pl.col("nb_labels") == 1),
@@ -441,7 +442,9 @@ def _build_summary(table: pl.DataFrame) -> pl.DataFrame:
             }
         )
 
-    return pl.DataFrame(rows, schema={"dimension": pl.String, "value": pl.String, "count": pl.Int64})
+    return pl.DataFrame(
+        rows, schema={"dimension": pl.String, "value": pl.String, "count": pl.Int64}
+    )
 
 
 def to_parquet_and_csv_and_report(

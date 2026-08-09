@@ -101,8 +101,17 @@ def test_owl_only_code_kept() -> None:
 
 def test_ofs_code_normalization_strips_parens() -> None:
     owl = _make_owl([{"code": "A00-A09", "type": "block", "label": "Bloc OWL"}])
-    ofs = _make_ofs([{"code": "(A00-A09)", "abbrev": "(A00-A09)", "type": "block",
-                      "label": "Bloc OFS", "inclusions": ["incl OFS"]}])
+    ofs = _make_ofs(
+        [
+            {
+                "code": "(A00-A09)",
+                "abbrev": "(A00-A09)",
+                "type": "block",
+                "label": "Bloc OFS",
+                "inclusions": ["incl OFS"],
+            }
+        ]
+    )
     out = merge.merge_codes(owl, ofs)
     assert out["has_ofs_match"].to_list() == [True]
     assert out["inclusions"].to_list() == [["incl OFS"]]
@@ -112,8 +121,16 @@ def test_inclusions_element_wise_keeps_distinct_owl_note() -> None:
     """Source mapping: OFS prio sur normalisation match ; les notes OWL textuellement
     différentes ne sont PAS silencieusement dropées."""
     owl = _make_owl([{"code": "A00", "label": "A00", "inclusion_note": "OWL inclusion"}])
-    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00",
-                      "inclusions": ["OFS incl 1", "OFS incl 2"]}])
+    ofs = _make_ofs(
+        [
+            {
+                "code": "A00",
+                "abbrev": "A00",
+                "label": "A00",
+                "inclusions": ["OFS incl 1", "OFS incl 2"],
+            }
+        ]
+    )
     out = merge.merge_codes(owl, ofs)
     row = out.row(0, named=True)
     assert sorted(row["inclusions"]) == ["OFS incl 1", "OFS incl 2", "OWL inclusion"]
@@ -124,10 +141,10 @@ def test_inclusions_normalized_match_keeps_ofs_drops_owl() -> None:
     """Quand OFS et OWL ont une inclusion équivalente après normalisation
     (casse + accents + ponctuation interne), on garde la version OFS
     (texte original préservé) et on drop la version OWL."""
-    owl = _make_owl([{"code": "A00", "label": "A00",
-                      "inclusion_note": "DIARRHÉE à V.cholerae"}])
-    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00",
-                      "inclusions": ["diarrhee a v cholerae"]}])
+    owl = _make_owl([{"code": "A00", "label": "A00", "inclusion_note": "DIARRHÉE à V.cholerae"}])
+    ofs = _make_ofs(
+        [{"code": "A00", "abbrev": "A00", "label": "A00", "inclusions": ["diarrhee a v cholerae"]}]
+    )
     out = merge.merge_codes(owl, ofs)
     row = out.row(0, named=True)
     # La version OFS gagne (texte original conservé) ; OWL drope.
@@ -155,8 +172,16 @@ def test_inclusions_none_when_both_empty() -> None:
 
 def test_exclusions_element_wise_keeps_distinct_owl() -> None:
     owl = _make_owl([{"code": "A00", "label": "A00", "exclusion_notes": ["OWL excl"]}])
-    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00",
-                      "exclusions_text": ["OFS excl A", "OFS excl B"]}])
+    ofs = _make_ofs(
+        [
+            {
+                "code": "A00",
+                "abbrev": "A00",
+                "label": "A00",
+                "exclusions_text": ["OFS excl A", "OFS excl B"],
+            }
+        ]
+    )
     out = merge.merge_codes(owl, ofs)
     row = out.row(0, named=True)
     assert sorted(row["exclusions"]) == ["OFS excl A", "OFS excl B", "OWL excl"]
@@ -174,18 +199,24 @@ def test_exclusions_owl_fallback() -> None:
 
 def test_synonymes_union_dedup() -> None:
     owl = _make_owl([{"code": "A00", "label": "A00", "synonymes": ["s1", "s2"]}])
-    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00",
-                      "synonymes": ["s2", "s3"]}])
+    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00", "synonymes": ["s2", "s3"]}])
     out = merge.merge_codes(owl, ofs)
     row = out.row(0, named=True)
     assert sorted(row["synonymes"]) == ["s1", "s2", "s3"]
 
 
 def test_owl_only_fields_pass_through() -> None:
-    owl = _make_owl([{"code": "A00", "label": "A00",
-                      "definitions": ["def 1"],
-                      "scope_notes": ["scope 1"],
-                      "structured_exclusions": ["uri/B00"]}])
+    owl = _make_owl(
+        [
+            {
+                "code": "A00",
+                "label": "A00",
+                "definitions": ["def 1"],
+                "scope_notes": ["scope 1"],
+                "structured_exclusions": ["uri/B00"],
+            }
+        ]
+    )
     ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00"}])
     out = merge.merge_codes(owl, ofs)
     row = out.row(0, named=True)
@@ -196,9 +227,17 @@ def test_owl_only_fields_pass_through() -> None:
 
 def test_ofs_only_fields_pass_through() -> None:
     owl = _make_owl([{"code": "A00", "label": "A00"}])
-    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00",
-                      "notes_editorial": ["note OFS"],
-                      "exclusions_redirect": ["B01"]}])
+    ofs = _make_ofs(
+        [
+            {
+                "code": "A00",
+                "abbrev": "A00",
+                "label": "A00",
+                "notes_editorial": ["note OFS"],
+                "exclusions_redirect": ["B01"],
+            }
+        ]
+    )
     out = merge.merge_codes(owl, ofs)
     row = out.row(0, named=True)
     assert row["notes_editorial"] == ["note OFS"]
@@ -227,10 +266,12 @@ def test_label_no_conflict_on_case_only() -> None:
 
 def test_orphan_ofs_logged() -> None:
     owl = _make_owl([{"code": "A00", "label": "A00"}])
-    ofs = _make_ofs([
-        {"code": "A00", "abbrev": "A00", "label": "A00 match"},
-        {"code": "ZZZ", "abbrev": "ZZZ", "label": "orphan OFS"},
-    ])
+    ofs = _make_ofs(
+        [
+            {"code": "A00", "abbrev": "A00", "label": "A00 match"},
+            {"code": "ZZZ", "abbrev": "ZZZ", "label": "orphan OFS"},
+        ]
+    )
     orphans = merge.find_orphans(owl, ofs)
     assert len(orphans) == 1
     assert orphans.row(0, named=True)["code"] == "ZZZ"
@@ -244,29 +285,41 @@ def test_schema_validates() -> None:
 
 
 def test_deterministic() -> None:
-    owl = _make_owl([
-        {"code": "B01", "label": "B01", "left": 3, "right": 4},
-        {"code": "A00", "label": "A00", "left": 1, "right": 2,
-         "synonymes": ["s1"]},
-    ])
-    ofs = _make_ofs([
-        {"code": "A00", "abbrev": "A00", "label": "A00",
-         "synonymes": ["s2"], "inclusions": ["i1"]},
-    ])
+    owl = _make_owl(
+        [
+            {"code": "B01", "label": "B01", "left": 3, "right": 4},
+            {"code": "A00", "label": "A00", "left": 1, "right": 2, "synonymes": ["s1"]},
+        ]
+    )
+    ofs = _make_ofs(
+        [
+            {
+                "code": "A00",
+                "abbrev": "A00",
+                "label": "A00",
+                "synonymes": ["s2"],
+                "inclusions": ["i1"],
+            },
+        ]
+    )
     first = merge.merge_codes(owl, ofs)
     second = merge.merge_codes(owl, ofs)
     assert first.equals(second)
 
 
 def test_to_parquet_and_reports_writes_all(tmp_path: Path) -> None:
-    owl = _make_owl([
-        {"code": "A00", "label": "A00"},
-        {"code": "U07.1", "label": "COVID-19 post-2006"},
-    ])
-    ofs = _make_ofs([
-        {"code": "A00", "abbrev": "A00", "label": "A00", "inclusions": ["i"]},
-        {"code": "ZZZ", "abbrev": "ZZZ", "label": "orphan"},
-    ])
+    owl = _make_owl(
+        [
+            {"code": "A00", "label": "A00"},
+            {"code": "U07.1", "label": "COVID-19 post-2006"},
+        ]
+    )
+    ofs = _make_ofs(
+        [
+            {"code": "A00", "abbrev": "A00", "label": "A00", "inclusions": ["i"]},
+            {"code": "ZZZ", "abbrev": "ZZZ", "label": "orphan"},
+        ]
+    )
     owl_path = tmp_path / "owl.parquet"
     ofs_path = tmp_path / "ofs.parquet"
     owl.write_parquet(owl_path)
@@ -277,7 +330,11 @@ def test_to_parquet_and_reports_writes_all(tmp_path: Path) -> None:
     paths = merge.to_parquet_and_reports(owl_path, ofs_path, out_dir, reports_dir)
 
     assert set(paths.keys()) == {
-        "merged", "conflicts", "orphans", "note_merges", "post_2006",
+        "merged",
+        "conflicts",
+        "orphans",
+        "note_merges",
+        "post_2006",
         "orphan_type_d",
     }
     for p in paths.values():
@@ -293,10 +350,11 @@ def test_to_parquet_and_reports_writes_all(tmp_path: Path) -> None:
 
 def test_find_note_merges_identique_apres_normalisation() -> None:
     owl = _make_owl([{"code": "A00", "label": "A00", "inclusion_note": "DIARRHÉE à V."}])
-    ofs = _make_ofs([
-        {"code": "A00", "abbrev": "A00", "label": "A00",
-         "inclusions": ["diarrhee a v"]},
-    ])
+    ofs = _make_ofs(
+        [
+            {"code": "A00", "abbrev": "A00", "label": "A00", "inclusions": ["diarrhee a v"]},
+        ]
+    )
     nm = merge.find_note_merges(owl, ofs)
     assert len(nm) == 1
     row = nm.row(0, named=True)
@@ -310,8 +368,9 @@ def test_find_note_merges_identique_apres_normalisation() -> None:
 
 def test_find_note_merges_difference_significative() -> None:
     owl = _make_owl([{"code": "A00", "label": "A00", "inclusion_note": "Inclusion ANS distincte"}])
-    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00",
-                      "inclusions": ["Inclusion OFS"]}])
+    ofs = _make_ofs(
+        [{"code": "A00", "abbrev": "A00", "label": "A00", "inclusions": ["Inclusion OFS"]}]
+    )
     nm = merge.find_note_merges(owl, ofs)
     assert len(nm) == 1
     row = nm.row(0, named=True)
@@ -324,17 +383,18 @@ def test_find_note_merges_difference_significative() -> None:
 def test_find_note_merges_no_log_when_ofs_only() -> None:
     """Une note OFS sans contrepartie ANS n'est pas loggée."""
     owl = _make_owl([{"code": "A00", "label": "A00"}])
-    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00",
-                      "inclusions": ["OFS only"]}])
+    ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00", "inclusions": ["OFS only"]}])
     nm = merge.find_note_merges(owl, ofs)
     assert len(nm) == 0
 
 
 def test_find_post_2006_codes() -> None:
-    owl = _make_owl([
-        {"code": "A00", "label": "A00"},
-        {"code": "U07.1", "label": "COVID"},
-    ])
+    owl = _make_owl(
+        [
+            {"code": "A00", "label": "A00"},
+            {"code": "U07.1", "label": "COVID"},
+        ]
+    )
     ofs = _make_ofs([{"code": "A00", "abbrev": "A00", "label": "A00"}])
     post = merge.find_post_2006_codes(owl, ofs)
     assert post["code"].to_list() == ["U07.1"]

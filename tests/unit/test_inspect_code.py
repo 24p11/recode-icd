@@ -106,7 +106,8 @@ def test_inspect_code_verbose_smoke(ctx: ExplorationContext, capsys) -> None:  #
 
 
 def test_inspect_code_verbose_false_equivalent_to_omitted(
-    ctx: ExplorationContext, capsys,
+    ctx: ExplorationContext,
+    capsys,
 ) -> None:  # type: ignore[no-untyped-def]
     """`verbose=False` doit produire la même sortie que sans le param."""
     inspect_code("A18.1", ctx=ctx)
@@ -120,7 +121,8 @@ def test_inspect_code_verbose_false_equivalent_to_omitted(
 
 
 def test_inspect_code_verbose_no_dagger_pair(
-    ctx: ExplorationContext, capsys,
+    ctx: ExplorationContext,
+    capsys,
 ) -> None:  # type: ignore[no-untyped-def]
     """Pour un code sans paire dague/astérisque, le commentaire du
     BLOC 5 mentionne que Δ2 vient des synonymes/externes seuls."""
@@ -133,7 +135,8 @@ def test_inspect_code_verbose_no_dagger_pair(
 
 
 def test_inspect_code_verbose_propagated_delta(
-    ctx: ExplorationContext, capsys,
+    ctx: ExplorationContext,
+    capsys,
 ) -> None:  # type: ignore[no-untyped-def]
     """E80.7 illustre les 4 niveaux de propagation → Δ1 > 0."""
     inspect_code("E80.7", ctx=ctx, verbose=True)
@@ -147,7 +150,8 @@ def test_inspect_code_verbose_propagated_delta(
 
 
 def test_inspect_code_extended_leaf_smoke(
-    ctx_rdf: ExplorationContext, capsys,
+    ctx_rdf: ExplorationContext,
+    capsys,
 ) -> None:  # type: ignore[no-untyped-def]
     """Smoke : M01.08 (feuille) doit produire les 5 BLOCs et exposer les
     propriétés RDF spécifiques (hasCausality vers A39.8, 6 altLabel)."""
@@ -162,7 +166,8 @@ def test_inspect_code_extended_leaf_smoke(
 
 
 def test_inspect_code_extended_chapter_roman(
-    ctx_rdf: ExplorationContext, capsys,
+    ctx_rdf: ExplorationContext,
+    capsys,
 ) -> None:  # type: ignore[no-untyped-def]
     """XIII (chiffre romain) doit être mappé vers l'URI RDF 13, et
     l'affichage doit reprendre la notation romaine."""
@@ -176,7 +181,8 @@ def test_inspect_code_extended_chapter_roman(
 
 
 def test_inspect_code_extended_absent_does_not_crash(
-    ctx_rdf: ExplorationContext, capsys,
+    ctx_rdf: ExplorationContext,
+    capsys,
 ) -> None:  # type: ignore[no-untyped-def]
     """ZZZ99 (inexistant) ne doit pas lever, et signaler l'absence."""
     inspect_code_extended("ZZZ99", ctx_rdf)

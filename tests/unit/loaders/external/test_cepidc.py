@@ -20,10 +20,7 @@ pytestmark = pytest.mark.regression
 
 
 CEPIDC_CSV = (
-    Path(__file__).resolve().parents[4]
-    / "data"
-    / "CIM_CEPIDC_2015"
-    / "CepiDc_Dictionnaire2015.csv"
+    Path(__file__).resolve().parents[4] / "data" / "CIM_CEPIDC_2015" / "CepiDc_Dictionnaire2015.csv"
 )
 
 
@@ -40,9 +37,7 @@ def df() -> pl.DataFrame:
 
 def test_returns_correct_schema(df: pl.DataFrame) -> None:
     assert df.columns == ["code", "libelle", "type", "source", "metadata"]
-    assert df.schema["metadata"] == pl.Struct(
-        {"source_file": pl.String, "version_year": pl.String}
-    )
+    assert df.schema["metadata"] == pl.Struct({"source_file": pl.String, "version_year": pl.String})
 
 
 def test_all_rows_type_synonyme(df: pl.DataFrame) -> None:
@@ -55,16 +50,10 @@ def test_all_rows_source_CEPIDC_2015(df: pl.DataFrame) -> None:
 
 def test_metadata_constant(df: pl.DataFrame) -> None:
     source_files = (
-        df.select(pl.col("metadata").struct["source_file"])
-        .to_series()
-        .unique()
-        .to_list()
+        df.select(pl.col("metadata").struct["source_file"]).to_series().unique().to_list()
     )
     version_years = (
-        df.select(pl.col("metadata").struct["version_year"])
-        .to_series()
-        .unique()
-        .to_list()
+        df.select(pl.col("metadata").struct["version_year"]).to_series().unique().to_list()
     )
     assert source_files == ["CepiDc_Dictionnaire2015.csv"]
     assert version_years == ["2015"]

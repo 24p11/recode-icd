@@ -22,8 +22,7 @@ def csv_final_df() -> pl.DataFrame:
     path = _PROCESSED / "inclusions_exclusions_synonymes.csv"
     if not path.is_file():
         pytest.skip(
-            f"CSV final absent : {path}. "
-            "Lancer `uv run recode-icd build flat-csv` d'abord."
+            f"CSV final absent : {path}. Lancer `uv run recode-icd build flat-csv` d'abord."
         )
     return pl.read_csv(path, infer_schema_length=200_000)
 
@@ -34,8 +33,7 @@ def orphan_report_df() -> pl.DataFrame:
     path = _REPORTS / "external_orphan_codes.csv"
     if not path.is_file():
         pytest.skip(
-            f"Rapport orphan absent : {path}. "
-            "Lancer `uv run recode-icd build external` d'abord."
+            f"Rapport orphan absent : {path}. Lancer `uv run recode-icd build external` d'abord."
         )
     return pl.read_csv(path)
 

@@ -38,13 +38,20 @@ def _make_csv(rows: list[dict[str, object]]) -> pl.DataFrame:
 def _sample() -> pl.DataFrame:
     rows: list[dict[str, object]] = []
     # A00.0 : 2 notes (1 synonyme CIM-10 code, 1 exclusion ANS block)
-    rows.append({"code": "A00.0", "type": "synonyme", "source": "CIM-10",
-                 "source_level": "code"})
-    rows.append({"code": "A00.0", "type": "exclusion", "source": "ANS",
-                 "source_level": "block", "inherited_from_code": "A00-A09"})
+    rows.append({"code": "A00.0", "type": "synonyme", "source": "CIM-10", "source_level": "code"})
+    rows.append(
+        {
+            "code": "A00.0",
+            "type": "exclusion",
+            "source": "ANS",
+            "source_level": "block",
+            "inherited_from_code": "A00-A09",
+        }
+    )
     # A00.1 : 1 inclusion ORPHANET code
-    rows.append({"code": "A00.1", "type": "inclusion", "source": "ORPHANET",
-                 "source_level": "code"})
+    rows.append(
+        {"code": "A00.1", "type": "inclusion", "source": "ORPHANET", "source_level": "code"}
+    )
     return _make_csv(rows)
 
 
@@ -99,12 +106,16 @@ def test_render_is_deterministic_except_date() -> None:
 def test_codes_over_100_listed() -> None:
     """Un code avec >100 notes figure dans la section dédiée."""
     rows = [
-        {"code": "FAT.0", "type": "synonyme", "source": "CIM-10 index",
-         "source_level": "code", "libelle": "Code fourre-tout"}
+        {
+            "code": "FAT.0",
+            "type": "synonyme",
+            "source": "CIM-10 index",
+            "source_level": "code",
+            "libelle": "Code fourre-tout",
+        }
         for _ in range(101)
     ]
-    rows.append({"code": "THIN.0", "type": "synonyme", "source": "CIM-10",
-                 "source_level": "code"})
+    rows.append({"code": "THIN.0", "type": "synonyme", "source": "CIM-10", "source_level": "code"})
     stats = csv_stats.compute_csv_stats(_make_csv(rows))
     fat = {r["code"] for r in stats["fat_codes"]}
     assert "FAT.0" in fat
