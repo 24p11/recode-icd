@@ -1,0 +1,48 @@
+# Hooks git de recode-icd.
+#
+# Installation : `uv run pre-commit install`
+#
+# Choix d'implémentation : hooks `language: system` appuyés sur le ruff
+# déjà installé par `uv sync` (épinglé dans `uv.lock`), plutôt que sur
+# `ruff-pre-commit` avec son propre `rev:`. Cela garantit que le hook et
+# la boucle de développement (`uv run ruff check`) utilisent strictement
+# la même version, et évite une seconde installation de ruff qui
+# dériverait silencieusement de `uv.lock`.
+#
+# mypy n'est volontairement PAS un hook : il tourne déjà dans la boucle
+# de test et son coût de démarrage est mal adapté à un pre-commit.
+
+repos:
+  - repo: local
+    hooks:
+      # Périmètre volontairement limité à src/ et tests/ : c'est
+      # exactement celui des commandes documentées dans le CLAUDE.md
+      # (`uv run ruff check src/ tests/`). Les scripts de
+      # `scripts/explore/` sont du code exploratoire ad hoc, jamais
+      # passé au linter jusqu'ici (31 erreurs y dorment) ; les inclure
+      # bloquerait les commits sans rapport avec ce périmètre.
+      - id: ruff-check
+        name: ruff check (src/ tests/)
+        entry: uv run ruff check --force-exclude --fix
+        language: system
+        types_or: [python, pyi]
+        files: ^(src|tests)/
+        require_serial: true
+
+      - id: ruff-format
+        name: ruff format (src/ tests/)
+        entry: uv run ruff format --force-exclude
+        language: system
+        types_or: [python, pyi]
+        files: ^(src|tests)/
+        require_serial: true
+
+      # Quatre .DS_Store avaient fini par être versionnés avant que la
+      # règle .gitignore n'existe (retirés le 2026-08-09). Ce hook empêche
+      # la récidive : .gitignore ne protège pas un fichier déjà suivi, ni
+      # un `git add -f` distrait.
+      - id: no-ds-store
+        name: interdire les fichiers .DS_Store
+        entry: "fichier .DS_Store détecté — ne jamais versionner (cf .gitignore)"
+        language: fail
+        files: (^|/)\.DS_Store$

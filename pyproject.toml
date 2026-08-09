@@ -69,7 +69,10 @@ addopts = "-ra --strict-markers"
 line-length = 100
 target-version = "py313"
 src = ["src", "tests"]
-extend-exclude = ["*.ipynb"]   # notebooks d'exploration : pas de lint sur le code généré
+extend-exclude = [
+    "*.ipynb",   # notebooks d'exploration : pas de lint sur le code généré
+    "arXiv/",    # archive legacy v1 : figée, ne pas relinter ni reformater
+]
 
 [tool.ruff.lint]
 select = [
