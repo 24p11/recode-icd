@@ -1,24 +1,31 @@
 # Bibliothèque de fiches CIM-10 — Statistiques de référence
 
 > Document de référence sur le contenu de `outputs/cards_library/`,
-> généré par `recode-icd cards build`. Dernière mise à jour : 2026-06-06.
+> généré par `recode-icd cards build`. Dernière mise à jour :
+> 2026-06-08 (intégration CepiDc 2015).
 
 ---
 
 ## Vue d'ensemble
 
-| Mesure | Valeur |
-|---|---|
-| Codes feuilles | 15 978 |
-| Sous-dossiers (chapitres romains) | 22 (I à XXII) |
-| Temps de génération | 110 s (~6,9 ms/fiche) |
-| Erreurs lors de la génération | 0 |
-| Volume markdown total | 22,6 Mo |
-| Taille médiane d'une fiche | 1 398 caractères |
-| Taille maximale d'une fiche | 4 785 caractères |
+| Mesure | Avant CepiDc (2026-06-06) | Après CepiDc (2026-06-08) |
+|---|---|---|
+| Codes feuilles | 15 978 | 16 058 |
+| Sous-dossiers (chapitres romains) | 22 (I à XXII) | 22 (I à XXII) |
+| Temps de génération | 110 s (~6,9 ms/fiche) | 286 s (~17,8 ms/fiche) |
+| Erreurs lors de la génération | 0 | 0 |
+| Volume markdown total | 22,6 Mo | 24,2 Mo |
+| Taille médiane d'une fiche | 1 398 caractères | 1 463 caractères |
+| Taille maximale d'une fiche | 4 785 caractères | 5 254 caractères |
 
 La bibliothèque est régénérée à la demande. Elle n'est pas versionnée
 (cf. `.gitignore`), seul `_index.csv` est conservé comme inventaire.
+
+L'intégration CepiDc ajoute +80 codes (codes désormais couverts par
+au moins une entrée), +7 % de volume markdown, +5 % en taille
+médiane. La durée de génération a triplé : surcoût venant de la
+section « Formulations cliniques alternatives » qui parcourt plus
+d'entrées par code à filtrer/échantillonner.
 
 ## Distribution par chapitre
 
@@ -26,11 +33,11 @@ Top 5 chapitres en volume :
 
 | Chapitre | Description | n | % |
 |---|---|---|---|
-| XIII | Musculo-squelettique | 4 866 | 30,5 % |
+| XIII | Musculo-squelettique | 4 866 | 30,3 % |
 | XIX | Traumatismes | 1 444 | 9,0 % |
 | XX | Causes externes | 1 350 | 8,4 % |
 | V | Troubles mentaux | 1 060 | 6,6 % |
-| I | Maladies infectieuses | 793 | 5,0 % |
+| I | Maladies infectieuses | 793 | 4,9 % |
 
 Le chapitre XIII pèse à lui seul près d'un tiers du volume total,
 conséquence de la combinatoire des 5e positions anatomiques (10
@@ -42,13 +49,58 @@ Les 5 plus gros chapitres représentent ~60 % du volume total.
 
 Section conditionnellement présente selon le code :
 
-| Section | n | % | Commentaire |
-|---|---|---|---|
-| Position dans la classification | 15 978 | 100 % | Universel |
-| À ne pas décrire | 15 593 | 97,6 % | Quasi-universel (exclusions héritées) |
-| Périmètre clinique | 10 436 | 65,3 % | Descripteurs et inclusions héritées |
-| Formulations cliniques alternatives | 7 523 | 47,1 % | Entrées Index CIM-10 + AP-HP |
-| Localisations anatomiques | 2 280 | 14,3 % | Exclusif aux codes type=D du chapitre XIII |
+| Section | n (avant) | % (avant) | n (après) | % (après) |
+|---|---|---|---|---|
+| Position dans la classification | 15 978 | 100 % | 16 058 | 100 % |
+| À ne pas décrire | 15 593 | 97,6 % | ~15 593 | ~97 % |
+| Périmètre clinique | 10 436 | 65,3 % | ~10 436 | ~65 % |
+| Formulations cliniques alternatives | 7 523 | 47,1 % | 8 629 | 53,7 % |
+| Localisations anatomiques | 2 280 | 14,3 % | 2 280 | 14,2 % |
+
+L'intégration CepiDc fait passer la couverture de la section
+« Formulations cliniques alternatives » de 47,1 % à 53,7 % des fiches
+(+1 106 codes nouvellement couverts), sans impact sur les autres
+sections.
+
+## Apport CepiDc — top 10 codes les plus enrichis (volume avant échantillonnage)
+
+| Code | Libellé | n formulations CepiDc |
+|---|---|---|
+| C79.8 | Tumeur maligne secondaire d'autres sièges précisés | 1 226 |
+| C85.9 | Lymphome non hodgkinien, non précisé | 999 |
+| C34.9 | Tumeur maligne de bronche ou du poumon, sans précision | 873 |
+| Z92.4 | Antécédents personnels d'intervention chirurgicale importante | 854 |
+| Z92.2 | Antécédents personnels d'utilisation (actuelle) à long terme | 825 |
+| Y83.1 | Intervention chirurgicale avec implantation d'une prothèse | 770 |
+| I77.9 | Atteinte des artères et artérioles, sans précision | 697 |
+| I25.1 | Cardiopathie artérioscléreuse | 682 |
+| C79.5 | Tumeur maligne secondaire des os et de la moelle osseuse | 649 |
+| I67.8 | Autres maladies cérébrovasculaires précisées | 602 |
+
+Ces volumes sont mesurés **avant** l'échantillonnage `INDEX_SAMPLE_SIZE
+= 10` appliqué côté fiches feuilles (cf [cards.py:_section_formulations](../src/recode_icd/cards.py)).
+La fiche feuille n'affiche jamais plus de 10 entrées CepiDc, mais le
+CSV contient toutes les entrées.
+
+## Apport CepiDc — codes ignorés
+
+124 codes CepiDc sont absents du `merged_codes` recode-icd (codes
+pré-2006 supprimés par l'ATIH). Détails dans
+[`reports/cepidc_ignored.csv`](../reports/cepidc_ignored.csv) avec le
+nombre de formulations perdues par code et des exemples. Top du
+rapport : R58.09 (528 formulations), I63.59 (477), I21.99 (411), etc.
+
+## Bibliothèque catégories (`outputs/cards_library_categories/`)
+
+Générée par `recode-icd cards build-categories` (75 s).
+
+| Mesure | Valeur |
+|---|---|
+| Catégories | 2 054 |
+| Volume markdown total | 7,0 Mo |
+| Taille médiane d'une fiche | 3 265 caractères |
+| Taille maximale d'une fiche | 16 173 caractères |
+| Plafond formulations cliniques | `CATEGORY_FORMULATIONS_MAX = 50` |
 
 **Notes sur les sections** :
 - "Localisations anatomiques" : 2 280 codes correspond exactement

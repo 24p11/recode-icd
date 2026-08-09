@@ -349,9 +349,9 @@ Cas limites à gérer explicitement dans `relations/sibling_exclusions.py` :
    différente ("lésion à localisations contiguës"). Pour ces codes, **ne
    pas synthétiser** d'exclusion frère — on log un skip dans le rapport.
 
-   ## Sources externes (ORPHANET, Index CIM-10 vol3, AP-HP)
+   ## Sources externes (ORPHANET, Index CIM-10 vol3, AP-HP, CepiDc)
  
-En complément d'OFS et OWL/ANS, le projet intègre trois familles de
+En complément d'OFS et OWL/ANS, le projet intègre quatre familles de
 sources externes pour enrichir les synonymes et inclusions :
  
 1. **ORPHANET** (`data/Orphanet_Nomenclature_Pack_FR_2025/`) — XML
@@ -370,6 +370,18 @@ sources externes pour enrichir les synonymes et inclusions :
    HECTOR) — dictionnaires construits par sociétés savantes (SRLF,
    SPILF) ou groupes d'experts AP-HP (DIM NESTOR, services métiers).
    Tous importés comme `type=synonyme` par défaut.
+4. **CepiDc 2015** (`data/CIM_CEPIDC_2015/CepiDc_Dictionnaire2015.csv`) —
+   dictionnaire de formulations cliniques *vie réelle* rédigées par
+   des médecins sur les certificats de décès. Source maintenue par le
+   CepiDc (Centre d'épidémiologie sur les causes médicales de décès).
+   Style très télégraphique (médiane 26 chars, 3 mots), 147 340
+   formulations sur 6 291 codes uniques. Tous les libellés importés
+   comme `type=synonyme`. **Placé en dernier** dans `_EXTERNAL_ORDER`
+   pour que la dédup tolérante préserve les libellés plus riches
+   d'ORPHANET / AP-HP / Index quand il y a chevauchement. Génère un
+   rapport spécifique `reports/cepidc_ignored.csv` avec format
+   `(code_cepidc, n_formulations_perdues, exemples_formulations)`
+   listant les codes CepiDc absents du référentiel `merged_codes`.
 **Cas particulier piège ORPHANET** : le XML ORPHANET contient deux
 propriétés au nom similaire mais à la sémantique différente :
 - `DisorderMappingRelation/Name` : porte le sigle E/NTBT/BTNT/ND
@@ -496,6 +508,7 @@ exporté utilise des libellés français lisibles. Le mapping vit dans
 | `APHP_RHUMATOLOGIE`      | `AP-HP Rhumatologie`        |
 | `APHP_GERMES`            | `AP-HP Germes (SPILF)`      |
 | `APHP_SRLF`              | `AP-HP SRLF`                |
+| `CEPIDC_2015`            | `CepiDc_2015`               |
 
 Toute nouvelle source ajoutée passe par les DEUX endroits : l'enum
 Python et le mapping d'export. Test de régression vérifie qu'il n'y a

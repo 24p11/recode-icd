@@ -155,12 +155,16 @@ def test_pre_2006_dropped_by_atih_logged_not_added(
     merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
 ) -> None:
     """A90 présent en OFS mais absent de merged_codes → catégorie
-    `pre_2006_dropped_by_atih`. C'est le cas dominant en pratique."""
+    `pre_2006_dropped_by_atih`. C'est le cas dominant en pratique.
+    A90 apparaît dans plusieurs sources externes (ORPHANET et CepiDc),
+    chaque entrée doit être loggée séparément."""
     to_add, _, orphans, _ = merge_result
     assert to_add.filter(pl.col("code") == "A90").is_empty()
     orph = orphans.filter(pl.col("code") == "A90")
-    assert orph.height == 1
-    assert orph.row(0, named=True)["categorie_orphan"] == "pre_2006_dropped_by_atih"
+    assert orph.height >= 1
+    assert set(orph["categorie_orphan"].unique().to_list()) == {
+        "pre_2006_dropped_by_atih"
+    }
 
 
 def test_loader_dropped_detected_when_rdf_codes_provided(
@@ -464,3 +468,106 @@ def test_build_without_external_unchanged(
     # CSV non vide (au moins l'inclusion A00.0 et le synonyme A01.0).
     assert df.height >= 1
     assert df.columns[0] == "code"
+
+
+# ----------------------------------------------------------------------
+# Tests CepiDc 2015 (intégration au pipeline external)
+# ----------------------------------------------------------------------
+
+
+def test_cepidc_entries_in_to_add(
+    merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
+) -> None:
+    """Les formulations CepiDc nouvelles doivent figurer dans to_add
+    avec source=CEPIDC_2015 et type=synonyme."""
+    to_add, _, _, _ = merge_result
+    tub_r = to_add.filter(
+        (pl.col("code") == "A18.1") & (pl.col("libelle_orig") == "tuberculose rénale")
+    )
+    assert tub_r.height == 1
+    row = tub_r.row(0, named=True)
+    assert row["source"] == "CEPIDC_2015"
+    assert row["type"] == "synonyme"
+
+
+def test_cepidc_overlap_absorbed_by_orphanet(
+    merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
+) -> None:
+    """CepiDc 'HPN' pour D59.5 matche ORPHANET (déjà inséré) → absorbé.
+    CepiDc placé en dernier dans _EXTERNAL_ORDER perd les matches."""
+    to_add, overlaps, _, _ = merge_result
+    # HPN n'apparaît qu'une fois (côté ORPHANET), pas en doublon CepiDc.
+    hpn = to_add.filter((pl.col("code") == "D59.5") & (pl.col("libelle_orig") == "HPN"))
+    assert hpn.height == 1
+    assert hpn.row(0, named=True)["source"] == "ORPHANET"
+    # CepiDc HPN figure dans overlaps avec source_ofs_ans=ORPHANET.
+    cep_ov = overlaps.filter(
+        (pl.col("source_externe") == "CEPIDC_2015")
+        & (pl.col("libelle_externe") == "HPN")
+    )
+    assert cep_ov.height == 1
+    assert cep_ov.row(0, named=True)["source_ofs_ans"] == "ORPHANET"
+
+
+def test_cepidc_orphan_code_logged(
+    merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
+) -> None:
+    """A90 absent de merged → entrées CepiDc loggées dans orphans, pas
+    dans to_add."""
+    to_add, _, orphans, _ = merge_result
+    assert to_add.filter(
+        (pl.col("code") == "A90") & (pl.col("source") == "CEPIDC_2015")
+    ).is_empty()
+    cep_orph = orphans.filter(
+        (pl.col("code") == "A90") & (pl.col("source_externe") == "CEPIDC_2015")
+    )
+    # 2 formulations CepiDc pour A90 dans la fixture.
+    assert cep_orph.height == 2
+
+
+def test_cepidc_ignored_report_format(
+    merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
+) -> None:
+    """`_build_cepidc_ignored_report` doit agréger par code avec
+    n_formulations_perdues et exemples_formulations."""
+    from recode_icd.merge_external import _build_cepidc_ignored_report
+
+    _, _, orphans, _ = merge_result
+    report = _build_cepidc_ignored_report(orphans)
+    a90 = report.filter(pl.col("code_cepidc") == "A90")
+    assert a90.height == 1
+    row = a90.row(0, named=True)
+    assert row["n_formulations_perdues"] == 2
+    assert "dengue" in row["exemples_formulations"].lower()
+
+
+def test_cepidc_in_final_csv(
+    merged_df: pl.DataFrame,
+    propagated_df: pl.DataFrame,
+    siblings_df: pl.DataFrame,
+    owl_df: pl.DataFrame,
+    ofs_df: pl.DataFrame,
+    dagger_asterisk_df: pl.DataFrame,
+    merge_result: tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame, pl.DataFrame],
+) -> None:
+    """Une entrée CepiDc nouvelle doit apparaître dans le CSV final
+    avec source='CepiDc_2015', type='synonyme', source_level='code'."""
+    to_add, _, _, _ = merge_result
+    df, _ = flat_csv.build(
+        merged=merged_df,
+        propagated=propagated_df,
+        siblings=siblings_df,
+        owl=owl_df,
+        ofs=ofs_df,
+        dagger_asterisk=dagger_asterisk_df,
+        external=to_add,
+    )
+    tub_r = df.filter(
+        (pl.col("code") == "A18.1") & (pl.col("texte") == "tuberculose rénale")
+    )
+    assert tub_r.height == 1
+    row = tub_r.row(0, named=True)
+    assert row["source"] == "CepiDc_2015"
+    assert row["type"] == "synonyme"
+    assert row["source_level"] == "code"
+    assert row["inherited_from_code"] is None

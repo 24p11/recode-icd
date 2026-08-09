@@ -57,6 +57,11 @@ _EXTERNAL_ORDER: tuple[str, ...] = (
     "APHP_OPHTALMOLOGIE",
     "APHP_RHUMATOLOGIE",
     "APHP_SRLF",
+    # CepiDc en dernier : formulations télégraphiques (médiane 26 chars,
+    # 3 mots) — moins riches que les libellés AP-HP/ORPHANET/Index.
+    # Les ~0,5 % de matches tolérants sont donc absorbés en faveur des
+    # sources plus expertes qui précèdent.
+    "CEPIDC_2015",
 )
 
 
@@ -479,12 +484,21 @@ def _summary_schema() -> dict[str, type[pl.DataType]]:
 def load_external_frames(
     orphanet_xml: Path,
     hector_xlsx: Path,
+    cepidc_csv: Path | None = None,
 ) -> dict[str, pl.DataFrame]:
-    """Charge les 3 loaders Phase 1 et split AP-HP en 9 DataFrames par
-    spécialité. Retourne un dict source_label → DataFrame.
+    """Charge les loaders Phase 1 (ORPHANET, Index, AP-HP, CepiDc) et
+    split AP-HP en 9 DataFrames par spécialité. Retourne un dict
+    source_label → DataFrame.
+
+    Args :
+        orphanet_xml : XML ORPHANET (mapping E/NTBT).
+        hector_xlsx : classeur HECTOR (Index CIM-10 vol3 + AP-HP).
+        cepidc_csv : CSV CepiDc 2015 (optionnel). Si None, CepiDc n'est
+            pas chargé.
     """
     from recode_icd.loaders.external import (
         load_aphp_hector,
+        load_cepidc,
         load_index_cim10,
         load_orphanet,
     )
@@ -496,6 +510,8 @@ def load_external_frames(
     aphp = load_aphp_hector(hector_xlsx)
     for source_label in aphp["source"].unique().to_list():
         frames[source_label] = aphp.filter(pl.col("source") == source_label)
+    if cepidc_csv is not None:
+        frames["CEPIDC_2015"] = load_cepidc(cepidc_csv)
     return frames
 
 
@@ -509,9 +525,16 @@ def to_parquet_and_reports(
     hector_xlsx: Path,
     output_path: Path,
     reports_dir: Path,
+    cepidc_csv: Path | None = None,
 ) -> dict[str, Path]:
     """Pipeline complet : loaders → merge → 1 Parquet `to_add` + 3
-    rapports CSV."""
+    rapports CSV.
+
+    Si `cepidc_csv` est fourni, CepiDc 2015 est chargé en plus et un
+    rapport dédié `cepidc_ignored.csv` est généré (codes CepiDc absents
+    du CSV recode-icd, format `(code_cepidc, n_formulations_perdues,
+    exemples_formulations)`).
+    """
     merged = pl.read_parquet(merged_path)
     propagated = pl.read_parquet(propagated_path)
     siblings = pl.read_parquet(siblings_path)
@@ -523,7 +546,7 @@ def to_parquet_and_reports(
     ).select("code", pl.col("label").alias("libelle"))
     valid_codes = merged.select("code")
 
-    external_frames = load_external_frames(orphanet_xml, hector_xlsx)
+    external_frames = load_external_frames(orphanet_xml, hector_xlsx, cepidc_csv)
 
     to_add, overlaps, orphans, summary = merge_external_sources(
         propagated=propagated,
@@ -547,7 +570,42 @@ def to_parquet_and_reports(
     overlaps.write_csv(paths["overlaps"])
     orphans.write_csv(paths["orphans"])
     summary.write_csv(paths["summary"])
+
+    if cepidc_csv is not None:
+        cepidc_ignored = _build_cepidc_ignored_report(orphans)
+        paths["cepidc_ignored"] = reports_dir / "cepidc_ignored.csv"
+        cepidc_ignored.write_csv(paths["cepidc_ignored"])
     return paths
+
+
+def _build_cepidc_ignored_report(orphans: pl.DataFrame) -> pl.DataFrame:
+    """Agrège les orphelins CepiDc par code pour le rapport dédié.
+
+    Format : `(code_cepidc, n_formulations_perdues,
+    exemples_formulations)` — 5 premiers libellés ordre alphabétique,
+    concaténés par ` | `.
+    """
+    cepidc = orphans.filter(pl.col("source_externe") == "CEPIDC_2015")
+    if cepidc.is_empty():
+        return pl.DataFrame(
+            schema={
+                "code_cepidc": pl.String,
+                "n_formulations_perdues": pl.UInt32,
+                "exemples_formulations": pl.String,
+            }
+        )
+    return (
+        cepidc.sort("libelle")
+        .group_by("code")
+        .agg(
+            pl.col("libelle").len().alias("n_formulations_perdues"),
+            pl.col("libelle").head(5).str.join(" | ").alias(
+                "exemples_formulations"
+            ),
+        )
+        .rename({"code": "code_cepidc"})
+        .sort("n_formulations_perdues", descending=True)
+    )
 
 
 __all__ = (

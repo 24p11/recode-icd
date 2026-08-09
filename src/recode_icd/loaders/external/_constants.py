@@ -8,6 +8,10 @@ INDEX_CIM10_SHEET = "Cim Alphabétique"
 INDEX_CIM10_SOURCE = "INDEX_CIM10_VOL3"
 INDEX_CIM10_SHEET_LABEL = "B"
 
+# Source CepiDc 2015 (dictionnaire de formulations cliniques extraites
+# des certificats de décès, cf `loaders.external.cepidc`).
+CEPIDC_SOURCE = "CEPIDC_2015"
+
 # Mapping nom de feuille Excel → valeur d'enum `NoteSource`. La clé
 # est le nom EXACT de la feuille telle qu'écrite dans le classeur
 # HECTOR ; l'étiquette en colonne 2 du fichier peut diverger (cas
@@ -28,7 +32,7 @@ APHP_SHEET_TO_SOURCE: dict[str, str] = {
 
 # Sources externes valides pour validation pandera.
 EXTERNAL_SOURCES: frozenset[str] = frozenset(
-    {"ORPHANET", INDEX_CIM10_SOURCE, *APHP_SHEET_TO_SOURCE.values()}
+    {"ORPHANET", INDEX_CIM10_SOURCE, CEPIDC_SOURCE, *APHP_SHEET_TO_SOURCE.values()}
 )
 
 # Types de note valides côté sources externes.
