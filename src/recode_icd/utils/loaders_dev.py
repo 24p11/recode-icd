@@ -101,6 +101,7 @@ _REPORTS: tuple[str, ...] = (
 # si `with_external=True`). Relatifs à la racine du projet.
 _ORPHANET_XML_REL = "data/Orphanet_Nomenclature_Pack_FR_2025/ORPHA_ICD10_mapping_fr_2025.xml"
 _HECTOR_XLSX_REL = "data/CIM_APHP_2019/Dictionnaire_Hector_MAJ062019.xlsx"
+_CEPIDC_CSV_REL = "data/CIM_CEPIDC_2015/CepiDc_Dictionnaire2015.csv"
 
 # Chemins candidats du RDF ANS (chargé seulement si `load_rdf=True`).
 _RDF_PATH_CANDIDATES: tuple[str, ...] = (
@@ -272,8 +273,15 @@ def _load_external_frames(root: Path) -> dict[str, pl.DataFrame]:
             hector_xlsx.is_file(),
         )
         return {}
+    # CepiDc est optionnel côté `load_external_frames` : on ne le passe
+    # que si le CSV est présent, sinon le chargement se poursuit sans lui
+    # (mêmes conditions que `recode-icd build external`).
+    cepidc_path = root / _CEPIDC_CSV_REL
+    cepidc_csv: Path | None = cepidc_path if cepidc_path.is_file() else None
+    if cepidc_csv is None:
+        log.warning("CSV CepiDc introuvable (%s) — ctx.external sera sans CepiDc.", cepidc_path)
     try:
-        return load_external_frames(orphanet_xml, hector_xlsx)
+        return load_external_frames(orphanet_xml, hector_xlsx, cepidc_csv)
     except Exception as exc:
         log.warning("Échec chargement sources externes : %s", exc)
         return {}
