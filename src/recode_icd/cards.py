@@ -45,12 +45,54 @@ def _eager(frame: pl.DataFrame | pl.LazyFrame | None) -> pl.DataFrame:
         return frame.collect()
     return frame
 
+
 # ----------------------------------------------------------------------
 # Constantes publiques
 # ----------------------------------------------------------------------
 
 DEFAULT_SEED = 42
 INDEX_SAMPLE_SIZE = 10
+
+# ----------------------------------------------------------------------
+# Sources alimentant la section « Formulations cliniques alternatives »
+# ----------------------------------------------------------------------
+# Ces valeurs sont des **libellés CSV** (colonne `source` du fichier
+# maître), pas des noms d'enum : elles doivent rester synchronisées avec
+# `_SOURCE_CSV_MAP` de `exporters/flat_csv.py`. Le filtrage se fait par
+# égalité stricte, donc un renommage de libellé non répercuté ici ferait
+# disparaître la source de la section **en silence**, sans exception ni
+# test rouge. C'est exactement ce qui a failli arriver lors du renommage
+# `CepiDc_2015` → `CepiDc 2015` (2026-08-09).
+#
+# Verrou : `tests/regression/test_cards_formulations_sources.py` vérifie
+# que tout libellé du mapping est explicitement soit inclus ci-dessous,
+# soit listé dans FORMULATION_SOURCES_EXCLUDED. Ajouter une source sans
+# trancher son sort fait échouer ce test.
+
+FORMULATION_SOURCE_INDEX = "CIM-10 index"
+FORMULATION_SOURCE_CEPIDC = "CepiDc 2015"
+FORMULATION_SOURCE_APHP_PREFIX = "AP-HP"
+
+#: Libellés retenus par égalité stricte, et plafonnés à INDEX_SAMPLE_SIZE
+#: sur les fiches feuilles.
+FORMULATION_SOURCES_EXACT: tuple[str, ...] = (
+    FORMULATION_SOURCE_INDEX,
+    FORMULATION_SOURCE_CEPIDC,
+)
+
+#: Préfixes retenus (toutes les spécialités AP-HP, non plafonnées).
+FORMULATION_SOURCE_PREFIXES: tuple[str, ...] = (FORMULATION_SOURCE_APHP_PREFIX,)
+
+#: Sources délibérément hors de la section Formulations : elles
+#: alimentent les sections « Périmètre clinique » / « À ne pas décrire »
+#: (OFS, ANS, frères synthétisés) ou sont jugées non pertinentes comme
+#: formulation de CRH (ORPHANET, libellés de maladies rares).
+FORMULATION_SOURCES_EXCLUDED: tuple[str, ...] = (
+    "CIM-10",
+    "ANS",
+    "CIM-10 frères",
+    "ORPHANET",
+)
 
 # Ordre d'affichage des groupes dans les sections "Périmètre clinique"
 # et "À ne pas décrire" : du plus large (chapitre) au plus spécifique
@@ -212,18 +254,14 @@ def _dedup_tolerant_preserve_order(texts: list[str]) -> list[str]:
 
 def _perimeter_heritage_block(sub: pl.DataFrame, level: str) -> str | None:
     """Bloc d'inclusions héritées d'un niveau (chapter/block/category)."""
-    rows = sub.filter(
-        (pl.col("type") == "inclusion") & (pl.col("source_level") == level)
-    )
+    rows = sub.filter((pl.col("type") == "inclusion") & (pl.col("source_level") == level))
     if rows.is_empty():
         return None
     parents = rows["inherited_from_code"].drop_nulls().to_list()
     parent = parents[0] if parents else "?"
     # Certains textes (notamment ANS) finissent par un \n qui casse
     # l'espacement déterministe ; on rstripe avant toute manipulation.
-    texts = _dedup_tolerant_preserve_order(
-        [t.rstrip() for t in rows["texte"].to_list() if t]
-    )
+    texts = _dedup_tolerant_preserve_order([t.rstrip() for t in rows["texte"].to_list() if t])
     texts.sort(key=lambda t: normalize_for_match(t) or "")
     amorce = _AMORCE_PERIMETRE_HERITAGE[level].format(parent=parent)
     return amorce + "\n" + "\n".join(f"- {t}" for t in texts)
@@ -411,9 +449,7 @@ def _section_exclusions_from_ans(code: str, ctx: ExplorationContext) -> str | No
 # ----------------------------------------------------------------------
 
 
-def _section_formulations(
-    code: str, ctx: ExplorationContext, rng: random.Random
-) -> str | None:
+def _section_formulations(code: str, ctx: ExplorationContext, rng: random.Random) -> str | None:
     """Index CIM-10 vol3 (échantillon ≤10) + AP-HP toutes feuilles (tout)
     + CepiDc 2015 (échantillon ≤10)."""
     csv = _eager(ctx.flat)
@@ -424,17 +460,15 @@ def _section_formulations(
         return None
 
     index_entries = (
-        sub.filter(pl.col("source") == "CIM-10 index")["texte"].drop_nulls().to_list()
+        sub.filter(pl.col("source") == FORMULATION_SOURCE_INDEX)["texte"].drop_nulls().to_list()
     )
     aphp_entries = (
-        sub.filter(pl.col("source").str.starts_with("AP-HP"))["texte"]
+        sub.filter(pl.col("source").str.starts_with(FORMULATION_SOURCE_APHP_PREFIX))["texte"]
         .drop_nulls()
         .to_list()
     )
     cepidc_entries = (
-        sub.filter(pl.col("source") == "CepiDc 2015")["texte"]
-        .drop_nulls()
-        .to_list()
+        sub.filter(pl.col("source") == FORMULATION_SOURCE_CEPIDC)["texte"].drop_nulls().to_list()
     )
 
     if len(index_entries) > INDEX_SAMPLE_SIZE:
@@ -543,9 +577,9 @@ def _detect_sections(card: str) -> dict[str, bool]:
 
 def _code_to_chapter_map(merged: pl.DataFrame) -> dict[str, str]:
     """Construit le map `code → chapitre romain` via merged.path."""
-    rows = merged.with_columns(
-        pl.col("path").str.split("/").list.get(0).alias("chap")
-    ).select("code", "chap")
+    rows = merged.with_columns(pl.col("path").str.split("/").list.get(0).alias("chap")).select(
+        "code", "chap"
+    )
     return {r["code"]: r["chap"] for r in rows.iter_rows(named=True)}
 
 
@@ -640,16 +674,23 @@ def build_cards_library(
         if progress and i % 1000 == 0:
             log.info(
                 "Progression : %d / %d codes (%.1fs écoulées)",
-                i, len(codes), time.perf_counter() - t0,
+                i,
+                len(codes),
+                time.perf_counter() - t0,
             )
 
     # Écriture _index.csv (colonnes ordonnées explicitement).
     index_path = output_dir / "_index.csv"
     if index_rows:
         ordered_cols = [
-            "code", "chapter", "filepath", "libelle",
-            "has_perimetre", "has_localisations",
-            "has_exclusions", "has_formulations",
+            "code",
+            "chapter",
+            "filepath",
+            "libelle",
+            "has_perimetre",
+            "has_localisations",
+            "has_exclusions",
+            "has_formulations",
             "nb_chars",
         ]
         pl.DataFrame(index_rows).select(ordered_cols).write_csv(index_path)
@@ -699,9 +740,7 @@ _CATEGORY_SECTION_TITLES = {
 CATEGORY_FORMULATIONS_MAX = 50
 
 
-def _category_direct_children(
-    category_code: str, merged: pl.DataFrame
-) -> list[tuple[str, str]]:
+def _category_direct_children(category_code: str, merged: pl.DataFrame) -> list[tuple[str, str]]:
     """Enfants directs de `category_code` : codes de longueur +2 (point + 1 chiffre).
 
     Pour A18 (3 chars) : retourne A18.0, A18.1, … (5 chars).
@@ -717,10 +756,7 @@ def _category_direct_children(
         .select("code", "label")
         .sort("code")
     )
-    return [
-        (r["code"], r["label"] or "")
-        for r in enfants.iter_rows(named=True)
-    ]
+    return [(r["code"], r["label"] or "") for r in enfants.iter_rows(named=True)]
 
 
 def _category_leaf_codes(category_code: str, csv: pl.DataFrame) -> list[str]:
@@ -731,8 +767,7 @@ def _category_leaf_codes(category_code: str, csv: pl.DataFrame) -> list[str]:
     premier rencontré, donc le code le plus court / le plus petit).
     """
     sub = csv.filter(
-        (pl.col("code") == category_code)
-        | pl.col("code").str.starts_with(f"{category_code}.")
+        (pl.col("code") == category_code) | pl.col("code").str.starts_with(f"{category_code}.")
     )
     return sorted(sub["code"].unique().to_list())
 
@@ -752,9 +787,7 @@ def _category_title(code: str, ctx: ExplorationContext) -> str:
     return f"# {code}"
 
 
-def _category_section_children(
-    category_code: str, ctx: ExplorationContext
-) -> str | None:
+def _category_section_children(category_code: str, ctx: ExplorationContext) -> str | None:
     """Section "Codes enfants directs". Omise si aucun enfant."""
     merged = _eager(ctx.merged)
     enfants = _category_direct_children(category_code, merged)
@@ -777,17 +810,13 @@ def _agg_heritage_block(
         return None
     parents = rows["inherited_from_code"].drop_nulls().to_list()
     parent = parents[0] if parents else "?"
-    texts = _dedup_tolerant_preserve_order(
-        [t.rstrip() for t in rows["texte"].to_list() if t]
-    )
+    texts = _dedup_tolerant_preserve_order([t.rstrip() for t in rows["texte"].to_list() if t])
     texts.sort(key=lambda t: normalize_for_match(t) or "")
     amorce = amorce_template[level].format(parent=parent)
     return amorce + "\n" + "\n".join(f"- {t}" for t in texts)
 
 
-def _category_section_perimeter(
-    category_code: str, ctx: ExplorationContext
-) -> str | None:
+def _category_section_perimeter(category_code: str, ctx: ExplorationContext) -> str | None:
     """Section "Périmètre clinique" agrégée.
 
     Sous-sections héritées (chapter/block/category) : dédupliquées sans
@@ -867,9 +896,7 @@ def _category_section_perimeter(
     return "## Périmètre clinique\n\n" + "\n\n".join(parts)
 
 
-def _category_section_exclusions(
-    category_code: str, ctx: ExplorationContext
-) -> str | None:
+def _category_section_exclusions(category_code: str, ctx: ExplorationContext) -> str | None:
     """Section "À ne pas décrire" agrégée.
 
     Toutes les sous-sections sans mention de source. ANS primaire
@@ -890,9 +917,7 @@ def _category_section_exclusions(
     parts: list[str] = []
     for level in _LEVEL_ORDER:
         # ANS primaire, fallback OFS si vide à ce niveau précis
-        ans_at_level = excl.filter(
-            (pl.col("source") == "ANS") & (pl.col("source_level") == level)
-        )
+        ans_at_level = excl.filter((pl.col("source") == "ANS") & (pl.col("source_level") == level))
         if not ans_at_level.is_empty():
             primary_at_level = ans_at_level
         else:
@@ -943,17 +968,15 @@ def _category_section_formulations(
     sub = csv.filter(pl.col("code").is_in(leaves))
 
     formul = sub.filter(
-        (pl.col("source") == "CIM-10 index")
-        | pl.col("source").str.starts_with("AP-HP")
-        | (pl.col("source") == "CepiDc 2015")
+        (pl.col("source") == FORMULATION_SOURCE_INDEX)
+        | pl.col("source").str.starts_with(FORMULATION_SOURCE_APHP_PREFIX)
+        | (pl.col("source") == FORMULATION_SOURCE_CEPIDC)
     )
     if formul.is_empty():
         return None
 
     entries: list[tuple[str, str]] = [
-        (r["texte"], r["code"])
-        for r in formul.iter_rows(named=True)
-        if r["texte"]
+        (r["texte"], r["code"]) for r in formul.iter_rows(named=True) if r["texte"]
     ]
     if not entries:
         return None
@@ -1046,9 +1069,7 @@ def build_categories_library(
 
     cat_3car = merged.filter(
         (pl.col("type") == "category") & (pl.col("code").str.len_chars() == 3)
-    ).with_columns(
-        pl.col("path").str.split("/").list.get(0).alias("chapter")
-    )
+    ).with_columns(pl.col("path").str.split("/").list.get(0).alias("chapter"))
     if chapter_filter is not None:
         cat_3car = cat_3car.filter(pl.col("chapter") == chapter_filter)
     cat_3car = cat_3car.sort("code")
@@ -1074,9 +1095,7 @@ def build_categories_library(
             fname = f"{code}.md"
             (chap_dir / fname).write_text(card, encoding="utf-8")
             sections = _detect_category_sections(card)
-            n_enfants = len(
-                _category_direct_children(code, merged)
-            )
+            n_enfants = len(_category_direct_children(code, merged))
             index_rows.append(
                 {
                     "code": code,
@@ -1097,14 +1116,22 @@ def build_categories_library(
         if progress and i % 500 == 0:
             log.info(
                 "Progression catégories : %d / %d (%.1fs écoulées)",
-                i, n_total, time.perf_counter() - t0,
+                i,
+                n_total,
+                time.perf_counter() - t0,
             )
 
     index_path = output_dir / "_index.csv"
     if index_rows:
         ordered_cols = [
-            "code", "chapter", "filepath", "libelle", "n_enfants",
-            "has_perimetre", "has_exclusions", "has_formulations",
+            "code",
+            "chapter",
+            "filepath",
+            "libelle",
+            "n_enfants",
+            "has_perimetre",
+            "has_exclusions",
+            "has_formulations",
             "nb_chars",
         ]
         pl.DataFrame(index_rows).select(ordered_cols).write_csv(index_path)
