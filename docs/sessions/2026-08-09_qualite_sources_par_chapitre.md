@@ -419,3 +419,109 @@ exécuté de bout en bout sans erreur. Vérifications : 366 tests verts, `ruff`
 et `mypy` propres. Toujours **rien dans `src/`**.
 
 **Un commit local non poussé** (`032b440`).
+
+---
+
+# Quatrième tour — normalisateur v2 (2026-08-12)
+
+Les trois décisions attendues ont été prises et implémentées. **Le seuil
+d'acceptation n'est pas atteint** : R3 reste non figée, mais le chemin pour
+l'atteindre est désormais entièrement cartographié.
+
+## 21. Les trois décisions appliquées
+
+**Retrait complet des parenthèses qualifiantes.** La justification de fond est
+maintenant documentée dans le notebook et le document de trace : les
+conventions du **volume 3 de la CIM-10** posent que les termes parenthésés
+sont des **modificateurs non essentiels**, dont la présence ou l'absence ne
+change pas l'affectation du code. Les retirer restitue le terme dans sa forme
+minimale affectante — c'est l'application de la sémantique officielle de
+l'index, pas une approximation. Parenthèses résiduelles : **6 695 → 47**.
+
+**Inversion des éponymes**, bornée au motif « second segment se terminant par
+`de` / `d'` / `du` / `des` », avec gestion de l'élision
+(« Eberth, maladie d' » → « maladie d'Eberth », sans espace). **490 entrées**
+inversées ; tout autre motif reste écarté.
+
+**Minuscule initiale épargnant les noms propres.** Le discriminant retenu est
+le corpus lui-même : on ne minusculise que si le premier mot est attesté en
+minuscule **ailleurs dans le CSV, hors Index**. La justification est
+structurelle — l'Index capitalise *toute* tête d'entrée par convention
+éditoriale, il ne peut donc pas témoigner de la casse naturelle d'un terme,
+alors que CepiDc, AP-HP, OFS et ANS sont du texte médical courant. Vérifié :
+`Borrelia`, `Stellantchasmus`, `Lipschütz`, `Eberth` préservés ; `rectite`,
+`dysurie` minusculisés.
+
+## 22. Échantillon de 100 — le seuil n'est pas atteint
+
+Tirage `seed=2025`, distinct du premier. Lecture préliminaire, à confirmer :
+
+| Étiquette | v1 (50) | **v2 (100)** | Seuil | Verdict |
+|---|---|---|---|---|
+| `correcte` | 22 % | **57 %** | — | — |
+| `degradee` | 66 % | **40 %** | ≤ 10 % | **non atteint** |
+| `fautive` | 12 % | **3 %** | 0 | **non atteint** |
+
+Progrès net — les correctes passent de 22 % à 57 % — mais les deux seuils
+sont manqués.
+
+## 23. Diagnostic : les deux écarts sont traitables
+
+**Les 3 fautives relèvent d'un même manque.** Le second segment est la tête du
+terme mais **sans préposition finale**, donc hors du motif d'inversion :
+« Autosome, site fragile » et « Xxxx, syndrome » (caryotype 48,XXXX) appellent
+exactement l'inversion appliquée aux éponymes. La troisième,
+« Nca, bien portant », a pour premier segment une **abréviation d'index**
+(`nca`) et n'est pas un terme. Conformément à la consigne « corrigée par motif
+ou versée aux exclusions » : élargir l'inversion aux seconds segments réduits
+à un substantif de tête nu, et exclure les entrées dont le premier segment est
+une abréviation d'index.
+
+**Les 40 % de dégradées ont une cause unique.** C'est la **préposition de
+liaison manquante** : « Hypoplasie (de), cerveau » rend « hypoplasie cerveau »
+là où le français demande « hypoplasie du cerveau ».
+
+C'est le point le plus intéressant du tour, parce qu'il révèle une limite du
+raisonnement qui a fondé la décision 1. Le retrait complet est juste pour les
+modificateurs *qualifiants* — ils sont bien non essentiels au sens du volume 3.
+Mais les connecteurs *de liaison* ne sont pas des modificateurs : ce sont des
+**marqueurs de rection grammaticale**, et le `(de)` retiré indiquait
+précisément la liaison à employer. **L'information nécessaire était dans la
+source, et le retrait uniforme l'a détruite.**
+
+Les **consommer comme joint** plutôt que les supprimer traiterait la
+quasi-totalité des dégradées :
+
+```
+« Hypoplasie (de), cerveau »    → « hypoplasie du cerveau »
+« Perforation (de), estomac »   → « perforation de l'estomac »
+« Carence (en), phénylalanine » → « carence en phénylalanine »
+```
+
+Contraction (`de` + `le` → `du`) et élision (`de` + voyelle → `de l'`) sont
+déterministes en français. Non appliqué ici, la décision du jour étant le
+retrait complet — **c'est le correctif à instruire au prochain tour**.
+
+## 24. Bilan global révisé
+
+| Politique | Conservées telles quelles | Normalisées | Écartées |
+|---|---|---|---|
+| Détecteur 3 motifs (exclusion seule) | 5 424 | 0 | 31 203 |
+| Détecteur strict (exclusion seule) | 1 193 | 0 | 35 434 |
+| R3 v1 (connecteurs de liaison seuls) | 1 889 | 11 331 | 23 407 |
+| **R3 v2** | 725 | **12 495** | 23 407 |
+
+Le périmètre écarté est **identique entre v1 et v2** (23 407 : les renvois et
+les formes à 3+ segments). Les deux corrections portent sur la **qualité** des
+13 220 entrées récupérées, pas sur leur nombre. Le détail par chapitre est
+dans le notebook (cellule « Bilan global révisé, par chapitre »).
+
+## 25. État git
+
+| Commit | Objet |
+|---|---|
+| `f508d34` | normalisateur v2, échantillon de 100, diagnostic |
+
+Notebook : **77 cellules markdown pour 51 de code**, exécuté de bout en bout
+sans erreur. Vérifications : 366 tests verts, `ruff` et `mypy` propres.
+Toujours **rien dans `src/`**.
