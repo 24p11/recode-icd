@@ -1159,7 +1159,295 @@ pl.DataFrame(
 # Tant que ces trois points ne sont pas tranchés, **R3 reste non figée**.
 
 # %% [markdown]
-# ## (g) Angles morts restants
+# ## (g) Normalisateur v2 — les deux corrections décidées
+#
+# Décisions du 2026-08-12, appliquées ici.
+#
+# ### 1. Retrait complet des parenthèses qualifiantes
+#
+# Ce n'est **pas une approximation** mais l'application de la sémantique
+# officielle de l'index. Les conventions du **volume 3 de la CIM-10**
+# posent que les termes entre parenthèses sont des **modificateurs non
+# essentiels** (*non-essential modifiers*) : leur présence ou leur
+# absence **ne change pas l'affectation du code**. Ils servent à faire
+# reconnaître l'entrée au codeur qui cherche, pas à la définir.
+#
+# Les retirer restitue donc le terme d'index dans sa forme minimale
+# affectante — ce que le volume 3 considère lui-même comme le noyau de
+# l'entrée. Le v1 ne retirait que les connecteurs de liaison, laissant
+# « abcès (embolique) (infectieux) (multiple) (pyogène) (septique)
+# sous-dural » ; le v2 rend « abcès sous-dural ».
+#
+# ### 2. Inversion des éponymes, strictement bornée
+#
+# Restreinte au motif **« second segment se terminant par `de` / `d'` /
+# `du` / `des` »**, qui signale sans ambiguïté que la tête du terme est
+# dans ce second segment. On recolle alors `segment 2 + segment 1`.
+# Tout autre motif d'inversion **reste écarté** — on ne devine pas.
+#
+# ```
+# « Lipschütz, ulcère de »  → « ulcère de Lipschütz »
+# « Eberth, maladie d' »    → « maladie d'Eberth »   (élision, pas d'espace)
+# ```
+#
+# ### 3. Minuscule initiale épargnant les noms propres
+#
+# Le v1 minusculisait systématiquement, ce qui abîmait les noms de genre
+# (`Borrelia`, `Stellantchasmus`) et les éponymes non inversés.
+#
+# Le discriminant retenu est **le corpus lui-même** : on ne minusculise
+# le premier mot que s'il apparaît **en minuscule ailleurs dans le CSV,
+# hors Index**. La justification est structurelle — l'Index capitalise
+# *toute* tête d'entrée par convention éditoriale, il ne peut donc pas
+# témoigner de la casse naturelle d'un terme ; les autres sources
+# (CepiDc, AP-HP, OFS, ANS) sont du texte médical courant, où les noms
+# communs sont en minuscule et les genres et éponymes capitalisés.
+#
+# Effet : `rectite`, `dysurie` sont minusculisés ; `Borrelia`,
+# `Stellantchasmus`, `Lipschütz`, `Eberth` sont préservés. Le coût est
+# qu'un terme commun rare, absent des autres sources, garde sa capitale
+# initiale (`Dactylite tuberculeuse`) — une casse de phrase, sans gravité.
+
+# %% Fonction — vocabulaire des minuscules attestées hors Index
+def vocabulaire_minuscules(df: pl.DataFrame) -> set[str]:
+    """Mots attestés en minuscule dans les sources **hors Index**.
+
+    Sert de test de « nom commun » : l'Index capitalise toute tête
+    d'entrée, il ne peut donc pas servir de témoin de casse.
+    """
+    tokens = (
+        df.filter(pl.col("source") != cards.FORMULATION_SOURCE_INDEX)
+        .select(pl.col("texte").str.split(" ").alias("mot"))
+        .explode("mot")
+        .select(pl.col("mot").str.strip_chars(",;()\"").alias("mot"))
+    )
+    return set(
+        tokens.filter(pl.col("mot").str.contains(r"^[a-zà-ÿ][\wà-ÿ-]*$"))["mot"].to_list()
+    )
+
+
+VOCAB_MINUSCULES = vocabulaire_minuscules(flat)
+print(f"Mots attestés en minuscule hors Index : {len(VOCAB_MINUSCULES):,}".replace(",", " "))
+
+# %% Fonction — normalisateur v2
+RE_PARENTHESE = re.compile(r"\s*\([^()]*\)")
+#: Second segment se terminant par une préposition : sa tête est le
+#: terme, le premier segment est l'éponyme.
+RE_EPONYME = re.compile(r"(?i)(?:^|\s)(de|d'|du|des)$")
+
+
+def minuscule_initiale(texte: str) -> str:
+    """Minuscule initiale, sauf si le premier mot n'est pas attesté en
+    minuscule hors Index (présomption de nom propre)."""
+    if not texte:
+        return texte
+    premier = texte.split(" ")[0].strip(",;()")
+    if premier.lower() in VOCAB_MINUSCULES:
+        return texte[0].lower() + texte[1:]
+    return texte
+
+
+def normalise_v2(texte: str | None) -> str | None:
+    """Forme normalisée d'une entrée Index, ou None si hors périmètre.
+
+    Hors périmètre : renvois « voir », formes à 3 segments ou plus.
+    """
+    if not texte or RE_RENVOI.search(texte):
+        return None
+    segments = [s.strip() for s in texte.split(",")]
+    if len(segments) > 2:
+        return None
+    segments = [re.sub(r"\s+", " ", RE_PARENTHESE.sub("", s)).strip() for s in segments]
+    segments = [s for s in segments if s]
+    if not segments:
+        return None
+    if len(segments) == 2 and (m := RE_EPONYME.search(segments[1])):
+        # Élision : « maladie d' » + « Eberth » se recolle sans espace.
+        separateur = "" if m.group(1).endswith("'") else " "
+        sortie = f"{segments[1]}{separateur}{segments[0]}"
+    else:
+        sortie = " ".join(segments)
+    sortie = re.sub(r"\s+", " ", sortie).strip(" ,;")
+    return minuscule_initiale(sortie) or None
+
+
+for _ex in (
+    "Rectite (à), amibienne",
+    "Abcès (embolique) (infectieux) (septique) (de), sous-dural",
+    "Lipschütz, ulcère de",
+    "Eberth, maladie d'",
+    "Borrelia vincenti, infection (amygdales)",
+    "Stellantchasmus falcatus",
+):
+    print(f"{_ex!r:58} → {normalise_v2(_ex)!r}")
+
+# %% (g) Périmètre et effet du v2
+index_v2 = index_formes.with_columns(
+    pl.col("texte").map_elements(normalise_v2, return_dtype=pl.String).alias("normalise_v2")
+)
+_v2 = index_v2.filter(pl.col("normalise_v2").is_not_null())
+_resid = _v2.filter(pl.col("normalise_v2").str.contains(r"\(")).height
+_inv = _v2.filter(pl.col("texte").str.contains(RE_EPONYME_INVERSE)).height
+print(f"Normalisables               : {_v2.height:,}".replace(",", " "))
+print(f"  parenthèses résiduelles   : {_resid}")
+print(f"  inversions d'éponyme      : {_inv}")
+
+# %% [markdown]
+# ### Échantillon de 100 normalisations — graine distincte
+#
+# Tirage `seed=2025`, **distinct du tirage de la section (f)** pour ne
+# pas relire les mêmes entrées. Les étiquettes ci-dessous sont une
+# **lecture préliminaire**, à confirmer ou corriger.
+#
+# Critère d'acceptation fixé : **zéro `fautive`** et **au plus 10 % de
+# `degradee`**.
+
+# %% (g) Échantillon de 100 — étiquettes préliminaires
+ECHANTILLON_V2_GRAINE = 2025
+
+#: Lecture préliminaire. Défaut = `correcte` ; seuls les écarts sont listés.
+RELECTURE_V2: dict[str, str] = {
+    # Sens changé, inversé, ou chaîne inintelligible.
+    "Q95.5": "fautive",   # « Autosome site fragile » — tête inversée, motif non couvert
+    "Q97.1": "fautive",   # « Xxxx syndrome » — idem (caryotype 48,XXXX)
+    "Z76.2": "fautive",   # « Nca bien portant » — « Nca » est une abréviation d'index
+    # Compréhensible, mais préposition de liaison manquante ou reliquat.
+    **dict.fromkeys(
+        [
+            "A03.9", "A16.8", "A32.7", "A69.1", "A98.2", "B57.3", "B73", "B75",
+            "E70.1", "G43.8", "H47.4", "H50.6", "I51.3", "I74.9", "J33.0",
+            "K06.1", "K25.5", "K31.8", "K62.8", "L81.4", "N48.6", "O86.4",
+            "P25.8", "P96.9", "Q00.0", "Q02", "Q04.0", "Q12.9", "Q25.2",
+            "Q25.7", "Q62.4", "Q62.6", "Q70.9", "Q72.5", "R39.1", "S30.1",
+            "T74.8", "Z12.4", "Z89.4",
+        ],
+        "degradee",
+    ),
+}
+
+echantillon_v2 = (
+    _v2.select("code", "texte", "normalise_v2")
+    .sample(n=100, seed=ECHANTILLON_V2_GRAINE, shuffle=True)
+    .sort("code")
+    .with_columns(
+        pl.col("code").replace_strict(RELECTURE_V2, default="correcte").alias("etiquette")
+    )
+)
+_bilan = echantillon_v2.group_by("etiquette").len().sort("len", descending=True)
+print(_bilan)
+_n = echantillon_v2.height
+_n_faut = echantillon_v2.filter(pl.col("etiquette") == "fautive").height
+_n_deg = echantillon_v2.filter(pl.col("etiquette") == "degradee").height
+print(f"\nSeuil « zéro fautive »      : {_n_faut} → {'ATTEINT' if _n_faut == 0 else 'NON ATTEINT'}")
+print(f"Seuil « ≤ 10 % dégradées »  : {_n_deg / _n:.0%} → {'ATTEINT' if _n_deg / _n <= 0.10 else 'NON ATTEINT'}")
+
+# %% (g) Le détail, pour relecture
+echantillon_v2.select("code", "texte", "normalise_v2", "etiquette")
+
+# %% [markdown]
+# ### Diagnostic — pourquoi le seuil n'est pas atteint
+#
+# Progrès net par rapport au v1 (sur 50 : 22 % correctes, 66 %
+# dégradées, 12 % fautives). Mais **les deux seuils restent manqués**,
+# et pour des raisons distinctes et toutes deux traitables.
+#
+# **Les 3 fautives résiduelles relèvent d'un même manque** : le second
+# segment est la tête du terme, mais **sans préposition finale**, donc
+# hors du motif d'inversion. « Autosome, site fragile » et
+# « Xxxx, syndrome » appellent la même inversion que les éponymes.
+# La troisième, « Nca, bien portant », a pour premier segment une
+# **abréviation d'index** (`nca` = non classé ailleurs) et n'est pas un
+# terme du tout. Deux correctifs possibles, conformes à la consigne
+# « corrigée par motif ou versée aux exclusions » :
+#
+# 1. élargir l'inversion aux seconds segments réduits à un **substantif
+#    de tête nu** (`syndrome`, `site`, `maladie`…) ;
+# 2. **exclure** les entrées dont le premier segment est une abréviation
+#    d'index (`nca`, `sai`).
+#
+# **Les 40 % de dégradées ont une cause unique et très concentrée** : la
+# **préposition de liaison manquante**. « Hypoplasie (de), cerveau »
+# rend « hypoplasie cerveau » là où le français demande « hypoplasie du
+# cerveau ». Or **l'information nécessaire est dans la source** : le
+# `(de)` retiré indiquait précisément la liaison à employer.
+#
+# C'est la limite du choix « retrait complet » appliqué uniformément :
+# il est juste pour les modificateurs *qualifiants* (`(chronique)`,
+# `(aigu)`), qui sont bien non essentiels au sens du volume 3, mais les
+# connecteurs *de liaison* ne sont pas des modificateurs — ce sont des
+# marqueurs de rection grammaticale. Les **consommer comme joint** au
+# lieu de les supprimer traiterait la quasi-totalité des dégradées :
+#
+# ```
+# « Hypoplasie (de), cerveau »   → « hypoplasie du cerveau »
+# « Perforation (de), estomac »  → « perforation de l'estomac »
+# « Carence (en), phénylalanine » → « carence en phénylalanine »
+# ```
+#
+# Cela suppose une contraction (`de` + `le` → `du`) et une élision
+# (`de` + voyelle → `de l'`), toutes deux déterministes en français.
+# **C'est le correctif à instruire au prochain tour** ; il n'est pas
+# appliqué ici, la consigne étant le retrait complet.
+
+# %% (g) Bilan global révisé, par chapitre
+bilan_r3 = (
+    index_v2.with_columns(
+        pl.when(pl.col("normalise_v2").is_null())
+        .then(pl.lit("ecartee"))
+        .when(pl.col("normalise_v2") == pl.col("texte"))
+        .then(pl.lit("conservee_telle_quelle"))
+        .otherwise(pl.lit("normalisee"))
+        .alias("issue")
+    )
+    .group_by("chapitre", "issue")
+    .len()
+    .pivot(on="issue", index="chapitre", values="len")
+    .fill_null(0)
+)
+_cols_issue = [
+    c for c in ("normalisee", "conservee_telle_quelle", "ecartee") if c in bilan_r3.columns
+]
+(
+    bilan_r3.select(["chapitre", *_cols_issue])
+    .with_columns(pl.sum_horizontal(_cols_issue).alias("total"))
+    .with_columns(
+        (pl.col("normalisee") / pl.col("total")).round(3).alias("part_normalisee")
+    )
+    .sort("total", descending=True)
+)
+
+# %% (g) Bilan global révisé, toutes politiques confondues
+pl.DataFrame(
+    [
+        {
+            "politique": "détecteur 3 motifs (exclusion seule)",
+            "conservees": index_lignes.filter(~pl.col("chemin_index")).height,
+            "normalisees": 0,
+            "ecartees": index_lignes.filter(pl.col("chemin_index")).height,
+        },
+        {
+            "politique": "détecteur strict (exclusion seule)",
+            "conservees": index_lignes.filter(~pl.col("chemin_index_strict")).height,
+            "normalisees": 0,
+            "ecartees": index_lignes.filter(pl.col("chemin_index_strict")).height,
+        },
+        {
+            "politique": "R3 v1 (connecteurs de liaison seuls)",
+            "conservees": _identiques,
+            "normalisees": _n_normalisee - _identiques,
+            "ecartees": _n_ecartee,
+        },
+        {
+            "politique": "R3 v2 (parenthèses complètes + éponymes)",
+            "conservees": _v2.filter(pl.col("normalise_v2") == pl.col("texte")).height,
+            "normalisees": _v2.filter(pl.col("normalise_v2") != pl.col("texte")).height,
+            "ecartees": index_v2.height - _v2.height,
+        },
+    ]
+)
+
+# %% [markdown]
+# ## (h) Angles morts restants
 #
 # 1. **Blocs candidats à une politique propre**, au-delà de T36-T50 :
 #    `O00-O99` (grossesse — logique d'épisode plutôt que de diagnostic),

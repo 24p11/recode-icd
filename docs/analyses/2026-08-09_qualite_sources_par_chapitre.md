@@ -2,7 +2,8 @@
 
 **Date** : 2026-08-09
 **Statut** : analyse close ; règles **R1** (allégée) et **R2 = 20** arrêtées,
-**R3** énoncée, détecteur et normalisateur instrumentés mais **non figés** ;
+**R3** énoncée, normalisateur v2 implémenté mais **seuil d'acceptation non
+atteint** — R3 reste non figée ;
 implémentation renvoyée au chantier `chapter_policy`
 **Notebook reproductible** : [`scripts/explore/qualite_sources_par_chapitre.ipynb`](../../scripts/explore/qualite_sources_par_chapitre.ipynb)
 (source `.py` du même nom — modifier le `.py`, pas le notebook)
@@ -449,19 +450,122 @@ exclusifs n'en gardaient que 5 424 et 1 193. Le gain en information est
 substantiel — mais il ne vaut que si la qualité suit, et la relecture donne
 aujourd'hui deux tiers de formes `degradee`.
 
-### Ce qu'il reste à trancher avant de figer R3
+## 6 ter. Normalisateur v2 — décisions du 2026-08-12
 
-1. **Étendre le retrait aux parenthèses qualifiantes ?** Levier n°1, il
-   concerne la moitié des normalisations. Il fait perdre de l'information
-   (`(chronique)`, `(aigu)`) mais produit des formulations réellement
-   utilisables.
-2. **Inversions d'éponymes** : les exclure (motif détectable, ~4 %) ou les
-   **inverser** explicitement, le second segment étant la tête ?
-3. **Seuil d'acceptation** : quelle proportion de `degradee` est tolérable
-   pour une section dont le rôle est d'élargir le rappel, pas de fournir un
-   libellé officiel ?
+> **Mention datée — 2026-08-12.** Les trois décisions attendues ont été
+> prises et implémentées dans le prototype du notebook. Le seuil
+> d'acceptation n'est **pas encore atteint** : R3 reste non figée.
 
-Ces trois points conditionnent le passage de R3 en implémentation.
+### Décision 1 — retrait complet des parenthèses qualifiantes
+
+**Justification de fond : ce n'est pas une approximation, c'est la
+sémantique officielle de l'index.** Les conventions du **volume 3 de la
+CIM-10** posent que les termes entre parenthèses sont des **modificateurs
+non essentiels** (*non-essential modifiers*) : leur présence ou leur absence
+**ne change pas l'affectation du code**. Ils servent à faire reconnaître
+l'entrée au codeur qui la cherche, pas à la définir.
+
+Les retirer restitue donc le terme dans sa **forme minimale affectante** — ce
+que le volume 3 considère lui-même comme le noyau de l'entrée. On ne perd
+aucune information codante.
+
+Effet mesuré : les parenthèses résiduelles tombent de **6 695 à 47**.
+
+### Décision 2 — inversion des éponymes, strictement bornée
+
+Restreinte au motif « second segment se terminant par `de` / `d'` / `du` /
+`des` », qui signale sans ambiguïté que la tête du terme est dans ce second
+segment. Recollement `segment 2 + segment 1`. **Tout autre motif d'inversion
+reste écarté** — on ne devine pas.
+
+```
+« Lipschütz, ulcère de »  → « ulcère de Lipschütz »
+« Eberth, maladie d' »    → « maladie d'Eberth »   (élision, sans espace)
+```
+
+**490 entrées** sont inversées.
+
+### Décision 2 bis — minuscule initiale épargnant les noms propres
+
+Le v1 minusculisait systématiquement, abîmant les noms de genre (`Borrelia`,
+`Stellantchasmus`) et les éponymes non inversés.
+
+Le discriminant retenu est **le corpus lui-même** : on ne minusculise le
+premier mot que s'il est attesté **en minuscule ailleurs dans le CSV, hors
+Index**. Justification structurelle — l'Index capitalise *toute* tête
+d'entrée par convention éditoriale, il ne peut donc pas témoigner de la casse
+naturelle d'un terme ; les autres sources sont du texte médical courant, où
+les noms communs sont en minuscule et les genres et éponymes capitalisés.
+
+Vérifié : `Borrelia`, `Stellantchasmus`, `Lipschütz`, `Eberth` préservés ;
+`rectite`, `dysurie` minusculisés. Coût : un terme commun rare absent des
+autres sources garde sa capitale (`Dactylite tuberculeuse`) — casse de
+phrase, sans gravité.
+
+### Décision 3 — critère d'acceptation, et où l'on en est
+
+Seuil fixé : **zéro `fautive`**, **au plus 10 % de `degradee`**.
+
+Nouvel échantillon de **100 normalisations**, graine `2025` distincte du
+tirage de la section 6 bis. Lecture préliminaire, à confirmer :
+
+| Étiquette | v1 (sur 50) | **v2 (sur 100)** | Seuil |
+|---|---|---|---|
+| `correcte` | 22 % | **57 %** | — |
+| `degradee` | 66 % | **40 %** | ≤ 10 % → **non atteint** |
+| `fautive` | 12 % | **3 %** | 0 → **non atteint** |
+
+Progrès net, mais **les deux seuils sont manqués**. Les causes sont
+identifiées et toutes deux traitables.
+
+**Les 3 fautives relèvent d'un même manque.** Le second segment est la tête
+du terme mais **sans préposition finale**, donc hors du motif d'inversion :
+« Autosome, site fragile » → « Autosome site fragile », « Xxxx, syndrome »
+→ « Xxxx syndrome » (caryotype 48,XXXX). La troisième, « Nca, bien portant »,
+a pour premier segment une **abréviation d'index** (`nca` = non classé
+ailleurs) et n'est pas un terme. Conformément à la consigne « corrigée par
+motif ou versée aux exclusions » :
+
+1. élargir l'inversion aux seconds segments réduits à un **substantif de tête
+   nu** (`syndrome`, `site`, `maladie`…) ;
+2. **exclure** les entrées dont le premier segment est une abréviation
+   d'index (`nca`, `sai`).
+
+**Les 40 % de dégradées ont une cause unique et concentrée** : la
+**préposition de liaison manquante**. « Hypoplasie (de), cerveau » rend
+« hypoplasie cerveau » là où le français demande « hypoplasie du cerveau ».
+
+Or **l'information est dans la source** : le `(de)` retiré indiquait
+précisément la liaison à employer. C'est la limite du retrait uniforme —
+juste pour les modificateurs *qualifiants*, qui sont bien non essentiels au
+sens du volume 3, mais les connecteurs *de liaison* ne sont pas des
+modificateurs : ce sont des marqueurs de rection grammaticale. Les
+**consommer comme joint** plutôt que les supprimer traiterait la
+quasi-totalité des dégradées :
+
+```
+« Hypoplasie (de), cerveau »    → « hypoplasie du cerveau »
+« Perforation (de), estomac »   → « perforation de l'estomac »
+« Carence (en), phénylalanine » → « carence en phénylalanine »
+```
+
+Contraction (`de` + `le` → `du`) et élision (`de` + voyelle → `de l'`) sont
+déterministes en français. **C'est le correctif à instruire au prochain
+tour** ; il n'est pas appliqué ici, la décision du jour étant le retrait
+complet.
+
+### Bilan global comparé
+
+| Politique | Conservées telles quelles | Normalisées | Écartées |
+|---|---|---|---|
+| Détecteur 3 motifs (exclusion seule) | 5 424 | 0 | 31 203 |
+| Détecteur strict (exclusion seule) | 1 193 | 0 | 35 434 |
+| R3 v1 (connecteurs de liaison seuls) | 1 889 | 11 331 | 23 407 |
+| **R3 v2 (parenthèses complètes + éponymes)** | 725 | **12 495** | 23 407 |
+
+Le périmètre écarté est inchangé entre v1 et v2 (23 407, soit les renvois et
+les formes à 3+ segments) : les deux corrections portent sur la **qualité**
+des 13 220 entrées récupérées, pas sur leur nombre.
 
 ## 7. Ce que ces règles ne font pas
 
