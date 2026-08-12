@@ -2,8 +2,8 @@
 
 **Date** : 2026-08-09
 **Statut** : analyse close ; règles **R1** (allégée) et **R2 = 20** arrêtées,
-**R3** énoncée, normalisateur v2 implémenté mais **seuil d'acceptation non
-atteint** — R3 reste non figée ;
+**R3** énoncée, normalisateur **v3** implémenté — seuil « zéro fautive »
+**atteint**, seuil des dégradées (20 % contre ≤ 10 %) non encore atteint ;
 implémentation renvoyée au chantier `chapter_policy`
 **Notebook reproductible** : [`scripts/explore/qualite_sources_par_chapitre.ipynb`](../../scripts/explore/qualite_sources_par_chapitre.ipynb)
 (source `.py` du même nom — modifier le `.py`, pas le notebook)
@@ -566,6 +566,107 @@ complet.
 Le périmètre écarté est inchangé entre v1 et v2 (23 407, soit les renvois et
 les formes à 3+ segments) : les deux corrections portent sur la **qualité**
 des 13 220 entrées récupérées, pas sur leur nombre.
+
+## 6 quater. R3 v3 — les connecteurs consommés comme joints
+
+> **Amendement daté — 2026-08-12.** La décision 1 est amendée après le
+> diagnostic du v2. Les trois correctifs des fautives sont approuvés et
+> implémentés. Le seuil « zéro fautive » est **atteint** ; celui des
+> dégradées ne l'est pas encore.
+
+### Amendement à la décision 1 — la distinction qui manquait
+
+**Les connecteurs de liaison ne sont pas des modificateurs.** Le volume 3
+qualifie de non essentiels les termes parenthésés **qualifiants** — et
+ceux-là se retirent, la justification du §6 ter reste entière. Mais `(de)`,
+`(à)`, `(en)` sont des **marqueurs de rection grammaticale** : ils indiquent
+comment le terme se construit. **Le retrait détruisait une information
+présente dans la source**, ce qui expliquait à lui seul les 40 % de formes
+dégradées du v2.
+
+Le v3 les **consomme comme joint**, avec contraction (`de + le → du`,
+`de + les → des`) et élision (`de` + voyelle ou h muet → `de l'`).
+
+### D'où vient le genre — et un bénéfice inattendu
+
+`de + le → du` suppose de connaître le genre du nom, que la source ne donne
+pas. On l'obtient **du corpus** : on relève dans tout le CSV les rections
+attestées (`du cerveau` 73 fois, `de la rate` 19, `de l'estomac` 79) et on
+retient la forme majoritaire.
+
+Le même mécanisme rend un second service, décisif : **un adjectif n'est jamais
+précédé d'un article**. L'absence d'attestation vaut donc signal qu'il ne faut
+*pas* insérer de joint — c'est ce qui évite « rectite à l'amibienne » et
+« abcès de sous-dural ».
+
+> **Piège de mise en œuvre**, coûteux à trouver : un motif d'attestation en
+> `\s+` ne voit **jamais** les élisions, puisque « de l'estomac » ne comporte
+> pas d'espace après le joint. Il faut deux motifs distincts.
+
+### Les trois correctifs des fautives
+
+1. **Inversion élargie** aux seconds segments réduits à un substantif de tête
+   nu, sur liste blanche courte et non ambiguë (`syndrome`, `maladie`,
+   `site fragile`). Traite « Xxxx, syndrome » → « syndrome Xxxx ».
+2. **Exclusion** des entrées dont le premier segment est une abréviation
+   d'index (`nca`, `sai`) : ce ne sont pas des termes.
+3. **Garde-fou sur les groupes nominaux complets** : un second segment
+   portant déjà sa propre rection (« syndrome du choc toxique ») ne reçoit
+   pas de joint externe, qui produirait « septicémie au syndrome du choc
+   toxique ».
+
+Conformément à l'asymétrie demandée, tout cas douteux est **écarté, jamais
+normalisé** : quand le premier segment n'est pas attesté en minuscule hors
+Index et que le second n'est pas couvert par la liste blanche, l'entrée sort
+du périmètre. Coût assumé : 732 entrées de moins qu'en v2.
+
+### Distribution des joints — contrôle de vraisemblance
+
+| Joint | du | de la | de l' | des | par | au | à l' | en | pour | avec | à la | aux |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Occurrences | 1 061 | 766 | 541 | 200 | 36 | 29 | 21 | 16 | 12 | 11 | 9 | 1 |
+
+La répartition est celle qu'on attend en français médical : `du` et `de la`
+dominent, `de l'` suit, `des` reste minoritaire. Un excès de `de l'` aurait
+signalé une élision appliquée à l'aveugle ; un excès de `de` nu, un lexique
+de rections trop pauvre.
+
+### Échantillon de 100 — le seuil « zéro fautive » est atteint
+
+Tirage `seed=777`, distinct des deux précédents. Lecture préliminaire :
+
+| Étiquette | v1 (50) | v2 (100) | **v3 (100)** | Seuil | Verdict |
+|---|---|---|---|---|---|
+| `correcte` | 22 % | 57 % | **80 %** | — | — |
+| `degradee` | 66 % | 40 % | **20 %** | ≤ 10 % | non atteint |
+| `fautive` | 12 % | 3 % | **0** | 0 | **atteint** |
+
+**Les 20 % de dégradées ont une cause unique** : le **joint non inséré faute
+de rection attestée**. Les noms concernés sont rares ou techniques et absents
+des sources hors Index — `psoas`, `colibacille`, `béryllium`, `streptocoques`,
+`colostomie`, `albumine`, `cuir chevelu`, `tuteur urinaire`. S'y ajoute un
+reliquat mineur, l'abréviation `nca` en fin d'entrée.
+
+Deux leviers pour un tour suivant :
+
+1. **Élargir le lexique de rections en y admettant l'Index lui-même.**
+   Légitime pour la *rection* — « du psoas » y est fiable même si la
+   capitalisation de l'Index ne l'est pas. **À ne surtout pas confondre avec
+   le vocabulaire de casse**, qui doit rester hors Index pour la raison
+   structurelle du §6 ter.
+2. **Retirer les abréviations d'index en fin d'entrée** (`nca`, `sai`), et
+   pas seulement en tête.
+
+### Bilan global v3
+
+| Politique | Conservées | Normalisées | Écartées |
+|---|---|---|---|
+| Détecteur 3 motifs (exclusion seule) | 5 424 | 0 | 31 203 |
+| R3 v2 | 725 | 12 495 | 23 407 |
+| **R3 v3** | 724 | **11 764** | 24 139 |
+
+Le détail par chapitre est dans le notebook (cellule « Bilan global v3, par
+chapitre »).
 
 ## 7. Ce que ces règles ne font pas
 

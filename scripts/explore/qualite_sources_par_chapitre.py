@@ -53,6 +53,7 @@ ctx = load_exploration_context(with_external=True)
 
 import random
 import re
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 
 import polars as pl
@@ -1447,7 +1448,354 @@ pl.DataFrame(
 )
 
 # %% [markdown]
-# ## (h) Angles morts restants
+# ## (h) Normalisateur v3 — connecteurs consommés comme joints
+#
+# Amendement du 2026-08-12 à la décision 1, issu du diagnostic du v2.
+#
+# **Les connecteurs de liaison ne sont pas des modificateurs.** Le
+# volume 3 qualifie de non essentiels les termes parenthésés
+# *qualifiants* — et ceux-là se retirent. Mais `(de)`, `(à)`, `(en)`
+# sont des **marqueurs de rection grammaticale** : ils indiquent
+# comment le terme se construit. Les supprimer **détruisait une
+# information présente dans la source**, d'où les 40 % de formes
+# dégradées du v2 (« hypoplasie cerveau » au lieu de « hypoplasie du
+# cerveau »).
+#
+# Le v3 les **consomme comme joint**, avec contraction (`de + le → du`,
+# `de + les → des`) et élision (`de` + voyelle ou h muet → `de l'`).
+#
+# ### D'où vient le genre ?
+#
+# `de + le → du` suppose de connaître le genre du nom — que la source ne
+# donne pas. On l'obtient **du corpus lui-même** : on relève dans tout
+# le CSV les rections attestées (`du cerveau`, `de la rate`,
+# `de l'estomac`) et on retient la forme majoritaire.
+#
+# Ce même mécanisme rend un second service, décisif : **un adjectif
+# n'est jamais précédé d'un article**. L'absence d'attestation vaut donc
+# signal qu'il ne faut *pas* insérer de joint — c'est ce qui évite
+# « rectite à l'amibienne » et « abcès de sous-dural ».
+
+# %% Fonction — lexique des rections attestées
+# Deux motifs : les formes élidées s'attachent au mot suivant
+# (« de l'estomac »), les autres en sont séparées par une espace. Un
+# motif unique en `\s+` ne verrait jamais les élisions.
+RE_RECTION_ESPACE = re.compile(r"\b(du|de la|des|de|au|à la|aux|à)\s+([a-zà-ÿ][\wà-ÿ-]{2,})")
+RE_RECTION_ELIDEE = re.compile(r"\b(de l'|à l')\s*([a-zà-ÿ][\wà-ÿ-]{2,})")
+
+FAMILLE_DE = ("du", "de la", "de l'", "des", "de")
+FAMILLE_A = ("au", "à la", "à l'", "aux", "à")
+
+
+def lexique_rections(df: pl.DataFrame) -> dict[str, Counter]:
+    """Pour chaque nom, les joints attestés dans le corpus et leur compte."""
+    lexique: dict[str, Counter] = defaultdict(Counter)
+    for texte in df["texte"].drop_nulls().to_list():
+        bas = texte.lower()
+        for motif in (RE_RECTION_ESPACE, RE_RECTION_ELIDEE):
+            for joint, nom in motif.findall(bas):
+                lexique[nom][joint] += 1
+    return lexique
+
+
+LEXIQUE_RECTIONS = lexique_rections(flat)
+print(f"Noms avec au moins une rection attestée : {len(LEXIQUE_RECTIONS):,}".replace(",", " "))
+for _nom in ("cerveau", "rate", "estomac", "amibienne", "sous-dural"):
+    print(f"  {_nom:12} → {dict(LEXIQUE_RECTIONS.get(_nom, {}))}")
+
+# %% Fonction — choix du joint
+RE_VOYELLE = re.compile(r"^[aàâeéèêëiîïoôuùûyh]", re.IGNORECASE)
+
+
+def _rection_attestee(nom: str, famille: tuple[str, ...]) -> str | None:
+    """Forme majoritaire attestée, ou None. La forme nue (« de », « à »)
+    ne concourt pas : c'est le repli, pas un témoignage de rection."""
+    compte = LEXIQUE_RECTIONS.get(nom.lower())
+    if not compte:
+        return None
+    candidats = [(n, j) for j, n in compte.items() if j in famille[:-1]]
+    if not candidats:
+        return None
+    n, joint = max(candidats)
+    return joint if n >= 2 else None
+
+
+def joint_pour(connecteur: str, suite: str) -> str | None:
+    """Joint à insérer, ou None s'il ne faut pas en insérer."""
+    # Un second segment portant déjà sa propre rection (« syndrome du
+    # choc toxique ») est un groupe nominal complet : lui ajouter un
+    # joint externe produit un non-sens.
+    if re.search(r"\s(du|de la|de l'|des|de|au|à la|à l'|aux|à)\s", f" {suite.lower()} "):
+        return None
+    tete = suite.split(" ")[0].strip("',;")
+    cle = connecteur.lower()
+    if cle.startswith(("de", "du", "des", "d'", "dû", "due", "dus")):
+        return _rection_attestee(tete, FAMILLE_DE)
+    if cle in ("à", "au", "aux"):
+        return _rection_attestee(tete, FAMILLE_A)
+    # Connecteurs littéraux (« avec », « par », « en »…) : on exige la
+    # même preuve de nature nominale. Le test rate quelques noms rares
+    # (« en disaccharidase »), mais il transforme une fautive
+    # potentielle (« problème avec psycho-social ») en simple dégradée —
+    # l'asymétrie du critère d'acceptation le commande.
+    if _rection_attestee(tete, FAMILLE_DE) or _rection_attestee(tete, FAMILLE_A):
+        return cle
+    return None
+
+
+# %% Fonction — normalisateur v3
+CONNECTEURS_TOUS = (
+    *CONNECTEURS_LIAISON, "dû à", "due à", "dues à", "dus à",
+)
+RE_PAREN_CAPTURE = re.compile(r"\(([^()]*)\)")
+
+#: Substantifs de tête nus autorisant l'inversion sans préposition
+#: finale. Liste **volontairement courte** : tout cas douteux est
+#: écarté, jamais normalisé.
+TETES_NUES = frozenset({"syndrome", "maladie", "site fragile"})
+
+#: Abréviations d'index en tête d'entrée : ce ne sont pas des termes.
+ABREVIATIONS_INDEX = frozenset({"nca", "sai"})
+
+JOINTS_APPLIQUES: Counter = Counter()
+
+
+def _colle(gauche: str, joint: str, droite: str) -> str:
+    """Recolle avec l'espacement correct : les élisions s'attachent."""
+    JOINTS_APPLIQUES[joint] += 1
+    separateur = "" if joint.endswith("'") else " "
+    return f"{gauche} {joint}{separateur}{droite}".strip()
+
+
+def _nettoie_segment(segment: str) -> tuple[str, str | None]:
+    """(texte nettoyé, connecteur laissé en attente pour le recollement)."""
+    morceaux: list[str] = []
+    attente: str | None = None
+    reste = segment
+    while m := RE_PAREN_CAPTURE.search(reste):
+        avant, contenu, apres = reste[: m.start()], m.group(1).strip(), reste[m.end() :]
+        morceaux.append(avant)
+        if contenu.lower() in CONNECTEURS_TOUS:
+            # Le connecteur n'est « suivi » que par du vrai texte : les
+            # parenthèses restantes ne comptent pas.
+            suite = RE_PAREN_CAPTURE.sub("", apres).strip(" ,;")
+            if suite:
+                if joint := joint_pour(contenu, suite):
+                    gauche = re.sub(r"\s+", " ", "".join(morceaux)).strip(" ,;")
+                    droite = re.sub(r"\s+", " ", apres).strip(" ,;")
+                    return _colle(gauche, joint, droite), None
+                # Pas de joint pour ce connecteur : on laisse sa chance
+                # au suivant plutôt que de renoncer.
+            else:
+                attente = contenu
+        reste = apres
+    morceaux.append(reste)
+    return re.sub(r"\s+", " ", "".join(morceaux)).strip(" ,;"), attente
+
+
+def normalise_v3(texte: str | None) -> str | None:
+    """Forme normalisée, ou None si l'entrée doit être écartée."""
+    if not texte or RE_RENVOI.search(texte):
+        return None
+    segments = [s.strip() for s in texte.split(",")]
+    if len(segments) > 2:
+        return None
+    if segments[0].strip("()").lower() in ABREVIATIONS_INDEX:
+        return None
+    nettoyes, attentes = [], []
+    for s in segments:
+        net, att = _nettoie_segment(s)
+        nettoyes.append(net)
+        attentes.append(att)
+    utiles = [n for n in nettoyes if n]
+    if not utiles:
+        return None
+    if len(utiles) == 1:
+        return minuscule_initiale(utiles[0]) or None
+    s1, s2 = utiles[0], utiles[1]
+    if RE_EPONYME.search(s2):                                   # « …, ulcère de »
+        sep = "" if s2.rstrip().endswith("'") else " "
+        return minuscule_initiale(f"{s2}{sep}{s1}") or None
+    if s2.lower() in TETES_NUES:                                # « …, syndrome »
+        return minuscule_initiale(f"{s2} {s1}") or None
+    if s1.split(" ")[0].strip(",;()").lower() not in VOCAB_MINUSCULES:
+        return None                                             # tête douteuse → écartée
+    if attentes[0] and (joint := joint_pour(attentes[0], s2)):
+        return minuscule_initiale(_colle(s1, joint, s2)) or None
+    return minuscule_initiale(f"{s1} {s2}") or None
+
+
+for _ex in (
+    "Hypoplasie (de), cerveau",
+    "Perforation (non traumatique) (de) (due à), estomac",
+    "Rectite (à), amibienne",
+    "Maladie (à) (de) pancréas",
+    "Autosome, site fragile",
+    "Xxxx, syndrome",
+    "Nca, bien portant",
+    "Borrelia vincenti, infection (amygdales)",
+    "Problème (avec) (de), psycho-social",
+):
+    print(f"{_ex!r:56} → {normalise_v3(_ex)!r}")
+
+# %% (h) Périmètre du v3 et distribution des joints
+JOINTS_APPLIQUES.clear()
+index_v3 = index_formes.with_columns(
+    pl.col("texte").map_elements(normalise_v3, return_dtype=pl.String).alias("normalise_v3")
+)
+_v3 = index_v3.filter(pl.col("normalise_v3").is_not_null())
+print(f"Normalisables v3 : {_v3.height:,}  (v2 : 13 220)".replace(",", " "))
+print(f"Écartées         : {index_v3.height - _v3.height:,}".replace(",", " "))
+print("\nDistribution des joints appliqués — contrôle de vraisemblance :")
+pl.DataFrame(
+    [{"joint": j, "occurrences": n} for j, n in JOINTS_APPLIQUES.most_common()]
+)
+
+# %% [markdown]
+# La distribution est un bon test de vraisemblance : `du` et `de la`
+# dominent, `de l'` suit, `des` reste minoritaire — c'est la répartition
+# attendue des rections nominales en français médical. Un excès de
+# `de l'` aurait signalé une élision appliquée à l'aveugle ; un excès de
+# `de` nu aurait signalé un lexique de rections trop pauvre.
+
+# %% [markdown]
+# ### Échantillon de 100 — troisième tirage
+#
+# Graine `777`, distincte des deux précédentes. Seuils inchangés :
+# **zéro `fautive`**, **au plus 10 % de `degradee`**.
+
+# %% (h) Échantillon v3 — étiquettes préliminaires
+ECHANTILLON_V3_GRAINE = 777
+
+#: Lecture préliminaire. Défaut = `correcte` ; seuls les écarts sont listés.
+#: Toutes les dégradées relèvent d'une même cause : un joint non inséré
+#: faute de rection attestée pour un nom rare, ou un reliquat « nca ».
+#: Clé = **texte source**, unique dans le tirage — le code ne l'est pas
+#: (une même catégorie peut porter plusieurs entrées d'index).
+RELECTURE_V3: dict[str, str] = dict.fromkeys(
+    [
+        "Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), psoas (évolutif) (tuberculeux)",
+        "Septicémie (avec suppuration) (généralisée) (à), syndrome du choc toxique",
+        "Infection (à) (de), colibacille nca",
+        "Fièvre (de) (des) (due à), volhynie",
+        "Fièvre (de) (des) (due à), tahyna",
+        "Vaginite (aiguë) (due à), enterobius vermicularis (oxyure)",
+        "Infection (à) (de), oesophagostomum (apiostomum)",
+        "Dysglobulinémie, associée à dyscrasie lymphoplasmocytaire (m9765/1)",
+        "Anémie (à) (de), lederer (hémolytique)",
+        "Tétanie, associée à rachitisme",
+        "Carence (en), disaccharidase",
+        "Ligne(s) (de), stähli",
+        "Pneumoconiose (des) (due à), béryllium",
+        "Pleurésie (aiguë) (chronique) (double) (fibrineuse) (sèche) (subaiguë) (à), streptocoques",
+        "Prolapsus (de), colostomie",
+        "Anomalie (congénitale) (type non précisé) (de), vessie nca",
+        "Anomalie (congénitale) (type non précisé) (de), albumine",
+        "Plaie(s) (coupure) (lacération) (morsure d'animal) (avec corps étranger pénétrant), cuir chevelu",
+        "Plaie(s) (coupure) (lacération) (morsure d'animal) (avec corps étranger pénétrant), nasale ou nez (cloison)",
+        "Complications (de) (dues à), tuteur urinaire",
+    ],
+    "degradee",
+)
+
+echantillon_v3 = (
+    _v3.select("code", "texte", "normalise_v3")
+    .sample(n=100, seed=ECHANTILLON_V3_GRAINE, shuffle=True)
+    .sort("code")
+    .with_columns(
+        pl.col("texte").replace_strict(RELECTURE_V3, default="correcte").alias("etiquette")
+    )
+)
+print(echantillon_v3.group_by("etiquette").len().sort("len", descending=True))
+_nf = echantillon_v3.filter(pl.col("etiquette") == "fautive").height
+_nd = echantillon_v3.filter(pl.col("etiquette") == "degradee").height
+print(f"\nSeuil « zéro fautive »     : {_nf} → {'ATTEINT' if _nf == 0 else 'NON ATTEINT'}")
+print(f"Seuil « ≤ 10 % dégradées » : {_nd}% → {'ATTEINT' if _nd <= 10 else 'NON ATTEINT'}")
+
+# %% (h) Le détail, pour relecture
+echantillon_v3.select("code", "texte", "normalise_v3", "etiquette")
+
+# %% [markdown]
+# ### Où l'on en est
+#
+# | Étiquette | v1 (50) | v2 (100) | **v3 (100)** | Seuil |
+# |---|---|---|---|---|
+# | `correcte` | 22 % | 57 % | **80 %** | — |
+# | `degradee` | 66 % | 40 % | **20 %** | ≤ 10 % |
+# | `fautive` | 12 % | 3 % | **0** | 0 ✅ |
+#
+# **Le seuil « zéro fautive » est atteint.** Les trois correctifs ont
+# fonctionné : l'inversion élargie traite « Autosome, site fragile » et
+# « Xxxx, syndrome », l'exclusion des abréviations retire
+# « Nca, bien portant », et le gardefou sur les groupes nominaux
+# complets évite « septicémie au syndrome du choc toxique ».
+#
+# **Le seuil des dégradées ne l'est pas** (20 % contre ≤ 10 %), et la
+# cause est unique et bien identifiée : le **joint non inséré faute de
+# rection attestée**. Les noms concernés sont rares ou techniques et
+# absents des sources hors Index — `psoas`, `colibacille`, `béryllium`,
+# `streptocoques`, `colostomie`, `albumine`, `cuir chevelu`,
+# `tuteur urinaire`. S'y ajoute un reliquat mineur, l'abréviation `nca`
+# en fin d'entrée.
+#
+# Deux leviers pour un tour suivant, à arbitrer :
+#
+# 1. **Élargir le lexique de rections** en y admettant l'Index lui-même.
+#    C'est légitime pour la *rection* — « du psoas » y est fiable même si
+#    la capitalisation de l'Index ne l'est pas. À ne surtout pas
+#    confondre avec le vocabulaire de casse, qui doit rester hors Index.
+# 2. **Retirer les abréviations d'index en fin d'entrée** (`nca`, `sai`),
+#    et pas seulement en tête.
+
+# %% (h) Bilan global v3, par chapitre
+bilan_v3 = (
+    index_v3.with_columns(
+        pl.when(pl.col("normalise_v3").is_null())
+        .then(pl.lit("ecartee"))
+        .when(pl.col("normalise_v3") == pl.col("texte"))
+        .then(pl.lit("conservee"))
+        .otherwise(pl.lit("normalisee"))
+        .alias("issue")
+    )
+    .group_by("chapitre", "issue")
+    .len()
+    .pivot(on="issue", index="chapitre", values="len")
+    .fill_null(0)
+)
+_c3 = [c for c in ("normalisee", "conservee", "ecartee") if c in bilan_v3.columns]
+(
+    bilan_v3.select(["chapitre", *_c3])
+    .with_columns(pl.sum_horizontal(_c3).alias("total"))
+    .with_columns((pl.col("normalisee") / pl.col("total")).round(3).alias("part_normalisee"))
+    .sort("total", descending=True)
+)
+
+# %% (h) Bilan global v3, toutes politiques
+pl.DataFrame(
+    [
+        {
+            "politique": "détecteur 3 motifs (exclusion seule)",
+            "conservees": index_lignes.filter(~pl.col("chemin_index")).height,
+            "normalisees": 0,
+            "ecartees": index_lignes.filter(pl.col("chemin_index")).height,
+        },
+        {
+            "politique": "R3 v2 (parenthèses complètes + éponymes)",
+            "conservees": _v2.filter(pl.col("normalise_v2") == pl.col("texte")).height,
+            "normalisees": _v2.filter(pl.col("normalise_v2") != pl.col("texte")).height,
+            "ecartees": index_v2.height - _v2.height,
+        },
+        {
+            "politique": "R3 v3 (joints + inversion élargie + exclusions)",
+            "conservees": _v3.filter(pl.col("normalise_v3") == pl.col("texte")).height,
+            "normalisees": _v3.filter(pl.col("normalise_v3") != pl.col("texte")).height,
+            "ecartees": index_v3.height - _v3.height,
+        },
+    ]
+)
+
+# %% [markdown]
+# ## (i) Angles morts restants
 #
 # 1. **Blocs candidats à une politique propre**, au-delà de T36-T50 :
 #    `O00-O99` (grossesse — logique d'épisode plutôt que de diagnostic),
