@@ -318,3 +318,104 @@ Vérifications finales : **366 tests verts**, `ruff check` propre sur `src/`,
 `tests/` et les deux scripts touchés, `ruff format --check` propre, `mypy`
 propre. Toujours **rien dans `src/`** hormis l'extension de chargement — R1,
 R2 et R3 restent du prototype.
+
+---
+
+# Troisième tour — instruction de la normalisation (2026-08-12)
+
+Les trois commits du second tour ont été poussés. Reste l'instruction de la
+« troisième voie » ouverte par la section (e) avant de figer R3.
+
+## 15. Typologie de l'Index
+
+Classement des 36 627 entrées par forme :
+
+| Forme | Avec connecteur de liaison | Sans | Total |
+|---|---|---|---|
+| 3+ segments | 10 635 | 3 277 | **13 912** |
+| 2 segments | 7 097 | 3 830 | **10 927** |
+| renvoi (« voir ») | 7 607 | 1 888 | **9 495** |
+| 1 segment | 403 | 1 890 | **2 293** |
+
+Les formes courtes — celles que le normalisateur peut traiter — pèsent
+**13 220 entrées, soit 36,1 %**. La répartition varie fortement par chapitre :
+XVIII est le plus propre (24 % de formes à 1 segment), XV le plus dégradé
+(0,7 %, avec 1 975 entrées à 3+ segments sur 2 772).
+
+## 16. Le normalisateur prototype
+
+Périmètre étroit et assumé : **formes à 1-2 segments, sans renvoi**. Trois
+opérations déterministes, **sans LLM** — retrait des connecteurs parenthésés
+de liaison (ceux dont le contenu entier est un mot outil ; les parenthèses
+*qualifiantes* comme `(chronique)` sont conservées), recollement
+`segment + qualifiant`, minuscule initiale. Aucun réordonnancement au-delà du
+recollement. Les formes à 3+ segments et tous les renvois restent écartés.
+
+## 17. Relecture manuelle de 50 normalisations
+
+Tirage reproductible (`seed=99`), relu entrée par entrée :
+
+| Étiquette | Effectif |
+|---|---|
+| `correcte` — utilisable telle quelle | **11** (22 %) |
+| `degradee` — artefact résiduel, sens non ambigu | **33** (66 %) |
+| `fautive` — sens changé ou chaîne inintelligible | **6** (12 %) |
+
+**Le résultat le plus utile n'est pas le score mais la structure des
+erreurs** : les deux causes sont détectables par motif, donc corrigeables sans
+LLM.
+
+1. **Parenthèses qualifiantes résiduelles** — quasi-totalité des `degradee`,
+   et **6 695 normalisations concernées, soit 50,6 %**. Le normalisateur ne
+   retire que les connecteurs de liaison, laissant « abcès (embolique)
+   (infectieux) (multiple) (pyogène) (septique) sous-dural ».
+2. **Inversions d'éponymes et énumérations de synonymes** — totalité des
+   `fautive`. Le second segment y est une *tête*, pas un qualifiant :
+   « Lipschütz, ulcère de » recollé dans l'ordre donne « lipschütz ulcère de ».
+   Le motif `, (syndrome|maladie|ulcère|…) de` en détecte **490, soit 3,7 %**.
+
+## 18. Bilan comparé et traçabilité
+
+| Politique | Gardées | Écartées | Dont réécrites |
+|---|---|---|---|
+| Détecteur 3 motifs (exclusion seule) | 5 424 | 31 203 | — |
+| Détecteur strict (exclusion seule) | 1 193 | 35 434 | — |
+| **R3 révisée** | **13 220** | 23 407 | 11 331 |
+
+La R3 révisée récupère **13 220 entrées** là où les détecteurs purement
+exclusifs n'en gardaient que 5 424 et 1 193.
+
+**Traçabilité** — documentée dans le notebook (encadré dédié) et dans le
+document de trace (§6 bis et §7, mention datée du 2026-08-12) : la
+normalisation est une **transformation de rendu**, appliquée par `cards.py` à
+l'assemblage de la fiche. Le CSV maître n'est jamais modifié, la colonne
+`texte` conserve la forme source de l'Index vol3, qui reste la seule chose
+auditable. C'est la condition pour rester conforme au principe « jamais
+d'agrégation silencieuse » : normaliser en amont rendrait le libellé officiel
+irrécupérable.
+
+C'est aussi le seul mécanisme des trois règles qui *réécrit* du texte plutôt
+que d'en écarter — d'où l'insistance sur ce point.
+
+## 19. R3 reste non figée — trois décisions
+
+1. **Étendre le retrait aux parenthèses qualifiantes ?** Levier n°1, il touche
+   la moitié des normalisations. Il fait perdre de l'information
+   (`(chronique)`, `(aigu)`) mais produit des formulations réellement
+   utilisables.
+2. **Inversions d'éponymes** : les exclure (motif détectable, ~4 %) ou les
+   **inverser** explicitement, le second segment étant la tête ?
+3. **Seuil d'acceptation** des `degradee`, pour une section dont le rôle est
+   d'élargir le rappel et non de fournir un libellé officiel.
+
+## 20. État git
+
+| Commit | Objet |
+|---|---|
+| `032b440` | typologie, normalisateur, relecture des 50, traçabilité |
+
+Le notebook compte désormais **67 cellules markdown pour 44 de code**,
+exécuté de bout en bout sans erreur. Vérifications : 366 tests verts, `ruff`
+et `mypy` propres. Toujours **rien dans `src/`**.
+
+**Un commit local non poussé** (`032b440`).
