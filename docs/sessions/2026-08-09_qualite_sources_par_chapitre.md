@@ -620,3 +620,134 @@ une élision à l'aveugle ; un excès de `de` nu, un lexique trop pauvre.
 
 Notebook : **89 cellules markdown pour 59 de code**, exécuté sans erreur.
 366 tests verts, `ruff` et `mypy` propres. Toujours **rien dans `src/`**.
+
+---
+
+# Sixième tour — v4, R3 figée (2026-08-12)
+
+Dernière itération. **La règle d'arrêt s'applique : R3 est figée en l'état
+v4.**
+
+## 32. Un des deux leviers approuvés était sans objet
+
+À signaler d'emblée plutôt qu'à maquiller : **le lexique de rections était
+déjà construit sur toutes les sources, Index compris**. Le levier « étendre à
+l'Index » que j'avais proposé au tour précédent n'existait pas — je l'avais
+mal caractérisé.
+
+Le contrôle chiffré le confirme : l'Index n'apporte que **265 noms** au
+lexique (5 673 contre 5 408), et **aucune** des têtes qui bloquaient. `psoas`,
+`colibacille`, `volhynie`, `tahyna`, `lederer`, `disaccharidase`,
+`oesophagostomum`, `enterobius` n'ont d'attestation nulle part.
+
+## 33. Les deux leviers qui ont réellement débloqué
+
+En cherchant *pourquoi* ces têtes bloquaient, deux causes sont apparues — non
+dans les données mais dans la **fonction de choix du joint** :
+
+1. **La forme nue (`de`, `à`) était exclue de la compétition.** Elle l'était
+   pour une bonne raison — c'est le repli, pas un témoignage de rection — mais
+   `streptocoques` (`à` attesté 15 fois) et `stähli` (`de`, 3 fois)
+   n'obtenaient donc rien. Elle est admise **en dernier recours seulement**,
+   après les contractées, avec un seuil plus exigeant.
+2. **Le seuil de 2 attestations était trop haut** pour les formes contractées,
+   qui portent le genre : `béryllium` (`du`, 1 fois) et `albumine` (`de l'`,
+   1 fois) tombaient juste en dessous. Seuil ramené à 1 pour elles.
+
+L'ordre compte : `cuir` est attesté `du` 36 fois et `de` 98 fois, mais c'est
+« du cuir chevelu » qu'il faut produire — la contractée prime toujours.
+
+**Contrôle de sûreté fait avant application** : les dix adjectifs testés
+(`amibienne`, `sous-dural`, `psycho-social`, `tuberculeuse`, `solaire`,
+`hypostatique`, `récidivante`, `superficielle`, `congénitale`, `fébrile`)
+n'ont **aucune** attestation, pas même de la forme nue. Les leviers ne
+rouvrent donc pas la porte aux joints devant adjectif.
+
+S'y ajoute le retrait des abréviations d'index **en fin d'entrée**, et plus
+seulement en tête.
+
+## 34. La dualité des lexiques, documentée comme pitfall
+
+Comme demandé, la séparation est explicite dans le code et dans le document
+de trace, avec l'avertissement au repreneur :
+
+| Lexique | Périmètre | Pourquoi |
+|---|---|---|
+| **Rections** | **Index inclus** | La syntaxe interne des entrées est du français naturel (« … adénofibromateuse **de la** prostate ») : elle témoigne du genre. |
+| **Casse** | **Index exclu** | L'Index capitalise toute tête d'entrée par convention : il ne peut pas dire si un mot est un nom commun. |
+
+Fusionner dans un sens minusculise `Borrelia` et `Lipschütz` ; dans l'autre,
+prive le lexique de rections de 265 noms.
+
+## 35. Couverture du levier et résultat
+
+Sur les 20 dégradées v3, **7 sont modifiées par le v4, dont 6 deviennent
+correctes** : `ligne de stähli`, `pneumoconiose du béryllium`,
+`pleurésie à streptocoques`, `prolapsus de colostomie`,
+`anomalie de la vessie`, `anomalie de l'albumine`.
+
+| Étiquette | v1 (50) | v2 (100) | v3 (100) | **v4 (100)** |
+|---|---|---|---|---|
+| `correcte` | 22 % | 57 % | 80 % | **85 %** |
+| `degradee` | 66 % | 40 % | 20 % | **15 %** |
+| `fautive` | 12 % | 3 % | 0 | **0** |
+
+Distribution des joints : `du` 1 083, `de la` 808, `de l'` 552, `de` 259,
+`des` 202, `à` 102, puis les littéraux. Les contractées dominent toujours les
+formes nues — comportement attendu, la forme nue n'étant qu'un dernier
+recours.
+
+## 36. Application de la règle d'arrêt
+
+**Zéro fautive** pour le second tour consécutif ; **15 % de dégradées**, au
+plafond haut de la bande.
+
+La question décisive était : reste-t-il une cause unique **et corrigeable par
+motif** ? Il y a bien une cause dominante — **10 des 15 dégradées** sont un
+joint non inséré (`canaliculite actinomyces`, `fièvre arbovirus`,
+`carence sélénium`, `phlegmon orbite`, `plaie testicule`, `entorse pied`…).
+**Mais elle n'est pas corrigeable par motif** : ces têtes n'ont aucune
+attestation de rection dans le corpus. C'est une limite de **couverture des
+données**, pas un défaut de règle — aucun motif ne devine le genre de
+`dactylos` ou d'`arbovirus`.
+
+Les 5 restantes sont dispersées sans motif commun : une casse
+(`crise de Grand mal`), une énumération de synonymes
+(`deutéranomalie deutéranopie`), un adjectif ayant reçu un article
+(`paralysie de la médullaire`), un reliquat de troncature
+(`encéphalite précisée`), une élision absente du texte source
+(`atélectasie due à anesthésie`).
+
+**R3 est donc figée en v4.**
+
+## 37. État figé et git
+
+| Politique | Conservées | Normalisées | Écartées |
+|---|---|---|---|
+| Détecteur 3 motifs (exclusion seule) | 5 424 | 0 | 31 203 |
+| R3 v3 | 724 | 11 764 | 24 139 |
+| **R3 v4 — figée** | 716 | **11 772** | 24 139 |
+
+Sur 36 627 entrées de l'Index, **12 488 retenues** pour la section
+Formulations (dont 11 772 réécrites), 24 139 écartées.
+
+| Commit | Objet |
+|---|---|
+| `dce60b4` | normalisateur v4, couverture, règle d'arrêt, R3 figée |
+
+Notebook : **101 cellules markdown pour 67 de code**, exécuté de bout en bout
+sans erreur. 366 tests verts, `ruff` et `mypy` propres. **Rien dans `src/`**
+sur toute la série.
+
+## 38. Ce qui est prêt pour `chapter_policy`
+
+Les trois règles sont arrêtées et chiffrées :
+
+- **R1** — exclusion des sources externes sur XIX/XX/XXI, bloc T36-T50 pour
+  CepiDc, flag LLM ; résolution bloc > chapitre par **remplacement** (piège
+  documenté).
+- **R2 = 20** — plafond par famille sur les fiches catégories, distinct du
+  plafond 10 des feuilles, écart justifié par des viviers d'un ordre de
+  grandeur différent.
+- **R3 v4** — exclusion par format **et** normalisation de rendu, appliquée
+  par `cards.py` à l'assemblage, jamais dans le CSV.
