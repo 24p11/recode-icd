@@ -2,9 +2,8 @@
 
 **Date** : 2026-08-09
 **Statut** : analyse close ; règles **R1** (allégée) et **R2 = 20** arrêtées,
-**R3** énoncée, normalisateur **v3** implémenté — seuil « zéro fautive »
-**atteint**, seuil des dégradées (20 % contre ≤ 10 %) non encore atteint ;
-implémentation renvoyée au chantier `chapter_policy`
+**R3 figée en v4** (0 fautive, 15 % de dégradées — règle d'arrêt appliquée) ;
+implémentation renvoyée au chantier `chapter_policy`, qui peut être écrit
 **Notebook reproductible** : [`scripts/explore/qualite_sources_par_chapitre.ipynb`](../../scripts/explore/qualite_sources_par_chapitre.ipynb)
 (source `.py` du même nom — modifier le `.py`, pas le notebook)
 
@@ -667,6 +666,132 @@ Deux leviers pour un tour suivant :
 
 Le détail par chapitre est dans le notebook (cellule « Bilan global v3, par
 chapitre »).
+
+## 6 quinquies. R3 v4 — **version figée**
+
+> **Mention datée — 2026-08-12.** Dernière itération. La règle d'arrêt
+> convenue s'applique : **R3 est figée en l'état v4**.
+
+### Pitfall — deux lexiques, à ne jamais fusionner
+
+Le normalisateur s'appuie sur **deux lexiques tirés du corpus, aux périmètres
+volontairement différents**. C'est le genre de distinction qu'un repreneur
+fusionne « par simplification » ; elle doit donc être signalée.
+
+| Lexique | Périmètre | Pourquoi |
+|---|---|---|
+| **Rections** (`du X`, `de la X`…) | **Index inclus** | La *syntaxe interne* des entrées d'index est du français naturel — « hypertrophie adénofibromateuse **de la** prostate ». Elle témoigne valablement du genre. |
+| **Casse** (mots vus en minuscule) | **Index exclu** | L'Index capitalise **toute tête d'entrée** par convention éditoriale. Il ne peut donc pas dire si un mot est un nom commun ou un nom propre — c'est précisément le test qu'on lui demande. |
+
+Fusionner dans un sens (Index partout) fait minusculiser `Borrelia` et
+`Lipschütz` ; dans l'autre (Index nulle part) prive le lexique de rections de
+265 noms. Chaque périmètre est justifié par une **propriété différente de la
+même source**.
+
+### Le levier « étendre les rections à l'Index » était sans objet
+
+Vérification faite avant d'implémenter : le lexique de rections était déjà
+construit sur *toutes* les sources, Index compris. Le levier annoncé au tour
+précédent n'existait pas. Le contrôle le confirme : l'Index n'apporte que
+**265 noms** (5 673 contre 5 408), et **aucune** des têtes bloquantes —
+`psoas`, `colibacille`, `volhynie`, `tahyna`, `lederer`, `disaccharidase`,
+`oesophagostomum`, `enterobius` n'ont d'attestation nulle part.
+
+### Les deux leviers qui ont réellement débloqué
+
+En cherchant *pourquoi* ces têtes bloquaient, deux causes sont apparues, non
+dans les données mais dans la fonction de choix du joint :
+
+1. **La forme nue (`de`, `à`) était exclue de la compétition** — pour une
+   bonne raison (c'est le repli, pas un témoignage), mais `streptocoques`
+   (`à` attesté 15 fois) et `stähli` (`de`, 3 fois) n'obtenaient rien. Elle
+   est désormais admise **en dernier recours**, après les formes contractées,
+   avec un seuil plus exigeant.
+2. **Le seuil de 2 attestations était trop haut** pour les formes contractées,
+   qui portent le genre : `béryllium` (`du`, 1 fois), `albumine` (`de l'`,
+   1 fois) tombaient juste en dessous. Seuil ramené à 1 pour elles.
+
+L'ordre compte : `cuir` est attesté `du` 36 fois et `de` 98 fois, mais c'est
+« du cuir chevelu » qu'il faut produire.
+
+**Contrôle de sûreté** : les dix adjectifs testés (`amibienne`, `sous-dural`,
+`psycho-social`, `tuberculeuse`, `solaire`, `hypostatique`, `récidivante`,
+`superficielle`, `congénitale`, `fébrile`) n'ont **aucune** attestation, pas
+même de la forme nue. Les leviers ne rouvrent donc pas la porte aux joints
+devant adjectif.
+
+S'y ajoute le retrait des abréviations d'index **en fin d'entrée**
+(`… vessie nca` → « anomalie de la vessie »), et plus seulement en tête.
+
+### Contrôle de couverture
+
+Sur les 20 dégradées relevées au tour v3, **7 sont modifiées par le v4**,
+dont 6 deviennent correctes :
+
+| v3 | v4 |
+|---|---|
+| ligne stähli | **ligne de stähli** |
+| pneumoconiose béryllium | **pneumoconiose du béryllium** |
+| pleurésie streptocoques | **pleurésie à streptocoques** |
+| prolapsus colostomie | **prolapsus de colostomie** |
+| anomalie de la vessie nca | **anomalie de la vessie** |
+| anomalie albumine | **anomalie de l'albumine** |
+| infection colibacille nca | infection colibacille *(abréviation retirée, joint toujours absent)* |
+
+### Distribution des joints
+
+| Joint | du | de la | de l' | de | des | à | par | au | à l' | avec | en | pour | à la | aux |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Occurrences | 1 083 | 808 | 552 | 259 | 202 | 102 | 52 | 40 | 29 | 23 | 20 | 19 | 9 | 3 |
+
+Les formes contractées dominent toujours largement les formes nues, ce qui est
+le comportement attendu : la forme nue n'intervient qu'en dernier recours.
+
+### Échantillon de 100 et application de la règle d'arrêt
+
+Tirage `seed=4242`, distinct des trois précédents.
+
+| Étiquette | v1 (50) | v2 (100) | v3 (100) | **v4 (100)** |
+|---|---|---|---|---|
+| `correcte` | 22 % | 57 % | 80 % | **85 %** |
+| `degradee` | 66 % | 40 % | 20 % | **15 %** |
+| `fautive` | 12 % | 3 % | 0 | **0** |
+
+**Zéro fautive** pour le second tour consécutif. **15 % de dégradées**, au
+plafond haut de la bande 10-15 %.
+
+**Reste-t-il une cause unique et corrigeable par motif ?** Il y a bien une
+cause dominante — **10 des 15 dégradées** sont un joint non inséré
+(`canaliculite actinomyces`, `fièvre arbovirus`, `carence sélénium`,
+`phlegmon orbite`, `plaie testicule`, `entorse pied`…). Mais elle **n'est pas
+corrigeable par motif** : ces têtes n'ont *aucune* attestation de rection
+dans le corpus. C'est une limite de **couverture des données**, pas un défaut
+de règle — aucun motif ne permet de deviner le genre de `dactylos` ou
+d'`arbovirus`.
+
+Les 5 restantes sont dispersées, sans motif commun : une casse
+(`crise de Grand mal`), une énumération de synonymes
+(`deutéranomalie deutéranopie`), un adjectif ayant reçu un article
+(`paralysie de la médullaire`), un reliquat de troncature
+(`encéphalite précisée`), une élision absente du texte source
+(`atélectasie due à anesthésie`).
+
+Ces formes sont du **télégraphique compréhensible**, registre qui existe dans
+les CRH réels. **La règle d'arrêt s'applique : R3 est figée en l'état v4.**
+
+### Bilan global v4 — état figé
+
+| Politique | Conservées | Normalisées | Écartées |
+|---|---|---|---|
+| Détecteur 3 motifs (exclusion seule) | 5 424 | 0 | 31 203 |
+| R3 v3 | 724 | 11 764 | 24 139 |
+| **R3 v4 — figée** | 716 | **11 772** | 24 139 |
+
+Sur 36 627 entrées de l'Index CIM-10 vol3, **12 488 sont retenues** pour la
+section Formulations (dont 11 772 réécrites) et 24 139 écartées. Le détail par
+chapitre est dans le notebook.
+
+**Le chantier `chapter_policy` peut être écrit.**
 
 ## 7. Ce que ces règles ne font pas
 
