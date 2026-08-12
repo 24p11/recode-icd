@@ -525,3 +525,98 @@ dans le notebook (cellule « Bilan global révisé, par chapitre »).
 Notebook : **77 cellules markdown pour 51 de code**, exécuté de bout en bout
 sans erreur. Vérifications : 366 tests verts, `ruff` et `mypy` propres.
 Toujours **rien dans `src/`**.
+
+---
+
+# Cinquième tour — normalisateur v3, zéro fautive atteint (2026-08-12)
+
+## 26. L'amendement de fond
+
+Mon diagnostic sur les connecteurs a été retenu et la décision 1 amendée. La
+distinction qui manquait : **les connecteurs de liaison ne sont pas des
+modificateurs, ce sont des marqueurs de rection**. Le volume 3 qualifie de non
+essentiels les termes parenthésés *qualifiants* — ceux-là se retirent
+toujours, la justification tient. Mais `(de)`, `(à)`, `(en)` indiquent comment
+le terme se construit, et **le retrait détruisait une information présente
+dans la source**.
+
+Le v3 les consomme comme joint, avec contraction et élision.
+
+## 27. D'où vient le genre, et un bénéfice inattendu
+
+`de + le → du` suppose de connaître le genre, que la source ne donne pas. Je
+l'ai tiré du **corpus** : relevé des rections attestées (`du cerveau` 73 fois,
+`de la rate` 19, `de l'estomac` 79), forme majoritaire retenue.
+
+Le même mécanisme a rendu un second service, que je n'avais pas anticipé :
+**un adjectif n'est jamais précédé d'un article**. L'absence d'attestation
+vaut donc signal qu'il ne faut *pas* insérer de joint — c'est ce qui évite
+« rectite à l'amibienne » et « abcès de sous-dural », sans avoir à identifier
+les adjectifs.
+
+> **Piège trouvé à la mise en œuvre**, et coûteux : un motif d'attestation en
+> `\s+` ne voit **jamais** les élisions, puisque « de l'estomac » ne comporte
+> pas d'espace après le joint. Le lexique était silencieusement amputé de
+> toute une famille de rections. Deux motifs distincts sont nécessaires.
+
+## 28. Les trois correctifs des fautives
+
+1. **Inversion élargie** aux seconds segments réduits à un substantif de tête
+   nu, sur liste blanche courte (`syndrome`, `maladie`, `site fragile`).
+2. **Exclusion** des entrées à premier segment abréviation d'index
+   (`nca`, `sai`).
+3. **Garde-fou sur les groupes nominaux complets** : un second segment portant
+   déjà sa rection (« syndrome du choc toxique ») ne reçoit pas de joint
+   externe.
+
+L'asymétrie demandée est respectée : tout cas douteux est **écarté, jamais
+normalisé**. Coût assumé, 732 entrées de moins qu'en v2.
+
+## 29. Le seuil « zéro fautive » est atteint
+
+Tirage `seed=777`, distinct des deux précédents. Lecture préliminaire :
+
+| Étiquette | v1 (50) | v2 (100) | **v3 (100)** | Seuil | Verdict |
+|---|---|---|---|---|---|
+| `correcte` | 22 % | 57 % | **80 %** | — | — |
+| `degradee` | 66 % | 40 % | **20 %** | ≤ 10 % | non atteint |
+| `fautive` | 12 % | 3 % | **0** | 0 | **atteint** |
+
+**Les 20 % de dégradées ont une cause unique** : le joint non inséré faute de
+rection attestée, pour des noms rares ou techniques absents des sources hors
+Index — `psoas`, `colibacille`, `béryllium`, `streptocoques`, `colostomie`,
+`albumine`, `cuir chevelu`, `tuteur urinaire` — plus un reliquat `nca` en fin
+d'entrée.
+
+Deux leviers pour le tour suivant :
+
+1. **Admettre l'Index dans le lexique de rections.** Légitime : « du psoas »
+   y est fiable même si la capitalisation de l'Index ne l'est pas. **À ne pas
+   confondre avec le vocabulaire de casse**, qui doit rester hors Index pour
+   la raison structurelle déjà posée.
+2. **Retirer les abréviations d'index en fin d'entrée**, et pas seulement en
+   tête.
+
+## 30. Contrôle de vraisemblance des joints
+
+| Joint | du | de la | de l' | des | par | au | à l' | en | pour | avec | à la | aux |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Occurrences | 1 061 | 766 | 541 | 200 | 36 | 29 | 21 | 16 | 12 | 11 | 9 | 1 |
+
+Répartition attendue en français médical. Un excès de `de l'` aurait signalé
+une élision à l'aveugle ; un excès de `de` nu, un lexique trop pauvre.
+
+## 31. Bilan global v3 et état git
+
+| Politique | Conservées | Normalisées | Écartées |
+|---|---|---|---|
+| Détecteur 3 motifs (exclusion seule) | 5 424 | 0 | 31 203 |
+| R3 v2 | 725 | 12 495 | 23 407 |
+| **R3 v3** | 724 | **11 764** | 24 139 |
+
+| Commit | Objet |
+|---|---|
+| `8af9fd6` | normalisateur v3, échantillon de 100, distribution des joints |
+
+Notebook : **89 cellules markdown pour 59 de code**, exécuté sans erreur.
+366 tests verts, `ruff` et `mypy` propres. Toujours **rien dans `src/`**.
