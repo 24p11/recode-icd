@@ -2,7 +2,7 @@
 
 **Date** : 2026-08-09
 **Statut** : analyse close ; règles **R1** (allégée) et **R2 = 20** arrêtées,
-**R3** énoncée avec son détecteur instrumenté mais **variante non figée** ;
+**R3** énoncée, détecteur et normalisateur instrumentés mais **non figés** ;
 implémentation renvoyée au chantier `chapter_policy`
 **Notebook reproductible** : [`scripts/explore/qualite_sources_par_chapitre.ipynb`](../../scripts/explore/qualite_sources_par_chapitre.ipynb)
 (source `.py` du même nom — modifier le `.py`, pas le notebook)
@@ -341,14 +341,127 @@ amibienne »* — le **contenu** est bon (« rectite amibienne »), seul le
 **formatage** est de l'index.
 
 Cela ouvre une option qui n'est ni « garder » ni « écarter » :
-**normaliser** ces entrées — retirer les parenthèses grammaticales, remettre
-les segments dans l'ordre. Elle récupérerait une information réelle, au prix
-d'un travail de réécriture. À instruire séparément ; hors du périmètre d'un
-détecteur.
+**normaliser** ces entrées — retirer les connecteurs grammaticaux, recoller
+les segments. Cette troisième voie a été instruite ; voir §6 bis.
 
-**Le détecteur n'est pas encore figé** : le choix entre les deux variantes (ou
-l'ouverture de la troisième voie) se fait après lecture des sorties du
-notebook.
+**Le détecteur n'est pas encore figé.**
+
+## 6 bis. R3 révisée — normaliser plutôt qu'écarter
+
+> **Mention datée — 2026-08-12.** Section ajoutée après instruction de la
+> troisième voie ouverte par le §6. Elle ne remplace pas le détecteur : elle
+> le complète, en récupérant les entrées dont seul le *formatage* est en
+> cause.
+
+### Principe de traçabilité — c'est une transformation de rendu
+
+**La normalisation est appliquée par `cards.py` au moment de l'assemblage de
+la fiche. Le CSV maître n'est jamais modifié.**
+
+- La colonne `texte` du CSV conserve la **forme source** de l'Index vol3, qui
+  reste la référence et la seule chose auditable.
+- La forme normalisée n'existe qu'en sortie, dans le markdown de la fiche.
+- Aucune ligne n'est fusionnée, supprimée ni réétiquetée dans les données.
+
+C'est la condition pour rester conforme au principe du CLAUDE.md « la source
+de toute information est tracée ; **jamais d'agrégation silencieuse** ». Une
+normalisation appliquée en amont, dans le CSV, violerait ce principe : on ne
+pourrait plus remonter au libellé officiel.
+
+### Typologie des entrées de l'Index
+
+Classement de la source entière par forme, sur les 36 627 entrées :
+
+| Forme | Avec connecteur de liaison | Sans | Total |
+|---|---|---|---|
+| 3+ segments | 10 635 | 3 277 | **13 912** |
+| 2 segments | 7 097 | 3 830 | **10 927** |
+| renvoi (« voir ») | 7 607 | 1 888 | **9 495** |
+| 1 segment | 403 | 1 890 | **2 293** |
+
+Les formes courtes sont minoritaires mais loin d'être marginales : 1 et 2
+segments réunis pèsent 13 220 entrées, soit **36,1 %** de l'Index.
+
+La répartition varie fortement par chapitre. XVIII est le plus « propre »
+(259 entrées à 1 segment sur 1 062, soit 24 %), XV le plus dégradé (20 sur
+2 772, soit 0,7 % — et 1 975 entrées à 3+ segments).
+
+### Le normalisateur prototype
+
+Périmètre volontairement étroit : **formes à 1 ou 2 segments, sans renvoi**.
+Trois opérations déterministes, **sans LLM** :
+
+1. suppression des connecteurs parenthésés de liaison — `(de)`, `(à)`,
+   `(avec)`… — dont le contenu entier est un mot outil ; les parenthèses
+   *qualifiantes* (`(chronique)`, `(aigu)`) sont conservées ;
+2. recollement `segment + qualifiant` pour les formes à deux segments ;
+3. minuscule initiale.
+
+Aucun réordonnancement au-delà du recollement. Les formes à 3+ segments et
+tous les renvois **restent écartés**.
+
+```
+« Rectite (à), amibienne »      → « rectite amibienne »
+« Anémie (à) (de), ferriprive » → « anémie ferriprive »
+« Dysurie »                     → « dysurie »
+```
+
+### Relecture manuelle de 50 normalisations
+
+Échantillon reproductible (`seed=99`), relu entrée par entrée :
+
+| Étiquette | Critère | Effectif |
+|---|---|---|
+| `correcte` | utilisable telle quelle, aucun artefact résiduel | **11** (22 %) |
+| `degradee` | artefact résiduel ou liaison perdue, sens non ambigu | **33** (66 %) |
+| `fautive` | sens changé, inversé, ou chaîne inintelligible | **6** (12 %) |
+
+> Étiquettes issues d'**une seule relecture**, à revalider. Le tirage est
+> reproductible : la cellule « Échantillon relu » du notebook rejoue
+> exactement les mêmes 50 entrées.
+
+**Deux causes dominent, toutes deux détectables par motif** — donc corrigeables
+sans LLM :
+
+1. **Parenthèses qualifiantes résiduelles** — cause de la quasi-totalité des
+   `degradee`. Elles concernent **6 695 normalisations, soit 50,6 %**.
+   Exemple : « Abcès (embolique) (infectieux) (multiple) (pyogène) (septique)
+   (de), sous-dural » → « abcès (embolique) (infectieux) (multiple) (pyogène)
+   (septique) sous-dural ».
+2. **Inversions d'éponymes et énumérations de synonymes** — cause des
+   `fautive`. Le second segment y est une *tête*, pas un qualifiant :
+   « Lipschütz, ulcère de » → « lipschütz ulcère de » ;
+   « Prader(-labhart)-willi(-fanconi), syndrome de » → idem ;
+   « Hypoparathyroïdie, hypoparathyroïdisme » recolle deux synonymes en un
+   terme unique. Le motif `, (syndrome|maladie|ulcère|signe|…) de` en détecte
+   **490, soit 3,7 %**.
+
+### Bilan chiffré comparé
+
+| Politique | Gardées | Écartées | Dont réellement réécrites |
+|---|---|---|---|
+| Détecteur 3 motifs (exclusion seule) | 5 424 | 31 203 | — |
+| Détecteur strict (exclusion seule) | 1 193 | 35 434 | — |
+| **R3 révisée** (normalisation + exclusion) | **13 220** | 23 407 | 11 331 |
+
+La R3 révisée **récupère 13 220 entrées** là où les détecteurs purement
+exclusifs n'en gardaient que 5 424 et 1 193. Le gain en information est
+substantiel — mais il ne vaut que si la qualité suit, et la relecture donne
+aujourd'hui deux tiers de formes `degradee`.
+
+### Ce qu'il reste à trancher avant de figer R3
+
+1. **Étendre le retrait aux parenthèses qualifiantes ?** Levier n°1, il
+   concerne la moitié des normalisations. Il fait perdre de l'information
+   (`(chronique)`, `(aigu)`) mais produit des formulations réellement
+   utilisables.
+2. **Inversions d'éponymes** : les exclure (motif détectable, ~4 %) ou les
+   **inverser** explicitement, le second segment étant la tête ?
+3. **Seuil d'acceptation** : quelle proportion de `degradee` est tolérable
+   pour une section dont le rôle est d'élargir le rappel, pas de fournir un
+   libellé officiel ?
+
+Ces trois points conditionnent le passage de R3 en implémentation.
 
 ## 7. Ce que ces règles ne font pas
 
@@ -356,6 +469,14 @@ Elles ne touchent **ni le CSV maître, ni les Parquets, ni les rapports**.
 Toute l'information reste ingérée et traçable ; seul l'assemblage des fiches
 filtre. C'est un point à ne pas confondre — cf. le pitfall à inscrire au
 CLAUDE.md.
+
+Cela vaut aussi, et surtout, pour la **normalisation** de R3 révisée (§6 bis),
+qui est le seul mécanisme de ces trois règles à *réécrire* du texte et non
+seulement à en écarter. La réécriture a lieu dans `cards.py`, **au rendu** :
+la colonne `texte` du CSV conserve la forme source de l'Index vol3, qui reste
+la référence auditable. Normaliser en amont, dans les données, rendrait le
+libellé officiel irrécupérable et violerait le principe « jamais d'agrégation
+silencieuse ».
 
 ## 8. Angles morts
 

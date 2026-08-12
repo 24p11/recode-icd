@@ -832,7 +832,334 @@ _zone_grise.select("code", "texte").sample(n=15, seed=SEED, shuffle=True).sort("
 # périmètre d'un simple détecteur.
 
 # %% [markdown]
-# ## (f) Angles morts restants
+# ## (f) Normaliser plutôt qu'écarter — instruction de la troisième voie
+#
+# La section (e) a laissé une question ouverte : 4 231 entrées séparent
+# les deux variantes du détecteur, du type « Rectite (à), amibienne » —
+# **contenu bon, formatage d'index**. Les écarter perd de l'information
+# réelle. Cette section instruit la troisième voie : les **normaliser**.
+#
+# ### ⚠ Traçabilité — une transformation de *rendu*, pas de données
+#
+# La normalisation est appliquée par `cards.py` **au moment de
+# l'assemblage de la fiche**. Elle ne touche **jamais** le CSV maître :
+#
+# - la colonne `texte` du CSV conserve la **forme source**, qui reste la
+#   référence et la seule chose auditable ;
+# - la forme normalisée n'existe qu'en sortie, dans le markdown de la
+#   fiche ;
+# - aucune ligne n'est fusionnée, supprimée ni réétiquetée dans les
+#   données.
+#
+# C'est la condition pour rester conforme au principe du CLAUDE.md
+# « la source de toute information est tracée ; jamais d'agrégation
+# silencieuse ». Une normalisation appliquée en amont, dans le CSV,
+# violerait ce principe : on ne pourrait plus remonter au libellé
+# officiel de l'Index vol3.
+
+# %% [markdown]
+# ### Typologie des entrées de l'Index
+#
+# Avant de normaliser, il faut savoir ce qu'on manipule. On classe la
+# source entière par **forme** :
+#
+# - nombre de **segments** (séparés par des virgules) ;
+# - présence de **connecteurs parenthésés** de liaison — `(à)`, `(de)`,
+#   `(avec)`… — par opposition aux parenthèses *qualifiantes*
+#   (`(chronique)`, `(aigu)`) qui portent du sens ;
+# - présence d'un **renvoi** « voir » / « voir aussi ».
+
+# %% Fonctions — typologie des formes
+#: Parenthèses de **liaison** : leur contenu entier est un mot outil.
+#: À distinguer des parenthèses qualifiantes, qui portent du sens.
+CONNECTEURS_LIAISON = (
+    "de", "du", "des", "d'", "à", "au", "aux", "en", "le", "la", "les",
+    "par", "pour", "avec", "sans", "sur", "dû à", "due à", "dues à", "dus à",
+)
+RE_CONNECTEUR = re.compile(
+    r"\s*\((?:" + "|".join(re.escape(c) for c in CONNECTEURS_LIAISON) + r")\)",
+    re.IGNORECASE,
+)
+RE_RENVOI = re.compile(r"(?i)\bvoir\b")
+
+
+def forme_index(texte: str) -> str:
+    """Classe une entrée Index par forme : renvoi, 1/2/3+ segments."""
+    if RE_RENVOI.search(texte):
+        return "renvoi"
+    n = texte.count(",") + 1
+    if n == 1:
+        return "1_segment"
+    if n == 2:
+        return "2_segments"
+    return "3+_segments"
+
+
+# %% (f) Volumétrie par forme
+index_formes = work.filter(pl.col("famille") == "INDEX").with_columns(
+    pl.col("texte").map_elements(forme_index, return_dtype=pl.String).alias("forme"),
+    pl.col("texte").str.contains(RE_CONNECTEUR.pattern).alias("connecteur_liaison"),
+)
+(
+    index_formes.group_by("forme", "connecteur_liaison")
+    .len()
+    .sort("len", descending=True)
+)
+
+# %% (f) Volumétrie par forme × chapitre
+_ORDRE_FORMES = ("1_segment", "2_segments", "3+_segments", "renvoi")
+_par_chapitre = (
+    index_formes.group_by("chapitre", "forme")
+    .len()
+    .pivot(on="forme", index="chapitre", values="len")
+    .fill_null(0)
+)
+_colonnes_presentes = [c for c in _ORDRE_FORMES if c in _par_chapitre.columns]
+(
+    _par_chapitre.select(["chapitre", *_colonnes_presentes])
+    .with_columns(pl.sum_horizontal(_colonnes_presentes).alias("total"))
+    .sort("total", descending=True)
+)
+
+# %% [markdown]
+# ### Le normalisateur prototype
+#
+# Périmètre volontairement étroit : **formes à 1 ou 2 segments, sans
+# renvoi**. Trois opérations, toutes déterministes, **sans LLM** :
+#
+# 1. suppression des connecteurs parenthésés de liaison ;
+# 2. recollement `segment + qualifiant` pour les formes à deux segments ;
+# 3. minuscule initiale.
+#
+# Aucun réordonnancement au-delà du recollement à deux segments. Les
+# formes à trois segments ou plus, et toutes celles portant un renvoi,
+# **restent écartées** — elles relèvent du détecteur de la section (e).
+
+# %% Fonction — normalisateur déterministe
+def normalise_entree_index(texte: str | None) -> str | None:
+    """Forme normalisée d'une entrée Index, ou None si hors périmètre.
+
+    Hors périmètre : renvois « voir », et formes à 3 segments ou plus.
+    """
+    if not texte or RE_RENVOI.search(texte):
+        return None
+    segments = [s.strip() for s in texte.split(",")]
+    if len(segments) > 2:
+        return None
+    segments = [RE_CONNECTEUR.sub("", s).strip() for s in segments]
+    segments = [s for s in segments if s]
+    if not segments:
+        return None
+    sortie = re.sub(r"\s+", " ", " ".join(segments)).strip()
+    return sortie[0].lower() + sortie[1:] if sortie else None
+
+
+# Démonstration sur l'exemple canonique.
+for _ex in ("Rectite (à), amibienne", "Anémie (à) (de), ferriprive", "Dysurie"):
+    print(f"{_ex!r:45} → {normalise_entree_index(_ex)!r}")
+
+# %% (f) Périmètre couvert par le normalisateur
+index_norm = index_formes.with_columns(
+    pl.col("texte")
+    .map_elements(normalise_entree_index, return_dtype=pl.String)
+    .alias("normalise")
+)
+_n_norm = index_norm.filter(pl.col("normalise").is_not_null()).height
+print(f"Entrées Index          : {index_norm.height:,}".replace(",", " "))
+print(f"Normalisables          : {_n_norm:,} ({_n_norm / index_norm.height:.1%})".replace(",", " "))
+print(f"Hors périmètre         : {index_norm.height - _n_norm:,}".replace(",", " "))
+
+# %% [markdown]
+# ### Relecture manuelle de 50 normalisations
+#
+# Échantillon reproductible (`seed=99`), relu entrée par entrée avec
+# trois étiquettes :
+#
+# | Étiquette | Critère |
+# |---|---|
+# | `correcte` | utilisable telle quelle, aucun artefact résiduel |
+# | `degradee` | artefact résiduel ou mot de liaison perdu, **sens non ambigu** |
+# | `fautive` | sens changé, inversé, ou chaîne inintelligible |
+#
+# Comme pour le détecteur, ces étiquettes viennent d'**une seule
+# relecture** : le tirage est reproductible pour permettre un second avis.
+
+# %% (f) Échantillon relu — étiquettes
+ECHANTILLON_NORM_GRAINE = 99
+
+#: Étiquettes posées à la relecture. Tout code absent est `degradee`,
+#: la classe majoritaire.
+RELECTURE_NORMALISATION: dict[str, str] = {
+    # Utilisables telles quelles.
+    "D50.9": "correcte",   # anémie ferriprive
+    "F60.6": "correcte",   # personnalité évitante
+    "G83.0": "correcte",   # diplégie supérieure
+    "H11.1": "correcte",   # calcification conjonctive
+    "H35.5": "correcte",   # dégénérescence vitréo-rétinienne
+    "I73.9": "correcte",   # maladie vasospastique
+    "K62.3": "correcte",   # proctoptose
+    "N40": "correcte",     # hypertrophie adénofibromateuse de la prostate
+    "R10.4": "correcte",   # crampe abdominale
+    "R20.1": "correcte",   # hémihypoesthésie
+    "R30.0": "correcte",   # dysurie
+    # Sens changé ou chaîne inintelligible.
+    "E20.9": "fautive",    # deux synonymes recollés : « hypoparathyroïdie hypoparathyroïdisme »
+    "E80.2": "fautive",    # deux types alternatifs recollés, suggère qu'ils coexistent
+    "H53.1": "fautive",    # annotation d'index recollée : « signifiant cécité diurne (canada) »
+    "N76.6": "fautive",    # éponyme inversé : « lipschütz ulcère de »
+    "O00.1": "fautive",    # « grossesse (unique) (utérine) tubaire » — contradictoire
+    "Q87.1": "fautive",    # éponyme inversé : « prader-willi syndrome de »
+}
+
+echantillon_norm = (
+    index_norm.filter(pl.col("normalise").is_not_null())
+    .select("code", "texte", "normalise")
+    .sample(n=50, seed=ECHANTILLON_NORM_GRAINE, shuffle=True)
+    .sort("code")
+    .with_columns(
+        pl.col("code")
+        .replace_strict(RELECTURE_NORMALISATION, default="degradee")
+        .alias("etiquette")
+    )
+)
+echantillon_norm.group_by("etiquette").len().sort("len", descending=True)
+
+# %% (f) Le détail, pour relecture
+echantillon_norm.select("code", "texte", "normalise", "etiquette")
+
+# %% [markdown]
+# ### Ce que la relecture apprend
+#
+# Deux causes dominent, et **toutes deux sont détectables par motif** —
+# donc corrigeables sans LLM :
+#
+# 1. **Parenthèses qualifiantes résiduelles** (cause de la quasi-totalité
+#    des `degradee`). Le normalisateur ne retire que les connecteurs de
+#    liaison, laissant `(chronique) (aigu) (sénile)…`. C'est le premier
+#    levier d'amélioration.
+# 2. **Inversions d'éponymes** (`« Lipschütz, ulcère de »`,
+#    `« Prader-Willi, syndrome de »`) et **énumérations de synonymes**
+#    (`« Hypoparathyroïdie, hypoparathyroïdisme »`), qui produisent les
+#    `fautive`. Le second segment y est une tête, pas un qualifiant.
+#
+# Les cellules suivantes chiffrent ces deux motifs sur toute la source.
+
+# %% (f) Poids des deux causes sur l'ensemble des normalisables
+_normalisables = index_norm.filter(pl.col("normalise").is_not_null())
+
+#: Second segment de forme « syndrome de », « maladie de »… : le
+#: recollement dans l'ordre y produit une inversion fautive.
+RE_EPONYME_INVERSE = (
+    r"(?i),\s*(syndrome|maladie|ulcère|signe|opération|réaction|test"
+    r"|épreuve|phénomène|loi|bacille|corps)\s+(de|d')\b"
+)
+
+_avec_parentheses = _normalisables.filter(pl.col("normalise").str.contains(r"\("))
+_eponymes = _normalisables.filter(pl.col("texte").str.contains(RE_EPONYME_INVERSE))
+print(f"Normalisables                       : {_normalisables.height:,}".replace(",", " "))
+print(
+    f"  → parenthèses résiduelles         : {_avec_parentheses.height:,}"
+    f" ({_avec_parentheses.height / _normalisables.height:.1%})".replace(",", " ")
+)
+print(
+    f"  → inversion d'éponyme détectable  : {_eponymes.height:,}"
+    f" ({_eponymes.height / _normalisables.height:.1%})".replace(",", " ")
+)
+_eponymes.select("code", "texte", "normalise").head(8)
+
+# %% [markdown]
+# ### Bilan chiffré de la R3 révisée
+#
+# La R3 révisée combine les deux mécanismes : **normaliser** ce qui est
+# récupérable, **écarter** le reste. Trois issues possibles par entrée :
+#
+# - `normalisee` : forme à 1-2 segments sans renvoi → réécrite au rendu ;
+# - `ecartee` : renvoi ou 3+ segments → hors de la section Formulations ;
+# - `conservee_telle_quelle` : n'existe pas dans cette variante, toute
+#   entrée normalisable étant réécrite (même quand la normalisation est
+#   l'identité, cas des entrées déjà propres comme « Dysurie »).
+#
+# On la compare aux deux variantes purement exclusives de la section (e).
+
+# %% (f) Comparaison des trois politiques R3
+_total_index = index_norm.height
+_n_normalisee = _normalisables.height
+_n_ecartee = _total_index - _n_normalisee
+
+# Parmi les normalisées, celles dont la normalisation ne change rien.
+_identiques = _normalisables.filter(
+    pl.col("normalise") == pl.col("texte").str.to_lowercase()
+).height
+
+pl.DataFrame(
+    [
+        {
+            "politique": "détecteur 3 motifs (exclusion seule)",
+            "gardees": index_lignes.filter(~pl.col("chemin_index")).height,
+            "ecartees": index_lignes.filter(pl.col("chemin_index")).height,
+            "normalisees": 0,
+        },
+        {
+            "politique": "détecteur strict (exclusion seule)",
+            "gardees": index_lignes.filter(~pl.col("chemin_index_strict")).height,
+            "ecartees": index_lignes.filter(pl.col("chemin_index_strict")).height,
+            "normalisees": 0,
+        },
+        {
+            "politique": "R3 révisée (normalisation + exclusion)",
+            "gardees": _n_normalisee,
+            "ecartees": _n_ecartee,
+            "normalisees": _n_normalisee - _identiques,
+        },
+    ]
+)
+
+# %% (f) R3 révisée — répartition par chapitre
+(
+    index_norm.with_columns(
+        pl.when(pl.col("normalise").is_null())
+        .then(pl.lit("ecartee"))
+        .otherwise(pl.lit("normalisee"))
+        .alias("issue")
+    )
+    .group_by("chapitre", "issue")
+    .len()
+    .pivot(on="issue", index="chapitre", values="len")
+    .fill_null(0)
+    .with_columns(
+        (pl.col("normalisee") / (pl.col("normalisee") + pl.col("ecartee")))
+        .round(3)
+        .alias("part_normalisee")
+    )
+    .sort("part_normalisee", descending=True)
+)
+
+# %% [markdown]
+# ### Ce qu'il reste à trancher
+#
+# La R3 révisée **récupère 13 220 entrées** que les deux détecteurs
+# purement exclusifs jetaient (ils n'en gardaient que 5 424 et 1 193).
+# Le gain en information est donc substantiel — mais il n'a de valeur
+# que si la qualité suit, et la relecture donne aujourd'hui environ deux
+# tiers de formes `degradee`.
+#
+# Trois décisions, dans l'ordre :
+#
+# 1. **Étendre le retrait aux parenthèses qualifiantes ?** C'est le
+#    levier n°1 : il concerne la moitié des normalisations. Il fait
+#    perdre de l'information (`(chronique)`, `(aigu)`) mais produit des
+#    formulations réellement utilisables.
+# 2. **Exclure les inversions d'éponymes**, détectables par motif
+#    (~4 % des normalisables), ou les **inverser** explicitement — le
+#    second segment y est la tête.
+# 3. **Seuil d'acceptation** : quelle proportion de `degradee` est
+#    tolérable pour une section « formulations alternatives » dont le
+#    rôle est d'élargir le rappel, pas de fournir un libellé officiel ?
+#
+# Tant que ces trois points ne sont pas tranchés, **R3 reste non figée**.
+
+# %% [markdown]
+# ## (g) Angles morts restants
 #
 # 1. **Blocs candidats à une politique propre**, au-delà de T36-T50 :
 #    `O00-O99` (grossesse — logique d'épisode plutôt que de diagnostic),
@@ -841,9 +1168,7 @@ _zone_grise.select("code", "texte").sample(n=15, seed=SEED, shuffle=True).sort("
 # 2. **ORPHANET n'alimente pas encore la section Formulations**
 #    (`cards.FORMULATION_SOURCES_EXCLUDED`) : son exclusion dans R1 est
 #    sans effet mesurable aujourd'hui, elle prépare une ouverture future.
-# 3. **Normalisation plutôt qu'exclusion** des entrées Index de la zone
-#    grise (cf section e).
-# 4. **L'apport des fiches lui-même est en question** : une évaluation
+# 3. **L'apport des fiches lui-même est en question** : une évaluation
 #    manuelle par médecins DIM ne montre pas d'apport mesurable des
 #    fiches dans les prompts de génération de CRH (cf
 #    `docs/analyses/2026-08-09_evaluation_fiches_et_contexte_llm.md`).
