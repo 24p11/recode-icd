@@ -37,6 +37,24 @@ from recode_icd.utils.loaders_dev import ExplorationContext, load_exploration_co
 log = logging.getLogger(__name__)
 
 
+def rng_pour_code(seed: int, code: str) -> random.Random:
+    """RNG dérivé du couple `(seed, code)`.
+
+    **Pourquoi pas un RNG partagé.** Historiquement, un unique
+    `random.Random(seed)` était créé avant la boucle de build et passé à
+    toutes les fiches. Comme les tirages sont *conditionnels* (seules les
+    familles dépassant leur plafond en consomment), l'état du générateur
+    à la fiche *n* dépendait des données de toutes les précédentes : une
+    fiche produite avec `--limit 5` ou `--chapter XXII` différait de la
+    même fiche en build complet.
+
+    Dériver par code rend chaque fiche indépendante de sa position. Le
+    build reste déterministe à seed constant, et le devient aussi à
+    périmètre variable.
+    """
+    return random.Random(f"{seed}:{code}")
+
+
 def _eager(frame: pl.DataFrame | pl.LazyFrame | None) -> pl.DataFrame:
     """Collecte un LazyFrame en DataFrame ; assert que ce n'est pas None.
 
@@ -760,7 +778,6 @@ def build_cards_library(
         codes = codes[:limit]
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    rng = random.Random(seed)
     outils = charge_politique(merged, policy_path, lexicons_dir)
     index_rows: list[dict[str, object]] = []
     errors: list[tuple[str, str]] = []
@@ -769,7 +786,7 @@ def build_cards_library(
 
     for i, code in enumerate(codes, 1):
         try:
-            card = build_card(code, ctx, rng, outils)
+            card = build_card(code, ctx, rng_pour_code(seed, code), outils)
             chapter = code_to_chap[code]
             chap_dir = output_dir / chapter
             chap_dir.mkdir(parents=True, exist_ok=True)
@@ -1203,7 +1220,6 @@ def build_categories_library(
         cat_3car = cat_3car.head(limit)
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    rng = random.Random(seed)
     outils = charge_politique(merged, policy_path, lexicons_dir)
     index_rows: list[dict[str, object]] = []
     errors: list[tuple[str, str]] = []
@@ -1216,7 +1232,7 @@ def build_categories_library(
         chapter = row["chapter"]
         libelle = row["label"] or ""
         try:
-            card = build_category_card(code, ctx, rng, outils)
+            card = build_category_card(code, ctx, rng_pour_code(seed, code), outils)
             chap_dir = output_dir / chapter
             chap_dir.mkdir(parents=True, exist_ok=True)
             fname = f"{code}.md"
