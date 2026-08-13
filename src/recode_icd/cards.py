@@ -115,45 +115,20 @@ def charge_politique(
 
 
 # ----------------------------------------------------------------------
-# Sources alimentant la section « Formulations cliniques alternatives »
+# Sources de la section « Formulations cliniques alternatives »
 # ----------------------------------------------------------------------
-# Ces valeurs sont des **libellés CSV** (colonne `source` du fichier
-# maître), pas des noms d'enum : elles doivent rester synchronisées avec
-# `_SOURCE_CSV_MAP` de `exporters/flat_csv.py`. Le filtrage se fait par
-# égalité stricte, donc un renommage de libellé non répercuté ici ferait
-# disparaître la source de la section **en silence**, sans exception ni
-# test rouge. C'est exactement ce qui a failli arriver lors du renommage
-# `CepiDc_2015` → `CepiDc 2015` (2026-08-09).
+# Elles ne sont plus déclarées ici. La VÉRITÉ UNIQUE est le YAML
+# `referentials/curation/chapter_policy.yaml` (`familles_sources`,
+# `prefixes_familles`, `familles_formulations`), résolu par
+# `recode_icd.policy`.
 #
-# Verrou : `tests/regression/test_cards_formulations_sources.py` vérifie
-# que tout libellé du mapping est explicitement soit inclus ci-dessous,
-# soit listé dans FORMULATION_SOURCES_EXCLUDED. Ajouter une source sans
-# trancher son sort fait échouer ce test.
-
-FORMULATION_SOURCE_INDEX = "CIM-10 index"
-FORMULATION_SOURCE_CEPIDC = "CepiDc 2015"
-FORMULATION_SOURCE_APHP_PREFIX = "AP-HP"
-
-#: Libellés retenus par égalité stricte, et plafonnés à INDEX_SAMPLE_SIZE
-#: sur les fiches feuilles.
-FORMULATION_SOURCES_EXACT: tuple[str, ...] = (
-    FORMULATION_SOURCE_INDEX,
-    FORMULATION_SOURCE_CEPIDC,
-)
-
-#: Préfixes retenus (toutes les spécialités AP-HP, non plafonnées).
-FORMULATION_SOURCE_PREFIXES: tuple[str, ...] = (FORMULATION_SOURCE_APHP_PREFIX,)
-
-#: Sources délibérément hors de la section Formulations : elles
-#: alimentent les sections « Périmètre clinique » / « À ne pas décrire »
-#: (OFS, ANS, frères synthétisés) ou sont jugées non pertinentes comme
-#: formulation de CRH (ORPHANET, libellés de maladies rares).
-FORMULATION_SOURCES_EXCLUDED: tuple[str, ...] = (
-    "CIM-10",
-    "ANS",
-    "CIM-10 frères",
-    "ORPHANET",
-)
+# Historiquement, `cards.py` portait des constantes de libellés que le
+# YAML aurait dupliquées. Maintenir deux énumérations et les tester
+# l'une contre l'autre ne fait que déplacer le risque de dérive : le
+# 2026-08-13, ORPHANET a été admis dans les Formulations par le YAML
+# alors que la constante l'excluait, et 1 467 fiches ont changé sans
+# décision. Les constantes ont donc été supprimées plutôt que
+# synchronisées.
 
 # Ordre d'affichage des groupes dans les sections "Périmètre clinique"
 # et "À ne pas décrire" : du plus large (chapitre) au plus spécifique

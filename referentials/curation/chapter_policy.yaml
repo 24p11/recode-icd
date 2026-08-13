@@ -54,7 +54,13 @@ prefixes_familles:
 # Familles alimentant la section Formulations. OFS et ANS n'y figurent
 # pas : ils alimentent « Périmètre clinique du code » et « À ne pas
 # décrire », sections que R1 ne touche jamais.
-familles_formulations: [INDEX, APHP, CEPIDC, ORPHANET, LLM]
+#
+# ORPHANET en est EXCLU, et c'est une décision de fond (RF, 2026-08-13) :
+# des synonymes de maladies rares dans les prompts de génération
+# biaiseraient le corpus vers des événements à basse fréquence. Un
+# profil de fiche « contrôle qualité », qui les admettrait, est au
+# backlog (docs/backlog/profils_fiches_par_usage.md).
+familles_formulations: [INDEX, APHP, CEPIDC, LLM]
 
 # Familles dites « externes », visées par le flag `sources_externes`.
 familles_externes: [APHP, ORPHANET, CEPIDC, LLM]

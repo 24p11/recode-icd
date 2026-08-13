@@ -3,26 +3,24 @@
 
 Pourquoi ce fichier existe
 --------------------------
-`cards.py` sélectionne les sources de la section Formulations par
-**égalité stricte** sur le libellé CSV (`CIM-10 index`, `CepiDc 2015`)
-et par **préfixe** (`AP-HP`). Ce couplage est fragile dans un sens
-précis : si un libellé est renommé dans `_SOURCE_CSV_MAP`
-(`exporters/flat_csv.py`) sans être répercuté dans `cards.py`, le filtre
-ne lève aucune exception — il ne matche simplement plus rien, et la
-source disparaît des fiches **en silence**. Le renommage
-`CepiDc_2015` → `CepiDc 2015` du 2026-08-09 a failli produire
-exactement cela.
+Le filtrage se fait par famille, déclarée dans
+`referentials/curation/chapter_policy.yaml` — **vérité unique** depuis
+le 2026-08-13. `cards.py` ne porte plus de constantes de libellés : en
+maintenir deux énumérations et les tester l'une contre l'autre ne
+faisait que déplacer le risque de dérive. Le jour où le YAML a admis
+ORPHANET dans les Formulations alors que la constante l'excluait,
+1 467 fiches ont changé sans que personne l'ait décidé.
 
-Trois niveaux de verrou, du plus structurel au plus concret :
+La couverture bidirectionnelle YAML ↔ `_SOURCE_CSV_MAP` est verrouillée
+par `tests/unit/test_policy.py`. Ce fichier-ci porte les deux verrous
+qui exigent des données réelles :
 
-1. `test_toute_source_du_mapping_est_tranchee` — aucune source du
-   mapping ne peut rester dans un état indéterminé. Ajouter une source
-   sans décider si elle alimente les Formulations fait échouer ce test.
-2. `test_*_produit_des_lignes_dans_le_csv` — un libellé peut être
-   cohérent entre les deux modules et pourtant ne rien produire (faute
-   de frappe partagée, source vidée en amont).
-3. `test_r51_*` — vérification de bout en bout sur une fiche témoin :
-   les entrées attendues arrivent bien jusqu'au markdown rendu.
+1. `test_*_produit_des_lignes_dans_le_csv` — un libellé peut être
+   correctement rangé et pourtant ne rien produire (faute de frappe
+   partagée, source vidée en amont) ;
+2. `test_r51_*` et `test_le_csv_nest_pas_modifie` — vérification de bout
+   en bout sur une fiche témoin, et garantie que la normalisation reste
+   une transformation de rendu.
 """
 
 from __future__ import annotations
@@ -33,7 +31,7 @@ import polars as pl
 import pytest
 
 from recode_icd import cards, normalize_index
-from recode_icd.exporters.flat_csv import _SOURCE_CSV_MAP
+from recode_icd.policy import load_policy
 
 pytestmark = pytest.mark.regression
 
@@ -44,65 +42,41 @@ pytestmark = pytest.mark.regression
 _WITNESS_CODE = "R51"
 
 
-def _labels_matching_prefixes() -> set[str]:
-    """Libellés du mapping capturés par un préfixe de `cards.py`."""
-    return {
-        label
-        for label in _SOURCE_CSV_MAP.values()
-        if label.startswith(cards.FORMULATION_SOURCE_PREFIXES)
-    }
-
-
-def test_toute_source_du_mapping_est_tranchee() -> None:
-    """Chaque libellé du mapping est soit inclus, soit exclu explicitement.
-
-    C'est le verrou principal : il rend impossible l'ajout d'une source
-    au CSV sans statuer sur sa présence dans la section Formulations.
-    Un libellé renommé d'un seul côté apparaît ici comme « non tranché ».
-    """
-    connus = (
-        set(cards.FORMULATION_SOURCES_EXACT)
-        | _labels_matching_prefixes()
-        | set(cards.FORMULATION_SOURCES_EXCLUDED)
-    )
-    mapping = set(_SOURCE_CSV_MAP.values())
-
-    non_tranches = mapping - connus
-    assert not non_tranches, (
-        f"Sources du mapping ni incluses ni exclues de la section "
-        f"Formulations : {sorted(non_tranches)}. Ajouter chaque libellé "
-        f"soit à cards.FORMULATION_SOURCES_EXACT / "
-        f"FORMULATION_SOURCE_PREFIXES, soit à "
-        f"cards.FORMULATION_SOURCES_EXCLUDED."
-    )
-
-    fantomes = connus - mapping
-    assert not fantomes, (
-        f"Libellés déclarés dans cards.py mais absents de "
-        f"_SOURCE_CSV_MAP : {sorted(fantomes)}. Symptôme typique d'un "
-        f"renommage de libellé non répercuté — le filtre de cards.py ne "
-        f"matcherait plus rien, silencieusement."
-    )
-
-
-def test_le_prefixe_aphp_capture_bien_des_sources() -> None:
-    """Le filtre par préfixe doit désigner au moins une source réelle."""
-    captures = _labels_matching_prefixes()
-    assert captures, (
-        f"Aucun libellé du mapping ne commence par "
-        f"{cards.FORMULATION_SOURCE_PREFIXES} — le filtre par préfixe de "
-        f"cards.py est devenu inopérant."
-    )
-
-
-@pytest.mark.parametrize("label", cards.FORMULATION_SOURCES_EXACT)
-def test_source_exacte_produit_des_lignes_dans_le_csv(
-    csv_final_df: pl.DataFrame, label: str
+@pytest.mark.parametrize("famille", ["INDEX", "CEPIDC", "APHP"])
+def test_famille_admise_produit_des_lignes_dans_le_csv(
+    csv_final_df: pl.DataFrame, famille: str
 ) -> None:
-    """Un libellé cohérent entre les modules doit aussi exister en données."""
-    n = csv_final_df.filter(pl.col("source") == label).height
+    """Une famille admise par le YAML doit aussi exister en données."""
+    policy = load_policy()
+    assert famille in policy.familles_formulations, (
+        f"{famille} n'alimente plus les Formulations — mettre à jour ce test "
+        f"si c'est une décision, ou le YAML si c'est un accident."
+    )
+    libelles = [
+        lib
+        for lib in csv_final_df["source"].unique().to_list()
+        if policy.famille_de(lib) == famille
+    ]
+    n = csv_final_df.filter(pl.col("source").is_in(libelles)).height
     assert n > 0, (
-        f"Le libellé « {label} » attendu par cards.py ne produit aucune ligne dans le CSV final."
+        f"La famille « {famille} », admise par le YAML, ne produit aucune ligne dans le CSV final."
+    )
+
+
+def test_orphanet_reste_hors_des_formulations() -> None:
+    """ORPHANET est exclu des Formulations, et c'est une décision de fond.
+
+    Les synonymes de maladies rares biaiseraient le corpus généré vers
+    des événements à basse fréquence. Un profil de fiche « contrôle
+    qualité » qui les admettrait est au backlog — mais il devra être un
+    profil distinct, pas un élargissement silencieux de celui-ci.
+    """
+    policy = load_policy()
+    assert "ORPHANET" not in policy.familles_formulations, (
+        "ORPHANET a été admis dans les Formulations. Si c'est voulu, "
+        "documenter la décision et mettre à jour ce test ; sinon, le "
+        "retirer de `familles_formulations`. Cf. "
+        "docs/backlog/profils_fiches_par_usage.md."
     )
 
 
@@ -131,7 +105,7 @@ def test_r51_formulations_couvre_les_sources_plafonnees(
 
     rendus = {ligne.removeprefix("- ").strip() for ligne in section}
 
-    for label in cards.FORMULATION_SOURCES_EXACT:
+    for label in ("CIM-10 index", "CepiDc 2015"):
         sources = (
             csv_final_df.filter((pl.col("code") == _WITNESS_CODE) & (pl.col("source") == label))[
                 "texte"
