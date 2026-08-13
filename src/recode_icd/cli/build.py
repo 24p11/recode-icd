@@ -3,9 +3,11 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Annotated
 
+import polars as pl
 import typer
 
-from recode_icd import merge, merge_external, propagation
+from recode_icd import lexicons, merge, merge_external, propagation
+from recode_icd import policy as policy_mod
 from recode_icd.exporters import flat_csv
 from recode_icd.loaders import ofs, owl
 from recode_icd.relations import dagger_asterisk, sibling_exclusions
@@ -437,3 +439,29 @@ def build_stats(
     """Générer reports/csv_stats.md (statistiques déterministes du CSV maître)."""
     path = csv_stats.generate_csv_stats(csv_path, output_path)
     typer.echo(f"Écrit : {path}")
+
+
+@build_app.command("lexicons")
+def build_lexicons(
+    csv_path: Annotated[
+        Path,
+        typer.Option("--csv", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/inclusions_exclusions_synonymes.csv"),
+    policy_path: Annotated[
+        Path,
+        typer.Option("--policy", exists=True, dir_okay=False, readable=True),
+    ] = policy_mod.DEFAULT_POLICY_PATH,
+    output_dir: Annotated[
+        Path,
+        typer.Option("--output-dir", "-o", file_okay=False),
+    ] = Path("referentials/processed"),
+) -> None:
+    """Construire les trois lexiques (rections, casse, juxtaposition).
+
+    Trois périmètres DIFFÉRENTS, à ne jamais fusionner — cf. le pitfall
+    en tête de `recode_icd.lexicons`.
+    """
+    csv = pl.read_csv(csv_path, infer_schema_length=200_000)
+    paths = lexicons.to_parquet(csv, policy_mod.load_policy(policy_path), output_dir)
+    for label, path in paths.items():
+        typer.echo(f"Écrit ({label}) : {path}")

@@ -175,3 +175,52 @@ class FlatCsvSchema(pa.DataFrameModel):
     class Config:
         strict = True
         coerce = False
+
+
+class LexiqueRectionsSchema(pa.DataFrameModel):
+    """Rections attestées dans le corpus : `(nom, joint, occurrences)`.
+
+    Construit sur **toutes** les sources, Index compris — la syntaxe
+    interne des entrées d'index est du français naturel et témoigne
+    valablement du genre. Cf. le pitfall des trois lexiques dans
+    `recode_icd.lexicons`.
+    """
+
+    nom: str = pa.Field()
+    joint: str = pa.Field(
+        isin=["du", "de la", "de l'", "des", "de", "au", "à la", "à l'", "aux", "à"]
+    )
+    occurrences: int = pa.Field(ge=1)
+
+    class Config:
+        strict = True
+        coerce = False
+
+
+class LexiqueCasseSchema(pa.DataFrameModel):
+    """Mots attestés en minuscule, **Index exclu**.
+
+    L'Index capitalise toute tête d'entrée par convention : il ne peut
+    pas servir de témoin de la casse naturelle d'un terme.
+    """
+
+    mot: str = pa.Field(str_matches=r"^[a-zà-ÿ][\wà-ÿ-]*$", unique=True)
+
+    class Config:
+        strict = True
+        coerce = False
+
+
+class LexiqueJuxtapositionSchema(pa.DataFrameModel):
+    """Juxtapositions adjectivales nues, **CepiDc exclu**.
+
+    CepiDc est télégraphique et supprime les articles : l'inclure ferait
+    passer tout nom pour un adjectif.
+    """
+
+    mot: str = pa.Field(unique=True)
+    occurrences: int = pa.Field(ge=1)
+
+    class Config:
+        strict = True
+        coerce = False
