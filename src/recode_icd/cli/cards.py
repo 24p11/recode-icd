@@ -6,6 +6,7 @@ from typing import Annotated
 
 import typer
 
+from recode_icd import policy as policy_module
 from recode_icd.cards import (
     DEFAULT_SEED,
     build_cards_library,
@@ -50,6 +51,24 @@ def build_library_cmd(
             help="Seed du Random pour l'échantillonnage déterministe.",
         ),
     ] = DEFAULT_SEED,
+    policy_path: Annotated[
+        Path,
+        typer.Option(
+            "--policy",
+            exists=True,
+            dir_okay=False,
+            readable=True,
+            help="Politique de composition (R1/R2/R3).",
+        ),
+    ] = policy_module.DEFAULT_POLICY_PATH,
+    lexicons_dir: Annotated[
+        Path,
+        typer.Option(
+            "--lexicons-dir",
+            file_okay=False,
+            help="Répertoire des trois lexiques (`build lexicons`).",
+        ),
+    ] = Path("referentials/processed"),
 ) -> None:
     """Génère la bibliothèque complète des fiches CIM-10 sous output-dir."""
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -59,6 +78,8 @@ def build_library_cmd(
         chapter_filter=chapter,
         limit=limit,
         seed=seed,
+        policy_path=policy_path,
+        lexicons_dir=lexicons_dir,
     )
 
     typer.echo("")
@@ -106,6 +127,24 @@ def build_categories_cmd(
         int,
         typer.Option("--seed", "-s"),
     ] = DEFAULT_SEED,
+    policy_path: Annotated[
+        Path,
+        typer.Option(
+            "--policy",
+            exists=True,
+            dir_okay=False,
+            readable=True,
+            help="Politique de composition (R1/R2/R3).",
+        ),
+    ] = policy_module.DEFAULT_POLICY_PATH,
+    lexicons_dir: Annotated[
+        Path,
+        typer.Option(
+            "--lexicons-dir",
+            file_okay=False,
+            help="Répertoire des trois lexiques (`build lexicons`).",
+        ),
+    ] = Path("referentials/processed"),
 ) -> None:
     """Génère la bibliothèque de fiches catégories CIM-10 3-car.
 
@@ -120,6 +159,8 @@ def build_categories_cmd(
         chapter_filter=chapter,
         limit=limit,
         seed=seed,
+        policy_path=policy_path,
+        lexicons_dir=lexicons_dir,
     )
 
     typer.echo("")

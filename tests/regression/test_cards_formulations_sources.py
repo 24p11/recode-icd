@@ -32,7 +32,7 @@ import random
 import polars as pl
 import pytest
 
-from recode_icd import cards
+from recode_icd import cards, normalize_index
 from recode_icd.exporters.flat_csv import _SOURCE_CSV_MAP
 
 pytestmark = pytest.mark.regression
@@ -115,26 +115,50 @@ def test_r51_formulations_couvre_les_sources_plafonnees(
     contenu bouge à chaque mise à jour de source). On vérifie que le
     markdown rendu contient au moins une entrée dont on sait, par le
     CSV, qu'elle provient de chaque source plafonnée.
+
+    **Depuis R3, les entrées d'Index sont normalisées au rendu** : la
+    forme affichée n'est plus la forme source (« Céphalée (de) » devient
+    « céphalée »). On compare donc aux formes *attendues après
+    normalisation* — et le fait que la comparaison brute ne suffise plus
+    est en soi la preuve que R3 s'applique. Le CSV, lui, conserve la
+    forme source : c'est ce que vérifie `test_le_csv_nest_pas_modifie`.
     """
     ctx = cards.load_exploration_context()
-    markdown = cards.build_card(_WITNESS_CODE, ctx, random.Random(cards.DEFAULT_SEED))
+    outils = cards.charge_politique(cards._eager(ctx.merged))
+    markdown = cards.build_card(_WITNESS_CODE, ctx, random.Random(cards.DEFAULT_SEED), outils)
     section = _extract_formulations(markdown)
     assert section, f"{_WITNESS_CODE} : section Formulations absente de la fiche"
 
     rendus = {ligne.removeprefix("- ").strip() for ligne in section}
 
     for label in cards.FORMULATION_SOURCES_EXACT:
-        attendus = set(
+        sources = (
             csv_final_df.filter((pl.col("code") == _WITNESS_CODE) & (pl.col("source") == label))[
                 "texte"
             ]
             .drop_nulls()
             .to_list()
         )
-        assert attendus, (
+        assert sources, (
             f"Prérequis du témoin cassé : {_WITNESS_CODE} n'a plus "
             f"d'entrée « {label} » dans le CSV. Changer de code témoin."
         )
+        if outils.policy.famille_de(label) == "INDEX":
+            attendus = {
+                forme
+                for texte in sources
+                if (
+                    forme := normalize_index.forme_normalisee(
+                        texte, outils.lexiques, outils.config_normalisation
+                    )
+                )
+            }
+            assert attendus, (
+                f"R3 écarte TOUTES les entrées « {label} » de {_WITNESS_CODE} : "
+                f"le témoin ne prouve plus rien. Changer de code témoin."
+            )
+        else:
+            attendus = set(sources)
         # La dédup tolérante peut absorber une entrée au profit d'une
         # variante d'une autre source ; on exige seulement qu'il en
         # reste au moins une, pas toutes.
@@ -143,6 +167,37 @@ def test_r51_formulations_couvre_les_sources_plafonnees(
             f"{_WITNESS_CODE}. Le filtre de cards.py ne matche plus cette "
             f"source — libellé renommé d'un seul côté ?"
         )
+
+
+def test_le_csv_nest_pas_modifie(csv_final_df: pl.DataFrame) -> None:
+    """**Garantie centrale du chantier** : R3 réécrit le RENDU, pas les données.
+
+    Après un assemblage de fiche, la forme source de l'Index doit
+    toujours être dans le CSV, inchangée. Si ce test casse, la
+    normalisation a fuité en amont — et le libellé officiel du volume 3
+    devient irrécupérable, ce qui viole le principe « jamais
+    d'agrégation silencieuse ».
+    """
+    source_index = "Céphalée (de)"
+    avant = csv_final_df.filter(
+        (pl.col("code") == _WITNESS_CODE) & (pl.col("texte") == source_index)
+    ).height
+    assert avant == 1, "prérequis : la forme source est bien dans le CSV"
+
+    ctx = cards.load_exploration_context()
+    outils = cards.charge_politique(cards._eager(ctx.merged))
+    markdown = cards.build_card(_WITNESS_CODE, ctx, random.Random(cards.DEFAULT_SEED), outils)
+    assert source_index not in markdown, "la fiche doit rendre la forme normalisée"
+
+    apres = (
+        cards._eager(ctx.flat)
+        .filter((pl.col("code") == _WITNESS_CODE) & (pl.col("texte") == source_index))
+        .height
+    )
+    assert apres == 1, (
+        "La forme source a disparu du CSV après un build de fiche : la "
+        "normalisation a fuité dans les données au lieu de rester au rendu."
+    )
 
 
 def _extract_formulations(markdown: str) -> list[str]:

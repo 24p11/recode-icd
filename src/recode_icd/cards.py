@@ -27,7 +27,11 @@ from pathlib import Path
 
 import polars as pl
 
+from recode_icd import hierarchie, lexicons, normalize_index
+from recode_icd import policy as policy_module
 from recode_icd._normalize import normalize_for_match
+from recode_icd.lexicons import Lexiques
+from recode_icd.policy import ChapterPolicy, NormalisationIndex
 from recode_icd.utils.loaders_dev import ExplorationContext, load_exploration_context
 
 log = logging.getLogger(__name__)
@@ -52,6 +56,45 @@ def _eager(frame: pl.DataFrame | pl.LazyFrame | None) -> pl.DataFrame:
 
 DEFAULT_SEED = 42
 INDEX_SAMPLE_SIZE = 10
+
+
+@dataclass(frozen=True)
+class PolitiqueFiches:
+    """Règles et lexiques nécessaires à l'assemblage d'une fiche.
+
+    Regroupés en un objet pour n'être chargés qu'une fois par build : la
+    politique est un petit YAML, mais les trois lexiques pèsent quelques
+    dizaines de milliers de lignes et la hiérarchie se dérive de
+    `merged_codes` (19 000 codes).
+    """
+
+    policy: ChapterPolicy
+    lexiques: Lexiques
+    #: `code → (chapitre, blocs)`, dérivé de `merged_codes`.
+    hierarchie: dict[str, tuple[str | None, list[str]]]
+
+    @property
+    def config_normalisation(self) -> NormalisationIndex:
+        return self.policy.normalisation_index
+
+    def hierarchie_de(self, code: str) -> tuple[str | None, list[str]]:
+        return self.hierarchie.get(code, (None, []))
+
+
+def charge_politique(
+    merged: pl.DataFrame,
+    policy_path: Path | None = None,
+    lexicons_dir: Path | None = None,
+) -> PolitiqueFiches:
+    """Charge politique, lexiques et hiérarchie pour un build de fiches."""
+    pol = policy_module.load_policy(policy_path)
+    lex = lexicons.load_lexicons(lexicons_dir or Path("referentials/processed"))
+    hier = {
+        r["code"]: (r["chapitre"], list(r["blocs"] or []))
+        for r in hierarchie.chapitre_et_blocs(merged).iter_rows(named=True)
+    }
+    return PolitiqueFiches(policy=pol, lexiques=lex, hierarchie=hier)
+
 
 # ----------------------------------------------------------------------
 # Sources alimentant la section « Formulations cliniques alternatives »
@@ -449,44 +492,114 @@ def _section_exclusions_from_ans(code: str, ctx: ExplorationContext) -> str | No
 # ----------------------------------------------------------------------
 
 
-def _section_formulations(code: str, ctx: ExplorationContext, rng: random.Random) -> str | None:
-    """Index CIM-10 vol3 (échantillon ≤10) + AP-HP toutes feuilles (tout)
-    + CepiDc 2015 (échantillon ≤10)."""
-    csv = _eager(ctx.flat)
-    assert csv is not None
+# ----------------------------------------------------------------------
+# Composition de la section Formulations — R1, R3 puis R2
+# ----------------------------------------------------------------------
+# Ordre load-bearing : familles admises (R1) → normalisation de l'Index
+# (R3) → dédup tolérante → plafond par famille (R2). La normalisation
+# vient AVANT la dédup parce qu'elle crée des doublons : deux entrées
+# d'index distinctes peuvent se réduire à la même forme.
+#
+# Priorité de dédup entre familles : la première rencontrée gagne. On
+# conserve l'ordre historique Index > AP-HP > CepiDc, cohérent avec
+# `_EXTERNAL_ORDER` du merge (les formulations télégraphiques cèdent
+# devant les libellés plus riches).
+_ORDRE_FAMILLES = ("INDEX", "APHP", "ORPHANET", "CEPIDC", "LLM")
 
+
+@dataclass(frozen=True)
+class _Candidate:
+    """Une formulation prête à rendre, avec sa provenance."""
+
+    texte: str
+    famille: str
+    code: str
+
+
+def _candidates_formulations(
+    sub: pl.DataFrame,
+    chapitre: str | None,
+    blocs: list[str],
+    outils: PolitiqueFiches,
+) -> list[_Candidate]:
+    """Applique R1 puis R3 aux lignes d'un code (ou d'une catégorie).
+
+    Retourne les formulations retenues, dans l'ordre de priorité des
+    familles. Les entrées d'Index écartées par R3 disparaissent ici ;
+    **le CSV, lui, n'est pas touché** — seule la forme rendue change.
+    """
+    admises = outils.policy.familles_admises(chapitre, blocs)
+    retenues: dict[str, list[_Candidate]] = {f: [] for f in _ORDRE_FAMILLES}
+    for ligne in sub.iter_rows(named=True):
+        texte = ligne["texte"]
+        if not texte:
+            continue
+        famille = outils.policy.famille_de(ligne["source"])
+        if famille not in admises or famille not in retenues:
+            continue
+        if famille == "INDEX" and outils.config_normalisation.active:
+            texte = normalize_index.forme_normalisee(
+                texte, outils.lexiques, outils.config_normalisation
+            )
+            if texte is None:
+                continue
+        retenues[famille].append(_Candidate(texte, famille, ligne["code"]))
+    return [c for famille in _ORDRE_FAMILLES for c in retenues[famille]]
+
+
+def _dedup_candidates(candidates: list[_Candidate]) -> list[_Candidate]:
+    """Dédup tolérante, premier rencontré gagne (ordre de priorité)."""
+    vues: set[str] = set()
+    gardees: list[_Candidate] = []
+    for candidate in candidates:
+        cle = normalize_for_match(candidate.texte) or ""
+        if cle in vues:
+            continue
+        vues.add(cle)
+        gardees.append(candidate)
+    return gardees
+
+
+def _plafonne_par_famille(
+    candidates: list[_Candidate], plafond: int, rng: random.Random
+) -> list[_Candidate]:
+    """R2 — au plus `plafond` entrées par famille, tirage reproductible.
+
+    Le tirage (et non une troncature) préserve en espérance la diversité
+    interne de chaque famille.
+    """
+    par_famille: dict[str, list[_Candidate]] = {}
+    for candidate in candidates:
+        par_famille.setdefault(candidate.famille, []).append(candidate)
+    gardees: list[_Candidate] = []
+    for famille in _ORDRE_FAMILLES:
+        lot = par_famille.get(famille, [])
+        gardees.extend(rng.sample(lot, plafond) if len(lot) > plafond else lot)
+    return gardees
+
+
+def _section_formulations(
+    code: str,
+    ctx: ExplorationContext,
+    rng: random.Random,
+    outils: PolitiqueFiches,
+) -> str | None:
+    """Formulations d'une fiche feuille — R1, R3, dédup, R2."""
+    csv = _eager(ctx.flat)
     sub = csv.filter(pl.col("code") == code)
     if sub.is_empty():
         return None
 
-    index_entries = (
-        sub.filter(pl.col("source") == FORMULATION_SOURCE_INDEX)["texte"].drop_nulls().to_list()
-    )
-    aphp_entries = (
-        sub.filter(pl.col("source").str.starts_with(FORMULATION_SOURCE_APHP_PREFIX))["texte"]
-        .drop_nulls()
-        .to_list()
-    )
-    cepidc_entries = (
-        sub.filter(pl.col("source") == FORMULATION_SOURCE_CEPIDC)["texte"].drop_nulls().to_list()
-    )
-
-    if len(index_entries) > INDEX_SAMPLE_SIZE:
-        index_entries = rng.sample(index_entries, INDEX_SAMPLE_SIZE)
-    # Échantillonnage symétrique pour CepiDc : certains codes ont
-    # jusqu'à 988 formulations (AVC) — on limite à INDEX_SAMPLE_SIZE.
-    if len(cepidc_entries) > INDEX_SAMPLE_SIZE:
-        cepidc_entries = rng.sample(cepidc_entries, INDEX_SAMPLE_SIZE)
-
-    merged = index_entries + aphp_entries + cepidc_entries
-    if not merged:
+    chapitre, blocs = outils.hierarchie_de(code)
+    candidates = _candidates_formulations(sub, chapitre, blocs, outils)
+    candidates = _dedup_candidates(candidates)
+    candidates = _plafonne_par_famille(candidates, outils.policy.plafond_famille_feuilles, rng)
+    if not candidates:
         return None
 
-    merged = _dedup_tolerant_preserve_order(merged)
-    merged.sort(key=lambda t: normalize_for_match(t) or "")
-
+    textes = sorted((c.texte for c in candidates), key=lambda t: normalize_for_match(t) or "")
     lines = ["## Formulations cliniques alternatives"]
-    lines.extend(f"- {t}" for t in merged)
+    lines.extend(f"- {t}" for t in textes)
     return "\n".join(lines)
 
 
@@ -512,7 +625,12 @@ def _title(code: str, ctx: ExplorationContext) -> str:
     return f"# {code}"
 
 
-def build_card(code: str, ctx: ExplorationContext, rng: random.Random) -> str:
+def build_card(
+    code: str,
+    ctx: ExplorationContext,
+    rng: random.Random,
+    outils: PolitiqueFiches | None = None,
+) -> str:
     """Construit la fiche markdown descriptive d'un code CIM-10.
 
     Args:
@@ -543,7 +661,7 @@ def build_card(code: str, ctx: ExplorationContext, rng: random.Random) -> str:
         _section_localisations(code, ctx),
         _section_perimeter(code, ctx),
         _section_exclusions(code, ctx),
-        _section_formulations(code, ctx, rng),
+        _section_formulations(code, ctx, rng, outils or charge_politique(_eager(ctx.merged))),
     ]
     body = "\n\n".join(s for s in sections if s)
     return f'<fiche_code code="{code}">\n\n{body}\n\n</fiche_code>\n'
@@ -600,6 +718,8 @@ def build_cards_library(
     limit: int | None = None,
     seed: int = DEFAULT_SEED,
     progress: bool = True,
+    policy_path: Path | None = None,
+    lexicons_dir: Path | None = None,
 ) -> BuildSummary:
     """Génère la bibliothèque complète de fiches CIM-10.
 
@@ -641,6 +761,7 @@ def build_cards_library(
 
     output_dir.mkdir(parents=True, exist_ok=True)
     rng = random.Random(seed)
+    outils = charge_politique(merged, policy_path, lexicons_dir)
     index_rows: list[dict[str, object]] = []
     errors: list[tuple[str, str]] = []
     t0 = time.perf_counter()
@@ -648,7 +769,7 @@ def build_cards_library(
 
     for i, code in enumerate(codes, 1):
         try:
-            card = build_card(code, ctx, rng)
+            card = build_card(code, ctx, rng, outils)
             chapter = code_to_chap[code]
             chap_dir = output_dir / chapter
             chap_dir.mkdir(parents=True, exist_ok=True)
@@ -951,55 +1072,55 @@ def _category_section_exclusions(category_code: str, ctx: ExplorationContext) ->
 
 
 def _category_section_formulations(
-    category_code: str, ctx: ExplorationContext, rng: random.Random
+    category_code: str,
+    ctx: ExplorationContext,
+    rng: random.Random,
+    outils: PolitiqueFiches,
 ) -> str | None:
-    """Section "Formulations cliniques alternatives" agrégée.
+    """Formulations agrégées d'une fiche catégorie.
 
-    Entrées Index CIM-10 vol3 + AP-HP + CepiDc 2015 des feuilles
-    descendantes. Mention de source `(code)` pour chaque entrée. Dédup
-    tolérante (premier code rencontré en ordre alpha croissant). Si
-    après dédup le nombre d'entrées dépasse `CATEGORY_FORMULATIONS_MAX`,
-    échantillonnage déterministe via `rng`.
+    Même chaîne que les feuilles — R1, R3, dédup, R2 — avec **deux
+    différences** :
+
+    - le plafond par famille vaut 20 et non 10. Les viviers ne sont pas
+      comparables : une fiche feuille tire d'un seul code, une catégorie
+      agrège toutes ses feuilles (3 007 formulations pour C79). L'écart
+      est calibré, pas subi (balayage 5/10/15/20/30 dans le document de
+      trace) ;
+    - un plafond **global** s'applique ensuite, et chaque entrée porte la
+      mention `(code)` de la feuille dont elle provient.
+
+    La politique est résolue sur la catégorie elle-même : ses feuilles
+    partagent son chapitre et ses blocs.
     """
     csv = _eager(ctx.flat)
     leaves = _category_leaf_codes(category_code, csv)
     if not leaves:
         return None
     sub = csv.filter(pl.col("code").is_in(leaves))
-
-    formul = sub.filter(
-        (pl.col("source") == FORMULATION_SOURCE_INDEX)
-        | pl.col("source").str.starts_with(FORMULATION_SOURCE_APHP_PREFIX)
-        | (pl.col("source") == FORMULATION_SOURCE_CEPIDC)
-    )
-    if formul.is_empty():
+    if sub.is_empty():
         return None
 
-    entries: list[tuple[str, str]] = [
-        (r["texte"], r["code"]) for r in formul.iter_rows(named=True) if r["texte"]
-    ]
-    if not entries:
+    chapitre, blocs = outils.hierarchie_de(category_code)
+    if chapitre is None and leaves:
+        # La catégorie peut être absente de `merged` ; on se rabat sur
+        # une de ses feuilles, qui partage sa plage.
+        chapitre, blocs = outils.hierarchie_de(leaves[0])
+
+    candidates = _candidates_formulations(sub, chapitre, blocs, outils)
+    # Tri par (code, texte_norm) avant dédup : le plus petit code gagne,
+    # comportement historique conservé.
+    candidates.sort(key=lambda c: (c.code, normalize_for_match(c.texte) or ""))
+    candidates = _dedup_candidates(candidates)
+    candidates = _plafonne_par_famille(candidates, outils.policy.plafond_famille_categories, rng)
+    if not candidates:
         return None
-    # Tri par (code, texte_norm) pour déterminisme de la dédup.
-    entries.sort(key=lambda e: (e[1], normalize_for_match(e[0]) or ""))
-    seen: set[str] = set()
-    kept: list[tuple[str, str]] = []
-    for text, src_code in entries:
-        norm = normalize_for_match(text) or ""
-        if norm in seen:
-            continue
-        seen.add(norm)
-        kept.append((text, src_code))
+    if len(candidates) > outils.policy.plafond_global_categories:
+        candidates = rng.sample(candidates, outils.policy.plafond_global_categories)
 
-    # Échantillonnage déterministe si volume excessif.
-    if len(kept) > CATEGORY_FORMULATIONS_MAX:
-        kept = rng.sample(kept, CATEGORY_FORMULATIONS_MAX)
-
-    kept.sort(key=lambda e: normalize_for_match(e[0]) or "")
-
+    candidates.sort(key=lambda c: normalize_for_match(c.texte) or "")
     lines = ["## Formulations cliniques alternatives"]
-    for text, src_code in kept:
-        lines.append(f"- {text} ({src_code})")
+    lines.extend(f"- {c.texte} ({c.code})" for c in candidates)
     return "\n".join(lines)
 
 
@@ -1007,6 +1128,7 @@ def build_category_card(
     category_code: str,
     ctx: ExplorationContext,
     rng: random.Random,
+    outils: PolitiqueFiches | None = None,
 ) -> str:
     """Construit la fiche markdown agrégée d'une catégorie 3-car.
 
@@ -1035,7 +1157,9 @@ def build_category_card(
         _category_section_children(category_code, ctx),
         _category_section_perimeter(category_code, ctx),
         _category_section_exclusions(category_code, ctx),
-        _category_section_formulations(category_code, ctx, rng),
+        _category_section_formulations(
+            category_code, ctx, rng, outils or charge_politique(_eager(ctx.merged))
+        ),
     ]
     body = "\n\n".join(s for s in sections if s)
     return f'<fiche_category code="{category_code}">\n\n{body}\n\n</fiche_category>\n'
@@ -1057,6 +1181,8 @@ def build_categories_library(
     limit: int | None = None,
     seed: int = DEFAULT_SEED,
     progress: bool = True,
+    policy_path: Path | None = None,
+    lexicons_dir: Path | None = None,
 ) -> BuildSummary:
     """Génère la bibliothèque complète de fiches catégories 3-car.
 
@@ -1078,6 +1204,7 @@ def build_categories_library(
 
     output_dir.mkdir(parents=True, exist_ok=True)
     rng = random.Random(seed)
+    outils = charge_politique(merged, policy_path, lexicons_dir)
     index_rows: list[dict[str, object]] = []
     errors: list[tuple[str, str]] = []
     t0 = time.perf_counter()
@@ -1089,7 +1216,7 @@ def build_categories_library(
         chapter = row["chapter"]
         libelle = row["label"] or ""
         try:
-            card = build_category_card(code, ctx, rng)
+            card = build_category_card(code, ctx, rng, outils)
             chap_dir = output_dir / chapter
             chap_dir.mkdir(parents=True, exist_ok=True)
             fname = f"{code}.md"
