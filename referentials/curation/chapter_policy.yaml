@@ -1,0 +1,159 @@
+# Politique de composition de la section « Formulations cliniques
+# alternatives » des fiches CIM-10.
+#
+# ─────────────────────────────────────────────────────────────────────
+# FINALITÉ — c'est elle qui départage toute ambiguïté future.
+#
+#   La section Formulations sert à (1) refléter le langage réellement
+#   employé par les médecins dans les CRH, et (2) ne JAMAIS élargir ni
+#   brouiller le périmètre du code.
+#
+#   Quand le comportement mesuré et une consigne écrite divergent, c'est
+#   cette finalité qui fait foi.
+# ─────────────────────────────────────────────────────────────────────
+#
+# S'applique à l'ASSEMBLAGE DES FICHES uniquement. Le CSV maître, les
+# Parquets et la colonne `texte` ne sont jamais modifiés : la forme
+# source reste la seule référence auditable.
+#
+# Justification métier et calibration chiffrée :
+#   docs/analyses/2026-08-09_qualite_sources_par_chapitre.md
+#
+# ⚠ RÉSOLUTION PAR REMPLACEMENT, PAS PAR FUSION.
+#   L'ordre est bloc > chapitre > défaut, et la règle la plus spécifique
+#   REMPLACE intégralement la moins spécifique — elle n'hérite PAS de ses
+#   champs absents. Une entrée de bloc doit donc REDÉCLARER tout ce
+#   qu'elle veut conserver du chapitre. C'est le seul choix qui permette
+#   de ré-admettre une source au niveau d'un bloc (cas prévu pour
+#   T36-T50). L'oublier rouvre des sources en silence.
+
+version: 1
+
+# ---------------------------------------------------------------------
+# Vocabulaire des familles de sources
+# ---------------------------------------------------------------------
+# `familles` est la liste FAISANT AUTORITÉ. Toute famille citée plus bas
+# doit y figurer, et tout libellé de `_SOURCE_CSV_MAP` (exporters/
+# flat_csv.py) doit être rattaché à l'une d'elles — dans les deux sens,
+# vérifié par test. LLM y figure sans libellé associé : aucune source
+# LLM n'existe encore dans le CSV, mais le point d'application du flag
+# `generation_llm` est en place et testé avec une source factice.
+familles: [OFS, ANS, INDEX, APHP, ORPHANET, CEPIDC, LLM]
+
+familles_sources:
+  "CIM-10": OFS
+  "CIM-10 frères": OFS
+  "ANS": ANS
+  "CIM-10 index": INDEX
+  "ORPHANET": ORPHANET
+  "CepiDc 2015": CEPIDC
+
+prefixes_familles:
+  "AP-HP": APHP
+
+# Familles alimentant la section Formulations. OFS et ANS n'y figurent
+# pas : ils alimentent « Périmètre clinique du code » et « À ne pas
+# décrire », sections que R1 ne touche jamais.
+familles_formulations: [INDEX, APHP, CEPIDC, ORPHANET, LLM]
+
+# Familles dites « externes », visées par le flag `sources_externes`.
+familles_externes: [APHP, ORPHANET, CEPIDC, LLM]
+
+# Familles issues d'une génération par LLM, visées par `generation_llm`.
+familles_llm: [LLM]
+
+# ---------------------------------------------------------------------
+# R2 — plafonnement par famille
+# ---------------------------------------------------------------------
+# Deux valeurs distinctes, et c'est délibéré : une fiche feuille tire
+# d'un SEUL code, une fiche catégorie AGRÈGE toutes ses feuilles — 3 007
+# formulations pour C79 contre quelques dizaines pour un code isolé. Le
+# même plafond serait beaucoup plus mordant sur les catégories.
+#
+# Calibration par balayage 5/10/15/20/30 sur les 608 catégories dont le
+# vivier dépasse le plafond global : 20 est le dernier palier avant
+# dégradation (médiane 0,488 ; 54 catégories > 80 %). À 30 le bénéfice
+# se dégrade nettement (0,600 ; 77 catégories).
+plafond_famille_feuilles: 10
+plafond_famille_categories: 20
+plafond_global_categories: 50
+
+# ---------------------------------------------------------------------
+# R1 — politique par plage de codes
+# ---------------------------------------------------------------------
+defaut:
+  sources_externes: true
+  generation_llm: true
+
+chapitres:
+  # R00-R99 : les codes R ont de vraies variantes d'usage courant
+  # (« mal de tête » pour R51). Sources réelles conservées, mais pas de
+  # génération LLM, qui élargirait le périmètre de codes déjà peu
+  # spécifiques.
+  XVIII: {sources_externes: true, generation_llm: false}
+  # S00-T98 : lésions combinatoires par site et nature ; les libellés
+  # officiels sont déjà la langue du CRH.
+  XIX: {sources_externes: false, generation_llm: false}
+  # V01-Y98 : causes externes, codées sur les circonstances décrites et
+  # non sur un terme médical substituable.
+  XX: {sources_externes: false, generation_llm: false}
+  # Z00-Z99 : circonstances administratives ou de prise en charge.
+  XXI: {sources_externes: false, generation_llm: false}
+
+blocs:
+  # T36-T50 (intoxications médicamenteuses) se comporte plus comme des
+  # diagnostics classiques que comme des lésions par site : il pourrait
+  # légitimement être exempté un jour de la politique du chapitre XIX.
+  # Mais CepiDc doit y rester exclu quoi qu'il arrive — le dictionnaire
+  # y contient des noms de médicaments nus (« Furosémide » → T50.1),
+  # logique du certificat de décès inutilisable comme formulation.
+  #
+  # L'entrée REDÉCLARE aujourd'hui la politique XIX à l'identique (cf.
+  # remplacement ci-dessus). Elle existe pour documenter la décision
+  # métier propre au bloc et pour survivre à un assouplissement de XIX.
+  T36-T50: {sources_externes: false, generation_llm: false}
+
+# ---------------------------------------------------------------------
+# R3 — normalisation des entrées de l'Index CIM-10 vol3
+# ---------------------------------------------------------------------
+# Transformation de RENDU : appliquée à l'assemblage, jamais dans le CSV.
+normalisation_index:
+  active: true
+
+  # Garde-fou nom/adjectif par dominance (et non par simple existence).
+  # A = attestations avec article ou joint ; J = attestations en
+  # juxtaposition nue. A ≥ seuil·J → substantif (joint inséré) ;
+  # J ≥ seuil·A → adjectif (juxtaposition) ; sinon → entrée écartée.
+  #
+  # Seuil tranché sur les données : à 3×, « langue » (ratio 2,61)
+  # basculerait en zone grise et « hémorragie de la langue » — validée
+  # en relecture — deviendrait une exclusion.
+  seuil_dominance: 2.0
+
+  # A = 0 et J = 0 : aucune évidence. La présence même du connecteur
+  # atteste que le mot est un complément nominal, on juxtapose plutôt
+  # que d'exclure (la variante stricte coûtait 958 entrées).
+  inconnu_est_adjectif: true
+
+  # Substantifs de tête nus autorisant l'inversion sans préposition
+  # finale. Liste volontairement courte : tout cas douteux est écarté,
+  # jamais normalisé.
+  tetes_nues: [syndrome, maladie, "site fragile"]
+
+  # Abréviations d'index et méta-termes de classification. Une entrée
+  # qui en porte un en TÊTE ou en QUEUE est EXCLUE, jamais amputée :
+  # amputer élargirait silencieusement le périmètre — « vessie nca »
+  # désigne le résidu non classé ailleurs, pas toute anomalie vésicale.
+  # Rendement mesuré : nca 425, précisé/e/s 183, autres 2 (quasi inerte,
+  # conservé pour protection future).
+  abreviations_index: [nca, sai]
+  meta_termes: [précisé, précisée, précisés, précisées, autre, autres]
+
+  # Énumération de synonymes (« Deutéranomalie, deutéranopie ») :
+  # exclusion. Deux segments d'un seul mot chacun, sans connecteur ni
+  # préposition traînante, préfixe commun ≥ prefixe_min ET ≥ ratio_min
+  # du plus court. Le critère « un seul mot » protège la tête nue
+  # (« Autosome, site fragile » reste inversée).
+  enumeration:
+    prefixe_min: 5
+    ratio_min: 0.5
