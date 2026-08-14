@@ -524,6 +524,91 @@ virus Zika).
 > parfaitement valide dans les tests unitaires sur données
 > synthétiques.
 
+## `chapter_policy` — composition de la section Formulations des fiches
+
+> **Invariant absolu.** Ces règles gouvernent l'**assemblage des fiches**,
+> rien d'autre. Le CSV maître, les Parquets et la colonne `texte` ne sont
+> **jamais** modifiés : la forme source reste la seule référence
+> auditable. Garantie par `test_le_csv_nest_pas_modifie`.
+
+**Finalité — c'est elle qui départage toute ambiguïté.** La section
+Formulations sert à (1) refléter le langage réellement employé par les
+médecins dans les CRH, et (2) ne **jamais** élargir ni brouiller le
+périmètre du code. Quand le comportement mesuré et une consigne écrite
+divergent, c'est cette finalité qui fait foi — et le bon réflexe reste
+de poser la question.
+
+Toute la configuration vit dans
+`referentials/curation/chapter_policy.yaml`. **Aucune règle n'est en
+dur dans le code** : `policy.py` lit le YAML, `cards.py` l'applique.
+Justification métier et calibration chiffrée dans
+`docs/analyses/2026-08-09_qualite_sources_par_chapitre.md`.
+
+### Les trois règles
+
+- **R1 — filtrage par plage de codes × famille de sources.** Chapitres
+  XIX (lésions), XX (causes externes) et XXI (facteurs Z) excluent
+  toutes les sources externes ; chapitre XVIII (symptômes) conserve les
+  sources réelles mais interdit la génération LLM. Les deux flags
+  `sources_externes` et `generation_llm` sont **indépendants**.
+- **R2 — plafonnement par famille.** 10 sur les fiches feuilles, 20 sur
+  les fiches catégories, plus un plafond global de 50 sur les
+  catégories. Deux valeurs distinctes et c'est délibéré : une feuille
+  tire d'un seul code, une catégorie agrège toutes ses feuilles.
+- **R3 — normalisation des entrées de l'Index vol3.** Transformation de
+  **rendu** (`normalize_index.py`), appliquée à l'assemblage. Sur
+  36 627 entrées : 11 638 retenues, 24 989 écartées.
+
+### Résolution par REMPLACEMENT, pas par fusion
+
+L'ordre est **bloc > chapitre > défaut**, et la règle la plus spécifique
+**remplace intégralement** la moins spécifique — elle n'hérite **pas**
+de ses champs absents. Une entrée de bloc doit donc **redéclarer** tout
+ce qu'elle veut conserver du chapitre. C'est le seul choix qui permette
+de *ré-admettre* une source au niveau d'un bloc. L'oublier rouvre des
+sources en silence. Verrouillé par `test_remplacement_et_non_fusion`.
+
+### Pitfalls
+
+1. **Trois lexiques, trois périmètres différents.** Les fusionner « par
+   simplification » casse une garantie différente à chaque fois :
+
+   | Lexique | Périmètre | Pourquoi |
+   |---|---|---|
+   | **Rections** (`du X`, `de la X`) | Index **inclus** | La syntaxe interne des entrées est du français naturel : elle témoigne du genre. |
+   | **Casse** (mots vus en minuscule) | Index **exclu** | L'Index capitalise toute tête d'entrée par convention — il ne peut pas dire si un mot est un nom commun. |
+   | **Juxtaposition** (dominance adjectivale) | CepiDc **exclu** ; virgules et parenthèses = **frontières dures** | CepiDc est télégraphique (pas d'articles) : tout nom y paraît adjectival. Sans frontières, l'Index se compte lui-même et se contamine. |
+
+   Mesuré : sans exclure CepiDc, « cerveau » ressort adjectival (ratio
+   0,46) et « hypoplasie du cerveau » serait cassé.
+
+2. **Exclure des fiches ≠ exclure du pipeline de données.** R1 et R3
+   retirent des entrées de la *section Formulations*. Ces mêmes entrées
+   restent intégralement dans le CSV maître, avec leur `source`. Ne
+   jamais « propager la cohérence » en les retirant en amont.
+
+3. **La relecture de forme ne contrôle pas le périmètre.** Une entrée
+   peut être parfaitement bien formée et désigner autre chose que le
+   code : « Oculopathie (à), syphilitique (tardive) **nca** » normalisée
+   en « oculopathie syphilitique » se lit très bien — et enseigne un
+   périmètre faux, puisque `nca` désigne le *résidu non classé
+   ailleurs*. C'est pourquoi les abréviations et méta-termes en tête ou
+   en queue provoquent une **exclusion, jamais une amputation**. Ce sont
+   deux validations distinctes ; ne jamais conclure de l'une à l'autre.
+
+### Commandes
+
+```bash
+uv run recode-icd build lexicons          # les trois lexiques (déterministe)
+uv run recode-icd cards build             # --policy / --lexicons-dir
+uv run recode-icd cards build-categories
+uv run python scripts/explore/relectures/export_relecture_index.py --graine 4242
+```
+
+`VERSION_REGLE` dans le script de relecture doit être **incrémentée à
+chaque changement de comportement du normalisateur**, sinon les
+relectures de deux versions se mélangent silencieusement.
+
 ## Mapping sources internes ↔ libellés CSV
 
 Le modèle Python utilise des enums UPPERCASE pour les sources. Le CSV

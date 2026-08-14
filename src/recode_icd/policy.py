@@ -27,7 +27,13 @@ from typing import Any
 import yaml
 
 #: Emplacement par défaut de la politique, versionnée avec le référentiel.
-DEFAULT_POLICY_PATH = Path("referentials/curation/chapter_policy.yaml")
+# Chemins par défaut ancrés sur l'emplacement du paquet, PAS sur le
+# répertoire courant : un chemin relatif au cwd casse dès qu'un appelant
+# ne part pas de la racine du dépôt (nbconvert exécute un notebook depuis
+# son propre répertoire, par exemple).
+_RACINE_DEPOT = Path(__file__).resolve().parents[2]
+DEFAULT_POLICY_PATH = _RACINE_DEPOT / "referentials/curation/chapter_policy.yaml"
+DEFAULT_LEXICONS_DIR = _RACINE_DEPOT / "referentials/processed"
 
 #: Famille attribuée à un libellé de source inconnu du YAML. Le test de
 #: couverture bidirectionnel interdit qu'elle apparaisse en pratique.
@@ -199,6 +205,7 @@ def load_policy(path: Path | None = None) -> ChapterPolicy:
 
 
 __all__ = (
+    "DEFAULT_LEXICONS_DIR",
     "DEFAULT_POLICY_PATH",
     "FAMILLE_INCONNUE",
     "ChapterPolicy",

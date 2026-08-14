@@ -132,14 +132,13 @@ print(hierarchie.filter(pl.col("code").is_in(["C50.8", "T39.1", "R51"])))
 # %% Familles de sources
 from recode_icd import cards
 
-FAMILLE_PAR_LIBELLE: dict[str, str] = {
-    "CIM-10": "OFS",
-    "CIM-10 frères": "OFS",
-    "ANS": "ANS",
-    cards.FORMULATION_SOURCE_INDEX: "INDEX",
-    "ORPHANET": "ORPHANET",
-    cards.FORMULATION_SOURCE_CEPIDC: "CEPIDC",
-}
+# Les familles viennent désormais du YAML : `cards.py` ne porte plus de
+# constantes de libellés (elles ont été supprimées le 2026-08-13, après
+# qu'une divergence entre les deux a fait entrer ORPHANET dans les
+# fiches sans décision).
+from recode_icd.policy import load_policy
+
+POLITIQUE = load_policy()
 
 #: Familles effectivement consommées par la section « Formulations
 #: cliniques alternatives » (cf `cards.py`). Les autres alimentent
@@ -148,10 +147,8 @@ FAMILLES_FORMULATIONS = ("INDEX", "APHP", "CEPIDC")
 
 
 def famille_de(libelle: str) -> str:
-    """Famille d'un libellé de source CSV."""
-    if libelle.startswith(cards.FORMULATION_SOURCE_APHP_PREFIX):
-        return "APHP"
-    return FAMILLE_PAR_LIBELLE.get(libelle, "AUTRE")
+    """Famille d'un libellé de source CSV (déléguée à la politique)."""
+    return POLITIQUE.famille_de(libelle)
 
 
 # %% Table de travail
@@ -1217,7 +1214,7 @@ def vocabulaire_minuscules(df: pl.DataFrame) -> set[str]:
     d'entrée, il ne peut donc pas servir de témoin de casse.
     """
     tokens = (
-        df.filter(pl.col("source") != cards.FORMULATION_SOURCE_INDEX)
+        df.filter(pl.col("source") != "CIM-10 index")
         .select(pl.col("texte").str.split(" ").alias("mot"))
         .explode("mot")
         .select(pl.col("mot").str.strip_chars(",;()\"").alias("mot"))
@@ -2128,7 +2125,7 @@ pl.DataFrame(
 #    `P00-P96` (période périnatale), et les codes U du chapitre XXII
 #    (usage provisoire, 7 formulations CepiDc seulement).
 # 2. **ORPHANET n'alimente pas encore la section Formulations**
-#    (`cards.FORMULATION_SOURCES_EXCLUDED`) : son exclusion dans R1 est
+#    (`familles_formulations` du YAML) : son exclusion dans R1 est
 #    sans effet mesurable aujourd'hui, elle prépare une ouverture future.
 # 3. **L'apport des fiches lui-même est en question** : une évaluation
 #    manuelle par médecins DIM ne montre pas d'apport mesurable des
@@ -2137,3 +2134,54 @@ pl.DataFrame(
 #    Améliorer la qualité des formulations reste une condition
 #    nécessaire, mais la piste « fiche réduite aux formulations seules »
 #    y figure parmi les conditions à tester.
+
+# %% [markdown]
+# ## (j) Vérification contre l'implémentation de `src/`
+#
+# Le chantier `chapter_policy` a porté les trois règles dans `src/`. Les
+# cellules de prototype ci-dessus restent pour leur valeur pédagogique —
+# elles racontent comment les règles ont été trouvées, et les quatre
+# pièges qu'il a fallu lever. **Mais c'est `src/` qui fait foi.**
+#
+# Cette section importe l'implémentation réelle et vérifie qu'elle
+# reproduit exactement les chiffres figés. Tout écart est bloquant : il
+# signifierait que le prototype et le code de production ont divergé.
+
+# %% (j) L'implémentation de production reproduit-elle le prototype ?
+from recode_icd.lexicons import load_lexicons
+from recode_icd.normalize_index import forme_normalisee
+from recode_icd.policy import DEFAULT_LEXICONS_DIR
+
+_lex = load_lexicons(DEFAULT_LEXICONS_DIR)
+_cfg = POLITIQUE.normalisation_index
+
+_index = work.filter(pl.col("famille") == "INDEX")
+_retenues = 0
+_reecrites = 0
+for _t in _index["texte"].drop_nulls().to_list():
+    _f = forme_normalisee(_t, _lex, _cfg)
+    if _f is not None:
+        _retenues += 1
+        _reecrites += _f != _t
+
+ATTENDU = {"index": 36627, "retenues": 11638, "reecrites": 10922}
+_obtenu = {"index": _index.height, "retenues": _retenues, "reecrites": _reecrites}
+print("Référence figée :", ATTENDU)
+print("Implémentation  :", _obtenu)
+assert _obtenu == ATTENDU, (
+    "ÉCART entre le prototype figé et l'implémentation de src/. "
+    "Ne pas ajuster ce chiffre : chercher la divergence."
+)
+print("\n✓ `src/` reproduit exactement le périmètre figé.")
+
+# %% (j) Les dorés de la relecture, rejoués sur l'implémentation réelle
+for _src, _att in (
+    ("Hypoplasie (de), cerveau", "hypoplasie du cerveau"),
+    ("Phlegmon (avec lymphangite aiguë) (à) (de), orbite", "phlegmon de l'orbite"),
+    ("Infection (à) (de), mycoplasma (pneumoniae)", "infection à mycoplasma"),
+    ("Paralysie (de), médullaire", "paralysie médullaire"),
+    ("Anomalie (congénitale) (de), vessie nca", None),
+    ("Deutéranomalie, deutéranopie", None),
+):
+    _got = forme_normalisee(_src, _lex, _cfg)
+    print(f"  {'OK ' if _got == _att else 'KO '} {_src[:48]:50} → {_got!r}")

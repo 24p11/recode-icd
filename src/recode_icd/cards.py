@@ -106,7 +106,7 @@ def charge_politique(
 ) -> PolitiqueFiches:
     """Charge politique, lexiques et hiérarchie pour un build de fiches."""
     pol = policy_module.load_policy(policy_path)
-    lex = lexicons.load_lexicons(lexicons_dir or Path("referentials/processed"))
+    lex = lexicons.load_lexicons(lexicons_dir or policy_module.DEFAULT_LEXICONS_DIR)
     hier = {
         r["code"]: (r["chapitre"], list(r["blocs"] or []))
         for r in hierarchie.chapitre_et_blocs(merged).iter_rows(named=True)
