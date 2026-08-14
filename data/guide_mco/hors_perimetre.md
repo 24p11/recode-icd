@@ -126,6 +126,38 @@ définition de la séance qui reste ici.
 
 ---
 
+## Divergences guide / CIM-10 constatées
+
+Passages où le guide et la classification ne se recouvrent pas
+exactement. **Aucune ligne de recommandation n'en est tirée** : combler
+un silence du guide serait exactement l'ajout que la finalité « ne
+jamais élargir ni brouiller le périmètre » interdit. On les consigne
+pour que le constat survive à la session.
+
+### E44.1 Malnutrition protéinoénergétique légère — énuméré, jamais employé
+
+> « La CIM–10 classe les états de malnutrition dans le groupe E40–E46 :
+> E40 Kwashiorkor, E41 Marasme nutritionnel ; E42 Kwashiorkor avec
+> marasme ; E43 Malnutrition protéinoénergétique grave, sans précision ;
+> E44.0 Malnutrition protéinoénergétique modérée ; **E44.1 Malnutrition
+> protéinoénergétique légère** ; E46 Malnutrition sans précision. »
+> — `malnutrition_denutrition.txt` L37-40.
+
+Le guide énumère E44.1 dans le groupe, puis **ne lui donne jamais de
+consigne**. Ses trois sections « Consigne » (L118-121, L176-179,
+L237-239) ne connaissent que deux niveaux : sévère → E43, modérée →
+E44.0. Les recommandations HAS sur lesquelles le guide s'appuie ne
+définissent elles-mêmes que ces deux niveaux.
+
+**Constat, pas interprétation** : le silence peut vouloir dire que
+E44.1 n'a pas d'emploi en pratique, ou seulement que le guide n'a pas
+traité le cas. **Le texte ne permet pas de trancher**, et rien n'a été
+versé — ni consigne d'emploi, ni interdiction. À reposer à la parution
+de la version définitive du guide, en même temps que le diff de
+millésime.
+
+---
+
 ## Débordements de pages — appartiennent à d'autres articles
 
 L'extraction se fait en **pages entières** (cf. `scripts/extraire_guide_mco.sh`),

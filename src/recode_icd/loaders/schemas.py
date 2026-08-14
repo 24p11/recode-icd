@@ -238,11 +238,30 @@ TYPES_RECOMMANDATION = (
     "regle_association",
 )
 
-#: Rôles d'un code dans une consigne (§4.2). Huit modalités.
-#: `interdit_DP` / `interdit_DR` sont plus fins que `interdit` : ils
-#: interdisent une POSITION, pas l'emploi du code (« les codes du
-#: chapitre XX ne doivent jamais être utilisés en DP ou DR » n'interdit
-#: pas ces codes, il interdit deux positions).
+#: Rôles d'un code dans une consigne (§4.2). **Dix modalités.**
+#:
+#: Trois familles, et les confondre coûte cher :
+#:
+#: 1. POSITION PRESCRITE — `DP`, `DR`, `DAS`.
+#: 2. POSITION OU EMPLOI PROSCRIT — `interdit` proscrit le code
+#:    lui-même ; `interdit_DP`/`interdit_DR`/`interdit_DAS` ne
+#:    proscrivent qu'une POSITION. Les confondre ferait disparaître des
+#:    codes légitimes : « les codes du chapitre XX ne doivent jamais
+#:    être utilisés en DP ou DR » ne les interdit pas, ils restent
+#:    obligatoires en DAS. `interdit_association` proscrit la
+#:    coexistence avec une AUTRE CIBLE DE LA MÊME CONSIGNE.
+#: 3. NI POSITION NI INTERDICTION — `regi` et `contexte`, à ne pas
+#:    intervertir :
+#:      - `regi` : la consigne RÉGIT l'emploi de ce code — elle le
+#:        prescrit, le conditionne ou le décrit — sans lui assigner de
+#:        position. « I64 n'est employé qu'en l'absence de
+#:        neuro-imagerie » régit I64.
+#:      - `contexte` : le code DÉLIMITE la situation, la consigne ne
+#:        régit pas son emploi. Dans « ne pas associer G46.0-G46.2 à un
+#:        code I60-I64 », c'est G46.0-G46.2 qui est régi ; I60-I64 dit
+#:        seulement de quelle situation on parle.
+#:    Avant l'ajout de `regi`, `contexte` faisait les deux métiers et
+#:    devenait le rôle majoritaire — signe qu'il en portait un de trop.
 ROLES_RECOMMANDATION = (
     "DP",
     "DR",
@@ -251,6 +270,8 @@ ROLES_RECOMMANDATION = (
     "interdit_association",
     "interdit_DP",
     "interdit_DR",
+    "interdit_DAS",
+    "regi",
     "contexte",
 )
 

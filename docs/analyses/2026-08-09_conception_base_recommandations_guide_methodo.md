@@ -83,30 +83,65 @@ Le guide entremêle trois natures d'information ; l'extraction devra trier :
 |---|---|---|
 | `rec_id` | str | Clé vers `recommendations` |
 | `code_expr` | str | Expression de codes : code (`Z86.70`), catégorie (`I69`), notation à tiret (`I63.–`), plage (`I60-I64`), chapitre (`XXI`) |
-| `role` | enum | **huit modalités**, cf. catalogue ci-dessous |
+| `role` | enum | **dix modalités**, cf. catalogue ci-dessous |
 | `centralite` | enum | `sujet` (le code est l'objet de la consigne) \| `exemple` (cité à titre illustratif) |
 | `condition` | str \| null | Condition propre à ce code dans la consigne, si plus fine que la condition globale |
 
-**Catalogue des rôles** (mis à jour le 2026-08-14 — les deux modalités
-`interdit_DP` / `interdit_DR` avaient été décidées mais jamais reportées
-ici) :
+**Catalogue des rôles — dix modalités** (mis à jour le 2026-08-14 après
+le pilote : `interdit_DP`/`interdit_DR` avaient été décidées sans être
+reportées ici, `interdit_DAS` et `regi` sont issus de l'extraction) :
 
 | Rôle | Sens | Exemple type |
 |---|---|---|
-| `DP` | le code occupe la position de diagnostic principal | « le DP est codé Z86.70 » |
+| `DP` | position de diagnostic principal | « le DP est codé Z86.70 » |
 | `DR` | position de diagnostic relié | « Z51.5 en DP, l'AVC en DR » |
 | `DAS` | position de diagnostic associé | « un code de séquelle I69 est placé en DAS » |
 | `interdit` | l'**emploi même** du code est proscrit dans la situation | « dans ces conditions le code D62 ne doit pas être mentionné » |
-| `interdit_association` | le code est proscrit **en association** avec une autre cible de la même consigne | « I65, I66 ne doivent pas être employés en association avec I60–I64 » |
-| `interdit_DP` | le code reste employable, mais **jamais en DP** | « les codes du chapitre XX ne doivent jamais être utilisés en DP ou DR » |
-| `interdit_DR` | le code reste employable, mais **jamais en DR** | *idem* |
-| `contexte` | le code situe la consigne sans être ce qu'elle prescrit | `I60-I64` dans « ne pas associer X à un AVC constitué » |
+| `interdit_association` | le code est proscrit **en association avec une autre cible de la même consigne** | « I65, I66 ne doivent pas être employés en association avec I60–I64 » |
+| `interdit_DP` | le code reste employable, mais **jamais en DP** | « le DP est la cardiopathie qui la justifie, et non Z45.0 » |
+| `interdit_DR` | le code reste employable, mais **jamais en DR** | « un DP d'antécédent ne justifie jamais de diagnostic relié » |
+| `interdit_DAS` | le code reste employable, mais **jamais en DAS** | « la saisie du code Z51.– en position de diagnostic associé en sus de celui de l'acte est redondante et n'est pas justifiée » |
+| `regi` | la consigne **régit l'emploi** de ce code — elle le prescrit, le conditionne ou le décrit — **sans lui assigner de position** | « I64 n'est employé qu'en l'absence de neuro-imagerie » |
+| `contexte` | le code **délimite la situation** ; la consigne ne régit pas son emploi | `I60-I64` dans « ne pas associer G46.0-G46.2 à un code I60–I64 » |
 
-> **`interdit` ≠ `interdit_DP`/`interdit_DR`.** Le premier proscrit le
-> code ; les seconds ne proscrivent qu'une **position**. Les confondre
-> ferait disparaître des codes parfaitement légitimes en DAS — c'est
-> précisément le cas du chapitre XX, dont les codes sont obligatoires en
-> DAS et interdits en DP et en DR.
+> **`interdit` ≠ `interdit_DP`/`interdit_DR`/`interdit_DAS`.** Le premier
+> proscrit le code ; les trois autres ne proscrivent qu'une **position**.
+> Les confondre ferait disparaître des codes parfaitement légitimes : le
+> chapitre XX est obligatoire en DAS et interdit en DP et en DR ; `Z43.–`
+> ne doit pas être en DAS en sus d'un acte CCAM mais reste le DP légitime
+> d'une fermeture de stomie.
+>
+> **`interdit_DAS` ne se remplace ni par `interdit`** (qui dirait le code
+> proscrit, ce qui est faux) **ni par `interdit_association`** (qui
+> désigne une autre cible CIM-10, or l'autre terme est ici un **acte
+> CCAM**, absent du référentiel).
+>
+> **`regi` ≠ `contexte`.** Avant l'ajout de `regi` au pilote, `contexte`
+> portait les deux sens et devenait le rôle majoritaire de l'article sur
+> le chapitre XXI — le signe qu'il faisait un métier de trop. Un rendu
+> qui veut « les consignes qui parlent de ce code » filtre sur `regi` et
+> les positions ; `contexte` ne doit pas y entrer, sinon la fiche de
+> I63 recevrait toutes les consignes qui mentionnent l'infarctus sans
+> rien prescrire à son sujet.
+
+### 4.2 bis Doctrine d'extraction — quand associer une expression
+
+**On n'associe une expression que si la consigne régit son emploi ou le
+positionne. Les mentions de passage restent dans le `texte`.**
+
+Cas d'école rencontrés au pilote et écartés à ce titre :
+
+- XXI-03 mentionne le chapitre XVIII (« on préfèrera son code […] à un
+  code Z toutes les fois qu'il est plus précis ») ; l'associer ferait
+  descendre la consigne sur les ~800 fiches du chapitre ;
+- XXI-16 mentionne les chapitres I et XVIII, **et dans un exemple**
+  (« cet enfant n'est pas tuberculeux : on ne code donc pas cette
+  maladie ») ; ~2 700 fiches pour une mention illustrative.
+
+La règle n'est pas un plafond de volume : une consigne de chapitre qui
+régit vraiment (XXI-01, ou l'article ANTÉCÉDENTS à venir) **doit**
+descendre sur toutes ses feuilles. C'est la nature du lien qui décide,
+pas son coût.
 
 **`centralite` est binaire, et volontairement.** `sujet` = le code est
 l'objet de la consigne ; `exemple` = il n'est cité qu'en illustration.
