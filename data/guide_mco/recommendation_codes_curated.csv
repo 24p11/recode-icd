@@ -1,0 +1,15 @@
+rec_id,code_expr,role,centralite,condition
+GM2026-V-AVC-01,G45,DP,sujet,AIT
+GM2026-V-AVC-01,I60-I63,DP,sujet,AVC constitué
+GM2026-V-AVC-03,I60-I64,contexte,sujet,
+GM2026-V-AVC-03,G46.0-G46.2,interdit_association,sujet,
+GM2026-V-AVC-03,I65,interdit_association,sujet,
+GM2026-V-AVC-03,I66,interdit_association,sujet,
+GM2026-V-AVC-03,I67.0,interdit_association,sujet,
+GM2026-V-AVC-03,I67.1,interdit_association,sujet,
+GM2026-V-AVC-05,Z86.70,DP,sujet,
+GM2026-V-AVC-06,Z51.5,DP,sujet,
+GM2026-V-AVC-06,I60-I64,DR,sujet,phase initiale
+GM2026-V-AVC-06,I69,DR,sujet,phase séquellaire
+GM2026-V-D62-01,D62,interdit,sujet,
+GM2026-V-D62-02,D62,DAS,sujet,

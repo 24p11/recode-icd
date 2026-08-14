@@ -293,3 +293,26 @@ class RecommendationCodesSchema(pa.DataFrameModel):
     class Config:
         strict = True
         coerce = False
+
+
+class ResolvedRecommendationCodesSchema(pa.DataFrameModel):
+    """Associations **résolues** — une ligne par (rec_id, code_expr, code).
+
+    `code_expr` est conservée à côté de `code` : l'association compacte
+    reste récupérable par déduplication, donc rien n'est perdu par
+    l'expansion. `specificite` est la valeur entière de `TypeExpr`, pour
+    que le consommateur trie sans avoir à re-parser.
+    """
+
+    rec_id: str = pa.Field(nullable=False)
+    code_expr: str = pa.Field(nullable=False)
+    code: str = pa.Field(nullable=False)
+    role: str = pa.Field(isin=ROLES_RECOMMANDATION)
+    centralite: str = pa.Field(isin=CENTRALITES_RECOMMANDATION)
+    condition: str = pa.Field(nullable=True)
+    type_expr: str = pa.Field(isin=("CODE", "CATEGORIE", "PLAGE", "CHAPITRE"))
+    specificite: int = pa.Field(ge=0, le=3)
+
+    class Config:
+        strict = True
+        coerce = False

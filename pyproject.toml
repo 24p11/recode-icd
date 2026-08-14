@@ -114,6 +114,8 @@ allowed-confusables = ["×", "æ", "’"]
 # figure dans TIRETS et dans les doctests, on ne peut pas le remplacer.
 "src/recode_icd/recommendations/code_expr.py" = ["RUF001", "RUF002", "RUF003"]
 "tests/unit/test_code_expr.py" = ["RUF001", "RUF002"]
+# Le tiret typographique du guide est normalisé dans le calcul de recouvrement.
+"src/recode_icd/recommendations/build.py" = ["RUF001"]
 
 [tool.mypy]
 python_version = "3.13"

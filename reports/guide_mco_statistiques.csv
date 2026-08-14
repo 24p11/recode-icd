@@ -1,0 +1,17 @@
+indicateur,valeur
+associations_curees,14
+codes_touches,66
+couples_rec_code,130
+granularite_CATEGORIE,28
+granularite_CODE,4
+granularite_PLAGE,98
+recommandations,8
+role_DAS,1
+role_DP,40
+role_DR,38
+role_contexte,32
+role_interdit,1
+role_interdit_association,18
+type_condition_emploi,2
+type_interdiction,2
+type_regle_position,4
