@@ -17,8 +17,8 @@ sous **conditions**. Attacher naïvement le texte des consignes à chaque code
 concerné dupliquerait massivement l'information et perdrait la sémantique
 positionnelle.
 
-Constats rédactionnels sur le guide (section AVC, pp. 79-82, et article
-D62, p. 81-82, utilisés comme cas d'étude) :
+Constats rédactionnels sur le guide (section AVC, chap. V pp. 78-81, et
+article D62, chap. V pp. 81-82, utilisés comme cas d'étude) :
 
 - une même consigne cite des codes en DP (« pour un AVC constitué, un code
   I60.–, I61.–, I62.– ou I63.– »), d'autres en DAS (« un code de séquelle
@@ -69,7 +69,7 @@ Le guide entremêle trois natures d'information ; l'extraction devra trier :
 
 | Champ | Type | Description |
 |---|---|---|
-| `rec_id` | str | Identifiant stable, ex. `GM2026-VII-AVC-04` (millésime, chapitre du guide, slug de section, n° d'ordre) |
+| `rec_id` | str | Identifiant stable, ex. `GM2026-V-AVC-04` (millésime, chapitre du guide, slug de section, n° d'ordre) |
 | `millesime` | str | Édition du guide (ex. `2026-provisoire`). Le guide est annuel : le millésime est structurel, pas décoratif |
 | `localisation` | str | Chapitre/section/page du guide, pour audit et retour au texte |
 | `situation` | str | Situation clinique en clair (ex. « AVC — séjour pour récidive ») |
@@ -83,9 +83,39 @@ Le guide entremêle trois natures d'information ; l'extraction devra trier :
 |---|---|---|
 | `rec_id` | str | Clé vers `recommendations` |
 | `code_expr` | str | Expression de codes : code (`Z86.70`), catégorie (`I69`), notation à tiret (`I63.–`), plage (`I60-I64`), chapitre (`XXI`) |
-| `role` | enum | `DP` \| `DR` \| `DAS` \| `interdit` \| `interdit_association` \| `contexte` |
+| `role` | enum | **huit modalités**, cf. catalogue ci-dessous |
 | `centralite` | enum | `sujet` (le code est l'objet de la consigne) \| `exemple` (cité à titre illustratif) |
 | `condition` | str \| null | Condition propre à ce code dans la consigne, si plus fine que la condition globale |
+
+**Catalogue des rôles** (mis à jour le 2026-08-14 — les deux modalités
+`interdit_DP` / `interdit_DR` avaient été décidées mais jamais reportées
+ici) :
+
+| Rôle | Sens | Exemple type |
+|---|---|---|
+| `DP` | le code occupe la position de diagnostic principal | « le DP est codé Z86.70 » |
+| `DR` | position de diagnostic relié | « Z51.5 en DP, l'AVC en DR » |
+| `DAS` | position de diagnostic associé | « un code de séquelle I69 est placé en DAS » |
+| `interdit` | l'**emploi même** du code est proscrit dans la situation | « dans ces conditions le code D62 ne doit pas être mentionné » |
+| `interdit_association` | le code est proscrit **en association** avec une autre cible de la même consigne | « I65, I66 ne doivent pas être employés en association avec I60–I64 » |
+| `interdit_DP` | le code reste employable, mais **jamais en DP** | « les codes du chapitre XX ne doivent jamais être utilisés en DP ou DR » |
+| `interdit_DR` | le code reste employable, mais **jamais en DR** | *idem* |
+| `contexte` | le code situe la consigne sans être ce qu'elle prescrit | `I60-I64` dans « ne pas associer X à un AVC constitué » |
+
+> **`interdit` ≠ `interdit_DP`/`interdit_DR`.** Le premier proscrit le
+> code ; les seconds ne proscrivent qu'une **position**. Les confondre
+> ferait disparaître des codes parfaitement légitimes en DAS — c'est
+> précisément le cas du chapitre XX, dont les codes sont obligatoires en
+> DAS et interdits en DP et en DR.
+
+**`centralite` est binaire, et volontairement.** `sujet` = le code est
+l'objet de la consigne ; `exemple` = il n'est cité qu'en illustration.
+Sans ce champ, la fiche de F32 recevrait la consigne AVC au seul motif
+que F32 y figure comme exemple de manifestation. Une graduation plus
+fine (« principal », « secondaire », « accessoire ») a été écartée :
+elle n'est pas décidable à la lecture du guide, et le seul arbitrage
+dont le rendu a besoin est « cette consigne a-t-elle sa place dans cette
+fiche ? ».
 
 ### 4.3 Résolution vers les codes feuilles
 
@@ -103,35 +133,35 @@ L'expansion de `code_expr` réutilise l'outillage existant :
 
 ## 5. Preuve de concept : remplissage manuel
 
-### 5.1 Consignes AVC (guide chap. VII, pp. 79-82)
+### 5.1 Consignes AVC (guide chap. V, pp. 78-81)
 
 `recommendations` (extrait) :
 
 | rec_id | situation | type | texte (condensé) | condition |
 |---|---|---|---|---|
-| GM2026-VII-AVC-01 | AVC/AIT à la phase aigüe — séjour initial | regle_position | Le DP emploie G45.– pour un AIT, I60.– à I63.– pour un AVC constitué ; ces codes restent employés par toutes les unités MCO successives de la première prise en charge | Première prise en charge, patient n'ayant pas quitté le champ MCO |
-| GM2026-VII-AVC-02 | AVC — emploi de I64 | condition_emploi | I64 n'est employé qu'en l'absence d'examen de neuro-imagerie, jamais en association avec un code plus précis | Absence de neuro-imagerie |
-| GM2026-VII-AVC-03 | AVC constitué — artère et mécanisme | interdiction | G46.0-G46.2, I65, I66, I67.0, I67.1 ne doivent pas être employés en association avec I60–I64 pour décrire l'artère ou le mécanisme (exclusion CIM-10 en cas d'infarctus) | En association avec un AVC constitué |
-| GM2026-VII-AVC-04 | AVC — récidive | regle_position | Une récidive confirmée par l'imagerie est codée comme un AVC à la phase aigüe | Confirmation par imagerie |
-| GM2026-VII-AVC-05 | AVC — surveillance négative sans séquelle | regle_position | DP = Z86.70 ; pas de DR | Aucune affection nouvelle, aucune séquelle |
-| GM2026-VII-AVC-06 | AVC — soins palliatifs | regle_position | DP = Z51.5 ; le code de l'AVC (aigu ou séquelle selon la phase) en DR | — |
+| GM2026-V-AVC-01 | AVC/AIT à la phase aigüe — séjour initial | regle_position | Le DP emploie G45.– pour un AIT, I60.– à I63.– pour un AVC constitué ; ces codes restent employés par toutes les unités MCO successives de la première prise en charge | Première prise en charge, patient n'ayant pas quitté le champ MCO |
+| GM2026-V-AVC-02 | AVC — emploi de I64 | condition_emploi | I64 n'est employé qu'en l'absence d'examen de neuro-imagerie, jamais en association avec un code plus précis | Absence de neuro-imagerie |
+| GM2026-V-AVC-03 | AVC constitué — artère et mécanisme | interdiction | G46.0-G46.2, I65, I66, I67.0, I67.1 ne doivent pas être employés en association avec I60–I64 pour décrire l'artère ou le mécanisme (exclusion CIM-10 en cas d'infarctus) | En association avec un AVC constitué |
+| GM2026-V-AVC-04 | AVC — récidive | regle_position | Une récidive confirmée par l'imagerie est codée comme un AVC à la phase aigüe | Confirmation par imagerie |
+| GM2026-V-AVC-05 | AVC — surveillance négative sans séquelle | regle_position | DP = Z86.70 ; pas de DR | Aucune affection nouvelle, aucune séquelle |
+| GM2026-V-AVC-06 | AVC — soins palliatifs | regle_position | DP = Z51.5 ; le code de l'AVC (aigu ou séquelle selon la phase) en DR | — |
 
 `recommendation_codes` (extrait pour AVC-01, AVC-03, AVC-05, AVC-06) :
 
 | rec_id | code_expr | role | centralite | condition |
 |---|---|---|---|---|
-| GM2026-VII-AVC-01 | G45 | DP | sujet | AIT |
-| GM2026-VII-AVC-01 | I60-I63 | DP | sujet | AVC constitué |
-| GM2026-VII-AVC-03 | I60-I64 | contexte | sujet | — |
-| GM2026-VII-AVC-03 | G46.0-G46.2 | interdit_association | sujet | — |
-| GM2026-VII-AVC-03 | I65 | interdit_association | sujet | — |
-| GM2026-VII-AVC-03 | I66 | interdit_association | sujet | — |
-| GM2026-VII-AVC-03 | I67.0 | interdit_association | sujet | — |
-| GM2026-VII-AVC-03 | I67.1 | interdit_association | sujet | — |
-| GM2026-VII-AVC-05 | Z86.70 | DP | sujet | — |
-| GM2026-VII-AVC-06 | Z51.5 | DP | sujet | — |
-| GM2026-VII-AVC-06 | I60-I64 | DR | sujet | phase initiale |
-| GM2026-VII-AVC-06 | I69 | DR | sujet | phase séquellaire |
+| GM2026-V-AVC-01 | G45 | DP | sujet | AIT |
+| GM2026-V-AVC-01 | I60-I63 | DP | sujet | AVC constitué |
+| GM2026-V-AVC-03 | I60-I64 | contexte | sujet | — |
+| GM2026-V-AVC-03 | G46.0-G46.2 | interdit_association | sujet | — |
+| GM2026-V-AVC-03 | I65 | interdit_association | sujet | — |
+| GM2026-V-AVC-03 | I66 | interdit_association | sujet | — |
+| GM2026-V-AVC-03 | I67.0 | interdit_association | sujet | — |
+| GM2026-V-AVC-03 | I67.1 | interdit_association | sujet | — |
+| GM2026-V-AVC-05 | Z86.70 | DP | sujet | — |
+| GM2026-V-AVC-06 | Z51.5 | DP | sujet | — |
+| GM2026-V-AVC-06 | I60-I64 | DR | sujet | phase initiale |
+| GM2026-V-AVC-06 | I69 | DR | sujet | phase séquellaire |
 
 Note : dans la consigne « aggravation/complication » (situation 3 du
 guide), R26, F32, G40, G41, F01 seraient enregistrés avec
@@ -139,15 +169,15 @@ guide), R26, F32, G40, G41, F01 seraient enregistrés avec
 fiche de F32 n'a pas vocation à recevoir la consigne AVC, sauf paramétrage
 explicite.
 
-### 5.2 Article D62 (anémie posthémorragique aigüe, pp. 81-82)
+### 5.2 Article D62 (anémie posthémorragique aigüe, guide chap. V, pp. 81-82)
 
 | rec_id | situation | type | texte (condensé) | condition |
 |---|---|---|---|---|
-| GM2026-VII-D62-01 | Compensation peropératoire normale des pertes sanguines | interdiction | D62 ne doit pas être mentionné lorsque la transfusion compense les pertes attendues d'une intervention par nature hémorragique | Restitution volémique conforme aux règles de l'art (SFAR), pertes attendues |
-| GM2026-VII-D62-02 | Hémorragie périopératoire inhabituelle | condition_emploi | D62 est employé lorsque l'anémie résulte d'un phénomène hémorragique inhabituel (lésion, complication) | Saignement inhabituel documenté |
+| GM2026-V-D62-01 | Compensation peropératoire normale des pertes sanguines | interdiction | D62 ne doit pas être mentionné lorsque la transfusion compense les pertes attendues d'une intervention par nature hémorragique | Restitution volémique conforme aux règles de l'art (SFAR), pertes attendues |
+| GM2026-V-D62-02 | Hémorragie périopératoire inhabituelle | condition_emploi | D62 est employé lorsque l'anémie résulte d'un phénomène hémorragique inhabituel (lésion, complication) | Saignement inhabituel documenté |
 
-Association : `(GM2026-VII-D62-01, D62, interdit, sujet)` et
-`(GM2026-VII-D62-02, D62, DAS, sujet)`. Cas d'école du bénéfice attendu
+Association : `(GM2026-V-D62-01, D62, interdit, sujet)` et
+`(GM2026-V-D62-02, D62, DAS, sujet)`. Cas d'école du bénéfice attendu
 pour la génération : la fiche D62 enrichie apprend au générateur qu'une
 transfusion peropératoire banale ne justifie pas de décrire une anémie
 posthémorragique — précisément le type de mention codable parasite qui
@@ -159,9 +189,9 @@ Section nouvelle de la fiche, distincte des Formulations :
 
 ```
 ## Consignes de codage (guide méthodologique 2026)
-- [GM2026-VII-AVC-02] I64 n'est employé qu'en l'absence de neuro-imagerie,
+- [GM2026-V-AVC-02] I64 n'est employé qu'en l'absence de neuro-imagerie,
   jamais en association avec un code plus précis.
-- [GM2026-VII-AVC-03] Ne pas associer G46.0-G46.2, I65, I66, I67.0, I67.1
+- [GM2026-V-AVC-03] Ne pas associer G46.0-G46.2, I65, I66, I67.0, I67.1
   à un code I60–I64 pour décrire l'artère ou le mécanisme.
 ```
 
@@ -188,15 +218,26 @@ generate-then-verify) plutôt qu'en injection amont.
   (recommandations sans code résolu, expressions non parseables) — mêmes
   conventions que le reste du pipeline.
 
-## 8. Questions ouvertes
+## 8. Questions ouvertes — **tranchées le 2026-08-14**
 
-1. Faut-il propager les consignes de niveau chapitre (« le DP appartient au
-   chapitre XXI ») jusqu'aux fiches feuilles, ou les réserver au préambule ?
-   (Risque de bruit massif ; suggestion : réservées à recode-scenario.)
-2. Granularité des conditions : texte libre suffisant au départ ; une
-   structuration (prédicats) n'aurait de sens que si recode-scenario veut
-   les évaluer automatiquement.
-3. Articulation avec les notes OFS/ANS existantes : certaines consignes du
-   guide recoupent des exclusions CIM-10 déjà dans le CSV maître (ex.
-   AVC-03 recoupe l'exclusion OMS) — politique de dédoublonnage ou de
-   coexistence tracée à définir.
+1. **Propagation des consignes de niveau chapitre jusqu'aux fiches
+   feuilles : OUI.** La suggestion initiale (les réserver à
+   recode-scenario) est écartée. Les fiches sont injectées *telles
+   quelles* dans des prompts : elles doivent être autonomes, donc porter
+   la consigne et non un renvoi. Le risque de bruit était réel mais il se
+   traite au **rendu** — les consignes de chapitre sont regroupées en fin
+   de section sous « Règles générales du chapitre » — et non en amputant
+   la résolution.
+2. **Conditions en texte libre**, comme envisagé. Une structuration en
+   prédicats reste conditionnée à un besoin d'évaluation automatique côté
+   recode-scenario.
+3. **Coexistence tracée, pas de dédoublonnage.** Une consigne du guide et
+   une exclusion CIM-10 qui se recoupent n'ont ni la même autorité ni la
+   même portée : les fusionner ferait perdre l'une des deux. La trace
+   n'ajoute **aucune colonne** au modèle — elle vit dans le rapport de
+   build, colonne `recouvrement_potentiel`, et c'est une **heuristique de
+   repérage pour l'audit humain, sans aucune prétention sémantique** :
+   pour chaque `(rec_id, code)` de rôle `interdit` ou
+   `interdit_association`, on signale les lignes d'exclusion OFS/ANS
+   existantes sur ce code. Ni un dédoublonnage, ni une preuve de
+   redondance : un pointeur.
