@@ -39,16 +39,11 @@ D62, p. 81-82, utilisés comme cas d'étude) :
 ## 2. Principe de conception
 
 **La recommandation est l'entité première ; les codes sont des cibles via
-une table d'association.** C'est le pattern déjà éprouvé dans le projet
-avec `dagger_asterisk.parquet` : un livrable séparé, référencé depuis les
-fiches, jamais dupliqué dedans. Le CSV maître n'est pas modifié — les
-recommandations ne sont pas une source de synonymes/inclusions, c'est une
-famille d'information nouvelle avec son propre livrable.
+une table d'association.** C'est le pattern déjà éprouvé dans le projet avec dagger_asterisk.parquet : un livrable séparé, seule source de vérité des consignes. Une consigne y est définie une fois ; les fiches en matérialisent le texte à chaque build pour rester autonomes (elles sont injectées telles quelles dans les prompts) — cette duplication de rendu est un produit de compilation régénérable, jamais un contenu à maintenir en double. Le CSV maître n'est pas modifié — les recommandations ne sont pas une source de synonymes/inclusions, c'est une famille d'information nouvelle avec son propre livrable.
 
 Corollaires :
 
-- pas de duplication : une consigne à N codes = 1 ligne de recommandation
-  + N lignes d'association ;
+- définition unique : une consigne à N codes = 1 ligne de recommandation + N lignes d'association ; toute correction se fait dans la base, jamais dans les fiches, qui sont régénérées;
 - la sémantique positionnelle (DP/DR/DAS/interdit) vit dans l'association,
   pas dans le texte seul ;
 - deux consommateurs distincts prévus dès la conception :

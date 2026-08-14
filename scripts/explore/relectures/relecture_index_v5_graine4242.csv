@@ -1,0 +1,101 @@
+code,texte_source,forme_normalisee,etiquette,motif_exclusion,version_regle
+A07.2,"Infection (à) (de), cryptosporidium",infection cryptosporidium,"","",v5
+A17.8,"Encéphalite (chronique) (hémorragique) (idiopathique) (non épidémique) (subaiguë) (de) (due à), tuberculeuse",encéphalite tuberculeuse,"","",v5
+A27.9,"Infection (à) (de), leptospira interrogans (serovar)",infection à leptospira interrogans,"","",v5
+A28.9,Anthropozoonose bactérienne,Anthropozoonose bactérienne,"","",v5
+A36.2,"Laryngite (aiguë) (oedémateuse) (sous-glottique) (suppurée) (ulcéreuse) (due à), pseudomembraneuse (diphtérique)",laryngite pseudomembraneuse,"","",v5
+A39.0,"Méningite (basilaire) (cérébrale) (spinale) (à), épidémique (à méningocoques)",méningite épidémique,"","",v5
+A75.1,"Brill-zinsser, maladie de",maladie de Brill-zinsser,"","",v5
+A75.3,"Fièvre (de) (des) (due à), tsutsugamushi",fièvre de tsutsugamushi,"","",v5
+B30.3,"Conjonctivite (de) (due à), hémorragique (aiguë) (entérovirale) (épidémique)",conjonctivite hémorragique,"","",v5
+B37.4,"Candidose (de), urètre",candidose de l'urètre,"","",v5
+B37.4,"Candidose (de), vessie",candidose de la vessie,"","",v5
+B73,"Onchocercose (avec) (de), paupière",onchocercose avec paupière,"","",v5
+B74.0,"Bancroft, filariose de",filariose de Bancroft,"","",v5
+B80,Appendicopathia oxyurica,Appendicopathia oxyurica,"","",v5
+C92.2,"Myélose, subaiguë (m9862/3)",myélose subaiguë,"","",v5
+C94.7,Leucolymphosarcome (m9850/3),Leucolymphosarcome,"","",v5
+D39.0,Myose stromale (endolymphatique) (m8931/1),myose stromale,"","",v5
+D51.0,"Anémie (à) (de), maligne (progressive)",anémie maligne,"","",v5
+D68.2,"Carence (en), prothrombine (congénitale) (héréditaire)",carence en prothrombine,"","",v5
+D89.1,"Cryoglobulinémie (essentielle) (idiopathique) (mixte) (primitive) (secondaire), avec atteinte pulmonaire",cryoglobulinémie avec atteinte pulmonaire,"","",v5
+E03.5,"Coma, myxoedémateux",coma myxoedémateux,"","",v5
+E23.6,"Dégénérescence (de), hypophyse",dégénérescence de l'hypophyse,"","",v5
+E24.9,"Cushing, maladie ou syndrome de",maladie ou syndrome de Cushing,"","",v5
+E26.0,"Hyperaldostéronisme, primaire",hyperaldostéronisme primaire,"","",v5
+E27.2,"Crise(s) (de), addisonienne",crise addisonienne,"","",v5
+E31.8,"Sclérose (de), pluriglandulaire (endocrinienne)",sclérose pluriglandulaire,"","",v5
+E63.9,"Cardiomyopathie (primitive) (secondaire) (due à), nutritionnelle",cardiomyopathie nutritionnelle,"","",v5
+E74.0,"Tauri, maladie de",maladie de Tauri,"","",v5
+F66.2,"Problème (avec) (de), sexuel relationnel",problème sexuel relationnel,"","",v5
+F68.0,Majoration de symptômes physiques pour des raisons psychologiques,majoration de symptômes physiques pour des raisons psychologiques,"","",v5
+G06.1,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), intrarachidien (épidural) (extra-dural) (sous-dural)",abcès intrarachidien,"","",v5
+G12.1,"Amyotrophie (de), myélopathique progressive (aran-duchenne)",amyotrophie myélopathique progressive,"","",v5
+G31.9,"Dégénérescence (de), cerveau (corticale) (diffuse) (parenchymateuse) (progressive)",dégénérescence du cerveau,"","",v5
+G44.0,"Horton, céphalée vasculaire de",céphalée vasculaire de Horton,"","",v5
+G60.3,"Neuropathie (de), progressive idiopathique (familiale) (déjerine-sottas)",neuropathie progressive idiopathique,"","",v5
+G95.1,"Minor, maladie de (hématomyélie)",maladie de Minor,"","",v5
+H10.4,"Conjonctivite (de) (due à), chronique",conjonctivite chronique,"","",v5
+H26.2,"Cataracte, compliquée",cataracte compliquée,"","",v5
+H35.6,"Hémorragie (de) (due à), sous-rétinienne",hémorragie sous-rétinienne,"","",v5
+H40.0,"Hypertension (artérielle) (bénigne) (essentielle) (idiopathique) (maligne) (primitive) (systémique), oculaire",hypertension oculaire,"","",v5
+H44.1,Iridochoroïdite (panuvéite),Iridochoroïdite,"","",v5
+H51.1,"Insuffisance (de), convergence (oculaire)",insuffisance de convergence,"","",v5
+I49.4,Bigéminisme,bigéminisme,"","",v5
+I61.4,"Hémorragie (de) (due à), cervelet (non traumatique)",hémorragie du cervelet,"","",v5
+I78.8,Hyperperméabilité capillaire,hyperperméabilité capillaire,"","",v5
+I82.1,"Thrombophlébite (de), migratrice",thrombophlébite migratrice,"","",v5
+I82.9,"Embolie (de), veine",embolie de la veine,"","",v5
+J34.8,"Fistule (de), nez",fistule du nez,"","",v5
+J34.8,Maladie (à) (de) nez,maladie du nez,"","",v5
+J34.8,Rhinorrhée,rhinorrhée,"","",v5
+J39.8,"Adhérences (post-infectieuses) (de), trachée",adhérences de la trachée,"","",v5
+J95.8,"Pneumopathie (aiguë) (double) (purulente) (septique) (à) (de), après intervention diagnostique et thérapeutique",pneumopathie après intervention diagnostique et thérapeutique,"","",v5
+K05.3,Périodontite (chronique) (complexe) (simple),périodontite,"","",v5
+K14.2,"Glossite (de), losangique médiane",glossite losangique médiane,"","",v5
+K14.8,"Paralysie (de), langue",paralysie de la langue,"","",v5
+K29.8,"Infection (à) (de), duodénum",infection du duodénum,"","",v5
+K51.5,Procto-colite muqueuse,Procto-colite muqueuse,"","",v5
+K59.8,"Dilatation (de), anus",dilatation anus,"","",v5
+K66.0,"Adhérences (post-infectieuses) (de), péritonéales (brides)",adhérences péritonéales,"","",v5
+K90.8,"Whipple, maladie de",maladie de Whipple,"","",v5
+K91.4,"Fistule (de), orifice de colostomie",fistule orifice de colostomie,"","",v5
+L03.1,"Phlegmon (avec lymphangite aiguë) (à) (de), aisselle",phlegmon de l'aisselle,"","",v5
+L08.9,"Infection (à) (de), peau (locale) (avec) (due à)",infection à la peau,"","",v5
+L29.3,"Prurit (de) (dû à), ano-génital",prurit ano-génital,"","",v5
+L40.1,"Impétigo (circiné) (contagieux) (simple) (tout micro-organisme) (toute localisation) (vrai) (de), herpétiforme",impétigo herpétiforme,"","",v5
+L70.2,"Acné (banale), varioliforme",acné varioliforme,"","",v5
+L82,"Kératose (de), séborrhéique",kératose séborrhéique,"","",v5
+L85.9,Pachydermie,pachydermie,"","",v5
+N28.8,Périurétérite,Périurétérite,"","",v5
+N32.8,"Cicatrice (adhérente) (cutanée) (douloureuse) (rétractile) (vicieuse) (de), vessie",cicatrice de la vessie,"","",v5
+N36.8,"Hypertrophie (de), veru montanum",hypertrophie veru montanum,"","",v5
+N46,Aspermatogenèse,Aspermatogenèse,"","",v5
+N48.3,Priapisme,Priapisme,"","",v5
+N48.8,"Oedème (de) (dû à), pénis",oedème du pénis,"","",v5
+N50.8,"Hypertrophie (de), épididyme",hypertrophie de l'épididyme,"","",v5
+N80.9,Endométriose (de),endométriose,"","",v5
+N82.5,"Fistule (de), trompe de fallope (externe)",fistule trompe de fallope,"","",v5
+N92.4,"Ménorragie (primaire) (de), préclimatérique",ménorragie préclimatérique,"","",v5
+O33.5,"Disproportion (foeto-pelvienne), foetale (avec foetus normal)",disproportion foetale,"","",v5
+O41.1,"Infection (à) (de), membranes foetales",infection des membranes foetales,"","",v5
+P35.0,"Rubéole, congénitale",rubéole congénitale,"","",v5
+P96.9,"Débilité (asthénique) (générale) (secondaire à une infection), congénitale (générale)",débilité congénitale,"","",v5
+Q15.0,"Kératoglobe, congénital",kératoglobe congénital,"","",v5
+Q32.4,"Atrésie (congénitale) (de), bronches",atrésie des bronches,"","",v5
+Q41.2,"Atrésie (congénitale) (de), iléon",atrésie de l'iléon,"","",v5
+Q60.6,"Potter, faciès ou syndrome de",faciès ou syndrome de Potter,"","",v5
+Q69.9,Hexadactylisme,Hexadactylisme,"","",v5
+Q85.9,Hamartome,hamartome,"","",v5
+Q89.1,"Ectopie (congénitale) (de), surrénale",ectopie surrénale,"","",v5
+Q99.9,"Anomalie (congénitale) (type non précisé) (de), chromosomes",anomalie des chromosomes,"","",v5
+R07.2,"Douleur (de), cardiaque",douleur cardiaque,"","",v5
+R19.4,Transit intestinal anormal,transit intestinal anormal,"","",v5
+R25.2,Spasme (de),spasme,"","",v5
+R50.9,"Fièvre (de) (des) (due à), origine inconnue",fièvre origine inconnue,"","",v5
+T26.6,"Corrosion, cornée",corrosion cornée,"","",v5
+T27.6,"Corrosion, cavité thoracique",corrosion cavité thoracique,"","",v5
+T35.5,"Gelure(s), orteils",gelure orteils,"","",v5
+T69.1,"Erythème, pernio(n)",erythème pernio,"","",v5
+T70.0,Aéro-otite (moyenne),Aéro-otite,"","",v5
+Z21,Séropositivité au vih,séropositivité au vih,"","",v5
