@@ -24,8 +24,8 @@
 
 **Condition** : Adulte jusqu'alors non anémié
 
-**Citation** (`anemie_posthemorragique_d62.txt` L54-58) :
-« L'emploi du code D62 Anémie posthémorragique aigüe pour mentionner la constatation d'une anémie postopératoire se discute devant un résultat d'hémogramme postopératoire prouvant la chute de l'hémoglobine en deçà de 13 grammes par décilitre chez l'homme, 12 grammes par décilitre chez la femme (11 grammes par décilitre chez la femme enceinte), chez un adulte jusqu'alors non anémié. »
+**Citation** (`anemie_posthemorragique_d62.txt` L53-57) :
+« L’emploi du code D62 Anémie posthémorragique aigüe pour mentionner la constatation d’une anémie postopératoire se discute devant un résultat d’hémogramme postopératoire prouvant la chute de l’hémoglobine en deçà de 13 grammes par décilitre chez l’homme, 12 grammes par décilitre chez la femme (11 grammes par décilitre chez la femme enceinte), chez un adulte jusqu’alors non anémié. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|

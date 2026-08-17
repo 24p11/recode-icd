@@ -12,12 +12,18 @@
 # Régénérer : scripts/extraire_guide_mco.sh
 # ---------------------------------------------------------------------
 
+                                                      78
+
+2. DIRECTIVES RELATIVES AU CODAGE DE CERTAINS MOTIFS DE RECOURS
+AUX SOINS ET À DIFFÉRENTS CHAPITRES DE LA CIM–10
+
 ACCIDENTS VASCULAIRES CÉRÉBRAUX
+
 
 La CIM–10 permet le codage des différents types d’accidents ainsi que certaines
 étiologies particulières, les manifestations cliniques, les séquelles et les antécédents.
 
-Les types d’accidents vasculaires cérébraux
+                Les types d’accidents vasculaires cérébraux
 
 Le codage des AVC constitués fait appel, à la phase aigüe, aux catégories I60 à I63 qui
 excluent les lésions traumatiques.
@@ -39,7 +45,7 @@ patient décède avant toute investigation.
 Les accidents ischémiques transitoires (AIT) sont codés avec la catégorie G45 Accidents
 ischémiques cérébraux transitoires et syndromes apparentés.
 
-Manifestations cliniques des accidents vasculaires cérébraux
+                Manifestations cliniques des accidents vasculaires cérébraux
 
 Les manifestations les plus fréquentes sont l’hémiplégie, le plus souvent flasque à la
 phase initiale (G81 Hémiplégie) et l’aphasie (R47 Troubles du langage, non classés
@@ -57,8 +63,15 @@ moment d’apparition et leur évolution :
 
 D’autres manifestations peuvent être observées : troubles de la conscience (catégorie
 R40 Somnolence, stupeur et coma), de la sensibilité (R20 Troubles de la sensibilité
-cutanée), visuels (H51 Autres anomalies des mouvements binoculaires, H53 Troubles de la vision), 
-locked-in syndrome (G83.5) dit aussi syndrome de verrouillage, d’enfermement, de désafférentation.
+cutanée), visuels (H51 Autres anomalies des mouvements binoculaires, H53 Troubles de
+                                      4
+la vision), locked-in syndrome (G83.5) .
+
+
+
+4
+    Dit aussi syndrome de verrouillage, d’enfermement, de désafférentation.
+                                                 79
 
 Les syndromes des artères cérébrales (G46) : la CIM–10 réserve les codes G46.0 à G46.2
 Syndromes de l’artère cérébrale moyenne, antérieure, postérieure, à l'enregistrement de
@@ -67,7 +80,7 @@ de la catégorie dague correspondante I66). Ainsi, G46.0, G46.1 et G46.2 ne peuv
 être associés à un code d’infarctus cérébral, alors que cette association est possible pour
 les codes G46.3 à G46.8.
 
-Étiologies, séquelles, antécédents d’accidents vasculaires cérébraux
+            Étiologies, séquelles, antécédents d’accidents vasculaires cérébraux
 
 Les étiologies des AVC sont classées dans des rubriques diverses de la CIM–10 ; par
 exemple la fibrillation auriculaire (I48), les malformations congénitales vasculaires cérébrales
@@ -83,14 +96,13 @@ séquelle. Le code Z86.70 Antécédents personnels de maladies cérébrovasculai
 être employé dès que l’AVC est considéré comme ancien et qu’il ne persiste aucune séquelle
 fonctionnelle.
 
-Règles de codage des accidents vasculaires cérébraux
+            Règles de codage des accidents vasculaires cérébraux
 
 1°) AIT ou AVC constitué, à la phase aigüe
 
    Lors du séjour initial de prise en charge, le codage du diagnostic principal (DP) emploie :
    • pour un AIT, la catégorie G45 ; ses codes précisent la topographie ou la forme de
        l’accident, par exemple G45.3 Amaurose fugace ;
-
    • pour un AVC constitué, un code I60.–, I61.–, I62.– ou I63.– .
 
        Les codes I60.–, I61.–, I62.– et I63.– sont employés pendant l’ensemble de la
@@ -118,6 +130,8 @@ Règles de codage des accidents vasculaires cérébraux
 
        Les codes G46.0 Syndrome de l'artère cérébrale moyenne, G46.1 Syndrome de
        l'artère cérébrale antérieure, G46.2 Syndrome de l'artère cérébrale postérieure, ceux
+                                                  80
+
        des catégories I65 Occlusion et sténose des artères précérébrales, n'entraînant pas
        un infarctus cérébral, I66 Occlusion et sténose des artères cérébrales, n'entraînant pas
        un infarctus cérébral, les codes I67.0 Dissection d'artères cérébrales, non rompue et
@@ -175,7 +189,10 @@ l’imagerie, doit être codée comme un AVC à la phase aigüe.
        diagnostics associés.
 
 6°) Soins palliatifs : le DP est codé Z51.5 Soins palliatifs. Le code de l’AVC est enregistré en
-position de DR : soit un code d’AVC aigu lorsqu’il s’agit de la prise en charge initiale, qu’elle se fasse au sein d’un même établissement ou d’établissements différents (voir ci-dessus
+position de DR : soit un code d’AVC aigu lorsqu’il s’agit de la prise en charge initiale, qu’elle
+                                                          81
+
+ se fasse au sein d’un même établissement ou d’établissements différents (voir ci-dessus
  séjour pour poursuite des soins), soit un code de séquelle d’AVC si ce dernier a été pris en
  charge lors d’un précédent séjour.
 
@@ -183,3 +200,52 @@ position de DR : soit un code d’AVC aigu lorsqu’il s’agit de la prise en c
  à domicile, aucun autre membre du foyer n’étant capable d’assurer les soins ou Z75.5 Prise
  en charge pendant les vacances. Un code de séquelle de maladie cérébrovasculaire (I69.–)
  est saisi en position de DAS.
+
+
+ ACCOUCHEMENT IMPROMPTU OU À DOMICILE
+
+Un séjour faisant suite à un accouchement impromptu survenu avant l’arrivée de la mère dans un
+établissement de santé, par exemple au domicile ou pendant le trajet vers la maternité, que
+l’accouchement ait eu lieu, ou pas, en présence du SMUR, est codé comme suit :
+
+              •     DP : Z39.00 ;
+               •    DA : Z37.– ;
+              •     pas d’acte d’accouchement.
+
+L’accouchement à domicile, résultant du choix de la mère, ne donne pas lieu à la production d’un
+                                                                                           5
+RSS puisqu’il n’existe pas de séjour hospitalier, ni pour la mère ni pour le nouveau-né . Une
+hospitalisation ne surviendrait qu’en cas de complication :
+     • si la complication concerne la mère, son séjour est un séjour du postpartum,
+         non d’accouchement ; le DP est déterminé conformément à sa définition et au guide
+         des situations cliniques ; en l’absence de problème de santé propre au nouveau-né
+         et pris en charge, le séjour de celui-ci est aussi un séjour du postpartum, son DP
+         est codé Z76.2 Surveillance médicale et soins médicaux d’autres nourrissons et
+         enfants en bonne santé ;
+     • si la complication concerne l’enfant, un RSS est produit pour lui ; le DP est
+         déterminé conformément à sa définition et au guide des situations cliniques.
+
+
+ ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION
+
+ L’emploi du code D62 Anémie posthémorragique aigüe pour mentionner la constatation
+ d’une anémie postopératoire se discute devant un résultat d’hémogramme postopératoire
+ prouvant la chute de l’hémoglobine en deçà de 13 grammes par décilitre chez l’homme,
+ 12 grammes par décilitre chez la femme (11 grammes par décilitre chez la femme enceinte),
+ chez un adulte jusqu’alors non anémié. Le présent article vise à rappeler et à préciser les
+ règles justifiant l’emploi du code D62 dans cette circonstance particulière.
+
+ Les règles de l’art en matière de transfusion de patients subissant une intervention ont été
+ définies par les experts de la Société française d’anesthésie et de réanimation (SFAR) lors de
+ l’élaboration de la Classification commune des actes médicaux. Il a été admis que l'anesthésiste
+ doit assurer la compensation des pertes sanguines, en particulier au cours des interventions par
+ nature hémorragiques : certaines interventions sur le squelette (particulièrement hanche, fémur,
+ genou, colonne vertébrale) ou le système cardiovasculaire. Cette restitution du volume sanguin
+ peut utiliser des modalités très variables : allotransfusion, autotransfusion, emploi de système de
+ récupération sanguine peropératoire. Elle peut être entièrement effectuée au cours de
+ l’intervention selon les pertes estimées, et éventuellement poursuivie au décours de l’opération.
+ Dans ces conditions le code D62 ne doit pas être mentionné.
+
+ 5
+     Y compris si celui-ci est né sans vie (voir pages 70 et 92).
+

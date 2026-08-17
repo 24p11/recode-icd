@@ -12,37 +12,12 @@
 # Régénérer : scripts/extraire_guide_mco.sh
 # ---------------------------------------------------------------------
 
-                                                       93
-
-L’enregistrement du diagnostic principal doit employer le code P95 de la CIM–10, à
-l’exclusion de tout autre, y compris, par convention, si la cause du décès est connue. Le
-RUM-RSS enregistre l’âge gestationnel (se reporter au chapitre I), la cause de la mort. Les
-codes des actes éventuels, en particulier celui d’autopsie, sont saisis dans le RUM.
-
-Lorsqu’un acte d’autopsie est réalisé sur un enfant né sans vie ou sur un fœtus, l’acte est codé
-:
-   • dans le RUM de l’enfant lorsqu’il en est produit, c’est-à-dire à partir de vingt-deux
-   semaines révolues d’aménorrhée ou d’un poids d’au moins cinq-cents grammes ;
-    • dans le RUM de la mère s’il ne doit pas être produire de RUM, c’est-à-dire pour une
-    issue de grossesse avant vingt-deux semaines révolues d’aménorrhée et d’un poids de
-    moins de cinq-cents grammes.
-
-En cas de naissance d’un enfant mort-né hors d’un établissement de santé (domicile ou
-maison de naissance) un RSS devra être produit si la mère est hospitalisée. Un RSS est
-produit lor sque la naissance est assurée par un service mobile d’urgence et de
-réanimation, quel que soit son établissement d’implantation.
-
-
 EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM–10
 
 
 Les codes du chapitre XXI Facteurs influant sur l'état de santé et motifs de recours aux
-services de santé (« codes Z ») peuvent, et souvent doivent, être utilisés dans le résumé
-                                                                                    23
-d’unité médicale (RUM) comme diagnostic principal (DP), relié (DR) ou associé (DA) .
-Il est recommandé de lire la note figurant à la première page du chapitre XXI du volume 1,
-spécialement les lignes relatives aux deux circonstances indiquées pour l’emploi des codes Z
-(alinéas a et b).
+services de santé (« codes Z ») peuvent, et souvent doivent, être utilisés dans le résumé 
+d’unité médicale (RUM) comme diagnostic principal (DP), relié (DR) ou associé (DA).
 
 Les explications qui suivent visent à aider à la compréhension du sens des codes Z, dont
 l’usage est parfois difficile pour les codeurs. Elles donnent des consignes ou indiquent des
@@ -66,16 +41,7 @@ non confirmées.
 
 La catégorie Z03 est celle des « suspicions non confirmées ». Elle permet le codage de
 situations caractérisées par l'éventualité initiale d'une maladie qui (après observation,
-                                           24
-examens…) n'est finalement pas confirmée . C’est ce qu’explique la note d’inclusion située
-sous son titre dans le volume 1 de la CIM–10.
-
-23
-     Les notions de DP, DR et DA ont été traitées dans le chapitre IV.
-24
-     Z32.0 est un autre code de suspicion non confirmée.
-                                                     94
-
+examens…) n'est finalement pas confirmée (Z32.0 est un autre code de suspicion non confirmée) . C’est ce qu’explique la note d’inclusion située sous son titre dans le volume 1 de la CIM–10.
 
 Si l'on se reporte aux règles de hiérarchisation de la morbidité dans le RUM, une
 alternative apparait pour la détermination du DP (se reporter au point 1.1.2 du chapitre IV :
@@ -111,8 +77,7 @@ caractérisées par la suspicion :
 
 La sous-catégorie Z04.8 permet le codage de situations caractérisées par des
 investigations diverses, spécialement paracliniques, volontiers programmées. Z04.8 a des
-            25
-extensions :
+extensions (Elles ont été créées pour la version 11 des GHM (2009). Leur emploi est obligatoire. En effet, Z04.8, devenu imprécis du fait de leur création, n’est plus utilisable comme DP, DR et DA à compter de la version 11 des GHM.) :
     • Z04.800 est le code imposé pour le DP des séjours motivés par l’enregistrement d’un
         électroencéphalogramme de longue durée ;
     • Z04.801 est le code imposé pour le DP des séjours motivés par un enregistrement
@@ -126,15 +91,8 @@ L’emploi de Z04.800, Z04.801 ou Z04.802 s’impose comme DP du RUM, qu’une a
 été diagnostiquée ou non au terme du séjour (se reporter au point 1.1.3 du chapitre VI).
 
 Z04.9 correspond à une information trop imprécise pour être acceptable.
-
 Lorsqu’un code des catégories Z03 ou Z04 est en position de DP, sauf cas particulier, il ne
 justifie pas de diagnostic relié (DR).
-
-25
-  Elles ont été créées pour la version 11 des GHM (2009). Leur emploi est obligatoire. En effet, Z04.8, devenu
-imprécis du fait de leur création, n’est plus utilisable comme DP, DR et DA à compter de la version 11 des
-GHM.
-                                                    95
 
 
 Catégories Z08 et Z09 – Examen de contrôle après traitement
@@ -188,8 +146,7 @@ Catégorie Z20 : elle permet de coder l'absence d’une maladie infectieuse init
 crainte du fait du contact du patient avec une personne infectée ou de tout autre mode
 
 26
-    Rappel : dans la mesure où l’hospitalisation est justifiée conformément à l’arrêté « prestations » et à
-l’instruction « gradation ».
+    Rappel : dans la mesure où l’hospitalisation est justifiée conformément à l’arrêté « prestations » et à l’instruction « gradation ».
 27
     C’est en ce sens qu’on parle parfois de « chimiothérapie antituberculeuse ».
 28

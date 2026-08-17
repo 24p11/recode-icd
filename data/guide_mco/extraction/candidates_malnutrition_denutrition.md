@@ -73,7 +73,7 @@
 **Condition** : Mention de dénutrition présente au dossier
 
 **Citation** (`malnutrition_denutrition.txt` L244-246) :
-« L'emploi des codes E40 à E46 doit se fonder sur ces critères et nécessite que le dossier comporte la mention de dénutrition. Cette mention peut être indiquée par un clinicien ou par un diététicien. »
+« L’emploi des codes E40 à E46 doit se fonder sur ces critères et nécessite que le dossier comporte la mention de dénutrition. Cette mention peut être indiquée par un clinicien ou par un diététicien. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -88,7 +88,7 @@
 **Condition** : —
 
 **Citation** (`malnutrition_denutrition.txt` L64-65 (note 57) et L272-273 (note 62)) :
-« Les codes E40, E41 et E42 ne peuvent connaître qu'un emploi exceptionnel en France. — Pour mémoire l'emploi des catégories E40, E41 et E42 ne peut être qu'exceptionnel en France. »
+« Les codes E40, E41 et E42 ne peuvent connaître qu’un emploi exceptionnel en France. — Pour mémoire l’emploi des catégories E40, E41 et E42 ne peut être qu’exceptionnel en France. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -119,7 +119,7 @@
 **Condition** : Coexistence d'un critère sévère et de critères modérés ; portée limitée à la section « adulte ≥ 18 et < 70 ans » du guide (non généralisée aux trois tranches d'âge, décision RF 2026-08-14)
 
 **Citation** (`malnutrition_denutrition.txt` L172-174) :
-« Lors de l'observation simultanée d'un seul critère de dénutrition sévère et d'un ou plusieurs critères de dénutrition modérée, il est recommandé de poser un diagnostic de dénutrition sévère. »
+« Lors de l’observation simultanée d’un seul critère de dénutrition sévère et d’un ou plusieurs critères de dénutrition modérée, il est recommandé de poser un diagnostic de dénutrition sévère. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -135,7 +135,7 @@
 **Condition** : —
 
 **Citation** (`malnutrition_denutrition.txt` L40-43, L66-67 (note 58), L68-70 (note 59)) :
-« Elle range sous le terme générique de malnutrition un groupe d'affections résultant d'une carence d'apport ou d'une désassimilation protéinoénergétique : on doit donc l'entendre dans le sens restreint de dénutrition. — Auxquels s'ajoute O25 Malnutrition au cours de la grossesse. — Cet anglicisme désigne de fait tout trouble lié à un déséquilibre alimentaire, aussi bien en défaut qu'en excès. »
+« Elle range sous le terme générique de malnutrition un groupe d’affections résultant d’une carence d’apport ou d’une désassimilation protéinoénergétique : on doit donc l’entendre dans le sens restreint de dénutrition. — Auxquels s’ajoute O25 Malnutrition au cours de la grossesse. — Cet anglicisme désigne de fait tout trouble lié à un déséquilibre alimentaire, aussi bien en défaut qu’en excès. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -151,7 +151,7 @@
 **Condition** : Patient de moins de 18 ans ; dénutrition déjà établie
 
 **Citation** (`malnutrition_denutrition.txt` L91-101) :
-« 1.1 Les critères de dénutrition modérée chez les patients âgés de moins de 18 ans — courbe IOTF 17 < IMC < courbe IOTF 18,5 ; perte de poids ≥ 5 % et ≤ 10 % en 1 mois ou ≥ 10 % et ≤ 15 % en 6 mois par rapport au poids habituel avant le début de la maladie ; stagnation pondérale aboutissant à un poids situé entre 2 et 3 couloirs en dessous du couloir habituel. L'observation d'un seul critère de dénutrition modérée suffit pour poser le diagnostic de dénutrition modérée dès lors que la dénutrition est présente. »
+« 1.1 Les critères de dénutrition modérée chez les patients âgés de moins de 18 ans — courbe IOTF 17 < IMC < courbe IOTF 18,5 ; perte de poids ≥ 5 % et ≤ 10 % en 1 mois ou ≥ 10 % et ≤ 15 % en 6 mois par rapport au poids habituel avant le début de la maladie ; stagnation pondérale aboutissant à un poids situé entre 2 et 3 couloirs en dessous du couloir habituel. L’observation d’un seul critère de dénutrition modérée suffit pour poser le diagnostic de dénutrition modérée dès lors que la dénutrition est présente. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -166,7 +166,7 @@
 **Condition** : Patient de moins de 18 ans ; dénutrition déjà établie
 
 **Citation** (`malnutrition_denutrition.txt` L104-115) :
-« 1.2 Les critères de dénutrition sévère chez les patients âgés de moins de 18 ans — IMC ≤ courbe IOTF 17 ; perte de poids > 10 % en 1 mois ou > 15 % en 6 mois par rapport au poids habituel avant le début de la maladie ; stagnation pondérale aboutissant à un poids situé au moins 3 couloirs (représentant 3 écart-types) en dessous du couloir habituel ; infléchissement statural (avec perte d'au moins un couloir par rapport à la taille habituelle). L'observation d'un seul critère de dénutrition sévère suffit à qualifier la dénutrition de sévère dès lors que la dénutrition est présente. »
+« 1.2 Les critères de dénutrition sévère chez les patients âgés de moins de 18 ans — IMC ≤ courbe IOTF 17 ; perte de poids > 10 % en 1 mois ou > 15 % en 6 mois par rapport au poids habituel avant le début de la maladie ; stagnation pondérale aboutissant à un poids situé au moins 3 couloirs (représentant 3 écart-types) en dessous du couloir habituel ; infléchissement statural (avec perte d’au moins un couloir par rapport à la taille habituelle). L’observation d’un seul critère de dénutrition sévère suffit à qualifier la dénutrition de sévère dès lors que la dénutrition est présente. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -181,7 +181,7 @@
 **Condition** : Patient de 18 à moins de 70 ans ; dénutrition déjà établie
 
 **Citation** (`malnutrition_denutrition.txt` L146-156) :
-« 2.1 Les critères de dénutrition modérée chez l'adulte (≥ 18 ans et < 70 ans) — 17 < IMC < 18,5 kg/m2 ; perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids habituel avant le début de la maladie ; mesure de l'albuminémie par immunonéphélémétrie ou immunoturbidimétrie >30 g/L et < 35 g/L. Les seuils d'albuminémie sont à prendre en compte quel que soit l'état inflammatoire. »
+« 2.1 Les critères de dénutrition modérée chez l’adulte (≥ 18 ans et < 70 ans) — 17 < IMC < 18,5 kg/m2 ; perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids habituel avant le début de la maladie ; mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie >30 g/L et < 35 g/L. Les seuils d’albuminémie sont à prendre en compte quel que soit l’état inflammatoire. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -196,7 +196,7 @@
 **Condition** : Patient de 18 à moins de 70 ans ; dénutrition déjà établie
 
 **Citation** (`malnutrition_denutrition.txt` L159-170) :
-« 2.2 Les critères de dénutrition sévère chez l'adulte (≥ 18 ans et < 70 ans) — IMC ≤ 17 kg/m2 ; perte de poids ≥ 10 % en 1 mois ou ≥ 15 % en 6 mois ou ≥ 15 % par rapport au poids habituel avant le début de la maladie ; mesure de l'albuminémie par immunonéphélémétrie ou immunoturbidimétrie ≤ 30g/L. Les seuils d'albuminémie sont à prendre en compte quel que soit l'état inflammatoire. »
+« 2.2 Les critères de dénutrition sévère chez l’adulte (≥ 18 ans et < 70 ans) — IMC ≤ 17 kg/m2 ; perte de poids ≥ 10 % en 1 mois ou ≥ 15 % en 6 mois ou ≥ 15 % par rapport au poids habituel avant le début de la maladie ; mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie ≤ 30g/L. Les seuils d’albuminémie sont à prendre en compte quel que soit l’état inflammatoire. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -211,7 +211,7 @@
 **Condition** : Patient de 70 ans et plus ; dénutrition déjà établie
 
 **Citation** (`malnutrition_denutrition.txt` L209-217) :
-« 3.1 Les critères de dénutrition modérée chez les patients âgés de 70 ans et plus — 20 ≤ IMC < 22 ; perte de poids ≥ 5 % et < 10 % en 1 mois ou ≥ 10 % et < 15 % en 6 mois ou ≥ 10 % et < 15 % par rapport au poids habituel avant le début de la maladie ; mesure de l'albuminémie par immunonéphélémétrie ou immunoturbidimétrie > 30 g/L. »
+« 3.1 Les critères de dénutrition modérée chez les patients âgés de 70 ans et plus — 20 ≤ IMC < 22 ; perte de poids ≥ 5 % et < 10 % en 1 mois ou ≥ 10 % et < 15 % en 6 mois ou ≥ 10 % et < 15 % par rapport au poids habituel avant le début de la maladie ; mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie > 30 g/L. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -226,7 +226,7 @@
 **Condition** : Patient de 70 ans et plus ; dénutrition déjà établie
 
 **Citation** (`malnutrition_denutrition.txt` L228-236) :
-« 3.2. Les critères de dénutrition sévère chez les patients âgés de 70 ans et plus — IMC < 20 kg/m2 ; Perte de poids ≥ 10 % en 1 mois ou ≥ 15 % en 6 mois ou ≥ 15 % par rapport au poids habituel avant le début de la maladie ; mesure de l'albuminémie par immunonéphélémétrie ou immunoturbidimétrie ≤ 30 g/L. »
+« 3.2. Les critères de dénutrition sévère chez les patients âgés de 70 ans et plus — IMC < 20 kg/m2 ; Perte de poids ≥ 10 % en 1 mois ou ≥ 15 % en 6 mois ou ≥ 15 % par rapport au poids habituel avant le début de la maladie ; mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie ≤ 30 g/L. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -240,8 +240,8 @@
 
 **Condition** : —
 
-**Citation** (`malnutrition_denutrition.txt` L49-52, L57-89, L126-143, L187-205) :
-« Pour les patients de moins de 70 ans, le diagnostic de la dénutrition nécessite la présence d'au moins 1 critère phénotypique et 1 critère étiologique. Ce diagnostic est un préalable obligatoire avant de juger de sa sévérité. Il repose exclusivement sur des critères non biologiques. — Les critères étiologiques sont les suivants : réduction de la prise alimentaire ≥ 50 % pendant plus d'1 semaine, ou toute réduction des apports pendant plus de 2 semaines […] ; absorption réduite (malabsorption/maldigestion) ; situation d'agression (hypercatabolisme protéique avec ou sans syndrome inflammatoire) : pathologie aiguë ou pathologie chronique évolutive ou pathologie maligne évolutive. »
+**Citation** (`malnutrition_denutrition.txt` L48-52, L57-89, L126-143, L187-205) :
+« Pour les patients de moins de 70 ans, le diagnostic de la dénutrition nécessite la présence d’au moins 1 critère phénotypique et 1 critère étiologique. Ce diagnostic est un préalable obligatoire avant de juger de sa sévérité. Il repose exclusivement sur des critères non biologiques. — Les critères étiologiques sont les suivants : réduction de la prise alimentaire ≥ 50 % pendant plus d’1 semaine, ou toute réduction des apports pendant plus de 2 semaines […] ; absorption réduite (malabsorption/maldigestion) ; situation d’agression (hypercatabolisme protéique avec ou sans syndrome inflammatoire) : pathologie aiguë ou pathologie chronique évolutive ou pathologie maligne évolutive. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|

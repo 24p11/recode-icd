@@ -47,7 +47,7 @@ ressortent au rapport de build sous
 **Condition** : Deux épisodes distincts au cours du même séjour
 
 **Citation** (`avc.txt` L123-124) :
-« Un code d'AIT (G45.–) et un code d'AVC constitué (I60–I64) ne peuvent être associés que s'il s'agit de deux épisodes distincts au cours du même séjour. »
+« Un code d’AIT (G45.–) et un code d’AVC constitué (I60–I64) ne peuvent être associés que s’il s’agit de deux épisodes distincts au cours du même séjour. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -63,7 +63,7 @@ ressortent au rapport de build sous
 **Condition** : Respect de la définition du DAS
 
 **Citation** (`avc.txt` L126-129) :
-« Les manifestations cliniques de l'AVC sont codées comme diagnostics associés significatifs (DAS) si elles en respectent la définition. Il importe de les coder le plus précisément possible et d'employer les extensions prévues pour certains codes (hémiplégie, dysphasie et aphasie : se reporter au point 2 supra). »
+« Les manifestations cliniques de l’AVC sont codées comme diagnostics associés significatifs (DAS) si elles en respectent la définition. Il importe de les coder le plus précisément possible et d’employer les extensions prévues pour certains codes (hémiplégie, dysphasie et aphasie : se reporter au point 2 supra). »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -80,7 +80,7 @@ ressortent au rapport de build sous
 **Condition** : —
 
 **Citation** (`avc.txt` L76-81) :
-« la CIM–10 réserve les codes G46.0 à G46.2 […] à l'enregistrement de syndromes neurologiques résultant d'une insuffisance circulatoire sans infarctus […]. Ainsi, G46.0, G46.1 et G46.2 ne peuvent pas être associés à un code d'infarctus cérébral, alors que cette association est possible pour les codes G46.3 à G46.8. »
+« la CIM–10 réserve les codes G46.0 à G46.2 […] à l’enregistrement de syndromes neurologiques résultant d’une insuffisance circulatoire sans infarctus […]. Ainsi, G46.0, G46.1 et G46.2 ne peuvent pas être associés à un code d’infarctus cérébral, alors que cette association est possible pour les codes G46.3 à G46.8. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -112,7 +112,7 @@ ressortent au rapport de build sous
 **Condition** : AVC ancien, aucune séquelle fonctionnelle persistante
 
 **Citation** (`avc.txt` L94-97) :
-« Par construction de la CIM–10, la notion d'antécédent d'AVC, codée Z86.70, exclut celle de séquelle. Le code Z86.70 Antécédents personnels de maladies cérébrovasculaires doit être employé dès que l'AVC est considéré comme ancien et qu'il ne persiste aucune séquelle fonctionnelle. »
+« Par construction de la CIM–10, la notion d’antécédent d’AVC, codée Z86.70, exclut celle de séquelle. Le code Z86.70 Antécédents personnels de maladies cérébrovasculaires doit être employé dès que l’AVC est considéré comme ancien et qu’il ne persiste aucune séquelle fonctionnelle. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -128,7 +128,7 @@ ressortent au rapport de build sous
 **Condition** : L'AVC continue d'être le sujet des soins
 
 **Citation** (`avc.txt` L152-155) :
-« en cas de transfert dans un autre établissement de MCO après sortie d'unité neurovasculaire, l'AVC peut être codé comme DP dans l'autre établissement dès lors qu'il continue d'être le sujet des soins (situation clinique de traitement unique partagé […]). »
+« en cas de transfert dans un autre établissement de MCO après sortie d’unité neurovasculaire, l’AVC peut être codé comme DP dans l’autre établissement dès lors qu’il continue d’être le sujet des soins (situation clinique de traitement unique partagé […]). »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -143,7 +143,7 @@ ressortent au rapport de build sous
 **Condition** : Séjour distinct de celui de la prise en charge initiale
 
 **Citation** (`avc.txt` L157-166) :
-« La manifestation ou la complication prise en charge est codée comme DP. Les exemples les plus fréquents sont les troubles de la marche ou l'aggravation de la spasticité (catégorie R26 […]), le syndrome dépressif (catégorie F32 […]), l'épilepsie (catégories G40 […] et G41 […]), la démence vasculaire (catégorie F01 […]). Un code de séquelle d'AVC (I69) est placé en DAS. »
+« La manifestation ou la complication prise en charge est codée comme DP. Les exemples les plus fréquents sont les troubles de la marche ou l’aggravation de la spasticité (catégorie R26 […]), le syndrome dépressif (catégorie F32 […]), l’épilepsie (catégories G40 […] et G41 […]), la démence vasculaire (catégorie F01 […]). Un code de séquelle d’AVC (I69) est placé en DAS. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -163,7 +163,7 @@ ressortent au rapport de build sous
 **Condition** : Aucune affection nouvelle découverte ; séquelles présentes
 
 **Citation** (`avc.txt` L176-180) :
-« S'il n'est pas découvert d'affection nouvelle le code du DP appartient au chapitre XXI de la CIM-10 […]. Un code de séquelle d'AVC (I69) est placé en DR et les manifestations séquellaires éventuelles sont codées comme DAS si elles en respectent la définition. »
+« S’il n’est pas découvert d’affection nouvelle le code du DP appartient au chapitre XXI de la CIM-10 […]. Un code de séquelle d’AVC (I69) est placé en DR et les manifestations séquellaires éventuelles sont codées comme DAS si elles en respectent la définition. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -179,7 +179,7 @@ ressortent au rapport de build sous
 **Condition** : Découverte d'une affection nouvelle liée à l'AVC
 
 **Citation** (`avc.txt` L185-189) :
-« Si une affection nouvelle liée à l'AVC, c'est-à-dire une complication de celui-ci ou de son traitement, est découverte (surveillance dite positive), cette affection est le DP. Les éventuelles manifestations séquellaires respectant la définition d'un DAS, complétées par un code de séquelle I69.–, sont enregistrées en position de diagnostics associés. »
+« Si une affection nouvelle liée à l’AVC, c’est-à-dire une complication de celui-ci ou de son traitement, est découverte (surveillance dite positive), cette affection est le DP. Les éventuelles manifestations séquellaires respectant la définition d’un DAS, complétées par un code de séquelle I69.–, sont enregistrées en position de diagnostics associés. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -211,7 +211,7 @@ ressortent au rapport de build sous
 **Condition** : Respect de la définition du diagnostic associé
 
 **Citation** (`avc.txt` L143-144 et L85-87) :
-« L'étiologie ne peut être codée comme diagnostic associé que si elle en respecte la définition. — Les étiologies des AVC sont classées dans des rubriques diverses de la CIM–10 ; par exemple la fibrillation auriculaire (I48), les malformations congénitales vasculaires cérébrales (Q28.–), l'athérosclérose cérébrale (I67.2), l'encéphalopathie hypertensive (I67.4), etc. »
+« L’étiologie ne peut être codée comme diagnostic associé que si elle en respecte la définition. — Les étiologies des AVC sont classées dans des rubriques diverses de la CIM–10 ; par exemple la fibrillation auriculaire (I48), les malformations congénitales vasculaires cérébrales (Q28.–), l’athérosclérose cérébrale (I67.2), l’encéphalopathie hypertensive (I67.4), etc. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -242,7 +242,7 @@ ressortent au rapport de build sous
 **Condition** : —
 
 **Citation** (`avc.txt` L28-39) :
-« Le codage des AVC constitués fait appel, à la phase aigüe, aux catégories I60 à I63 qui excluent les lésions traumatiques. […] I60 Hémorragie sous-arachnoïdienne ; cette catégorie inclut la rupture d'anévrisme d'artère cérébrale ; […] I62 […] cette catégorie inclut l'hémorragie sous-durale et extradurale. Les AVC par infarctus cérébral ou AVC ischémiques — embolie, thrombose, bas débit — sont codés avec la catégorie I63 Infarctus cérébral. »
+« Le codage des AVC constitués fait appel, à la phase aigüe, aux catégories I60 à I63 qui excluent les lésions traumatiques. […] I60 Hémorragie sous-arachnoïdienne ; cette catégorie inclut la rupture d’anévrisme d’artère cérébrale ; […] I62 […] cette catégorie inclut l’hémorragie sous-durale et extradurale. Les AVC par infarctus cérébral ou AVC ischémiques — embolie, thrombose, bas débit — sont codés avec la catégorie I63 Infarctus cérébral. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
@@ -257,7 +257,7 @@ ressortent au rapport de build sous
 **Condition** : —
 
 **Citation** (`avc.txt` L50-62) :
-« À l'initiative de la Société française neurovasculaire, ces deux catégories ont fait l'objet d'extensions par l'ATIH en 2007 afin de distinguer les symptômes selon leur moment d'apparition et leur évolution : G81.0 Hémiplégie flasque est subdivisé en : G81.00 […], G81.01 […] et G81.08 […] ; on emploie les mêmes codes pour les parésies et les paralysies […] ; R47.0 Dysphasie et aphasie est subdivisé en : R47.00 […], R47.01 […], R47.02 […], R47.03 Dysphasie. »
+« À l’initiative de la Société française neurovasculaire, ces deux catégories ont fait l’objet d’extensions par l’ATIH en 2007 afin de distinguer les symptômes selon leur moment d’apparition et leur évolution : G81.0 Hémiplégie flasque est subdivisé en : G81.00 […], G81.01 […] et G81.08 […] ; on emploie les mêmes codes pour les parésies et les paralysies […] ; R47.0 Dysphasie et aphasie est subdivisé en : R47.00 […], R47.01 […], R47.02 […], R47.03 Dysphasie. »
 
 | code_expr | role | centralite | condition |
 |---|---|---|---|
