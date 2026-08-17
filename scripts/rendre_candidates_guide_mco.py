@@ -54,7 +54,7 @@ def rend(cle: str, recs: pl.DataFrame, codes: pl.DataFrame) -> str:
         "> Ne pas éditer à la main — les rôles ne doivent exister qu'à un seul",
         "> endroit (cf. l'incident ORPHANET du chantier `chapter_policy`).",
         ">",
-        f"> Texte source : `data/guide_mco/extraits/{fichier}.txt`",
+        f"> Texte source : `data/guide_mco/extraits_bruts/{fichier}.txt`",
         f"> (guide chap. V, pp. imprimées {pages}). Les `L…` y renvoient.",
         "",
         f"**{mes_recs.height} consignes, "

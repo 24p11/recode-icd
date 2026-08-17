@@ -7,7 +7,7 @@
 > Ne pas éditer à la main — les rôles ne doivent exister qu'à un seul
 > endroit (cf. l'incident ORPHANET du chantier `chapter_policy`).
 >
-> Texte source : `data/guide_mco/extraits/avc.txt`
+> Texte source : `data/guide_mco/extraits_bruts/avc.txt`
 > (guide chap. V, pp. imprimées 78-81). Les `L…` y renvoient.
 
 **14 consignes, 31 associations** (+ 3 associations manquantes de consignes déjà versées).

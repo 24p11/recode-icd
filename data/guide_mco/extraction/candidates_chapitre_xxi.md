@@ -7,7 +7,7 @@
 > Ne pas éditer à la main — les rôles ne doivent exister qu'à un seul
 > endroit (cf. l'incident ORPHANET du chantier `chapter_policy`).
 >
-> Texte source : `data/guide_mco/extraits/chapitre_xxi.txt`
+> Texte source : `data/guide_mco/extraits_bruts/chapitre_xxi.txt`
 > (guide chap. V, pp. imprimées 93-103). Les `L…` y renvoient.
 
 **55 consignes, 115 associations**.

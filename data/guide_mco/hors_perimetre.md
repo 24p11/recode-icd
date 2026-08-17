@@ -10,7 +10,7 @@
 > identifié — et la couche 2 à la documentation de recode-scenario. Les
 > perdre reviendrait à refaire la lecture.
 
-Les `L…` renvoient aux fichiers de `data/guide_mco/extraits/`.
+Les `L…` renvoient aux fichiers de `data/guide_mco/extraits_bruts/`.
 
 ---
 

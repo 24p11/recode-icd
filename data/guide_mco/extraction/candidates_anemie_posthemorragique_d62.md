@@ -7,7 +7,7 @@
 > Ne pas éditer à la main — les rôles ne doivent exister qu'à un seul
 > endroit (cf. l'incident ORPHANET du chantier `chapter_policy`).
 >
-> Texte source : `data/guide_mco/extraits/anemie_posthemorragique_d62.txt`
+> Texte source : `data/guide_mco/extraits_bruts/anemie_posthemorragique_d62.txt`
 > (guide chap. V, pp. imprimées 81-82). Les `L…` y renvoient.
 
 **1 consignes, 1 associations**.

@@ -253,6 +253,73 @@ generate-then-verify) plutôt qu'en injection amont.
   (recommandations sans code résolu, expressions non parseables) — mêmes
   conventions que le reste du pipeline.
 
+### 7.1 Le substrat : brut → curé → validé → figé
+
+*Décidé le 2026-08-17, pour le chantier B.*
+
+Le pilote a travaillé directement sur la sortie `pdftotext -layout`.
+C'était suffisant pour quatre articles relus à la main, mais pas pour une
+extraction de masse : le rendu en colonnes disloque les tableaux, coupe
+les phrases au milieu, et intercale les notes de bas de page dans le
+corps. Une citation extraite de ce substrat est vérifiable, mais un
+tableau y est illisible — or les tableaux du guide portent des consignes.
+
+Les extraits passent donc du statut d'**artefact mécanique** à celui de
+**transcription curée**, sur la chaîne maison `brut → curé → validé →
+figé` :
+
+| Répertoire | Contenu | Statut |
+|---|---|---|
+| `data/guide_mco/extraits_bruts/` | sortie `pdftotext -layout` intacte, commande et version de poppler en tête | artefact, régénérable à l'identique |
+| `data/guide_mco/extraits/` | transcription curée, relue et validée, puis figée | **substrat d'ancrage du chantier B** |
+
+**La curation est un reformatage sans réécriture.**
+
+| Autorisé | Interdit |
+|---|---|
+| recoller les lignes coupées par la mise en page | paraphraser |
+| reconstruire les tableaux disloqués | condenser |
+| sortir les notes de bas de page vers la fin, avec marqueurs | réordonner le corps |
+| baliser articles et sections | corriger le texte du guide |
+
+> **Les erreurs de l'original se signalent en marge, elles ne se réparent
+> pas.** Un guide dont on a corrigé le texte ne prouve plus rien sur ce
+> que le guide dit — et c'est exactement ce que la base de
+> recommandations doit pouvoir attester. La marge, techniquement, est le
+> commentaire HTML : invisible au flux de mots, donc invisible au test.
+
+**La règle est vérifiable, pas seulement écrite.**
+`recode_icd.recommendations.transcription` compare le flux de mots du
+curé à celui du brut, aux suppressions **déclarées** près
+(`data/guide_mco/extraits/suppressions.yaml`). Trois contrôles :
+
+1. **conservation** — égalité des multiensembles de mots : attrape
+   paraphrase, condensation, ajout ;
+2. **ordre du corps** — les mots du corps forment une sous-séquence de
+   ceux du brut : attrape le réordonnancement ;
+3. **ordre des notes** — même contrôle sur la section de notes, séparément,
+   parce que leur déplacement en bloc est précisément ce qu'on autorise.
+
+Ce qui échappe : une permutation de deux notes entre elles. Le contrôle 1
+borne le dégât à un déplacement, et la relecture humaine suit de toute
+façon.
+
+> ⚠ **Ne jamais élargir `suppressions.yaml` pour faire passer un test.**
+> Un curé qui a perdu un paragraphe doit échouer bruyamment — c'est
+> l'unique raison d'être du fichier. Une suppression s'ajoute avec son
+> motif et sa justification, jamais pour débloquer.
+
+**Circuit par article, au chantier B** : production du curé avec le test
+vert → relecture et validation par RF (c'est sa relecture de *substrat*,
+les tableaux surtout) → commit et gel → l'extraction des candidates
+s'ancre dessus.
+
+**Le pilote n'est pas réancré.** Ses citations ont été contre-lues et
+validées ligne à ligne contre les bruts ; les recaler sur des curés
+invaliderait une vérification déjà faite, sans rien apporter. Les
+candidates du pilote renvoient donc à `extraits_bruts/`, et un test
+verrouille la présence de ces quatre fichiers.
+
 ## 8. Questions ouvertes — **tranchées le 2026-08-14**
 
 1. **Propagation des consignes de niveau chapitre jusqu'aux fiches

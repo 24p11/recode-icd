@@ -116,9 +116,16 @@ docs/
 data/
 ├── CIM_APHP_2019/                              # Excel HECTOR (Index CIM-10 + thésaurus AP-HP)
 │   └── Dictionnaire_Hector_MAJ062019.xlsx
-└── Orphanet_Nomenclature_Pack_FR_2025/         # ORPHANET 2025
-    ├── ORPHA_ICD10_mapping_fr_2025.xml
-    └── ORPHA_ICD10_mapping_en_2020.xsd
+├── Orphanet_Nomenclature_Pack_FR_2025/         # ORPHANET 2025
+│   ├── ORPHA_ICD10_mapping_fr_2025.xml
+│   └── ORPHA_ICD10_mapping_en_2020.xsd
+└── guide_mco/                                  # guide méthodologique MCO
+    ├── guide_methodo_mco_2026_version_provisoire.pdf
+    ├── extraits_bruts/                         # pdftotext -layout intact
+    ├── extraits/                               # transcriptions curées + suppressions.yaml
+    ├── extraction/                             # candidates (trace de curation)
+    ├── hors_perimetre.md                       # couches 1 et 2, divergences guide/CIM
+    └── *_curated.csv                           # SOURCE DE VÉRITÉ du build
 ```
 
 
@@ -608,6 +615,106 @@ uv run python scripts/explore/relectures/export_relecture_index.py --graine 4242
 `VERSION_REGLE` dans le script de relecture doit être **incrémentée à
 chaque changement de comportement du normalisateur**, sinon les
 relectures de deux versions se mélangent silencieusement.
+
+## Recommandations du guide méthodologique MCO
+
+> Livrable séparé — `referentials/processed/recommendations.parquet` +
+> `recommendation_codes.parquet` — sur le patron de
+> `dagger_asterisk.parquet`. **Le CSV maître n'est pas modifié** : les
+> consignes de codage ne sont pas une source de synonymes ou
+> d'inclusions, c'est une famille d'information nouvelle.
+>
+> Modèle, catalogue des rôles et doctrine d'extraction :
+> `docs/analyses/2026-08-09_conception_base_recommandations_guide_methodo.md`
+> (RÉFÉRENCE — à lire avant toute modification de `recommendations/`).
+
+### Deux tables, dix rôles
+
+`recommendations` porte la consigne (une ligne), `recommendation_codes`
+ses cibles (N lignes). **La sémantique positionnelle vit dans
+l'association, jamais dans le texte seul.**
+
+Les dix rôles se rangent en trois familles :
+`DP`/`DR`/`DAS` (position prescrite) ·
+`interdit` / `interdit_DP` / `interdit_DR` / `interdit_DAS` /
+`interdit_association` (emploi ou position proscrits) ·
+`regi` / `contexte` (ni l'un ni l'autre).
+
+### Pitfalls
+
+1. **L'extraction LLM ne rentre JAMAIS dans le pipeline.** Le build ne
+   lit que `data/guide_mco/*_curated.csv`, validés humainement ligne à
+   ligne — patron `dagger_curation.csv`. `data/guide_mco/extraction/`
+   est une **trace de curation**, pas une entrée. Une seule porte
+   d'entrée vers les tables curées : la validation ligne à ligne.
+
+2. **`interdit` ≠ `interdit_DP`/`interdit_DR`/`interdit_DAS`.** Le
+   premier proscrit le code ; les trois autres ne proscrivent qu'une
+   **position**. Les confondre ferait disparaître des codes légitimes :
+   `Z43.–` ne doit pas être en DAS en sus d'un acte CCAM, mais reste le
+   DP légitime d'une fermeture de stomie.
+
+3. **`regi` ≠ `contexte`.** `regi` = la consigne **régit l'emploi** du
+   code (le prescrit, le conditionne ou le décrit) sans lui assigner de
+   position. `contexte` = le code **délimite la situation**, la consigne
+   ne régit pas son emploi. Un rendu qui veut « les consignes qui
+   parlent de ce code » filtre sur `regi` et les positions, jamais sur
+   `contexte`.
+
+4. **La spécificité vient de l'expression, pas du référentiel.**
+   `merged.type` ne vaut que `chapter|block|category` : `Z86.70` y est
+   typé `category` exactement comme `I69`. Le tri code > catégorie >
+   plage > chapitre se dérive de `code_expr` telle qu'écrite dans la
+   table curée.
+
+5. **Doctrine d'extraction** : on n'associe une expression que si la
+   consigne **régit son emploi ou le positionne**. Les mentions de
+   passage restent dans le `texte`. Une consigne de chapitre qui régit
+   vraiment doit, elle, descendre sur toutes ses feuilles — c'est la
+   nature du lien qui décide, pas son coût.
+
+6. **Une expression non parsable ou non résolue va au RAPPORT, jamais
+   au silence.** Une consigne avalée est indétectable en aval : rien
+   dans la fiche ne signale son absence.
+
+### Substrat : brut → curé → validé → figé
+
+| Répertoire | Contenu |
+|---|---|
+| `data/guide_mco/extraits_bruts/` | sortie `pdftotext -layout` intacte (commande + version de poppler en tête) — artefact régénérable |
+| `data/guide_mco/extraits/` | transcription **curée**, relue, validée, figée — substrat d'ancrage du chantier B |
+
+La curation est un **reformatage sans réécriture**. Autorisé : recoller
+les lignes coupées, reconstruire les tableaux, sortir les notes de bas
+de page vers la fin avec marqueurs, baliser articles et sections.
+**Interdit : paraphrase, condensation, réordonnancement du corps,
+correction du texte du guide.** Les erreurs de l'original se signalent
+en marge — en commentaire HTML — elles ne se réparent pas.
+
+`recode_icd.recommendations.transcription` rend la règle vérifiable :
+égalité du flux de mots brut/curé, aux suppressions **déclarées** près
+(`data/guide_mco/extraits/suppressions.yaml`), plus un contrôle d'ordre
+séparé sur le corps et sur les notes.
+
+> ⚠ **Ne jamais élargir `suppressions.yaml` pour faire passer un test.**
+> Un curé qui a perdu un paragraphe doit échouer bruyamment : c'est
+> l'unique raison d'être du fichier.
+
+**Circuit par article** : produire le curé (test vert) → relecture et
+validation humaine, les tableaux surtout → commit et gel → l'extraction
+des candidates s'ancre dessus.
+
+**Le pilote n'est pas réancré** : ses citations sont validées contre les
+bruts, on ne recale rien.
+
+### Commandes
+
+```bash
+./scripts/extraire_guide_mco.sh                      # bruts (poppler requis)
+uv run recode-icd build guide-mco                    # les deux Parquet + rapport
+uv run pytest -k transcription                       # intégrité des curés
+uv run python scripts/rendre_candidates_guide_mco.py # fiches de relecture (générées)
+```
 
 ## Mapping sources internes ↔ libellés CSV
 

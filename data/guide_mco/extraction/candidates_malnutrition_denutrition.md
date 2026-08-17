@@ -7,7 +7,7 @@
 > Ne pas éditer à la main — les rôles ne doivent exister qu'à un seul
 > endroit (cf. l'incident ORPHANET du chantier `chapter_policy`).
 >
-> Texte source : `data/guide_mco/extraits/malnutrition_denutrition.txt`
+> Texte source : `data/guide_mco/extraits_bruts/malnutrition_denutrition.txt`
 > (guide chap. V, pp. imprimées 109-114). Les `L…` y renvoient.
 
 **15 consignes, 21 associations**.

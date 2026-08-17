@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Extraction du texte des articles du guide méthodologique MCO.
 #
-# Régénère `data/guide_mco/extraits/`. Les fichiers produits sont
+# Régénère `data/guide_mco/extraits_bruts/`. Les fichiers produits sont
 # COMMITTÉS : ils figent les citations et les rendent vérifiables
 # indépendamment de la version de poppler installée.
 #
@@ -20,7 +20,7 @@ set -euo pipefail
 
 RACINE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PDF="$RACINE/data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf"
-SORTIE="$RACINE/data/guide_mco/extraits"
+SORTIE="$RACINE/data/guide_mco/extraits_bruts"
 
 mkdir -p "$SORTIE"
 
