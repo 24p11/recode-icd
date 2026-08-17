@@ -1,5 +1,11 @@
 # Candidates du pilote — registre de curation
 
+> **VERSÉ le 2026-08-17.** Les 85 consignes et 171 associations de ce
+> répertoire sont dans `../recommendations_curated.csv` et
+> `../recommendation_codes_curated.csv`. Ce qui reste ici est la
+> justification — quelle citation soutient quelle ligne — conservée au
+> même titre qu'une relecture remplie.
+>
 > **Ce répertoire est une trace de curation, pas une entrée du
 > pipeline.** Le build ne lit que `data/guide_mco/*_curated.csv`. Ce
 > qu'on garde ici, c'est la justification : quelle citation soutient

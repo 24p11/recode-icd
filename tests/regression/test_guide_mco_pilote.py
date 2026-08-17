@@ -54,6 +54,14 @@ def resolus() -> pl.DataFrame:
 
 
 @pytest.fixture(scope="module")
+def merged_codes() -> pl.DataFrame:
+    path = _PROCESSED / "merged_codes.parquet"
+    if not path.is_file():
+        pytest.skip(f"{path} absent.")
+    return pl.read_parquet(path)
+
+
+@pytest.fixture(scope="module")
 def recommandations() -> pl.DataFrame:
     path = _PROCESSED / RECOMMENDATIONS_FILENAME
     if not path.is_file():
@@ -130,3 +138,83 @@ def test_specificite_coherente_avec_la_granularite(resolus: pl.DataFrame) -> Non
     attendu = {"CHAPITRE": 0, "PLAGE": 1, "CATEGORIE": 2, "CODE": 3}
     for type_expr, specificite in resolus.select("type_expr", "specificite").unique().rows():
         assert attendu[type_expr] == specificite
+
+
+# -- témoins ajoutés au versement du pilote complet ---------------------
+
+
+def test_i64_recoit_sa_condition_demploi(resolus: pl.DataFrame) -> None:
+    """AVC-02 : « I64 n'est employé qu'en l'absence de neuro-imagerie ».
+
+    C'est le témoin du rôle `regi` : la consigne régit l'emploi de I64
+    sans lui assigner de position. Avant la création du rôle, elle
+    n'avait aucune association et n'atteignait donc aucune fiche.
+    """
+    lignes = resolus.filter(pl.col("code") == "I64")
+    roles = dict(lignes.select("rec_id", "role").rows())
+    assert roles["GM2026-V-AVC-02"] == "regi"
+    assert roles["GM2026-V-AVC-03"] == "contexte", (
+        "AVC-03 vise I60-I64 pour situer la consigne, pas pour régir I64 — "
+        "si ce rôle bascule, la distinction regi/contexte a été perdue"
+    )
+
+
+def test_toutes_les_feuilles_du_chapitre_xxi_sont_couvertes(
+    resolus: pl.DataFrame, merged_codes: pl.DataFrame
+) -> None:
+    """Une consigne de chapitre descend sur TOUTES ses feuilles.
+
+    Décision actée : les fiches sont injectées telles quelles dans des
+    prompts, donc autonomes. Un trou ici signifierait qu'une fiche Z
+    ignore les règles générales du chapitre XXI.
+    """
+    xxi = merged_codes.filter(pl.col("code") == "XXI")
+    gauche, droite = int(xxi["left"][0]), int(xxi["right"][0])
+    feuilles = merged_codes.filter(
+        (pl.col("right") == pl.col("left") + 1)
+        & (pl.col("left") >= gauche)
+        & (pl.col("right") <= droite)
+    )
+    non_couvertes = sorted(set(feuilles["code"].to_list()) - set(resolus["code"].to_list()))
+    assert not non_couvertes, (
+        f"{len(non_couvertes)} feuilles du chapitre XXI sans consigne : {non_couvertes[:5]}"
+    )
+
+
+def test_un_z_non_cite_ne_recoit_que_des_consignes_de_chapitre(
+    resolus: pl.DataFrame,
+) -> None:
+    """Test de complétude ET de maîtrise du bruit.
+
+    `Z23.0` (vaccination contre le choléra) n'est nommé nulle part dans
+    l'article du guide. Il doit recevoir les consignes de niveau
+    chapitre — sinon la résolution ne descend pas — et **rien d'autre**,
+    sinon une consigne fuit hors de son périmètre.
+
+    ⚠ Ne pas prendre `Z55.0` comme témoin : il porte des subdivisions,
+    ce n'est donc pas une feuille du nested set et il n'apparaît dans
+    aucun artefact feuille. Même piège que `U07.1` pour le CSV maître.
+    """
+    lignes = resolus.filter(pl.col("code") == "Z23.0")
+    assert lignes.height > 0, "Z23.0 ne reçoit rien : la résolution ne descend plus"
+    niveaux = set(lignes["type_expr"].to_list())
+    assert niveaux == {"CHAPITRE"}, (
+        f"Z23.0 reçoit des consignes de niveau {sorted(niveaux - {'CHAPITRE'})} alors "
+        f"qu'il n'est nommé nulle part dans l'article. Une consigne fuit hors "
+        f"de son périmètre — vérifier la doctrine d'extraction (§4.2 bis)."
+    )
+
+
+def test_les_dix_roles_du_catalogue_sont_tous_admis(resolus: pl.DataFrame) -> None:
+    """Le pilote emploie effectivement `regi` et `interdit_DAS`.
+
+    Les deux modalités ont été créées pour ce pilote : si elles
+    disparaissaient des données, c'est que la migration des rôles aurait
+    été défaite.
+    """
+    employes = set(resolus["role"].to_list())
+    assert "regi" in employes and "interdit_DAS" in employes
+    assert "contexte" in employes, (
+        "plus aucun `contexte` : le rôle a probablement été absorbé par `regi`, "
+        "alors qu'ils répondent à deux questions différentes"
+    )
