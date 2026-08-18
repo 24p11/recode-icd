@@ -288,17 +288,63 @@ figé` :
 > recommandations doit pouvoir attester. La marge, techniquement, est le
 > commentaire HTML : invisible au flux de mots, donc invisible au test.
 
+#### Le brut est lossy — la leçon structurelle
+
+*Constaté le 2026-08-18, sur l'article MALNUTRITION, DÉNUTRITION.*
+
+`pdftotext` a rendu **quatre lignes vides** là où le PDF porte le tableau
+du §4.1 : six méthodes d'évaluation de la masse musculaire et leurs
+douze seuils hommes/femmes, entièrement perdus. Le tableau est
+**incorporé en image** dans le PDF — aucune option d'extraction ne le
+récupérera.
+
+Il faut en tirer la portée exacte des contrôles automatiques :
+
+> **Les vérifications machine — intégrité de transcription, plages de
+> citation — garantissent la fidélité À L'EXTRAIT. Jamais la complétude
+> vis-à-vis du PDF.** Un curé peut être parfaitement vert et amputé d'un
+> tableau entier ; une citation peut retomber exactement à sa ligne dans
+> un extrait qui a perdu le paragraphe voisin.
+
+**Seule la relecture humaine du PDF détecte le contenu perdu.** C'est
+l'une des raisons d'être de la couche curée : si le brut était fidèle,
+elle n'aurait d'intérêt que cosmétique. Le balayage des quatre articles
+du pilote n'a trouvé qu'un seul trou, mais un seul suffit à retirer au
+brut son statut de référence.
+
+D'où le mécanisme des **restitutions**, et sa particularité : par
+définition, leur contenu n'est nulle part dans l'extrait, donc **aucune
+machine ne peut les valider**. Chacune porte sa page PDF, et la
+contre-vérification est visuelle. C'est le seul contrôle possible.
+
+#### Les quatre déclarations de `extraits/curation.yaml`
+
+| Déclaration | Ce qu'elle couvre | Vérifiable par machine |
+|---|---|---|
+| `bornes` | lignes du brut couvertes — l'extraction se fait en pages entières, le curé porte un article | oui (titre vérifié à la première ligne) |
+| `suppressions_mecaniques` | artefacts de pagination : numéro de page, numéro de définition de note, appel hissé seul sur sa ligne | oui |
+| `suppressions_editoriales` | renvois de couche 2 (autres chapitres du guide, URL), avec motif | oui — le texte déclaré doit exister dans le brut |
+| `restitutions` | contenu du PDF absent du brut, avec sa page | **non** — contre-lecture visuelle obligatoire |
+
 **La règle est vérifiable, pas seulement écrite.**
 `recode_icd.recommendations.transcription` compare le flux de mots du
 curé à celui du brut, aux suppressions **déclarées** près
 (`data/guide_mco/extraits/suppressions.yaml`). Trois contrôles :
 
-1. **conservation** — égalité des multiensembles de mots : attrape
-   paraphrase, condensation, ajout ;
-2. **ordre du corps** — les mots du corps forment une sous-séquence de
-   ceux du brut : attrape le réordonnancement ;
-3. **ordre des notes** — même contrôle sur la section de notes, séparément,
-   parce que leur déplacement en bloc est précisément ce qu'on autorise.
+1. **conservation** — multiensemble du curé = multiensemble du brut,
+   moins les suppressions déclarées, plus les restitutions déclarées :
+   attrape paraphrase, condensation, ajout non déclaré ;
+2. **ordre du corps** — restitutions et notes retirées, le corps forme
+   une sous-séquence du brut : attrape le réordonnancement ;
+3. **ordre des notes** — même contrôle, séparément, parce que leur
+   déplacement est précisément ce qu'on autorise.
+
+**Les notes sont repliées à leur point d'appel** (`[^57: texte]`), et non
+rejetées en fin de fichier comme prévu initialement. La fiche est
+injectée d'un bloc dans un prompt : une note à sept cents lignes de son
+appel est un contexte perdu. La syntaxe doit rester explicite — des
+parenthèses nues seraient indiscernables de celles du guide, qui en
+emploie beaucoup.
 
 Ce qui échappe : une permutation de deux notes entre elles. Le contrôle 1
 borne le dégât à un déplacement, et la relecture humaine suit de toute

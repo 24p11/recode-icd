@@ -16,8 +16,9 @@ from __future__ import annotations
 import pytest
 
 from recode_icd.recommendations.transcription import (
-    Suppressions,
-    charge_suppressions,
+    Curation,
+    Restitution,
+    charge_curation,
     partitionne_cure,
     verifie_integrite,
 )
@@ -45,14 +46,10 @@ CURE = """<!-- transcription curée de extraits_bruts/temoin.txt -->
 ## ARTICLE TÉMOIN
 
 Le codage des AVC constitués fait appel, à la phase aigüe, aux
-catégories I60 à I63[^4].
-
-## Notes de bas de page
-
-[^4] Note de bas de page du guide.
+catégories I60 à I63[^4: Note de bas de page du guide.].
 """
 
-SUPPRESSIONS = Suppressions((r"\s*\d{1,3}\s*", r"\s*"))
+SUPPRESSIONS = Curation((r"\s*\d{1,3}\s*", r"\s*"))
 
 
 def _verifie(cure: str):
@@ -157,7 +154,7 @@ def test_suppression_non_declaree_echoue() -> None:
     Le sens de `suppressions.yaml` : rien ne disparaît en silence. Une
     heuristique compréhensive avalerait aussi les vraies pertes.
     """
-    rapport = verifie_integrite(BRUT, CURE, Suppressions(), "temoin")
+    rapport = verifie_integrite(BRUT, CURE, Curation(), "temoin")
     assert not rapport.conforme
     assert "78" in rapport.manquants
 
@@ -182,14 +179,100 @@ def test_balisage_markdown_ne_retire_aucun_mot() -> None:
 def test_suppressions_commun_fusionne_dans_chaque_article(tmp_path) -> None:
     chemin = tmp_path / "suppressions.yaml"
     chemin.write_text(
-        "commun:\n  lignes_regex: ['A']\narticles:\n  avc:\n    lignes_regex: ['B']\n",
+        "suppressions_mecaniques:\n"
+        "  commun:\n    lignes_regex: ['A']\n"
+        "  articles:\n    avc:\n      lignes_regex: ['B']\n",
         encoding="utf-8",
     )
-    charge = charge_suppressions(chemin)
+    charge = charge_curation(chemin)
     assert charge["avc"].lignes_regex == ("A", "B")
     assert charge[""].lignes_regex == ("A",)
 
 
 def test_suppressions_absentes_ne_cassent_pas(tmp_path) -> None:
     """Tant que le chantier B n'a rien curé, le fichier peut manquer."""
-    assert charge_suppressions(tmp_path / "inexistant.yaml")[""].lignes_regex == ()
+    assert charge_curation(tmp_path / "inexistant.yaml")[""].lignes_regex == ()
+
+
+# -- restitutions : le brut est lossy ----------------------------------
+
+
+def test_restitution_declaree_est_admise() -> None:
+    """Du contenu du PDF absent du brut, déclaré, ne fait pas échouer.
+
+    C'est le mécanisme qui rattrape la perte de `pdftotext` : sur le
+    pilote, le tableau du §4.1 de l'article dénutrition sort en quatre
+    lignes vides. Sans les restitutions, un curé fidèle au PDF serait
+    rejeté pour « ajout de texte ».
+    """
+    cure = CURE.replace(
+        "catégories I60 à I63[^4:",
+        "| A | B |\n|---|---|\n| 1 | 2 |\n\ncatégories I60 à I63[^4:",
+    )
+    curation = Curation(
+        lignes_regex=SUPPRESSIONS.lignes_regex,
+        restitutions=(
+            Restitution(
+                texte="| A | B |\n|---|---|\n| 1 | 2 |",
+                page_pdf=121,
+                motif="tableau en image, perdu par pdftotext",
+            ),
+        ),
+    )
+    rapport = verifie_integrite(BRUT, cure, curation, "temoin")
+    assert rapport.conforme, rapport.message()
+    assert rapport.n_mots_restitues == 4
+
+
+def test_restitution_non_declaree_est_refusee() -> None:
+    """Le même contenu, sans déclaration, échoue.
+
+    La déclaration n'est pas une formalité : c'est ce qui distingue
+    « j'ai retrouvé un tableau dans le PDF » de « j'ai inventé un
+    tableau ». Aucune machine ne peut faire la différence.
+    """
+    cure = CURE.replace("catégories", "| A | B |\n\ncatégories")
+    assert not verifie_integrite(BRUT, cure, SUPPRESSIONS, "temoin").conforme
+
+
+def test_restitution_declaree_mais_absente_est_signalee() -> None:
+    """Une déclaration qui ne sert plus est une déclaration périmée."""
+    curation = Curation(
+        lignes_regex=SUPPRESSIONS.lignes_regex,
+        restitutions=(Restitution(texte="tableau absent", page_pdf=121, motif="…"),),
+    )
+    rapport = verifie_integrite(BRUT, CURE, curation, "temoin")
+    assert rapport.restitutions_absentes
+
+
+def test_suppression_editoriale_declaree_est_admise() -> None:
+    """Un renvoi de couche 2 retiré avec son motif ne fait pas échouer."""
+    curation = Curation(
+        lignes_regex=SUPPRESSIONS.lignes_regex,
+        suppressions_editoriales=(("Note de bas de page du guide.", "renvoi couche 2"),),
+    )
+    cure = CURE.replace("[^4: Note de bas de page du guide.]", "[^4]")
+    rapport = verifie_integrite(BRUT, cure, curation, "temoin")
+    assert rapport.conforme, rapport.message()
+
+
+def test_suppression_editoriale_introuvable_est_signalee() -> None:
+    """Le texte déclaré doit exister dans le brut, sinon la déclaration ment."""
+    curation = Curation(
+        lignes_regex=SUPPRESSIONS.lignes_regex,
+        suppressions_editoriales=(("texte qui n'existe pas", "motif"),),
+    )
+    assert verifie_integrite(BRUT, CURE, curation, "temoin").suppressions_inutiles
+
+
+def test_note_repliee_est_extraite_du_corps() -> None:
+    """`[^n: …]` sort du corps avant le contrôle d'ordre.
+
+    Replier une note la fait remonter avant sa position d'origine — en
+    bas de page dans le brut. Sans extraction, le contrôle de
+    sous-séquence la refuserait, et le seul déplacement qu'on autorise
+    deviendrait impossible.
+    """
+    corps, notes = partitionne_cure("Texte[^4: contenu de la note] suite.")
+    assert corps == ["Texte", "suite."]
+    assert notes == ["contenu", "de", "la", "note"]

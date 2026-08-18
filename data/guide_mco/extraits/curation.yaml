@@ -1,0 +1,84 @@
+# Déclaration de curation des extraits du guide MCO.
+#
+# ─────────────────────────────────────────────────────────────────────
+# CE FICHIER EST UNE DÉCLARATION, PAS UN FILTRE DE CONFORT.
+#
+#   Le test d'intégrité exige que le flux de mots du curé égale celui
+#   du brut. Tout écart légitime se déclare ICI, motif par motif.
+#
+#   Ne JAMAIS élargir une entrée pour « faire passer le test ». Un curé
+#   qui a perdu un paragraphe doit échouer bruyamment : c'est
+#   exactement ce que le test existe pour attraper.
+# ─────────────────────────────────────────────────────────────────────
+#
+# ⚠ Portée du contrôle machine : il garantit la fidélité À L'EXTRAIT,
+#   jamais la complétude vis-à-vis du PDF. Le brut est lossy — pdftotext
+#   a rendu quatre lignes vides là où le PDF porte le tableau du §4.1.
+#   Seule la relecture humaine du PDF détecte ce contenu perdu.
+
+# ---------------------------------------------------------------------
+# 1. Bornes — quelles lignes du brut le curé couvre
+# ---------------------------------------------------------------------
+# L'extraction se fait en pages entières, donc un extrait déborde sur
+# l'article voisin. Le curé porte UN article.
+bornes:
+  malnutrition_denutrition:
+    premiere_ligne: 35
+    derniere_ligne: 305
+    titre: "MALNUTRITION, DÉNUTRITION"
+
+# ---------------------------------------------------------------------
+# 2. Suppressions mécaniques — artefacts de pagination
+# ---------------------------------------------------------------------
+suppressions_mecaniques:
+  commun:
+    lignes_regex:
+      # Ligne réduite à un nombre. TROIS artefacts de mise en page s'y
+      # confondent, et aucun ne porte de texte :
+      #   - le numéro de page ;
+      #   - le numéro qui introduit la définition d'une note (son TEXTE,
+      #     lui, est conservé et replié au point d'appel) ;
+      #   - l'appel de note lui-même, quand le rendu le hisse seul sur
+      #     sa ligne au lieu de le coller au mot (cas de « 62 » ici).
+      # Le curé ne doit donc reproduire aucun de ces nombres nus : la
+      # note se rattache à son mot par le marqueur `[^n: …]`.
+      - '\s*\d{1,3}\s*'
+      - '\s*'
+  articles: {}
+
+# ---------------------------------------------------------------------
+# 3. Suppressions éditoriales — renvois de « couche 2 »
+# ---------------------------------------------------------------------
+# Pointeurs vers d'autres chapitres du guide ou vers des sites externes :
+# hors périmètre de la base de recommandations (cf. §3 de la note de
+# conception et data/guide_mco/hors_perimetre.md). Chaque entrée porte
+# son texte EXACT et son motif — une suppression dont le texte ne se
+# retrouve plus dans le brut fait échouer le test.
+suppressions_editoriales:
+  malnutrition_denutrition:
+    - texte: "https://www.has-sante.fr/upload/docs/application/pdf/2019-11/fiche_outil_diagnostic_denutrition.pdf"
+      motif: "URL externe — couche 2, sans valeur pour le codage"
+
+# ---------------------------------------------------------------------
+# 4. Restitutions — contenu du PDF absent du brut
+# ---------------------------------------------------------------------
+# ⚠ AUCUNE MACHINE NE PEUT LES VÉRIFIER : par définition ce contenu
+#   n'est nulle part dans l'extrait. D'où `page_pdf`, obligatoire —
+#   la contre-vérification est visuelle, contre le PDF, et humaine.
+restitutions:
+  malnutrition_denutrition:
+    - page_pdf: 121
+      section: "4.1 Outil d'évaluation de la masse et/ou de la fonction musculaire"
+      motif: >-
+        Tableau incorporé en IMAGE dans le PDF : pdftotext rend quatre
+        lignes vides. Six méthodes et leurs seuils hommes/femmes,
+        entièrement perdus par l'extraction.
+      texte: |
+        | Méthodes de mesure | Hommes | Femmes |
+        |---|---|---|
+        | Force de préhension (dynamomètre) en kg | < 26 | < 16 |
+        | Vitesse de marche (m/s) | < 0,8 | < 0,8 |
+        | Indice de surface musculaire en L3 en cm²/m² (scanner, IRM) | 52,4 | 38,5 |
+        | Indice de masse musculaire en kg/m² (impédancemétrie) | 7,0 | 5,7 |
+        | Indice de masse non grasse (impédancemétrie) en kg/m² | < 17 | < 15 |
+        | Masse musculaire appendiculaire (DEXA) en kg/m² | 7,23 | 5,67 |

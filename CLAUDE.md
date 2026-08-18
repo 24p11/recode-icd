@@ -685,20 +685,38 @@ Les dix rôles se rangent en trois familles :
 | `data/guide_mco/extraits/` | transcription **curée**, relue, validée, figée — substrat d'ancrage du chantier B |
 
 La curation est un **reformatage sans réécriture**. Autorisé : recoller
-les lignes coupées, reconstruire les tableaux, sortir les notes de bas
-de page vers la fin avec marqueurs, baliser articles et sections.
-**Interdit : paraphrase, condensation, réordonnancement du corps,
-correction du texte du guide.** Les erreurs de l'original se signalent
-en marge — en commentaire HTML — elles ne se réparent pas.
+les lignes coupées, reconstruire les tableaux, replier les notes de bas
+de page à leur point d'appel (`[^57: texte]`), baliser articles et
+sections. **Interdit : paraphrase, condensation, réordonnancement du
+corps, correction du texte du guide.** Les erreurs de l'original se
+signalent en marge — en commentaire HTML — elles ne se réparent pas.
 
-`recode_icd.recommendations.transcription` rend la règle vérifiable :
-égalité du flux de mots brut/curé, aux suppressions **déclarées** près
-(`data/guide_mco/extraits/suppressions.yaml`), plus un contrôle d'ordre
-séparé sur le corps et sur les notes.
+`recode_icd.recommendations.transcription` rend la règle vérifiable, sur
+quatre déclarations de `data/guide_mco/extraits/curation.yaml` :
+`bornes` (lignes couvertes, l'extraction se faisant en pages entières),
+`suppressions_mecaniques` (artefacts de pagination),
+`suppressions_editoriales` (renvois de couche 2, avec motif) et
+`restitutions` (contenu du PDF absent du brut, avec sa page).
 
-> ⚠ **Ne jamais élargir `suppressions.yaml` pour faire passer un test.**
-> Un curé qui a perdu un paragraphe doit échouer bruyamment : c'est
-> l'unique raison d'être du fichier.
+> ⚠ **PITFALL — le brut est lossy, et les contrôles machine ne le
+> couvrent pas.** `pdftotext` a rendu quatre lignes vides là où le PDF
+> porte le tableau du §4.1 de l'article dénutrition : douze seuils
+> chiffrés, perdus, parce que le tableau est incorporé en **image**.
+>
+> Le test d'intégrité garantit la fidélité **à l'extrait**, jamais la
+> complétude vis-à-vis du **PDF**. Un curé peut être vert et amputé d'un
+> tableau entier. **Seule la relecture humaine du PDF détecte ce contenu
+> perdu** — et c'est une des raisons d'être de la couche curée. Même
+> limite pour les plages de citation : une citation peut retomber
+> exactement à sa ligne dans un extrait incomplet.
+>
+> Corollaire : une **restitution** n'est vérifiable par aucune machine,
+> puisque son contenu n'est nulle part dans l'extrait. Elle porte donc sa
+> `page_pdf`, et la contre-lecture est visuelle.
+
+> ⚠ **Ne jamais élargir `curation.yaml` pour faire passer un test.**
+> Un curé qui a perdu un paragraphe doit échouer bruyamment ; un curé
+> qui invente une phrase aussi. C'est l'unique raison d'être du fichier.
 
 **Circuit par article** : produire le curé (test vert) → relecture et
 validation humaine, les tableaux surtout → commit et gel → l'extraction

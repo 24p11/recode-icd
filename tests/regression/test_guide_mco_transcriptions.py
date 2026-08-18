@@ -43,7 +43,7 @@ _ARTICLES = articles_cures()
 def test_transcription_fidele_a_son_brut(article: str) -> None:
     """Le flux de mots du curé égale celui du brut, aux suppressions déclarées près.
 
-    Si ce test casse, **ne pas élargir `suppressions.yaml` pour le faire
+    Si ce test casse, **ne pas élargir `curation.yaml` pour le faire
     passer** : le message dit précisément quels mots ont été perdus ou
     ajoutés. Une suppression ne s'ajoute que si elle est justifiée en
     tant que telle — un artefact de pagination, pas un paragraphe gênant.
@@ -75,7 +75,7 @@ def test_le_repertoire_des_cures_existe() -> None:
     déclaration.
     """
     assert CURES_DIR.is_dir()
-    assert (CURES_DIR / "suppressions.yaml").is_file()
+    assert (CURES_DIR / "curation.yaml").is_file()
 
 
 def test_les_bruts_du_pilote_sont_toujours_la() -> None:
