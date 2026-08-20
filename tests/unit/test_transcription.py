@@ -90,7 +90,9 @@ def test_ajout_de_texte_detecte() -> None:
     """
     rapport = _verifie(CURE.replace("catégories I60 à I63", "catégories I60 à I63 (sic)"))
     assert not rapport.conforme
-    assert "(sic)" in rapport.ajoutes
+    # « (sic) » absorbe le point qui suit : la ponctuation détachée est
+    # recollée au mot précédent, des deux côtés (cf. `_fusionne_ponctuation`).
+    assert any("sic" in mot for mot in rapport.ajoutes), rapport.ajoutes
 
 
 def test_annotation_en_commentaire_est_invisible() -> None:

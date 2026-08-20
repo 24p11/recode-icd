@@ -67,6 +67,15 @@ suppressions_mecaniques:
 # son texte EXACT et son motif — une suppression dont le texte ne se
 # retrouve plus dans le brut fait échouer le test.
 suppressions_editoriales:
+  anemie_posthemorragique_d62:
+    - texte: "Y compris si celui-ci est né sans vie (voir pages 70 et 92)."
+      motif: >-
+        Note de bas de page de l'article VOISIN (ACCOUCHEMENT IMPROMPTU),
+        imprimée au bas de la page que les deux articles se partagent.
+        Elle tombe dans les bornes du D62 sans lui appartenir : son appel
+        est dans l'article précédent. Retirée pour cette raison, et non
+        parce qu'elle serait de couche 2.
+
   malnutrition_denutrition:
     - texte: "https://www.has-sante.fr/upload/docs/application/pdf/2019-11/fiche_outil_diagnostic_denutrition.pdf"
       motif: "URL externe — couche 2, sans valeur pour le codage"

@@ -35,8 +35,14 @@ from recode_icd.recommendations.transcription import (
     verifie_article,
 )
 
-#: Titre de section : « 1. », « 4.1 », « 3.2. », ou le titre d'article.
-_RE_TITRE_NUMEROTE = re.compile(r"^\d+(\.\d+)*\.?\s+\S")
+#: Titre de section : « 4.1 Outil… », « 4. Consignes générales ».
+#:
+#: ⚠ Le motif doit exiger une NUMÉROTATION, pas un simple nombre en tête
+#: de ligne : « 12 grammes par décilitre chez la femme… » est une phrase
+#: coupée par la mise en page, pas un titre. La confondre empêche le
+#: recollage et laisse la phrase en deux morceaux — défaut relevé en
+#: relecture sur l'article D62.
+_RE_TITRE_NUMEROTE = re.compile(r"^\d+(\.\d+)+\.?\s+\S|^\d+\.\s+[A-ZÀ-ÝŒ]")
 
 #: Règle numérotée à la mode du guide : « 1°) », « 6°) ».
 _RE_REGLE_NUMEROTEE = re.compile(r"^\d+°\)")
@@ -173,7 +179,20 @@ def main() -> None:
 
     curation = charge_curation()[args.article]
     corps, notes = decoupe(args.article)
-    texte, orphelines = replie_notes("\n\n".join(en_blocs(corps)), notes)
+    texte = "\n\n".join(en_blocs(corps))
+
+    # Les suppressions éditoriales déclarées valent des DEUX côtés : le
+    # test les retire du brut, le jet doit les retirer du curé. Sans
+    # cela, le script réintroduit à chaque passe ce qu'une relecture
+    # avait écarté — constaté sur la note 5 du D62, qui appartient à
+    # l'article voisin.
+    for texte_supprime, _motif in curation.suppressions_editoriales:
+        avant = texte
+        texte = texte.replace(texte_supprime, "", 1)
+        if texte == avant:
+            print(f"⚠ suppression déclarée introuvable dans le jet : « {texte_supprime[:60]} »")
+
+    texte, orphelines = replie_notes(texte, notes)
     titre = (curation.bornes.titre if curation.bornes else "").strip()
     contenu = "\n\n".join(balise(texte.split("\n\n"), titre))
 

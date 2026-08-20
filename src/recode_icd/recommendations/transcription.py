@@ -124,6 +124,9 @@ _RE_BALISAGE = re.compile(r"^[#>\s]*|[|]", re.MULTILINE)
 #: détection.
 _PUCES = frozenset("-–—*•‣·")
 
+#: Ponctuation que le rendu détache ou colle au gré des exposants.
+_PONCTUATION = frozenset(".,;:!?»)")
+
 #: En-tête de provenance d'un fichier brut. Ce n'est pas du texte de guide.
 _RE_ENTETE_BRUT = re.compile(r"\A(?:#[^\n]*\n)+", re.MULTILINE)
 
@@ -341,16 +344,27 @@ def _depouille(mots: list[str], appels: tuple[int, ...]) -> list[str]:
             if depouille != mot:
                 if not depouille or all(c in _PUCES for c in depouille):
                     continue
-                # L'exposant collait la ponctuation : « kg/m261; » alors
-                # que la typographie du guide écrit « 18,5 ; » partout
-                # ailleurs. Une fois l'appel retiré, la forme juste
-                # détache le signe — on la produit des deux côtés.
-                if len(depouille) > 1 and depouille[-1] in ";:!?»":
-                    sortie += [depouille[:-1], depouille[-1]]
-                    continue
                 sortie.append(depouille)
                 continue
         sortie.append(mot)
+    return sortie
+
+
+def _fusionne_ponctuation(mots: list[str]) -> list[str]:
+    """Recolle au mot précédent un token fait de seule ponctuation.
+
+    Le rendu détache la ponctuation de façon erratique — « (G83.5) . »,
+    « kg/m261; » — parce qu'un exposant s'intercalait. La typographie
+    française détache d'ailleurs légitimement « 18,5 ; ». Normaliser des
+    DEUX côtés rend le contrôle indifférent à cette variation, qui n'est
+    jamais du texte.
+    """
+    sortie: list[str] = []
+    for mot in mots:
+        if sortie and mot and all(c in _PONCTUATION for c in mot):
+            sortie[-1] += mot
+        else:
+            sortie.append(mot)
     return sortie
 
 
@@ -427,9 +441,9 @@ def verifie_integrite(
     """Compare un curé à son brut. Aucune I/O, fonction pure."""
     bruts_bruts, suppressions_inutiles = mots_bruts(texte_brut, curation)
     corps_brut, notes_brut = partitionne_cure(texte_cure)
-    bruts = _depouille(bruts_bruts, curation.appels_notes)
-    corps = _depouille(corps_brut, curation.appels_notes)
-    notes = _depouille(notes_brut, curation.appels_notes)
+    bruts = _fusionne_ponctuation(_depouille(bruts_bruts, curation.appels_notes))
+    corps = _fusionne_ponctuation(_depouille(corps_brut, curation.appels_notes))
+    notes = _fusionne_ponctuation(_depouille(notes_brut, curation.appels_notes))
 
     # Les restitutions n'existent pas dans le brut : on les retire du
     # corps avant tout contrôle d'ordre, et on les ajoute au brut avant
@@ -442,7 +456,9 @@ def verifie_integrite(
         # syntaxe du curé (tableau markdown), elle doit subir le même
         # dépouillement du balisage — sinon ses barres verticales
         # compteraient d'un côté et pas de l'autre.
-        attendus = _depouille(_nettoie(restitution.texte), curation.appels_notes)
+        attendus = _fusionne_ponctuation(
+            _depouille(_nettoie(restitution.texte), curation.appels_notes)
+        )
         mots_restitues += attendus
         reste = _retire_sequence(corps_sans_restitution, attendus)
         if reste is None:
