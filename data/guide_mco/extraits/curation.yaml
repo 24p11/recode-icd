@@ -26,6 +26,18 @@ bornes:
     premiere_ligne: 35
     derniere_ligne: 305
     titre: "MALNUTRITION, DÉNUTRITION"
+  avc:
+    premiere_ligne: 20
+    derniere_ligne: 203
+    titre: "ACCIDENTS VASCULAIRES CÉRÉBRAUX"
+  anemie_posthemorragique_d62:
+    premiere_ligne: 51
+    derniere_ligne: 83
+    titre: "ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION"
+  chapitre_xxi:
+    premiere_ligne: 36
+    derniere_ligne: 676
+    titre: "EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM–10"
 
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
@@ -94,3 +106,7 @@ restitutions:
 # ici, il pourrait être une donnée ailleurs.
 appels_notes:
   malnutrition_denutrition: [57, 58, 59, 60, 61, 62, 63, 64]
+  avc: [4]
+  anemie_posthemorragique_d62: []
+  chapitre_xxi: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+                 41, 42, 43, 44, 45, 46, 47, 48]
