@@ -255,7 +255,7 @@
 
 **Condition** : —
 
-**Citation** (`malnutrition_denutrition.md` L165-176) :
+**Citation** (`malnutrition_denutrition.md` L165-195) :
 « #### 4.1 Outil d’évaluation de la masse et/ou de la fonction musculaire — | Méthodes de mesure | Hommes | Femmes | | Force de préhension (dynamomètre) en kg | < 26 | < 16 | | Vitesse de marche (m/s) | < 0,8 | < 0,8 | | Indice de surface musculaire en L3 en cm²/m² (scanner, IRM) | 52,4 | 38,5 | | Indice de masse musculaire en kg/m² (impédancemétrie) | 7,0 | 5,7 | | Indice de masse non grasse (impédancemétrie) en kg/m² | < 17 | < 15 | | Masse musculaire appendiculaire (DEXA) en kg/m² | 7,23 | 5,67 | — L’utilisation d’une seule de ces méthodes suffit »
 
 | code_expr | role | centralite | condition |

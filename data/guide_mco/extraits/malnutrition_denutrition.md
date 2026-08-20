@@ -173,6 +173,24 @@ Le code CIM10 est déterminé en fonction des critères correspondant aux défin
 | Indice de masse non grasse (impédancemétrie) en kg/m² | < 17 | < 15 |
 | Masse musculaire appendiculaire (DEXA) en kg/m² | 7,23 | 5,67 |
 
+<!-- DÉFAUT DU GUIDE, signalé et NON réparé (RF, contre-lecture du PDF p. imprimée 113).
+
+     Trois lignes de ce tableau donnent un seuil SANS comparateur, là où
+     les trois autres portent « < » :
+
+       - indice de surface musculaire en L3 : « 52,4 » / « 38,5 »
+       - indice de masse musculaire (impédancemétrie) : « 7,0 » / « 5,7 »
+       - masse musculaire appendiculaire (DEXA) : « 7,23 » / « 5,67 »
+
+     La direction de comparaison est donc indéterminée sur ces trois
+     méthodes. La transcription reproduit l'asymétrie telle quelle : la
+     corriger ferait dire au guide ce qu'il ne dit pas, et c'est
+     précisément ce que la base doit pouvoir attester.
+
+     Consigné dans data/guide_mco/hors_perimetre.md, section
+     « Divergences et défauts du guide constatés ». Si la version
+     définitive corrige ce point, le diff de millésime le montrera. -->
+
 L’utilisation d’une seule de ces méthodes suffit
 
 #### 4.2 Critère « albuminémie »

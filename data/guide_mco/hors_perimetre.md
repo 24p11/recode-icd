@@ -126,13 +126,45 @@ définition de la séance qui reste ici.
 
 ---
 
-## Divergences guide / CIM-10 constatées
+## Divergences et défauts du guide constatés
 
 Passages où le guide et la classification ne se recouvrent pas
 exactement. **Aucune ligne de recommandation n'en est tirée** : combler
 un silence du guide serait exactement l'ajout que la finalité « ne
 jamais élargir ni brouiller le périmètre » interdit. On les consigne
 pour que le constat survive à la session.
+
+### §4.1 dénutrition — trois seuils sans direction de comparaison
+
+*Constaté le 2026-08-20, contre-lecture du PDF, page imprimée 113
+(PDF 121). Article MALNUTRITION, DÉNUTRITION, §4.1 « Outil d'évaluation
+de la masse et/ou de la fonction musculaire ».*
+
+Le tableau donne six méthodes et leurs seuils hommes/femmes. **Trois
+lignes portent le comparateur « < », trois ne le portent pas** :
+
+| Méthode | Seuils | Comparateur |
+|---|---|---|
+| Force de préhension (dynamomètre) | 26 / 16 kg | `<` |
+| Vitesse de marche | 0,8 m/s | `<` |
+| Indice de masse non grasse (impédancemétrie) | 17 / 15 kg/m² | `<` |
+| Indice de surface musculaire en L3 (scanner, IRM) | 52,4 / 38,5 cm²/m² | **absent** |
+| Indice de masse musculaire (impédancemétrie) | 7,0 / 5,7 kg/m² | **absent** |
+| Masse musculaire appendiculaire (DEXA) | 7,23 / 5,67 kg/m² | **absent** |
+
+Sur ces trois méthodes, **la direction de comparaison est
+indéterminée** : le texte ne dit pas si le critère est rempli au-dessus
+ou en dessous du seuil.
+
+**Reproduit tel quel, non réparé.** La transcription curée et la
+consigne `GM2026-V-DEN-17` portent l'asymétrie du guide. Rétablir les
+« < » manquants ferait dire au guide ce qu'il ne dit pas — et c'est
+précisément ce que la base de recommandations doit pouvoir attester.
+L'ambiguïté est signalée en marge du curé, en commentaire invisible au
+flux de mots.
+
+Ce tableau est celui que `pdftotext` avait perdu : le défaut n'était pas
+détectable avant la restitution.
 
 ### E44.1 Malnutrition protéinoénergétique légère — énuméré, jamais employé
 
