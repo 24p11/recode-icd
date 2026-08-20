@@ -1,7 +1,38 @@
+<!-- ============================================================
+     COMMENT RELIRE CE FICHIER
+
+     Le test d'intégrité garantit qu'aucun mot n'a été ajouté, perdu ni
+     déplacé par rapport à l'extrait brut. Il ne dit RIEN sur ce qui
+     vous revient :
+
+       1. Le tableau du §4.1 est une RESTITUTION — il est absent du
+          brut, pdftotext l'a perdu (il est en image dans le PDF).
+          Aucune machine ne peut le vérifier : à contrôler à l'œil
+          contre le PDF, page 121 (imprimée 113).
+       2. Les six notes repliées `[^n: …]` sont-elles raccrochées au
+          bon appel ?
+       3. Les titres et les listes rendent-ils la structure du PDF ?
+
+     VOUS POUVEZ ÉDITER CE FICHIER DIRECTEMENT. Après édition :
+
+         uv run pytest -k transcription -q
+
+     - vert  : votre correction est du reformatage — c'est votre
+               domaine, rien à déclarer ;
+     - rouge : le message dit quels mots ont changé. Soit c'est un
+               écart involontaire, soit c'est un choix éditorial qui
+               doit être déclaré dans extraits/curation.yaml — dans ce
+               second cas, signalez-le plutôt que de modifier le YAML.
+
+     Pour une remarque, un doute, une erreur du guide à signaler :
+     écrivez-la en commentaire HTML comme celui-ci. Le test l'ignore,
+     je la reprends.
+     ============================================================ -->
+
 <!-- Transcription curée — MALNUTRITION, DÉNUTRITION
      Guide méthodologique MCO 2026 (version provisoire), chap. V, pp. imprimées 109-114.
      Brut : extraits_bruts/malnutrition_denutrition.txt, lignes 35-305.
-     Curation : voir extraits/curation.yaml (suppressions et restitutions déclarées).
+     Curation déclarée : extraits/curation.yaml.
      Note 64 (URL des courbes CRESS) est hors des bornes de l'article : son appel
      « CRESS64 » reste dans le texte, la note n'est pas transcrite. -->
 
@@ -226,14 +257,10 @@ Les courbes disponibles sur le site de la CRESS64 .
 
 Le couloir habituel est le couloir habituel de croissance pondérale de l’enfant ou de référence pour des pathologies spécifiques (trisomie 21, myopathie, etc.).
 
-#### 4.6 Critère « stagnation pondérale aboutissant à un poids situé entre 2 et 3 couloirs en dessous
-
-du couloir habituel » pour la dénutrition modérée chez l’enfant
+#### 4.6 Critère « stagnation pondérale aboutissant à un poids situé entre 2 et 3 couloirs en dessous du couloir habituel » pour la dénutrition modérée chez l’enfant
 
 Pour le critère de la définition HAS, il faut comprendre 2 couloirs en dessous du couloir habituel, et jusqu’à la limite du 3ème couloir
 
-#### 4.7 Critère « stagnation pondérale aboutissant à un poids situé au moins 3 couloirs en dessous
-
-du couloir habituel » pour la dénutrition sévère chez l’enfant
+#### 4.7 Critère « stagnation pondérale aboutissant à un poids situé au moins 3 couloirs en dessous du couloir habituel » pour la dénutrition sévère chez l’enfant
 
 Pour le critère de la définition HAS « poids situé au moins « 3 couloirs (représentant 3 écart- types) » il faut comprendre 3 couloirs en percentiles.
