@@ -45,62 +45,35 @@ La HAS publie en novembre 2019 et mis à jour en 2021 des recommandations de bon
 ### 1. Le diagnostic de la dénutrition chez les patients âgés de moins de 18 ans
 
 Les critères phénotypiques sont les suivants :
-
--   perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids
-
-habituel avant le début de la maladie ;
-
--   IMC < courbe IOTF 18,5 ;
-
--   stagnation pondérale aboutissant à un poids situé 2 couloirs en dessous du couloir
-
-habituel de l’enfant (courbe de poids) ;
-
--   réduction de la masse et/ou de la fonction musculaires (lorsque les normes et/ou les outils
-
-sont disponibles)
+- perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids habituel avant le début de la maladie ;
+- IMC < courbe IOTF 18,5 ;
+- stagnation pondérale aboutissant à un poids situé 2 couloirs en dessous du couloir habituel de l’enfant (courbe de poids) ;
+- réduction de la masse et/ou de la fonction musculaires (lorsque les normes et/ou les outils sont disponibles)
 
 Les critères étiologiques sont les suivants :
-
-- réduction de la prise alimentaire ≥ 50 % pendant plus d’1 semaine, ou toute réduction des
-
-apports pendant plus de 2 semaines par rapport : •   à la consommation alimentaire habituelle quantifiée, •   ou aux besoins protéino-énergétiques estimés ;
-
--   absorption réduite (malabsorption/maldigestion) ;
-
--   situation d’agression (hypercatabolisme protéique avec ou sans syndrome inflammatoire):
-
-•   pathologie aiguë ou •   pathologie chronique évolutive ou •   pathologie maligne évolutive
+- réduction de la prise alimentaire ≥ 50 % pendant plus d’1 semaine, ou toute réduction des apports pendant plus de 2 semaines par rapport :
+  * à la consommation alimentaire habituelle quantifiée,
+  * ou aux besoins protéino-énergétiques estimés ;
+- absorption réduite (malabsorption/maldigestion) ;
+- situation d’agression (hypercatabolisme protéique avec ou sans syndrome inflammatoire):
+   * pathologie aiguë ou
+   * pathologie chronique évolutive ou
+   * pathologie maligne évolutive
 
 #### 1.1 Les critères de dénutrition modérée chez les patients âgés de moins de 18 ans
 
--   courbe IOTF 17 < IMC < courbe IOTF 18,5 ;
-
--   perte de poids ≥ 5 % et ≤ 10 % en 1 mois ou ≥ 10 % et ≤ 15 % en 6 mois par rapport au
-
-poids habituel avant le début de la maladie ;
-
--   stagnation pondérale aboutissant à un poids situé entre 2 et 3 couloirs en dessous du
-
-couloir habituel.
+- courbe IOTF 17 < IMC < courbe IOTF 18,5 ;
+- perte de poids ≥ 5 % et ≤ 10 % en 1 mois ou ≥ 10 % et ≤ 15 % en 6 mois par rapport au poids habituel avant le début de la maladie ;
+- stagnation pondérale aboutissant à un poids situé entre 2 et 3 couloirs en dessous du couloir habituel.
 
 L’observation d’un seul critère de dénutrition modérée suffit pour poser le diagnostic de dénutrition modérée dès lors que la dénutrition est présente ( 1 caractère phénotypique + 1 caractère étiologique).
 
 #### 1.2 Les critères de dénutrition sévère chez les patients âgés de moins de 18 ans
 
--   IMC ≤ courbe IOTF 17 ;
-
--   perte de poids > 10 % en 1 mois ou > 15 % en 6 mois par rapport au poids habituel avant
-
-le début de la maladie ;
-
--   stagnation pondérale aboutissant à un poids situé au moins 3 couloirs (représentant 3
-
-écart-types) en dessous du couloir habituel ;
-
--   infléchissement statural (avec perte d’au moins un couloir par rapport à la taille
-
-habituelle).
+-  IMC ≤ courbe IOTF 17 ;
+-  perte de poids > 10 % en 1 mois ou > 15 % en 6 mois par rapport au poids habituel avant le début de la maladie ;
+-  stagnation pondérale aboutissant à un poids situé au moins 3 couloirs (représentant 3 écart-types) en dessous du couloir habituel ;
+- infléchissement statural (avec perte d’au moins un couloir par rapport à la taille habituelle).
 
 L’observation d’un seul critère de dénutrition sévère suffit à qualifier la dénutrition de sévère dès lors que la dénutrition est présente (1 caractère étiologique + 1 caractère phénotypique).
 
@@ -111,52 +84,33 @@ Une dénutrition sévère se code E43 Malnutrition protéino-énergétique grave
 ### 2. Le diagnostic de la dénutrition chez l’adulte (≥ 18 ans et < 70 ans)
 
 Les critères phénotypiques sont les suivants :
-
--   perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids
-
-habituel avant le début de la maladie ;
-
--   IMC < 18,5 kg/m2 ;
-
--   réduction quantifiée de la masse et/ou de la fonction musculaires.
+-  perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids habituel avant le début de la maladie ;
+- IMC < 18,5 kg/m2 ;
+- réduction quantifiée de la masse et/ou de la fonction musculaires.
 
 Les critères étiologiques sont les suivants :
-
--   réduction de la prise alimentaire ≥ 50 % pendant plus d’1 semaine, ou toute réduction des
-
-apports pendant plus de 2 semaines par rapport : •   à la consommation alimentaire habituelle quantifiée, •   ou aux besoins protéino-énergétiques estimés ;
-
--   absorption réduite (malabsorption/maldigestion) ;
-
--   situation d’agression (hypercatabolisme protéique avec ou sans syndrome inflammatoire)
-
-•   pathologie aiguë ou •   pathologie chronique évolutive ou •   pathologie maligne évolutive.
+- réduction de la prise alimentaire ≥ 50 % pendant plus d’1 semaine, ou toute réduction des apports pendant plus de 2 semaines par rapport :
+   * à la consommation alimentaire habituelle quantifiée,
+   * ou aux besoins protéino-énergétiques estimés ;
+- absorption réduite (malabsorption/maldigestion) ;
+- situation d’agression (hypercatabolisme protéique avec ou sans syndrome inflammatoire)
+   *  pathologie aiguë ou
+   * pathologie chronique évolutive ou
+   * pathologie maligne évolutive.
 
 #### 2.1 Les critères de dénutrition modérée chez l’adulte (≥ 18 ans et < 70 ans)
 
--   17 < IMC < 18,5 kg/m2 ;
-
--   perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids
-
-habituel avant le début de la maladie ;
-
--   mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie >30 g/L et
-
-< 35 g/L. Les seuils d’albuminémie sont à prendre en compte quel que soit l’état inflammatoire.
+- 17 < IMC < 18,5 kg/m2 ;
+- perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids habituel avant le début de la maladie ;
+- mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie >30 g/L et < 35 g/L. Les seuils d’albuminémie sont à prendre en compte quel que soit l’état inflammatoire.
 
 L’observation d’un seul critère de dénutrition modérée suffit à qualifier la dénutrition de modérée dès lors que la dénutrition est présente (1 caractère étiologique + 1 caractère phénotypique).
 
 #### 2.2 Les critères de dénutrition sévère chez l’adulte (≥ 18 ans et < 70 ans)
 
--   IMC ≤ 17 kg/m2 ;
-
--   perte de poids ≥ 10 % en 1 mois ou ≥ 15 % en 6 mois ou ≥ 15 % par rapport au poids
-
-habituel avant le début de la maladie ;
-
--   mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie ≤ 30g/L. Les
-
-seuils d’albuminémie sont à prendre en compte quel que soit l’état inflammatoire.
+- IMC ≤ 17 kg/m2 ;
+- perte de poids ≥ 10 % en 1 mois ou ≥ 15 % en 6 mois ou ≥ 15 % par rapport au poids habituel avant le début de la maladie ;
+- mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie ≤ 30g/L. Les seuils d’albuminémie sont à prendre en compte quel que soit l’état inflammatoire.
 
 L’observation d’un seul critère de dénutrition sévère suffit à qualifier la dénutrition de sévère dès lors que la dénutrition est présente (1 caractère étiologique + 1 caractère phénotypique).
 
@@ -168,53 +122,33 @@ Une dénutrition sévère se code E43 Malnutrition protéino-énergétique grave
 
 ### 3. Le diagnostic de la dénutrition chez la personne âgée de 70 ans et plus
 
-Le diagnostic repose sur la recommandation de bonnes pratiques de la HAS élaborée en collaboration avec la Fédération française de nutrition intitulée "Diagnostic de la dénutrition chez la personne de 70 ans et plus". Pour les patients de 70 ans et plus, le diagnostic de la dénutrition nécessite la présence d’au moins
+Le diagnostic repose sur la recommandation de bonnes pratiques de la HAS élaborée en collaboration avec la Fédération française de nutrition intitulée "Diagnostic de la dénutrition chez la personne de 70 ans et plus".
 
-1 critère phénotypique et 1 critère étiologique. Ce diagnostic est un préalable obligatoire avant de
+Pour les patients de 70 ans et plus, le diagnostic de la dénutrition nécessite la présence d’au moins 1 critère phénotypique et 1 critère étiologique. Ce diagnostic est un préalable obligatoire avant de juger de sa sévérité. Il repose exclusivement sur des critères non biologiques. Ces critères sont résumés ci-dessous.
 
-juger de sa sévérité. Il repose exclusivement sur des critères non biologiques. Ces critères sont résumés ci-dessous. Les critères phénotypiques sont les suivants (1 seul critère suffit) :
-
--   perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids
-
-habituel avant le début de la maladie ;
-
--   IMC < 22 kg/m261; [^61: Ce critère ne concerne pas la personne âgée de 70 ans et plus en situation d’obésité.]
-
--   sarcopénie confirmée par une réduction quantifiée de la force et de la masse musculaire.
+Les critères phénotypiques sont les suivants (1 seul critère suffit) :
+- perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids habituel avant le début de la maladie ;
+- IMC < 22 kg/m2 [^61: Ce critère ne concerne pas la personne âgée de 70 ans et plus en situation d’obésité.];
+- sarcopénie confirmée par une réduction quantifiée de la force et de la masse musculaire.
 
 Les critères étiologiques sont les suivants (1 seul critère suffit) :
-
--   réduction de la prise alimentaire ≥ 50 % pendant plus d’1 semaine, ou toute réduction des
-
-apports pendant plus de 2 semaines par rapport à la consommation alimentaire habituelle ou aux besoins protéino-énergétiques ;
-
--   absorption réduite (malabsorption/maldigestion) ;
-
--   situation d’agression (avec ou sans syndrome inflammatoire) : pathologie aiguë ou
-
-pathologie chronique évolutive ou pathologie maligne évolutive.
+- réduction de la prise alimentaire ≥ 50 % pendant plus d’1 semaine, ou toute réduction des apports pendant plus de 2 semaines par rapport à la consommation alimentaire habituelle ou aux besoins protéino-énergétiques ;
+- absorption réduite (malabsorption/maldigestion) ;
+- situation d’agression (avec ou sans syndrome inflammatoire) : pathologie aiguë ou pathologie chronique évolutive ou pathologie maligne évolutive.
 
 #### 3.1 Les critères de dénutrition modérée chez les patients âgés de 70 ans et plus
 
--   20 ≤ IMC < 22 ;
-
--   perte de poids ≥ 5 % et < 10 % en 1 mois ou ≥ 10 % et < 15 % en 6 mois ou ≥ 10 % et <
-
-15 % par rapport au poids habituel avant le début de la maladie ;
-
--   mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie > 30 g/L.
+- 20 ≤ IMC < 22 ;
+- perte de poids ≥ 5 % et < 10 % en 1 mois ou ≥ 10 % et < 15 % en 6 mois ou ≥ 10 % et < 15 % par rapport au poids habituel avant le début de la maladie ;
+- mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie > 30 g/L.
 
 L’observation d’un seul critère de dénutrition modérée suffit pour poser le diagnostic de dénutrition modérée dès lors que la dénutrition est présente (1 caractère phénotypique + 1 caractère étiologique).
 
 #### 3.2. Les critères de dénutrition sévère chez les patients âgés de 70 ans et plus
 
--   IMC < 20 kg/m2 ;
-
--   Perte de poids ≥ 10 % en 1 mois ou ≥ 15 % en 6 mois ou ≥ 15 % par rapport au poids
-
-habituel avant le début de la maladie ;
-
--   mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie ≤ 30 g/L.
+- IMC < 20 kg/m2 ;
+- Perte de poids ≥ 10 % en 1 mois ou ≥ 15 % en 6 mois ou ≥ 15 % par rapport au poids habituel avant le début de la maladie ;
+- mesure de l’albuminémie par immunonéphélémétrie ou immunoturbidimétrie ≤ 30 g/L.
 
 L’observation d’un seul critère de dénutrition sévère suffit à qualifier la dénutrition de sévère dès lors que la dénutrition est présente (1 caractère étiologique + 1 caractère phénotypique).
 

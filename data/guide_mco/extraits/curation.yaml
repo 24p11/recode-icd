@@ -82,3 +82,15 @@ restitutions:
         | Indice de masse musculaire en kg/m² (impédancemétrie) | 7,0 | 5,7 |
         | Indice de masse non grasse (impédancemétrie) en kg/m² | < 17 | < 15 |
         | Masse musculaire appendiculaire (DEXA) en kg/m² | 7,23 | 5,67 |
+
+# ---------------------------------------------------------------------
+# 5. Appels de note — du balisage, pas du texte
+# ---------------------------------------------------------------------
+# Ce sont des EXPOSANTS. `pdftotext` les colle au mot (« précision58. »,
+# « kg/m261; ») ou les hisse seuls sur une ligne. Le curé les remplace
+# par des marqueurs `[^n: …]` : on les retire donc des deux côtés.
+#
+# Déclarés article par article, et jamais devinés : « 61 » est un appel
+# ici, il pourrait être une donnée ailleurs.
+appels_notes:
+  malnutrition_denutrition: [57, 58, 59, 60, 61, 62, 63, 64]

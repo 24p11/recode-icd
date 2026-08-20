@@ -276,3 +276,68 @@ def test_note_repliee_est_extraite_du_corps() -> None:
     corps, notes = partitionne_cure("Texte[^4: contenu de la note] suite.")
     assert corps == ["Texte", "suite."]
     assert notes == ["contenu", "de", "la", "note"]
+
+
+# -- balisage de liste et appels de note -------------------------------
+
+
+def test_puces_de_liste_sont_du_balisage() -> None:
+    """« • » du guide et « * » du markdown sont deux notations du même rien.
+
+    Les retirer d'un seul côté ferait échouer toute reconstruction de
+    liste — et une liste reconstruite est précisément ce qu'on demande
+    au curé.
+    """
+    brut = "# en-tête\n\nA :\n•   premier\n•   second\n"
+    cure = "A :\n\n- premier\n- second\n"
+    assert verifie_integrite(brut, cure, Curation(), "t").conforme
+
+
+def test_appel_de_note_colle_au_mot_est_retire_des_deux_cotes() -> None:
+    """`pdftotext` colle l'exposant : « précision58. », « kg/m261; ».
+
+    Le curé porte un marqueur `[^58: …]` à la place. Sans ce
+    dépouillement, tout article à notes serait rejeté.
+    """
+    brut = "# en-tête\n\nMalnutrition sans précision58.\n\n58\n   Auxquels s’ajoute O25.\n"
+    # Convention : le marqueur se place APRÈS le mot COMPLET, ponctuation
+    # comprise. L'insérer à l'intérieur (« précision[^58: …]. ») couperait
+    # le token en deux et ferait échouer le contrôle, à juste titre.
+    cure = "Malnutrition sans précision58. [^58: Auxquels s’ajoute O25.]\n"
+    curation = Curation(lignes_regex=(r"\s*\d{1,3}\s*", r"\s*"), appels_notes=(58,))
+    assert verifie_integrite(brut, cure, curation, "t").conforme
+
+
+def test_appel_non_declare_fait_echouer() -> None:
+    """Les appels sont déclarés article par article, jamais devinés.
+
+    Deviner reviendrait à supprimer des nombres qui sont de la donnée.
+    """
+    brut = "# en-tête\n\nMalnutrition sans précision58.\n"
+    cure = "Malnutrition sans précision.\n"
+    assert not verifie_integrite(brut, cure, Curation(), "t").conforme
+
+
+def test_nombre_de_donnee_nest_pas_ampute() -> None:
+    """« 2061 » n'est pas « 20 » suivi de l'appel 61.
+
+    Garde-fou : un token entièrement numérique et plus long que l'appel
+    est de la donnée. Sans lui, déclarer un appel mutilerait les chiffres
+    de l'article — or cet article est plein de seuils.
+    """
+    brut = "# en-tête\n\nvaleur 2061 mesurée\n"
+    cure = "valeur 2061 mesurée\n"
+    curation = Curation(appels_notes=(61,))
+    assert verifie_integrite(brut, cure, curation, "t").conforme
+
+
+def test_ponctuation_collee_par_lexposant_est_detachee() -> None:
+    """« kg/m261; » devient « kg/m2 ; », la typographie du guide.
+
+    L'exposant collait le point-virgule ; le guide écrit « 18,5 ; »
+    partout ailleurs. La forme détachée est produite des deux côtés.
+    """
+    brut = "# en-tête\n\nIMC < 22 kg/m261; sarcopénie\n"
+    cure = "IMC < 22 kg/m2 ; sarcopénie\n"
+    curation = Curation(appels_notes=(61,))
+    assert verifie_integrite(brut, cure, curation, "t").conforme

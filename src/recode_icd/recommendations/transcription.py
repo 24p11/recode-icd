@@ -90,6 +90,11 @@ TITRE_NOTES = "## Notes de bas de page"
 #: lignes de son appel est un contexte perdu. La syntaxe doit rester
 #: explicite — des parenthèses nues seraient indiscernables de celles
 #: du guide, qui en emploie beaucoup.
+#:
+#: ⚠ **Le marqueur se place APRÈS le mot complet, ponctuation comprise** :
+#: « précision58. [^58: …] » et non « précision[^58: …]. ». L'insérer à
+#: l'intérieur couperait le token en deux et ferait échouer le contrôle,
+#: à juste titre — le brut, lui, porte « précision58. » d'un bloc.
 _RE_NOTE_REPLIEE = re.compile(r"\[\^([^:\]]+):\s*(.*?)\]", re.DOTALL)
 
 #: Marqueur de renvoi nu (« [^57] »), pour une note restée en fin.
@@ -109,6 +114,15 @@ _RE_ANNOTATION = re.compile(r"<!--.*?-->", re.DOTALL)
 #: dans le flux de mots.
 _RE_LIGNE_FILET = re.compile(r"^[-:| ]+$", re.MULTILINE)
 _RE_BALISAGE = re.compile(r"^[#>\s]*|[|]", re.MULTILINE)
+
+#: Puces de liste. Le guide emploie « • » et « - » ; le curé emploie la
+#: syntaxe markdown « - » et « * ». Ce sont deux notations du MÊME
+#: balisage : on les retire des deux côtés, jamais un seul.
+#:
+#: Un tiret isolé qui serait du texte (« l'adulte - novembre 2019 ») est
+#: retiré lui aussi — mais symétriquement, donc sans perte de pouvoir de
+#: détection.
+_PUCES = frozenset("-–—*•‣·")
 
 #: En-tête de provenance d'un fichier brut. Ce n'est pas du texte de guide.
 _RE_ENTETE_BRUT = re.compile(r"\A(?:#[^\n]*\n)+", re.MULTILINE)
@@ -158,6 +172,13 @@ class Curation:
 
     lignes_regex: tuple[str, ...] = ()
     bornes: Bornes | None = None
+    #: Numéros d'appel de note de l'article. Ce sont des EXPOSANTS, donc
+    #: du balisage : `pdftotext` les colle au mot (« précision58. »,
+    #: « kg/m261; ») ou les hisse seuls sur une ligne. Le curé les
+    #: remplace par des marqueurs `[^n: …]`, donc on les retire des deux
+    #: côtés. Déclarés article par article : les deviner reviendrait à
+    #: supprimer des nombres qui sont, eux, de la donnée.
+    appels_notes: tuple[int, ...] = ()
     suppressions_editoriales: tuple[tuple[str, str], ...] = ()  # (texte, motif)
     restitutions: tuple[Restitution, ...] = ()
 
@@ -248,13 +269,15 @@ def charge_curation(path: Path | None = None) -> dict[str, Curation]:
     editoriales = brut.get("suppressions_editoriales") or {}
     restitutions = brut.get("restitutions") or {}
     bornes = brut.get("bornes") or {}
+    appels = brut.get("appels_notes") or {}
 
-    articles = set(par_article) | set(editoriales) | set(restitutions) | set(bornes)
+    articles = set(par_article) | set(editoriales) | set(restitutions) | set(bornes) | set(appels)
     sortie: dict[str, Curation] = {"": Curation(commun)}
     for article in articles:
         b = (bornes.get(article) or {}) or None
         sortie[article] = Curation(
             lignes_regex=commun + tuple((par_article.get(article) or {}).get("lignes_regex", [])),
+            appels_notes=tuple(int(a) for a in (appels.get(article) or [])),
             bornes=Bornes(
                 premiere_ligne=int(b["premiere_ligne"]),
                 derniere_ligne=int(b["derniere_ligne"]),
@@ -287,6 +310,48 @@ def _mots(texte: str) -> list[str]:
     même caractère accentué étant le même mot pour un lecteur.
     """
     return unicodedata.normalize("NFC", texte).split()
+
+
+def _depouille(mots: list[str], appels: tuple[int, ...]) -> list[str]:
+    """Retire le balisage de liste et les appels de note d'un flux.
+
+    Appliqué **des deux côtés** : ce qui est du balisage dans le brut
+    l'est aussi dans le curé, seule la notation change.
+
+    L'appel est **ancré en fin de token**, éventuellement suivi de
+    ponctuation : c'est un exposant, il se place après le mot
+    (« précision58. », « kg/m261; »). Un garde interdit d'amputer un
+    nombre qui serait de la donnée — « 2061 » n'est pas « 20 » suivi de
+    l'appel 61.
+    """
+    if not appels:
+        return [m for m in mots if not all(c in _PUCES for c in m)]
+
+    alternance = "|".join(str(a) for a in sorted(appels, reverse=True))
+    motif = re.compile(rf"(?:{alternance})(?=[;:.,!?»)]*$)")
+    sortie: list[str] = []
+    for mot in mots:
+        if all(c in _PUCES for c in mot):
+            continue
+        noyau = mot.rstrip(";:.,!?»)")
+        # Un token entièrement numérique et plus long que l'appel est une
+        # donnée, pas un appel collé.
+        if not (noyau.isdigit() and len(noyau) > max(len(str(a)) for a in appels)):
+            depouille = motif.sub("", mot, count=1)
+            if depouille != mot:
+                if not depouille or all(c in _PUCES for c in depouille):
+                    continue
+                # L'exposant collait la ponctuation : « kg/m261; » alors
+                # que la typographie du guide écrit « 18,5 ; » partout
+                # ailleurs. Une fois l'appel retiré, la forme juste
+                # détache le signe — on la produit des deux côtés.
+                if len(depouille) > 1 and depouille[-1] in ";:!?»":
+                    sortie += [depouille[:-1], depouille[-1]]
+                    continue
+                sortie.append(depouille)
+                continue
+        sortie.append(mot)
+    return sortie
 
 
 def _retire_sequence(mots: list[str], sequence: list[str]) -> list[str] | None:
@@ -360,8 +425,11 @@ def verifie_integrite(
     texte_brut: str, texte_cure: str, curation: Curation, article: str = "?"
 ) -> RapportIntegrite:
     """Compare un curé à son brut. Aucune I/O, fonction pure."""
-    bruts, suppressions_inutiles = mots_bruts(texte_brut, curation)
-    corps, notes = partitionne_cure(texte_cure)
+    bruts_bruts, suppressions_inutiles = mots_bruts(texte_brut, curation)
+    corps_brut, notes_brut = partitionne_cure(texte_cure)
+    bruts = _depouille(bruts_bruts, curation.appels_notes)
+    corps = _depouille(corps_brut, curation.appels_notes)
+    notes = _depouille(notes_brut, curation.appels_notes)
 
     # Les restitutions n'existent pas dans le brut : on les retire du
     # corps avant tout contrôle d'ordre, et on les ajoute au brut avant
@@ -374,7 +442,7 @@ def verifie_integrite(
         # syntaxe du curé (tableau markdown), elle doit subir le même
         # dépouillement du balisage — sinon ses barres verticales
         # compteraient d'un côté et pas de l'autre.
-        attendus = _nettoie(restitution.texte)
+        attendus = _depouille(_nettoie(restitution.texte), curation.appels_notes)
         mots_restitues += attendus
         reste = _retire_sequence(corps_sans_restitution, attendus)
         if reste is None:
