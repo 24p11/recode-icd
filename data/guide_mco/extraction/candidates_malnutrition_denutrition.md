@@ -10,7 +10,7 @@
 > Texte source : `data/guide_mco/extraits_bruts/malnutrition_denutrition.txt`
 > (guide chap. V, pp. imprimées 109-114). Les `L…` y renvoient.
 
-**15 consignes, 21 associations**.
+**16 consignes, 23 associations**.
 
 ---
 
@@ -246,4 +246,20 @@
 | code_expr | role | centralite | condition |
 |---|---|---|---|
 | `E40-E46` | `regi` | sujet |  |
+
+### GM2026-V-DEN-17 — `definition`
+
+**Situation** : Dénutrition — seuils d'évaluation de la masse et de la fonction musculaires
+
+**Texte** : Le critère phénotypique de réduction de la masse ou de la fonction musculaires s'apprécie par l'une des six méthodes suivantes, une seule suffisant : force de préhension au dynamomètre (< 26 kg chez l'homme, < 16 kg chez la femme) ; vitesse de marche (< 0,8 m/s dans les deux sexes) ; indice de surface musculaire en L3 au scanner ou en IRM (52,4 chez l'homme, 38,5 chez la femme, en cm²/m²) ; indice de masse musculaire par impédancemétrie (7,0 et 5,7 kg/m²) ; indice de masse non grasse par impédancemétrie (< 17 et < 15 kg/m²) ; masse musculaire appendiculaire au DEXA (7,23 et 5,67 kg/m²).
+
+**Condition** : —
+
+**Citation** (`malnutrition_denutrition.md` L165-176) :
+« #### 4.1 Outil d’évaluation de la masse et/ou de la fonction musculaire — | Méthodes de mesure | Hommes | Femmes | | Force de préhension (dynamomètre) en kg | < 26 | < 16 | | Vitesse de marche (m/s) | < 0,8 | < 0,8 | | Indice de surface musculaire en L3 en cm²/m² (scanner, IRM) | 52,4 | 38,5 | | Indice de masse musculaire en kg/m² (impédancemétrie) | 7,0 | 5,7 | | Indice de masse non grasse (impédancemétrie) en kg/m² | < 17 | < 15 | | Masse musculaire appendiculaire (DEXA) en kg/m² | 7,23 | 5,67 | — L’utilisation d’une seule de ces méthodes suffit »
+
+| code_expr | role | centralite | condition |
+|---|---|---|---|
+| `E43` | `regi` | sujet | critère phénotypique attestant la dénutrition |
+| `E44.0` | `regi` | sujet | critère phénotypique attestant la dénutrition |
 

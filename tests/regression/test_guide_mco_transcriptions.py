@@ -166,7 +166,13 @@ def test_les_citations_retombent_dans_leur_plage() -> None:
 
     hors_plage: list[str] = []
     for ligne in pl.read_csv(csv).iter_rows(named=True):
-        source = (BRUTS_DIR / str(ligne["citation_fichier"])).read_text(encoding="utf-8")
+        # `citation_fichier` porte l'ancrage : un `.txt` renvoie au brut,
+        # un `.md` à la transcription curée. Les deux coexistent — le
+        # pilote reste ancré sur les bruts (ses citations sont validées),
+        # les candidates issues d'un curé s'ancrent sur lui.
+        nom = str(ligne["citation_fichier"])
+        racine = CURES_DIR if nom.endswith(".md") else BRUTS_DIR
+        source = (racine / nom).read_text(encoding="utf-8")
         # `split("\n")` et NON `splitlines()` : pdftotext insère des sauts
         # de page \f, que `splitlines()` compte comme des fins de ligne —
         # les numéros seraient décalés par rapport à un éditeur ou à grep.
