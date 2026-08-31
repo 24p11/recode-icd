@@ -728,6 +728,23 @@ quatre déclarations de `data/guide_mco/extraits/curation.yaml` :
 > puisque son contenu n'est nulle part dans l'extrait. Elle porte donc sa
 > `page_pdf`, et la contre-lecture est visuelle.
 
+> ⚠ **PITFALL — un contrôle différentiel est aveugle aux défauts de son
+> propre code.** Le test d'intégrité compare deux artefacts dérivés du
+> MÊME dépouillement. Si ce dépouillement est fautif, il l'est des deux
+> côtés à la fois : le contrôle reste vert en comparant des jetons
+> corrompus.
+>
+> Vécu le 2026-08-31 : `_depouille` amputait les codes CIM dont les
+> chiffres coïncident avec un numéro de note déclaré — `Z29` → `Z`,
+> `Z51.30` → `Z51.` — sur un chapitre qui numérote ses notes de 23 à 48
+> et cite `Z29`, `Z33`, `Z37`, `Z40`, `Z51.30`. Trois curés verts, et
+> des données fausses.
+>
+> **Les pièges connus se testent par invariant ABSOLU, jamais par
+> comparaison** : « un code CIM n'est jamais dépouillé » s'affirme sur
+> une entrée choisie, pas sur l'égalité de deux sorties. Tout piège
+> identifié dans ce chantier doit recevoir son test d'invariant.
+
 > ⚠ **Ne jamais élargir `curation.yaml` pour faire passer un test.**
 > Un curé qui a perdu un paragraphe doit échouer bruyamment ; un curé
 > qui invente une phrase aussi. C'est l'unique raison d'être du fichier.
