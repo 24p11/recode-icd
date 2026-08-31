@@ -135,6 +135,46 @@ ancres_notes:
   avc:
     "4": "locked-in syndrome (G83.5)."
 
+  # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
+  # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et
+  # déclarées une à une, chacune vérifiée unique par le script.
+  chapitre_xxi:
+    "23": "ou associé (DA)."            # DP/DR/DA : renvoi au chapitre IV
+    # 24 était placée AUTOMATIQUEMENT, et au mauvais endroit : un jeton
+    # unique finissant par « 24 » existait ailleurs dans l'article. Un
+    # appel univoque n'est pas un appel juste — déclarée pour cette
+    # raison, alors que rien ne la signalait comme orpheline.
+    "24": "(après observation, examens…) n'est finalement pas confirmée."
+    "25": "Z04.8 a des extensions :"    # création des extensions, v11 des GHM
+    "26": "situation 1.3.1)."           # surveillance négative : rappel « gradation »
+    "27": "il a son sens premier de « traitement par des moyens chimiques »."  # Z08/Z09
+    "28": "(élévation du PSA,"          # sigle PSA développé
+    "29": "réalisé lors des séjours de nouveau-nés,"   # dépistage SPN, programme de santé
+    "30": "selon les recommandations de la HAS,"       # rapports HAS sur le dépistage
+    "32": "tous les séjours comportant un accouchement."  # Z37 compteur d'accouchements
+    # L’appel 33 est SOUDÉ à la ponctuation et au mot suivant par le
+    # rendu (« obligatoire33.On ») : l’ancre doit couvrir le jeton entier,
+    # sinon la note le coupe en deux.
+    "33": "obligatoire33.On"
+    "34": "donne lieu à deux codages distincts :"      # renvoi chapitre IV 1.2.2
+    "35": "d’un système diffuseur implantable (chambre implantable)."  # index « accès vasculaire »
+    # Trois paragraphes du chapitre sont rédigés à l'identique (Z43/Z45,
+    # Z51, Z93/Z95/Z96) : l'ancre doit citer le code pour être unique.
+    "36": "du code Z43.– ou Z45.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10."
+    "37": "au sens du PMSI en MCO,"     # renvoi chapitre VII (séances)
+    "39": "a en effet dans la CIM–10 son sens premier de « traitement par des moyens chimiques »."  # Z51.2
+    "40": "Z51.3 a des extensions :"    # créées pour la v10c des GHM
+    "41": "du code Z51.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est"
+    "42": "serait incorrect au regard de la CIM– 10."  # Z51 : renvoi volume 1
+    # Trois notes de plus une fois le filtre des codes CIM appliqué au
+    # PLACEMENT : elles se posaient sur Z31…, Z38.0, Z44… — un code
+    # homographe, à deux sections de leur appel réel.
+    "31": "est indispensable au classement du RSS dans un GHM d'accouchement."
+    "38": "Z51.1 code le DP des séjours pour chimiothérapie pour tumeur."
+    "44": "Enfant recevant du lait provenant d’un lactarium."
+    "43": "aux fins de prélèvements d’organes ou de tissus."   # renvoi chapitre I 1.3.3
+    "46": "des situations de surveillance négative"    # renvoi chapitre VI 1.3.1
+
 # ---------------------------------------------------------------------
 # 7. Validations — qui a relu, et quand
 # ---------------------------------------------------------------------

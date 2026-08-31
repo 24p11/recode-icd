@@ -728,6 +728,18 @@ quatre déclarations de `data/guide_mco/extraits/curation.yaml` :
 > puisque son contenu n'est nulle part dans l'extrait. Elle porte donc sa
 > `page_pdf`, et la contre-lecture est visuelle.
 
+> ⚠ **PITFALL DE PROCÉDÉ — l'ancrage des notes.** Un mécanisme de
+> dérivation positionnelle (colonne de l'exposant hissé dans la sortie
+> `pdftotext`) a été construit puis **retiré après quatre itérations** :
+> sa sophistication croissait plus vite que son rendement face à la
+> déclaration manuelle, qui coûte ≈ 2 min par note. Il violait de plus
+> le principe de la relecture structurelle — l'outillage dirige la
+> relecture, il ne la remplace pas.
+>
+> **Toute proposition de le réintroduire doit d'abord battre ce coût.**
+> Dix-neuf notes déclarées à la main valent moins d'une heure ; aucune
+> des quatre itérations n'a tenu dans ce budget.
+
 > ⚠ **PITFALL — un contrôle différentiel est aveugle aux défauts de son
 > propre code.** Le test d'intégrité compare deux artefacts dérivés du
 > MÊME dépouillement. Si ce dépouillement est fautif, il l'est des deux

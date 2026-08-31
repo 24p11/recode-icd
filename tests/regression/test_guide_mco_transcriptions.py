@@ -230,8 +230,16 @@ def test_chaque_cure_fige_porte_son_relecteur() -> None:
     sortie machine, ce que le procédé refuse — la relecture est une
     étape structurelle, pas transitoire.
     """
+    # Le manifeste liste les curés FIGÉS. Un curé fraîchement produit et
+    # soumis à relecture n'y figure pas encore, et n'a donc pas de
+    # relecteur — c'est un état normal du circuit, pas un manquement.
+    manifeste = CURES_DIR / "SHA256SUMS"
+    figes = [
+        ligne.split(maxsplit=1)[1].strip().removesuffix(".md")
+        for ligne in manifeste.read_text(encoding="utf-8").splitlines()
+    ]
     curations = charge_curation(CURES_DIR / "curation.yaml")
-    for article in articles_cures():
+    for article in figes:
         curation = curations.get(article)
         assert curation is not None and curation.relecteur and curation.date_validation, (
             f"« {article} » est figé sans relecteur ni date. Renseigner "

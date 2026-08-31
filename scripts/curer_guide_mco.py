@@ -29,6 +29,7 @@ import re
 from pathlib import Path
 
 from recode_icd.recommendations.transcription import (
+    _RE_CODE_CIM,
     BRUTS_DIR,
     CURES_DIR,
     charge_curation,
@@ -194,7 +195,17 @@ def replie_notes(
             continue
 
         motif = re.compile(rf"\S*?{numero}[;:.,!?»)]*(?=\s|$)")
-        trouves = [m for m in motif.finditer(texte) if not m.group(0).strip(";:.,!?»)").isdigit()]
+        # Un code CIM n'est jamais un appel de note, même quand ses
+        # chiffres coïncident : le chapitre XXI numérote de 23 à 48 et
+        # cite Z29, Z33, Z37, Z38.0, Z40… Le filtre existait sur le
+        # dépouillement, il manquait ici — la note 38 se posait sur
+        # « Z38.0 », à deux sections de son appel.
+        trouves = [
+            m
+            for m in motif.finditer(texte)
+            if not m.group(0).strip(";:.,!?»)").isdigit()
+            and not _RE_CODE_CIM.search(m.group(0).strip(";:.,!?»)"))
+        ]
         if len(trouves) != 1:
             orphelines.append(f"{numero} : {len(trouves)} appel(s) possible(s) — ancre à déclarer")
             continue
