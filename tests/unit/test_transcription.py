@@ -343,3 +343,30 @@ def test_ponctuation_collee_par_lexposant_est_detachee() -> None:
     cure = "IMC < 22 kg/m2 ; sarcopénie\n"
     curation = Curation(appels_notes=(61,))
     assert verifie_integrite(brut, cure, curation, "t").conforme
+
+
+# -- codes CIM homographes des numéros de note --------------------------
+
+
+def test_un_code_cim_nest_pas_un_appel_de_note() -> None:
+    """Piège permanent des articles riches en codes Z.
+
+    Sur le chapitre XXI, les numéros de note vont de 23 à 48 — et le
+    texte est plein de `Z29`, `Z33`, `Z34`, `Z37`, `Z40`, `Z51.30`…
+    Le premier examen annonçait 8 appels possibles pour la note 29 et 5
+    pour la 43 : **tous étaient des codes**. Après filtrage, 18 des 19
+    notes orphelines n'avaient plus aucun candidat, ce qui a mis sur la
+    piste des appels hissés.
+
+    Prendre un code pour un appel place la note à un endroit arbitraire
+    ET ampute le code dans le flux de mots — deux dégâts pour un.
+    """
+    from recode_icd.recommendations.transcription import _depouille
+
+    # « Z29 » et « Z51.30 » ne doivent PAS perdre leurs chiffres quand
+    # 29 et 30 sont déclarés comme appels de note.
+    mots = ["catégorie", "Z29", "code", "Z51.30", "chimiothérapie29"]
+    depouille = _depouille(mots, (29, 30))
+    assert "Z29" in depouille, depouille
+    assert "Z51.30" in depouille, depouille
+    assert "chimiothérapie" in depouille, "l'appel réellement collé à un mot doit, lui, être retiré"

@@ -127,6 +127,12 @@ _PUCES = frozenset("-–—*•‣·")
 #: Ponctuation que le rendu détache ou colle au gré des exposants.
 _PONCTUATION = frozenset(".,;:!?»)")
 
+#: Code CIM-10, éventuellement suivi d'un tiret de subdivision. Ses
+#: chiffres ne sont JAMAIS un appel de note, même quand ils coïncident :
+#: le chapitre XXI numérote ses notes de 23 à 48 et cite Z29, Z33, Z37,
+#: Z40, Z51.30… Amputer un code le corromprait des deux côtés à la fois.
+_RE_CODE_CIM = re.compile(r"[A-Z]\d{2}(\.\d{1,3})?[–—-]?$")
+
 #: En-tête de provenance d'un fichier brut. Ce n'est pas du texte de guide.
 _RE_ENTETE_BRUT = re.compile(r"\A(?:#[^\n]*\n)+", re.MULTILINE)
 
@@ -358,6 +364,9 @@ def _depouille(mots: list[str], appels: tuple[int, ...]) -> list[str]:
         if all(c in _PUCES for c in mot):
             continue
         noyau = mot.rstrip(";:.,!?»)")
+        if _RE_CODE_CIM.search(noyau):
+            sortie.append(mot)
+            continue
         # Un token entièrement numérique et plus long que l'appel est une
         # donnée, pas un appel collé.
         if not (noyau.isdigit() and len(noyau) > max(len(str(a)) for a in appels)):
