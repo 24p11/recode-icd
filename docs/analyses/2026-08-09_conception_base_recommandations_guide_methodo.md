@@ -239,6 +239,8 @@ generate-then-verify) plutôt qu'en injection amont.
 
 ## 7. Chantier d'extraction (à cadrer plus tard)
 
+On ne devine pas, on déclare — voir la cible du procédé en tête de section. Un curé n'existe qu'en vert (test d'intégrité) et n'est figé qu'après relecture humaine, avec relecteur et date dans curation.yaml.
+
 - Extraction LLM-assistée section par section du PDF, avec validation
   humaine ; le schéma generate-then-verify testé sur Stream/notion est
   directement réutilisable (générer les lignes candidates, vérifier

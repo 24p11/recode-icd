@@ -114,12 +114,14 @@ def en_blocs(corps: list[str]) -> list[str]:
     """Recolle les lignes coupées ; titres et puces gardent leur ligne."""
     blocs: list[str] = []
     tampon: list[str] = []
+    precedente_vide = True
     for ligne in corps:
         nu = ligne.strip()
         if not nu:
             if tampon:
                 blocs.append(" ".join(tampon))
                 tampon = []
+            precedente_vide = True
             continue
         if (
             _RE_TITRE_NUMEROTE.match(nu)
@@ -129,30 +131,83 @@ def en_blocs(corps: list[str]) -> list[str]:
             if tampon:
                 blocs.append(" ".join(tampon))
                 tampon = []
-            blocs.append(nu)
+            # Puce du guide (« • ») rendue en markdown : deux notations
+            # du même balisage, que le contrôle traite en équivalentes.
+            blocs.append("- " + nu[1:].strip() if nu[0] in "•*-" else nu)
+            precedente_vide = False
+            continue
+        # Suite d'une puce coupée par la mise en page : elle appartient à
+        # l'item précédent, pas à un paragraphe neuf. Le D62 n'a pas de
+        # puce et n'exerçait donc pas ce cas — l'AVC, si.
+        # Une continuation SUIT immédiatement son item : une ligne vide
+        # la sépare d'un paragraphe neuf. Sans ce signal, tout ce qui
+        # suit la liste s'y engouffre.
+        if not tampon and not precedente_vide and blocs and blocs[-1].startswith("- "):
+            blocs[-1] += " " + nu
+            precedente_vide = False
             continue
         tampon.append(nu)
+        precedente_vide = False
     if tampon:
         blocs.append(" ".join(tampon))
     return blocs
 
 
-def replie_notes(texte: str, notes: dict[str, str]) -> tuple[str, list[str]]:
-    """Insère `[^n: …]` après le mot portant l'appel. Retourne les orphelines.
+class NoteOrpheline(SystemExit):
+    """Une note dont l'ancre n'est ni univoque ni déclarée."""
 
-    L'appel est cherché **en fin de token** : c'est un exposant, il se
-    place après le mot (« précision58. », « kg/m261; »). Une note dont
-    l'appel reste introuvable est signalée plutôt que placée au hasard.
+
+def replie_notes(
+    texte: str, notes: dict[str, str], ancres: dict[str, str]
+) -> tuple[str, dict[str, str]]:
+    """Insère `[^n: …]` après l'appel. Retourne `(texte, provenance)`.
+
+    **Aucune recherche de repli.** Une note se place sur un appel
+    UNIVOQUE — le numéro apparaît collé en fin d'un seul token de
+    l'article — ou sur une ancre DÉCLARÉE dans `curation.yaml`. Tout
+    autre cas est une orpheline, et le script refuse de produire.
+
+    C'est la leçon de la note 4 de l'AVC : l'appel « 4 » se retrouve en
+    fin de « I64 », de « 24 heures », de « G81.08 »… Une heuristique de
+    repli l'avait placée quarante lignes trop haut, en silence. On ne
+    devine pas, on déclare.
+
+    `provenance` dit, pour chaque note, « automatique » ou « déclarée » :
+    c'est ce que le tableau de relecture doit montrer.
     """
+    provenance: dict[str, str] = {}
     orphelines: list[str] = []
+
     for numero in sorted(notes, key=int):
-        motif = re.compile(rf"(\S*?{numero}[;:.,!?»)]*)(?=\s|$)")
-        trouve = motif.search(texte)
-        if trouve is None:
-            orphelines.append(numero)
+        ancre = ancres.get(numero)
+        if ancre:
+            occurrences = texte.count(ancre)
+            if occurrences != 1:
+                orphelines.append(
+                    f"{numero} : l'ancre déclarée « {ancre[:40]} » apparaît "
+                    f"{occurrences} fois, il en faut exactement une"
+                )
+                continue
+            fin = texte.index(ancre) + len(ancre)
+            texte = texte[:fin] + f" [^{numero}: {notes[numero]}]" + texte[fin:]
+            provenance[numero] = "déclarée"
             continue
-        texte = texte[: trouve.end()] + f" [^{numero}: {notes[numero]}]" + texte[trouve.end() :]
-    return texte, orphelines
+
+        motif = re.compile(rf"\S*?{numero}[;:.,!?»)]*(?=\s|$)")
+        trouves = [m for m in motif.finditer(texte) if not m.group(0).strip(";:.,!?»)").isdigit()]
+        if len(trouves) != 1:
+            orphelines.append(f"{numero} : {len(trouves)} appel(s) possible(s) — ancre à déclarer")
+            continue
+        fin = trouves[0].end()
+        texte = texte[:fin] + f" [^{numero}: {notes[numero]}]" + texte[fin:]
+        provenance[numero] = "automatique"
+
+    if orphelines:
+        raise NoteOrpheline(
+            "Notes orphelines — curé NON produit. Déclarer leur ancre dans "
+            "extraits/curation.yaml, section `ancres_notes` :\n  " + "\n  ".join(orphelines)
+        )
+    return texte, provenance
 
 
 def balise(blocs: list[str], titre_article: str) -> list[str]:
@@ -192,9 +247,28 @@ def main() -> None:
         if texte == avant:
             print(f"⚠ suppression déclarée introuvable dans le jet : « {texte_supprime[:60]} »")
 
-    texte, orphelines = replie_notes(texte, notes)
+    # Recoller la ponctuation détachée AVANT de replier les notes : le
+    # rendu détache point et virgule là où un exposant s'intercalait
+    # (« (G83.5) . »), et une ancre déclarée doit pouvoir viser la forme
+    # normale. La typographie française ne détache ni l'un ni l'autre —
+    # contrairement à « ; » et « : », laissés tels quels.
+    texte = texte.replace(" .", ".").replace(" ,", ",")
+    texte, provenance = replie_notes(texte, notes, curation.ancres_notes)
     titre = (curation.bornes.titre if curation.bornes else "").strip()
-    contenu = "\n\n".join(balise(texte.split("\n\n"), titre))
+    # Deux items de liste consécutifs se suivent d'un simple saut : une
+    # ligne vide entre eux couperait la liste en markdown.
+    blocs_balises = balise(texte.split("\n\n"), titre)
+    morceaux: list[str] = []
+    for bloc in blocs_balises:
+        if morceaux and bloc.startswith("- ") and morceaux[-1].startswith("- "):
+            morceaux[-1] += "\n" + bloc
+        else:
+            morceaux.append(bloc)
+    contenu = "\n\n".join(morceaux)
+    # Le rendu détache point et virgule là où un exposant s'intercalait
+    # (« (G83.5) . »). La typographie française ne les détache jamais —
+    # contrairement à « ; » et « : », qu'on laisse tels quels. Le
+    # contrôle traite déjà les deux formes en équivalentes.
 
     entete = (
         f"<!-- Transcription curée — {titre}\n"
@@ -208,8 +282,12 @@ def main() -> None:
     cible = CURES_DIR / f"{args.article}.md"
     cible.write_text(entete + contenu + "\n", encoding="utf-8")
     print(f"Écrit : {cible.relative_to(Path.cwd())}")
-    if orphelines:
-        print(f"⚠ notes sans appel trouvé : {orphelines} — à placer à la main")
+    if provenance:
+        auto = sum(1 for v in provenance.values() if v == "automatique")
+        print(
+            f"{len(provenance)} note(s) : {auto} par appel univoque, "
+            f"{len(provenance) - auto} par ancre déclarée"
+        )
     print(verifie_article(args.article).message())
 
 

@@ -628,6 +628,8 @@ relectures de deux versions se mélangent silencieusement.
 > `docs/analyses/2026-08-09_conception_base_recommandations_guide_methodo.md`
 > (RÉFÉRENCE — à lire avant toute modification de `recommendations/`).
 
+Cible du procédé : sortie machine tracée à partir du PDF, relecture humaine obligatoire pour validation et corrections, gel par empreinte. La relecture est une étape structurelle, pas transitoire : l'outillage sert à la diriger (intégrité des mots prouvée, orphelines listées, écarts déclarés), jamais à la supprimer. Toute proposition d'heuristique visant à éviter une relecture doit être refusée au profit d'une déclaration dans curation.yaml
+
 ### Deux tables, dix rôles
 
 `recommendations` porte la consigne (une ligne), `recommendation_codes`
@@ -678,6 +680,8 @@ Les dix rôles se rangent en trois familles :
    dans la fiche ne signale son absence.
 
 ### Substrat : brut → curé → validé → figé
+
+On ne devine pas, on déclare — voir la cible du procédé en tête de section. Un curé n'existe qu'en vert (test d'intégrité) et n'est figé qu'après relecture humaine, avec relecteur et date dans curation.yaml.
 
 | Répertoire | Contenu |
 |---|---|

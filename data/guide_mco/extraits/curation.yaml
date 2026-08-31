@@ -119,3 +119,34 @@ appels_notes:
   anemie_posthemorragique_d62: []
   chapitre_xxi: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
                  41, 42, 43, 44, 45, 46, 47, 48]
+
+# ---------------------------------------------------------------------
+# 6. Ancres de notes — on ne devine pas, on déclare
+# ---------------------------------------------------------------------
+# Une note se replie sur un appel UNIVOQUE (le numéro collé en fin d'un
+# seul token de l'article) ou, à défaut, sur l'ancre déclarée ici. Le
+# script REFUSE de produire un curé tant qu'une note ambiguë n'en a pas.
+#
+# Cas d'école, la note 4 de l'AVC : l'appel « 4 » se retrouve en fin de
+# « I64 », de « 24 heures », de « G81.08 »… cinq candidats. Une
+# heuristique de repli l'avait placée quarante lignes trop haut, en
+# silence. L'ancre doit apparaître EXACTEMENT une fois dans le texte.
+ancres_notes:
+  avc:
+    "4": "locked-in syndrome (G83.5)."
+
+# ---------------------------------------------------------------------
+# 7. Validations — qui a relu, et quand
+# ---------------------------------------------------------------------
+# Un curé n'est figé qu'après relecture humaine. L'empreinte du fichier
+# est dans extraits/SHA256SUMS ; ces deux champs disent qui l'a validée.
+validations:
+  malnutrition_denutrition:
+    relecteur: "RF"
+    date: "2026-08-20"
+  avc:
+    relecteur: "RF"
+    date: "2026-08-31"
+  anemie_posthemorragique_d62:
+    relecteur: "RF"
+    date: "2026-08-31"

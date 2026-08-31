@@ -28,6 +28,7 @@ from recode_icd.recommendations.transcription import (
     BRUTS_DIR,
     CURES_DIR,
     articles_cures,
+    charge_curation,
     verifie_article,
 )
 
@@ -194,3 +195,45 @@ def test_les_citations_retombent_dans_leur_plage() -> None:
     assert not hors_plage, "Citations introuvables aux lignes déclarées :\n  " + "\n  ".join(
         hors_plage
     )
+
+
+def test_les_cures_figes_sont_intacts() -> None:
+    """Un curé validé ne change que par mise à jour explicite du manifeste.
+
+    Le gel est le dernier étage du procédé : sortie machine tracée,
+    relecture humaine, **puis empreinte**. Sans elle, une régénération
+    ou une édition distraite défait une validation sans que rien ne le
+    signale — c'est déjà arrivé aux extraits bruts le 2026-08-17.
+
+    Régénérer après une mise à jour VOULUE :
+    `cd data/guide_mco/extraits && shasum -a 256 *.md > SHA256SUMS`,
+    puis mettre à jour `relecteur` et `date` dans `curation.yaml`, et
+    revérifier les plages de citation qui pointent vers ce curé.
+    """
+    manifeste = CURES_DIR / "SHA256SUMS"
+    assert manifeste.is_file(), f"Manifeste absent : {manifeste}"
+    for ligne in manifeste.read_text(encoding="utf-8").splitlines():
+        empreinte, nom = ligne.split(maxsplit=1)
+        chemin = CURES_DIR / nom.strip()
+        assert chemin.is_file(), f"{nom} a disparu des transcriptions curées."
+        assert hashlib.sha256(chemin.read_bytes()).hexdigest() == empreinte, (
+            f"{nom} a changé depuis sa validation. Si le changement est voulu, "
+            f"régénérer le manifeste ET mettre à jour relecteur/date dans "
+            f"curation.yaml — sinon restaurer le fichier."
+        )
+
+
+def test_chaque_cure_fige_porte_son_relecteur() -> None:
+    """Le manifeste dit qu'un curé n'a pas bougé, pas qu'il a été relu.
+
+    Les deux vont ensemble : une empreinte sans relecteur fige une
+    sortie machine, ce que le procédé refuse — la relecture est une
+    étape structurelle, pas transitoire.
+    """
+    curations = charge_curation(CURES_DIR / "curation.yaml")
+    for article in articles_cures():
+        curation = curations.get(article)
+        assert curation is not None and curation.relecteur and curation.date_validation, (
+            f"« {article} » est figé sans relecteur ni date. Renseigner "
+            f"`validations` dans curation.yaml."
+        )

@@ -184,6 +184,14 @@ class Curation:
     appels_notes: tuple[int, ...] = ()
     suppressions_editoriales: tuple[tuple[str, str], ...] = ()  # (texte, motif)
     restitutions: tuple[Restitution, ...] = ()
+    #: Ancre DÉCLARÉE d'une note dont l'appel est ambigu, par numéro.
+    #: La valeur est une chaîne unique du texte, après laquelle la note
+    #: se replie. **On ne devine pas, on déclare** : le script refuse de
+    #: produire un curé tant qu'une note ambiguë n'a pas la sienne.
+    ancres_notes: dict[str, str] = field(default_factory=dict)
+    #: Relecteur et date, renseignés au gel du curé après relecture.
+    relecteur: str = ""
+    date_validation: str = ""
 
     def retire_lignes(self, texte: str) -> str:
         if not self.lignes_regex:
@@ -273,14 +281,27 @@ def charge_curation(path: Path | None = None) -> dict[str, Curation]:
     restitutions = brut.get("restitutions") or {}
     bornes = brut.get("bornes") or {}
     appels = brut.get("appels_notes") or {}
+    ancres = brut.get("ancres_notes") or {}
+    validations = brut.get("validations") or {}
 
-    articles = set(par_article) | set(editoriales) | set(restitutions) | set(bornes) | set(appels)
+    articles = (
+        set(par_article)
+        | set(editoriales)
+        | set(restitutions)
+        | set(bornes)
+        | set(appels)
+        | set(ancres)
+        | set(validations)
+    )
     sortie: dict[str, Curation] = {"": Curation(commun)}
     for article in articles:
         b = (bornes.get(article) or {}) or None
         sortie[article] = Curation(
             lignes_regex=commun + tuple((par_article.get(article) or {}).get("lignes_regex", [])),
             appels_notes=tuple(int(a) for a in (appels.get(article) or [])),
+            ancres_notes={str(k): str(v) for k, v in (ancres.get(article) or {}).items()},
+            relecteur=str((validations.get(article) or {}).get("relecteur", "")),
+            date_validation=str((validations.get(article) or {}).get("date", "")),
             bornes=Bornes(
                 premiere_ligne=int(b["premiere_ligne"]),
                 derniere_ligne=int(b["derniere_ligne"]),
