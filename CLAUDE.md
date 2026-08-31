@@ -21,6 +21,16 @@
    significatifs (file by file, avec explication).
 5. À la fin d'une grosse session : produire un récap dans
    docs/sessions/YYYY-MM-DD_<sujet>.md.
+6. **N'annoncer un comportement comme acquis que s'il est testé sur un
+   cas qui l'exerce.** Leçon du chantier guide-mco : « le script
+   reproduit la version relue » a été annoncé sur la foi d'un article
+   sans puce, alors que le correctif portait sur les puces. Un test qui
+   passe sur un cas qu'il ne touche pas ne prouve rien.
+7. **En cas de blocage : déclarer, puis constater — ne pas itérer sur
+   des diffs.** Enchaîner des correctifs cosmétiques jusqu'à ce qu'un
+   diff se vide coûte cher et converge mal. Poser d'abord toutes les
+   déclarations nécessaires, produire, puis regarder le résultat une
+   fois.
 
 ## Objectifs métier
 
