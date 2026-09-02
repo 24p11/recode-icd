@@ -208,13 +208,18 @@ ancres_notes:
 validations:
   malnutrition_denutrition:
     relecteur: "RF"
-    date: "2026-08-20"
+    date: "2026-09-02"   # regel : retrait d'un appel « 57 » resté nu dans le
+                         # corps (même défaut que 41 et 42 du chapitre XXI).
+                         # Validation initiale du 2026-08-20 inchangée sur le fond.
   avc:
     relecteur: "RF"
     date: "2026-08-31"
   anemie_posthemorragique_d62:
     relecteur: "RF"
     date: "2026-08-31"
+  chapitre_xxi:
+    relecteur: "RF"
+    date: "2026-09-02"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés

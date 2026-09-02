@@ -29,6 +29,7 @@ from recode_icd.recommendations.transcription import (
     CURES_DIR,
     articles_cures,
     charge_curation,
+    partitionne_cure,
     verifie_article,
 )
 
@@ -244,4 +245,30 @@ def test_chaque_cure_fige_porte_son_relecteur() -> None:
         assert curation is not None and curation.relecteur and curation.date_validation, (
             f"« {article} » est figé sans relecteur ni date. Renseigner "
             f"`validations` dans curation.yaml."
+        )
+
+
+def test_aucun_appel_de_note_ne_subsiste_dans_le_corps() -> None:
+    """Aucun nombre isolé de la plage des appels ne reste dans un curé.
+
+    Un appel hissé que le rendu a laissé seul sur sa ligne coupe la
+    phrase en deux à la lecture — deux subsistaient dans le chapitre XXI
+    (41 et 42) et hachaient le paragraphe Z51. Le curé porte des
+    marqueurs `[^n: …]`, jamais des nombres nus.
+
+    Le contrôle d'intégrité ne les voit pas : ils sont dans le brut
+    aussi, donc conservés des deux côtés. C'est un invariant de LISIBILITÉ,
+    qui ne se déduit d'aucune comparaison.
+    """
+    curations = charge_curation(CURES_DIR / "curation.yaml")
+    for article in articles_cures():
+        appels = {str(a) for a in curations[article].appels_notes}
+        if not appels:
+            continue
+        corps, _ = partitionne_cure((CURES_DIR / f"{article}.md").read_text(encoding="utf-8"))
+        nus = sorted({mot for mot in corps if mot in appels})
+        assert not nus, (
+            f"« {article} » : appel(s) de note resté(s) nu(s) dans le corps — "
+            f"{nus}. Ils coupent la phrase à la lecture ; leur note doit être "
+            f"repliée à leur place par un marqueur."
         )

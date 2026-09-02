@@ -112,6 +112,11 @@ _RE_ANNOTATION = re.compile(r"<!--.*?-->", re.DOTALL)
 #: tableau (« |---|---| ») doit être reconnue AVANT que les barres ne
 #: soient retirées, sinon elle devient « --- --- » et ses tirets entrent
 #: dans le flux de mots.
+#: Emphase markdown. Le guide met certains paragraphes d'interdiction en
+#: gras ; le curé le rend par `**…**`. C'est du balisage : les astérisques
+#: ne comptent pas, le mot qu'ils entourent, si.
+_RE_EMPHASE = re.compile(r"\*{1,3}")
+
 _RE_LIGNE_FILET = re.compile(r"^[-:| ]+$", re.MULTILINE)
 _RE_BALISAGE = re.compile(r"^[#>\s]*|[|]", re.MULTILINE)
 
@@ -522,7 +527,8 @@ def partitionne_cure(texte: str) -> tuple[list[str], list[str]]:
 
 def _nettoie(fragment: str) -> list[str]:
     sans_marqueur = _RE_MARQUEUR_NOTE.sub(" ", fragment)
-    sans_filet = _RE_LIGNE_FILET.sub(" ", sans_marqueur)
+    sans_emphase = _RE_EMPHASE.sub("", sans_marqueur)
+    sans_filet = _RE_LIGNE_FILET.sub(" ", sans_emphase)
     return _mots(_RE_BALISAGE.sub(" ", sans_filet))
 
 

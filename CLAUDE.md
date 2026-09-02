@@ -757,6 +757,20 @@ quatre déclarations de `data/guide_mco/extraits/curation.yaml` :
 > une entrée choisie, pas sur l'égalité de deux sorties. Tout piège
 > identifié dans ce chantier doit recevoir son test d'invariant.
 
+**Conventions de forme d'un curé** (fixées à la relecture du chapitre
+XXI, 2026-09-02) : `###` pour les titres de catégorie, blocs cités `>`
+avec puces `>-` pour les exemples du guide, `**…**` pour les
+paragraphes que le PDF met en gras, puces `-` pour les listes. Les
+équivalences de balisage — `>`, `**`, `–`, `•`, `*`, filets de tableau
+— sont déclarées dans `transcription.py` et ne comptent pas dans le
+flux de mots.
+
+> **Backlog** : le rendu des exemples en blocs cités est une convention
+> de transcription, pas encore une décision de rendu de fiche. Quand les
+> consignes seront injectées dans les prompts, il faudra décider si un
+> exemple du guide entre dans la fiche, et sous quelle forme — cf.
+> `docs/backlog/profils_fiches_par_usage.md`.
+
 > ⚠ **Ne jamais élargir `curation.yaml` pour faire passer un test.**
 > Un curé qui a perdu un paragraphe doit échouer bruyamment ; un curé
 > qui invente une phrase aussi. C'est l'unique raison d'être du fichier.
