@@ -1,6 +1,6 @@
 <!-- Transcription curée — EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM–10
      Premier jet produit par scripts/curer_guide_mco.py, À RELIRE.
-     Brut : extraits_bruts/chapitre_xxi.txt, lignes 36-676.
+     Brut : extraits_bruts/chapitre_xxi.txt, lignes 36-695.
      Curation déclarée : extraits/curation.yaml.
      Le test garantit qu'aucun mot n'a bougé ; il ne dit rien des
      tableaux, de l'ancrage des notes, ni de ce que pdftotext a perdu. -->
@@ -89,7 +89,7 @@ Lorsqu’après accouchement dans un établissement de santé E1, une mère est 
 
 Catégories Z40 à Z54 – Sujets ayant recours aux services de santé pour des actes médicaux et des soins spécifiques Les rubriques de ce groupe correspondent particulièrement au rôle décrit dans l’alinéa a de la première page du chapitre XXI de la CIM–10 : « Quand un sujet, malade ou non, entre en contact avec les services de santé pour une raison précise, par exemple pour recevoir des soins ou des services de niveau limité pour une affection en cours […] ». Dans le cadre des actes opératoires prophylactiques pour facteur de risque de tumeur maligne, des extensions, permettant de signaler l’organe opéré, ont été ajoutées au code «Z40.0 = opération prophylactique pour facteur de risque de tumeur maligne». L’utilisation des codes Z40 concerne également les interventions réalisées à but thérapeutique ou prophylactique, dans le cadre de la prise en charge de tumeurs malignes portant sur d’autres localisations. Ainsi, dans le cadre du traitement d’un cancer du sein hormonosensible, une ovariectomie pour castration doit être codée avec le code Z40.01 en DP.
 
-La catégorie Z41 comprend les soins « sans raison médicale », c’est-à-dire non motivés par un état morbide. Elle est notamment destinée au codage du DP des séjours pour chirurgie esthétique (Z41.0, Z41.1) et pour intervention dite de confort (Z41.80). Dans le cadre du PMSI, on désigne par chirurgie esthétique toute intervention de chirurgie plastique non prise en charge par l’assurance maladie obligatoire33.On [^33: sans préjudice de la prise en charge par l’assurance maladie de certains actes de chirurgie esthétique lorsqu’ils sont suivis de complication.] désigne par intervention « de confort » un acte médicotechnique autre que la chirurgie esthétique, non pris en charge par l’assurance maladie obligatoire.
+La catégorie Z41 comprend les soins « sans raison médicale », c’est-à-dire non motivés par un état morbide. Elle est notamment destinée au codage du DP des séjours pour chirurgie esthétique (Z41.0, Z41.1) et pour intervention dite de confort (Z41.80). Dans le cadre du PMSI, on désigne par chirurgie esthétique toute intervention de chirurgie plastique non prise en charge par l’assurance maladie obligatoire. On [^33: sans préjudice de la prise en charge par l’assurance maladie de certains actes de chirurgie esthétique lorsqu’ils sont suivis de complication.] désigne par intervention « de confort » un acte médicotechnique autre que la chirurgie esthétique, non pris en charge par l’assurance maladie obligatoire.
 
 La catégorie Z42 comprend les prises en charge pour des interventions chirurgicales plastiques réparatrices, nécessitées par les conséquences d’une intervention antérieure ou d’un traumatisme antérieurement traité (c’est le sens de « soins de contrôle »).
 
@@ -165,7 +165,7 @@ Dans l’intitulé de Z75.80 Sujet adressé dans un autre établissement, pour r
 Z76.8 a connu la création d’extensions en 2011 pour la version 11c des GHM :
 
 - Z76.800 Sujet ayant recours aux services de santé après une réunion de concertation pluridisciplinaire ayant établi la complexité d’une infection ostéoarticulaire ;
-- Z76.850 Enfant recevant du lait provenant d’un lactarium. [^44: Se reporter aux points 2.1.5 du chapitre II et 1 du chapitre IV. 45 Instructionn° DGOS/PF2/2010/466 du 27 décembre 2010 relative au dispositif de prise en charge des infections ostéoarticulaires complexes.] Afin d’identifier les patients atteint d’une infections ostéoarticulaires (IOA) complexe, Z76.800 Sujet ayant recours aux services de santé après une réunion de concertation pluridisciplinaire [RCP] ayant établi la complexité d'une infection ostéoarticulaire doit être enregistré comme DA dès lors que le patient a fait l’objet d’une réunion de concertation pluridisciplinaire visée par un centre interrégional de référence ayant confirmé le caractère complexe de l’IOA. Même si une seule RCP a été réalisée, Z76.800 doit être saisi dans les RUM de tous les séjours ultérieurs du patient motivés par la prise en charge de l’IOA.
+- Z76.850 Enfant recevant du lait provenant d’un lactarium. [^44: Se reporter aux points 2.1.5 du chapitre II et 1 du chapitre IV.] Afin d’identifier les patients atteint d’une infections ostéoarticulaires (IOA) complexe, [^45: Instructionn° DGOS/PF2/2010/466 du 27 décembre 2010 relative au dispositif de prise en charge des infections ostéoarticulaires complexes.] Z76.800 Sujet ayant recours aux services de santé après une réunion de concertation pluridisciplinaire [RCP] ayant établi la complexité d'une infection ostéoarticulaire doit être enregistré comme DA dès lors que le patient a fait l’objet d’une réunion de concertation pluridisciplinaire visée par un centre interrégional de référence ayant confirmé le caractère complexe de l’IOA. Même si une seule RCP a été réalisée, Z76.800 doit être saisi dans les RUM de tous les séjours ultérieurs du patient motivés par la prise en charge de l’IOA.
 
 Pour identifier les nouveau-nés recevant du lait d’un lactarium, Z76.850 Enfant recevant du lait provenant d’un lactarium doit être enregistré comme DA dans le RUM de leur séjour.
 
@@ -181,11 +181,11 @@ Z92.1 et Z92.2 : la complexité apparente de leur intitulé est due à l'accepti
 
 Les catégories Z94 et Z95 sont employées pour coder le DP des situations de surveillance négative [^46: Se reporter au point 1.3.1 du chapitre VI.] des porteurs d’organe ou de tissu greffé (Z94), de pontage coronaire et de prothèse endoartérielle (stent), de prothèse valvulaire cardiaque et « autres implants et greffes et cardiaques et vasculaires ».
 
-Exemples : – patient porteur d'un cœur transplanté, hospitalisé pour bilan de surveillance postgreffe ; aucune anomalie n'est constatée ; le DP du séjour est codé Z94.1 ; – patient porteur d’un pontage coronaire hospitalisé pour bilan de surveillance ; aucune anomalie n’est constatée : le DP du séjour est codé Z95.1.
+Exemples : – patient porteur d'un cœur transplanté, hospitalisé pour bilan de surveillance postgreffe ; aucune anomalie n'est constatée ; le DP du séjour est codé Z94.1 [^47: Un rejet, en revanche, doit être codé T86.2.] ; – patient porteur d’un pontage coronaire hospitalisé pour bilan de surveillance ; aucune anomalie n’est constatée : le DP du séjour est codé Z95.1.
 
 Les catégories Z96 et Z97 permettent le codage de la présence de divers implants, prothèses et appareils. Leur emploi n’est admissible qu’en l’absence de complication. En cas de soins nécessités par une complication, se reporter plus haut dans ce chapitre au point traitant des complications des actes médicaux et chirurgicaux.
 
-Lorsqu’un code des catégories Z93, Z95 ou Z96 de la CIM–10 correspond à une prise en charge pour laquelle un code d’acte existe dans la CCAM, la saisie dans le même RUM du code Z93.–, Z95.– ou Z96.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10.
+Lorsqu’un code des catégories Z93, Z95 ou Z96 de la CIM–10 correspond à une prise en charge pour laquelle un code d’acte existe dans la CCAM, la saisie dans le même RUM du code Z93.–, Z95.– ou Z96.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10. [^48: Se reporter aux explications données à la première page du chapitre XXI dans le volume 1.]
 
 Exemples :
 
@@ -194,3 +194,5 @@ Exemples :
 - dans le cas d’un séjour comportant une implantation de prothèse articulaire, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z96.6 en position de DA, etc.
 
 Catégorie Z99 – Dépendance envers des machines et appareils auxiliaires, non classée ailleurs Est dépendante envers une machine ou un appareil une personne atteinte d’une affection chronique dont la survie est subordonnée à l’utilisation régulière et durable de ce matériel. C’est en ce sens que doit être comprise l’utilisation des codes de la catégorie Z99. Ils ne doivent pas être employés pour mentionner l’utilisation d’un matériel de ce type en phase aigüe : par exemple, Z99.0 Dépendance envers un aspirateur ou Z99.1 Dépendance envers un respirateur ne doivent pas servir à mentionner l’utilisation de ces matériels chez un patient sous ventilation mécanique pour insuffisance respiratoire aigüe, Z99.2 Dépendance envers une dialyse rénale ne peut pas être employé pour les séjours des patients dialysés pour insuffisance rénale aigüe.
+
+

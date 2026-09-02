@@ -195,6 +195,13 @@ class Curation:
     #: se replie. **On ne devine pas, on déclare** : le script refuse de
     #: produire un curé tant qu'une note ambiguë n'a pas la sienne.
     ancres_notes: dict[str, str] = field(default_factory=dict)
+    #: Jetons que le rendu a SOUDÉS et que le curé sépare, déclarés cas
+    #: par cas : `{"obligatoire33.On": ["obligatoire.", "On"]}`. Le
+    #: contrôle vérifie que les fragments recomposés, appel retiré,
+    #: redonnent le jeton du brut — sans quoi une scission pourrait
+    #: réécrire le texte. Pas de scission automatique : on ne généralise
+    #: que sur décompte, si le chantier B en produit des familles.
+    scissions: dict[str, tuple[str, ...]] = field(default_factory=dict)
     #: Relecteur et date, renseignés au gel du curé après relecture.
     relecteur: str = ""
     date_validation: str = ""
@@ -289,6 +296,7 @@ def charge_curation(path: Path | None = None) -> dict[str, Curation]:
     appels = brut.get("appels_notes") or {}
     ancres = brut.get("ancres_notes") or {}
     validations = brut.get("validations") or {}
+    scissions = brut.get("scissions") or {}
 
     articles = (
         set(par_article)
@@ -298,6 +306,7 @@ def charge_curation(path: Path | None = None) -> dict[str, Curation]:
         | set(appels)
         | set(ancres)
         | set(validations)
+        | set(scissions)
     )
     sortie: dict[str, Curation] = {"": Curation(commun)}
     for article in articles:
@@ -306,6 +315,9 @@ def charge_curation(path: Path | None = None) -> dict[str, Curation]:
             lignes_regex=commun + tuple((par_article.get(article) or {}).get("lignes_regex", [])),
             appels_notes=tuple(int(a) for a in (appels.get(article) or [])),
             ancres_notes={str(k): str(v) for k, v in (ancres.get(article) or {}).items()},
+            scissions={
+                str(k): tuple(str(f) for f in v) for k, v in (scissions.get(article) or {}).items()
+            },
             relecteur=str((validations.get(article) or {}).get("relecteur", "")),
             date_validation=str((validations.get(article) or {}).get("date", "")),
             bornes=Bornes(
@@ -378,6 +390,46 @@ def _depouille(mots: list[str], appels: tuple[int, ...]) -> list[str]:
                 continue
         sortie.append(mot)
     return sortie
+
+
+def _sans_appel(jeton: str, appels: tuple[int, ...]) -> str:
+    """Le jeton privé de son appel de note, où qu'il soit placé.
+
+    `_depouille` n'ancre l'appel qu'en FIN de jeton — ce qui est juste
+    pour « précision58. » mais pas pour un jeton soudé au mot suivant
+    (« obligatoire33.On »), où l'appel est au milieu.
+    """
+    for appel in sorted(appels, reverse=True):
+        remplace = jeton.replace(str(appel), "", 1)
+        if remplace != jeton:
+            return remplace
+    return jeton
+
+
+def _applique_scissions(mots: list[str], curation: Curation) -> tuple[list[str], list[str]]:
+    """Remplace un jeton soudé par ses fragments déclarés.
+
+    Invariant vérifié : les fragments concaténés, appel de note retiré,
+    doivent redonner EXACTEMENT le jeton du brut. Sans lui, une
+    déclaration de scission pourrait réécrire le texte sous couvert de
+    le séparer.
+    """
+    if not curation.scissions:
+        return mots, []
+    fautives = [
+        f"scission « {jeton} » : les fragments recomposés donnent « {''.join(frags)} »"
+        for jeton, frags in curation.scissions.items()
+        if "".join(frags) != _sans_appel(jeton, curation.appels_notes)
+    ]
+    sortie: list[str] = []
+    for mot in mots:
+        depouille = _depouille([mot], curation.appels_notes)
+        cle = next(
+            (j for j in curation.scissions if _depouille([j], curation.appels_notes) == depouille),
+            None,
+        )
+        sortie.extend(curation.scissions[cle] if cle else [mot])
+    return sortie, fautives
 
 
 def _fusionne_ponctuation(mots: list[str]) -> list[str]:
@@ -472,6 +524,7 @@ def verifie_integrite(
     bruts_bruts, suppressions_inutiles = mots_bruts(texte_brut, curation)
     corps_brut, notes_brut = partitionne_cure(texte_cure)
     bruts = _fusionne_ponctuation(_depouille(bruts_bruts, curation.appels_notes))
+    bruts, scissions_fautives = _applique_scissions(bruts, curation)
     corps = _fusionne_ponctuation(_depouille(corps_brut, curation.appels_notes))
     notes = _fusionne_ponctuation(_depouille(notes_brut, curation.appels_notes))
 
@@ -508,7 +561,7 @@ def verifie_integrite(
         manquants=sorted((compte_attendu - compte_obtenu).elements()),
         ajoutes=sorted((compte_obtenu - compte_attendu).elements()),
         restitutions_absentes=absentes,
-        suppressions_inutiles=suppressions_inutiles,
+        suppressions_inutiles=suppressions_inutiles + scissions_fautives,
         desordre_corps=_premier_desordre(corps_sans_restitution, bruts),
         desordre_notes=_premier_desordre(notes, bruts),
     )

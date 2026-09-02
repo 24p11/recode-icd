@@ -74,10 +74,41 @@ def decoupe(article: str) -> tuple[list[str], dict[str, str]]:
     i = 0
     while i < len(lignes):
         ligne = lignes[i]
-        # Définition de note : le numéro seul, en colonne 0.
+        # Définition de note : le numéro en colonne 0, seul sur sa ligne
+        # OU collé au début de son texte. Le guide fait les deux — la
+        # note 45 du chapitre XXI s'écrit « 45 Instructionn° DGOS/… » et
+        # échappait à un extracteur qui ne cherchait que le numéro seul.
+        colle = re.match(r"^(\d{1,3})\s+(\S.*)$", ligne)
+        if colle and colle.group(1) in appels:
+            j, buf = i + 1, [colle.group(2).strip()]
+            while (
+                j < len(lignes)
+                and lignes[j].strip()
+                and not re.fullmatch(r"\d{1,3}", lignes[j])
+                # …et sur une définition COLLÉE à son texte : sans cela, la
+                # note 44 avalait la définition 45 (« 45 Instructionn° … »).
+                and not (
+                    (suite := re.match(r"^(\d{1,3})\s+\S", lignes[j])) and suite.group(1) in appels
+                )
+            ):
+                if not re.fullmatch(r"\s*\d{1,3}\s*", lignes[j]):
+                    buf.append(lignes[j].strip())
+                j += 1
+            notes[colle.group(1)] = " ".join(buf)
+            i = j
+            continue
         if ligne in appels:
             j, buf = i + 1, []
-            while j < len(lignes) and lignes[j].strip() and not re.fullmatch(r"\d{1,3}", lignes[j]):
+            while (
+                j < len(lignes)
+                and lignes[j].strip()
+                and not re.fullmatch(r"\d{1,3}", lignes[j])
+                # …et sur une définition COLLÉE à son texte : sans cela, la
+                # note 44 avalait la définition 45 (« 45 Instructionn° … »).
+                and not (
+                    (suite := re.match(r"^(\d{1,3})\s+\S", lignes[j])) and suite.group(1) in appels
+                )
+            ):
                 if not re.fullmatch(r"\s*\d{1,3}\s*", lignes[j]):
                     buf.append(lignes[j].strip())
                 j += 1
@@ -254,7 +285,11 @@ def main() -> None:
     # l'article voisin.
     for texte_supprime, _motif in curation.suppressions_editoriales:
         avant = texte
-        texte = texte.replace(texte_supprime, "", 1)
+        # Comparaison insensible au blanc : la déclaration porte le texte
+        # du brut, le jet l'a recollé en paragraphes. Exiger l'égalité
+        # littérale obligerait à déclarer une mise en page.
+        motif_sup = re.compile(r"\s+".join(re.escape(m) for m in texte_supprime.split()))
+        texte = motif_sup.sub("", texte, count=1)
         if texte == avant:
             print(f"⚠ suppression déclarée introuvable dans le jet : « {texte_supprime[:60]} »")
 
@@ -264,6 +299,11 @@ def main() -> None:
     # normale. La typographie française ne détache ni l'un ni l'autre —
     # contrairement à « ; » et « : », laissés tels quels.
     texte = texte.replace(" .", ".").replace(" ,", ",")
+    # Scissions déclarées : le rendu a soudé un mot, son exposant et le
+    # suivant (« obligatoire33.On »). Le curé les sépare ; le contrôle
+    # vérifie que la recomposition redonne le jeton du brut.
+    for jeton, fragments in curation.scissions.items():
+        texte = texte.replace(jeton, " ".join(fragments), 1)
     texte, provenance = replie_notes(texte, notes, curation.ancres_notes)
     titre = (curation.bornes.titre if curation.bornes else "").strip()
     # Deux items de liste consécutifs se suivent d'un simple saut : une

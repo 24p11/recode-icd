@@ -36,7 +36,16 @@ bornes:
     titre: "ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION"
   chapitre_xxi:
     premiere_ligne: 36
-    derniere_ligne: 676
+    # Bornée à 695 et non 676 : les définitions des notes 47 et 48 sont
+    # imprimées au bas de la page que l'article partage avec ÉTAT
+    # GRABATAIRE, donc APRÈS le titre de celui-ci. Les borner à 676 les
+    # perdait en silence — deux notes sur vingt-six.
+    #
+    # ⚠ Extension de borne, et NON restitution. La restitution désigne du
+    # contenu perdu par pdftotext ; ces textes sont dans le brut, ils
+    # sont seulement hors bornes. Employer l'un pour l'autre diluerait
+    # le sens des deux mécanismes.
+    derniere_ligne: 695
     titre: "EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM–10"
 
 # ---------------------------------------------------------------------
@@ -67,6 +76,14 @@ suppressions_mecaniques:
 # son texte EXACT et son motif — une suppression dont le texte ne se
 # retrouve plus dans le brut fait échouer le test.
 suppressions_editoriales:
+  chapitre_xxi:
+    - texte: 'ÉTAT GRABATAIRE Son codage (R26.30) est réservé aux situations correspondant à la définition suivante : « état d''une personne confinée au lit ou au fauteuil par sa maladie, incapable de subvenir seule sans aide et en toute sécurité à ses besoins alimentaires, d''hygiène personnelle, d''élimination et d''exonération, de transfert et de déplacement ». NB la conjonction « et » — non « ou » — qui lie les différents besoins. Le mot « maladie » est aussi essentiel. Le codage d’un état grabataire suppose la chronicité. Sont en conséquence exclus les états qui correspondent transitoirement à la définition (par exemple, dans les suites d’une intervention chirurgicale) mais tels que « l’état grabataire » n’existait pas'
+      motif: >-
+        Article VOISIN (ÉTAT GRABATAIRE), imprimé sur la page que les
+        deux articles se partagent. Il entre dans les bornes parce
+        qu'elles ont dû être étendues jusqu'aux définitions des notes 47
+        et 48. Même précédent que la note 5 du D62.
+
   anemie_posthemorragique_d62:
     - texte: "Y compris si celui-ci est né sans vie (voir pages 70 et 92)."
       motif: >-
@@ -155,7 +172,7 @@ ancres_notes:
     # L’appel 33 est SOUDÉ à la ponctuation et au mot suivant par le
     # rendu (« obligatoire33.On ») : l’ancre doit couvrir le jeton entier,
     # sinon la note le coupe en deux.
-    "33": "obligatoire33.On"
+    "33": "obligatoire. On"
     "34": "donne lieu à deux codages distincts :"      # renvoi chapitre IV 1.2.2
     "35": "d’un système diffuseur implantable (chambre implantable)."  # index « accès vasculaire »
     # Trois paragraphes du chapitre sont rédigés à l'identique (Z43/Z45,
@@ -173,7 +190,15 @@ ancres_notes:
     "38": "Z51.1 code le DP des séjours pour chimiothérapie pour tumeur."
     "44": "Enfant recevant du lait provenant d’un lactarium."
     "43": "aux fins de prélèvements d’organes ou de tissus."   # renvoi chapitre I 1.3.3
+    # 45 : sa DÉFINITION est collée à son texte dans le brut
+    # (« 45 Instructionn° DGOS/… »), ce qu'un extracteur cherchant un
+    # numéro seul ne voyait pas. Son appel, lui, est hissé.
+    "45": "d’une infections ostéoarticulaires (IOA) complexe,"
     "46": "des situations de surveillance négative"    # renvoi chapitre VI 1.3.1
+    # 47 et 48 : appels dans les bornes d'origine, définitions au-delà —
+    # récupérées par l'extension de borne (cf. commentaire des bornes).
+    "47": "le DP du séjour est codé Z94.1"
+    "48": "du code Z93.–, Z95.– ou Z96.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10."
 
 # ---------------------------------------------------------------------
 # 7. Validations — qui a relu, et quand
@@ -190,3 +215,17 @@ validations:
   anemie_posthemorragique_d62:
     relecteur: "RF"
     date: "2026-08-31"
+
+# ---------------------------------------------------------------------
+# 8. Scissions — jetons que le rendu a soudés
+# ---------------------------------------------------------------------
+# `pdftotext` soude parfois un mot, son exposant et le mot suivant en un
+# seul jeton. Le curé les sépare pour se lire comme du français ; le
+# contrôle vérifie que les fragments recomposés, appel retiré, redonnent
+# EXACTEMENT le jeton du brut — une scission ne peut donc pas réécrire.
+#
+# Déclarées CAS PAR CAS, jamais automatiques. Généralisation seulement
+# si le chantier B en produit des familles, sur décompte.
+scissions:
+  chapitre_xxi:
+    "obligatoire33.On": ["obligatoire.", "On"]
