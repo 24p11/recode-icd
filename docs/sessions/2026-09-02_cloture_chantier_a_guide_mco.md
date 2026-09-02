@@ -103,6 +103,7 @@ dans le message de commit.
 - **Chantier B** (extraction de masse) : s'ancre sur les curés figés,
   circuit par article inchangé.
 - **Chantier fiches** : insertion de la section dans `cards.py`,
-  plafond par fiche, rendu des `exemple` et des conditions par code —
-  cf. la cellule backlog du notebook et
-  `docs/backlog/profils_fiches_par_usage.md`.
+  plafond par fiche, rendu des `exemple`, des conditions par code et de
+  la colonne `situation` (au moins pour les règles de niveau chapitre —
+  ajouté à la validation des six rendus) — backlog regroupé dans
+  `docs/backlog/rendu_consignes_dans_fiches.md`.
