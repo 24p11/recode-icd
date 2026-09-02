@@ -115,7 +115,9 @@ allowed-confusables = ["×", "æ", "’"]
 "src/recode_icd/recommendations/code_expr.py" = ["RUF001", "RUF002", "RUF003"]
 "tests/unit/test_code_expr.py" = ["RUF001", "RUF002"]
 # Les caractères de puce (– — •) SONT la donnée comparée.
-"src/recode_icd/recommendations/transcription.py" = ["RUF001"]
+"src/recode_icd/recommendations/transcription.py" = ["RUF001", "RUF002", "RUF003"]
+# Les codes à tiret typographique (« Z43.– ») SONT la donnée testée.
+"tests/unit/test_transcription.py" = ["RUF001", "RUF002"]
 # Le tiret typographique du guide est normalisé dans le calcul de recouvrement.
 "src/recode_icd/recommendations/build.py" = ["RUF001"]
 

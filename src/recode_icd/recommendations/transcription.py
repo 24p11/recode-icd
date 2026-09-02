@@ -131,10 +131,29 @@ _PONCTUATION = frozenset(".,;:!?»)")
 #: chiffres ne sont JAMAIS un appel de note, même quand ils coïncident :
 #: le chapitre XXI numérote ses notes de 23 à 48 et cite Z29, Z33, Z37,
 #: Z40, Z51.30… Amputer un code le corromprait des deux côtés à la fois.
-_RE_CODE_CIM = re.compile(r"[A-Z]\d{2}(\.\d{1,3})?[–—-]?$")
+# La notation à tiret du guide (« Z43.– », « I63.– ») fait partie du
+# code : sans elle, « Z43.– » n'était pas reconnu et se faisait amputer.
+_RE_CODE_CIM = re.compile(r"[A-Z]\d{2}(\.(\d{1,3}|[–—-]))?[–—-]?$")
 
 #: En-tête de provenance d'un fichier brut. Ce n'est pas du texte de guide.
 _RE_ENTETE_BRUT = re.compile(r"\A(?:#[^\n]*\n)+", re.MULTILINE)
+
+
+def est_code_cim(mot: str) -> bool:
+    """Ce jeton est-il un code CIM-10 ?
+
+    **Garde UNIQUE, partagé par tous les sites qui manipulent des
+    chiffres** — dépouillement des appels, placement des notes,
+    nettoyage du corps. Le piège a mordu trois fois à trois endroits
+    différents avant qu'on le centralise : `Z29` amputé en `Z`,
+    la note 38 posée sur `Z38.0`, `Z43.–` transformé en `Z.–`. Trois
+    morsures du même piège justifient un seul garde, pas trois.
+
+    Un code CIM n'est JAMAIS un appel de note, même quand ses chiffres
+    coïncident : le chapitre XXI numérote ses notes de 23 à 48 et cite
+    Z29, Z33, Z37, Z38.0, Z40, Z43.–, Z51.30…
+    """
+    return _RE_CODE_CIM.search(mot.strip(";:.,!?»)")) is not None
 
 
 class TranscriptionError(ValueError):
@@ -376,7 +395,7 @@ def _depouille(mots: list[str], appels: tuple[int, ...]) -> list[str]:
         if all(c in _PUCES for c in mot):
             continue
         noyau = mot.rstrip(";:.,!?»)")
-        if _RE_CODE_CIM.search(noyau):
+        if est_code_cim(noyau):
             sortie.append(mot)
             continue
         # Un token entièrement numérique et plus long que l'appel est une
@@ -609,6 +628,7 @@ __all__ = (
     "TranscriptionError",
     "articles_cures",
     "charge_curation",
+    "est_code_cim",
     "mots_bruts",
     "partitionne_cure",
     "verifie_article",

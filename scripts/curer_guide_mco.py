@@ -29,7 +29,7 @@ import re
 from pathlib import Path
 
 from recode_icd.recommendations.transcription import (
-    _RE_CODE_CIM,
+    est_code_cim,
     BRUTS_DIR,
     CURES_DIR,
     charge_curation,
@@ -234,8 +234,7 @@ def replie_notes(
         trouves = [
             m
             for m in motif.finditer(texte)
-            if not m.group(0).strip(";:.,!?»)").isdigit()
-            and not _RE_CODE_CIM.search(m.group(0).strip(";:.,!?»)"))
+            if not m.group(0).strip(";:.,!?»)").isdigit() and not est_code_cim(m.group(0))
         ]
         if len(trouves) != 1:
             orphelines.append(f"{numero} : {len(trouves)} appel(s) possible(s) — ancre à déclarer")

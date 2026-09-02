@@ -370,3 +370,25 @@ def test_un_code_cim_nest_pas_un_appel_de_note() -> None:
     assert "Z29" in depouille, depouille
     assert "Z51.30" in depouille, depouille
     assert "chimiothérapie" in depouille, "l'appel réellement collé à un mot doit, lui, être retiré"
+
+
+def test_un_code_cim_survit_a_toute_passe() -> None:
+    """Invariant ABSOLU du garde unique `est_code_cim`.
+
+    Le piège a mordu TROIS fois, à trois endroits : `Z29` amputé en
+    « Z » au dépouillement, la note 38 posée sur « Z38.0 » au placement,
+    « Z43.– » transformé en « Z.– » au nettoyage du corps. Chaque fois
+    le test d'intégrité restait vert, parce qu'il compare deux artefacts
+    du même code.
+
+    D'où un garde unique et cet invariant, affirmé sur des entrées
+    choisies et non sur l'égalité de deux sorties.
+    """
+    from recode_icd.recommendations.transcription import _depouille, est_code_cim
+
+    codes = ["Z29", "Z33", "Z37", "Z38.0", "Z40", "Z43.–", "Z51.30", "I63.–", "G46.0"]
+    appels = (*range(23, 49), 58, 61, 63)
+    for code in codes:
+        assert est_code_cim(code), code
+        assert _depouille([code], appels) == [code], code
+        assert _depouille([code + ","], appels) == [code + ","], code

@@ -229,3 +229,4 @@ validations:
 scissions:
   chapitre_xxi:
     "obligatoire33.On": ["obligatoire.", "On"]
+    "antepartum29.": ["antepartum."]
