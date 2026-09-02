@@ -97,9 +97,58 @@ Suite complète verte (526 tests en entrée de session), `ruff` et `mypy`
 propres, notebook exécuté de bout en bout sans erreur — chiffres exacts
 dans le message de commit.
 
+## Amendement post-merge — portée des associations (`chaque` / `ensemble`)
+
+*Décidé avec RF le 2026-09-02, sur le cas AVC-14/Z23.0 révélé par la
+démonstration 4.6 du notebook. Branche `feat/portee-ensemble`.*
+
+Le modèle distingue désormais deux portées d'association, déclarées à
+la curation (colonne `portee` de `recommendation_codes`, défaut
+`chaque`, `justification` obligatoire pour `ensemble`) :
+
+- **`chaque`** : la consigne régit chaque code de l'expression —
+  résolution et descente inchangées ;
+- **`ensemble`** : l'expression est le **domaine d'un choix** (« le DP
+  appartient au chapitre XXI ») — **jamais résolue** vers les feuilles.
+  Option A retenue contre le marquage de lignes résolues : la garantie
+  par construction (aucun consommateur ne peut hériter d'une fausse
+  prescription par oubli de filtre) l'emporte sur le précalcul, qui se
+  refera à la demande depuis la table curée si recode-scenario en a
+  besoin. La trace part au rapport de build
+  (`reports/guide_mco_associations_ensemble.csv`, avec la taille du
+  domaine non produit), et le pandera de la table résolue verrouille
+  l'invariant (`portee` constante à `chaque`).
+
+**Doctrine gravée** (note de conception §4.2/§4.2 bis/§4.3, CLAUDE.md
+pitfall 7, registre des candidates pour le chantier B) : la résolution
+suppose la portée « pour tout » ; critère de partage — *qui fait le
+choix entre les membres de l'expression ?* L'état du patient →
+`chaque` ; un élément extérieur à l'expression (motif de séjour,
+situation) → `ensemble` ; les interdictions sont des « pour tout » par
+nature. Paire d'exemples : AVC-01 vs AVC-14.
+
+**Revue des candidats** (validée RF) : AVC-14/XXI seule basculée ;
+AVC-01, AVC-04, AVC-06, AVC-12 (plages de l'affection même — la lésion
+du patient fait le choix) et XXI-49 (interdiction) restent `chaque`.
+
+**Effet mesuré** : le Parquet passe de 2 806 à **2 056 couples** (750
+lignes AVC-14×feuilles Z retirées), toujours 1 018 codes touchés
+(XXI-01 couvre les mêmes feuilles). Z23.0 ne reçoit plus qu'XXI-01 ;
+les fiches I69 portent toujours AVC-14 (association I69/DR, `chaque`) ;
+Z86.70 conserve XXI-49. Trois témoins de régression + invariant absolu
+(`test_une_association_ensemble_nest_jamais_resolue`) + cinq tests
+unitaires du build. Notebook mis à jour (volumétrie, démo 4.6, règle en
+amont dans le récapitulatif), réexécuté.
+
+S'y ajoute, décidé à la validation des six rendus : l'entrée backlog
+`rendu_consignes_dans_fiches.md` (afficher la colonne `situation` avec
+les consignes rendues — commit `16913ce`, dans le merge du chantier A).
+
 ## Suite
 
-- **Merge dans `main`** — uniquement après accord explicite de RF.
+- **Chantier A mergé dans `main`** (`287811d`, poussé) ; l'amendement
+  `portee` suit le même circuit — merge uniquement après accord
+  explicite de RF.
 - **Chantier B** (extraction de masse) : s'ancre sur les curés figés,
   circuit par article inchangé.
 - **Chantier fiches** : insertion de la section dans `cards.py`,

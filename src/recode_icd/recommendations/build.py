@@ -30,6 +30,13 @@ RECOMMENDATION_CODES_FILENAME = "recommendation_codes.parquet"
 #: dans la CIM-10, qui ne connaît pas le PMSI.
 ROLES_INTERDICTION = ("interdit", "interdit_association")
 
+#: Portées admises pour une association. **La résolution suppose la
+#: portée « pour tout »** : une expression déclarée `ensemble` (domaine
+#: d'un choix, ex. « le DP appartient au chapitre XXI ») n'est JAMAIS
+#: résolue vers les feuilles — elle part au rapport de build. Défaut :
+#: `chaque` (colonne absente ou vide). Cf. note de conception §4.2.
+PORTEES = ("chaque", "ensemble")
+
 
 class CurationError(ValueError):
     """Incohérence dans les tables curées (intégrité référentielle)."""
@@ -43,6 +50,10 @@ class RapportBuild:
     expressions_non_resolues: list[dict[str, str]] = field(default_factory=list)
     recommandations_sans_code: list[str] = field(default_factory=list)
     recouvrement_potentiel: list[dict[str, str]] = field(default_factory=list)
+    #: Associations de portée `ensemble`, volontairement non résolues.
+    #: Ni une erreur, ni un silence : la trace dit ce qui n'a pas
+    #: d'équivalent dans le Parquet résolu, et pourquoi.
+    associations_ensemble: list[dict[str, object]] = field(default_factory=list)
     statistiques: dict[str, int] = field(default_factory=dict)
 
     @property
@@ -64,7 +75,11 @@ def charge_tables_curees(curation_dir: Path) -> tuple[pl.DataFrame, pl.DataFrame
     )
     codes = pl.read_csv(
         curation_dir / "recommendation_codes_curated.csv",
-        schema_overrides={"condition": pl.String},
+        schema_overrides={
+            "condition": pl.String,
+            "portee": pl.String,
+            "justification": pl.String,
+        },
     )
 
     orphelins = sorted(set(codes["rec_id"].to_list()) - set(recs["rec_id"].to_list()))
@@ -88,13 +103,22 @@ def construit(
     Retourne `(recommendations, recommendation_codes_resolus, rapport)`.
     La table résolue porte **une ligne par (rec_id, code_expr, code)** :
     `code_expr` y est conservée, donc l'association compacte reste
-    récupérable par déduplication — aucune information n'est perdue.
+    récupérable par déduplication — aucune information n'est perdue,
+    à l'exception voulue des associations de portée `ensemble`, jamais
+    résolues (trace dans `rapport.associations_ensemble`, source dans
+    la table curée).
     """
     rapport = RapportBuild()
     lignes: list[dict[str, object]] = []
 
     for ligne in codes.sort("rec_id", "code_expr", "role").iter_rows(named=True):
         rec_id, expr_brute = str(ligne["rec_id"]), str(ligne["code_expr"])
+        portee = str(ligne.get("portee") or "chaque")
+        if portee not in PORTEES:
+            raise CurationError(
+                f"Portée « {portee} » inconnue pour ({rec_id}, {expr_brute}) — "
+                f"valeurs admises : {PORTEES} (vide = chaque)."
+            )
         try:
             expr = parse_code_expr(expr_brute)
         except CodeExprError as err:
@@ -118,6 +142,30 @@ def construit(
                 }
             )
             continue
+        if portee == "ensemble":
+            # La résolution suppose la portée « pour tout ». Un domaine
+            # de choix n'est jamais étendu à ses membres : aucune ligne
+            # résolue, la trace part au rapport. L'expression a quand
+            # même été parsée et résolue ci-dessus : une déclaration
+            # `ensemble` sur une expression invalide reste une erreur.
+            justification = str(ligne.get("justification") or "").strip()
+            if not justification:
+                raise CurationError(
+                    f"Portée `ensemble` sans justification pour ({rec_id}, "
+                    f"{expr_brute}). Une bascule de portée est une décision de "
+                    f"curation : elle porte son pourquoi dans la table curée."
+                )
+            rapport.associations_ensemble.append(
+                {
+                    "rec_id": rec_id,
+                    "code_expr": expr_brute,
+                    "role": str(ligne["role"]),
+                    "centralite": str(ligne["centralite"]),
+                    "n_codes_domaine": len(feuilles),
+                    "justification": justification,
+                }
+            )
+            continue
         for code in feuilles:
             lignes.append(
                 {
@@ -129,6 +177,7 @@ def construit(
                     "condition": ligne["condition"],
                     "type_expr": expr.type.name,
                     "specificite": int(expr.type),
+                    "portee": portee,
                 }
             )
 
@@ -143,7 +192,9 @@ def construit(
 
     avec_code = set(resolus["rec_id"].to_list())
     rapport.recommandations_sans_code = sorted(set(recs_tries["rec_id"].to_list()) - avec_code)
-    rapport.statistiques = _statistiques(recs_tries, resolus, codes.height)
+    rapport.statistiques = _statistiques(
+        recs_tries, resolus, codes.height, len(rapport.associations_ensemble)
+    )
     if flat is not None:
         rapport.recouvrement_potentiel = _recouvrement_potentiel(resolus, flat)
 
@@ -159,13 +210,20 @@ _SCHEMA_RESOLUS: dict[str, pl.DataType] = {
     "condition": pl.String(),
     "type_expr": pl.String(),
     "specificite": pl.Int64(),
+    # Constante `chaque` par construction : toute ligne résolue est une
+    # prescription « pour tout ». La colonne documente l'invariant, le
+    # schéma pandera le verrouille.
+    "portee": pl.String(),
 }
 
 
-def _statistiques(recs: pl.DataFrame, resolus: pl.DataFrame, n_associations: int) -> dict[str, int]:
+def _statistiques(
+    recs: pl.DataFrame, resolus: pl.DataFrame, n_associations: int, n_ensemble: int
+) -> dict[str, int]:
     stats: dict[str, int] = {
         "recommandations": recs.height,
         "associations_curees": n_associations,
+        "associations_ensemble": n_ensemble,
         "couples_rec_code": resolus.height,
         "codes_touches": resolus["code"].n_unique() if resolus.height else 0,
     }
@@ -282,6 +340,17 @@ def ecrit_rapport(rapport: RapportBuild, reports_dir: Path) -> dict[str, Path]:
         "guide_mco_recommandations_sans_code": pl.DataFrame(
             {"rec_id": rapport.recommandations_sans_code}, schema={"rec_id": pl.String}
         ),
+        "guide_mco_associations_ensemble": pl.DataFrame(
+            rapport.associations_ensemble,
+            schema={
+                "rec_id": pl.String,
+                "code_expr": pl.String,
+                "role": pl.String,
+                "centralite": pl.String,
+                "n_codes_domaine": pl.Int64,
+                "justification": pl.String,
+            },
+        ),
         "guide_mco_recouvrement_potentiel": pl.DataFrame(
             rapport.recouvrement_potentiel,
             schema={
@@ -309,6 +378,7 @@ def ecrit_rapport(rapport: RapportBuild, reports_dir: Path) -> dict[str, Path]:
 
 
 __all__ = (
+    "PORTEES",
     "RECOMMENDATIONS_FILENAME",
     "RECOMMENDATION_CODES_FILENAME",
     "ROLES_INTERDICTION",

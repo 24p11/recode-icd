@@ -74,6 +74,23 @@ toutes parsables, toutes résolues contre `merged_codes.parquet`.
    aurait obligé à empiler trois jeux de critères dans une condition
    unique.
 
+8. **Portée `chaque` / `ensemble` créée** (RF, 2026-09-02, après merge
+   du pilote — cas AVC-14/Z23.0). La résolution suppose la portée
+   « pour tout » : une expression qui n'est que le **domaine d'un
+   choix** (« le DP appartient au chapitre XXI ») doit être déclarée
+   `portee=ensemble` — jamais résolue vers les feuilles, jamais
+   restreinte par interprétation à une liste de codes que le guide n'a
+   pas écrite. **Critère de partage, à appliquer dès la grille des
+   candidates du chantier B : qui fait le choix entre les membres de
+   l'expression ?** L'état du patient (chaque membre est régi quand il
+   est le diagnostic) → `chaque` (défaut, colonne vide). Un élément
+   extérieur à l'expression (motif de séjour, situation) → `ensemble`,
+   avec justification obligatoire. Les interdictions sont des « pour
+   tout » par nature. Paire d'exemples : AVC-01 (`chaque`) vs AVC-14
+   (`ensemble`). Revue du pilote faite le même jour : AVC-14/XXI seule
+   basculée ; AVC-01, AVC-04, AVC-06, AVC-12 (plages de l'affection
+   même) et XXI-49 (interdiction) restent `chaque`.
+
 ## Points laissés ouverts
 
 - **`GM2026-V-AVC-18`** (complications codées en DAS) n'a **aucune

@@ -86,6 +86,8 @@ Le guide entremêle trois natures d'information ; l'extraction devra trier :
 | `role` | enum | **dix modalités**, cf. catalogue ci-dessous |
 | `centralite` | enum | `sujet` (le code est l'objet de la consigne) \| `exemple` (cité à titre illustratif) |
 | `condition` | str \| null | Condition propre à ce code dans la consigne, si plus fine que la condition globale |
+| `portee` | enum | `chaque` (défaut) \| `ensemble` — cf. « Portée d'une association » ci-dessous (ajoutée le 2026-09-02) |
+| `justification` | str \| null | Obligatoire quand `portee=ensemble` : une bascule de portée est une décision de curation, elle porte son pourquoi |
 
 **Catalogue des rôles — dix modalités** (mis à jour le 2026-08-14 après
 le pilote : `interdit_DP`/`interdit_DR` avaient été décidées sans être
@@ -124,6 +126,43 @@ reportées ici, `interdit_DAS` et `regi` sont issus de l'extraction) :
 > I63 recevrait toutes les consignes qui mentionnent l'infarctus sans
 > rien prescrire à son sujet.
 
+**Portée d'une association — `chaque` vs `ensemble`** (ajoutée le
+2026-09-02, sur le cas AVC-14/Z23.0) :
+
+- `chaque` (défaut) : la consigne régit **chaque** code de
+  l'expression — résolution vers les feuilles et descente sur les
+  fiches inchangées ;
+- `ensemble` : l'expression est le **domaine d'un choix** — le build ne
+  la résout **jamais** vers les feuilles ; l'association reste dans la
+  table curée et part au rapport de build
+  (`guide_mco_associations_ensemble.csv`). Garantie **par
+  construction** : aucune ligne résolue n'existe, donc aucun
+  consommateur ne peut hériter d'une fausse prescription par oubli de
+  filtre. Le schéma pandera de la table résolue verrouille l'invariant
+  (`portee` constante à `chaque`).
+
+> ⚠ **La résolution suppose la portée « pour tout ».** Les
+> prescriptions dont l'expression est un domaine de choix (« il
+> existe ») doivent être déclarées `ensemble` à la curation — jamais
+> restreintes par interprétation à une liste de codes que le guide n'a
+> pas écrite.
+>
+> **Critère de partage : qui fait le choix entre les membres de
+> l'expression ?** L'état du patient — chaque membre est régi quand il
+> est le diagnostic — → `chaque`. Un élément extérieur à l'expression
+> — le motif de séjour, la situation — → `ensemble`. Les interdictions
+> sont des « pour tout » par nature.
+>
+> Paire d'exemples : AVC-01 (« le DP emploie un code I60.– à I63.– pour
+> un AVC constitué ») est `chaque` — la lésion du patient fait le
+> choix, et la consigne est pertinente sur la fiche de chaque membre.
+> AVC-14 (« s'il n'est pas découvert d'affection nouvelle, le DP
+> appartient au chapitre XXI ») est `ensemble` — le motif de
+> surveillance fait le choix, et la fiche de Z23.0 (vaccination) n'a
+> rien à faire d'une consigne de surveillance post-AVC. Avant la
+> bascule, cette seule association faisait descendre l'article AVC sur
+> les 750 feuilles du chapitre XXI.
+
 ### 4.2 bis Doctrine d'extraction — quand associer une expression
 
 **On n'associe une expression que si la consigne régit son emploi ou le
@@ -143,6 +182,12 @@ régit vraiment (XXI-01, ou l'article ANTÉCÉDENTS à venir) **doit**
 descendre sur toutes ses feuilles. C'est la nature du lien qui décide,
 pas son coût.
 
+À l'association décidée, une seconde question se pose : la consigne
+régit-elle **chaque** membre de l'expression, ou l'expression n'est-elle
+que le **domaine d'un choix** ? C'est la déclaration de `portee`
+(cf. §4.2), à poser dès l'extraction des candidates — le critère de
+partage y est donné avec la paire AVC-01/AVC-14.
+
 **`centralite` est binaire, et volontairement.** `sujet` = le code est
 l'objet de la consigne ; `exemple` = il n'est cité qu'en illustration.
 Sans ce champ, la fiche de F32 recevrait la consigne AVC au seul motif
@@ -157,7 +202,10 @@ fiche ? ».
 L'expansion de `code_expr` réutilise l'outillage existant :
 
 - expansion catégorie/plage/chapitre → codes feuilles via le nested set
-  (`left`/`right`) déjà en place ;
+  (`left`/`right`) déjà en place — **pour les seules associations de
+  portée `chaque`** : une association `ensemble` n'est jamais résolue
+  (cf. §4.2), son expression est néanmoins parsée et validée contre le
+  référentiel, et elle part au rapport de build ;
 - en cas de consignes multiples matchant un code, priorité par
   spécificité : code > catégorie > bloc/plage > chapitre — la même règle
   de résolution que la chapter_policy (convention unique à documenter) ;

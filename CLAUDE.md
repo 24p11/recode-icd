@@ -644,7 +644,10 @@ Cible du procédé : sortie machine tracée à partir du PDF, relecture humaine 
 
 `recommendations` porte la consigne (une ligne), `recommendation_codes`
 ses cibles (N lignes). **La sémantique positionnelle vit dans
-l'association, jamais dans le texte seul.**
+l'association, jamais dans le texte seul.** Chaque association déclare
+aussi sa **portée** : `chaque` (défaut — la consigne régit chaque code
+de l'expression) ou `ensemble` (l'expression est le domaine d'un choix
+— jamais résolue vers les feuilles, cf. pitfall 7).
 
 Les dix rôles se rangent en trois familles :
 `DP`/`DR`/`DAS` (position prescrite) ·
@@ -688,6 +691,22 @@ Les dix rôles se rangent en trois familles :
 6. **Une expression non parsable ou non résolue va au RAPPORT, jamais
    au silence.** Une consigne avalée est indétectable en aval : rien
    dans la fiche ne signale son absence.
+
+7. **La résolution suppose la portée « pour tout ».** Les prescriptions
+   dont l'expression est un **domaine de choix** (« il existe ») doivent
+   être déclarées `portee=ensemble` à la curation — jamais résolues vers
+   les feuilles, jamais restreintes par interprétation à une liste de
+   codes que le guide n'a pas écrite. Critère de partage : **qui fait le
+   choix entre les membres de l'expression ?** L'état du patient (chaque
+   membre est régi quand il est le diagnostic) → `chaque`. Un élément
+   extérieur à l'expression (le motif de séjour, la situation) →
+   `ensemble`. Les interdictions sont des « pour tout » par nature.
+   Paire d'exemples : AVC-01 (« un code I60.– à I63.– pour un AVC
+   constitué ») est `chaque` ; AVC-14 (« le DP appartient au chapitre
+   XXI ») est `ensemble` — avant la bascule, cette seule association
+   faisait descendre l'article AVC sur les 750 feuilles du chapitre XXI
+   (fiche de Z23.0 comprise). L'association `ensemble` part au rapport
+   de build, et le pandera de la table résolue verrouille l'invariant.
 
 ### Substrat : brut → curé → validé → figé
 

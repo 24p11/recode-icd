@@ -154,6 +154,94 @@ def test_statistiques_distinguent_associations_curees_et_couples(merged: pl.Data
     assert rapport.statistiques["couples_rec_code"] == 2
 
 
+def _codes_avec_portee(
+    paires: list[tuple[str, str, str | None, str | None]],
+) -> pl.DataFrame:
+    """Comme `_codes`, avec (rec_id, code_expr, portee, justification)."""
+    return pl.DataFrame(
+        {
+            "rec_id": [r for r, _, _, _ in paires],
+            "code_expr": [e for _, e, _, _ in paires],
+            "role": ["DP"] * len(paires),
+            "centralite": ["sujet"] * len(paires),
+            "condition": [None] * len(paires),
+            "portee": [p for _, _, p, _ in paires],
+            "justification": [j for _, _, _, j in paires],
+        },
+        schema_overrides={
+            "condition": pl.String,
+            "portee": pl.String,
+            "justification": pl.String,
+        },
+    )
+
+
+def test_portee_absente_ou_vide_vaut_chaque(merged: pl.DataFrame) -> None:
+    """Défaut `chaque` : colonne absente (frames synthétiques) ou vide (CSV)."""
+    _, sans_colonne, _ = construit(
+        _recs("GM2026-V-X-01"), _codes([("GM2026-V-X-01", "I63")]), merged
+    )
+    _, vide, _ = construit(
+        _recs("GM2026-V-X-01"),
+        _codes_avec_portee([("GM2026-V-X-01", "I63", None, None)]),
+        merged,
+    )
+    assert sans_colonne["portee"].to_list() == ["chaque", "chaque"]
+    assert vide["portee"].to_list() == ["chaque", "chaque"]
+
+
+def test_portee_ensemble_nest_pas_resolue_et_va_au_rapport(merged: pl.DataFrame) -> None:
+    """Invariant ABSOLU du cas AVC-14 : un domaine de choix n'est jamais
+    étendu à ses membres. Aucune ligne résolue, trace complète au rapport
+    (avec la taille du domaine, pour que l'audit voie ce qui n'a pas
+    été produit)."""
+    _, resolus, rapport = construit(
+        _recs("GM2026-V-X-01"),
+        _codes_avec_portee([("GM2026-V-X-01", "IX", "ensemble", "domaine d'un choix")]),
+        merged,
+    )
+    assert resolus.height == 0
+    assert len(rapport.associations_ensemble) == 1
+    trace = rapport.associations_ensemble[0]
+    assert trace["code_expr"] == "IX"
+    assert trace["n_codes_domaine"] == 4
+    assert not rapport.a_des_erreurs, "une portée `ensemble` n'est pas une erreur"
+    assert rapport.statistiques["associations_ensemble"] == 1
+
+
+def test_portee_inconnue_leve(merged: pl.DataFrame) -> None:
+    with pytest.raises(CurationError, match="Portée"):
+        construit(
+            _recs("GM2026-V-X-01"),
+            _codes_avec_portee([("GM2026-V-X-01", "I63", "ensembel", None)]),
+            merged,
+        )
+
+
+def test_ensemble_sans_justification_leve(merged: pl.DataFrame) -> None:
+    """Une bascule de portée est une décision de curation : sans son
+    pourquoi dans la table, elle est invérifiable à la relecture."""
+    with pytest.raises(CurationError, match="justification"):
+        construit(
+            _recs("GM2026-V-X-01"),
+            _codes_avec_portee([("GM2026-V-X-01", "I63", "ensemble", None)]),
+            merged,
+        )
+
+
+def test_ensemble_sur_expression_invalide_reste_une_erreur(merged: pl.DataFrame) -> None:
+    """Déclarer `ensemble` n'exempte pas de la validation de l'expression :
+    un domaine introuvable est un défaut de curation, pas un domaine."""
+    _, _, rapport = construit(
+        _recs("GM2026-V-X-01"),
+        _codes_avec_portee([("GM2026-V-X-01", "Z99.9", "ensemble", "domaine")]),
+        merged,
+    )
+    assert len(rapport.expressions_non_resolues) == 1
+    assert not rapport.associations_ensemble
+    assert rapport.a_des_erreurs
+
+
 def test_recouvrement_repere_une_cible_interieure_a_une_plage(merged: pl.DataFrame) -> None:
     """Non-régression : l'heuristique doit voir l'INTÉRIEUR d'une plage.
 
