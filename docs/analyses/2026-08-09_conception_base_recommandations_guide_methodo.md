@@ -17,8 +17,8 @@ sous **conditions**. Attacher naïvement le texte des consignes à chaque code
 concerné dupliquerait massivement l'information et perdrait la sémantique
 positionnelle.
 
-Constats rédactionnels sur le guide (section AVC, pp. 79-82, et article
-D62, p. 81-82, utilisés comme cas d'étude) :
+Constats rédactionnels sur le guide (section AVC, chap. V pp. 78-81, et
+article D62, chap. V pp. 81-82, utilisés comme cas d'étude) :
 
 - une même consigne cite des codes en DP (« pour un AVC constitué, un code
   I60.–, I61.–, I62.– ou I63.– »), d'autres en DAS (« un code de séquelle
@@ -69,7 +69,7 @@ Le guide entremêle trois natures d'information ; l'extraction devra trier :
 
 | Champ | Type | Description |
 |---|---|---|
-| `rec_id` | str | Identifiant stable, ex. `GM2026-VII-AVC-04` (millésime, chapitre du guide, slug de section, n° d'ordre) |
+| `rec_id` | str | Identifiant stable, ex. `GM2026-V-AVC-04` (millésime, chapitre du guide, slug de section, n° d'ordre) |
 | `millesime` | str | Édition du guide (ex. `2026-provisoire`). Le guide est annuel : le millésime est structurel, pas décoratif |
 | `localisation` | str | Chapitre/section/page du guide, pour audit et retour au texte |
 | `situation` | str | Situation clinique en clair (ex. « AVC — séjour pour récidive ») |
@@ -83,9 +83,74 @@ Le guide entremêle trois natures d'information ; l'extraction devra trier :
 |---|---|---|
 | `rec_id` | str | Clé vers `recommendations` |
 | `code_expr` | str | Expression de codes : code (`Z86.70`), catégorie (`I69`), notation à tiret (`I63.–`), plage (`I60-I64`), chapitre (`XXI`) |
-| `role` | enum | `DP` \| `DR` \| `DAS` \| `interdit` \| `interdit_association` \| `contexte` |
+| `role` | enum | **dix modalités**, cf. catalogue ci-dessous |
 | `centralite` | enum | `sujet` (le code est l'objet de la consigne) \| `exemple` (cité à titre illustratif) |
 | `condition` | str \| null | Condition propre à ce code dans la consigne, si plus fine que la condition globale |
+
+**Catalogue des rôles — dix modalités** (mis à jour le 2026-08-14 après
+le pilote : `interdit_DP`/`interdit_DR` avaient été décidées sans être
+reportées ici, `interdit_DAS` et `regi` sont issus de l'extraction) :
+
+| Rôle | Sens | Exemple type |
+|---|---|---|
+| `DP` | position de diagnostic principal | « le DP est codé Z86.70 » |
+| `DR` | position de diagnostic relié | « Z51.5 en DP, l'AVC en DR » |
+| `DAS` | position de diagnostic associé | « un code de séquelle I69 est placé en DAS » |
+| `interdit` | l'**emploi même** du code est proscrit dans la situation | « dans ces conditions le code D62 ne doit pas être mentionné » |
+| `interdit_association` | le code est proscrit **en association avec une autre cible de la même consigne** | « I65, I66 ne doivent pas être employés en association avec I60–I64 » |
+| `interdit_DP` | le code reste employable, mais **jamais en DP** | « le DP est la cardiopathie qui la justifie, et non Z45.0 » |
+| `interdit_DR` | le code reste employable, mais **jamais en DR** | « un DP d'antécédent ne justifie jamais de diagnostic relié » |
+| `interdit_DAS` | le code reste employable, mais **jamais en DAS** | « la saisie du code Z51.– en position de diagnostic associé en sus de celui de l'acte est redondante et n'est pas justifiée » |
+| `regi` | la consigne **régit l'emploi** de ce code — elle le prescrit, le conditionne ou le décrit — **sans lui assigner de position** | « I64 n'est employé qu'en l'absence de neuro-imagerie » |
+| `contexte` | le code **délimite la situation** ; la consigne ne régit pas son emploi | `I60-I64` dans « ne pas associer G46.0-G46.2 à un code I60–I64 » |
+
+> **`interdit` ≠ `interdit_DP`/`interdit_DR`/`interdit_DAS`.** Le premier
+> proscrit le code ; les trois autres ne proscrivent qu'une **position**.
+> Les confondre ferait disparaître des codes parfaitement légitimes : le
+> chapitre XX est obligatoire en DAS et interdit en DP et en DR ; `Z43.–`
+> ne doit pas être en DAS en sus d'un acte CCAM mais reste le DP légitime
+> d'une fermeture de stomie.
+>
+> **`interdit_DAS` ne se remplace ni par `interdit`** (qui dirait le code
+> proscrit, ce qui est faux) **ni par `interdit_association`** (qui
+> désigne une autre cible CIM-10, or l'autre terme est ici un **acte
+> CCAM**, absent du référentiel).
+>
+> **`regi` ≠ `contexte`.** Avant l'ajout de `regi` au pilote, `contexte`
+> portait les deux sens et devenait le rôle majoritaire de l'article sur
+> le chapitre XXI — le signe qu'il faisait un métier de trop. Un rendu
+> qui veut « les consignes qui parlent de ce code » filtre sur `regi` et
+> les positions ; `contexte` ne doit pas y entrer, sinon la fiche de
+> I63 recevrait toutes les consignes qui mentionnent l'infarctus sans
+> rien prescrire à son sujet.
+
+### 4.2 bis Doctrine d'extraction — quand associer une expression
+
+**On n'associe une expression que si la consigne régit son emploi ou le
+positionne. Les mentions de passage restent dans le `texte`.**
+
+Cas d'école rencontrés au pilote et écartés à ce titre :
+
+- XXI-03 mentionne le chapitre XVIII (« on préfèrera son code […] à un
+  code Z toutes les fois qu'il est plus précis ») ; l'associer ferait
+  descendre la consigne sur les ~800 fiches du chapitre ;
+- XXI-16 mentionne les chapitres I et XVIII, **et dans un exemple**
+  (« cet enfant n'est pas tuberculeux : on ne code donc pas cette
+  maladie ») ; ~2 700 fiches pour une mention illustrative.
+
+La règle n'est pas un plafond de volume : une consigne de chapitre qui
+régit vraiment (XXI-01, ou l'article ANTÉCÉDENTS à venir) **doit**
+descendre sur toutes ses feuilles. C'est la nature du lien qui décide,
+pas son coût.
+
+**`centralite` est binaire, et volontairement.** `sujet` = le code est
+l'objet de la consigne ; `exemple` = il n'est cité qu'en illustration.
+Sans ce champ, la fiche de F32 recevrait la consigne AVC au seul motif
+que F32 y figure comme exemple de manifestation. Une graduation plus
+fine (« principal », « secondaire », « accessoire ») a été écartée :
+elle n'est pas décidable à la lecture du guide, et le seul arbitrage
+dont le rendu a besoin est « cette consigne a-t-elle sa place dans cette
+fiche ? ».
 
 ### 4.3 Résolution vers les codes feuilles
 
@@ -103,35 +168,35 @@ L'expansion de `code_expr` réutilise l'outillage existant :
 
 ## 5. Preuve de concept : remplissage manuel
 
-### 5.1 Consignes AVC (guide chap. VII, pp. 79-82)
+### 5.1 Consignes AVC (guide chap. V, pp. 78-81)
 
 `recommendations` (extrait) :
 
 | rec_id | situation | type | texte (condensé) | condition |
 |---|---|---|---|---|
-| GM2026-VII-AVC-01 | AVC/AIT à la phase aigüe — séjour initial | regle_position | Le DP emploie G45.– pour un AIT, I60.– à I63.– pour un AVC constitué ; ces codes restent employés par toutes les unités MCO successives de la première prise en charge | Première prise en charge, patient n'ayant pas quitté le champ MCO |
-| GM2026-VII-AVC-02 | AVC — emploi de I64 | condition_emploi | I64 n'est employé qu'en l'absence d'examen de neuro-imagerie, jamais en association avec un code plus précis | Absence de neuro-imagerie |
-| GM2026-VII-AVC-03 | AVC constitué — artère et mécanisme | interdiction | G46.0-G46.2, I65, I66, I67.0, I67.1 ne doivent pas être employés en association avec I60–I64 pour décrire l'artère ou le mécanisme (exclusion CIM-10 en cas d'infarctus) | En association avec un AVC constitué |
-| GM2026-VII-AVC-04 | AVC — récidive | regle_position | Une récidive confirmée par l'imagerie est codée comme un AVC à la phase aigüe | Confirmation par imagerie |
-| GM2026-VII-AVC-05 | AVC — surveillance négative sans séquelle | regle_position | DP = Z86.70 ; pas de DR | Aucune affection nouvelle, aucune séquelle |
-| GM2026-VII-AVC-06 | AVC — soins palliatifs | regle_position | DP = Z51.5 ; le code de l'AVC (aigu ou séquelle selon la phase) en DR | — |
+| GM2026-V-AVC-01 | AVC/AIT à la phase aigüe — séjour initial | regle_position | Le DP emploie G45.– pour un AIT, I60.– à I63.– pour un AVC constitué ; ces codes restent employés par toutes les unités MCO successives de la première prise en charge | Première prise en charge, patient n'ayant pas quitté le champ MCO |
+| GM2026-V-AVC-02 | AVC — emploi de I64 | condition_emploi | I64 n'est employé qu'en l'absence d'examen de neuro-imagerie, jamais en association avec un code plus précis | Absence de neuro-imagerie |
+| GM2026-V-AVC-03 | AVC constitué — artère et mécanisme | interdiction | G46.0-G46.2, I65, I66, I67.0, I67.1 ne doivent pas être employés en association avec I60–I64 pour décrire l'artère ou le mécanisme (exclusion CIM-10 en cas d'infarctus) | En association avec un AVC constitué |
+| GM2026-V-AVC-04 | AVC — récidive | regle_position | Une récidive confirmée par l'imagerie est codée comme un AVC à la phase aigüe | Confirmation par imagerie |
+| GM2026-V-AVC-05 | AVC — surveillance négative sans séquelle | regle_position | DP = Z86.70 ; pas de DR | Aucune affection nouvelle, aucune séquelle |
+| GM2026-V-AVC-06 | AVC — soins palliatifs | regle_position | DP = Z51.5 ; le code de l'AVC (aigu ou séquelle selon la phase) en DR | — |
 
 `recommendation_codes` (extrait pour AVC-01, AVC-03, AVC-05, AVC-06) :
 
 | rec_id | code_expr | role | centralite | condition |
 |---|---|---|---|---|
-| GM2026-VII-AVC-01 | G45 | DP | sujet | AIT |
-| GM2026-VII-AVC-01 | I60-I63 | DP | sujet | AVC constitué |
-| GM2026-VII-AVC-03 | I60-I64 | contexte | sujet | — |
-| GM2026-VII-AVC-03 | G46.0-G46.2 | interdit_association | sujet | — |
-| GM2026-VII-AVC-03 | I65 | interdit_association | sujet | — |
-| GM2026-VII-AVC-03 | I66 | interdit_association | sujet | — |
-| GM2026-VII-AVC-03 | I67.0 | interdit_association | sujet | — |
-| GM2026-VII-AVC-03 | I67.1 | interdit_association | sujet | — |
-| GM2026-VII-AVC-05 | Z86.70 | DP | sujet | — |
-| GM2026-VII-AVC-06 | Z51.5 | DP | sujet | — |
-| GM2026-VII-AVC-06 | I60-I64 | DR | sujet | phase initiale |
-| GM2026-VII-AVC-06 | I69 | DR | sujet | phase séquellaire |
+| GM2026-V-AVC-01 | G45 | DP | sujet | AIT |
+| GM2026-V-AVC-01 | I60-I63 | DP | sujet | AVC constitué |
+| GM2026-V-AVC-03 | I60-I64 | contexte | sujet | — |
+| GM2026-V-AVC-03 | G46.0-G46.2 | interdit_association | sujet | — |
+| GM2026-V-AVC-03 | I65 | interdit_association | sujet | — |
+| GM2026-V-AVC-03 | I66 | interdit_association | sujet | — |
+| GM2026-V-AVC-03 | I67.0 | interdit_association | sujet | — |
+| GM2026-V-AVC-03 | I67.1 | interdit_association | sujet | — |
+| GM2026-V-AVC-05 | Z86.70 | DP | sujet | — |
+| GM2026-V-AVC-06 | Z51.5 | DP | sujet | — |
+| GM2026-V-AVC-06 | I60-I64 | DR | sujet | phase initiale |
+| GM2026-V-AVC-06 | I69 | DR | sujet | phase séquellaire |
 
 Note : dans la consigne « aggravation/complication » (situation 3 du
 guide), R26, F32, G40, G41, F01 seraient enregistrés avec
@@ -139,15 +204,15 @@ guide), R26, F32, G40, G41, F01 seraient enregistrés avec
 fiche de F32 n'a pas vocation à recevoir la consigne AVC, sauf paramétrage
 explicite.
 
-### 5.2 Article D62 (anémie posthémorragique aigüe, pp. 81-82)
+### 5.2 Article D62 (anémie posthémorragique aigüe, guide chap. V, pp. 81-82)
 
 | rec_id | situation | type | texte (condensé) | condition |
 |---|---|---|---|---|
-| GM2026-VII-D62-01 | Compensation peropératoire normale des pertes sanguines | interdiction | D62 ne doit pas être mentionné lorsque la transfusion compense les pertes attendues d'une intervention par nature hémorragique | Restitution volémique conforme aux règles de l'art (SFAR), pertes attendues |
-| GM2026-VII-D62-02 | Hémorragie périopératoire inhabituelle | condition_emploi | D62 est employé lorsque l'anémie résulte d'un phénomène hémorragique inhabituel (lésion, complication) | Saignement inhabituel documenté |
+| GM2026-V-D62-01 | Compensation peropératoire normale des pertes sanguines | interdiction | D62 ne doit pas être mentionné lorsque la transfusion compense les pertes attendues d'une intervention par nature hémorragique | Restitution volémique conforme aux règles de l'art (SFAR), pertes attendues |
+| GM2026-V-D62-02 | Hémorragie périopératoire inhabituelle | condition_emploi | D62 est employé lorsque l'anémie résulte d'un phénomène hémorragique inhabituel (lésion, complication) | Saignement inhabituel documenté |
 
-Association : `(GM2026-VII-D62-01, D62, interdit, sujet)` et
-`(GM2026-VII-D62-02, D62, DAS, sujet)`. Cas d'école du bénéfice attendu
+Association : `(GM2026-V-D62-01, D62, interdit, sujet)` et
+`(GM2026-V-D62-02, D62, DAS, sujet)`. Cas d'école du bénéfice attendu
 pour la génération : la fiche D62 enrichie apprend au générateur qu'une
 transfusion peropératoire banale ne justifie pas de décrire une anémie
 posthémorragique — précisément le type de mention codable parasite qui
@@ -159,9 +224,9 @@ Section nouvelle de la fiche, distincte des Formulations :
 
 ```
 ## Consignes de codage (guide méthodologique 2026)
-- [GM2026-VII-AVC-02] I64 n'est employé qu'en l'absence de neuro-imagerie,
+- [GM2026-V-AVC-02] I64 n'est employé qu'en l'absence de neuro-imagerie,
   jamais en association avec un code plus précis.
-- [GM2026-VII-AVC-03] Ne pas associer G46.0-G46.2, I65, I66, I67.0, I67.1
+- [GM2026-V-AVC-03] Ne pas associer G46.0-G46.2, I65, I66, I67.0, I67.1
   à un code I60–I64 pour décrire l'artère ou le mécanisme.
 ```
 
@@ -173,6 +238,8 @@ sont candidates prioritaires à un usage en **vérification** (schéma
 generate-then-verify) plutôt qu'en injection amont.
 
 ## 7. Chantier d'extraction (à cadrer plus tard)
+
+On ne devine pas, on déclare — voir la cible du procédé en tête de section. Un curé n'existe qu'en vert (test d'intégrité) et n'est figé qu'après relecture humaine, avec relecteur et date dans curation.yaml.
 
 - Extraction LLM-assistée section par section du PDF, avec validation
   humaine ; le schéma generate-then-verify testé sur Stream/notion est
@@ -188,15 +255,139 @@ generate-then-verify) plutôt qu'en injection amont.
   (recommandations sans code résolu, expressions non parseables) — mêmes
   conventions que le reste du pipeline.
 
-## 8. Questions ouvertes
+### 7.1 Le substrat : brut → curé → validé → figé
 
-1. Faut-il propager les consignes de niveau chapitre (« le DP appartient au
-   chapitre XXI ») jusqu'aux fiches feuilles, ou les réserver au préambule ?
-   (Risque de bruit massif ; suggestion : réservées à recode-scenario.)
-2. Granularité des conditions : texte libre suffisant au départ ; une
-   structuration (prédicats) n'aurait de sens que si recode-scenario veut
-   les évaluer automatiquement.
-3. Articulation avec les notes OFS/ANS existantes : certaines consignes du
-   guide recoupent des exclusions CIM-10 déjà dans le CSV maître (ex.
-   AVC-03 recoupe l'exclusion OMS) — politique de dédoublonnage ou de
-   coexistence tracée à définir.
+*Décidé le 2026-08-17, pour le chantier B.*
+
+Le pilote a travaillé directement sur la sortie `pdftotext -layout`.
+C'était suffisant pour quatre articles relus à la main, mais pas pour une
+extraction de masse : le rendu en colonnes disloque les tableaux, coupe
+les phrases au milieu, et intercale les notes de bas de page dans le
+corps. Une citation extraite de ce substrat est vérifiable, mais un
+tableau y est illisible — or les tableaux du guide portent des consignes.
+
+Les extraits passent donc du statut d'**artefact mécanique** à celui de
+**transcription curée**, sur la chaîne maison `brut → curé → validé →
+figé` :
+
+| Répertoire | Contenu | Statut |
+|---|---|---|
+| `data/guide_mco/extraits_bruts/` | sortie `pdftotext -layout` intacte, commande et version de poppler en tête | artefact, régénérable à l'identique |
+| `data/guide_mco/extraits/` | transcription curée, relue et validée, puis figée | **substrat d'ancrage du chantier B** |
+
+**La curation est un reformatage sans réécriture.**
+
+| Autorisé | Interdit |
+|---|---|
+| recoller les lignes coupées par la mise en page | paraphraser |
+| reconstruire les tableaux disloqués | condenser |
+| sortir les notes de bas de page vers la fin, avec marqueurs | réordonner le corps |
+| baliser articles et sections | corriger le texte du guide |
+
+> **Les erreurs de l'original se signalent en marge, elles ne se réparent
+> pas.** Un guide dont on a corrigé le texte ne prouve plus rien sur ce
+> que le guide dit — et c'est exactement ce que la base de
+> recommandations doit pouvoir attester. La marge, techniquement, est le
+> commentaire HTML : invisible au flux de mots, donc invisible au test.
+
+#### Le brut est lossy — la leçon structurelle
+
+*Constaté le 2026-08-18, sur l'article MALNUTRITION, DÉNUTRITION.*
+
+`pdftotext` a rendu **quatre lignes vides** là où le PDF porte le tableau
+du §4.1 : six méthodes d'évaluation de la masse musculaire et leurs
+douze seuils hommes/femmes, entièrement perdus. Le tableau est
+**incorporé en image** dans le PDF — aucune option d'extraction ne le
+récupérera.
+
+Il faut en tirer la portée exacte des contrôles automatiques :
+
+> **Les vérifications machine — intégrité de transcription, plages de
+> citation — garantissent la fidélité À L'EXTRAIT. Jamais la complétude
+> vis-à-vis du PDF.** Un curé peut être parfaitement vert et amputé d'un
+> tableau entier ; une citation peut retomber exactement à sa ligne dans
+> un extrait qui a perdu le paragraphe voisin.
+
+**Seule la relecture humaine du PDF détecte le contenu perdu.** C'est
+l'une des raisons d'être de la couche curée : si le brut était fidèle,
+elle n'aurait d'intérêt que cosmétique. Le balayage des quatre articles
+du pilote n'a trouvé qu'un seul trou, mais un seul suffit à retirer au
+brut son statut de référence.
+
+D'où le mécanisme des **restitutions**, et sa particularité : par
+définition, leur contenu n'est nulle part dans l'extrait, donc **aucune
+machine ne peut les valider**. Chacune porte sa page PDF, et la
+contre-vérification est visuelle. C'est le seul contrôle possible.
+
+#### Les quatre déclarations de `extraits/curation.yaml`
+
+| Déclaration | Ce qu'elle couvre | Vérifiable par machine |
+|---|---|---|
+| `bornes` | lignes du brut couvertes — l'extraction se fait en pages entières, le curé porte un article | oui (titre vérifié à la première ligne) |
+| `suppressions_mecaniques` | artefacts de pagination : numéro de page, numéro de définition de note, appel hissé seul sur sa ligne | oui |
+| `suppressions_editoriales` | renvois de couche 2 (autres chapitres du guide, URL), avec motif | oui — le texte déclaré doit exister dans le brut |
+| `restitutions` | contenu du PDF absent du brut, avec sa page | **non** — contre-lecture visuelle obligatoire |
+
+**La règle est vérifiable, pas seulement écrite.**
+`recode_icd.recommendations.transcription` compare le flux de mots du
+curé à celui du brut, aux suppressions **déclarées** près
+(`data/guide_mco/extraits/suppressions.yaml`). Trois contrôles :
+
+1. **conservation** — multiensemble du curé = multiensemble du brut,
+   moins les suppressions déclarées, plus les restitutions déclarées :
+   attrape paraphrase, condensation, ajout non déclaré ;
+2. **ordre du corps** — restitutions et notes retirées, le corps forme
+   une sous-séquence du brut : attrape le réordonnancement ;
+3. **ordre des notes** — même contrôle, séparément, parce que leur
+   déplacement est précisément ce qu'on autorise.
+
+**Les notes sont repliées à leur point d'appel** (`[^57: texte]`), et non
+rejetées en fin de fichier comme prévu initialement. La fiche est
+injectée d'un bloc dans un prompt : une note à sept cents lignes de son
+appel est un contexte perdu. La syntaxe doit rester explicite — des
+parenthèses nues seraient indiscernables de celles du guide, qui en
+emploie beaucoup.
+
+Ce qui échappe : une permutation de deux notes entre elles. Le contrôle 1
+borne le dégât à un déplacement, et la relecture humaine suit de toute
+façon.
+
+> ⚠ **Ne jamais élargir `suppressions.yaml` pour faire passer un test.**
+> Un curé qui a perdu un paragraphe doit échouer bruyamment — c'est
+> l'unique raison d'être du fichier. Une suppression s'ajoute avec son
+> motif et sa justification, jamais pour débloquer.
+
+**Circuit par article, au chantier B** : production du curé avec le test
+vert → relecture et validation par RF (c'est sa relecture de *substrat*,
+les tableaux surtout) → commit et gel → l'extraction des candidates
+s'ancre dessus.
+
+**Le pilote n'est pas réancré.** Ses citations ont été contre-lues et
+validées ligne à ligne contre les bruts ; les recaler sur des curés
+invaliderait une vérification déjà faite, sans rien apporter. Les
+candidates du pilote renvoient donc à `extraits_bruts/`, et un test
+verrouille la présence de ces quatre fichiers.
+
+## 8. Questions ouvertes — **tranchées le 2026-08-14**
+
+1. **Propagation des consignes de niveau chapitre jusqu'aux fiches
+   feuilles : OUI.** La suggestion initiale (les réserver à
+   recode-scenario) est écartée. Les fiches sont injectées *telles
+   quelles* dans des prompts : elles doivent être autonomes, donc porter
+   la consigne et non un renvoi. Le risque de bruit était réel mais il se
+   traite au **rendu** — les consignes de chapitre sont regroupées en fin
+   de section sous « Règles générales du chapitre » — et non en amputant
+   la résolution.
+2. **Conditions en texte libre**, comme envisagé. Une structuration en
+   prédicats reste conditionnée à un besoin d'évaluation automatique côté
+   recode-scenario.
+3. **Coexistence tracée, pas de dédoublonnage.** Une consigne du guide et
+   une exclusion CIM-10 qui se recoupent n'ont ni la même autorité ni la
+   même portée : les fusionner ferait perdre l'une des deux. La trace
+   n'ajoute **aucune colonne** au modèle — elle vit dans le rapport de
+   build, colonne `recouvrement_potentiel`, et c'est une **heuristique de
+   repérage pour l'audit humain, sans aucune prétention sémantique** :
+   pour chaque `(rec_id, code)` de rôle `interdit` ou
+   `interdit_association`, on signale les lignes d'exclusion OFS/ANS
+   existantes sur ce code. Ni un dédoublonnage, ni une preuve de
+   redondance : un pointeur.

@@ -21,6 +21,16 @@
    significatifs (file by file, avec explication).
 5. À la fin d'une grosse session : produire un récap dans
    docs/sessions/YYYY-MM-DD_<sujet>.md.
+6. **N'annoncer un comportement comme acquis que s'il est testé sur un
+   cas qui l'exerce.** Leçon du chantier guide-mco : « le script
+   reproduit la version relue » a été annoncé sur la foi d'un article
+   sans puce, alors que le correctif portait sur les puces. Un test qui
+   passe sur un cas qu'il ne touche pas ne prouve rien.
+7. **En cas de blocage : déclarer, puis constater — ne pas itérer sur
+   des diffs.** Enchaîner des correctifs cosmétiques jusqu'à ce qu'un
+   diff se vide coûte cher et converge mal. Poser d'abord toutes les
+   déclarations nécessaires, produire, puis regarder le résultat une
+   fois.
 
 ## Objectifs métier
 
@@ -116,9 +126,16 @@ docs/
 data/
 ├── CIM_APHP_2019/                              # Excel HECTOR (Index CIM-10 + thésaurus AP-HP)
 │   └── Dictionnaire_Hector_MAJ062019.xlsx
-└── Orphanet_Nomenclature_Pack_FR_2025/         # ORPHANET 2025
-    ├── ORPHA_ICD10_mapping_fr_2025.xml
-    └── ORPHA_ICD10_mapping_en_2020.xsd
+├── Orphanet_Nomenclature_Pack_FR_2025/         # ORPHANET 2025
+│   ├── ORPHA_ICD10_mapping_fr_2025.xml
+│   └── ORPHA_ICD10_mapping_en_2020.xsd
+└── guide_mco/                                  # guide méthodologique MCO
+    ├── guide_methodo_mco_2026_version_provisoire.pdf
+    ├── extraits_bruts/                         # pdftotext -layout intact
+    ├── extraits/                               # transcriptions curées + suppressions.yaml
+    ├── extraction/                             # candidates (trace de curation)
+    ├── hors_perimetre.md                       # couches 1 et 2, divergences guide/CIM
+    └── *_curated.csv                           # SOURCE DE VÉRITÉ du build
 ```
 
 
@@ -608,6 +625,171 @@ uv run python scripts/explore/relectures/export_relecture_index.py --graine 4242
 `VERSION_REGLE` dans le script de relecture doit être **incrémentée à
 chaque changement de comportement du normalisateur**, sinon les
 relectures de deux versions se mélangent silencieusement.
+
+## Recommandations du guide méthodologique MCO
+
+> Livrable séparé — `referentials/processed/recommendations.parquet` +
+> `recommendation_codes.parquet` — sur le patron de
+> `dagger_asterisk.parquet`. **Le CSV maître n'est pas modifié** : les
+> consignes de codage ne sont pas une source de synonymes ou
+> d'inclusions, c'est une famille d'information nouvelle.
+>
+> Modèle, catalogue des rôles et doctrine d'extraction :
+> `docs/analyses/2026-08-09_conception_base_recommandations_guide_methodo.md`
+> (RÉFÉRENCE — à lire avant toute modification de `recommendations/`).
+
+Cible du procédé : sortie machine tracée à partir du PDF, relecture humaine obligatoire pour validation et corrections, gel par empreinte. La relecture est une étape structurelle, pas transitoire : l'outillage sert à la diriger (intégrité des mots prouvée, orphelines listées, écarts déclarés), jamais à la supprimer. Toute proposition d'heuristique visant à éviter une relecture doit être refusée au profit d'une déclaration dans curation.yaml
+
+### Deux tables, dix rôles
+
+`recommendations` porte la consigne (une ligne), `recommendation_codes`
+ses cibles (N lignes). **La sémantique positionnelle vit dans
+l'association, jamais dans le texte seul.**
+
+Les dix rôles se rangent en trois familles :
+`DP`/`DR`/`DAS` (position prescrite) ·
+`interdit` / `interdit_DP` / `interdit_DR` / `interdit_DAS` /
+`interdit_association` (emploi ou position proscrits) ·
+`regi` / `contexte` (ni l'un ni l'autre).
+
+### Pitfalls
+
+1. **L'extraction LLM ne rentre JAMAIS dans le pipeline.** Le build ne
+   lit que `data/guide_mco/*_curated.csv`, validés humainement ligne à
+   ligne — patron `dagger_curation.csv`. `data/guide_mco/extraction/`
+   est une **trace de curation**, pas une entrée. Une seule porte
+   d'entrée vers les tables curées : la validation ligne à ligne.
+
+2. **`interdit` ≠ `interdit_DP`/`interdit_DR`/`interdit_DAS`.** Le
+   premier proscrit le code ; les trois autres ne proscrivent qu'une
+   **position**. Les confondre ferait disparaître des codes légitimes :
+   `Z43.–` ne doit pas être en DAS en sus d'un acte CCAM, mais reste le
+   DP légitime d'une fermeture de stomie.
+
+3. **`regi` ≠ `contexte`.** `regi` = la consigne **régit l'emploi** du
+   code (le prescrit, le conditionne ou le décrit) sans lui assigner de
+   position. `contexte` = le code **délimite la situation**, la consigne
+   ne régit pas son emploi. Un rendu qui veut « les consignes qui
+   parlent de ce code » filtre sur `regi` et les positions, jamais sur
+   `contexte`.
+
+4. **La spécificité vient de l'expression, pas du référentiel.**
+   `merged.type` ne vaut que `chapter|block|category` : `Z86.70` y est
+   typé `category` exactement comme `I69`. Le tri code > catégorie >
+   plage > chapitre se dérive de `code_expr` telle qu'écrite dans la
+   table curée.
+
+5. **Doctrine d'extraction** : on n'associe une expression que si la
+   consigne **régit son emploi ou le positionne**. Les mentions de
+   passage restent dans le `texte`. Une consigne de chapitre qui régit
+   vraiment doit, elle, descendre sur toutes ses feuilles — c'est la
+   nature du lien qui décide, pas son coût.
+
+6. **Une expression non parsable ou non résolue va au RAPPORT, jamais
+   au silence.** Une consigne avalée est indétectable en aval : rien
+   dans la fiche ne signale son absence.
+
+### Substrat : brut → curé → validé → figé
+
+On ne devine pas, on déclare — voir la cible du procédé en tête de section. Un curé n'existe qu'en vert (test d'intégrité) et n'est figé qu'après relecture humaine, avec relecteur et date dans curation.yaml.
+
+| Répertoire | Contenu |
+|---|---|
+| `data/guide_mco/extraits_bruts/` | sortie `pdftotext -layout` intacte (commande + version de poppler en tête) — artefact régénérable |
+| `data/guide_mco/extraits/` | transcription **curée**, relue, validée, figée — substrat d'ancrage du chantier B |
+
+La curation est un **reformatage sans réécriture**. Autorisé : recoller
+les lignes coupées, reconstruire les tableaux, replier les notes de bas
+de page à leur point d'appel (`[^57: texte]`), baliser articles et
+sections. **Interdit : paraphrase, condensation, réordonnancement du
+corps, correction du texte du guide.** Les erreurs de l'original se
+signalent en marge — en commentaire HTML — elles ne se réparent pas.
+
+`recode_icd.recommendations.transcription` rend la règle vérifiable, sur
+quatre déclarations de `data/guide_mco/extraits/curation.yaml` :
+`bornes` (lignes couvertes, l'extraction se faisant en pages entières),
+`suppressions_mecaniques` (artefacts de pagination),
+`suppressions_editoriales` (renvois de couche 2, avec motif) et
+`restitutions` (contenu du PDF absent du brut, avec sa page).
+
+> ⚠ **PITFALL — le brut est lossy, et les contrôles machine ne le
+> couvrent pas.** `pdftotext` a rendu quatre lignes vides là où le PDF
+> porte le tableau du §4.1 de l'article dénutrition : douze seuils
+> chiffrés, perdus, parce que le tableau est incorporé en **image**.
+>
+> Le test d'intégrité garantit la fidélité **à l'extrait**, jamais la
+> complétude vis-à-vis du **PDF**. Un curé peut être vert et amputé d'un
+> tableau entier. **Seule la relecture humaine du PDF détecte ce contenu
+> perdu** — et c'est une des raisons d'être de la couche curée. Même
+> limite pour les plages de citation : une citation peut retomber
+> exactement à sa ligne dans un extrait incomplet.
+>
+> Corollaire : une **restitution** n'est vérifiable par aucune machine,
+> puisque son contenu n'est nulle part dans l'extrait. Elle porte donc sa
+> `page_pdf`, et la contre-lecture est visuelle.
+
+> ⚠ **PITFALL DE PROCÉDÉ — l'ancrage des notes.** Un mécanisme de
+> dérivation positionnelle (colonne de l'exposant hissé dans la sortie
+> `pdftotext`) a été construit puis **retiré après quatre itérations** :
+> sa sophistication croissait plus vite que son rendement face à la
+> déclaration manuelle, qui coûte ≈ 2 min par note. Il violait de plus
+> le principe de la relecture structurelle — l'outillage dirige la
+> relecture, il ne la remplace pas.
+>
+> **Toute proposition de le réintroduire doit d'abord battre ce coût.**
+> Dix-neuf notes déclarées à la main valent moins d'une heure ; aucune
+> des quatre itérations n'a tenu dans ce budget.
+
+> ⚠ **PITFALL — un contrôle différentiel est aveugle aux défauts de son
+> propre code.** Le test d'intégrité compare deux artefacts dérivés du
+> MÊME dépouillement. Si ce dépouillement est fautif, il l'est des deux
+> côtés à la fois : le contrôle reste vert en comparant des jetons
+> corrompus.
+>
+> Vécu le 2026-08-31 : `_depouille` amputait les codes CIM dont les
+> chiffres coïncident avec un numéro de note déclaré — `Z29` → `Z`,
+> `Z51.30` → `Z51.` — sur un chapitre qui numérote ses notes de 23 à 48
+> et cite `Z29`, `Z33`, `Z37`, `Z40`, `Z51.30`. Trois curés verts, et
+> des données fausses.
+>
+> **Les pièges connus se testent par invariant ABSOLU, jamais par
+> comparaison** : « un code CIM n'est jamais dépouillé » s'affirme sur
+> une entrée choisie, pas sur l'égalité de deux sorties. Tout piège
+> identifié dans ce chantier doit recevoir son test d'invariant.
+
+**Conventions de forme d'un curé** (fixées à la relecture du chapitre
+XXI, 2026-09-02) : `###` pour les titres de catégorie, blocs cités `>`
+avec puces `>-` pour les exemples du guide, `**…**` pour les
+paragraphes que le PDF met en gras, puces `-` pour les listes. Les
+équivalences de balisage — `>`, `**`, `–`, `•`, `*`, filets de tableau
+— sont déclarées dans `transcription.py` et ne comptent pas dans le
+flux de mots.
+
+> **Backlog** : le rendu des exemples en blocs cités est une convention
+> de transcription, pas encore une décision de rendu de fiche. Quand les
+> consignes seront injectées dans les prompts, il faudra décider si un
+> exemple du guide entre dans la fiche, et sous quelle forme — cf.
+> `docs/backlog/profils_fiches_par_usage.md`.
+
+> ⚠ **Ne jamais élargir `curation.yaml` pour faire passer un test.**
+> Un curé qui a perdu un paragraphe doit échouer bruyamment ; un curé
+> qui invente une phrase aussi. C'est l'unique raison d'être du fichier.
+
+**Circuit par article** : produire le curé (test vert) → relecture et
+validation humaine, les tableaux surtout → commit et gel → l'extraction
+des candidates s'ancre dessus.
+
+**Le pilote n'est pas réancré** : ses citations sont validées contre les
+bruts, on ne recale rien.
+
+### Commandes
+
+```bash
+./scripts/extraire_guide_mco.sh                      # bruts (poppler requis)
+uv run recode-icd build guide-mco                    # les deux Parquet + rapport
+uv run pytest -k transcription                       # intégrité des curés
+uv run python scripts/rendre_candidates_guide_mco.py # fiches de relecture (générées)
+```
 
 ## Mapping sources internes ↔ libellés CSV
 

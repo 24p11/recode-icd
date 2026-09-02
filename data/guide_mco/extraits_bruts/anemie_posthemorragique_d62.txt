@@ -1,0 +1,138 @@
+# Guide méthodologique MCO 2026 (version provisoire) — ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION (imprimées 81-82)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 89-90  (imprimées : 81-82)
+#
+# Commande exacte :
+#   pdftotext -layout -f 89 -l 90 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                          81
+
+ se fasse au sein d’un même établissement ou d’établissements différents (voir ci-dessus
+ séjour pour poursuite des soins), soit un code de séquelle d’AVC si ce dernier a été pris en
+ charge lors d’un précédent séjour.
+
+ 7°) Séjour pour répit de la famille ou des aidants : le DP est codé Z74.2 Besoin d’assistance
+ à domicile, aucun autre membre du foyer n’étant capable d’assurer les soins ou Z75.5 Prise
+ en charge pendant les vacances. Un code de séquelle de maladie cérébrovasculaire (I69.–)
+ est saisi en position de DAS.
+
+
+ ACCOUCHEMENT IMPROMPTU OU À DOMICILE
+
+Un séjour faisant suite à un accouchement impromptu survenu avant l’arrivée de la mère dans un
+établissement de santé, par exemple au domicile ou pendant le trajet vers la maternité, que
+l’accouchement ait eu lieu, ou pas, en présence du SMUR, est codé comme suit :
+
+              •     DP : Z39.00 ;
+               •    DA : Z37.– ;
+              •     pas d’acte d’accouchement.
+
+L’accouchement à domicile, résultant du choix de la mère, ne donne pas lieu à la production d’un
+                                                                                           5
+RSS puisqu’il n’existe pas de séjour hospitalier, ni pour la mère ni pour le nouveau-né . Une
+hospitalisation ne surviendrait qu’en cas de complication :
+     • si la complication concerne la mère, son séjour est un séjour du postpartum,
+         non d’accouchement ; le DP est déterminé conformément à sa définition et au guide
+         des situations cliniques ; en l’absence de problème de santé propre au nouveau-né
+         et pris en charge, le séjour de celui-ci est aussi un séjour du postpartum, son DP
+         est codé Z76.2 Surveillance médicale et soins médicaux d’autres nourrissons et
+         enfants en bonne santé ;
+     • si la complication concerne l’enfant, un RSS est produit pour lui ; le DP est
+         déterminé conformément à sa définition et au guide des situations cliniques.
+
+
+ ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION
+
+ L’emploi du code D62 Anémie posthémorragique aigüe pour mentionner la constatation
+ d’une anémie postopératoire se discute devant un résultat d’hémogramme postopératoire
+ prouvant la chute de l’hémoglobine en deçà de 13 grammes par décilitre chez l’homme,
+ 12 grammes par décilitre chez la femme (11 grammes par décilitre chez la femme enceinte),
+ chez un adulte jusqu’alors non anémié. Le présent article vise à rappeler et à préciser les
+ règles justifiant l’emploi du code D62 dans cette circonstance particulière.
+
+ Les règles de l’art en matière de transfusion de patients subissant une intervention ont été
+ définies par les experts de la Société française d’anesthésie et de réanimation (SFAR) lors de
+ l’élaboration de la Classification commune des actes médicaux. Il a été admis que l'anesthésiste
+ doit assurer la compensation des pertes sanguines, en particulier au cours des interventions par
+ nature hémorragiques : certaines interventions sur le squelette (particulièrement hanche, fémur,
+ genou, colonne vertébrale) ou le système cardiovasculaire. Cette restitution du volume sanguin
+ peut utiliser des modalités très variables : allotransfusion, autotransfusion, emploi de système de
+ récupération sanguine peropératoire. Elle peut être entièrement effectuée au cours de
+ l’intervention selon les pertes estimées, et éventuellement poursuivie au décours de l’opération.
+ Dans ces conditions le code D62 ne doit pas être mentionné.
+
+ 5
+     Y compris si celui-ci est né sans vie (voir pages 70 et 92).
+                                                                 82
+
+
+Inversement, une anémie postopératoire peut se révéler consécutive à un phénomène
+hémorragique inhabituel : le saignement peut résulter de la lésion elle-même (par exemple,
+rupture de la rate, plaie du foie) ou d’un traumatisme peropératoire (plaie d’un gros vaisseau,
+lâchage d’une suture vasculaire, conditions particulières de travail sur le site opératoire). Ces
+cas nécessitent des transfusions massives, ou à tout le moins dont le volume dépasse le
+volume prévisible en fonction de l’intervention. Le code D62 peut alors être mentionné dans
+le résumé d’unité médicale.
+
+
+ANTÉCÉDENTS
+
+
+Une affection constituant un antécédent personnel — une maladie ancienne guérie — ne doit
+pas être enregistrée dans le résumé d’unité médicale (RUM) avec le code qu’on utiliserait si
+elle était présente (« active »), c’est-à-dire qu’elle ne doit pas être codée avec les chapitres
+I à XIX de la CIM–10 (sinon éventuellement comme une donnée à visée documentaire). La
+même règle s’impose dans le cas d’un antécédent familial, c’est-à-dire d’une affection dont le
+patient n’est personnellement pas atteint. Un antécédent personnel ou familial, au sens d’une
+affection dont le patient n’est plus ou n’est pas atteint au moment du séjour objet du RUM,
+doit être codé avec le chapitre XXI (« codes Z »).
+
+On trouve dans le chapitre XXI de la CIM–10 des catégories (Z80 à Z99) destinées au
+codage des antécédents.
+
+Les affections qui entrainent habituellement des séquelles font partie des exclusions de ces
+catégories.
+          Exemples :
+          – Z86.1 Antécédents personnels de maladies infectieuses et parasitaires exclut les
+            séquelles de maladies infectieuses et parasitaires ;
+          – Z86.7 Antécédents personnels de maladies de l’appareil circulatoire exclut l’infarctus
+                                                                                                 6
+            ancien, les séquelles de maladies cérébrovasculaires et le syndrome postinfarctus .
+
+Le problème que pose l’utilisation des catégories d’antécédents en général, et d’antécédents
+personnels en particulier, est celui de la définition du mot « antécédent ». On retient la
+suivante : une affection ancienne qui n’existe plus et qui n’est pas cause de troubles
+         7
+résiduels au moment de l’hospitalisation concernée par le recueil d’informations.
+
+Le problème concerne notamment les antécédents personnels de tumeur maligne :
+à partir de quand un cancer peut-il être considéré comme un antécédent ?
+
+Le choix entre « cancer » et « antécédent de cancer » est d’abord une question médicale, il
+ne dépend pas du codeur au vu d’une information telle que « cancer datant de 3 ans » ou «
+                            8
+cancer datant de 10 ans » . Si un clinicien estime qu’un cancer « extirpé chirurgicalement
+dans sa totalité » est devenu un antécédent, il faut le coder avec la catégorie Z85 de la CIM–
+10. S’il considère au contraire qu’il est trop tôt pour parler d’antécédent, il faut l’enregistrer au
+moyen du code adapté du chapitre II de la CIM–10.
+
+
+
+
+6
+  Z86.7 a des extensions, créées pour la version 11 des GHM (2009) : Z86.70 et Z86.71. Leur emploi est obligatoire (voir le Manuel des
+groupes homogènes de malades).
+7
+  Sinon on parlerait de séquelles, non d’antécédents (voir le point 2 de ce chapitre).
+8
+  On s’est longtemps fondé sur un délai de cinq ans. Cette référence est de tradition purement orale, elle n’a jamais figuré dans aucun
+document officiel. Elle est médicalement erronée puisque la durée à partir de laquelle une rémission autorise à parler d’antécédent de
+cancer varie, en fonction notamment de l’organe atteint et du type histologique. Il ne faut plus se référer au délai de cinq ans.
+

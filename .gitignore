@@ -42,3 +42,7 @@ outputs/llm_synonymes/
 # Secrets et configuration locale (clés API)
 # Voir config/secrets.yaml.example pour la structure.
 config/secrets.yaml
+
+# Sauvegarde de curations manuelles en cours — filet de sécurité,
+# à supprimer une fois trié.
+data/guide_mco/_curation_rf_sauvegarde/

@@ -224,3 +224,116 @@ class LexiqueJuxtapositionSchema(pa.DataFrameModel):
     class Config:
         strict = True
         coerce = False
+
+
+# ---------------------------------------------------------------------
+# Recommandations du guide méthodologique MCO
+# ---------------------------------------------------------------------
+#: Types de consigne (§4.1 de la note de conception).
+TYPES_RECOMMANDATION = (
+    "regle_position",
+    "interdiction",
+    "condition_emploi",
+    "definition",
+    "regle_association",
+)
+
+#: Rôles d'un code dans une consigne (§4.2). **Dix modalités.**
+#:
+#: Trois familles, et les confondre coûte cher :
+#:
+#: 1. POSITION PRESCRITE — `DP`, `DR`, `DAS`.
+#: 2. POSITION OU EMPLOI PROSCRIT — `interdit` proscrit le code
+#:    lui-même ; `interdit_DP`/`interdit_DR`/`interdit_DAS` ne
+#:    proscrivent qu'une POSITION. Les confondre ferait disparaître des
+#:    codes légitimes : « les codes du chapitre XX ne doivent jamais
+#:    être utilisés en DP ou DR » ne les interdit pas, ils restent
+#:    obligatoires en DAS. `interdit_association` proscrit la
+#:    coexistence avec une AUTRE CIBLE DE LA MÊME CONSIGNE.
+#: 3. NI POSITION NI INTERDICTION — `regi` et `contexte`, à ne pas
+#:    intervertir :
+#:      - `regi` : la consigne RÉGIT l'emploi de ce code — elle le
+#:        prescrit, le conditionne ou le décrit — sans lui assigner de
+#:        position. « I64 n'est employé qu'en l'absence de
+#:        neuro-imagerie » régit I64.
+#:      - `contexte` : le code DÉLIMITE la situation, la consigne ne
+#:        régit pas son emploi. Dans « ne pas associer G46.0-G46.2 à un
+#:        code I60-I64 », c'est G46.0-G46.2 qui est régi ; I60-I64 dit
+#:        seulement de quelle situation on parle.
+#:    Avant l'ajout de `regi`, `contexte` faisait les deux métiers et
+#:    devenait le rôle majoritaire — signe qu'il en portait un de trop.
+ROLES_RECOMMANDATION = (
+    "DP",
+    "DR",
+    "DAS",
+    "interdit",
+    "interdit_association",
+    "interdit_DP",
+    "interdit_DR",
+    "interdit_DAS",
+    "regi",
+    "contexte",
+)
+
+#: Centralité : le code est-il l'objet de la consigne, ou seulement cité
+#: en illustration ? Binaire et volontairement : la fiche de F32 n'a pas
+#: vocation à recevoir la consigne AVC parce que F32 y figure comme
+#: exemple de manifestation.
+CENTRALITES_RECOMMANDATION = ("sujet", "exemple")
+
+
+class RecommendationsSchema(pa.DataFrameModel):
+    """Consignes du guide méthodologique — une ligne par consigne."""
+
+    rec_id: str = pa.Field(str_matches=r"^GM\d{4}-[IVX]+-[A-Z0-9]+-\d{2}$", unique=True)
+    millesime: str = pa.Field(nullable=False)
+    localisation: str = pa.Field(nullable=False)
+    situation: str = pa.Field(nullable=False)
+    type: str = pa.Field(isin=TYPES_RECOMMANDATION)
+    texte: str = pa.Field(nullable=False)
+    condition: str = pa.Field(nullable=True)
+
+    class Config:
+        strict = True
+        coerce = False
+
+
+class RecommendationCodesSchema(pa.DataFrameModel):
+    """Associations consigne ↔ expression de codes.
+
+    `code_expr` est conservée **telle qu'écrite** dans la table curée :
+    c'est elle qui porte la spécificité (cf. `recommendations.code_expr`).
+    """
+
+    rec_id: str = pa.Field(nullable=False)
+    code_expr: str = pa.Field(nullable=False)
+    role: str = pa.Field(isin=ROLES_RECOMMANDATION)
+    centralite: str = pa.Field(isin=CENTRALITES_RECOMMANDATION)
+    condition: str = pa.Field(nullable=True)
+
+    class Config:
+        strict = True
+        coerce = False
+
+
+class ResolvedRecommendationCodesSchema(pa.DataFrameModel):
+    """Associations **résolues** — une ligne par (rec_id, code_expr, code).
+
+    `code_expr` est conservée à côté de `code` : l'association compacte
+    reste récupérable par déduplication, donc rien n'est perdu par
+    l'expansion. `specificite` est la valeur entière de `TypeExpr`, pour
+    que le consommateur trie sans avoir à re-parser.
+    """
+
+    rec_id: str = pa.Field(nullable=False)
+    code_expr: str = pa.Field(nullable=False)
+    code: str = pa.Field(nullable=False)
+    role: str = pa.Field(isin=ROLES_RECOMMANDATION)
+    centralite: str = pa.Field(isin=CENTRALITES_RECOMMANDATION)
+    condition: str = pa.Field(nullable=True)
+    type_expr: str = pa.Field(isin=("CODE", "CATEGORIE", "PLAGE", "CHAPITRE"))
+    specificite: int = pa.Field(ge=0, le=3)
+
+    class Config:
+        strict = True
+        coerce = False

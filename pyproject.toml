@@ -110,6 +110,16 @@ allowed-confusables = ["×", "æ", "’"]
 "src/recode_icd/_normalize.py" = ["RUF001", "RUF002", "RUF003"]   # caractères Unicode load-bearing dans le regex
 "tests/unit/test_normalize.py" = ["RUF001", "RUF002"]   # en-dash U+2013 testés explicitement (limitation assumée)
 "src/recode_icd/merge.py" = ["RUF003"]   # symbole ∪ intentionnel dans les commentaires
+# Le tiret typographique du guide (« I63.– ») EST la donnée parsée : il
+# figure dans TIRETS et dans les doctests, on ne peut pas le remplacer.
+"src/recode_icd/recommendations/code_expr.py" = ["RUF001", "RUF002", "RUF003"]
+"tests/unit/test_code_expr.py" = ["RUF001", "RUF002"]
+# Les caractères de puce (– — •) SONT la donnée comparée.
+"src/recode_icd/recommendations/transcription.py" = ["RUF001", "RUF002", "RUF003"]
+# Les codes à tiret typographique (« Z43.– ») SONT la donnée testée.
+"tests/unit/test_transcription.py" = ["RUF001", "RUF002"]
+# Le tiret typographique du guide est normalisé dans le calcul de recouvrement.
+"src/recode_icd/recommendations/build.py" = ["RUF001"]
 
 [tool.mypy]
 python_version = "3.13"

@@ -1,0 +1,237 @@
+# Déclaration de curation des extraits du guide MCO.
+#
+# ─────────────────────────────────────────────────────────────────────
+# CE FICHIER EST UNE DÉCLARATION, PAS UN FILTRE DE CONFORT.
+#
+#   Le test d'intégrité exige que le flux de mots du curé égale celui
+#   du brut. Tout écart légitime se déclare ICI, motif par motif.
+#
+#   Ne JAMAIS élargir une entrée pour « faire passer le test ». Un curé
+#   qui a perdu un paragraphe doit échouer bruyamment : c'est
+#   exactement ce que le test existe pour attraper.
+# ─────────────────────────────────────────────────────────────────────
+#
+# ⚠ Portée du contrôle machine : il garantit la fidélité À L'EXTRAIT,
+#   jamais la complétude vis-à-vis du PDF. Le brut est lossy — pdftotext
+#   a rendu quatre lignes vides là où le PDF porte le tableau du §4.1.
+#   Seule la relecture humaine du PDF détecte ce contenu perdu.
+
+# ---------------------------------------------------------------------
+# 1. Bornes — quelles lignes du brut le curé couvre
+# ---------------------------------------------------------------------
+# L'extraction se fait en pages entières, donc un extrait déborde sur
+# l'article voisin. Le curé porte UN article.
+bornes:
+  malnutrition_denutrition:
+    premiere_ligne: 35
+    derniere_ligne: 305
+    titre: "MALNUTRITION, DÉNUTRITION"
+  avc:
+    premiere_ligne: 20
+    derniere_ligne: 203
+    titre: "ACCIDENTS VASCULAIRES CÉRÉBRAUX"
+  anemie_posthemorragique_d62:
+    premiere_ligne: 51
+    derniere_ligne: 83
+    titre: "ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION"
+  chapitre_xxi:
+    premiere_ligne: 36
+    # Bornée à 695 et non 676 : les définitions des notes 47 et 48 sont
+    # imprimées au bas de la page que l'article partage avec ÉTAT
+    # GRABATAIRE, donc APRÈS le titre de celui-ci. Les borner à 676 les
+    # perdait en silence — deux notes sur vingt-six.
+    #
+    # ⚠ Extension de borne, et NON restitution. La restitution désigne du
+    # contenu perdu par pdftotext ; ces textes sont dans le brut, ils
+    # sont seulement hors bornes. Employer l'un pour l'autre diluerait
+    # le sens des deux mécanismes.
+    derniere_ligne: 695
+    titre: "EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM–10"
+
+# ---------------------------------------------------------------------
+# 2. Suppressions mécaniques — artefacts de pagination
+# ---------------------------------------------------------------------
+suppressions_mecaniques:
+  commun:
+    lignes_regex:
+      # Ligne réduite à un nombre. TROIS artefacts de mise en page s'y
+      # confondent, et aucun ne porte de texte :
+      #   - le numéro de page ;
+      #   - le numéro qui introduit la définition d'une note (son TEXTE,
+      #     lui, est conservé et replié au point d'appel) ;
+      #   - l'appel de note lui-même, quand le rendu le hisse seul sur
+      #     sa ligne au lieu de le coller au mot (cas de « 62 » ici).
+      # Le curé ne doit donc reproduire aucun de ces nombres nus : la
+      # note se rattache à son mot par le marqueur `[^n: …]`.
+      - '\s*\d{1,3}\s*'
+      - '\s*'
+  articles: {}
+
+# ---------------------------------------------------------------------
+# 3. Suppressions éditoriales — renvois de « couche 2 »
+# ---------------------------------------------------------------------
+# Pointeurs vers d'autres chapitres du guide ou vers des sites externes :
+# hors périmètre de la base de recommandations (cf. §3 de la note de
+# conception et data/guide_mco/hors_perimetre.md). Chaque entrée porte
+# son texte EXACT et son motif — une suppression dont le texte ne se
+# retrouve plus dans le brut fait échouer le test.
+suppressions_editoriales:
+  chapitre_xxi:
+    - texte: 'ÉTAT GRABATAIRE Son codage (R26.30) est réservé aux situations correspondant à la définition suivante : « état d''une personne confinée au lit ou au fauteuil par sa maladie, incapable de subvenir seule sans aide et en toute sécurité à ses besoins alimentaires, d''hygiène personnelle, d''élimination et d''exonération, de transfert et de déplacement ». NB la conjonction « et » — non « ou » — qui lie les différents besoins. Le mot « maladie » est aussi essentiel. Le codage d’un état grabataire suppose la chronicité. Sont en conséquence exclus les états qui correspondent transitoirement à la définition (par exemple, dans les suites d’une intervention chirurgicale) mais tels que « l’état grabataire » n’existait pas'
+      motif: >-
+        Article VOISIN (ÉTAT GRABATAIRE), imprimé sur la page que les
+        deux articles se partagent. Il entre dans les bornes parce
+        qu'elles ont dû être étendues jusqu'aux définitions des notes 47
+        et 48. Même précédent que la note 5 du D62.
+
+  anemie_posthemorragique_d62:
+    - texte: "Y compris si celui-ci est né sans vie (voir pages 70 et 92)."
+      motif: >-
+        Note de bas de page de l'article VOISIN (ACCOUCHEMENT IMPROMPTU),
+        imprimée au bas de la page que les deux articles se partagent.
+        Elle tombe dans les bornes du D62 sans lui appartenir : son appel
+        est dans l'article précédent. Retirée pour cette raison, et non
+        parce qu'elle serait de couche 2.
+
+  malnutrition_denutrition:
+    - texte: "https://www.has-sante.fr/upload/docs/application/pdf/2019-11/fiche_outil_diagnostic_denutrition.pdf"
+      motif: "URL externe — couche 2, sans valeur pour le codage"
+
+# ---------------------------------------------------------------------
+# 4. Restitutions — contenu du PDF absent du brut
+# ---------------------------------------------------------------------
+# ⚠ AUCUNE MACHINE NE PEUT LES VÉRIFIER : par définition ce contenu
+#   n'est nulle part dans l'extrait. D'où `page_pdf`, obligatoire —
+#   la contre-vérification est visuelle, contre le PDF, et humaine.
+restitutions:
+  malnutrition_denutrition:
+    - page_pdf: 121
+      section: "4.1 Outil d'évaluation de la masse et/ou de la fonction musculaire"
+      motif: >-
+        Tableau incorporé en IMAGE dans le PDF : pdftotext rend quatre
+        lignes vides. Six méthodes et leurs seuils hommes/femmes,
+        entièrement perdus par l'extraction.
+      texte: |
+        | Méthodes de mesure | Hommes | Femmes |
+        |---|---|---|
+        | Force de préhension (dynamomètre) en kg | < 26 | < 16 |
+        | Vitesse de marche (m/s) | < 0,8 | < 0,8 |
+        | Indice de surface musculaire en L3 en cm²/m² (scanner, IRM) | 52,4 | 38,5 |
+        | Indice de masse musculaire en kg/m² (impédancemétrie) | 7,0 | 5,7 |
+        | Indice de masse non grasse (impédancemétrie) en kg/m² | < 17 | < 15 |
+        | Masse musculaire appendiculaire (DEXA) en kg/m² | 7,23 | 5,67 |
+
+# ---------------------------------------------------------------------
+# 5. Appels de note — du balisage, pas du texte
+# ---------------------------------------------------------------------
+# Ce sont des EXPOSANTS. `pdftotext` les colle au mot (« précision58. »,
+# « kg/m261; ») ou les hisse seuls sur une ligne. Le curé les remplace
+# par des marqueurs `[^n: …]` : on les retire donc des deux côtés.
+#
+# Déclarés article par article, et jamais devinés : « 61 » est un appel
+# ici, il pourrait être une donnée ailleurs.
+appels_notes:
+  malnutrition_denutrition: [57, 58, 59, 60, 61, 62, 63, 64]
+  avc: [4]
+  anemie_posthemorragique_d62: []
+  chapitre_xxi: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+                 41, 42, 43, 44, 45, 46, 47, 48]
+
+# ---------------------------------------------------------------------
+# 6. Ancres de notes — on ne devine pas, on déclare
+# ---------------------------------------------------------------------
+# Une note se replie sur un appel UNIVOQUE (le numéro collé en fin d'un
+# seul token de l'article) ou, à défaut, sur l'ancre déclarée ici. Le
+# script REFUSE de produire un curé tant qu'une note ambiguë n'en a pas.
+#
+# Cas d'école, la note 4 de l'AVC : l'appel « 4 » se retrouve en fin de
+# « I64 », de « 24 heures », de « G81.08 »… cinq candidats. Une
+# heuristique de repli l'avait placée quarante lignes trop haut, en
+# silence. L'ancre doit apparaître EXACTEMENT une fois dans le texte.
+ancres_notes:
+  avc:
+    "4": "locked-in syndrome (G83.5)."
+
+  # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
+  # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et
+  # déclarées une à une, chacune vérifiée unique par le script.
+  chapitre_xxi:
+    "23": "ou associé (DA)."            # DP/DR/DA : renvoi au chapitre IV
+    # 24 était placée AUTOMATIQUEMENT, et au mauvais endroit : un jeton
+    # unique finissant par « 24 » existait ailleurs dans l'article. Un
+    # appel univoque n'est pas un appel juste — déclarée pour cette
+    # raison, alors que rien ne la signalait comme orpheline.
+    "24": "(après observation, examens…) n'est finalement pas confirmée."
+    "25": "Z04.8 a des extensions :"    # création des extensions, v11 des GHM
+    "26": "situation 1.3.1)."           # surveillance négative : rappel « gradation »
+    "27": "il a son sens premier de « traitement par des moyens chimiques »."  # Z08/Z09
+    "28": "(élévation du PSA,"          # sigle PSA développé
+    "29": "réalisé lors des séjours de nouveau-nés,"   # dépistage SPN, programme de santé
+    "30": "selon les recommandations de la HAS,"       # rapports HAS sur le dépistage
+    "32": "tous les séjours comportant un accouchement."  # Z37 compteur d'accouchements
+    # L’appel 33 est SOUDÉ à la ponctuation et au mot suivant par le
+    # rendu (« obligatoire33.On ») : l’ancre doit couvrir le jeton entier,
+    # sinon la note le coupe en deux.
+    "33": "obligatoire. On"
+    "34": "donne lieu à deux codages distincts :"      # renvoi chapitre IV 1.2.2
+    "35": "d’un système diffuseur implantable (chambre implantable)."  # index « accès vasculaire »
+    # Trois paragraphes du chapitre sont rédigés à l'identique (Z43/Z45,
+    # Z51, Z93/Z95/Z96) : l'ancre doit citer le code pour être unique.
+    "36": "du code Z43.– ou Z45.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10."
+    "37": "au sens du PMSI en MCO,"     # renvoi chapitre VII (séances)
+    "39": "a en effet dans la CIM–10 son sens premier de « traitement par des moyens chimiques »."  # Z51.2
+    "40": "Z51.3 a des extensions :"    # créées pour la v10c des GHM
+    "41": "du code Z51.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est"
+    "42": "serait incorrect au regard de la CIM– 10."  # Z51 : renvoi volume 1
+    # Trois notes de plus une fois le filtre des codes CIM appliqué au
+    # PLACEMENT : elles se posaient sur Z31…, Z38.0, Z44… — un code
+    # homographe, à deux sections de leur appel réel.
+    "31": "est indispensable au classement du RSS dans un GHM d'accouchement."
+    "38": "Z51.1 code le DP des séjours pour chimiothérapie pour tumeur."
+    "44": "Enfant recevant du lait provenant d’un lactarium."
+    "43": "aux fins de prélèvements d’organes ou de tissus."   # renvoi chapitre I 1.3.3
+    # 45 : sa DÉFINITION est collée à son texte dans le brut
+    # (« 45 Instructionn° DGOS/… »), ce qu'un extracteur cherchant un
+    # numéro seul ne voyait pas. Son appel, lui, est hissé.
+    "45": "d’une infections ostéoarticulaires (IOA) complexe,"
+    "46": "des situations de surveillance négative"    # renvoi chapitre VI 1.3.1
+    # 47 et 48 : appels dans les bornes d'origine, définitions au-delà —
+    # récupérées par l'extension de borne (cf. commentaire des bornes).
+    "47": "le DP du séjour est codé Z94.1"
+    "48": "du code Z93.–, Z95.– ou Z96.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10."
+
+# ---------------------------------------------------------------------
+# 7. Validations — qui a relu, et quand
+# ---------------------------------------------------------------------
+# Un curé n'est figé qu'après relecture humaine. L'empreinte du fichier
+# est dans extraits/SHA256SUMS ; ces deux champs disent qui l'a validée.
+validations:
+  malnutrition_denutrition:
+    relecteur: "RF"
+    date: "2026-09-02"   # regel : retrait d'un appel « 57 » resté nu dans le
+                         # corps (même défaut que 41 et 42 du chapitre XXI).
+                         # Validation initiale du 2026-08-20 inchangée sur le fond.
+  avc:
+    relecteur: "RF"
+    date: "2026-08-31"
+  anemie_posthemorragique_d62:
+    relecteur: "RF"
+    date: "2026-08-31"
+  chapitre_xxi:
+    relecteur: "RF"
+    date: "2026-09-02"
+
+# ---------------------------------------------------------------------
+# 8. Scissions — jetons que le rendu a soudés
+# ---------------------------------------------------------------------
+# `pdftotext` soude parfois un mot, son exposant et le mot suivant en un
+# seul jeton. Le curé les sépare pour se lire comme du français ; le
+# contrôle vérifie que les fragments recomposés, appel retiré, redonnent
+# EXACTEMENT le jeton du brut — une scission ne peut donc pas réécrire.
+#
+# Déclarées CAS PAR CAS, jamais automatiques. Généralisation seulement
+# si le chantier B en produit des familles, sur décompte.
+scissions:
+  chapitre_xxi:
+    "obligatoire33.On": ["obligatoire.", "On"]
+    "antepartum29.": ["antepartum."]

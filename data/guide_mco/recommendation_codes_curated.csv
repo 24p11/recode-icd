@@ -1,0 +1,188 @@
+rec_id,code_expr,role,centralite,condition
+GM2026-V-AVC-01,G45,DP,sujet,AIT
+GM2026-V-AVC-01,I60-I63,DP,sujet,AVC constitué
+GM2026-V-AVC-02,I60-I63,interdit_association,sujet,un code plus précis existe
+GM2026-V-AVC-02,I64,regi,sujet,
+GM2026-V-AVC-03,G46.0-G46.2,interdit_association,sujet,
+GM2026-V-AVC-03,I60-I64,contexte,sujet,
+GM2026-V-AVC-03,I65,interdit_association,sujet,
+GM2026-V-AVC-03,I66,interdit_association,sujet,
+GM2026-V-AVC-03,I67.0,interdit_association,sujet,
+GM2026-V-AVC-03,I67.1,interdit_association,sujet,
+GM2026-V-AVC-04,I60-I64,DP,sujet,récidive confirmée par l'imagerie
+GM2026-V-AVC-05,Z86.70,DP,sujet,
+GM2026-V-AVC-06,I60-I64,DR,sujet,phase initiale
+GM2026-V-AVC-06,I69,DR,sujet,phase séquellaire
+GM2026-V-AVC-06,Z51.5,DP,sujet,
+GM2026-V-AVC-07,G45,interdit_association,sujet,sauf deux épisodes distincts
+GM2026-V-AVC-07,I60-I64,interdit_association,sujet,sauf deux épisodes distincts
+GM2026-V-AVC-08,G81,DAS,sujet,
+GM2026-V-AVC-08,I60-I64,contexte,sujet,
+GM2026-V-AVC-08,R47,DAS,sujet,
+GM2026-V-AVC-09,G46.0-G46.2,interdit_association,sujet,
+GM2026-V-AVC-09,G46.3-G46.8,regi,sujet,association autorisée
+GM2026-V-AVC-09,I63,contexte,sujet,
+GM2026-V-AVC-10,I69,regi,sujet,associé à la manifestation
+GM2026-V-AVC-11,I69,interdit_association,sujet,incompatible avec l'antécédent
+GM2026-V-AVC-11,Z86.70,regi,sujet,
+GM2026-V-AVC-12,I60-I64,DP,sujet,
+GM2026-V-AVC-13,F01,DP,exemple,
+GM2026-V-AVC-13,F32,DP,exemple,
+GM2026-V-AVC-13,G40,DP,exemple,
+GM2026-V-AVC-13,G41,DP,exemple,
+GM2026-V-AVC-13,I69,DAS,sujet,
+GM2026-V-AVC-13,R26,DP,exemple,
+GM2026-V-AVC-14,I69,DR,sujet,
+GM2026-V-AVC-14,XXI,DP,sujet,
+GM2026-V-AVC-15,I69.–,DAS,sujet,
+GM2026-V-AVC-16,I69.–,DAS,sujet,
+GM2026-V-AVC-16,Z74.2,DP,sujet,
+GM2026-V-AVC-16,Z75.5,DP,sujet,
+GM2026-V-AVC-17,I48,DAS,exemple,
+GM2026-V-AVC-17,I67.2,DAS,exemple,
+GM2026-V-AVC-17,I67.4,DAS,exemple,
+GM2026-V-AVC-17,Q28.–,DAS,exemple,
+GM2026-V-AVC-19,I60-I63,regi,sujet,
+GM2026-V-AVC-20,G81.0,regi,sujet,
+GM2026-V-AVC-20,R47.0,regi,sujet,
+GM2026-V-D62-01,D62,interdit,sujet,
+GM2026-V-D62-02,D62,DAS,sujet,
+GM2026-V-D62-03,D62,regi,sujet,
+GM2026-V-DEN-01,E43,regi,sujet,dénutrition sévère
+GM2026-V-DEN-01,E44.0,regi,sujet,dénutrition modérée
+GM2026-V-DEN-02,E43,regi,sujet,dénutrition sévère
+GM2026-V-DEN-02,E44.0,regi,sujet,dénutrition modérée
+GM2026-V-DEN-03,E43,regi,sujet,dénutrition sévère
+GM2026-V-DEN-03,E44.0,regi,sujet,dénutrition modérée
+GM2026-V-DEN-04,E40-E46,regi,sujet,
+GM2026-V-DEN-05,E40-E42,regi,sujet,
+GM2026-V-DEN-06,E43,regi,sujet,
+GM2026-V-DEN-06,E44.0,regi,sujet,
+GM2026-V-DEN-07,E43,regi,sujet,le sévère prime
+GM2026-V-DEN-07,E44.0,interdit,sujet,écarté au profit de E43
+GM2026-V-DEN-08,E40-E46,regi,sujet,
+GM2026-V-DEN-08,O25,regi,sujet,pendant la grossesse
+GM2026-V-DEN-10,E44.0,regi,sujet,
+GM2026-V-DEN-11,E43,regi,sujet,
+GM2026-V-DEN-12,E44.0,regi,sujet,
+GM2026-V-DEN-13,E43,regi,sujet,
+GM2026-V-DEN-14,E44.0,regi,sujet,
+GM2026-V-DEN-15,E43,regi,sujet,
+GM2026-V-DEN-16,E40-E46,regi,sujet,
+GM2026-V-DEN-17,E43,regi,sujet,critère phénotypique attestant la dénutrition
+GM2026-V-DEN-17,E44.0,regi,sujet,critère phénotypique attestant la dénutrition
+GM2026-V-XXI-01,XXI,regi,sujet,
+GM2026-V-XXI-02,Z00-Z02,regi,sujet,
+GM2026-V-XXI-03,Z03,regi,sujet,
+GM2026-V-XXI-03,Z03.6,DP,sujet,suspicion de produit toxique infirmée
+GM2026-V-XXI-04,R78,regi,sujet,si présence confirmée
+GM2026-V-XXI-04,Z04.0,regi,sujet,
+GM2026-V-XXI-05,Z04.1-Z04.3,regi,sujet,
+GM2026-V-XXI-06,Z04.4-Z04.6,regi,sujet,
+GM2026-V-XXI-07,Z04.800,DP,sujet,EEG de longue durée
+GM2026-V-XXI-07,Z04.801,DP,sujet,enregistrement polygraphique
+GM2026-V-XXI-07,Z04.802,DP,sujet,bilan préopératoire ou préinterventionnel
+GM2026-V-XXI-07,Z04.880,regi,sujet,autres investigations
+GM2026-V-XXI-08,Z04.8,interdit,sujet,
+GM2026-V-XXI-09,Z04.9,interdit,sujet,
+GM2026-V-XXI-10,Z03,interdit_DR,sujet,quand en DP
+GM2026-V-XXI-10,Z04,interdit_DR,sujet,quand en DP
+GM2026-V-XXI-11,Z08,DP,sujet,
+GM2026-V-XXI-11,Z09,DP,sujet,
+GM2026-V-XXI-12,Z08.2,regi,sujet,
+GM2026-V-XXI-12,Z09.2,regi,sujet,
+GM2026-V-XXI-13,Z10,interdit,sujet,
+GM2026-V-XXI-14,Z11-Z13,interdit,sujet,si problème de santé personnel
+GM2026-V-XXI-15,Z13.51,DAS,sujet,
+GM2026-V-XXI-16,Z20,regi,sujet,
+GM2026-V-XXI-16,Z20.1,DP,exemple,
+GM2026-V-XXI-17,B20-B24,interdit_association,sujet,exclut Z21
+GM2026-V-XXI-17,Z21,regi,sujet,
+GM2026-V-XXI-18,Z22,regi,sujet,
+GM2026-V-XXI-19,Z29.0,regi,sujet,
+GM2026-V-XXI-19,Z60,regi,sujet,isolement social
+GM2026-V-XXI-20,Z29.1,regi,sujet,
+GM2026-V-XXI-20,Z29.2,regi,sujet,
+GM2026-V-XXI-21,Z20,interdit_DR,sujet,quand en DP
+GM2026-V-XXI-21,Z21,interdit_DR,sujet,quand en DP
+GM2026-V-XXI-21,Z22,interdit_DR,sujet,quand en DP
+GM2026-V-XXI-21,Z29,regi,sujet,seule à justifier un DR
+GM2026-V-XXI-22,Z33,DAS,sujet,
+GM2026-V-XXI-23,Z34,regi,sujet,grossesse normale
+GM2026-V-XXI-23,Z35.–,regi,sujet,toute grossesse non normale
+GM2026-V-XXI-24,Z37,DAS,sujet,
+GM2026-V-XXI-25,Z38.0,DP,sujet,
+GM2026-V-XXI-25,Z38.0,interdit_DR,sujet,quand en DP
+GM2026-V-XXI-26,Z37,DAS,sujet,
+GM2026-V-XXI-26,Z39,DP,sujet,
+GM2026-V-XXI-27,Z39.08,DP,sujet,mère
+GM2026-V-XXI-27,Z76.2,DP,sujet,nouveau-né
+GM2026-V-XXI-28,Z40,regi,sujet,
+GM2026-V-XXI-28,Z40.01,DP,sujet,ovariectomie de castration
+GM2026-V-XXI-29,Z41.0,DP,sujet,chirurgie esthétique
+GM2026-V-XXI-29,Z41.1,DP,sujet,chirurgie esthétique
+GM2026-V-XXI-29,Z41.80,DP,sujet,intervention de confort
+GM2026-V-XXI-30,J34.2,DP,exemple,rhinoplastie pour déviation de cloison
+GM2026-V-XXI-30,L91.0,DP,exemple,exérèse de cicatrice chéloïde
+GM2026-V-XXI-30,Z41.1,DP,exemple,prothèse mammaire à visée esthétique
+GM2026-V-XXI-30,Z42.1,DP,exemple,prothèse mammaire après mastectomie
+GM2026-V-XXI-30,Z42.–,DP,sujet,
+GM2026-V-XXI-31,J95.0,interdit_association,sujet,complication
+GM2026-V-XXI-31,K91.4,interdit_association,sujet,complication
+GM2026-V-XXI-31,N99.5,interdit_association,sujet,complication
+GM2026-V-XXI-31,Z43,regi,sujet,
+GM2026-V-XXI-31,Z93,interdit_association,sujet,soins habituels à domicile
+GM2026-V-XXI-32,Z45.0,interdit_DP,sujet,
+GM2026-V-XXI-33,Z45.2,interdit_DP,sujet,confection de fistule
+GM2026-V-XXI-33,Z49.0,DP,sujet,
+GM2026-V-XXI-34,Z45.84,DP,sujet,
+GM2026-V-XXI-35,Z43.–,interdit_DAS,sujet,acte CCAM présent
+GM2026-V-XXI-35,Z45.–,interdit_DAS,sujet,acte CCAM présent
+GM2026-V-XXI-36,Z47.0,DP,sujet,
+GM2026-V-XXI-37,Z48,regi,sujet,
+GM2026-V-XXI-38,Z51,DP,sujet,
+GM2026-V-XXI-38,Z51.1,DP,sujet,chimiothérapie pour tumeur
+GM2026-V-XXI-38,Z51.2,DP,sujet,chimiothérapie non antitumorale
+GM2026-V-XXI-38,Z51.30,DP,sujet,transfusion sanguine
+GM2026-V-XXI-38,Z51.31,DP,sujet,aphérèse sanguine
+GM2026-V-XXI-39,Z51.0,DP,sujet,
+GM2026-V-XXI-39,Z51.1,DP,sujet,
+GM2026-V-XXI-39,Z51.2,DP,sujet,
+GM2026-V-XXI-39,Z51.3,DP,sujet,
+GM2026-V-XXI-39,Z51.5,DP,sujet,
+GM2026-V-XXI-39,Z51.8,DP,sujet,
+GM2026-V-XXI-40,Z51.00,regi,sujet,exception
+GM2026-V-XXI-40,Z51.01,DAS,sujet,exception : irradiation au cours d'un autre séjour
+GM2026-V-XXI-40,Z51.–,interdit_DAS,sujet,acte CCAM présent
+GM2026-V-XXI-41,Z52,DP,sujet,
+GM2026-V-XXI-41,Z52.80,DAS,sujet,egg sharing
+GM2026-V-XXI-41,Z52.80,DP,sujet,prélèvement d'ovocytes
+GM2026-V-XXI-42,Z53,regi,sujet,
+GM2026-V-XXI-42,Z53.1,regi,exemple,refus pour motif de conviction
+GM2026-V-XXI-42,Z53.2,regi,exemple,sortie contre avis médical
+GM2026-V-XXI-43,Z65.1,DAS,sujet,
+GM2026-V-XXI-44,Z74.2,regi,sujet,
+GM2026-V-XXI-45,Z75.1,regi,sujet,
+GM2026-V-XXI-46,Z75.80,regi,sujet,
+GM2026-V-XXI-47,Z76.800,DAS,sujet,
+GM2026-V-XXI-48,Z76.850,DAS,sujet,
+GM2026-V-XXI-49,Z80-Z92,interdit_DR,sujet,quand en DP
+GM2026-V-XXI-49,Z80.00,DP,exemple,antécédent familial de cancer colique
+GM2026-V-XXI-50,Z92.1,DAS,sujet,
+GM2026-V-XXI-50,Z92.2,DAS,sujet,
+GM2026-V-XXI-51,Z43,interdit_association,sujet,soins ponctuels
+GM2026-V-XXI-51,Z93,regi,sujet,
+GM2026-V-XXI-52,T86.2,regi,exemple,un rejet se code T86.2
+GM2026-V-XXI-52,Z94,DP,sujet,
+GM2026-V-XXI-52,Z94.1,DP,exemple,cœur transplanté
+GM2026-V-XXI-52,Z95,DP,sujet,
+GM2026-V-XXI-52,Z95.1,DP,exemple,pontage coronaire
+GM2026-V-XXI-53,Z96,regi,sujet,
+GM2026-V-XXI-53,Z97,regi,sujet,
+GM2026-V-XXI-54,Z93.–,interdit_DAS,sujet,acte CCAM présent
+GM2026-V-XXI-54,Z95.–,interdit_DAS,sujet,acte CCAM présent
+GM2026-V-XXI-54,Z96.–,interdit_DAS,sujet,acte CCAM présent
+GM2026-V-XXI-55,Z99,interdit,sujet,en phase aigüe
+GM2026-V-XXI-55,Z99.0,interdit,exemple,ventilation en insuffisance respiratoire aigüe
+GM2026-V-XXI-55,Z99.1,interdit,exemple,ventilation en insuffisance respiratoire aigüe
+GM2026-V-XXI-55,Z99.2,interdit,exemple,dialyse pour insuffisance rénale aigüe

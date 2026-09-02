@@ -10,6 +10,7 @@ from recode_icd import lexicons, merge, merge_external, propagation
 from recode_icd import policy as policy_mod
 from recode_icd.exporters import flat_csv
 from recode_icd.loaders import ofs, owl
+from recode_icd.recommendations import build as guide_mco
 from recode_icd.relations import dagger_asterisk, sibling_exclusions
 from recode_icd.reports import csv_stats
 
@@ -465,3 +466,75 @@ def build_lexicons(
     paths = lexicons.to_parquet(csv, policy_mod.load_policy(policy_path), output_dir)
     for label, path in paths.items():
         typer.echo(f"Écrit ({label}) : {path}")
+
+
+@build_app.command("guide-mco")
+def build_guide_mco(
+    curation_dir: Annotated[
+        Path,
+        typer.Option("--curation-dir", exists=True, file_okay=False, readable=True),
+    ] = Path("data/guide_mco"),
+    merged_path: Annotated[
+        Path,
+        typer.Option("--merged", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/processed/merged_codes.parquet"),
+    csv_path: Annotated[
+        Path,
+        typer.Option("--csv", dir_okay=False, readable=True),
+    ] = Path("referentials/processed/inclusions_exclusions_synonymes.csv"),
+    output_dir: Annotated[
+        Path,
+        typer.Option("--output-dir", "-o", file_okay=False),
+    ] = Path("referentials/processed"),
+    reports_dir: Annotated[
+        Path,
+        typer.Option("--reports-dir", file_okay=False),
+    ] = Path("reports"),
+) -> None:
+    """Construire la base des recommandations du guide méthodologique MCO.
+
+    Part EXCLUSIVEMENT des tables curées de `--curation-dir`, validées
+    humainement ligne à ligne. L'extraction LLM ne rentre jamais dans le
+    pipeline : les fichiers de `data/guide_mco/extraction/` sont une
+    trace de curation, pas une entrée.
+    """
+    recs_curees, codes_cures = guide_mco.charge_tables_curees(curation_dir)
+    merged = pl.read_parquet(merged_path)
+
+    # Le CSV maître n'est lu que pour le rapport de recouvrement — une
+    # heuristique de repérage, jamais un dédoublonnage. Son absence ne
+    # bloque pas le build.
+    flat: pl.DataFrame | None = None
+    if csv_path.exists():
+        flat = pl.read_csv(csv_path, infer_schema_length=200_000)
+    else:
+        typer.echo(
+            f"Avertissement : {csv_path} introuvable — rapport de recouvrement non produit.",
+            err=True,
+        )
+
+    recs, resolus, rapport = guide_mco.construit(recs_curees, codes_cures, merged, flat)
+
+    for label, chemin in guide_mco.ecrit_parquets(recs, resolus, output_dir).items():
+        typer.echo(f"Écrit ({label}) : {chemin}")
+    guide_mco.ecrit_rapport(rapport, reports_dir)
+    typer.echo(f"Rapport de build : {reports_dir}/guide_mco_*.csv")
+
+    stats = rapport.statistiques
+    typer.echo(
+        f"{stats['recommandations']} recommandations, "
+        f"{stats['associations_curees']} associations curées → "
+        f"{stats['couples_rec_code']} couples (rec, code) sur "
+        f"{stats['codes_touches']} codes."
+    )
+    if rapport.recommandations_sans_code:
+        typer.echo(
+            f"{len(rapport.recommandations_sans_code)} recommandation(s) sans code résolu : "
+            f"{', '.join(rapport.recommandations_sans_code)}"
+        )
+    if rapport.a_des_erreurs:
+        typer.echo(
+            f"{len(rapport.expressions_non_parsables)} expression(s) non parsable(s), "
+            f"{len(rapport.expressions_non_resolues)} non résolue(s) — voir le rapport.",
+            err=True,
+        )

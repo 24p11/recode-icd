@@ -36,6 +36,12 @@ def test_context_loads_main_sources() -> None:
     assert ctx.propagated is not None
     assert ctx.flat is not None
 
+    # Tables du guide MCO présentes (versées au chantier A).
+    assert ctx.recommendations is not None
+    assert ctx.recommendation_codes is not None
+    assert isinstance(ctx.recommendation_codes, pl.DataFrame)
+    assert "specificite" in ctx.recommendation_codes.columns
+
     # Au moins un rapport présent (note_merges produit après chaque build merged).
     assert "note_merges" in ctx.reports
 
