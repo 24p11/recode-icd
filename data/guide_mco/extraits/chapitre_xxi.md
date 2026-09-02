@@ -11,9 +11,11 @@ Les codes du chapitre XXI Facteurs influant sur l'état de santé et motifs de r
 
 Les explications qui suivent visent à aider à la compréhension du sens des codes Z, dont l’usage est parfois difficile pour les codeurs. Elles donnent des consignes ou indiquent des préconisations d’emploi en matière de codage. On ne saurait en déduire des modalités de recueil de l’information qui ne seraient pas conformes aux conditions de production du RUM exposées dans le chapitre I ni aux règles de hiérarchisation des diagnostics qui font l’objet du chapitre IV.
 
-Catégories Z00–Z02 Elles répertorient des motifs de recours qui relèvent, sauf exception, de l’activité externe. Par exemple, Z00.0 correspond aux bilans de santé (« check up ») effectués à titre préventif et systématique, notamment dans des centres spécialisés ; Z00.1 est destiné aux examens réguliers systématiques du nourrisson et Z01.4 correspond aux examens gynécologiques systématiques, Z01.5 Test cutanés de diagnostic et de sensibilisation est le diagnostic principal des séjours pour tests allergologiques. Les patients concernés ne se plaignent de rien et aucun diagnostic n’est rapporté (sinon c'est la symptomatologie ou le diagnostic qu'on coderait).
+### Catégories Z00–Z02
 
-Catégories Z03 et Z04 – Mise en observation et examen médical pour suspicion de maladies, non confirmées.
+Elles répertorient des motifs de recours qui relèvent, sauf exception, de l’activité externe. Par exemple, Z00.0 correspond aux bilans de santé (« check up ») effectués à titre préventif et systématique, notamment dans des centres spécialisés ; Z00.1 est destiné aux examens réguliers systématiques du nourrisson et Z01.4 correspond aux examens gynécologiques systématiques, Z01.5 Test cutanés de diagnostic et de sensibilisation est le diagnostic principal des séjours pour tests allergologiques. Les patients concernés ne se plaignent de rien et aucun diagnostic n’est rapporté (sinon c'est la symptomatologie ou le diagnostic qu'on coderait).
+
+###  Catégories Z03 et Z04 – Mise en observation et examen médical pour suspicion de maladies, non confirmées.
 
 La catégorie Z03 est celle des « suspicions non confirmées ». Elle permet le codage de situations caractérisées par l'éventualité initiale d'une maladie qui (après observation, examens…) n'est finalement pas confirmée. [^24: Z32.0 est un autre code de suspicion non confirmée.] C’est ce qu’explique la note d’inclusion située sous son titre dans le volume 1 de la CIM–10.
 
@@ -40,19 +42,28 @@ Z04.9 correspond à une information trop imprécise pour être acceptable.
 
 Lorsqu’un code des catégories Z03 ou Z04 est en position de DP, sauf cas particulier, il ne justifie pas de diagnostic relié (DR).
 
-Catégories Z08 et Z09 – Examen de contrôle après traitement On comprendra leur intitulé comme « examen de contrôle de traitement », c’est-à-dire après traitement, ou en cours de traitement. Leurs codes peuvent donc être employés que le traitement soit achevé ou en cours. Les codes de ces catégories sont typiquement des codes de surveillance négative au sens du guide des situations cliniques (se reporter au chapitre VI situation 1.3.1). [^26: Rappel : dans la mesure où l’hospitalisation est justifiée conformément à l’arrêté « prestations » et à l’instruction « gradation ».]
+### Catégories Z08 et Z09 – Examen de contrôle après traitement 
+
+On comprendra leur intitulé comme « examen de contrôle de traitement », c’est-à-dire après traitement, ou en cours de traitement. Leurs codes peuvent donc être employés que le traitement soit achevé ou en cours. Les codes de ces catégories sont typiquement des codes de surveillance négative au sens du guide des situations cliniques (se reporter au chapitre VI situation 1.3.1). [^26: Rappel : dans la mesure où l’hospitalisation est justifiée conformément à l’arrêté « prestations » et à l’instruction « gradation ».]
 
 Z08.2 et Z09.2 : l’intitulé de ces deux sous-catégories contient le mot « chimiothérapie » alors que seule Z08 concerne les tumeurs malignes ; on rappelle en effet que le mot chimiothérapie n’a pas dans la CIM–10 le sens implicite de « chimiothérapie antitumorale » qui est le sien dans le langage courant ; il a son sens premier de « traitement par des moyens chimiques ». [^27: C’est en ce sens qu’on parle parfois de « chimiothérapie antituberculeuse ».] Lorsqu’un code des catégories Z08 ou Z09 est en position de DP, le code de la maladie surveillée doit figurer en position de DR chaque fois qu’elle respecte sa définition (se reporter au point 2 du chapitre IV).
 
-Catégorie Z10 – Examen général de routine d'une sous-population définie Elle n'a pas d'emploi dans le champ d’activité couvert par le PMSI en MCO car elle ne comprend que des motifs de consultation externe dont certains ne concernent pas les établissements d'hospitalisation.
+### Catégorie Z10 – Examen général de routine d'une sous-population définie 
 
-Catégories Z11 à Z13 – Examens spéciaux de dépistage Le mot dépistage a dans la CIM–10 le sens de « recherche de certaines affections inapparentes par des examens effectués systématiquement dans des collectivités » (dictionnaire Garnier-Delamare). Les codes des catégories Z11 à Z13 ne doivent donc pas être employés pour des patients présentant un problème de santé personnel. Il est erroné de coder comme un dépistage une situation d’examens diagnostiques motivés par un antécédent personnel ou familial (de cancer ou de polyadénome colique, par exemple) ou par une symptomatologie quelconque (élévation du PSA, [^28: Antigène spécifique de la prostate (prostate specific antigen).] par exemple).
+Elle n'a pas d'emploi dans le champ d’activité couvert par le PMSI en MCO car elle ne comprend que des motifs de consultation externe dont certains ne concernent pas les établissements d'hospitalisation.
+
+### Catégories Z11 à Z13 – Examens spéciaux de dépistage 
+
+Le mot dépistage a dans la CIM–10 le sens de « recherche de certaines affections inapparentes par des examens effectués systématiquement dans des collectivités » (dictionnaire Garnier-Delamare). Les codes des catégories Z11 à Z13 ne doivent donc pas être employés pour des patients présentant un problème de santé personnel. Il est erroné de coder comme un dépistage une situation d’examens diagnostiques motivés par un antécédent personnel ou familial (de cancer ou de polyadénome colique, par exemple) ou par une symptomatologie quelconque (élévation du PSA, [^28: Antigène spécifique de la prostate (prostate specific antigen).] par exemple).
 
 Dans ce cas c’est le motif des explorations qui doit être codé : selon le cas l’antécédent personnel ou familial (voir plus loin ce qui concerne les catégories Z80 à Z92), le facteur de risque, le signe clinique ou paraclinique qui les a motivées, dans le respect du principe général selon lequel le code le plus juste est le plus précis par rapport à l’information à coder. Pour le dépistage précoce de la surdité néonatale permanente (SPN) réalisé lors des séjours de nouveau-nés, [^29: Le dépistage précoce de la SPN s’inscrit dans un programme de santé au sens de l'article L.1411-6 du code de la santé publique.] le code Z13.51 Examen spécial de dépistage des affections des oreilles doit être systématiquement codé en DAS lorsqu’un dépistage (test et éventuel retest) de la surdité néonatale permanente est réalisé, selon les recommandations de la HAS, [^30: Voir les rapports de la HAS sur l’évaluation du dépistage néonatal systématique de la surdité permanente bilatérale.] par oto-émissions acoustiques automatisées (OEAA) ou par potentiels évoqués auditifs automatisés (PEAA).
 
-Catégories Z20 à Z29 – Sujets pouvant courir un risque lié à des maladies transmissibles Catégorie Z20 : elle permet de coder l'absence d’une maladie infectieuse initialement crainte du fait du contact du patient avec une personne infectée ou de tout autre mode
+### Catégories Z20 à Z29 – Sujets pouvant courir un risque lié à des maladies transmissibles
 
-d'exposition à un agent infectieux (personnel soignant, de laboratoire...) ; en effet, si la maladie infectieuse était confirmée, c’est elle qu’on coderait. Exemple : enfant hospitalisé après la découverte chez son père d'une tuberculose pulmonaire, dans la crainte d'une contamination qui n'est finalement pas confirmée : – cet enfant n'est pas tuberculeux : on ne code donc pas cette maladie (elle ne doit pas être codée avec le chapitre I de la CIM–10) ; – il ne présente aucun symptôme, seule la maladie de son père a motivé le recours aux soins : il n’y a donc pas lieu d’utiliser un code du chapitre XVIII. Le code est ici Z20.1.
+ Catégorie Z20 : elle permet de coder l'absence d’une maladie infectieuse initialement crainte du fait du contact du patient avec une personne infectée ou de tout autre mode d'exposition à un agent infectieux (personnel soignant, de laboratoire...) ; en effet, si la maladie infectieuse était confirmée, c’est elle qu’on coderait.
+ > Exemple : enfant hospitalisé après la découverte chez son père d'une tuberculose pulmonaire, dans la crainte d'une contamination qui n'est finalement pas confirmée :
+ >- cet enfant n'est pas tuberculeux : on ne code donc pas cette maladie (elle ne doit pas être codée avec le chapitre I de la CIM–10) ;
+ >- il ne présente aucun symptôme, seule la maladie de son père a motivé le recours aux soins : il n’y a donc pas lieu d’utiliser un code du chapitre XVIII. Le code est ici Z20.1.
 
 Z21 est le code de la séropositivité isolée au virus de l’immunodéficience humaine (VIH). Si la séropositivité s'associe à l'un des états classés dans les catégories B20 à B24 du chapitre I de la CIM–10, c'est un code de celles-ci qu'on emploie, non Z21.
 
@@ -65,7 +76,10 @@ La catégorie Z29 comprend certaines mesures de prévention :
 
 Dans le champ actuel du PMSI en MCO, parmi les catégories Z20 à Z29, seules Z20, Z21, Z22 et Z29 sont, en pratique, susceptibles d'être utilisées pour le codage des RUM. Si un code de ces rubriques est en position de diagnostic principal (DP) d’un RUM, seuls ceux de la catégorie Z29 sont susceptibles de justifier un DR, à condition que l’affection concernée respecte sa définition (se reporter au point 2 du chapitre IV).
 
-Catégories Z30 à Z39 – Sujets ayant recours aux services de santé pour des motifs liés à la reproduction La catégorie Z33 permet, dans le cas d’une femme enceinte hospitalisée pour un motif sans rapport avec sa grossesse, d’enregistrer celle-ci comme diagnostic associé lorsqu’elle se déroule normalement. Exemple : traumatisme de la jambe chez une femme enceinte ; DP : la lésion de la jambe ; diagnostic associé : Z33.
+### Catégories Z30 à Z39 – Sujets ayant recours aux services de santé pour des motifs liés à la reproduction 
+
+La catégorie Z33 permet, dans le cas d’une femme enceinte hospitalisée pour un motif sans rapport avec sa grossesse, d’enregistrer celle-ci comme diagnostic associé lorsqu’elle se déroule normalement. 
+> Exemple : traumatisme de la jambe chez une femme enceinte ; DP : la lésion de la jambe ; diagnostic associé : Z33.
 
 Catégories Z34 et Z35 : Z34 comprend la surveillance systématique de la grossesse normale, habituellement réalisée « en externe ». L’intitulé de la catégorie Z35 Surveillance d’une grossesse à haut risque ne doit pas être lu de manière rigide. Il doit l’être dans son contexte. Deux catégories de la CIM–10 sont destinées au codage des surveillances de grossesses : Z34 pour les grossesses normales et Z35 pour les autres, c’est-à-dire pour toutes les non normales (à risque, « haut » ou non). Dans le cas des hospitalisations de l’antepartum, la mention d'un code Z35.– est indispensable à l'orientation correcte du résumé de sortie standardisé (RSS) dans les groupes homogènes de malades (GHM) de l'antepartum.
 
@@ -87,7 +101,9 @@ Lorsqu’après accouchement dans un établissement de santé E1, une mère est 
 - le DP du RUM de la mère est codé Z39.08 Soins et examens immédiatement après l’accouchement, autres et sans précision ;
 - le DP du RUM du nouveau-né est codé Z76.2 Surveillance médicale et soins médicaux d’autres nourrissons et enfants en bonne santé.
 
-Catégories Z40 à Z54 – Sujets ayant recours aux services de santé pour des actes médicaux et des soins spécifiques Les rubriques de ce groupe correspondent particulièrement au rôle décrit dans l’alinéa a de la première page du chapitre XXI de la CIM–10 : « Quand un sujet, malade ou non, entre en contact avec les services de santé pour une raison précise, par exemple pour recevoir des soins ou des services de niveau limité pour une affection en cours […] ». Dans le cadre des actes opératoires prophylactiques pour facteur de risque de tumeur maligne, des extensions, permettant de signaler l’organe opéré, ont été ajoutées au code «Z40.0 = opération prophylactique pour facteur de risque de tumeur maligne». L’utilisation des codes Z40 concerne également les interventions réalisées à but thérapeutique ou prophylactique, dans le cadre de la prise en charge de tumeurs malignes portant sur d’autres localisations. Ainsi, dans le cadre du traitement d’un cancer du sein hormonosensible, une ovariectomie pour castration doit être codée avec le code Z40.01 en DP.
+### Catégories Z40 à Z54 – Sujets ayant recours aux services de santé pour des actes médicaux et des soins spécifiques 
+
+Les rubriques de ce groupe correspondent particulièrement au rôle décrit dans l’alinéa a de la première page du chapitre XXI de la CIM–10 : « Quand un sujet, malade ou non, entre en contact avec les services de santé pour une raison précise, par exemple pour recevoir des soins ou des services de niveau limité pour une affection en cours […] ». Dans le cadre des actes opératoires prophylactiques pour facteur de risque de tumeur maligne, des extensions, permettant de signaler l’organe opéré, ont été ajoutées au code «Z40.0 = opération prophylactique pour facteur de risque de tumeur maligne». L’utilisation des codes Z40 concerne également les interventions réalisées à but thérapeutique ou prophylactique, dans le cadre de la prise en charge de tumeurs malignes portant sur d’autres localisations. Ainsi, dans le cadre du traitement d’un cancer du sein hormonosensible, une ovariectomie pour castration doit être codée avec le code Z40.01 en DP.
 
 La catégorie Z41 comprend les soins « sans raison médicale », c’est-à-dire non motivés par un état morbide. Elle est notamment destinée au codage du DP des séjours pour chirurgie esthétique (Z41.0, Z41.1) et pour intervention dite de confort (Z41.80). Dans le cadre du PMSI, on désigne par chirurgie esthétique toute intervention de chirurgie plastique non prise en charge par l’assurance maladie obligatoire. On [^33: sans préjudice de la prise en charge par l’assurance maladie de certains actes de chirurgie esthétique lorsqu’ils sont suivis de complication.] désigne par intervention « de confort » un acte médicotechnique autre que la chirurgie esthétique, non pris en charge par l’assurance maladie obligatoire.
 
@@ -97,12 +113,17 @@ Il résulte de ce qui vient d’être dit à propos des catégories Z41 et Z42 q
 
 - lorsqu’il s’agit de chirurgie esthétique le DP doit toujours être codé Z41.0 ou Z41.1, à l’exclusion de tout autre code ; le défaut corrigé peut être codé en position de diagnostic relié (DR) ;
 - lorsqu’il s’agit de chirurgie plastique non esthétique, de réparation d’une lésion congénitale ou acquise, prise en charge par l’assurance maladie obligatoire, le DP doit être codé avec un autre code de la CIM–10 ; il peut s’agir d’un code des chapitres I à XIX ou d’un code de la catégorie Z42 ; le choix entre les deux possibilités obéit au principe général qui veut que le meilleur code soit le plus précis au regard de l’information à coder. Avec un DP codé Z42.– le motif de l’intervention peut être mentionné en position de DR s’il respecte sa définition.
+>  Exemples : 
+>   * mise en place de prothèses internes pour augmentation du volume mammaire à visée esthétique : Z41.1 ;
+>   * mise en place d’une prothèse mammaire interne après mastectomie : Z42.1 ; 
+>   * rhinoplastie à visée esthétique : Z41.1 ;
+>   * rhinoplastie pour déviation de la cloison nasale : J34.2 ; 
+>   * exérèse d’une cicatrice chéloïde : L91.0.
 
-Exemples : – mise en place de prothèses internes pour augmentation du volume mammaire à visée esthétique : Z41.1 ; – mise en place d’une prothèse mammaire interne après mastectomie : Z42.1 ; – rhinoplastie à visée esthétique : Z41.1 ; – rhinoplastie pour déviation de la cloison nasale : J34.2 ; – exérèse d’une cicatrice chéloïde : L91.0.
+**Il n’appartient pas au médecin responsable de l’information médicale ni au codeur de trancher entre chirurgie esthétique et autre chirurgie plastique, ni de décider si une intervention est de confort ou non. Il s’agit d’un choix qui est d’abord de la compétence du médecin qui dispense les soins, en cohérence avec la prise en charge par l’assurance maladie obligatoire.**
 
-Il n’appartient pas au médecin responsable de l’information médicale ni au codeur de trancher entre chirurgie esthétique et autre chirurgie plastique, ni de décider si une intervention est de confort ou non. Il s’agit d’un choix qui est d’abord de la compétence du médecin qui dispense les soins, en cohérence avec la prise en charge par l’assurance maladie obligatoire.
-
-La catégorie Z43 est une rubrique de soins de stomie. Elle comprend des soins médicaux ponctuels (voir la note d’inclusion figurant sous le titre de la catégorie) incluant la fermeture de la stomie. Ces soins font habituellement l’objet d’un acte ou d’une prescription médicale. La catégorie Z43 exclut les soins habituels tels qu’effectués ou effectuables à domicile (soins quotidiens d’hygiène, changements de poche ou de canule de trachéostomie) qui se codent avec la catégorie Z93 (voir plus loin). Elle exclut aussi les complications comprises dans les rubriques J95.0, K91.4 et N99.5. Exemple : sujet ayant subi quelques mois plus tôt une résection sigmoïdienne pour perforation diverticulaire, réhospitalisé pour       fermeture de    la colostomie (rétablissement de la continuité colique) : le code du DP est Z43.3.
+La catégorie Z43 est une rubrique de soins de stomie. Elle comprend des soins médicaux ponctuels (voir la note d’inclusion figurant sous le titre de la catégorie) incluant la fermeture de la stomie. Ces soins font habituellement l’objet d’un acte ou d’une prescription médicale. La catégorie Z43 exclut les soins habituels tels qu’effectués ou effectuables à domicile (soins quotidiens d’hygiène, changements de poche ou de canule de trachéostomie) qui se codent avec la catégorie Z93 (voir plus loin). Elle exclut aussi les complications comprises dans les rubriques J95.0, K91.4 et N99.5.
+>Exemple : sujet ayant subi quelques mois plus tôt une résection sigmoïdienne pour perforation diverticulaire, réhospitalisé pour       fermeture de    la colostomie (rétablissement de la continuité colique) : le code du DP est Z43.3.
 
 Les catégories Z44 à Z46 permettent de coder la mise en place, la surveillance et les soins, et l’ablation de certains dispositifs médicaux, en particulier prothétiques.
 
@@ -114,9 +135,9 @@ Le DP des hospitalisations pour la mise en place d'un stimulateur du système ne
 
 On comparera les catégories Z43 à Z46 avec les catégories Z93 à Z98 étudiées plus loin.
 
-Lorsqu’un code des catégories Z43 ou Z45 de la CIM–10 correspond à une prise en charge pour laquelle un code d’acte existe dans la CCAM, la saisie dans le même RUM du code Z43.– ou Z45.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10. [^36: Se reporter aux explications données à la première page du chapitre XXI dans le volume 1.]
+**Lorsqu’un code des catégories Z43 ou Z45 de la CIM–10 correspond à une prise en charge pour laquelle un code d’acte existe dans la CCAM, la saisie dans le même RUM du code Z43.– ou Z45.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10. [^36: Se reporter aux explications données à la première page du chapitre XXI dans le volume 1.]**
 
-Exemples : dans le cas d’un séjour pour colectomie sans rétablissement de la continuité, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z43.3 en position de DA ; dans le cas d’un séjour pour pose de stimulateur cardiaque, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z45.0 en position de DA.
+>Exemples : dans le cas d’un séjour pour colectomie sans rétablissement de la continuité, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z43.3 en position de DA ; dans le cas d’un séjour pour pose de stimulateur cardiaque, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z45.0 en position de DA.
 
 La catégorie Z47 est celle des soins faisant suite à un acte sur l’appareil locomoteur (on retrouve dans son intitulé la notion de « soins de contrôle » soulignée à propos de la catégorie Z42) : ablation de matériel d’ostéosynthèse, changement ou ablation d’appareil d’immobilisation… Z47.0 doit notamment être utilisé pour coder le DP des séjours pour ablation de matériel d’ostéosynthèse ;il ne faut pas, au terme de ces séjours, coder à nouveau la lésion osseuse initiale guérie ou consolidée, ni comme DP, ni comme DR, ni comme diagnostic associé ; elle ne peut éventuellement être qu’une donnée à visée documentaire. Le DP des séjours pour retrait de prothèse temporaire de type espaceur (spacer), mise en place suite à une infection, et repose de prothèse définitive se code Z47.0 Soins de contrôle impliquant l’enlèvement d’une plaque et autre prothèse interne de fixation.
 
@@ -131,15 +152,17 @@ Les chimiothérapies intraartérielles sans embolisation sont des traitements in
 Z51.3 : on ne tiendra pas compte de l’indication « sans mention de diagnostic », désormais entre parenthèses. Elle est liée à l’esprit général du chapitre XXI de la CIM–10 et elle est sans conséquence pour le codage. Z51.3 a des extensions : [^40: Créées pour la version 10c des GHM (2008).]
 
 - Z51.30 est le code du DP des séjours pour transfusion sanguine ;
-- Z51.31 est le code du DP des séjours pour aphérèse sanguine.
-
-Exemple : hospitalisation pour transfusion sanguine d'un patient atteint d'anémie réfractaire, Z51.30.
+- Z51.31 est le code du DP des séjours pour aphérèse sanguine. 
+> Exemple : hospitalisation pour transfusion sanguine d'un patient atteint d'anémie réfractaire, Z51.30.
 
 Tous les séjours pour chimiothérapie, radiothérapie, transfusion sanguine, aphérèse sanguine, oxygénothérapie hyperbare, qu’il s’agisse de séances ou d’hospitalisation complète, doivent comporter en position de DP le code ad hoc de la catégorie Z51 de la CIM– 10.
 
 Lorsqu’un code Z51.0–, Z51.1, Z51.2, Z51.3–, Z51.5 ou Z51.8– est en position de DP, la maladie traitée est enregistrée comme diagnostic relié chaque fois qu’elle respecte sa définition, ce qui est le plus souvent le cas (se reporter au point 2 du chapitre IV).
 
-Lorsqu’un code de la catégorie Z51 de la CIM–10 correspond à une prise en charge pour laquelle un code d’acte existe dans la CCAM, la saisie dans le même RUM du code Z51.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est [^41: En l’absence d’acte dans la CCAM, Z51.1 Séance de chimiothérapie pour tumeur n’est ainsi pas concerné. La chimiothérapie antitumorale ne peut être enregistrée qu’avec ce code. De même Z51.2 Autres formes de chimiothérapie lorsqu’il n’existe pas d’acte dans la CCAM pour enregistrer l’administration du médicament.] 41                                                                              42 pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM– 10. [^42: Se reporter aux explications données à la première page du chapitre XXI dans le volume 1.] Z51.00 Séance de préparation à une irradiation et Z51.01 Séance d’irradiation font exception. Lorsqu’un acte d’irradiation est effectué au cours d’une hospitalisation pour un autre motif (un autre DP), Z51.01 figure dans le même RUM que l’acte. Pour ce qui concerne Z51.00 voir dans le point 4.1 du chapitre VII le cas particulier où la totalité de la préparation et de l’irradiation ont lieu au cours d’une même hospitalisation. Exemple : la transfusion de concentrés de globules rouges d’un volume inférieur à une demi-masse sanguine se code FELF011 ; la mention, en sus, de Z51.30 en position de DA n’est pas justifiée.
+**Lorsqu’un code de la catégorie Z51 de la CIM–10 correspond à une prise en charge pour laquelle un code d’acte existe dans la CCAM, la saisie dans le même RUM du code Z51.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est [^41: En l’absence d’acte dans la CCAM, Z51.1 Séance de chimiothérapie pour tumeur n’est ainsi pas concerné. La chimiothérapie antitumorale ne peut être enregistrée qu’avec ce code. De même Z51.2 Autres formes de chimiothérapie lorsqu’il n’existe pas d’acte dans la CCAM pour enregistrer l’administration du médicament.] pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM– 10. [^42: Se reporter aux explications données à la première page du chapitre XXI dans le volume 1.]**
+
+ Z51.00 Séance de préparation à une irradiation et Z51.01 Séance d’irradiation font exception. Lorsqu’un acte d’irradiation est effectué au cours d’une hospitalisation pour un autre motif (un autre DP), Z51.01 figure dans le même RUM que l’acte. Pour ce qui concerne Z51.00 voir dans le point 4.1 du chapitre VII le cas particulier où la totalité de la préparation et de l’irradiation ont lieu au cours d’une même hospitalisation. 
+ >Exemple : la transfusion de concentrés de globules rouges d’un volume inférieur à une demi-masse sanguine se code FELF011 ; la mention, en sus, de Z51.30 en position de DA n’est pas justifiée.
 
 Les codes de la catégorie Z52 sont utilisés pour le codage du diagnostic principal du RSS produit pour un sujet admis aux fins de prélèvements d’organes ou de tissus. [^43: Se reporter au point 1.3.3 du chapitre I.]
 
@@ -148,15 +171,19 @@ Le code étendu national Z52.80 Donneuse d’ovocytes a été créé pour être 
 - comme diagnostic principal du séjour pour prélèvement d’ovocytes ;
 - comme diagnostic associé du séjour de prélèvement d’ovocytes en cas de partage (egg sharing).
 
-La catégorie Z53 permet le codage des circonstances dans lesquelles les soins prévus à l’admission ne sont pas prodigués ; le mot acte de l’intitulé doit être lu avec l’acception étendue de « prestation de soins », « prise en charge ». Exemples : – refus d’une transfusion sanguine pour motif de conviction : Z53.1 ; – sortie contre avis médical ou par fuite : Z53.2.
+La catégorie Z53 permet le codage des circonstances dans lesquelles les soins prévus à l’admission ne sont pas prodigués ; le mot acte de l’intitulé doit être lu avec l’acception étendue de « prestation de soins », « prise en charge ». 
+>Exemples : 
+>- refus d’une transfusion sanguine pour motif de conviction : Z53.1 ;
+>- sortie contre avis médical ou par fuite : Z53.2.
 
-Catégories Z55 à Z76 – Sujets dont la santé peut être menacée par des conditions socio- économiques et psycho-sociales — Sujets ayant recours aux services de santé pour d'autres motifs
+### Catégories Z55 à Z76 – Sujets dont la santé peut être menacée par des conditions socio- économiques et psycho-sociales — Sujets ayant recours aux services de santé pour d'autres motifs
 
 Elles permettent le codage de situations nombreuses et variées qui concernent tant l'hospitalisation que les soins externes. Elles répertorient des problèmes familiaux, sociaux, économiques, psychologiques, scolaires et professionnels, parmi lesquels des marqueurs de précarité socioéconomique qu’il est recommandé d’enregistrer dans le RUM. Il n’est guère d’autre moyen que la lecture du contenu de ces rubriques pour prendre connaissance des possibilités de codage qu’elles offrent. Au regard de la note figurant à la première page du chapitre XXI, les catégories Z55 à Z76 correspondent à la fois à l’alinéa a : « Quand un sujet, malade ou non, entre en contact avec les services de santé […], par exemple, pour […] discuter d’un problème qui ne représente pas en soi une maladie ou un traumatisme » et à l’alinéa b : « […] des circonstances ou des problèmes qui influencent l’état d’un sujet, sans constituer en eux-mêmes une maladie ou un traumatisme. De tels facteurs peuvent […] être enregistrés comme facteur supplémentaire […] ».
 
 Z65.1 Emprisonnement ou autre incarcération doit être enregistré en position de diagnostic associé lorsque les soins ont été dispensés à une personne détenue.
 
-Z74.2 Besoin d'assistance à domicile, aucun autre membre du foyer n'étant capable d'assurer les soins est employé lorsqu’une personne qui ne peut vivre à son domicile qu’avec une aide, doit être hospitalisée ou maintenue en hospitalisation du fait de l’absence ou de la défaillance de celle-ci. Exemple : personne handicapée à laquelle l’aide du conjoint est indispensable au maintien à domicile ; survenue d’une affection chez le conjoint imposant son hospitalisation ; l’épouse, incapable de vivre seule au domicile, est hospitalisée dans le même temps ; le DP du séjour de l’épouse est codé Z74.2.
+Z74.2 Besoin d'assistance à domicile, aucun autre membre du foyer n'étant capable d'assurer les soins est employé lorsqu’une personne qui ne peut vivre à son domicile qu’avec une aide, doit être hospitalisée ou maintenue en hospitalisation du fait de l’absence ou de la défaillance de celle-ci.
+>Exemple : personne handicapée à laquelle l’aide du conjoint est indispensable au maintien à domicile ; survenue d’une affection chez le conjoint imposant son hospitalisation ; l’épouse, incapable de vivre seule au domicile, est hospitalisée dans le même temps ; le DP du séjour de l’épouse est codé Z74.2.
 
 Z75.1 Sujet attendant d’être admis ailleurs, dans un établissement adéquat ne doit être employé que si le séjour ou la prolongation de l’hospitalisation est motivé par la seule attente de l’unité ou de l’établissement adéquat, non par un évènement morbide.
 
@@ -165,34 +192,45 @@ Dans l’intitulé de Z75.80 Sujet adressé dans un autre établissement, pour r
 Z76.8 a connu la création d’extensions en 2011 pour la version 11c des GHM :
 
 - Z76.800 Sujet ayant recours aux services de santé après une réunion de concertation pluridisciplinaire ayant établi la complexité d’une infection ostéoarticulaire ;
-- Z76.850 Enfant recevant du lait provenant d’un lactarium. [^44: Se reporter aux points 2.1.5 du chapitre II et 1 du chapitre IV.] Afin d’identifier les patients atteint d’une infections ostéoarticulaires (IOA) complexe, [^45: Instructionn° DGOS/PF2/2010/466 du 27 décembre 2010 relative au dispositif de prise en charge des infections ostéoarticulaires complexes.] Z76.800 Sujet ayant recours aux services de santé après une réunion de concertation pluridisciplinaire [RCP] ayant établi la complexité d'une infection ostéoarticulaire doit être enregistré comme DA dès lors que le patient a fait l’objet d’une réunion de concertation pluridisciplinaire visée par un centre interrégional de référence ayant confirmé le caractère complexe de l’IOA. Même si une seule RCP a été réalisée, Z76.800 doit être saisi dans les RUM de tous les séjours ultérieurs du patient motivés par la prise en charge de l’IOA.
+- Z76.850 Enfant recevant du lait provenant d’un lactarium. [^44: Se reporter aux points 2.1.5 du chapitre II et 1 du chapitre IV.]
+
+Afin d’identifier les patients atteint d’une infections ostéoarticulaires (IOA) complexe, [^45: Instructionn° DGOS/PF2/2010/466 du 27 décembre 2010 relative au dispositif de prise en charge des infections ostéoarticulaires complexes.] Z76.800 Sujet ayant recours aux services de santé après une réunion de concertation pluridisciplinaire [RCP] ayant établi la complexité d'une infection ostéoarticulaire doit être enregistré comme DA dès lors que le patient a fait l’objet d’une réunion de concertation pluridisciplinaire visée par un centre interrégional de référence ayant confirmé le caractère complexe de l’IOA. Même si une seule RCP a été réalisée, Z76.800 doit être saisi dans les RUM de tous les séjours ultérieurs du patient motivés par la prise en charge de l’IOA.
 
 Pour identifier les nouveau-nés recevant du lait d’un lactarium, Z76.850 Enfant recevant du lait provenant d’un lactarium doit être enregistré comme DA dans le RUM de leur séjour.
 
-Catégories Z80 à Z92 – Antécédents personnels et familiaux Les codes de ces catégories peuvent notamment être utilisés pour le codage du DP dans des situations de diagnostique au sens du guide des situations cliniques (se reporter au point
+### Catégories Z80 à Z92 – Antécédents personnels et familiaux
 
-#### 1.3.1.3 du chapitre IVI).
+Les codes de ces catégories peuvent notamment être utilisés pour le codage du DP dans des situations de diagnostique au sens du guide des situations cliniques (se reporter au point 1.3.1.3 du chapitre IVI). 
 
-Exemple : patient ayant un antécédent familial de cancer colique, hospitalisé pour coloscopie, où la coloscopie ne retrouve aucune lésion : le DP est Z80.00.
+>Exemple : patient ayant un antécédent familial de cancer colique, hospitalisé pour coloscopie, où la coloscopie ne retrouve aucune lésion : le DP est Z80.00.
 
 Un DP d’antécédent personnel ou familial de maladie ne justifie jamais de diagnostic relié.
 
-Z92.1 et Z92.2 : la complexité apparente de leur intitulé est due à l'acception étymologique large du mot « antécédent » qui est celle de la CIM–10. Ces codes peuvent être employés lorsqu'un recours aux soins est motivé par la prise d'un médicament prescrit antérieurement, que la prise soit poursuivie (« utilisation actuelle ») ou qu'elle ait cessé au moment du recours. Exemple : patient porteur d'une valve cardiaque prothétique, prenant un antivitamine K (AVK) au long cours, hospitalisé pour extractions dentaires : le DP est l’affection dentaire, la prise de l'AVK (Z92.1) est un DAS (il a fallu surveiller l’INR, réintroduire l’AVK après les soins dentaires). Catégories Z93–Z98 La catégorie Z93 est une rubrique relative aux stomies. On l’emploie pour le codage des soins habituels tels qu’effectués ou effectuables à domicile (soins quotidiens d’hygiène, changements de poche, changements de canule de trachéostomie). Elle s’oppose à la catégorie Z43 : se reporter supra à la présentation de celle-ci.
+Z92.1 et Z92.2 : la complexité apparente de leur intitulé est due à l'acception étymologique large du mot « antécédent » qui est celle de la CIM–10. Ces codes peuvent être employés lorsqu'un recours aux soins est motivé par la prise d'un médicament prescrit antérieurement, que la prise soit poursuivie (« utilisation actuelle ») ou qu'elle ait cessé au moment du recours. 
+
+> Exemple : patient porteur d'une valve cardiaque prothétique, prenant un antivitamine K (AVK) au long cours, hospitalisé pour extractions dentaires : le DP est l’affection dentaire, la prise de l'AVK (Z92.1) est un DAS (il a fallu surveiller l’INR, réintroduire l’AVK après les soins dentaires).
+
+### Catégories Z93–Z98
+
+La catégorie Z93 est une rubrique relative aux stomies. On l’emploie pour le codage des soins habituels tels qu’effectués ou effectuables à domicile (soins quotidiens d’hygiène, changements de poche, changements de canule de trachéostomie). Elle s’oppose à la catégorie Z43 : se reporter supra à la présentation de celle-ci.
 
 Les catégories Z94 et Z95 sont employées pour coder le DP des situations de surveillance négative [^46: Se reporter au point 1.3.1 du chapitre VI.] des porteurs d’organe ou de tissu greffé (Z94), de pontage coronaire et de prothèse endoartérielle (stent), de prothèse valvulaire cardiaque et « autres implants et greffes et cardiaques et vasculaires ».
 
-Exemples : – patient porteur d'un cœur transplanté, hospitalisé pour bilan de surveillance postgreffe ; aucune anomalie n'est constatée ; le DP du séjour est codé Z94.1 [^47: Un rejet, en revanche, doit être codé T86.2.] ; – patient porteur d’un pontage coronaire hospitalisé pour bilan de surveillance ; aucune anomalie n’est constatée : le DP du séjour est codé Z95.1.
+> Exemples : 
+> - patient porteur d'un cœur transplanté, hospitalisé pour bilan de surveillance postgreffe ; aucune anomalie n'est constatée ; le DP du séjour est codé Z94.1 [^47: Un rejet, en revanche, doit être codé T86.2.] ;
+> - patient porteur d’un pontage coronaire hospitalisé pour bilan de surveillance ; aucune anomalie n’est constatée : le DP du séjour est codé Z95.1.
 
 Les catégories Z96 et Z97 permettent le codage de la présence de divers implants, prothèses et appareils. Leur emploi n’est admissible qu’en l’absence de complication. En cas de soins nécessités par une complication, se reporter plus haut dans ce chapitre au point traitant des complications des actes médicaux et chirurgicaux.
 
 Lorsqu’un code des catégories Z93, Z95 ou Z96 de la CIM–10 correspond à une prise en charge pour laquelle un code d’acte existe dans la CCAM, la saisie dans le même RUM du code Z93.–, Z95.– ou Z96.– en position de diagnostic associé (DA) en sus de celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait incorrect au regard de la CIM–10. [^48: Se reporter aux explications données à la première page du chapitre XXI dans le volume 1.]
 
-Exemples :
+>Exemples :
+>- dans le cas d’un séjour comportant une colectomie sans rétablissement de la continuité, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z93.3 en position de DA ;
+>- dans le cas d’un séjour de pose de stimulateur cardiaque, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z95.0 en position de DA ;
+>- dans le cas d’un séjour comportant une implantation de prothèse articulaire, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z96.6 en position de DA, etc.
 
-- dans le cas d’un séjour comportant une colectomie sans rétablissement de la continuité, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z93.3 en position de DA ;
-- dans le cas d’un séjour de pose de stimulateur cardiaque, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z95.0 en position de DA ;
-- dans le cas d’un séjour comportant une implantation de prothèse articulaire, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z96.6 en position de DA, etc.
+### Catégorie Z99 – Dépendance envers des machines et appareils auxiliaires, non classée ailleurs
 
-Catégorie Z99 – Dépendance envers des machines et appareils auxiliaires, non classée ailleurs Est dépendante envers une machine ou un appareil une personne atteinte d’une affection chronique dont la survie est subordonnée à l’utilisation régulière et durable de ce matériel. C’est en ce sens que doit être comprise l’utilisation des codes de la catégorie Z99. Ils ne doivent pas être employés pour mentionner l’utilisation d’un matériel de ce type en phase aigüe : par exemple, Z99.0 Dépendance envers un aspirateur ou Z99.1 Dépendance envers un respirateur ne doivent pas servir à mentionner l’utilisation de ces matériels chez un patient sous ventilation mécanique pour insuffisance respiratoire aigüe, Z99.2 Dépendance envers une dialyse rénale ne peut pas être employé pour les séjours des patients dialysés pour insuffisance rénale aigüe.
+Est dépendante envers une machine ou un appareil une personne atteinte d’une affection chronique dont la survie est subordonnée à l’utilisation régulière et durable de ce matériel. C’est en ce sens que doit être comprise l’utilisation des codes de la catégorie Z99. Ils ne doivent pas être employés pour mentionner l’utilisation d’un matériel de ce type en phase aigüe : par exemple, Z99.0 Dépendance envers un aspirateur ou Z99.1 Dépendance envers un respirateur ne doivent pas servir à mentionner l’utilisation de ces matériels chez un patient sous ventilation mécanique pour insuffisance respiratoire aigüe, Z99.2 Dépendance envers une dialyse rénale ne peut pas être employé pour les séjours des patients dialysés pour insuffisance rénale aigüe.
 
 
