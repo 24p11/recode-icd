@@ -143,6 +143,11 @@ class ExplorationContext:
     - `owl_dagger_asterisk` : `owl_dagger_asterisk.parquet` (paires
       dérivées des relations `atih-cim10:hasCausality` /
       `hasManifestation` côté ANS, pour audit de cohérence) ou `None`.
+    - `recommendations` : `recommendations.parquet` (consignes du guide
+      méthodologique MCO, une ligne par consigne) ou `None`.
+    - `recommendation_codes` : `recommendation_codes.parquet` (cibles
+      des consignes résolues aux codes feuilles, avec `role`,
+      `centralite`, `type_expr` et `specificite`) ou `None`.
     - `external` : dict des sources externes BRUTES (sorties des
       loaders Phase 1), indexé par enum source (`ORPHANET`,
       `INDEX_CIM10_VOL3`, `APHP_*`). Vide sauf si
@@ -165,6 +170,8 @@ class ExplorationContext:
     dagger_asterisk: Frame | None = None
     ofs_dagger_asterisk: Frame | None = None
     owl_dagger_asterisk: Frame | None = None
+    recommendations: Frame | None = None
+    recommendation_codes: Frame | None = None
     external: dict[str, pl.DataFrame] = field(default_factory=dict)
     reports: dict[str, Frame] = field(default_factory=dict)
     # Graphe RDF ANS chargé via rdflib (opt-in via `load_rdf=True`).
@@ -369,6 +376,10 @@ def load_exploration_context(
     dagger_asterisk = _load_parquet(actual_processed / "dagger_asterisk.parquet", lazy=lazy)
     ofs_dagger_asterisk = _load_parquet(actual_processed / "ofs_dagger_asterisk.parquet", lazy=lazy)
     owl_dagger_asterisk = _load_parquet(actual_processed / "owl_dagger_asterisk.parquet", lazy=lazy)
+    recommendations = _load_parquet(actual_processed / "recommendations.parquet", lazy=lazy)
+    recommendation_codes = _load_parquet(
+        actual_processed / "recommendation_codes.parquet", lazy=lazy
+    )
 
     reports: dict[str, Frame] = {}
     for fname in _REPORTS:
@@ -401,6 +412,8 @@ def load_exploration_context(
         dagger_asterisk=dagger_asterisk,
         ofs_dagger_asterisk=ofs_dagger_asterisk,
         owl_dagger_asterisk=owl_dagger_asterisk,
+        recommendations=recommendations,
+        recommendation_codes=recommendation_codes,
         external=external,
         reports=reports,
         ans_graph=ans_graph,
