@@ -95,6 +95,7 @@ _REPORTS: tuple[str, ...] = (
     "external_overlaps.csv",
     "external_orphan_codes.csv",
     "external_sources_summary.csv",
+    "guide_mco_associations_ensemble.csv",
 )
 
 # Chemins par défaut des sources externes brutes (chargées seulement

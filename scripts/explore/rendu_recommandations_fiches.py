@@ -54,6 +54,14 @@ Régénération du notebook :
 # 5. **Chaque consigne est préfixée de son `rec_id` entre crochets** —
 #    traçabilité vers le guide, principe « jamais d'agrégation
 #    silencieuse ».
+#
+# Une règle de plus est appliquée **en amont, par construction** : une
+# association de portée `ensemble` (l'expression est le domaine d'un
+# choix, ex. AVC-14 « le DP appartient au chapitre XXI ») n'est jamais
+# résolue — elle n'existe pas dans le Parquet, donc aucun rendu ne peut
+# la faire fuir sur les fiches des membres. Cf. note de conception §4.2
+# (amendement du 2026-09-02) ; la trace vit au rapport de build
+# `guide_mco_associations_ensemble.csv`.
 
 # %% [markdown]
 # ### ⚠ Piège — `contexte` n'est pas « une consigne qui parle du code »
@@ -90,17 +98,18 @@ assert recs is not None and rec_codes is not None, (
 # %% [markdown]
 # ## 1. Volumétrie de la base versée
 #
-# État attendu à la clôture du chantier A : **94 consignes**, **187
-# associations curées**, **2 806 couples (consigne, code feuille)** sur
-# **1 018 codes**. Les associations curées se recomptent depuis le
-# Parquet par `(rec_id, code_expr, role)` — la résolution ne fait
-# qu'étendre chaque expression à ses feuilles, elle n'en crée ni n'en
-# perd.
+# État après l'amendement `portee` (2026-09-02) : **94 consignes**,
+# **187 associations curées** dont **1 de portée `ensemble`** jamais
+# résolue (AVC-14/XXI, au rapport de build), soit **186 associations
+# résolues** en **2 056 couples (consigne, code feuille)** sur **1 018
+# codes**. Les associations résolues se recomptent depuis le Parquet
+# par `(rec_id, code_expr, role)` — la résolution ne fait qu'étendre
+# chaque expression à ses feuilles, elle n'en crée ni n'en perd.
 
 # %% Volumétrie
 volumetrie = {
     "consignes": recs.height,
-    "associations curées": rec_codes.unique(["rec_id", "code_expr", "role"]).height,
+    "associations résolues": rec_codes.unique(["rec_id", "code_expr", "role"]).height,
     "couples (consigne, code feuille)": rec_codes.height,
     "codes feuilles distincts": rec_codes["code"].n_unique(),
 }
@@ -108,9 +117,16 @@ for etiquette, valeur in volumetrie.items():
     print(f"{etiquette:32s}: {valeur}")
 
 assert volumetrie["consignes"] == 94
-assert volumetrie["associations curées"] == 187
-assert volumetrie["couples (consigne, code feuille)"] == 2806
+assert volumetrie["associations résolues"] == 186
+assert volumetrie["couples (consigne, code feuille)"] == 2056
 assert volumetrie["codes feuilles distincts"] == 1018
+
+# L'association `ensemble` n'est pas dans le Parquet — c'est le rapport
+# de build qui l'atteste, avec la taille du domaine non produit.
+ensemble = ctx.reports.get("guide_mco_associations_ensemble")
+assert isinstance(ensemble, pl.DataFrame) and ensemble.height == 1
+print()
+print(ensemble.select("rec_id", "code_expr", "role", "n_codes_domaine"))
 
 print()
 print(rec_codes.group_by("type_expr", "specificite").len().sort("specificite", descending=True))
@@ -293,21 +309,23 @@ assert "definition" in types_rendus, "les définitions de seuils manquent"
 # jusqu'aux feuilles non citées) et **maîtrise du bruit** (elles restent
 # cantonnées au groupe de fin de section).
 #
-# On y voit aussi la limite assumée du compromis : GM2026-V-AVC-14,
-# consigne de chapitre issue de l'article AVC (« s'il n'est pas
-# découvert d'affection nouvelle, le DP appartient au chapitre XXI »),
-# descend sur toutes les fiches Z — y compris celle-ci. Sa curation en
-# `XXI / DP / sujet` est conforme à la doctrine (la consigne régit bien
-# le DP au niveau du chapitre) ; le préfixe `[rec_id]` garde le retour
-# au guide possible si le chantier fiches veut affiner.
+# Ce cas est aussi le témoin de l'amendement `portee` (2026-09-02) :
+# GM2026-V-AVC-14 (« s'il n'est pas découvert d'affection nouvelle, le
+# DP appartient au chapitre XXI ») descendait ici alors que le chapitre
+# XXI n'y est que le **domaine d'un choix** fait par le motif de séjour.
+# Son association XXI est désormais déclarée `ensemble` à la curation :
+# jamais résolue, elle n'existe pas dans le Parquet — la garantie est
+# par construction, aucun rendu ne peut la faire fuir. Z23.0 ne reçoit
+# plus que XXI-01, la vraie règle « pour tout » du chapitre.
 
 # %% Démonstration Z23.0
 demo("Z23.0")
 
 lignes_z230 = consignes_pour("Z23.0")
 assert lignes_z230, "complétude violée — les consignes de chapitre ne descendent pas"
-assert all(TypeExpr(r["specificite"]) is TypeExpr.CHAPITRE for r in lignes_z230), (
-    "maîtrise du bruit violée — une consigne non chapitre atteint un code non cité"
+assert {r["rec_id"] for r in lignes_z230} == {"GM2026-V-XXI-01"}, (
+    "maîtrise du bruit violée — soit une consigne non chapitre atteint un code "
+    "non cité, soit une association `ensemble` a été résolue"
 )
 
 # %% [markdown]
@@ -335,6 +353,7 @@ assert all(TypeExpr(r["specificite"]) is TypeExpr.CHAPITRE for r in lignes_z230)
 #
 # | Règle | Où |
 # |---|---|
+# | associations `ensemble` jamais résolues (garantie par construction) | build, en amont du Parquet |
 # | filtre `centralite = sujet` | `consignes_pour` |
 # | exclusion du rôle `contexte` | `consignes_pour` |
 # | tri par spécificité décroissante (`cle_de_tri` de production) | `consignes_pour` |

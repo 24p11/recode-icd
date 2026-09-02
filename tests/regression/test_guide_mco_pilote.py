@@ -191,18 +191,84 @@ def test_un_z_non_cite_ne_recoit_que_des_consignes_de_chapitre(
     chapitre — sinon la résolution ne descend pas — et **rien d'autre**,
     sinon une consigne fuit hors de son périmètre.
 
+    Depuis l'amendement `portee` (2026-09-02), la seule consigne de
+    chapitre à portée « pour tout » est XXI-01 : AVC-14 (domaine de
+    choix, `ensemble`) ne descend plus. L'assertion est directe.
+
     ⚠ Ne pas prendre `Z55.0` comme témoin : il porte des subdivisions,
     ce n'est donc pas une feuille du nested set et il n'apparaît dans
     aucun artefact feuille. Même piège que `U07.1` pour le CSV maître.
     """
     lignes = resolus.filter(pl.col("code") == "Z23.0")
     assert lignes.height > 0, "Z23.0 ne reçoit rien : la résolution ne descend plus"
-    niveaux = set(lignes["type_expr"].to_list())
-    assert niveaux == {"CHAPITRE"}, (
-        f"Z23.0 reçoit des consignes de niveau {sorted(niveaux - {'CHAPITRE'})} alors "
-        f"qu'il n'est nommé nulle part dans l'article. Une consigne fuit hors "
-        f"de son périmètre — vérifier la doctrine d'extraction (§4.2 bis)."
+    assert set(lignes["rec_id"].to_list()) == {"GM2026-V-XXI-01"}, (
+        f"Z23.0 reçoit {sorted(set(lignes['rec_id'].to_list()))} alors qu'il n'est "
+        f"nommé nulle part dans l'article. Soit une consigne fuit hors de son "
+        f"périmètre (doctrine §4.2 bis), soit une association `ensemble` a été "
+        f"résolue (portée, §4.2)."
     )
+
+
+# -- témoins de l'amendement `portee` (2026-09-02) ----------------------
+
+
+def test_une_association_ensemble_nest_jamais_resolue(resolus: pl.DataFrame) -> None:
+    """Invariant ABSOLU : (AVC-14, XXI) ne produit aucune ligne résolue.
+
+    « Le DP appartient au chapitre XXI » est le domaine d'un choix fait
+    par le motif de séjour — pas une prescription sur chaque code Z.
+    L'association est déclarée `ensemble` dans la table curée ; si une
+    ligne résolue réapparaît, la garantie par construction est morte et
+    le bug AVC-14/Z23.0 avec elle.
+    """
+    fuite = resolus.filter((pl.col("rec_id") == "GM2026-V-AVC-14") & (pl.col("code_expr") == "XXI"))
+    assert fuite.height == 0, "l'association `ensemble` (AVC-14, XXI) a été résolue"
+    assert set(resolus["portee"].to_list()) == {"chaque"}, (
+        "toute ligne résolue doit être une prescription « pour tout »"
+    )
+
+
+def test_les_fiches_i69_portent_toujours_avc_14(resolus: pl.DataFrame) -> None:
+    """La bascule `ensemble` ne touche que l'association XXI d'AVC-14.
+
+    Son association I69 (« un code de séquelle I69 est placé en DR »)
+    régit chaque code de séquelle : elle reste `chaque` et descend sur
+    les feuilles I69.x.
+    """
+    lignes = resolus.filter(pl.col("rec_id") == "GM2026-V-AVC-14")
+    assert lignes.height > 0, "AVC-14 a disparu de la table résolue"
+    assert set(lignes["code_expr"].to_list()) == {"I69"}
+    assert set(lignes["role"].to_list()) == {"DR"}
+    assert all(c.startswith("I69") for c in lignes["code"].to_list())
+
+
+def test_z86_70_conserve_xxi_49(resolus: pl.DataFrame) -> None:
+    """XXI-49 (plage Z80-Z92, interdit_DR) reste de portée `chaque`.
+
+    Une interdiction est un « pour tout » par nature (« un DP
+    d'antécédent ne justifie JAMAIS de diagnostic relié ») : la bascule
+    d'AVC-14 ne doit pas entraîner les plages à rôle d'interdiction.
+    """
+    lignes = resolus.filter((pl.col("code") == "Z86.70") & (pl.col("rec_id") == "GM2026-V-XXI-49"))
+    assert lignes.height == 1
+    ligne = lignes.row(0, named=True)
+    assert ligne["type_expr"] == "PLAGE"
+    assert ligne["role"] == "interdit_DR"
+    assert ligne["portee"] == "chaque"
+
+
+def test_lassociation_ensemble_est_au_rapport_de_build() -> None:
+    """Non résolue ≠ silencieuse : la trace vit au rapport, justifiée."""
+    chemin = _RACINE / "reports" / "guide_mco_associations_ensemble.csv"
+    if not chemin.is_file():
+        pytest.skip(f"{chemin} absent. Lancer `uv run recode-icd build guide-mco`.")
+    rapport = pl.read_csv(chemin)
+    lignes = rapport.filter(pl.col("rec_id") == "GM2026-V-AVC-14")
+    assert lignes.height == 1
+    ligne = lignes.row(0, named=True)
+    assert ligne["code_expr"] == "XXI"
+    assert ligne["n_codes_domaine"] > 0
+    assert str(ligne["justification"]).strip(), "une bascule de portée porte son pourquoi"
 
 
 def test_les_dix_roles_du_catalogue_sont_tous_admis(resolus: pl.DataFrame) -> None:

@@ -281,6 +281,24 @@ ROLES_RECOMMANDATION = (
 #: exemple de manifestation.
 CENTRALITES_RECOMMANDATION = ("sujet", "exemple")
 
+#: Portée d'une association (ajoutée le 2026-09-02, cas AVC-14/Z23.0) :
+#:
+#:  - `chaque` (défaut) : la consigne régit **chaque** code de
+#:    l'expression — résolution vers les feuilles et descente sur les
+#:    fiches inchangées ;
+#:  - `ensemble` : l'expression est le **domaine d'un choix** (« le DP
+#:    appartient au chapitre XXI ») — l'association n'est **jamais
+#:    résolue** vers les feuilles ; elle part au rapport de build.
+#:
+#: Critère de partage : qui fait le choix entre les membres de
+#: l'expression ? L'état du patient (chaque membre est régi quand il est
+#: le diagnostic — AVC-01, « un code I60.- à I63.- pour un AVC
+#: constitué ») → `chaque`. Un élément extérieur à l'expression, motif
+#: de séjour ou situation (AVC-14, « le DP appartient au chapitre
+#: XXI ») → `ensemble`. Les interdictions sont des « pour tout » par
+#: nature.
+PORTEES_RECOMMANDATION = ("chaque", "ensemble")
+
 
 class RecommendationsSchema(pa.DataFrameModel):
     """Consignes du guide méthodologique — une ligne par consigne."""
@@ -310,6 +328,10 @@ class RecommendationCodesSchema(pa.DataFrameModel):
     role: str = pa.Field(isin=ROLES_RECOMMANDATION)
     centralite: str = pa.Field(isin=CENTRALITES_RECOMMANDATION)
     condition: str = pa.Field(nullable=True)
+    #: Vide = défaut `chaque`. `ensemble` exige une `justification` —
+    #: c'est une décision de curation, elle porte son pourquoi.
+    portee: str = pa.Field(isin=PORTEES_RECOMMANDATION, nullable=True)
+    justification: str = pa.Field(nullable=True)
 
     class Config:
         strict = True
@@ -321,8 +343,10 @@ class ResolvedRecommendationCodesSchema(pa.DataFrameModel):
 
     `code_expr` est conservée à côté de `code` : l'association compacte
     reste récupérable par déduplication, donc rien n'est perdu par
-    l'expansion. `specificite` est la valeur entière de `TypeExpr`, pour
-    que le consommateur trie sans avoir à re-parser.
+    l'expansion — à l'exception voulue des associations `ensemble`,
+    jamais résolues (elles restent dans la table curée et au rapport de
+    build). `specificite` est la valeur entière de `TypeExpr`, pour que
+    le consommateur trie sans avoir à re-parser.
     """
 
     rec_id: str = pa.Field(nullable=False)
@@ -333,6 +357,12 @@ class ResolvedRecommendationCodesSchema(pa.DataFrameModel):
     condition: str = pa.Field(nullable=True)
     type_expr: str = pa.Field(isin=("CODE", "CATEGORIE", "PLAGE", "CHAPITRE"))
     specificite: int = pa.Field(ge=0, le=3)
+    #: Invariant par construction : toute ligne résolue est une
+    #: prescription « pour tout » — une association `ensemble` ne produit
+    #: JAMAIS de ligne ici. Le schéma le verrouille (`eq` sur la seule
+    #: valeur admise) : si une ligne `ensemble` apparaît, le build est
+    #: cassé.
+    portee: str = pa.Field(eq="chaque")
 
     class Config:
         strict = True
