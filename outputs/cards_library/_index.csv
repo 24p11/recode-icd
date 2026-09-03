@@ -1338,7 +1338,7 @@ D11.7,II,II/D11.7.md,Tumeur bénigne d'autres glandes salivaires principales,tru
 D11.9,II,II/D11.9.md,"Tumeur bénigne de la glande salivaire principale, sans précision",true,false,true,false,true,654
 D12.0,II,II/D12.0.md,Tumeur bénigne du cæcum,true,false,false,false,true,506
 D12.1,II,II/D12.1.md,Tumeur bénigne de l'appendice,true,false,false,false,true,410
-D12.2,II,II/D12.2.md,Tumeur bénigne du côlon ascendant,true,false,false,false,true,519
+D12.2,II,II/D12.2.md,Tumeur bénigne du côlon ascendant,true,false,false,true,true,1049
 D12.3,II,II/D12.3.md,Tumeur bénigne du côlon transverse,true,false,false,false,true,442
 D12.4,II,II/D12.4.md,Tumeur bénigne du côlon descendant,true,false,false,false,true,565
 D12.5,II,II/D12.5.md,Tumeur bénigne du côlon sigmoïde,true,false,false,false,true,493
@@ -1391,8 +1391,8 @@ D17.5,II,II/D17.5.md,Tumeur lipomateuse bénigne des organes intra-abdominaux,tr
 D17.6,II,II/D17.6.md,Tumeur lipomateuse bénigne du cordon spermatique,true,false,false,false,false,500
 D17.7,II,II/D17.7.md,Tumeur lipomateuse bénigne d'autres sièges,true,false,false,false,true,833
 D17.9,II,II/D17.9.md,"Tumeur lipomateuse bénigne, sans précision",true,false,false,false,true,761
-D18.0,II,II/D18.0.md,"Hémangiome, tout siège",true,false,true,false,true,1342
-D18.1,II,II/D18.1.md,"Lymphangiome, tout siège",true,false,true,false,true,1190
+D18.0,II,II/D18.0.md,"Hémangiome, tout siège",true,false,true,true,true,1832
+D18.1,II,II/D18.1.md,"Lymphangiome, tout siège",true,false,true,true,true,1680
 D19.0,II,II/D19.0.md,Tumeur bénigne du tissu mésothélial de la plèvre,true,false,false,false,false,422
 D19.1,II,II/D19.1.md,Tumeur bénigne du tissu mésothélial du péritoine,true,false,false,false,false,422
 D19.7,II,II/D19.7.md,Tumeur bénigne du tissu mésothélial d'autres sièges,true,false,false,false,true,511
@@ -3252,7 +3252,7 @@ G23.0,VI,VI/G23.0.md,Maladie de Hallervorden–Spatz,true,false,true,false,true,
 G23.1,VI,VI/G23.1.md,Ophtalmoplégie supranucléaire progressive [maladie de Steele–Richardson–Olszewski],true,false,true,false,true,1529
 G23.2,VI,VI/G23.2.md,Atrophie multisystématisée de type parkinsonien [AMS-P] [MSA-P],false,false,true,false,true,1332
 G23.3,VI,VI/G23.3.md,Atrophie multisystématisée de type cérébelleux [AMS-C] [MSA-C],false,false,true,false,false,931
-G23.8,VI,VI/G23.8.md,Autres maladies dégénératives précisées des noyaux gris centraux,true,false,true,false,true,2000
+G23.8,VI,VI/G23.8.md,Autres maladies dégénératives précisées des noyaux gris centraux,true,false,true,true,true,2659
 G23.9,VI,VI/G23.9.md,"Maladie dégénérative des noyaux gris centraux, sans précision",false,false,true,false,true,1318
 G24.0,VI,VI/G24.0.md,Dystonie médicamenteuse,true,false,true,false,true,1331
 G24.1,VI,VI/G24.1.md,Dystonie idiopathique familiale,true,false,true,false,true,1441
@@ -3983,25 +3983,25 @@ I20.1,IX,IX/I20.1.md,Angine de poitrine avec spasme coronaire vérifié,true,fal
 I20.8,IX,IX/I20.8.md,Autres formes d'angine de poitrine,true,false,true,false,true,1631
 I20.9,IX,IX/I20.9.md,"Angine de poitrine, sans précision",true,false,true,false,true,1638
 I21.000,IX,IX/I21.000.md,"Infarctus transmural aigu du myocarde, de la paroi antérieure - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,true,false,2556
-I21.08,IX,IX/I21.08.md,"Infarctus transmural aigu du myocarde, de la paroi antérieure - "" Autres prises en charge """,true,false,true,true,false,2520
+I21.08,IX,IX/I21.08.md,"Infarctus transmural aigu du myocarde, de la paroi antérieure - "" Autres prises en charge """,true,false,true,true,false,3195
 I21.100,IX,IX/I21.100.md,"Infarctus transmural aigu du myocarde, de la paroi inférieure - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,true,false,2575
-I21.18,IX,IX/I21.18.md,"Infarctus transmural aigu du myocarde, de la paroi inférieure - "" Autres prises en charge """,true,false,true,true,false,2539
+I21.18,IX,IX/I21.18.md,"Infarctus transmural aigu du myocarde, de la paroi inférieure - "" Autres prises en charge """,true,false,true,true,false,3214
 I21.200,IX,IX/I21.200.md,"Infarctus transmural aigu du myocarde d'autres localisations - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,true,false,2637
-I21.28,IX,IX/I21.28.md,"Infarctus transmural aigu du myocarde d'autres localisations - "" Autres prises en charge """,true,false,true,true,false,2601
+I21.28,IX,IX/I21.28.md,"Infarctus transmural aigu du myocarde d'autres localisations - "" Autres prises en charge """,true,false,true,true,false,3276
 I21.300,IX,IX/I21.300.md,"Infarctus transmural aigu du myocarde, de localisation non précisée - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,true,false,2495
-I21.38,IX,IX/I21.38.md,"Infarctus transmural aigu du myocarde, de localisation non précisée - "" Autres prises en charge """,true,false,true,true,false,2459
+I21.38,IX,IX/I21.38.md,"Infarctus transmural aigu du myocarde, de localisation non précisée - "" Autres prises en charge """,true,false,true,true,false,3134
 I21.400,IX,IX/I21.400.md,"Infarctus sousendocardique aigu du myocarde - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,true,false,2529
-I21.48,IX,IX/I21.48.md,"Infarctus sousendocardique aigu du myocarde - "" Autres prises en charge """,true,false,true,true,false,2493
+I21.48,IX,IX/I21.48.md,"Infarctus sousendocardique aigu du myocarde - "" Autres prises en charge """,true,false,true,true,false,3168
 I21.900,IX,IX/I21.900.md,"Infarctus aigu du myocarde, sans précision - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,true,false,2466
-I21.98,IX,IX/I21.98.md,"Infarctus aigu du myocarde, sans précision - "" Autres prises en charge """,true,false,true,true,true,2494
+I21.98,IX,IX/I21.98.md,"Infarctus aigu du myocarde, sans précision - "" Autres prises en charge """,true,false,true,true,true,3169
 I22.000,IX,IX/I22.000.md,"Infarctus du myocarde à répétition, de la paroi antérieure - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,false,false,1634
-I22.08,IX,IX/I22.08.md,"Infarctus du myocarde à répétition, de la paroi antérieure - "" Autres prises en charge """,true,false,true,false,false,1598
+I22.08,IX,IX/I22.08.md,"Infarctus du myocarde à répétition, de la paroi antérieure - "" Autres prises en charge """,true,false,true,true,false,2336
 I22.100,IX,IX/I22.100.md,"Infarctus du myocarde à répétition, de la paroi inférieure - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,false,false,1653
-I22.18,IX,IX/I22.18.md,"Infarctus du myocarde à répétition, de la paroi inférieure - "" Autres prises en charge """,true,false,true,false,false,1617
+I22.18,IX,IX/I22.18.md,"Infarctus du myocarde à répétition, de la paroi inférieure - "" Autres prises en charge """,true,false,true,true,false,2355
 I22.800,IX,IX/I22.800.md,"Infarctus du myocarde à répétition, d'autres localisations - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,false,false,1735
-I22.88,IX,IX/I22.88.md,"Infarctus du myocarde à répétition, d'autres localisations - "" Autres prises en charge """,true,false,true,false,false,1699
+I22.88,IX,IX/I22.88.md,"Infarctus du myocarde à répétition, d'autres localisations - "" Autres prises en charge """,true,false,true,true,false,2437
 I22.900,IX,IX/I22.900.md,"Infarctus du myocarde à répétition, de localisation non précisée - "" Prise en charge initiale, infarctus de 24 heures ou moins """,true,false,true,false,false,1536
-I22.98,IX,IX/I22.98.md,"Infarctus du myocarde à répétition, de localisation non précisée - "" Autres prises en charge """,true,false,true,false,false,1500
+I22.98,IX,IX/I22.98.md,"Infarctus du myocarde à répétition, de localisation non précisée - "" Autres prises en charge """,true,false,true,true,false,2238
 I23.0,IX,IX/I23.0.md,Hémopéricarde comme complication récente d'un infarctus aigu du myocarde,true,false,true,false,true,1570
 I23.1,IX,IX/I23.1.md,Communication interauriculaire comme complication récente d'un infarctus aigu du myocarde,true,false,true,false,true,1591
 I23.2,IX,IX/I23.2.md,Communication interventriculaire comme complication récente d'un infarctus aigu du myocarde,true,false,true,false,true,1650
@@ -4316,10 +4316,10 @@ I89.0,IX,IX/I89.0.md,"Lymphœdème, non classé ailleurs",true,false,true,false,
 I89.1,IX,IX/I89.1.md,Lymphangite,true,false,true,false,true,1855
 I89.8,IX,IX/I89.8.md,Autres atteintes non infectieuses précisées des vaisseaux et des ganglions lymphatiques,true,false,true,false,true,2275
 I89.9,IX,IX/I89.9.md,"Atteinte non infectieuse des vaisseaux et des ganglions lymphatiques, sans précision",true,false,true,false,true,1939
-I95.0,IX,IX/I95.0.md,Hypotension idiopathique,false,false,true,false,true,1351
-I95.1,IX,IX/I95.1.md,Hypotension orthostatique,true,false,true,false,true,1699
+I95.0,IX,IX/I95.0.md,Hypotension idiopathique,false,false,true,true,true,2010
+I95.1,IX,IX/I95.1.md,Hypotension orthostatique,true,false,true,true,true,2358
 I95.2,IX,IX/I95.2.md,Hypotension médicamenteuse,false,false,true,false,true,1423
-I95.8,IX,IX/I95.8.md,Autres hypotensions,true,false,true,false,true,1626
+I95.8,IX,IX/I95.8.md,Autres hypotensions,true,false,true,true,true,2285
 I95.9,IX,IX/I95.9.md,"Hypotension, sans précision",false,false,true,false,true,1543
 I97.0,IX,IX/I97.0.md,Syndrome postcardiotomie,false,false,true,false,true,1220
 I97.1,IX,IX/I97.1.md,Autres troubles fonctionnels après chirurgie cardiaque,true,false,true,false,true,1853
@@ -4551,14 +4551,14 @@ J95.4,X,X/J95.4.md,Syndrome de Mendelson,true,false,true,false,true,1800
 J95.5,X,X/J95.5.md,Sténose sousglottique après un acte à visée diagnostique et thérapeutique,false,false,true,false,true,1603
 J95.8,X,X/J95.8.md,"Autres troubles respiratoires après un acte à visée diagnostique et thérapeutique, non classés ailleurs",false,false,true,true,true,3054
 J95.9,X,X/J95.9.md,"Trouble respiratoire après un acte à visée diagnostique et thérapeutique, sans précision",false,false,true,false,true,1525
-J96.00,X,X/J96.00.md,"Insuffisance respiratoire aigüe - "" Type I [hypoxique] """,false,false,true,false,true,1529
-J96.01,X,X/J96.01.md,"Insuffisance respiratoire aigüe - "" Type II [hypercapnique] """,false,false,true,false,true,1465
-J96.09,X,X/J96.09.md,"Insuffisance respiratoire aigüe - "" Type non précisé """,false,false,true,false,false,1205
-J96.1+0,X,X/J96.1+0.md,Insuffisance respiratoire chronique obstructive,false,false,true,false,false,1200
-J96.1+1,X,X/J96.1+1.md,Insuffisance respiratoire chronique restrictive,false,false,true,false,false,1200
-J96.10,X,X/J96.10.md,"Insuffisance respiratoire chronique - "" Type I [hypoxique] """,false,false,true,false,true,1392
-J96.11,X,X/J96.11.md,"Insuffisance respiratoire chronique - "" Type II [hypercapnique] """,false,false,true,false,true,1401
-J96.19,X,X/J96.19.md,"Insuffisance respiratoire chronique - "" Type non précisé """,false,false,true,false,true,1675
+J96.00,X,X/J96.00.md,"Insuffisance respiratoire aigüe - "" Type I [hypoxique] """,false,false,true,true,true,2016
+J96.01,X,X/J96.01.md,"Insuffisance respiratoire aigüe - "" Type II [hypercapnique] """,false,false,true,true,true,1952
+J96.09,X,X/J96.09.md,"Insuffisance respiratoire aigüe - "" Type non précisé """,false,false,true,true,false,1692
+J96.1+0,X,X/J96.1+0.md,Insuffisance respiratoire chronique obstructive,false,false,true,true,false,1561
+J96.1+1,X,X/J96.1+1.md,Insuffisance respiratoire chronique restrictive,false,false,true,true,false,1561
+J96.10,X,X/J96.10.md,"Insuffisance respiratoire chronique - "" Type I [hypoxique] """,false,false,true,true,true,1753
+J96.11,X,X/J96.11.md,"Insuffisance respiratoire chronique - "" Type II [hypercapnique] """,false,false,true,true,true,1762
+J96.19,X,X/J96.19.md,"Insuffisance respiratoire chronique - "" Type non précisé """,false,false,true,true,true,2036
 J96.90,X,X/J96.90.md,"Insuffisance respiratoire, sans précision - "" Type I [hypoxique] """,false,false,true,false,true,1446
 J96.91,X,X/J96.91.md,"Insuffisance respiratoire, sans précision - "" Type II [hypercapnique] """,false,false,true,false,true,1375
 J96.99,X,X/J96.99.md,"Insuffisance respiratoire, sans précision - "" Type non précisé """,false,false,true,false,true,1593
@@ -10363,11 +10363,11 @@ N16.3,XIV,XIV/N16.3.md,Maladie rénale tubulo-interstitielle au cours de maladie
 N16.4,XIV,XIV/N16.4.md,Maladie rénale tubulo-interstitielle au cours d'affections disséminées du tissu conjonctif,true,false,true,false,true,1536
 N16.5,XIV,XIV/N16.5.md,Maladie rénale tubulo-interstitielle au cours d'un rejet de greffe ,true,false,true,false,false,1118
 N16.8,XIV,XIV/N16.8.md,Maladie rénale tubulo-interstitielle au cours d'autres maladies classées ailleurs,true,false,true,false,true,1948
-N17.0,XIV,XIV/N17.0.md,Insuffisance rénale aigüe avec nécrose tubulaire,true,false,true,false,true,2041
-N17.1,XIV,XIV/N17.1.md,Insuffisance rénale aigüe avec nécrose corticale aigüe,true,false,true,false,true,1824
-N17.2,XIV,XIV/N17.2.md,Insuffisance rénale aigüe avec nécrose médullaire,true,false,true,false,true,1892
-N17.8,XIV,XIV/N17.8.md,Autres insuffisances rénales aigües,true,false,true,false,true,2060
-N17.9,XIV,XIV/N17.9.md,"Insuffisance rénale aigüe, sans précision",true,false,true,false,true,1905
+N17.0,XIV,XIV/N17.0.md,Insuffisance rénale aigüe avec nécrose tubulaire,true,false,true,true,true,2729
+N17.1,XIV,XIV/N17.1.md,Insuffisance rénale aigüe avec nécrose corticale aigüe,true,false,true,true,true,2512
+N17.2,XIV,XIV/N17.2.md,Insuffisance rénale aigüe avec nécrose médullaire,true,false,true,true,true,2580
+N17.8,XIV,XIV/N17.8.md,Autres insuffisances rénales aigües,true,false,true,true,true,2748
+N17.9,XIV,XIV/N17.9.md,"Insuffisance rénale aigüe, sans précision",true,false,true,true,true,2593
 N18.1,XIV,XIV/N18.1.md,"Maladie rénale chronique, stade 1",true,false,true,false,true,1786
 N18.2,XIV,XIV/N18.2.md,"Maladie rénale chronique, stade 2",true,false,true,false,true,1802
 N18.3,XIV,XIV/N18.3.md,"Maladie rénale chronique, stade 3",true,false,true,false,true,1842
@@ -12128,7 +12128,7 @@ R01.1,XVIII,XVIII/R01.1.md,"Souffle cardiaque, sans précision",true,false,true,
 R01.2,XVIII,XVIII/R01.2.md,Autres bruits cardiaques,true,false,true,false,true,969
 R02,XVIII,XVIII/R02.md,"Gangrène, non classée ailleurs",false,false,true,true,true,1963
 R03.0,XVIII,XVIII/R03.0.md,"Constatation d'une élévation de la tension artérielle, sans diagnostic d'hypertension",false,false,true,false,true,832
-R03.1,XVIII,XVIII/R03.1.md,Constatation d'une baisse non spécifique de la tension artérielle,false,false,true,false,true,1011
+R03.1,XVIII,XVIII/R03.1.md,Constatation d'une baisse non spécifique de la tension artérielle,false,false,true,true,true,1475
 R04.0,XVIII,XVIII/R04.0.md,Épistaxis,true,false,true,false,true,940
 R04.1,XVIII,XVIII/R04.1.md,Hémorragie de la gorge,false,false,true,false,true,912
 R04.2,XVIII,XVIII/R04.2.md,Hémoptysie,true,false,true,false,true,1007
@@ -12228,7 +12228,7 @@ R35,XVIII,XVIII/R35.md,Polyurie,true,false,true,false,true,957
 R36,XVIII,XVIII/R36.md,Écoulement urétral,true,false,true,false,true,698
 R39.0,XVIII,XVIII/R39.0.md,Extravasation d'urine,false,false,true,false,true,695
 R39.1,XVIII,XVIII/R39.1.md,Autres troubles de la miction,true,false,true,false,true,944
-R39.2,XVIII,XVIII/R39.2.md,Urémie extrarénale,true,false,true,false,true,736
+R39.2,XVIII,XVIII/R39.2.md,Urémie extrarénale,true,false,true,true,true,1424
 R39.8,XVIII,XVIII/R39.8.md,"Symptômes et signes relatifs à l'appareil urinaire, autres et non précisés",false,false,true,false,true,1009
 R40.0,XVIII,XVIII/R40.0.md,Somnolence,true,false,true,true,true,1966
 R40.10,XVIII,XVIII/R40.10.md,État paucirelationnel,true,false,true,true,false,2027

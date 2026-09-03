@@ -244176,6 +244176,41 @@ GM2026-V-EFN-04,T50.9,interdit,CIM-10,"effets indésirables [""hypersensibilité
 GM2026-V-EFN-04,T50.9,interdit,CIM-10,intoxication pathologique par médicament,non
 GM2026-V-EFN-04,T50.9,interdit,CIM-10,"pharmacodépendance et troubles mentaux et du comportement, lié à l'utilisation de substances psychoactives",non
 GM2026-V-EFN-04,T50.9,interdit,CIM-10,"réaction et intoxication par un médicament, chez le foetus et le nouveau-né",non
+GM2026-V-IRF-01,N17.8,interdit,ANS,"atteintes tubulo-interstitielles et tubulaires dues à des médicaments et des métaux lourds (N14.-)
+insuffisance rénale :
+ - après un acte à visée diagnostique et thérapeutique (N99.0) 
+ - compliquant avortement, grossesse extra-utérine ou molaire (O00-O07)  (O08.4) 
+ - congénitale (P96.0) 
+ - survenant après le travail et l'accouchement (O90.4) 
+- syndrome :
+ - hémolytique et urémique (D59.3) 
+ - hépatorénal (K76.7)   - du postpartum (O90.4) 
+- urémie :
+ - extrarénale (R39.2) 
+ - prérénale (R39.2) 
+",oui
+GM2026-V-IRF-01,N17.8,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+tumeurs (C00-D48)
+",non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,atteintes tubulo-interstitielles et tubulaires dues à des médicaments et des métaux lourds,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,insuffisance rénale après un acte à visée diagnostique et thérapeutique,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,"insuffisance rénale compliquant avortement, grossesse extra-utérine ou molaire",non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,insuffisance rénale congénitale,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,insuffisance rénale survenant après le travail et l'accouchement,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,syndrome hémolytique urémique,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,syndrome hépato-rénal,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,syndrome hépato-rénal post-partum,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,urémie extrarénale,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10,urémie prérénale,non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10 frères,Insuffisance rénale aigüe avec nécrose corticale aigüe (N17.1),non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10 frères,Insuffisance rénale aigüe avec nécrose médullaire (N17.2),non
+GM2026-V-IRF-01,N17.8,interdit,CIM-10 frères,Insuffisance rénale aigüe avec nécrose tubulaire (N17.0),non
 GM2026-V-OMS-02,U07.10,interdit,ANS,"Infection coronavirale, siège non précisé (B34.2)
 Coronavirus, cause de maladies classées dans d'autres chapitres (B97.2)
 Syndrome respiratoire aigu sévère [SRAS], sans précision (U04.9)

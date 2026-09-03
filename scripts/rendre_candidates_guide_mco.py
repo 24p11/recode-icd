@@ -51,6 +51,12 @@ ARTICLES = {
     "P00": ("categories_p00_p04", "EMPLOI DES CATÉGORIES P00 À P04 DE LA CIM–10", "92", "extraits"),
     "ENF": ("enfants_nes_sans_vie", "ENFANTS NÉS SANS VIE", "92-93", "extraits"),
     "GRA": ("etat_grabataire", "ÉTAT GRABATAIRE", "103-104", "extraits"),
+    "HEM": ("hemangiome_lymphangiome", "HÉMANGIOME ET LYMPHANGIOME", "104", "extraits"),
+    "HYP": ("hypotension", "HYPOTENSION ET BAISSE DE LA TENSION ARTÉRIELLE", "104", "extraits"),
+    "POL": ("polyhandicap_lourd", "IDENTIFICATION DU POLYHANDICAP LOURD", "104-105", "extraits"),
+    "IDM": ("infarctus_myocarde", "INFARCTUS DU MYOCARDE", "105", "extraits"),
+    "IRF": ("insuffisance_renale_fonctionnelle", "INSUFFISANCE RÉNALE FONCTIONNELLE", "105-106", "extraits"),
+    "IRA": ("insuffisance_respiratoire_adulte", "INSUFFISANCE RESPIRATOIRE DE L’ADULTE", "106", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.
