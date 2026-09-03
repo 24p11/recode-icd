@@ -576,6 +576,11 @@ Justification métier et calibration chiffrée dans
   **rendu** (`normalize_index.py`), appliquée à l'assemblage. Sur
   36 627 entrées : 11 638 retenues, 24 989 écartées.
 
+R1/R2/R3 gouvernent la **seule** section Formulations. La section
+« Consignes de codage » des fiches (cf. « Rendu dans les fiches »,
+section guide MCO) n'y est **pas** soumise — contrat `(code, ctx)` sans
+`rng` ni `outils`, et `test_section_hors_chapter_policy` l'affirme.
+
 ### Résolution par REMPLACEMENT, pas par fusion
 
 L'ordre est **bloc > chapitre > défaut**, et la règle la plus spécifique
@@ -654,6 +659,25 @@ Les dix rôles se rangent en trois familles :
 `interdit` / `interdit_DP` / `interdit_DR` / `interdit_DAS` /
 `interdit_association` (emploi ou position proscrits) ·
 `regi` / `contexte` (ni l'un ni l'autre).
+
+### Rendu dans les fiches (chantier du 2026-09-03)
+
+Les fiches feuilles portent une section `## Consignes de codage (guide
+méthodologique <millésime>)`, insérée entre « À ne pas décrire » et
+« Formulations » (le normatif reste groupé avant le lexical). Sélection
+et forme dans `recode_icd/recommendations/rendu.py`, branchement par
+`cards._section_consignes` ; prototype validé et démonstrations dans
+`scripts/explore/rendu_recommandations_fiches.ipynb` (qui importe
+`src/`). Règles : filtre `centralite=sujet`, exclusion de `contexte`
+avant dédup, dédup par `rec_id` (`sujet` prime sur `exemple`, puis le
+plus spécifique), tri `cle_de_tri`, préfixe `[rec_id]`, exemples en
+bloc cité `>` (« À titre d'exemple dans le guide : »), règles de
+chapitre regroupées en fin de section avec leur `situation` entre
+parenthèses. **Hors chapter_policy** (cf. section chapter_policy).
+Sans les deux parquets, les fiches se construisent sans la section et
+`BuildSummary` porte un avertissement. Fiches catégories : pas de
+section (feuilles seules dans `recommendation_codes`). Huit témoins de
+régression dans `tests/regression/test_cards_consignes.py`.
 
 ### Pitfalls
 
