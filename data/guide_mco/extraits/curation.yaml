@@ -102,6 +102,11 @@ bornes:
     derniere_ligne: 290
     titre: "COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX"
 
+  cystite_aigue:
+    premiere_ligne: 58
+    derniere_ligne: 69
+    titre: "CYSTITE AIGÜE"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------

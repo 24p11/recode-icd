@@ -1,0 +1,70 @@
+# Guide méthodologique MCO 2026 (version provisoire) — CYSTITE AIGÜE (imprimée 88)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 96-96  (imprimées : 88-88)
+#
+# Commande exacte :
+#   pdftotext -layout -f 96 -l 96 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                88
+
+       – rejet d’une greffe de rein : T86.1, Y83.0 ;
+       – névrome d’un moignon d’amputation de jambe : T87.3, Y83.5 ;
+       – sepsis à staphylocoques consécutif à une perfusion : A41.2, T80.2, Y84.8 ;
+       – abcès de paroi après appendicectomie : L02.2, T81.4, Y83.6 ;
+       – abcès sous-phrénique après cholécystectomie : K65.0, T81.4, Y83.6 ;
+       – thrombose d’un pontage artériel synthétique fémoropoplité : I74.3, T82.8, Y83.1 ;
+       – infection à bactéries pyogènes d’une prothèse articulaire : M00.– , T84.5, Y83.1 ;
+       – infection osseuse due à un matériel d’ostéosynthèse : M86.– , T84.6, Y83.4 ;
+       – endocardite infectieuse sur valve prothétique : I33.0, T82.6, Y83.1 ;
+       – rupture de sutures tendineuses de doigts : S66.– , T81.38, Y83.4 ;
+       – phlébite superficielle du membre supérieur due à une perfusion : I80.8, T80.1,
+         Y84.8 ;
+       – pneumothorax compliquant une intervention thoracique : S27.01, T81.2, Y83.– ;
+       – pneumonie postopératoire : J18.9, T81.4, Y83.– ;
+       – ulcère gastrique « de stress » postopératoire : K25.3, T81.8, Y83.– ;
+       – infarctus du myocarde postopératoire : I21.– , T81.8, Y83.– .
+
+Les codes « Y » donnés ici à titre d’exemple appartiennent au groupe Y83–Y84 Actes
+chirurgicaux et autres actes médicaux à l’origine de réactions anormales du patient ou de
+complications ultérieures, sans mention d’accident au cours de l’intervention. Ils permettent
+l’enregistrement de circonstances comparables à la notion d’aléa médical.
+
+Lorsque les circonstances de la complication sont différentes, on dispose des codes des
+groupes Y60–Y69 Accidents et complications au cours d’actes médicaux et chirurgicaux et
+Y70–Y82 Appareils médicaux associés à des accidents au cours d’actes diagnostiques et
+thérapeutiques.
+
+       Exemple : perforation sigmoïdienne au cours d’une coloscopie : S36.50, T81.2, Y60.4.
+
+Lorsque la complication est une séquelle d’un acte antérieur, le codage, conforme aux
+consignes données au début de ce chapitre sur les complications des actes médicaux ou
+chirurgicaux, est complété avec la catégorie Y88.
+
+       Exemple : cicatrice classification hypertrophique séquellaire d’une intervention
+       chirurgicale : L91.0, T81.8, Y88.3.
+
+
+S’agissant de complications dues à des actes effectués dans des établissements
+d’hospitalisation, le codage doit être complété en tant que de besoin par le code Y95 Facteurs
+nosocomiaux.
+
+CYSTITE AIGÜE
+
+Le diagnostic de cystite aigüe est posé devant l’association :
+   • de signes fonctionnels de type pollakiurie, douleurs mictionnelles... ;
+   • et d’une pyurie constatée avec une bandelette urinaire, ou d’une pyurie avec
+       bactériurie en cas d’étude cytobactériologique urinaire.
+
+La mention de cystite (aigüe), d’infection vésicale (aigüe) ou d’infection urinaire basse dans
+le dossier, appuyée sur ces arguments, permet d’utiliser le code N30.0 Cystite aigüe pour
+mentionner cette affection. Quand ces éléments manquent ou devant la présence isolée de
+germes dans l’uroculture (bactériurie), on code N39.0 Infection des voies urinaires, siège non
+précisé.
+

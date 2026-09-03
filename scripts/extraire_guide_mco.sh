@@ -38,6 +38,7 @@ ARTICLES=(
   "chutes_a_repetition:91:91:CHUTES A REPETITION (imprimée 83)"
   "codes_oms_usage_urgent:92:92:CODES OMS RÉSERVÉS A UN USAGE URGENT (imprimée 84)"
   "complications_actes:92:96:COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX (imprimées 84-88)"
+  "cystite_aigue:96:96:CYSTITE AIGÜE (imprimée 88)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"
