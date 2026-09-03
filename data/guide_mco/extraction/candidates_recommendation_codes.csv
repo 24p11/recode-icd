@@ -206,3 +206,8 @@ GM2026-V-ANT-05,Z85,regi,sujet,cancer considéré comme un antécédent par le c
 GM2026-V-ANT-05,II,regi,sujet,cancer encore actif,ensemble,"« code adapté du chapitre II » : domaine du choix ; l'alternative cancer/antécédent ne régit pas chaque membre du chapitre II (tumeurs bénignes, in situ, à évolution imprévisible non concernées)"
 GM2026-V-ATH-01,I70.21,regi,sujet,,,
 GM2026-V-ATH-01,R02,DAS,sujet,I70.21 codé en DP,,
+GM2026-V-CAR-01,E50-E56,regi,sujet,,,
+GM2026-V-CAR-02,E50-E56,interdit,sujet,"supplémentation systématique du nouveau-né (vitamines A, D, E, K), sans carence documentée",,
+GM2026-V-CHU-01,R29.6,regi,sujet,,,
+GM2026-V-CHU-02,R29.6,DP,sujet,"séjour motivé par la chute, aucune lésion traitée, aucune cause trouvée",,
+GM2026-V-CHU-03,R29.6,DAS,sujet,"lésion consécutive à la chute en DP, aucune causalité retrouvée",,

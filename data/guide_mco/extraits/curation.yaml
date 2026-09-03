@@ -75,6 +75,19 @@ bornes:
     derniere_ligne: 34
     titre: "ATHEROSCLEROSE AVEC GANGRENE"
 
+  carences_vitaminiques:
+    premiere_ligne: 37
+    derniere_ligne: 45
+    titre: "CARENCES VITAMINIQUES"
+
+  # Titre sans accents dans le PDF, transcrit tel quel. L'article tient
+  # sur la page 83 (le bloc « Exemples » compris) : pas de note, pas de
+  # débordement dans les bornes.
+  chutes_a_repetition:
+    premiere_ligne: 47
+    derniere_ligne: 69
+    titre: "CHUTES A REPETITION"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
