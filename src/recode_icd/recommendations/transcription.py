@@ -95,7 +95,14 @@ TITRE_NOTES = "## Notes de bas de page"
 #: « précision58. [^58: …] » et non « précision[^58: …]. ». L'insérer à
 #: l'intérieur couperait le token en deux et ferait échouer le contrôle,
 #: à juste titre — le brut, lui, porte « précision58. » d'un bloc.
-_RE_NOTE_REPLIEE = re.compile(r"\[\^([^:\]]+):\s*(.*?)\]", re.DOTALL)
+#:
+#: Le texte d'une note peut contenir des crochets APPARIÉS — la note 13
+#: des COMPLICATIONS cite « Atteintes [Troubles]... » — d'où
+#: l'alternative `\[[^\]]*\]` : un niveau de crochets internes est
+#: admis, et le marqueur se ferme sur le crochet qui les suit. Décidé à
+#: la relecture RF du lot 2 (2026-09-03), qui a voulu cette note à son
+#: point d'appel plutôt qu'en section finale.
+_RE_NOTE_REPLIEE = re.compile(r"\[\^([^:\]]+):\s*((?:[^\[\]]|\[[^\]]*\])*)\]", re.DOTALL)
 
 #: Marqueur de renvoi nu (« [^57] »), pour une note restée en fin.
 _RE_MARQUEUR_NOTE = re.compile(r"\[\^[^\]]+\]")

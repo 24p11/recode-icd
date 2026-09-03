@@ -59,7 +59,7 @@ On en rapproche également les codes dont le libellé mentionne explicitement ou
 
 Les sous-catégories codées .9 ne sont pas autorisées comme DP et une information orientant vers l’une d’elles doit faire rechercher davantage de précision.
 
-Les sous-catégories codées .8 telles que I97.8 Autres troubles de l’appareil circulatoire après un acte à visée diagnostique et thérapeutique [...], J95.8 Autres troubles respiratoires après un acte à visée diagnostique et thérapeutique [...] ou K91.8 Autres atteintes de l’appareil digestif après un acte à visée diagnostique et thérapeutique [...] sont imprécises. Aux sous- catégories .8 il faut préférer les codes « habituels » de la CIM–10. [^13]
+Les sous-catégories codées .8 telles que I97.8 Autres troubles de l’appareil circulatoire après un acte à visée diagnostique et thérapeutique [...], J95.8 Autres troubles respiratoires après un acte à visée diagnostique et thérapeutique [...] ou K91.8 Autres atteintes de l’appareil digestif après un acte à visée diagnostique et thérapeutique [...] sont imprécises. Aux sous- catégories .8 il faut préférer les codes « habituels » de la CIM–10. [^13: NB le titre des catégories : « Atteintes [Troubles]... de l’appareil... après un acte à visée..., non classées ailleurs ».]
 
 ### Les codes « habituels » de la CIM–10
 
@@ -148,9 +148,3 @@ Lorsque la complication est une séquelle d’un acte antérieur, le codage, con
 
 S’agissant de complications dues à des actes effectués dans des établissements d’hospitalisation, le codage doit être complété en tant que de besoin par le code Y95 Facteurs nosocomiaux.
 
-## Notes de bas de page
-
-<!-- Note 13, non repliable à son appel : son texte contient des crochets
-     ([Troubles]) que la syntaxe [^n: …] ne peut pas envelopper. -->
-
-[^13] NB le titre des catégories : « Atteintes [Troubles]... de l’appareil... après un acte à visée..., non classées ailleurs ».

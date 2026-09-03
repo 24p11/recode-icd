@@ -392,3 +392,23 @@ def test_un_code_cim_survit_a_toute_passe() -> None:
         assert est_code_cim(code), code
         assert _depouille([code], appels) == [code], code
         assert _depouille([code + ","], appels) == [code + ","], code
+
+
+def test_note_repliee_a_crochets_internes() -> None:
+    """Une note dont le texte contient des crochets APPARIÉS reste un
+    seul marqueur — cas réel : la note 13 des COMPLICATIONS cite
+    « Atteintes [Troubles]... ».
+
+    Avant l'extension du motif, le marqueur se fermait au premier « ] »
+    et le reste de la note fuyait dans le corps — c'est ce qui a cassé
+    l'inlinage voulu à la relecture RF du lot 2.
+    """
+    from recode_icd.recommendations.transcription import partitionne_cure
+
+    corps, notes = partitionne_cure(
+        "la CIM–10. [^13: NB le titre : « Atteintes [Troubles]... de "
+        "l’appareil..., non classées ailleurs ».] Suite du corps."
+    )
+    assert "[Troubles]..." in notes, notes
+    assert "ailleurs" in " ".join(notes)
+    assert corps == ["la", "CIM–10.", "Suite", "du", "corps."], corps
