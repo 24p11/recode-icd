@@ -35,6 +35,7 @@ ARTICLES = {
     "XXI": ("chapitre_xxi", "EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM-10", "93-103", "extraits_bruts"),
     # -- chantier B (file : data/guide_mco/extraction/file_chantier_B.md) --
     "ACC": ("accouchement_impromptu", "ACCOUCHEMENT IMPROMPTU OU À DOMICILE", "81", "extraits"),
+    "ANT": ("antecedents", "ANTÉCÉDENTS", "82-83", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.

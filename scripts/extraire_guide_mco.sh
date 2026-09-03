@@ -32,6 +32,7 @@ ARTICLES=(
   "malnutrition_denutrition:117:122:MALNUTRITION, DÉNUTRITION (imprimées 109-114)"
   # -- chantier B (file : data/guide_mco/extraction/file_chantier_B.md) --
   "accouchement_impromptu:89:89:ACCOUCHEMENT IMPROMPTU OU À DOMICILE (imprimée 81)"
+  "antecedents:90:91:ANTÉCÉDENTS (imprimées 82-83)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"

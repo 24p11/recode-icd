@@ -59,6 +59,15 @@ bornes:
     derniere_ligne: 72
     titre: "ACCOUCHEMENT IMPROMPTU OU À DOMICILE"
 
+  antecedents:
+    premiere_ligne: 27
+    # L'article s'achève en haut de la page 83 (« …soins au patient. »),
+    # ses notes 6-8 sont définies au bas de la page 82 : tout tient dans
+    # les bornes, aucune suppression éditoriale d'article voisin
+    # (ATHÉROSCLÉROSE commence après la borne).
+    derniere_ligne: 84
+    titre: "ANTÉCÉDENTS"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -183,6 +192,7 @@ appels_notes:
   chapitre_xxi: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
                  41, 42, 43, 44, 45, 46, 47, 48]
   accouchement_impromptu: [5]
+  antecedents: [6, 7, 8]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -206,6 +216,22 @@ ancres_notes:
   # phrase « ni pour la mère ni pour le nouveau-né »), à contre-lire.
   accouchement_impromptu:
     "5": "ni pour la mère ni pour le nouveau-né."
+
+  # Les trois appels sont hissés seuls sur leur ligne par le rendu :
+  # aucun jeton du corps ne les porte, ancres déclarées d'après la
+  # colonne de l'exposant dans le brut, à contre-lire sur le PDF.
+  antecedents:
+    # L'exposant est hissé entre « exclut l'infarctus ancien, les
+    # séquelles … » et le point final : il qualifie le contenu de
+    # l'exclusion de Z86.7.
+    "6": "le syndrome postinfarctus."
+    # Exposant hissé au-dessus de « résiduels » (colonne 9) : la
+    # définition (« Sinon on parlerait de séquelles ») qualifie
+    # « troubles résiduels ».
+    "7": "cause de troubles résiduels"
+    # Exposant hissé après le guillemet fermant de la seconde citation
+    # (« cancer datant de 10 ans ») ; la définition traite du délai.
+    "8": "cancer datant de 10 ans »."
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et
