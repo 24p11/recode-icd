@@ -43,6 +43,11 @@ ARTICLES=(
   "douleur_chronique:97:97:DOULEUR CHRONIQUE (imprimée 89)"
   "douleur_chronique_refractaire:97:98:DOULEUR CHRONIQUE REFRACTAIRE (REBELLE) (imprimées 89-90)"
   "effets_nocifs_medicaments:98:99:EFFETS NOCIFS DES MÉDICAMENTS (imprimées 90-91)"
+  "groupe_b95_b98:99:99:EMPLOI DES CODES DU GROUPE B95–B98 CIM–10 (imprimée 91)"
+  "categories_o80_o84:100:100:EMPLOI DES CATÉGORIES O80 À O84 DE LA CIM–10 (imprimée 92)"
+  "categories_p00_p04:100:100:EMPLOI DES CATÉGORIES P00 À P04 DE LA CIM–10 (imprimée 92)"
+  "enfants_nes_sans_vie:100:101:ENFANTS NÉS SANS VIE (imprimées 92-93)"
+  "etat_grabataire:111:112:ÉTAT GRABATAIRE (imprimées 103-104)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"

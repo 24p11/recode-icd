@@ -46,6 +46,11 @@ ARTICLES = {
     "DOU": ("douleur_chronique", "DOULEUR CHRONIQUE", "89", "extraits"),
     "REB": ("douleur_chronique_refractaire", "DOULEUR CHRONIQUE REFRACTAIRE (REBELLE)", "89-90", "extraits"),
     "EFN": ("effets_nocifs_medicaments", "EFFETS NOCIFS DES MÉDICAMENTS", "90-91", "extraits"),
+    "B95": ("groupe_b95_b98", "EMPLOI DES CODES DU GROUPE B95–B98 CIM–10", "91", "extraits"),
+    "O80": ("categories_o80_o84", "EMPLOI DES CATÉGORIES O80 À O84 DE LA CIM–10", "92", "extraits"),
+    "P00": ("categories_p00_p04", "EMPLOI DES CATÉGORIES P00 À P04 DE LA CIM–10", "92", "extraits"),
+    "ENF": ("enfants_nes_sans_vie", "ENFANTS NÉS SANS VIE", "92-93", "extraits"),
+    "GRA": ("etat_grabataire", "ÉTAT GRABATAIRE", "103-104", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.

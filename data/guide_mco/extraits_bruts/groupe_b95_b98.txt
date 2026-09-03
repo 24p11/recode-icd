@@ -1,0 +1,71 @@
+# Guide méthodologique MCO 2026 (version provisoire) — EMPLOI DES CODES DU GROUPE B95–B98 CIM–10 (imprimée 91)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 99-99  (imprimées : 91-91)
+#
+# Commande exacte :
+#   pdftotext -layout -f 99 -l 99 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                     91
+                               20
+2. Les effets indésirables
+
+Les notes d’inclusion et d’exclusion qui figurent sous l’intitulé du groupe T36–T50 dans le
+volume 1 de la CIM–10 indiquent que l’effet indésirable d’une « substance appropriée
+administrée correctement » doit être codé selon la nature de l’effet. Le codage des effets
+indésirables des médicaments n’utilise donc pas les codes du groupe T36–T50. Il associe au
+code de la nature de l’effet un code du chapitre XX de la CIM–10 (catégories Y40–Y59).
+        Exemples :
+        – bradycardie au cours d’un traitement par la digitaline : R00.1, Y52.0 ;
+        – gastrite aigüe au cours d’un traitement par antiinflammatoire non stéroïdien : K29.1,
+          Y45.3
+
+Pour un effet donné, enregistrer qu’il est secondaire à un traitement médicamenteux n’est
+possible qu’en employant le chapitre XX de la CIM–10.
+
+Le mot « surdosage » est parfois à l’origine de difficultés. Par « substance appropriée
+administrée correctement » on entend le respect de la prescription médicamenteuse,
+notamment de la posologie. En présence d’une complication d’un traitement médicamenteux,
+le langage médical courant utilise parfois le mot « surdosage », par exemple, lorsqu’une
+hémorragie au cours d’un traitement anticoagulant coexiste avec une élévation de
+l’international normalized ratio (INR) au-dessus de la valeur thérapeutique souhaitée ou
+lorsqu’une complication d’un traitement s’accompagne d’une concentration sanguine de
+médicament supérieure à la valeur thérapeutique admise (digoxinémie, lithémie…). De tels
+cas, lorsque la prescription a été respectée, doivent être classés comme des effets
+indésirables et leur codage ne doit pas utiliser les codes du groupe T36–T50.
+
+
+EMPLOI DES CODES DU GROUPE B95–B98 CIM–10
+
+
+Ces codes ne doivent être utilisés qu’en position de diagnostic associé. Leur usage doit être
+conforme à leur intitulé. Ils sont donc réservés aux cas dans lesquels une infection est
+présente, infection classée dans un chapitre distinct du chapitre I (CIM–10, vol. 2, § 4.4.4). La
+rubrique de l’infection s’accompagne souvent d’une note signalant la possibilité
+d’association : « Utiliser, au besoin, un code supplémentaire (B95–B98) pour identifier l’agent
+infectieux ».
+
+        Exemples :
+        – endocardite subaigüe à streptocoques D: I33.0, B95.2 ;
+        – sinusite maxillaire chronique à Hæmophilus influenzæ : J32.0, B96.3 ;
+        – abcès cutané à Staphylococcus aureus : L02.–, B95.6 ;
+        – ostéite à Staphylococcus aureus : M86.–, B95.6 ;
+        – pyélonéphrite aigüe à Escherichia coli : N10, B96.2 ;
+        – ascite infectée à Escherichia coli : R18, B96.2.
+
+En l’absence d’infection, une colonisation (« portage sain ») doit être codée avec la
+catégorie Z22.
+
+
+
+
+20
+  L’importance de leur enregistrement tient entre autres au fait que la réduction de la iatrogénie fait partie
+des objectifs nationaux de santé publique (loi n° 2004-806 du 9 aout 2004, objectifs n° 26 à 29).
+

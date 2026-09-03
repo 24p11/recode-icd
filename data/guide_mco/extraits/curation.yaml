@@ -138,6 +138,39 @@ bornes:
     derniere_ligne: 134
     titre: "EFFETS NOCIFS DES MÉDICAMENTS"
 
+  groupe_b95_b98:
+    premiere_ligne: 44
+    derniere_ligne: 63
+    titre: "EMPLOI DES CODES DU GROUPE B95–B98 CIM–10"
+
+  # Bornée jusqu'à la définition de la note 21 (bas de page 92), APRÈS
+  # les articles voisins P00-P04 et ENFANTS NÉS SANS VIE, qui partent
+  # ensemble en suppression éditoriale — précédent ÉTAT GRABATAIRE.
+  categories_o80_o84:
+    premiere_ligne: 17
+    derniere_ligne: 72
+    titre: "EMPLOI DES CATÉGORIES O80 À O84 DE LA CIM–10"
+
+  categories_p00_p04:
+    premiere_ligne: 29
+    derniere_ligne: 55
+    titre: "EMPLOI DES CATÉGORIES P00 À P04 DE LA CIM–10"
+
+  # La définition de la note 21 (article voisin O80-O84) tombe dans les
+  # bornes — précédent de la note 5 du D62.
+  enfants_nes_sans_vie:
+    premiere_ligne: 57
+    derniere_ligne: 94
+    titre: "ENFANTS NÉS SANS VIE"
+
+  # Les définitions des notes 47 et 48 de l'article voisin (chapitre
+  # XXI) sont imprimées au bas de la page 103, ENTRE les paragraphes de
+  # l'article : suppressions éditoriales, précédent note 5/D62.
+  etat_grabataire:
+    premiere_ligne: 60
+    derniere_ligne: 81
+    titre: "ÉTAT GRABATAIRE"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -223,6 +256,33 @@ suppressions_editoriales:
         ont dû être étendues jusqu'à la définition de la note 20, au
         bas de la page 91. Précédent ÉTAT GRABATAIRE.
 
+  categories_o80_o84:
+    - texte: "EMPLOI DES CATÉGORIES P00 À P04 DE LA CIM–10 Une note d’inclusion placée sous le titre du groupe P00–P04 Fœtus et nouveau-né affectés par des troubles maternels et par des complications de la grossesse, du travail et de l’accouchement (CIM–10, volume 1, chapitre XVI) fixe des conditions très restrictives à l’emploi de ces codes : ce groupe « comprend les affections maternelles mentionnées seulement si elles sont précisées comme étant la cause de mortalité ou de morbidité du fœtus ou du nouveau-né ». Il est apparu que cette contrainte empêchait de recueillir des informations nécessaires pour expliquer les consommations de ressources inhabituelles de certains séjours de nouveau-nés. Par exemple, dans le cas d’une naissance par césarienne, un nouveau-né en parfaite santé voit la charge en soins accrue du fait de la césarienne, et sa durée de séjour augmentée du seul fait de la prolongation de l’hospitalisation de sa mère. Si on allègue la contrainte ci-dessus pour ne pas employer le code P03.4, aucune information du résumé de séjour du nouveau-né n’explique l’allongement du séjour. En conséquence, il faut étendre l’utilisation des codes P00–P04 aux circonstances dans lesquelles les états mentionnés ont été cause de soins supplémentaires au nouveau-né, et considérer à priori que ces soins ont été dispensés dès lors que la mère a présenté une des affections répertoriées dans les rubriques du groupe P00–P04. Exemple : un nouveau-né normal né par césarienne bénéficie habituellement de soins supplémentaires par rapport à un nouveau-né normal né par voie basse (présence d’un pédiatre, surveillance en rapport avec les risques respiratoires, soins nécessités par la moindre autonomie de la mère...). Il est donc licite de mentionner systématiquement le code P03.4 dans le dossier de tout nouveau-né extrait par césarienne. ENFANTS NÉS SANS VIE Pour la production des informations concernant les enfants nés sans vie (« mort-nés ») et leur mère, la référence est la note technique qui constitue l’annexe 2 de l’instruction N° DREES/BES/DGS/SP1/DGOS/R3/2021/148 du 21 juin 2021. Les enfants nés sans vie et les produits d’interruption de grossesse pour motif médical (IMG) donnent lieu à la production d’un résumé d’unité médicale (RUM) à partir de vingt- deux semaines révolues d’aménorrhée ou d’un poids d’au moins cinq-cents grammes."
+      motif: >-
+        Articles VOISINS (P00-P04 puis ENFANTS NÉS SANS VIE), imprimés
+        sur la page partagée. Ils entrent dans les bornes parce
+        qu'elles ont dû être étendues jusqu'à la définition de la note
+        21, au bas de la page 92. Leurs curés existent par ailleurs.
+        Précédent ÉTAT GRABATAIRE.
+
+  enfants_nes_sans_vie:
+    - texte: "Dans l’ensemble de ce chapitre, les numéros de page renvoient au volume 2 de l’édition imprimée de la Classification statistique internationale des maladies et des problèmes de santé connexes, dixième révision (CIM–10) ; OMS éd. Le premier numéro (ici « 103 ») correspond à l’édition de 1993, le second (« 134 ») à l’édition de 2008."
+      motif: >-
+        Définition de la note 21 de l'article VOISIN (O80-O84),
+        imprimée au bas de la page partagée : son appel est dans
+        l'article précédent. Précédent de la note 5 du D62.
+
+  etat_grabataire:
+    - texte: "Un rejet, en revanche, doit être codé T86.2."
+      motif: >-
+        Définition de la note 47 de l'article VOISIN (chapitre XXI),
+        imprimée au bas de la page 103, entre les paragraphes de
+        l'article. Précédent de la note 5 du D62.
+    - texte: "Se reporter aux explications données à la première page du chapitre XXI dans le volume 1."
+      motif: >-
+        Définition de la note 48 de l'article VOISIN (chapitre XXI),
+        même configuration que la note 47.
+
   accouchement_impromptu:
     - texte: >-
         ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION L’emploi du
@@ -303,6 +363,8 @@ appels_notes:
   douleur_chronique: [14]
   douleur_chronique_refractaire: [15]
   effets_nocifs_medicaments: [16, 17, 18, 19, 20]
+  categories_o80_o84: [21]
+  enfants_nes_sans_vie: [22]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -380,6 +442,18 @@ ancres_notes:
     "19": "la notion de problème ayant mobilisé l’essentiel des soins."
     # Hissé au-dessus du titre de la section 2, qu'il qualifie.
     "20": "2. Les effets indésirables"
+
+  # Hissé au-dessus de la fin de « pages 124-125 ou 159-160 » ; le
+  # « 19 » isolé qui suit dans le brut est un artefact du guide
+  # lui-même (résidu d'ancienne numérotation), conservé tel quel.
+  categories_o80_o84:
+    "21": "pages 124-125 ou 159-160"
+
+  # Hissé au-dessus de la fin de « …résumé d'unité médicale (RUM) » ;
+  # la note (objectif national de santé publique) qualifie l'obligation
+  # de production.
+  enfants_nes_sans_vie:
+    "22": "d’un résumé d’unité médicale (RUM)"
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et

@@ -129,9 +129,14 @@ def decoupe(article: str) -> tuple[list[str], dict[str, str]]:
             notes[ligne] = " ".join(buf)
             i = j
             continue
-        # Numéro de page, ou appel hissé seul sur sa ligne : pure mise
-        # en page, aucun texte.
-        if re.fullmatch(r"\s+\d{1,3}\s*", ligne):
+        # Numéro de page, appel hissé seul sur sa ligne, ou numéro de
+        # définition d'une note de l'article VOISIN (colonne 0, hors
+        # appels déclarés — les nôtres ont été consommés plus haut) :
+        # pure mise en page, aucun texte. Cas vécus : « 21 » des
+        # ENFANTS NÉS SANS VIE, « 47 »/« 48 » de l'ÉTAT GRABATAIRE.
+        if re.fullmatch(r"\s+\d{1,3}\s*", ligne) or (
+            re.fullmatch(r"\d{1,3}\s*", ligne) and ligne.strip() not in appels
+        ):
             i += 1
             continue
         # Sous-titre centré : indenté, seul entre deux lignes vides, sans

@@ -1,0 +1,76 @@
+# Guide méthodologique MCO 2026 (version provisoire) — EMPLOI DES CATÉGORIES P00 À P04 DE LA CIM–10 (imprimée 92)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 100-100  (imprimées : 92-92)
+#
+# Commande exacte :
+#   pdftotext -layout -f 100 -l 100 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                               92
+
+EMPLOI DES CATÉGORIES O80 À O84 DE LA CIM–10
+
+On attire l'attention sur la note inscrite en tête du groupe Accouchement (O80–O84) dans le
+                                                                                     21
+volume 1 de la CIM–10, et sur les explications données pages 124-125 ou 159-160 19 du
+volume 2. Il en résulte en particulier que l'emploi des codes O81.0 à O84.9 comme diagnostic
+principal (DP) du résumé d’unité médicale est une erreur. Depuis la version 11 des GHM
+(2009) ils ne sont plus utilisables en position de DP. Pour enregistrer un accouchement
+instrumental le code du DP doit être choisi parmi les autres codes du chapitre XV.
+L’exemple 24 donné p. 125 ou 160 du volume 2 de la CIM–10 est une illustration de la
+consigne de codage.
+
+EMPLOI DES CATÉGORIES P00 À P04 DE LA CIM–10
+
+Une note d’inclusion placée sous le titre du groupe P00–P04 Fœtus et nouveau-né affectés
+par des troubles maternels et par des complications de la grossesse, du travail et de
+l’accouchement (CIM–10, volume 1, chapitre XVI) fixe des conditions très restrictives à
+l’emploi de ces codes : ce groupe « comprend les affections maternelles mentionnées
+seulement si elles sont précisées comme étant la cause de mortalité ou de morbidité du fœtus
+ou du nouveau-né ».
+
+Il est apparu que cette contrainte empêchait de recueillir des informations nécessaires pour
+expliquer les consommations de ressources inhabituelles de certains séjours de
+nouveau-nés. Par exemple, dans le cas d’une naissance par césarienne, un nouveau-né en
+parfaite santé voit la charge en soins accrue du fait de la césarienne, et sa durée de séjour
+augmentée du seul fait de la prolongation de l’hospitalisation de sa mère. Si on allègue la
+contrainte ci-dessus pour ne pas employer le code P03.4, aucune information du résumé de
+séjour du nouveau-né n’explique l’allongement du séjour.
+
+En conséquence, il faut étendre l’utilisation des codes P00–P04 aux circonstances dans
+lesquelles les états mentionnés ont été cause de soins supplémentaires au nouveau-né, et
+considérer à priori que ces soins ont été dispensés dès lors que la mère a présenté une des
+affections répertoriées dans les rubriques du groupe P00–P04.
+         Exemple : un nouveau-né normal né par césarienne bénéficie habituellement de soins
+         supplémentaires par rapport à un nouveau-né normal né par voie basse (présence
+         d’un pédiatre, surveillance en rapport avec les risques respiratoires, soins nécessités
+         par la moindre autonomie de la mère...). Il est donc licite de mentionner
+         systématiquement le code P03.4 dans le dossier de tout nouveau-né extrait par
+         césarienne.
+
+ENFANTS NÉS SANS VIE
+
+Pour la production des informations concernant les enfants nés sans vie (« mort-nés ») et leur
+mère, la référence est la note technique qui constitue l’annexe 2 de l’instruction N°
+DREES/BES/DGS/SP1/DGOS/R3/2021/148 du 21 juin 2021.
+
+Les enfants nés sans vie et les produits d’interruption de grossesse pour motif médical
+                                                                     22
+(IMG) donnent lieu à la production d’un résumé d’unité médicale (RUM) à partir de vingt-
+deux semaines révolues d’aménorrhée ou d’un poids d’au moins cinq-cents grammes.
+
+
+21
+   Dans l’ensemble de ce chapitre, les numéros de page renvoient au volume 2 de l’édition imprimée de la Classification statistique
+internationale des maladies et des problèmes de santé connexes, dixième révision (CIM–10) ; OMS éd. Le premier numéro (ici « 103 »)
+correspond à l’édition de 1993, le second (« 134 ») à l’édition de 2008.
+22
+  La réduction de la mortalité périnatale est un objectif national de santé publique : loi n° 2004-806 du 9 aout
+2004, objectif n° 45.
+
