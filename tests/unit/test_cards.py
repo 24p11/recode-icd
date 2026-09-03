@@ -174,6 +174,7 @@ def test_build_cards_library_index_csv_schema(ctx: ExplorationContext, tmp_path)
         "has_perimetre",
         "has_localisations",
         "has_exclusions",
+        "has_consignes",
         "has_formulations",
         "nb_chars",
     }
@@ -197,3 +198,15 @@ def test_detect_sections_via_build_card(ctx: ExplorationContext) -> None:
     assert sections["has_exclusions"] is True
     assert sections["has_formulations"] is True
     assert sections["has_localisations"] is False  # A18.1 pas type=D
+    assert sections["has_consignes"] is False  # A18.1 non cité par le guide
+
+
+def test_detect_sections_consignes_millesime_variable() -> None:
+    """Le titre de la section Consignes porte le millésime lu dans la
+    table — la détection doit accepter n'importe quel millésime."""
+    from recode_icd.cards import _detect_sections
+
+    for millesime in ("2026-provisoire", "2027"):
+        card = f"## Consignes de codage (guide méthodologique {millesime})\n\n- [X] y"
+        assert _detect_sections(card)["has_consignes"] is True
+    assert _detect_sections("## Consignes de codage\n")["has_consignes"] is False

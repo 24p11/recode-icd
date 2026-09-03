@@ -32,6 +32,7 @@ from recode_icd import policy as policy_module
 from recode_icd._normalize import normalize_for_match
 from recode_icd.lexicons import Lexiques
 from recode_icd.policy import ChapterPolicy, NormalisationIndex
+from recode_icd.recommendations.rendu import rendre_section_consignes
 from recode_icd.utils.loaders_dev import ExplorationContext, load_exploration_context
 
 log = logging.getLogger(__name__)
@@ -156,12 +157,16 @@ _AMORCE_PERIMETRE_CODE = "Au niveau du code :"
 _SIBLING_CODE_RE = re.compile(r"\s*\(([A-Z]\d{2}(?:\.\d+)?)\)\s*$")
 
 # Regex de détection des sections présentes dans un markdown généré
-# (utilisé par `build_cards_library` pour remplir _index.csv).
+# (utilisé par `build_cards_library` pour remplir _index.csv). Les
+# valeurs sont des fragments de regex, pas des titres littéraux : le
+# titre de la section Consignes porte le millésime du guide, qui vient
+# de la table (jamais d'une constante) et varie donc avec la base.
 _SECTION_TITLES = {
-    "has_perimetre": "Périmètre clinique du code",
-    "has_localisations": "Localisations anatomiques",
-    "has_exclusions": "À ne pas décrire",
-    "has_formulations": "Formulations cliniques alternatives",
+    "has_perimetre": re.escape("Périmètre clinique du code"),
+    "has_localisations": re.escape("Localisations anatomiques"),
+    "has_exclusions": re.escape("À ne pas décrire"),
+    "has_consignes": r"Consignes de codage \(guide méthodologique [^)]+\)",
+    "has_formulations": re.escape("Formulations cliniques alternatives"),
 }
 
 
@@ -481,6 +486,32 @@ def _section_exclusions_from_ans(code: str, ctx: ExplorationContext) -> str | No
 
 
 # ----------------------------------------------------------------------
+# Section 5bis — Consignes de codage (guide méthodologique MCO)
+# ----------------------------------------------------------------------
+
+
+def _section_consignes(code: str, ctx: ExplorationContext) -> str | None:
+    """Section « Consignes de codage » depuis les tables du guide MCO.
+
+    Règles de sélection et de forme dans
+    `recode_icd.recommendations.rendu` (prototype validé :
+    `scripts/explore/rendu_recommandations_fiches.py`). Contrat
+    `(code, ctx)` comme les sections 2 à 5 — sans `rng` ni `outils`, la
+    section est structurellement hors chapter_policy : R1/R2/R3
+    gouvernent les Formulations, pas les consignes.
+
+    Retourne None si les tables sont absentes (les fiches restent
+    constructibles sans le guide ; `build_cards_library` porte alors un
+    avertissement) ou si aucune consigne ne vise le code.
+    """
+    if ctx.recommendations is None or ctx.recommendation_codes is None:
+        return None
+    return rendre_section_consignes(
+        _eager(ctx.recommendation_codes), _eager(ctx.recommendations), code
+    )
+
+
+# ----------------------------------------------------------------------
 # Section 4 — Formulations cliniques alternatives
 # ----------------------------------------------------------------------
 
@@ -646,7 +677,10 @@ def build_card(
         3. Localisations anatomiques (codes type=D chap XIII uniquement)
         4. Périmètre clinique du code (héritages + niveau code)
         5. À ne pas décrire (exclusions héritées + frères pour .8)
-        6. Formulations cliniques alternatives (Index + AP-HP)
+        6. Consignes de codage (guide méthodologique MCO) — les
+           consignes positionnelles prolongent les exclusions, le
+           normatif reste groupé avant le lexical
+        7. Formulations cliniques alternatives (Index + AP-HP)
     """
     sections = [
         _title(code, ctx),
@@ -654,6 +688,7 @@ def build_card(
         _section_localisations(code, ctx),
         _section_perimeter(code, ctx),
         _section_exclusions(code, ctx),
+        _section_consignes(code, ctx),
         _section_formulations(code, ctx, rng, outils or charge_politique(_eager(ctx.merged))),
     ]
     body = "\n\n".join(s for s in sections if s)
@@ -667,7 +702,14 @@ def build_card(
 
 @dataclass(frozen=True)
 class BuildSummary:
-    """Résumé d'une génération de bibliothèque."""
+    """Résumé d'une génération de bibliothèque.
+
+    `n_consignes` / `consignes_par_chapitre` comptent les fiches portant
+    la section « Consignes de codage » (feuilles uniquement — les fiches
+    catégories ne la portent pas). `avertissements` signale notamment
+    l'absence des tables du guide MCO : les fiches restent
+    constructibles, la section est simplement omise partout.
+    """
 
     n_codes_total: int
     n_written: int
@@ -676,13 +718,16 @@ class BuildSummary:
     output_dir: Path
     index_path: Path
     errors: tuple[tuple[str, str], ...]
+    n_consignes: int = 0
+    consignes_par_chapitre: tuple[tuple[str, int], ...] = ()
+    avertissements: tuple[str, ...] = ()
 
 
 def _detect_sections(card: str) -> dict[str, bool]:
-    """Detection par regex des 4 sections principales dans le markdown."""
+    """Detection par regex des 5 sections principales dans le markdown."""
     return {
-        key: bool(re.search(rf"^## {re.escape(title)}$", card, re.MULTILINE))
-        for key, title in _SECTION_TITLES.items()
+        key: bool(re.search(rf"^## {pattern}$", card, re.MULTILINE))
+        for key, pattern in _SECTION_TITLES.items()
     }
 
 
@@ -754,6 +799,15 @@ def build_cards_library(
 
     output_dir.mkdir(parents=True, exist_ok=True)
     outils = charge_politique(merged, policy_path, lexicons_dir)
+    avertissements: list[str] = []
+    if ctx.recommendations is None or ctx.recommendation_codes is None:
+        msg = (
+            "Tables du guide MCO absentes (recommendations.parquet / "
+            "recommendation_codes.parquet) — section « Consignes de codage » "
+            "omise sur toutes les fiches. Lancer `recode-icd build guide-mco`."
+        )
+        avertissements.append(msg)
+        log.warning(msg)
     index_rows: list[dict[str, object]] = []
     errors: list[tuple[str, str]] = []
     t0 = time.perf_counter()
@@ -803,10 +857,25 @@ def build_cards_library(
             "has_perimetre",
             "has_localisations",
             "has_exclusions",
+            "has_consignes",
             "has_formulations",
             "nb_chars",
         ]
         pl.DataFrame(index_rows).select(ordered_cols).write_csv(index_path)
+
+    # Comptage des fiches portant la section Consignes, par chapitre
+    # (ordre des chapitres = ordre de la classification, via nested set).
+    par_chapitre: dict[str, int] = {}
+    for row in index_rows:
+        if row["has_consignes"]:
+            par_chapitre[str(row["chapter"])] = par_chapitre.get(str(row["chapter"]), 0) + 1
+    rang_chapitre = {
+        r["code"]: r["left"]
+        for r in merged.filter(pl.col("type") == "chapter").iter_rows(named=True)
+    }
+    consignes_par_chapitre = tuple(
+        sorted(par_chapitre.items(), key=lambda kv: rang_chapitre.get(kv[0], 1 << 30))
+    )
 
     elapsed = time.perf_counter() - t0
     return BuildSummary(
@@ -817,6 +886,9 @@ def build_cards_library(
         output_dir=output_dir,
         index_path=index_path,
         errors=tuple(errors),
+        n_consignes=sum(par_chapitre.values()),
+        consignes_par_chapitre=consignes_par_chapitre,
+        avertissements=tuple(avertissements),
     )
 
 

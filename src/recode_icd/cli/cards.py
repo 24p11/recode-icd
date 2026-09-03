@@ -88,8 +88,14 @@ def build_library_cmd(
     typer.echo(f"Codes total              : {summary.n_codes_total}")
     typer.echo(f"Fiches écrites           : {summary.n_written}")
     typer.echo(f"Erreurs                  : {summary.n_errors}")
+    typer.echo(f"Fiches avec consignes    : {summary.n_consignes}")
+    if summary.consignes_par_chapitre:
+        repartition = ", ".join(f"{chap}: {n}" for chap, n in summary.consignes_par_chapitre)
+        typer.echo(f"  par chapitre           : {repartition}")
     typer.echo(f"Durée                    : {summary.elapsed_seconds:.1f}s")
     typer.echo(f"Index                    : {summary.index_path}")
+    for avertissement in summary.avertissements:
+        typer.echo(f"⚠ {avertissement}")
     if summary.errors:
         typer.echo("\nPremières erreurs :")
         for code, err in summary.errors[:10]:
