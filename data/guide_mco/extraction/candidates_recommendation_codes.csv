@@ -308,8 +308,6 @@ GM2026-V-HYP-02,I95.0,regi,sujet,diagnostic établi de maladie hypotensive chron
 GM2026-V-HYP-02,I95.1,regi,sujet,diagnostic établi de maladie hypotensive chronique,,
 GM2026-V-HYP-02,I95.8,regi,sujet,diagnostic établi de maladie hypotensive chronique,,
 GM2026-V-HYP-02,G23.8,regi,sujet,hypotension intégrée à un syndrome de Shy et Drager,,
-GM2026-V-HYP-02,I10,regi,exemple,,,
-GM2026-V-HYP-02,R03.0,regi,exemple,,,
 GM2026-V-IDM-01,I21.08,regi,sujet,prise en charge autre que la première prise en charge thérapeutique,,
 GM2026-V-IDM-01,I21.18,regi,sujet,prise en charge autre que la première prise en charge thérapeutique,,
 GM2026-V-IDM-01,I21.28,regi,sujet,prise en charge autre que la première prise en charge thérapeutique,,

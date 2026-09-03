@@ -10,7 +10,7 @@
 > Texte source : `data/guide_mco/extraits/hypotension.md`
 > (guide chap. V, pp. imprimées 104). Les `L…` y renvoient.
 
-**2 consignes, 7 associations**.
+**2 consignes, 5 associations**.
 
 ---
 
@@ -45,9 +45,7 @@
 | code_expr | role | centralite | portee | condition |
 |---|---|---|---|---|
 | `G23.8` | `regi` | sujet | chaque | hypotension intégrée à un syndrome de Shy et Drager |
-| `I10` | `regi` | **exemple** | chaque |  |
 | `I95.0` | `regi` | sujet | chaque | diagnostic établi de maladie hypotensive chronique |
 | `I95.1` | `regi` | sujet | chaque | diagnostic établi de maladie hypotensive chronique |
 | `I95.8` | `regi` | sujet | chaque | diagnostic établi de maladie hypotensive chronique |
-| `R03.0` | `regi` | **exemple** | chaque |  |
 

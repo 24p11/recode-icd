@@ -635,6 +635,25 @@ validations:
   etat_grabataire:
     relecteur: "RF"
     date: "2026-09-03"
+  # -- chantier B, lot 4 (verdict global OK) --
+  hemangiome_lymphangiome:
+    relecteur: "RF"
+    date: "2026-09-03"
+  hypotension:
+    relecteur: "RF"
+    date: "2026-09-03"
+  polyhandicap_lourd:
+    relecteur: "RF"
+    date: "2026-09-03"
+  infarctus_myocarde:
+    relecteur: "RF"
+    date: "2026-09-03"
+  insuffisance_renale_fonctionnelle:
+    relecteur: "RF"
+    date: "2026-09-03"
+  insuffisance_respiratoire_adulte:
+    relecteur: "RF"
+    date: "2026-09-03"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés

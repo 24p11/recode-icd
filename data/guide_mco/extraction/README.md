@@ -115,6 +115,15 @@ toutes parsables, toutes résolues contre `merged_codes.parquet`.
     `guide_mco_consignes_non_rendues.csv` et le rendu des fiches
     filtre dessus. Première bascule : ANT-01.
 
+11. **Un code convoqué pour comparaison ou analogie n'est ni `sujet`
+    ni `exemple`** (RF, 2026-09-03, cas HYP-02/I10 et R03.0). « La même
+    argumentation conduit à distinguer I10 et R03.0 » compare la
+    consigne à un couple voisin : ces codes sont des objets de
+    comparaison, pas des instances de ce que la consigne régit —
+    mention de passage (précédent XXI-03), l'analogie reste dans le
+    `texte`. `centralite=exemple` est réservé aux codes cités comme
+    instances de la consigne elle-même.
+
 ## Points laissés ouverts
 
 - **`GM2026-V-AVC-18`** (complications codées en DAS) n'a **aucune
