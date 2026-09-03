@@ -1,0 +1,251 @@
+# Guide méthodologique MCO 2026 (version provisoire) — INTERRUPTION DE LA GROSSESSE (imprimées 106-109)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 114-117  (imprimées : 106-109)
+#
+# Commande exacte :
+#   pdftotext -layout -f 114 -l 117 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                      106
+
+catégorie N17 doit être réservée au codage des insuffisances rénales aigües avec atteinte
+organique du tissu rénal. En cas d’insuffisance rénale aigüe dont la cause, extrarénale ou
+par atteinte organique, est incertaine, on emploie le code N17.9.
+
+
+
+INSUFFISANCE RESPIRATOIRE DE L’ADULTE
+
+
+L’utilisation du code J96.0 Insuffisance respiratoire aigüe nécessite :
+    • que le dossier comporte la mention d’une insuffisance ou d’une décompensation
+         respiratoire aigüe, ou d’une détresse respiratoire ;
+    • et la constatation au cours du séjour d’une saturation artérielle en oxygène (SaO 2)
+         inférieure à 90 % ou d’une pression partielle dans le sang artériel (PaO2) inférieure à
+         60 mm de mercure en air ambiant. Le critère gazométrique ne s’impose pas en cas de
+         ventilation artificielle.
+
+L’utilisation du code J96.1 Insuffisance respiratoire chronique nécessite que le dossier
+mentionne l’existence d’une insuffisance respiratoire chronique, ou d’une affection
+respiratoire chronique, et d’une PaO2 inférieure à 60 mm de mercure en air ambiant de manière
+prolongé.
+
+
+INTERRUPTION DE LA GROSSESSE
+
+
+Par « interruption de la grossesse » on entend :
+   • d’une part l’interruption volontaire (IVG) : articles L.2212-1 et suivants, R.2212-1 et
+        suivants du code de la santé publique (CSP) ;
+                                                            50
+   • d’autre part l’interruption pour motif médical (IMG) : articles L.2213-1 et suivants,
+        R.2213-1 et suivants du CSP.
+
+
+1. Codage de l’IVG
+
+      1.1 IVG non compliquée
+
+Le codage des IVG non compliquées repose sur la présence en DP de l’un des 3 codes suivants :
+    • O04.90, interruption volontaire de grossesse (IVG dans le cadre légal), complet ou
+       sans précision, sans complication
+    • O07.4 Echec d’une tentative d’avortement médical sans complication
+    • O07.9 Echec d’une tentative d’avortement, autres et sans précision, sans
+       complication
+         Le code Z640 Difficultés liées à une grossesse non désirée ne sera plus recherché pour
+         l’orientation dans la racine 14Z08Z.
+
+L’acte enregistré est, selon le cas, JNJD002 Évacuation d'un utérus gravide par aspiration
+et/ou curetage, au 1er trimestre de la grossesse ou JNJP001 Évacuation d'un utérus gravide
+par moyen médicamenteux, au 1er trimestre de la grossesse.
+Même si le libellé de l’acte semble en restreindre l’utilisation au premier trimestre de la
+grossesse, l’acte JNJD002 Évacuation d’un utérus gravide par aspiration et/ou curetage, au
+1er trimestre de la grossesse doit continuer à être codé en cas de technique chirurgicale pour
+
+
+
+50
+     Dite aussi interruption thérapeutique de grossesse.
+                                                              107
+
+une grossesse de plus de 14SA et de moins de 16SA, car il permet l’orientation des séjours
+dans les forfaits ad-hoc.
+
+Par ailleurs, la date des dernières règles est enregistrée.
+
+Dans le cas de l’IVG médicamenteuse, on rappelle qu’un résumé d’unité médicale (RUM)
+unique doit être produit. Il doit mentionner par convention des dates d’entrée et de sortie
+égales à la date de la consultation de délivrance du médicament abortif, que la prise
+en charge ait été limitée à la consultation de prise du médicament abortif ou qu’elle
+ait compris l’ensemble des étapes (consultation de délivrance du médicament abortif,
+                                                                                 51
+prise de prostaglandine et surveillance de l’expulsion, consultation de contrôle) .
+
+
+      1.2 IVG compliquée
+
+1°) Lorsqu’une complication survient au cours du séjour même de l’IVG, celle-ci est codée
+par le quatrième caractère du code O04.–. Le cas échéant, un code de la catégorie O08
+Complications consécutives à un avortement, une grossesse extra-utérine et molaire en
+position de diagnostic associé peut identifier la nature de la complication (CIM–10, volume 2
+              52
+p. 123 ou 158 ). La date des dernières règles est enregistrée.
+
+2°) Lorsqu’une complication donne lieu à une réhospitalisation après le séjour d’IVG, deux
+cas doivent être distingués :
+    • s’il s’agit d’un avortement incomplet, avec rétention simple — non compliquée — de
+       produits de la conception :
+      − le DP est codé O04.4 Avortement médical incomplet, sans complication,
+      − l’acte enregistré est JNMD001 Révision de la cavité de l'utérus après avortement ;
+      − la date des dernières règles est enregistrée ;
+    • s’il s’agit d’un avortement incomplet avec rétention compliquée de produits de la
+       conception, ou d’une autre complication :
+       – le DP est un code de la catégorie O08 Complications consécutives à un
+           avortement, une grossesse extra-utérine et molaire ;
+       – l’acte ou les actes réalisés pour le traitement de la complication sont enregistrés.
+
+
+      1.3 Échec d’IVG
+
+On parle d'échec d’IVG devant le constat d’une poursuite de la grossesse. Ce cas est
+généralement observé après une IVG médicamenteuse. Il conduit à pratiquer une IVG
+instrumentale. Le RUM doit être codé comme suit :
+    • le DP est un code de la catégorie O07 Échec d'une tentative d'avortement ;
+    • l’acte enregistré est JNJD002 Évacuation d'un utérus gravide par aspiration et/ou
+       curetage, au 1er trimestre de la grossesse ;
+    • la date des dernières règles est enregistrée.
+
+
+
+
+51
+     Se reporter au point 1.2 du chapitre I.
+52
+   Dans l’ensemble de ce chapitre, les numéros de page renvoient au volume 2 de l’édition imprimée de la Classification statistique
+internationale des maladies et des problèmes de santé connexes, dixième révision (CIM–10) ; OMS éd. Le premier numéro (ici « 103 »)
+correspond à l’édition de 1993, le second (« 134 ») à l’édition de 2008.
+                                                   108
+
+2. Codage de l’IMG
+                                                                        53
+Il diffère selon la durée de la gestation au moment de l’interruption 51.
+
+    2.1 IMG avant vingt-deux semaines révolues d’aménorrhée
+
+    On code un avortement : DP O04.-1 ; ou O04.-2 ou O04.-3
+    • DA : on enregistre le motif de l’IMG ; selon qu’il est classé dans le chapitre XV de la
+       CIM–10 ou dans un autre chapitre, on choisit le code ad hoc du chapitre XV (en
+       particulier dans la catégorie O35 (Soins maternels pour anomalies et lésions fœtales,
+                                54
+       connues ou présumées) ou un code des catégories O98 ou O99, précisé si besoin
+                                                55
+       par un code des chapitres I à XVII et XIX ;
+    • acte d’interruption de grossesse
+    •     date des dernières règles.
+
+
+    2.2 IMG à partir de vingt-deux semaines révolues d’aménorrhée
+
+C’est un accouchement. Le codage diffère selon que le motif de l’interruption est fœtal ou
+maternel.
+
+Si la cause est une anomalie fœtale : •
+        DP : un code de la catégorie O35 ;
+    • DA : on enregistre par convention un code étendu de la catégorie Z37 Résultat de
+        l’accouchement (en général Z37.11 Naissance unique, enfant mort-né, à la suite d’une
+                                                        56
+        interruption de la grossesse pour motif médical ) ;
+    • acte d’accouchement ;
+    • âge gestationnel et date des dernières règles.
+Si la cause de l’interruption est maternelle :
+    • DP : selon que la cause est classée dans le chapitre XV de la CIM–10 ou dans un
+        autre chapitre, on choisit le code ad hoc du chapitre XV ou un code des catégories
+        O98 ou O99 ; pas de DR ;
+    • DA : on enregistre par convention un code de la catégorie Z37 (en général Z37.11
+        Naissance unique, enfant mort-né, à la suite d’une interruption de la grossesse pour
+        motif médical) ; si besoin, un code des chapitres I à XVII et XIX précise le DP53 ;
+    • acte d’accouchement ;
+    • âge gestationnel et date des dernières règles.
+
+ Les produits d’IMG à partir de vingt-deux semaines révolues d’aménorrhée ou d’un poids d’au
+ moins cinq-cents grammes donnent lieu à la production d’un RUM par convention, le DP est
+ codé P95. –.
+
+
+
+
+53 Voir  les informations données dans la note technique constituant l’annexe II l’instruction N°
+DREES/BES/DGS/SP1/DGOS/R3/2021/148 du 21 juin 2021.
+54
+   La note d’inclusion placée sous son titre dans le volume 1 de la CIM–10 ne s’oppose pas à sa mention dans
+le résumé de sortie, conjointement à un code d’avortement.
+55
+   Voir dans le volume 1 de la CIM–10 les notes figurant en tête des catégories O98 et O99.
+56
+   Code Z37.1 de la CIM–10 étendu pour la circonstance à compter de la version 11c (2011) de la
+classification des GHM.
+                                                   109
+
+LÉSIONS TRAUMATIQUES
+
+La précision du caractère fermé ou ouvert des fractures devient obligatoire en 2015 (Chapitre
+XIX de la CIM–10). Les fractures non précisées comme fermées ou ouvertes se codent en
+fractures fermées.
+
+MALADIES PROFESSIONNELLES
+
+En plus du codage selon la nature de l’affection (asbestose, silicose, « gale » du ciment, etc.)
+la CIM–10 donne la possibilité de signaler le caractère professionnel d’une affection au moyen
+du code Y96 Facteurs liés aux conditions de travail. Dès lors que la causalité a été
+
+établie, il faut l’enregistrer en position de diagnostic associé. Cette consigne vaut pour tous les
+problèmes de santé de cause professionnelle, y compris les lésions traumatiques et leurs
+séquelles.
+
+
+
+MALNUTRITION, DÉNUTRITION
+
+La CIM–10 classe les états de malnutrition dans le groupe E40–E46 : E40 Kwashiorkor, E41
+Marasme nutritionnel ; E42 Kwashiorkor avec marasme 57 ; E43 Malnutrition
+protéinoénergétique grave, sans précision ;E44.0 Malnutritionprotéinoénergétique modérée ;
+E44.1 Malnutrition protéinoénergétique légère ; E46 Malnutrition sans précision58. Elle range
+sous le terme générique de malnutrition59 un groupe d’affections résultant d’une carence
+d’apport ou d’une désassimilation protéinoénergétique : on doit donc l’entendre dans le sens
+restreint de dénutrition.
+
+
+La HAS publie en novembre 2019 et mis à jour en 2021 des recommandations de bonne
+pratique pour le diagnostic de la dénutrition de l’enfant et de l’adulte. Ce document a été
+élaboré en collaboration avec la Fédération française de nutrition (FFN)60. Pour les patients
+de moins de 70 ans, le diagnostic de la dénutrition nécessite la présence d’au moins 1 critère
+phénotypique et 1 critère étiologique. Ce diagnostic est un préalable obligatoire avant de juger
+de sa sévérité. Il repose exclusivement sur des critères non biologiques. Ces critères sont
+exposés ci-dessous :
+
+
+1. Le diagnostic de la dénutrition chez les patients âgés de moins de 18 ans
+
+Les critères phénotypiques sont les suivants :
+
+     -   perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids
+         habituel avant le début de la maladie ;
+     -   IMC < courbe IOTF 18,5 ;
+
+
+57
+   Les codes E40, E41 et E42 ne peuvent connaître qu’un emploi exceptionnel en France.
+58
+   Auxquels s’ajoute O25 Malnutrition au cours de la grossesse.
+59
+   Cet anglicisme désigne de fait tout trouble lié à un déséquilibre alimentaire, aussi bien en défaut qu’en
+excès.
+60
+   Diagnostic de la dénutrition de l’enfant et de l’adulte - novembre 2019.
+

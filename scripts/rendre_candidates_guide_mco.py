@@ -57,6 +57,7 @@ ARTICLES = {
     "IDM": ("infarctus_myocarde", "INFARCTUS DU MYOCARDE", "105", "extraits"),
     "IRF": ("insuffisance_renale_fonctionnelle", "INSUFFISANCE RÉNALE FONCTIONNELLE", "105-106", "extraits"),
     "IRA": ("insuffisance_respiratoire_adulte", "INSUFFISANCE RESPIRATOIRE DE L’ADULTE", "106", "extraits"),
+    "ITG": ("interruption_grossesse", "INTERRUPTION DE LA GROSSESSE", "106-109", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.

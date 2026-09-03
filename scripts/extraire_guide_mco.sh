@@ -54,6 +54,7 @@ ARTICLES=(
   "infarctus_myocarde:113:113:INFARCTUS DU MYOCARDE (imprimée 105)"
   "insuffisance_renale_fonctionnelle:113:114:INSUFFISANCE RÉNALE FONCTIONNELLE (imprimées 105-106)"
   "insuffisance_respiratoire_adulte:114:114:INSUFFISANCE RESPIRATOIRE DE L’ADULTE (imprimée 106)"
+  "interruption_grossesse:114:117:INTERRUPTION DE LA GROSSESSE (imprimées 106-109)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"

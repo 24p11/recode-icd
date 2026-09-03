@@ -207,6 +207,14 @@ bornes:
     derniere_ligne: 37
     titre: "INSUFFISANCE RESPIRATOIRE DE L’ADULTE"
 
+  # Bornée jusqu'à la définition de la note 56 (bas de page 108) ;
+  # l'article suivant (LÉSIONS TRAUMATIQUES) commence page 109, hors
+  # bornes — pas de suppression d'article voisin.
+  interruption_grossesse:
+    premiere_ligne: 40
+    derniere_ligne: 192
+    titre: "INTERRUPTION DE LA GROSSESSE"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -417,6 +425,7 @@ appels_notes:
   categories_o80_o84: [21]
   enfants_nes_sans_vie: [22]
   polyhandicap_lourd: [49]
+  interruption_grossesse: [50, 51, 52, 53, 54, 55, 56]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -510,6 +519,21 @@ ancres_notes:
   # Hissé entre « des quatre listes » et « doit être présent ».
   polyhandicap_lourd:
     "49": "Un code au moins de chacune des quatre listes"
+
+  # Les sept appels sont hissés par le rendu. La note 53 a en outre un
+  # second appel COLLÉ (« le DP53 », §2.2) : l'ancre force le repli sur
+  # le premier appel (§2 intro) — le jeton « DP53 » garde son exposant,
+  # dépouillé par le contrôle. Un « 51 » isolé à côté de l'appel 53 est
+  # un artefact de l'original (résidu d'ancienne numérotation), retiré
+  # du curé comme balisage.
+  interruption_grossesse:
+    "50": "l’interruption pour motif médical (IMG)"
+    "51": "surveillance de l’expulsion, consultation de contrôle)."
+    "52": "p. 123 ou 158 )."
+    "53": "au moment de l’interruption"
+    "54": "connues ou présumées)"
+    "55": "précisé si besoin par un code des chapitres I à XVII et XIX"
+    "56": "pour motif médical )"
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et
