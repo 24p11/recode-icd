@@ -31,6 +31,8 @@ from recode_icd.cards import (
 from recode_icd.policy import DEFAULT_POLICY_PATH
 from recode_icd.utils.loaders_dev import ExplorationContext, load_exploration_context
 
+_RACINE_REPORTS = Path(__file__).resolve().parents[2] / "reports"
+
 pytestmark = pytest.mark.regression
 
 
@@ -108,18 +110,13 @@ def test_z86_70_tri_et_regles_generales(ctx: ExplorationContext, outils) -> None
 
 
 def test_d62_article_historique(ctx: ExplorationContext, outils) -> None:  # type: ignore[no-untyped-def]
-    """D62 (chapitre III) : les trois consignes de son article, plus la
-    règle générale ANT-01 (lot 1 du chantier B : l'article ANTÉCÉDENTS
-    descend son interdiction sur tous les chapitres I à XIX)."""
+    """D62 (chapitre III) : les trois consignes de son article, pas de
+    sous-section Règles générales — ANT-01, qui atteignait tout le
+    chapitre au lot 1, est `rendu_fiche=non` depuis l'arbitrage n° 10."""
     section = _section_consignes(_fiche("D62", ctx, outils))
     rendus = set(re.findall(r"\[(\S+)\]", section))
-    assert rendus == {
-        "GM2026-V-D62-01",
-        "GM2026-V-D62-02",
-        "GM2026-V-D62-03",
-        "GM2026-V-ANT-01",
-    }
-    assert "### Règles générales du chapitre III" in section
+    assert rendus == {"GM2026-V-D62-01", "GM2026-V-D62-02", "GM2026-V-D62-03"}
+    assert "### Règles générales" not in section
 
 
 def test_z51_5_au_carrefour_de_deux_articles(ctx: ExplorationContext, outils) -> None:  # type: ignore[no-untyped-def]
@@ -142,10 +139,8 @@ def test_e43_les_definitions_de_seuils(ctx: ExplorationContext, outils) -> None:
     droit d'écrire."""
     section = _section_consignes(_fiche("E43", ctx, outils))
     rendus = set(re.findall(r"\[(\S+)\]", section))
-    # + ANT-01 depuis le lot 1 du chantier B (règle générale du chapitre IV).
-    assert rendus == {
-        f"GM2026-V-DEN-{n:02d}" for n in (1, 2, 3, 4, 6, 7, 8, 11, 13, 15, 16, 17)
-    } | {"GM2026-V-ANT-01"}
+    # ANT-01 (chapitre IV au lot 1) est `rendu_fiche=non` — arbitrage n° 10.
+    assert rendus == {f"GM2026-V-DEN-{n:02d}" for n in (1, 2, 3, 4, 6, 7, 8, 11, 13, 15, 16, 17)}
 
 
 def test_z23_0_liste_principale_vide_regles_generales_seules(
@@ -187,16 +182,15 @@ def test_z20_1_dedup_sujet_prime_sur_exemple(ctx: ExplorationContext, outils) ->
 
 def test_f01_000_exemple_seul_en_bloc_cite(ctx: ExplorationContext, outils) -> None:  # type: ignore[no-untyped-def]
     """F01.000 n'est cité qu'en illustration (DP d'exemple de AVC-13) :
-    sa liste principale reste vide, la consigne d'exemple vit dans le
-    bloc cité — signal structurel « ceci illustre, ceci ne norme pas ».
-    Depuis le lot 1 du chantier B, la fiche porte aussi la règle
-    générale ANT-01 (chapitre V)."""
+    sa section se réduit au bloc cité — signal structurel « ceci
+    illustre, ceci ne norme pas ». ANT-01 (chapitre V au lot 1) est
+    `rendu_fiche=non` — arbitrage n° 10."""
     section = _section_consignes(_fiche("F01.000", ctx, outils))
     assert "> À titre d'exemple dans le guide :" in section
     assert "> - [GM2026-V-AVC-13]" in section
     assert "- [" not in _liste_principale(section), "aucune consigne sujet attendue"
-    assert "### Règles générales du chapitre V" in section
-    assert "[GM2026-V-ANT-01]" in section
+    assert "### Règles générales" not in section
+    assert "GM2026-V-ANT-01" not in section
 
 
 # ----------------------------------------------------------------------
@@ -246,19 +240,19 @@ def test_parquets_presents_rapport_compte_par_chapitre(
     ctx: ExplorationContext,
     tmp_path: Path,
 ) -> None:
-    """Le rapport de build compte les fiches gagnant la section, par
-    chapitre, sans avertissement. Depuis le lot 1 du chantier B, ANT-01
-    descend sur tout le chapitre III : chaque fiche porte au moins la
-    règle générale, et D62 garde ses consignes d'article."""
+    """Chapitre III : un seul code cité rendu (D62) — ANT-01, qui
+    couvrait tout le chapitre au lot 1, est `rendu_fiche=non`
+    (arbitrage n° 10). Le rapport de build compte les fiches gagnant la
+    section, par chapitre, sans avertissement."""
     summary = build_cards_library(
         ctx=ctx, output_dir=tmp_path / "lib", chapter_filter="III", progress=False
     )
     assert summary.avertissements == ()
-    assert summary.n_consignes == summary.n_written
-    assert summary.consignes_par_chapitre == (("III", summary.n_written),)
+    assert summary.n_consignes == 1
+    assert summary.consignes_par_chapitre == (("III", 1),)
     index = pl.read_csv(summary.index_path)
-    assert index["has_consignes"].all()
     assert index.filter(pl.col("code") == "D62")["has_consignes"].to_list() == [True]
+    assert index.filter(pl.col("has_consignes"))["code"].to_list() == ["D62"]
 
 
 def test_section_hors_chapter_policy(
@@ -293,3 +287,56 @@ def test_determinisme_double_rendu(ctx: ExplorationContext, outils) -> None:  # 
     temoins = ("I64", "Z86.70", "D62", "Z51.5", "E43", "Z23.0", "Z20.1", "F01.000")
     for code in temoins:
         assert _fiche(code, ctx, outils) == _fiche(code, ctx, outils), code
+
+
+# ----------------------------------------------------------------------
+# rendu_fiche (arbitrage n° 10) — sur données réelles
+# ----------------------------------------------------------------------
+
+
+def test_ant01_non_rendue_r51_sans_section(ctx: ExplorationContext, outils) -> None:  # type: ignore[no-untyped-def]
+    """R51 n'est visé que par ANT-01 (règle du chapitre XVIII), basculée
+    `rendu_fiche=non` : sa fiche reste SANS section Consignes après
+    rebuild — le bruit de génération que l'arbitrage n° 10 retire.
+
+    Témoin demandé « hors codes cités » : J18.9 ne convient pas, il est
+    cité par COMP-02 (pneumonie postopératoire, exemple) — couvert par
+    `test_j18_9_garde_son_exemple_sans_ant01`. R51 est l'ancien témoin
+    sans-consigne, redevenu représentatif par la bascule.
+    """
+    rec_codes = cards._eager(ctx.recommendation_codes)
+    vises = rec_codes.filter(pl.col("code") == "R51")["rec_id"].unique().to_list()
+    assert vises == ["GM2026-V-ANT-01"], (
+        f"prérequis invalidé : R51 est visé par {vises}, choisir un autre témoin"
+    )
+    fiche = _fiche("R51", ctx, outils)
+    assert "Consignes de codage" not in fiche
+
+
+def test_j18_9_garde_son_exemple_sans_ant01(ctx: ExplorationContext, outils) -> None:  # type: ignore[no-untyped-def]
+    """J18.9 (chapitre X) est cité en exemple par COMP-02 : sa section
+    garde le bloc cité, mais perd la règle générale ANT-01 non rendue."""
+    section = _section_consignes(_fiche("J18.9", ctx, outils))
+    assert "> - [GM2026-V-COMP-02]" in section
+    assert "GM2026-V-ANT-01" not in section
+    assert "### Règles générales" not in section
+
+
+def test_rapport_de_build_liste_les_consignes_non_rendues() -> None:
+    """La bascule `rendu_fiche=non` n'est jamais silencieuse : le
+    rapport de build committé la liste, avec sa justification."""
+    rapport = pl.read_csv(_RACINE_REPORTS / "guide_mco_consignes_non_rendues.csv")
+    assert rapport["rec_id"].to_list() == ["GM2026-V-ANT-01"]
+    assert "2026-09-03" in rapport["justification"][0]
+
+
+def test_expression_non_resolue_au_rapport_jamais_silencieuse() -> None:
+    """Invariant de l'arbitrage n° 9 (plage à borne absente, cas
+    OMS-01/U00-U49) : l'expression reste déclarée dans la table curée
+    ET apparaît au rapport de build committé — jamais avalée."""
+    rapport = pl.read_csv(_RACINE_REPORTS / "guide_mco_expressions_non_resolues.csv")
+    lignes = rapport.filter(
+        (pl.col("rec_id") == "GM2026-V-OMS-01") & (pl.col("code_expr") == "U00-U49")
+    )
+    assert lignes.height == 1, "OMS-01/U00-U49 doit être au rapport des non-résolues"
+    assert "U00" in lignes["erreur"][0]

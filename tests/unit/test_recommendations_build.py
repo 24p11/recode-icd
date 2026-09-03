@@ -272,3 +272,64 @@ def test_recouvrement_repere_une_cible_interieure_a_une_plage(merged: pl.DataFra
     _, _, rapport = construit(_recs("GM2026-V-X-01"), codes, merged, flat)
     assert len(rapport.recouvrement_potentiel) == 1
     assert rapport.recouvrement_potentiel[0]["reference_cible_meme_consigne"] == "oui"
+
+
+# ----------------------------------------------------------------------
+# rendu_fiche (arbitrage n° 10 du registre, RF 2026-09-03)
+# ----------------------------------------------------------------------
+
+
+def _recs_avec_rendu(rec_id: str, rendu: str | None, justification: str | None) -> pl.DataFrame:
+    return _recs(rec_id).with_columns(
+        pl.lit(rendu).cast(pl.String).alias("rendu_fiche"),
+        pl.lit(justification).cast(pl.String).alias("justification_rendu"),
+    )
+
+
+def test_rendu_fiche_absent_ou_vide_vaut_oui(merged: pl.DataFrame) -> None:
+    """Le défaut est le rendu : colonne absente ou vide → `oui`."""
+    recs_sans_colonne, _, rapport = construit(
+        _recs("GM2026-V-X-01"), _codes([("GM2026-V-X-01", "I63")]), merged
+    )
+    assert recs_sans_colonne["rendu_fiche"].to_list() == ["oui"]
+    assert rapport.consignes_non_rendues == []
+
+    recs_vide, _, rapport = construit(
+        _recs_avec_rendu("GM2026-V-X-01", None, None),
+        _codes([("GM2026-V-X-01", "I63")]),
+        merged,
+    )
+    assert recs_vide["rendu_fiche"].to_list() == ["oui"]
+    assert rapport.consignes_non_rendues == []
+
+
+def test_rendu_fiche_non_va_au_rapport_et_reste_dans_la_base(merged: pl.DataFrame) -> None:
+    """`non` ne retire RIEN de la base : la consigne et ses lignes
+    résolues restent entières, seule la trace au rapport dit qu'elle ne
+    sera pas rendue. C'est le rendu des fiches qui filtre."""
+    recs, resolus, rapport = construit(
+        _recs_avec_rendu("GM2026-V-X-01", "non", "2026-09-03 RF : bruit de génération"),
+        _codes([("GM2026-V-X-01", "I63")]),
+        merged,
+    )
+    assert recs["rendu_fiche"].to_list() == ["non"]
+    assert resolus.height > 0, "rendu_fiche ne doit pas amputer la résolution"
+    assert [t["rec_id"] for t in rapport.consignes_non_rendues] == ["GM2026-V-X-01"]
+
+
+def test_rendu_fiche_non_sans_justification_leve(merged: pl.DataFrame) -> None:
+    with pytest.raises(CurationError, match="justification"):
+        construit(
+            _recs_avec_rendu("GM2026-V-X-01", "non", None),
+            _codes([("GM2026-V-X-01", "I63")]),
+            merged,
+        )
+
+
+def test_rendu_fiche_valeur_inconnue_leve(merged: pl.DataFrame) -> None:
+    with pytest.raises(CurationError, match="rendu_fiche"):
+        construit(
+            _recs_avec_rendu("GM2026-V-X-01", "peut-être", "j"),
+            _codes([("GM2026-V-X-01", "I63")]),
+            merged,
+        )

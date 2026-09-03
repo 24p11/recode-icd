@@ -299,6 +299,13 @@ CENTRALITES_RECOMMANDATION = ("sujet", "exemple")
 #: nature.
 PORTEES_RECOMMANDATION = ("chaque", "ensemble")
 
+#: `rendu_fiche`, niveau CONSIGNE, défaut `oui` (vide admis dans la
+#: table curée, normalisé à `oui` au build). `non` = la consigne reste
+#: dans la base mais le rendu des fiches ne la matérialise pas —
+#: critère « aide le rédacteur de CRH vs aide seulement le
+#: contrôleur », arbitrage n° 10 du registre (RF 2026-09-03, ANT-01).
+RENDUS_FICHE_RECOMMANDATION = ("oui", "non")
+
 
 class RecommendationsSchema(pa.DataFrameModel):
     """Consignes du guide méthodologique — une ligne par consigne."""
@@ -310,6 +317,9 @@ class RecommendationsSchema(pa.DataFrameModel):
     type: str = pa.Field(isin=TYPES_RECOMMANDATION)
     texte: str = pa.Field(nullable=False)
     condition: str = pa.Field(nullable=True)
+    #: Vide = défaut `oui`. `non` exige `justification_rendu` datée.
+    rendu_fiche: str = pa.Field(isin=RENDUS_FICHE_RECOMMANDATION, nullable=True)
+    justification_rendu: str = pa.Field(nullable=True)
 
     class Config:
         strict = True
