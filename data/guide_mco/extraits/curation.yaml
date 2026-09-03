@@ -93,6 +93,15 @@ bornes:
     derniere_ligne: 30
     titre: "CODES OMS RÉSERVÉS A UN USAGE URGENT"
 
+  # L'article exceptionnel de la file (~4 pages denses, 5 notes). Il
+  # s'achève en haut de la page 88 (« …Y95 Facteurs nosocomiaux. ») ;
+  # les définitions des notes 9-13 sont aux bas des pages 84-86, toutes
+  # dans les bornes.
+  complications_actes:
+    premiere_ligne: 32
+    derniere_ligne: 290
+    titre: "COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -218,6 +227,7 @@ appels_notes:
                  41, 42, 43, 44, 45, 46, 47, 48]
   accouchement_impromptu: [5]
   antecedents: [6, 7, 8]
+  complications_actes: [9, 10, 11, 12, 13]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -257,6 +267,26 @@ ancres_notes:
     # Exposant hissé après le guillemet fermant de la seconde citation
     # (« cancer datant de 10 ans ») ; la définition traite du délai.
     "8": "cancer datant de 10 ans »."
+
+  # Les cinq appels sont hissés par le rendu ; ancres lues d'après la
+  # colonne de l'exposant dans le brut, à contre-lire sur le PDF.
+  complications_actes:
+    # Hissé au-dessus de la fin de « …objectifs nationaux de santé
+    # publique » ; la note cite la loi de 2004.
+    "9": "objectifs nationaux de santé publique."
+    # Hissé après les numéros de pages ; la note explique la double
+    # numérotation (éditions 1993 et 2008 du volume 2).
+    "10": "pages 107-108 ou 140-141,"
+    # Hissé en fin de « …possibilité de codage plus précis, notamment
+    # selon la nature de la complication » ; la note rappelle le titre
+    # du groupe T80-T88.
+    "11": "notamment selon la nature de la complication."
+    # Hissé au-dessus de « T88.7 », dernier code de l'énumération des
+    # codes interdits en DP ; la note ajoute T81.3, T85.5, T86.0, T86.8.
+    "12": "T88.7"
+    # Hissé en fin de « Aux sous-catégories .8 il faut préférer les
+    # codes « habituels » … » ; la note rappelle le titre des catégories.
+    "13": "il faut préférer les codes « habituels » de la CIM–10."
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et

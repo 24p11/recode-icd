@@ -40,6 +40,7 @@ ARTICLES = {
     "CAR": ("carences_vitaminiques", "CARENCES VITAMINIQUES", "83", "extraits"),
     "CHU": ("chutes_a_repetition", "CHUTES A REPETITION", "83", "extraits"),
     "OMS": ("codes_oms_usage_urgent", "CODES OMS RÉSERVÉS A UN USAGE URGENT", "84", "extraits"),
+    "COMP": ("complications_actes", "COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX", "84-88", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.
