@@ -171,6 +171,42 @@ bornes:
     derniere_ligne: 81
     titre: "ÉTAT GRABATAIRE"
 
+  hemangiome_lymphangiome:
+    premiere_ligne: 21
+    derniere_ligne: 29
+    titre: "HÉMANGIOME ET LYMPHANGIOME"
+
+  hypotension:
+    premiere_ligne: 33
+    derniere_ligne: 62
+    titre: "HYPOTENSION ET BAISSE DE LA TENSION ARTÉRIELLE"
+
+  # Bornée jusqu'à la définition de la note 49 (bas de page 105), APRÈS
+  # les voisins INFARCTUS et le début de l'INSUFFISANCE RÉNALE
+  # FONCTIONNELLE, qui partent en une suppression éditoriale contiguë —
+  # précédent O80-O84.
+  polyhandicap_lourd:
+    premiere_ligne: 65
+    derniere_ligne: 129
+    titre: "IDENTIFICATION DU POLYHANDICAP LOURD"
+
+  infarctus_myocarde:
+    premiere_ligne: 32
+    derniere_ligne: 53
+    titre: "INFARCTUS DU MYOCARDE"
+
+  # La définition de la note 49 (article voisin POLYHANDICAP) tombe
+  # dans les bornes — précédent de la note 5 du D62.
+  insuffisance_renale_fonctionnelle:
+    premiere_ligne: 56
+    derniere_ligne: 76
+    titre: "INSUFFISANCE RÉNALE FONCTIONNELLE"
+
+  insuffisance_respiratoire_adulte:
+    premiere_ligne: 23
+    derniere_ligne: 37
+    titre: "INSUFFISANCE RESPIRATOIRE DE L’ADULTE"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -283,6 +319,21 @@ suppressions_editoriales:
         Définition de la note 48 de l'article VOISIN (chapitre XXI),
         même configuration que la note 47.
 
+  polyhandicap_lourd:
+    - texte: "INFARCTUS DU MYOCARDE Les codes de prise en charge dite « initiale » de l’infarctus du myocarde sont réservés aux situations de première prise en charge thérapeutique de l’infarctus selon les règles de l’art cardiologiques. En conséquence, l’emploi des extensions correspondant aux prises en charge dites « autres » (I21.08, I21.18, I21.28, I21.38, I21.48, I21.98, I22.08, I22.18, I22.88 et I22.98) s’impose par exemple dans les cas suivants : • séjour après mutation ou transfert depuis une unité de soins intensifs ; Exemple : dans le cas d’un patient hospitalisé en soins intensifs cardiologiques pour un infarctus du myocarde, cette unité utilise un code de prise en charge initiale ; en revanche, l’unité suivante — de cardiologie « courante » en général — du même établissement (mutation) ou d’un autre (transfert) doit utiliser un des codes de prise en charge « autre » ; • erreur d’orientation : hospitalisation initiale dans une unité inadéquate suivie d’une mutation ou d’un transfert le jour même ou le lendemain dans une unité cardiologique. Exemple : infarctus du myocarde à symptomatologie abdominale ayant initialement égaré le diagnostic et justifié une admission en gastroentérologie ; correction rapide du diagnostic et mutation en soins intensifs cardiologiques : l’unité de gastroentérologie, qui n’a pas assuré la prise en charge cardiologique de l’infarctus doit utiliser un des codes de prise en charge « autre ». L’unité de soins intensifs cardiologiques qui prend en charge l’infarctus utilise un code de prise en charge initial. INSUFFISANCE RÉNALE FONCTIONNELLE L'insuffisance rénale fonctionnelle est une altération de la fonction rénale, habituellement passagère et curable. Conséquence d’une diminution de la perfusion rénale, elle peut être secondaire à une hypovolémie, une hypotension ou une cause iatrogène. Elle représente une forme particulière d’insuffisance rénale aigüe dont la cause n’est ni une atteinte organique du rein ni un obstacle des voies excrétrices. Elle est qualifiée de prérénale ou d’extrarénale. Conformément à la note d’exclusion placée dans le volume 1 de la CIM–10 sous le titre du groupe N17–N19 Insuffisance rénale, l’insuffisance rénale fonctionnelle doit donc être codée R39.2 Urémie extrarénale. L’absence de lésion du parenchyme rénal invalide la consigne jusqu’ici donnée de la coder N17.8 Autres insuffisances rénales aigües. La"
+      motif: >-
+        Articles VOISINS (INFARCTUS DU MYOCARDE puis début de
+        l'INSUFFISANCE RÉNALE FONCTIONNELLE), imprimés avant la
+        définition de la note 49 au bas de la page 105. Leurs curés
+        existent par ailleurs. Précédent O80-O84.
+
+  insuffisance_renale_fonctionnelle:
+    - texte: "Voir les listes et recommandations pour le codage du polyhandicap lourd sur le site Internet de l’ATIH."
+      motif: >-
+        Définition de la note 49 de l'article VOISIN (POLYHANDICAP
+        LOURD), imprimée au bas de la page partagée. Précédent de la
+        note 5 du D62.
+
   accouchement_impromptu:
     - texte: >-
         ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION L’emploi du
@@ -365,6 +416,7 @@ appels_notes:
   effets_nocifs_medicaments: [16, 17, 18, 19, 20]
   categories_o80_o84: [21]
   enfants_nes_sans_vie: [22]
+  polyhandicap_lourd: [49]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -454,6 +506,10 @@ ancres_notes:
   # de production.
   enfants_nes_sans_vie:
     "22": "d’un résumé d’unité médicale (RUM)"
+
+  # Hissé entre « des quatre listes » et « doit être présent ».
+  polyhandicap_lourd:
+    "49": "Un code au moins de chacune des quatre listes"
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et

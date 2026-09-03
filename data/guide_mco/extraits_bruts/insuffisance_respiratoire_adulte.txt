@@ -1,0 +1,75 @@
+# Guide méthodologique MCO 2026 (version provisoire) — INSUFFISANCE RESPIRATOIRE DE L’ADULTE (imprimée 106)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 114-114  (imprimées : 106-106)
+#
+# Commande exacte :
+#   pdftotext -layout -f 114 -l 114 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                      106
+
+catégorie N17 doit être réservée au codage des insuffisances rénales aigües avec atteinte
+organique du tissu rénal. En cas d’insuffisance rénale aigüe dont la cause, extrarénale ou
+par atteinte organique, est incertaine, on emploie le code N17.9.
+
+
+
+INSUFFISANCE RESPIRATOIRE DE L’ADULTE
+
+
+L’utilisation du code J96.0 Insuffisance respiratoire aigüe nécessite :
+    • que le dossier comporte la mention d’une insuffisance ou d’une décompensation
+         respiratoire aigüe, ou d’une détresse respiratoire ;
+    • et la constatation au cours du séjour d’une saturation artérielle en oxygène (SaO 2)
+         inférieure à 90 % ou d’une pression partielle dans le sang artériel (PaO2) inférieure à
+         60 mm de mercure en air ambiant. Le critère gazométrique ne s’impose pas en cas de
+         ventilation artificielle.
+
+L’utilisation du code J96.1 Insuffisance respiratoire chronique nécessite que le dossier
+mentionne l’existence d’une insuffisance respiratoire chronique, ou d’une affection
+respiratoire chronique, et d’une PaO2 inférieure à 60 mm de mercure en air ambiant de manière
+prolongé.
+
+
+INTERRUPTION DE LA GROSSESSE
+
+
+Par « interruption de la grossesse » on entend :
+   • d’une part l’interruption volontaire (IVG) : articles L.2212-1 et suivants, R.2212-1 et
+        suivants du code de la santé publique (CSP) ;
+                                                            50
+   • d’autre part l’interruption pour motif médical (IMG) : articles L.2213-1 et suivants,
+        R.2213-1 et suivants du CSP.
+
+
+1. Codage de l’IVG
+
+      1.1 IVG non compliquée
+
+Le codage des IVG non compliquées repose sur la présence en DP de l’un des 3 codes suivants :
+    • O04.90, interruption volontaire de grossesse (IVG dans le cadre légal), complet ou
+       sans précision, sans complication
+    • O07.4 Echec d’une tentative d’avortement médical sans complication
+    • O07.9 Echec d’une tentative d’avortement, autres et sans précision, sans
+       complication
+         Le code Z640 Difficultés liées à une grossesse non désirée ne sera plus recherché pour
+         l’orientation dans la racine 14Z08Z.
+
+L’acte enregistré est, selon le cas, JNJD002 Évacuation d'un utérus gravide par aspiration
+et/ou curetage, au 1er trimestre de la grossesse ou JNJP001 Évacuation d'un utérus gravide
+par moyen médicamenteux, au 1er trimestre de la grossesse.
+Même si le libellé de l’acte semble en restreindre l’utilisation au premier trimestre de la
+grossesse, l’acte JNJD002 Évacuation d’un utérus gravide par aspiration et/ou curetage, au
+1er trimestre de la grossesse doit continuer à être codé en cas de technique chirurgicale pour
+
+
+
+50
+     Dite aussi interruption thérapeutique de grossesse.
+

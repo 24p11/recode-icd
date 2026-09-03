@@ -48,6 +48,12 @@ ARTICLES=(
   "categories_p00_p04:100:100:EMPLOI DES CATÉGORIES P00 À P04 DE LA CIM–10 (imprimée 92)"
   "enfants_nes_sans_vie:100:101:ENFANTS NÉS SANS VIE (imprimées 92-93)"
   "etat_grabataire:111:112:ÉTAT GRABATAIRE (imprimées 103-104)"
+  "hemangiome_lymphangiome:112:112:HÉMANGIOME ET LYMPHANGIOME (imprimée 104)"
+  "hypotension:112:112:HYPOTENSION ET BAISSE DE LA TENSION ARTÉRIELLE (imprimée 104)"
+  "polyhandicap_lourd:112:113:IDENTIFICATION DU POLYHANDICAP LOURD (imprimées 104-105)"
+  "infarctus_myocarde:113:113:INFARCTUS DU MYOCARDE (imprimée 105)"
+  "insuffisance_renale_fonctionnelle:113:114:INSUFFISANCE RÉNALE FONCTIONNELLE (imprimées 105-106)"
+  "insuffisance_respiratoire_adulte:114:114:INSUFFISANCE RESPIRATOIRE DE L’ADULTE (imprimée 106)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"
