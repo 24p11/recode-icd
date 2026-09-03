@@ -1,2 +1,4 @@
 rec_id,code_expr,role,centralite,n_codes_domaine,justification
+GM2026-V-ANT-01,XXI,regi,sujet,750,"Domaine du choix : le code Z est choisi selon la nature de l'antécédent, et l'essentiel du chapitre XXI ne code pas d'antécédents — précédent AVC-14 (fiche de Z23.0)"
+GM2026-V-ANT-05,II,regi,sujet,781,"« code adapté du chapitre II » : domaine du choix ; l'alternative cancer/antécédent ne régit pas chaque membre du chapitre II (tumeurs bénignes, in situ, à évolution imprévisible non concernées)"
 GM2026-V-AVC-14,XXI,DP,sujet,750,"Domaine d'un choix fait par le motif de séjour (surveillance sans affection nouvelle), extérieur à l'expression : la consigne ne régit pas chaque code Z. Décision RF 2026-09-02, cas témoin Z23.0."

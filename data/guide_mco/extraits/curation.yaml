@@ -321,6 +321,22 @@ validations:
   chapitre_xxi:
     relecteur: "RF"
     date: "2026-09-02"
+  # -- chantier B, lot 1 (verdict global OK) --
+  accouchement_impromptu:
+    relecteur: "RF"
+    date: "2026-09-03"
+  antecedents:
+    relecteur: "RF"
+    date: "2026-09-03"
+  atherosclerose_gangrene:
+    relecteur: "RF"
+    date: "2026-09-03"
+  carences_vitaminiques:
+    relecteur: "RF"
+    date: "2026-09-03"
+  chutes_a_repetition:
+    relecteur: "RF"
+    date: "2026-09-03"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés

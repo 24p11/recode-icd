@@ -108,12 +108,18 @@ def test_z86_70_tri_et_regles_generales(ctx: ExplorationContext, outils) -> None
 
 
 def test_d62_article_historique(ctx: ExplorationContext, outils) -> None:  # type: ignore[no-untyped-def]
-    """D62 (chapitre III, sans règle de chapitre) : les trois consignes
-    de son article, pas de sous-section Règles générales."""
+    """D62 (chapitre III) : les trois consignes de son article, plus la
+    règle générale ANT-01 (lot 1 du chantier B : l'article ANTÉCÉDENTS
+    descend son interdiction sur tous les chapitres I à XIX)."""
     section = _section_consignes(_fiche("D62", ctx, outils))
     rendus = set(re.findall(r"\[(\S+)\]", section))
-    assert rendus == {"GM2026-V-D62-01", "GM2026-V-D62-02", "GM2026-V-D62-03"}
-    assert "### Règles générales" not in section
+    assert rendus == {
+        "GM2026-V-D62-01",
+        "GM2026-V-D62-02",
+        "GM2026-V-D62-03",
+        "GM2026-V-ANT-01",
+    }
+    assert "### Règles générales du chapitre III" in section
 
 
 def test_z51_5_au_carrefour_de_deux_articles(ctx: ExplorationContext, outils) -> None:  # type: ignore[no-untyped-def]
@@ -136,7 +142,10 @@ def test_e43_les_definitions_de_seuils(ctx: ExplorationContext, outils) -> None:
     droit d'écrire."""
     section = _section_consignes(_fiche("E43", ctx, outils))
     rendus = set(re.findall(r"\[(\S+)\]", section))
-    assert rendus == {f"GM2026-V-DEN-{n:02d}" for n in (1, 2, 3, 4, 6, 7, 8, 11, 13, 15, 16, 17)}
+    # + ANT-01 depuis le lot 1 du chantier B (règle générale du chapitre IV).
+    assert rendus == {
+        f"GM2026-V-DEN-{n:02d}" for n in (1, 2, 3, 4, 6, 7, 8, 11, 13, 15, 16, 17)
+    } | {"GM2026-V-ANT-01"}
 
 
 def test_z23_0_liste_principale_vide_regles_generales_seules(
@@ -178,13 +187,16 @@ def test_z20_1_dedup_sujet_prime_sur_exemple(ctx: ExplorationContext, outils) ->
 
 def test_f01_000_exemple_seul_en_bloc_cite(ctx: ExplorationContext, outils) -> None:  # type: ignore[no-untyped-def]
     """F01.000 n'est cité qu'en illustration (DP d'exemple de AVC-13) :
-    sa section se réduit au bloc cité — signal structurel « ceci
-    illustre, ceci ne norme pas »."""
+    sa liste principale reste vide, la consigne d'exemple vit dans le
+    bloc cité — signal structurel « ceci illustre, ceci ne norme pas ».
+    Depuis le lot 1 du chantier B, la fiche porte aussi la règle
+    générale ANT-01 (chapitre V)."""
     section = _section_consignes(_fiche("F01.000", ctx, outils))
     assert "> À titre d'exemple dans le guide :" in section
     assert "> - [GM2026-V-AVC-13]" in section
     assert "- [" not in _liste_principale(section), "aucune consigne sujet attendue"
-    assert "### Règles générales" not in section, "pas de règle de chapitre en V"
+    assert "### Règles générales du chapitre V" in section
+    assert "[GM2026-V-ANT-01]" in section
 
 
 # ----------------------------------------------------------------------
@@ -197,15 +209,20 @@ def test_fiche_sans_consigne_strictement_inchangee(
     ctx_sans_guide: ExplorationContext,
     outils,  # type: ignore[no-untyped-def]
 ) -> None:
-    """R51 n'est visé par aucune consigne : sa fiche est byte-identique
-    avec et sans les tables du guide — le chantier ne touche pas les
-    fiches hors périmètre."""
+    """W65 (chapitre XX) n'est visé par aucune consigne : sa fiche est
+    byte-identique avec et sans les tables du guide — le chantier ne
+    touche pas les fiches hors périmètre.
+
+    Témoin changé au lot 1 du chantier B : R51 (chapitre XVIII) a gagné
+    la règle générale ANT-01, qui descend sur tous les chapitres I à
+    XIX. Le témoin doit vivre hors de ces chapitres — W65 (noyade dans
+    une baignoire) n'est dans le périmètre d'aucun article de la file."""
     rec_codes = cards._eager(ctx.recommendation_codes)
-    assert rec_codes.filter(pl.col("code") == "R51").is_empty(), (
-        "prérequis invalidé : R51 est désormais cité par le guide, choisir un autre témoin"
+    assert rec_codes.filter(pl.col("code") == "W65").is_empty(), (
+        "prérequis invalidé : W65 est désormais cité par le guide, choisir un autre témoin"
     )
-    avec = _fiche("R51", ctx, outils)
-    sans = _fiche("R51", ctx_sans_guide, outils)
+    avec = _fiche("W65", ctx, outils)
+    sans = _fiche("W65", ctx_sans_guide, outils)
     assert avec == sans
     assert "Consignes de codage" not in avec
 
@@ -229,17 +246,19 @@ def test_parquets_presents_rapport_compte_par_chapitre(
     ctx: ExplorationContext,
     tmp_path: Path,
 ) -> None:
-    """Chapitre III : un seul code cité (D62). Le rapport de build compte
-    les fiches gagnant la section, par chapitre, sans avertissement."""
+    """Le rapport de build compte les fiches gagnant la section, par
+    chapitre, sans avertissement. Depuis le lot 1 du chantier B, ANT-01
+    descend sur tout le chapitre III : chaque fiche porte au moins la
+    règle générale, et D62 garde ses consignes d'article."""
     summary = build_cards_library(
         ctx=ctx, output_dir=tmp_path / "lib", chapter_filter="III", progress=False
     )
     assert summary.avertissements == ()
-    assert summary.n_consignes == 1
-    assert summary.consignes_par_chapitre == (("III", 1),)
+    assert summary.n_consignes == summary.n_written
+    assert summary.consignes_par_chapitre == (("III", summary.n_written),)
     index = pl.read_csv(summary.index_path)
+    assert index["has_consignes"].all()
     assert index.filter(pl.col("code") == "D62")["has_consignes"].to_list() == [True]
-    assert index.filter(pl.col("has_consignes"))["code"].to_list() == ["D62"]
 
 
 def test_section_hors_chapter_policy(
