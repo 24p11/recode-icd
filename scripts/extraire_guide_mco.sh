@@ -39,6 +39,9 @@ ARTICLES=(
   "codes_oms_usage_urgent:92:92:CODES OMS RÉSERVÉS A UN USAGE URGENT (imprimée 84)"
   "complications_actes:92:96:COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX (imprimées 84-88)"
   "cystite_aigue:96:96:CYSTITE AIGÜE (imprimée 88)"
+  "diabete_type2_insuline:97:97:DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE (imprimée 89)"
+  "douleur_chronique:97:97:DOULEUR CHRONIQUE (imprimée 89)"
+  "douleur_chronique_refractaire:97:98:DOULEUR CHRONIQUE REFRACTAIRE (REBELLE) (imprimées 89-90)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"

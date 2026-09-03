@@ -42,6 +42,9 @@ ARTICLES = {
     "OMS": ("codes_oms_usage_urgent", "CODES OMS RÉSERVÉS A UN USAGE URGENT", "84", "extraits"),
     "COMP": ("complications_actes", "COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX", "84-88", "extraits"),
     "CYS": ("cystite_aigue", "CYSTITE AIGÜE", "88", "extraits"),
+    "DIA": ("diabete_type2_insuline", "DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE", "89", "extraits"),
+    "DOU": ("douleur_chronique", "DOULEUR CHRONIQUE", "89", "extraits"),
+    "REB": ("douleur_chronique_refractaire", "DOULEUR CHRONIQUE REFRACTAIRE (REBELLE)", "89-90", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.

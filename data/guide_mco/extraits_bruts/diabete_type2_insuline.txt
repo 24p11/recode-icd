@@ -1,0 +1,76 @@
+# Guide méthodologique MCO 2026 (version provisoire) — DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE (imprimée 89)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 97-97  (imprimées : 89-89)
+#
+# Commande exacte :
+#   pdftotext -layout -f 97 -l 97 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                                              89
+
+DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE
+
+
+Des extensions des codes de la catégorie E11 Diabète sucré de type 2 de la CIM–10 ont été
+créées en 2011 pour distinguer le diabète de type 2 traité par voie orale de celui
+nécessitant un traitement par insuline (diabète de type 2 dit insulinonécessitant,
+insulinorequérant ou insulinotraité). Les codes étendus correspondant à ces derniers sont
+ceux possédant le chiffre 0 » en cinquième position du code : E11.00 Diabète sucré de type
+2 insulinotraité, avec coma, E11.10 Diabète sucré de type 2 insulinotraité, avec acidocétose,
+E11.20 Diabète sucré de type 2 insulinotraité, avec complications rénales […] E11.90 Diabète
+sucré de type 2 insulinotraité, sans complication. Ces codes sont réservés au diabète de
+type 2 insulinotraité au long cours. Ils ne doivent pas être employés lorsqu’un évènement
+ponctuel exige, pendant une hospitalisation, un bref remplacement d’un traitement
+antidiabétique oral par l’insuline, par exemple pour une anesthésie. La mention d’un code
+étendu E11.–0 dans un RUM suppose que le patient fût déjà traité par insuline à son domicile
+avant son hospitalisation ou que le traitement insulinique soit poursuivi à domicile après la
+sortie (il est alors mentionné dans l’ordonnance de sortie).
+
+
+DOULEUR CHRONIQUE
+
+La douleur chronique prise en compte dans les recommandations de la HAS 14 est un
+syndrome multidimensionnel exprimé par la personne qui en est atteinte ; il y a douleur
+chronique, quelles que soient sa topographie et son intensité, lorsque la douleur présente
+plusieurs des caractéristiques suivantes :
+
+      •     Persistance ou récurrence ;
+      •     Durée au-delà de ce qui est habituel pour la cause initiale présumée, notamment si la
+            douleur évolue depuis plus de 3 mois ;
+      •     Réponse insuffisante au traitement ;
+      •     Détérioration significative et progressive du fait de la douleur, des capacités
+            fonctionnelles et relationnelles du patient dans ses activités de la vie journalière, au
+            domicile comme à l’école ou au travail.
+
+
+La douleur chronique peut être accompagnée de manifestations psychopathologiques.
+
+L’utilisation du code R52.2 douleur chronique nécessite que le dossier mentionne l’existence
+d’une douleur chronique dans le cadre de cette définition.
+
+DOULEUR CHRONIQUE REFRACTAIRE (REBELLE)
+
+Une douleur chronique réfractaire15 est une douleur :
+   • ne répondant pas aux traitements conventionnels recommandés et conduits
+      conformément aux règles de bonnes pratiques,
+   • et ne permettant pas un soulagement satisfaisant et durable de la douleur, ni une
+      qualité de vie acceptable pour le patient, et/ou occasionnant des effets indésirables
+      intolérables et incontrôlables.
+
+Une douleur chronique réfractaire peut nécessiter une hospitalisation pour avis
+diagnostique pluri professionnel et/ou prise en charge thérapeutique spécifique nécessitant
+des compétences particulières : traitements médicaux invasifs ou traitements médicaux
+nécessitant une surveillance particulière, actes de radiologie interventionnelle, actes
+
+
+14 Douleur chronique HAS décembre 2008 : reconnaître le syndrome douloureux chronique, l’évaluer et orienter le patient
+
+15
+     Les termes suivants peuvent être utilisés à la place du terme réfractaire (à privilégier) : rebelle / irréductible
+
