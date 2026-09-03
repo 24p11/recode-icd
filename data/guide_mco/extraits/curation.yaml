@@ -68,6 +68,13 @@ bornes:
     derniere_ligne: 84
     titre: "ANTÉCÉDENTS"
 
+  # Titre sans accents dans le PDF (« ATHEROSCLEROSE AVEC GANGRENE ») :
+  # on transcrit tel quel, la curation ne corrige pas le guide.
+  atherosclerose_gangrene:
+    premiere_ligne: 22
+    derniere_ligne: 34
+    titre: "ATHEROSCLEROSE AVEC GANGRENE"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------

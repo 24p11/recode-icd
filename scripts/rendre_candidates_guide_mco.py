@@ -36,6 +36,7 @@ ARTICLES = {
     # -- chantier B (file : data/guide_mco/extraction/file_chantier_B.md) --
     "ACC": ("accouchement_impromptu", "ACCOUCHEMENT IMPROMPTU OU À DOMICILE", "81", "extraits"),
     "ANT": ("antecedents", "ANTÉCÉDENTS", "82-83", "extraits"),
+    "ATH": ("atherosclerose_gangrene", "ATHEROSCLEROSE AVEC GANGRENE", "83", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.

@@ -204,3 +204,5 @@ GM2026-V-ANT-03,Z86.71,regi,sujet,,,
 GM2026-V-ANT-04,Z80-Z99,regi,sujet,,,
 GM2026-V-ANT-05,Z85,regi,sujet,cancer considéré comme un antécédent par le clinicien,,
 GM2026-V-ANT-05,II,regi,sujet,cancer encore actif,ensemble,"« code adapté du chapitre II » : domaine du choix ; l'alternative cancer/antécédent ne régit pas chaque membre du chapitre II (tumeurs bénignes, in situ, à évolution imprévisible non concernées)"
+GM2026-V-ATH-01,I70.21,regi,sujet,,,
+GM2026-V-ATH-01,R02,DAS,sujet,I70.21 codé en DP,,

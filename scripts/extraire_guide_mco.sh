@@ -33,6 +33,7 @@ ARTICLES=(
   # -- chantier B (file : data/guide_mco/extraction/file_chantier_B.md) --
   "accouchement_impromptu:89:89:ACCOUCHEMENT IMPROMPTU OU À DOMICILE (imprimée 81)"
   "antecedents:90:91:ANTÉCÉDENTS (imprimées 82-83)"
+  "atherosclerose_gangrene:91:91:ATHEROSCLEROSE AVEC GANGRENE (imprimée 83)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"
