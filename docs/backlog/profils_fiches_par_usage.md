@@ -28,7 +28,15 @@ données.
 | ORPHANET | exclu (biais de fréquence) | **admis** (rappel) |
 | Exclusions | version courte, voire absente | **complètes** — c'est le cœur du contrôle |
 | Formulations | plafonnées, registre CRH | plus larges, registre indifférent |
-| Consignes | — | futures consignes du guide méthodologique |
+| Consignes | **présentes depuis le 2026-09-03** (section « Consignes de codage », hors chapter_policy) | consignes du guide méthodologique |
+
+> **Note (2026-09-03).** La section « Consignes de codage » est
+> désormais rendue dans l'unique profil existant (fiches feuilles,
+> `cards.py`). Le sort de cette section **par profil** reste à décider
+> ici : la note d'évaluation citée plus bas relève que les
+> interdictions injectées en amont *amorcent* ce qu'elles interdisent —
+> l'argument vaut pour les consignes `interdit*` comme pour les
+> exclusions. Les fiches catégories n'en portent pas.
 
 Le profil « contrôle qualité » rejoint le schéma *generate-then-verify* décrit
 dans [`2026-08-09_evaluation_fiches_et_contexte_llm.md`](../analyses/2026-08-09_evaluation_fiches_et_contexte_llm.md)

@@ -1,40 +1,42 @@
 # Backlog — Rendu des consignes du guide MCO dans les fiches (chantier fiches)
 
-> Statut : **à instruire**. Ouvert le 2026-09-02, à la clôture du
-> chantier A, sur validation des six démonstrations du prototype
-> `scripts/explore/rendu_recommandations_fiches.ipynb`. Ce backlog
-> regroupe ce que le prototype a volontairement laissé au chantier
-> fiches (celui qui touchera `cards.py`).
+> Statut : **partiellement traité**. Ouvert le 2026-09-02 à la clôture
+> du chantier A ; le chantier fiches du 2026-09-03
+> (`feat/cards-recommandations`) a implémenté l'insertion dans
+> `cards.py`, l'affichage de la `situation` sur les règles de chapitre
+> et le rendu des `exemple` en bloc cité. Restent ouverts le plafond
+> par fiche et les conditions par code (ci-dessous).
 
-## Afficher la colonne `situation` avec les consignes rendues
+## ✅ Traité le 2026-09-03 — situation, exemples, insertion
 
-**Au moins pour les règles de niveau chapitre.** La `situation` borne
-le texte de la consigne et transforme une règle apparemment hors sujet
-en information de non-application.
+- **Insertion de la section dans `cards.py`** : section « Consignes de
+  codage » entre « À ne pas décrire » et « Formulations »,
+  implémentation dans `recode_icd/recommendations/rendu.py`, prototype
+  du notebook remplacé (il importe désormais `src/`).
+- **`situation` affichée** entre parenthèses sur les règles générales
+  de chapitre — le cas d'école Z23.0/GM2026-V-XXI-01 est un témoin de
+  régression. (GM2026-V-AVC-14, l'autre cas d'école, est depuis
+  l'amendement `portee` une association `ensemble` jamais résolue.)
+  La situation des consignes **non**-chapitre n'est pas rendue — à
+  rouvrir si la relecture des fiches en montre le besoin.
+- **Rendu des `centralite = exemple`** : bloc cité `>` introduit par
+  « À titre d'exemple dans le guide : », entre les consignes sujet et
+  les règles générales. À la dédup, `sujet` prime sur `exemple`
+  (témoin Z20.1). Témoin « exemple seul » : F01.000.
 
-Cas d'école, constaté sur la démonstration Z23.0 : GM2026-V-AVC-14
-(« s'il n'est pas découvert d'affection nouvelle, le DP appartient au
-chapitre XXI ») descend sur toutes les fiches Z, dont la vaccination
-anticholérique. Rendue nue, la règle semble hors sujet ; rendue avec sa
-situation (« AVC — séjour de surveillance à distance »), elle dit au
-lecteur — et au générateur — précisément quand elle ne s'applique pas.
-La curation `XXI / DP / sujet` est conforme à la doctrine ; c'est un
-raffinement de **rendu**, pas de base.
+## Points restant ouverts
 
-## Autres points laissés au chantier fiches par le prototype
-
-- **Insertion de la section dans `cards.py`** — le prototype ne touche
-  pas aux fiches ; le jour venu, son implémentation est remplacée, pas
-  doublée.
 - **Plafond de consignes par fiche** — mécanisme analogue à R2 de la
-  `chapter_policy` (note de conception §4.3).
-- **Rendu des `centralite = exemple`** — exclues par défaut ; se
-  tranche avec la question du rendu des exemples du guide (blocs cités
-  `>` des curés, convention de transcription et pas encore décision de
-  rendu — cf. CLAUDE.md et `docs/backlog/profils_fiches_par_usage.md`).
+  `chapter_policy` (note de conception §4.3). E43 rend aujourd'hui
+  12 consignes, c'est le haut de la distribution observée ; aucun
+  plafonnement tant que la relecture n'en montre pas la nécessité.
 - **Rendu des conditions par code** — la colonne `condition` de
   l'association, plus fine que celle de la consigne (ex. AVC-06 :
   `I60-I64` « phase initiale » vs `I69` « phase séquellaire »).
+- **Fiches catégories** — `recommendation_codes` ne porte que des
+  feuilles ; `build_category_card` ne rend pas de section Consignes.
+  À trancher avec les profils de fiches
+  (`docs/backlog/profils_fiches_par_usage.md`).
 
 Les règles déjà actées par le prototype (filtre `sujet`, exclusion de
 `contexte`, tri par spécificité via `cle_de_tri`, regroupement des

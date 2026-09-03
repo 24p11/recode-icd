@@ -1,22 +1,23 @@
-"""Rendu des consignes du guide MCO dans les fiches — prototype
+"""Rendu des consignes du guide MCO dans les fiches — démonstration
 
-Notebook d'exploration **interactif**. Prototype du rendu de la section
-« Consignes de codage » des fiches, à partir des deux tables du
+Notebook d'exploration **interactif**. Démonstration du rendu de la
+section « Consignes de codage » des fiches, à partir des deux tables du
 chantier A (`recommendations.parquet` / `recommendation_codes.parquet`).
-Chaque règle de rendu est une fonction courte et paramétrable ; six
-codes de démonstration l'exercent, chacun choisi pour un cas précis.
+Six codes de démonstration l'exercent, chacun choisi pour un cas précis.
 
 Document de référence figé :
 `docs/analyses/2026-08-09_conception_base_recommandations_guide_methodo.md`
 (§4.2 catalogue des rôles, §4.3 résolution, §6 esquisse d'usage). Le
-`.md` fait foi pour le modèle ; ce notebook prototype le rendu.
+`.md` fait foi pour le modèle.
 
-**Avertissement — prototype.** `cards.py` n'est PAS modifié :
-l'insertion de la section dans les fiches est un chantier ultérieur
-(cf. `docs/backlog/profils_fiches_par_usage.md`). Le jour où ce
-chantier atterrit, l'implémentation réelle remplace ce prototype — les
-deux ne doivent pas coexister, sinon ils divergeront en silence. Rien
-de ce fichier ne doit être importé par du code de production.
+**L'implémentation vit dans `src/`** —
+`recode_icd.recommendations.rendu` (sélection et forme de la section),
+branchée dans les fiches par `cards._section_consignes` (chantier du
+2026-09-03). Ce notebook l'importe et la démontre : le prototype local
+a été supprimé le jour où le chantier a atterri, comme l'annonçait son
+avertissement — deux implémentations coexistantes divergeraient en
+silence. **C'est `src/` qui fait foi.** Les cellules pédagogiques et
+les six démonstrations verrouillées restent, à l'identique.
 
 Le CSV maître n'est jamais modifié : les consignes vivent dans leur
 livrable séparé, c'est l'invariant du chantier.
@@ -35,7 +36,8 @@ Régénération du notebook :
 # directement (`uv run python scripts/explore/rendu_recommandations_fiches.py`).
 # Le `.ipynb` en est un rendu régénéré — ne pas l'éditer à la main.
 #
-# Les règles de rendu prototypées ici :
+# Les règles de rendu démontrées ici (implémentées dans
+# `recode_icd/recommendations/rendu.py`) :
 #
 # 1. **Filtre `centralite = sujet`** par défaut. Les codes cités en
 #    illustration (`exemple`) n'entrent pas dans la fiche — c'est la
@@ -51,9 +53,22 @@ Régénération du notebook :
 #    section** sous « Règles générales du chapitre ». C'est la maîtrise
 #    du bruit actée à la question ouverte n°1 de la note de conception :
 #    la résolution descend tout jusqu'aux feuilles, le rendu regroupe.
+#    Chacune est précédée de sa **`situation` entre parenthèses** —
+#    c'est elle qui borne la portée et transforme une règle apparemment
+#    hors sujet en information de non-application (cas Z23.0).
 # 5. **Chaque consigne est préfixée de son `rec_id` entre crochets** —
 #    traçabilité vers le guide, principe « jamais d'agrégation
 #    silencieuse ».
+# 6. **Les `centralite = exemple` sont rendus en bloc cité `>`**,
+#    introduits par « À titre d'exemple dans le guide : », après les
+#    consignes sujet et avant les règles générales — signal structurel
+#    « ceci illustre, ceci ne norme pas ». À la déduplication, `sujet`
+#    prime sur `exemple` (Z20.1 : GM2026-V-XXI-16 l'atteint en exemple
+#    au code ET en sujet via Z20 → une seule ligne, dans la liste
+#    principale). Aucun des six codes de démonstration ne porte
+#    d'exemple : ce chemin est verrouillé par les tests de régression
+#    (`tests/regression/test_cards_consignes.py`, témoins Z20.1 et
+#    F01.000).
 #
 # Une règle de plus est appliquée **en amont, par construction** : une
 # association de portée `ensemble` (l'expression est le domaine d'un
@@ -82,8 +97,7 @@ ctx = load_exploration_context()
 
 import polars as pl
 
-from recode_icd.recommendations.code_expr import TypeExpr
-from recode_icd.recommendations.resolution import cle_de_tri
+from recode_icd.recommendations import rendu
 
 pl.Config.set_tbl_rows(25)
 pl.Config.set_fmt_str_lengths(90)
@@ -134,7 +148,8 @@ print(rec_codes.group_by("type_expr", "specificite").len().sort("specificite", d
 # %% [markdown]
 # ## 2. Sélection des consignes d'une fiche
 #
-# `consignes_pour` matérialise les règles 1 à 3. Deux subtilités :
+# `rendu.consignes_pour` (production) matérialise les règles 1 à 3 et
+# la dédup de la règle 6. Deux subtilités :
 #
 # - **une consigne peut atteindre le même code par plusieurs
 #   expressions** (30 couples mesurés : GM2026-V-XXI-38 atteint Z51.31
@@ -144,35 +159,16 @@ print(rec_codes.group_by("type_expr", "specificite").len().sort("specificite", d
 # - **le filtre des rôles s'applique avant la déduplication** : si une
 #   consigne cite le code en `contexte` ET le couvre par ailleurs au
 #   niveau chapitre en `regi`, c'est l'association chapitre qui reste.
+#
+# Les wrappers ci-dessous lient les deux tables du contexte — la
+# signature des démonstrations reste celle du prototype historique.
 
 # %% Fonctions de sélection
 
 
-def consignes_pour(
-    code: str,
-    *,
-    avec_exemples: bool = False,
-    roles_exclus: tuple[str, ...] = ("contexte",),
-) -> list[dict]:
-    """Consignes à rendre sur la fiche de `code`, triées.
-
-    Tri : spécificité décroissante, puis `sujet` avant `exemple`, puis
-    `rec_id` — la clé de production `cle_de_tri`, qui rend le tri total.
-    """
-    assoc = rec_codes.filter(pl.col("code") == code)
-    if not avec_exemples:
-        assoc = assoc.filter(pl.col("centralite") == "sujet")
-    assoc = assoc.filter(~pl.col("role").is_in(roles_exclus))
-    assoc = assoc.sort("specificite", descending=True).unique(
-        subset="rec_id", keep="first", maintain_order=True
-    )
-    lignes = assoc.join(
-        recs.select("rec_id", "texte", "type", "millesime"), on="rec_id", how="left"
-    )
-    return sorted(
-        lignes.iter_rows(named=True),
-        key=lambda r: cle_de_tri(TypeExpr(r["specificite"]), r["centralite"], r["rec_id"]),
-    )
+def consignes_pour(code: str, **selection) -> list[dict]:
+    """Consignes à rendre sur la fiche de `code` — délègue à `src/`."""
+    return rendu.consignes_pour(rec_codes, recs, code, **selection)
 
 
 def libelle_de(code: str) -> str:
@@ -183,37 +179,26 @@ def libelle_de(code: str) -> str:
 # %% [markdown]
 # ## 3. Rendu de la section
 #
-# `rendre_section` matérialise les règles 4 et 5 : liste principale par
-# spécificité décroissante, puis « Règles générales du chapitre » pour
-# les consignes de niveau chapitre. Le millésime du titre vient de la
-# table, pas d'une constante — le jour où la base porte le guide
-# définitif, le titre suit.
+# `rendu.rendre_section_consignes` (production) matérialise les règles
+# 4 à 6 : liste principale par spécificité décroissante, bloc cité des
+# exemples, puis « Règles générales du chapitre » avec leur situation.
+# Le millésime du titre vient de la table, pas d'une constante — le
+# jour où la base porte le guide définitif, le titre suit. C'est la
+# même fonction que `cards._section_consignes` appelle au build des
+# fiches.
 
 # %% Fonction de rendu
 
 
-def rendre_section(code: str, **selection) -> str:
-    """Section « Consignes de codage » de la fiche de `code`, en markdown."""
-    lignes = consignes_pour(code, **selection)
-    if not lignes:
-        return ""
-    millesime = lignes[0]["millesime"]
-    specifiques = [r for r in lignes if TypeExpr(r["specificite"]) is not TypeExpr.CHAPITRE]
-    generales = [r for r in lignes if TypeExpr(r["specificite"]) is TypeExpr.CHAPITRE]
-
-    rendu = [f"## Consignes de codage (guide méthodologique {millesime})", ""]
-    rendu += [f"- [{r['rec_id']}] {r['texte']}" for r in specifiques]
-    if generales:
-        chapitre = generales[0]["code_expr"]
-        rendu += ["", f"### Règles générales du chapitre {chapitre}", ""]
-        rendu += [f"- [{r['rec_id']}] {r['texte']}" for r in generales]
-    return "\n".join(rendu)
+def rendre_section(code: str) -> str:
+    """Section « Consignes de codage » de la fiche de `code` — délègue à `src/`."""
+    return rendu.rendre_section_consignes(rec_codes, recs, code) or ""
 
 
-def demo(code: str, **selection) -> None:
+def demo(code: str) -> None:
     print(f"════ Fiche {code} — {libelle_de(code)}")
     print()
-    section = rendre_section(code, **selection)
+    section = rendre_section(code)
     print(section if section else "(aucune consigne)")
 
 
@@ -329,38 +314,42 @@ assert {r["rec_id"] for r in lignes_z230} == {"GM2026-V-XXI-01"}, (
 )
 
 # %% [markdown]
-# ## 5. Backlog — le rendu des consignes à `centralite = exemple`
+# ## 5. Le rendu des consignes à `centralite = exemple` — tranché
 #
-# Les 152 associations `exemple` sont exclues par défaut (règle 1) et
-# aucune démonstration ne les rend. Leur rendu éventuel — et sa forme —
-# est une décision du chantier fiches, pas de celui-ci. Elle rejoint le
-# backlog déjà ouvert sur les exemples du guide : les blocs cités `>`
-# des curés sont une convention de **transcription**, pas encore une
-# décision de rendu de fiche (cf. CLAUDE.md, section guide MCO, et
-# `docs/backlog/profils_fiches_par_usage.md`). Le jour venu, les deux
-# questions se tranchent ensemble : un exemple du guide entre-t-il dans
-# la fiche, et sous quelle forme — bloc cité, paraphrase interdite,
-# ou exclusion pure.
+# La décision, ouverte au backlog à la clôture du chantier A, a été
+# prise au chantier fiches (2026-09-03) : les 152 associations
+# `exemple` **sont rendues**, en bloc cité `>` introduit par « À titre
+# d'exemple dans le guide : », entre les consignes sujet et les règles
+# générales (règle 6 ci-dessus). Le bloc cité reprend la convention de
+# transcription des curés : signal structurel « ceci illustre, ceci ne
+# norme pas ».
 #
-# `consignes_pour(code, avec_exemples=True)` permet dès maintenant
-# d'instrumenter cette décision sans toucher aux règles par défaut.
+# `consignes_pour(code)` reste sujet-seul par défaut (les assertions
+# des démonstrations n'en dépendent pas) ; le rendu de fiche passe
+# `avec_exemples=True`. Aucun des six codes de démonstration ne porte
+# d'exemple — F01.000 (exemple seul) et Z20.1 (dédup sujet/exemple)
+# sont les témoins de ce chemin dans les tests de régression.
 
 # %% [markdown]
 # ## 6. Récapitulatif
 #
-# Les cinq règles de rendu tiennent en deux fonctions courtes sur les
-# deux Parquets, sans toucher ni au CSV maître ni à `cards.py` :
+# Les règles de rendu vivent dans `recode_icd/recommendations/rendu.py`
+# et sont branchées dans les fiches par `cards._section_consignes`
+# (entre « À ne pas décrire » et « Formulations », hors chapter_policy).
+# Le CSV maître n'est pas touché :
 #
 # | Règle | Où |
 # |---|---|
 # | associations `ensemble` jamais résolues (garantie par construction) | build, en amont du Parquet |
-# | filtre `centralite = sujet` | `consignes_pour` |
-# | exclusion du rôle `contexte` | `consignes_pour` |
-# | tri par spécificité décroissante (`cle_de_tri` de production) | `consignes_pour` |
-# | « Règles générales du chapitre » en fin de section | `rendre_section` |
-# | préfixe `[rec_id]` | `rendre_section` |
+# | filtre `centralite = sujet` (exemples à part) | `rendu.consignes_pour` |
+# | exclusion du rôle `contexte` | `rendu.consignes_pour` |
+# | dédup : `sujet` prime sur `exemple`, puis plus spécifique | `rendu.consignes_pour` |
+# | tri par spécificité décroissante (`cle_de_tri` de production) | `rendu.consignes_pour` |
+# | exemples en bloc cité « À titre d'exemple dans le guide : » | `rendu.rendre_section_consignes` |
+# | « Règles générales du chapitre » en fin de section, avec situation | `rendu.rendre_section_consignes` |
+# | préfixe `[rec_id]` | `rendu.rendre_section_consignes` |
 #
-# Reste au chantier fiches : l'insertion dans `cards.py`, le plafond
-# par fiche (mécanisme analogue à R2 de la `chapter_policy`), le rendu
-# des `exemple` et celui des conditions par code (`condition` de
-# l'association, plus fine que celle de la consigne).
+# Reste au backlog (`docs/backlog/rendu_consignes_dans_fiches.md`) : le
+# plafond par fiche (mécanisme analogue à R2 de la `chapter_policy`) et
+# le rendu des conditions par code (`condition` de l'association, plus
+# fine que celle de la consigne).
