@@ -17,6 +17,7 @@ from recode_icd.recommendations.code_expr import (
     TypeExpr,
     parse_code_expr,
 )
+from recode_icd.recommendations.rendu import consignes_pour, rendre_section_consignes
 from recode_icd.recommendations.resolution import ResolutionError, cle_de_tri, resout
 
 __all__ = (
@@ -25,6 +26,8 @@ __all__ = (
     "ResolutionError",
     "TypeExpr",
     "cle_de_tri",
+    "consignes_pour",
     "parse_code_expr",
+    "rendre_section_consignes",
     "resout",
 )
