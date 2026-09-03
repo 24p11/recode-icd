@@ -210,3 +210,36 @@ def test_detect_sections_consignes_millesime_variable() -> None:
         card = f"## Consignes de codage (guide méthodologique {millesime})\n\n- [X] y"
         assert _detect_sections(card)["has_consignes"] is True
     assert _detect_sections("## Consignes de codage\n")["has_consignes"] is False
+
+
+def test_rang_romain_ordre_de_la_classification() -> None:
+    """Le rapport par chapitre se trie par valeur romaine, pas par le
+    nested set ANS (qui ordonne alphabétiquement : IX entre IV et V)."""
+    from recode_icd.cards import _rang_romain
+
+    chapitres = [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII",
+        "VIII",
+        "IX",
+        "X",
+        "XI",
+        "XII",
+        "XIII",
+        "XIV",
+        "XV",
+        "XVI",
+        "XVII",
+        "XVIII",
+        "XIX",
+        "XX",
+        "XXI",
+        "XXII",
+    ]
+    assert sorted(chapitres, key=_rang_romain) == chapitres
+    assert _rang_romain("hors-classification") > _rang_romain("XXII")

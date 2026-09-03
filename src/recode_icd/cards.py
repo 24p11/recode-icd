@@ -731,6 +731,24 @@ def _detect_sections(card: str) -> dict[str, bool]:
     }
 
 
+_VALEUR_ROMAINE = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100}
+
+
+def _rang_romain(chapitre: str) -> tuple[int, str]:
+    """Valeur numérique d'un chapitre romain (I..XXII), pour le tri.
+
+    Un libellé non romain se classe après les chapitres, par ordre
+    lexicographique — le tri reste total et déterministe.
+    """
+    total = 0
+    for gauche, droite in zip(chapitre, chapitre[1:] + " ", strict=True):
+        valeur = _VALEUR_ROMAINE.get(gauche)
+        if valeur is None:
+            return (1 << 30, chapitre)
+        total += -valeur if valeur < _VALEUR_ROMAINE.get(droite, 0) else valeur
+    return (total, chapitre)
+
+
 def _code_to_chapter_map(merged: pl.DataFrame) -> dict[str, str]:
     """Construit le map `code → chapitre romain` via merged.path."""
     rows = merged.with_columns(pl.col("path").str.split("/").list.get(0).alias("chap")).select(
@@ -863,19 +881,15 @@ def build_cards_library(
         ]
         pl.DataFrame(index_rows).select(ordered_cols).write_csv(index_path)
 
-    # Comptage des fiches portant la section Consignes, par chapitre
-    # (ordre des chapitres = ordre de la classification, via nested set).
+    # Comptage des fiches portant la section Consignes, par chapitre,
+    # dans l'ordre de la classification. Le nested set ANS ne convient
+    # pas comme clé de tri : il ordonne les chapitres alphabétiquement
+    # (IX entre IV et V) — d'où la valeur du chiffre romain.
     par_chapitre: dict[str, int] = {}
     for row in index_rows:
         if row["has_consignes"]:
             par_chapitre[str(row["chapter"])] = par_chapitre.get(str(row["chapter"]), 0) + 1
-    rang_chapitre = {
-        r["code"]: r["left"]
-        for r in merged.filter(pl.col("type") == "chapter").iter_rows(named=True)
-    }
-    consignes_par_chapitre = tuple(
-        sorted(par_chapitre.items(), key=lambda kv: rang_chapitre.get(kv[0], 1 << 30))
-    )
+    consignes_par_chapitre = tuple(sorted(par_chapitre.items(), key=lambda kv: _rang_romain(kv[0])))
 
     elapsed = time.perf_counter() - t0
     return BuildSummary(
