@@ -1,0 +1,73 @@
+# Guide méthodologique MCO 2026 (version provisoire) — LÉSIONS TRAUMATIQUES (imprimée 109)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 117-117  (imprimées : 109-109)
+#
+# Commande exacte :
+#   pdftotext -layout -f 117 -l 117 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                   109
+
+LÉSIONS TRAUMATIQUES
+
+La précision du caractère fermé ou ouvert des fractures devient obligatoire en 2015 (Chapitre
+XIX de la CIM–10). Les fractures non précisées comme fermées ou ouvertes se codent en
+fractures fermées.
+
+MALADIES PROFESSIONNELLES
+
+En plus du codage selon la nature de l’affection (asbestose, silicose, « gale » du ciment, etc.)
+la CIM–10 donne la possibilité de signaler le caractère professionnel d’une affection au moyen
+du code Y96 Facteurs liés aux conditions de travail. Dès lors que la causalité a été
+
+établie, il faut l’enregistrer en position de diagnostic associé. Cette consigne vaut pour tous les
+problèmes de santé de cause professionnelle, y compris les lésions traumatiques et leurs
+séquelles.
+
+
+
+MALNUTRITION, DÉNUTRITION
+
+La CIM–10 classe les états de malnutrition dans le groupe E40–E46 : E40 Kwashiorkor, E41
+Marasme nutritionnel ; E42 Kwashiorkor avec marasme 57 ; E43 Malnutrition
+protéinoénergétique grave, sans précision ;E44.0 Malnutritionprotéinoénergétique modérée ;
+E44.1 Malnutrition protéinoénergétique légère ; E46 Malnutrition sans précision58. Elle range
+sous le terme générique de malnutrition59 un groupe d’affections résultant d’une carence
+d’apport ou d’une désassimilation protéinoénergétique : on doit donc l’entendre dans le sens
+restreint de dénutrition.
+
+
+La HAS publie en novembre 2019 et mis à jour en 2021 des recommandations de bonne
+pratique pour le diagnostic de la dénutrition de l’enfant et de l’adulte. Ce document a été
+élaboré en collaboration avec la Fédération française de nutrition (FFN)60. Pour les patients
+de moins de 70 ans, le diagnostic de la dénutrition nécessite la présence d’au moins 1 critère
+phénotypique et 1 critère étiologique. Ce diagnostic est un préalable obligatoire avant de juger
+de sa sévérité. Il repose exclusivement sur des critères non biologiques. Ces critères sont
+exposés ci-dessous :
+
+
+1. Le diagnostic de la dénutrition chez les patients âgés de moins de 18 ans
+
+Les critères phénotypiques sont les suivants :
+
+     -   perte de poids ≥ 5 % en 1 mois ou ≥ 10 % en 6 mois ou ≥ 10 % par rapport au poids
+         habituel avant le début de la maladie ;
+     -   IMC < courbe IOTF 18,5 ;
+
+
+57
+   Les codes E40, E41 et E42 ne peuvent connaître qu’un emploi exceptionnel en France.
+58
+   Auxquels s’ajoute O25 Malnutrition au cours de la grossesse.
+59
+   Cet anglicisme désigne de fait tout trouble lié à un déséquilibre alimentaire, aussi bien en défaut qu’en
+excès.
+60
+   Diagnostic de la dénutrition de l’enfant et de l’adulte - novembre 2019.
+

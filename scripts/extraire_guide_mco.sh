@@ -55,6 +55,11 @@ ARTICLES=(
   "insuffisance_renale_fonctionnelle:113:114:INSUFFISANCE RÉNALE FONCTIONNELLE (imprimées 105-106)"
   "insuffisance_respiratoire_adulte:114:114:INSUFFISANCE RESPIRATOIRE DE L’ADULTE (imprimée 106)"
   "interruption_grossesse:114:117:INTERRUPTION DE LA GROSSESSE (imprimées 106-109)"
+  "lesions_traumatiques:117:117:LÉSIONS TRAUMATIQUES (imprimée 109)"
+  "maladies_professionnelles:117:117:MALADIES PROFESSIONNELLES (imprimée 109)"
+  "oedeme_pulmonaire:122:122:ŒDÈME PULMONAIRE (imprimée 114)"
+  "precarite:122:123:PRÉCARITÉ (imprimées 114-115)"
+  "resistance_antimicrobiens:123:124:RÉSISTANCE AUX ANTIMICROBIENS (imprimées 115-116)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"
