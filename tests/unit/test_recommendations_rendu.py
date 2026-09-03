@@ -188,3 +188,27 @@ def test_exemples_exclus_par_defaut_de_consignes_pour() -> None:
     assert consignes_pour(rc, _recs(["R1"]), "F32.1") == []
     lignes = consignes_pour(rc, _recs(["R1"]), "F32.1", avec_exemples=True)
     assert [r["rec_id"] for r in lignes] == ["R1"]
+
+
+def test_rendu_fiche_non_filtre_la_consigne() -> None:
+    """Règle 0 : une consigne `rendu_fiche=non` n'atteint aucune fiche,
+    même si ses associations résolues visent le code (arbitrage n° 10,
+    cas ANT-01). Colonne absente = tout est rendu."""
+    rc = _rec_codes(
+        [
+            ("R1", "IX", "I63.0", "interdit", "sujet", TypeExpr.CHAPITRE),
+            ("R2", "I63.0", "I63.0", "regi", "sujet", TypeExpr.CODE),
+        ]
+    )
+    recs = _recs(["R1", "R2"]).with_columns(
+        pl.Series("rendu_fiche", ["non", "oui"]),
+        pl.Series("justification_rendu", ["2026-09-03 RF : bruit", ""]),
+    )
+    lignes = consignes_pour(rc, recs, "I63.0")
+    assert [r["rec_id"] for r in lignes] == ["R2"], "R1 (non rendue) doit être filtrée"
+
+    section = rendre_section_consignes(rc, recs, "I63.0")
+    assert section is not None and "R2" in section and "R1" not in section
+
+    seule_non_rendue = rendre_section_consignes(rc.filter(pl.col("rec_id") == "R1"), recs, "I63.0")
+    assert seule_non_rendue is None, "un code visé par la seule consigne non rendue perd sa section"

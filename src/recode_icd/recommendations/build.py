@@ -37,6 +37,15 @@ ROLES_INTERDICTION = ("interdit", "interdit_association")
 #: `chaque` (colonne absente ou vide). Cf. note de conception §4.2.
 PORTEES = ("chaque", "ensemble")
 
+#: Valeurs admises pour `rendu_fiche` (niveau CONSIGNE, défaut `oui`).
+#: `non` = la consigne reste dans la base et les Parquet mais le rendu
+#: des fiches ne la matérialise pas — critère : « aide le rédacteur de
+#: CRH » (oui) vs « aide seulement le contrôleur » (non). Décision RF
+#: 2026-09-03 (cas ANT-01), arbitrage n° 10 du registre
+#: `data/guide_mco/extraction/README.md`. Une bascule à `non` exige sa
+#: justification datée.
+RENDUS_FICHE = ("oui", "non")
+
 
 class CurationError(ValueError):
     """Incohérence dans les tables curées (intégrité référentielle)."""
@@ -54,6 +63,9 @@ class RapportBuild:
     #: Ni une erreur, ni un silence : la trace dit ce qui n'a pas
     #: d'équivalent dans le Parquet résolu, et pourquoi.
     associations_ensemble: list[dict[str, object]] = field(default_factory=list)
+    #: Consignes déclarées `rendu_fiche=non` : dans la base, absentes
+    #: des fiches. La trace dit lesquelles, et pourquoi.
+    consignes_non_rendues: list[dict[str, str]] = field(default_factory=list)
     statistiques: dict[str, int] = field(default_factory=dict)
 
     @property
@@ -71,7 +83,11 @@ def charge_tables_curees(curation_dir: Path) -> tuple[pl.DataFrame, pl.DataFrame
     """
     recs = pl.read_csv(
         curation_dir / "recommendations_curated.csv",
-        schema_overrides={"condition": pl.String},
+        schema_overrides={
+            "condition": pl.String,
+            "rendu_fiche": pl.String,
+            "justification_rendu": pl.String,
+        },
     )
     codes = pl.read_csv(
         curation_dir / "recommendation_codes_curated.csv",
@@ -109,6 +125,7 @@ def construit(
     la table curée).
     """
     rapport = RapportBuild()
+    recs = _normalise_rendu_fiche(recs, rapport)
     lignes: list[dict[str, object]] = []
 
     for ligne in codes.sort("rec_id", "code_expr", "role").iter_rows(named=True):
@@ -199,6 +216,49 @@ def construit(
         rapport.recouvrement_potentiel = _recouvrement_potentiel(resolus, flat)
 
     return recs_tries, resolus, rapport
+
+
+def _normalise_rendu_fiche(recs: pl.DataFrame, rapport: RapportBuild) -> pl.DataFrame:
+    """Normalise `rendu_fiche` (vide → `oui`) et trace les `non`.
+
+    La colonne peut être absente (tables antérieures à l'arbitrage
+    n° 10) : elle est alors créée à `oui` — le défaut est le rendu.
+    Une bascule à `non` sans justification est une erreur de curation,
+    comme pour la portée `ensemble`.
+    """
+    if "rendu_fiche" not in recs.columns:
+        recs = recs.with_columns(pl.lit("oui").alias("rendu_fiche"))
+    if "justification_rendu" not in recs.columns:
+        recs = recs.with_columns(pl.lit("").alias("justification_rendu"))
+    recs = recs.with_columns(
+        pl.col("rendu_fiche").fill_null("").replace("", "oui"),
+        pl.col("justification_rendu").fill_null(""),
+    )
+    invalides = recs.filter(~pl.col("rendu_fiche").is_in(RENDUS_FICHE))
+    if invalides.height:
+        raise CurationError(
+            f"Valeur(s) `rendu_fiche` inconnue(s) pour "
+            f"{invalides['rec_id'].to_list()[:5]} — valeurs admises : "
+            f"{RENDUS_FICHE} (vide = oui)."
+        )
+    non_rendues = recs.filter(pl.col("rendu_fiche") == "non")
+    sans_justification = non_rendues.filter(pl.col("justification_rendu").str.strip_chars() == "")
+    if sans_justification.height:
+        raise CurationError(
+            f"`rendu_fiche=non` sans justification pour "
+            f"{sans_justification['rec_id'].to_list()[:5]}. Retirer une consigne "
+            f"des fiches est une décision de curation : elle porte son pourquoi "
+            f"daté dans la table curée."
+        )
+    for ligne in non_rendues.sort("rec_id").iter_rows(named=True):
+        rapport.consignes_non_rendues.append(
+            {
+                "rec_id": str(ligne["rec_id"]),
+                "situation": str(ligne["situation"]),
+                "justification": str(ligne["justification_rendu"]),
+            }
+        )
+    return recs
 
 
 _SCHEMA_RESOLUS: dict[str, pl.DataType] = {
@@ -351,6 +411,14 @@ def ecrit_rapport(rapport: RapportBuild, reports_dir: Path) -> dict[str, Path]:
                 "justification": pl.String,
             },
         ),
+        "guide_mco_consignes_non_rendues": pl.DataFrame(
+            rapport.consignes_non_rendues,
+            schema={
+                "rec_id": pl.String,
+                "situation": pl.String,
+                "justification": pl.String,
+            },
+        ),
         "guide_mco_recouvrement_potentiel": pl.DataFrame(
             rapport.recouvrement_potentiel,
             schema={
@@ -381,6 +449,7 @@ __all__ = (
     "PORTEES",
     "RECOMMENDATIONS_FILENAME",
     "RECOMMENDATION_CODES_FILENAME",
+    "RENDUS_FICHE",
     "ROLES_INTERDICTION",
     "CurationError",
     "RapportBuild",

@@ -90,6 +90,13 @@ def decoupe(article: str) -> tuple[list[str], dict[str, str]]:
                 and not (
                     (suite := re.match(r"^(\d{1,3})\s+\S", lignes[j])) and suite.group(1) in appels
                 )
+                # …et sur un titre de section numéroté : un « 2. Les effets
+                # indésirables » n'est jamais du texte de note. Sans ce
+                # garde, la note 19 des EFFETS NOCIFS avalait le titre de
+                # la section suivante — sa définition est suivie du numéro
+                # de page, de l'appel hissé « 20 » et du titre, sans ligne
+                # vide pour arrêter la boucle.
+                and not _RE_TITRE_NUMEROTE.match(lignes[j].strip())
             ):
                 if not re.fullmatch(r"\s*\d{1,3}\s*", lignes[j]):
                     buf.append(lignes[j].strip())
@@ -108,6 +115,13 @@ def decoupe(article: str) -> tuple[list[str], dict[str, str]]:
                 and not (
                     (suite := re.match(r"^(\d{1,3})\s+\S", lignes[j])) and suite.group(1) in appels
                 )
+                # …et sur un titre de section numéroté : un « 2. Les effets
+                # indésirables » n'est jamais du texte de note. Sans ce
+                # garde, la note 19 des EFFETS NOCIFS avalait le titre de
+                # la section suivante — sa définition est suivie du numéro
+                # de page, de l'appel hissé « 20 » et du titre, sans ligne
+                # vide pour arrêter la boucle.
+                and not _RE_TITRE_NUMEROTE.match(lignes[j].strip())
             ):
                 if not re.fullmatch(r"\s*\d{1,3}\s*", lignes[j]):
                     buf.append(lignes[j].strip())
@@ -115,9 +129,14 @@ def decoupe(article: str) -> tuple[list[str], dict[str, str]]:
             notes[ligne] = " ".join(buf)
             i = j
             continue
-        # Numéro de page, ou appel hissé seul sur sa ligne : pure mise
-        # en page, aucun texte.
-        if re.fullmatch(r"\s+\d{1,3}\s*", ligne):
+        # Numéro de page, appel hissé seul sur sa ligne, ou numéro de
+        # définition d'une note de l'article VOISIN (colonne 0, hors
+        # appels déclarés — les nôtres ont été consommés plus haut) :
+        # pure mise en page, aucun texte. Cas vécus : « 21 » des
+        # ENFANTS NÉS SANS VIE, « 47 »/« 48 » de l'ÉTAT GRABATAIRE.
+        if re.fullmatch(r"\s+\d{1,3}\s*", ligne) or (
+            re.fullmatch(r"\d{1,3}\s*", ligne) and ligne.strip() not in appels
+        ):
             i += 1
             continue
         # Sous-titre centré : indenté, seul entre deux lignes vides, sans

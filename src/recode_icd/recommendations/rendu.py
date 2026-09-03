@@ -6,6 +6,11 @@ dans `docs/analyses/2026-08-09_conception_base_recommandations_guide_methodo.md`
 
 Règles de rendu, dans l'ordre d'application :
 
+0. filtre `rendu_fiche = non` : une consigne basculée reste dans la
+   base et les Parquet mais n'atteint AUCUNE fiche — critère « aide le
+   rédacteur de CRH vs aide seulement le contrôleur », arbitrage n° 10
+   du registre (RF 2026-09-03, cas ANT-01). Le build la liste dans
+   `guide_mco_consignes_non_rendues.csv` ;
 1. filtre `centralite = sujet` par défaut (`avec_exemples=True` admet
    les codes cités en illustration, rendus à part — jamais mêlés aux
    consignes qui norment) ;
@@ -68,6 +73,13 @@ def consignes_pour(
         `millesime`, `situation` de la consigne), triée par `cle_de_tri`.
     """
     assoc = rec_codes.filter(pl.col("code") == code)
+    # Règle 0 — une consigne `rendu_fiche=non` n'atteint aucune fiche.
+    # La colonne peut manquer sur des Parquet antérieurs à l'arbitrage
+    # n° 10 (et sur les frames synthétiques des tests) : absente vaut
+    # « tout est rendu ».
+    if "rendu_fiche" in recs.columns:
+        exclues = recs.filter(pl.col("rendu_fiche") == "non")["rec_id"]
+        assoc = assoc.filter(~pl.col("rec_id").is_in(exclues))
     if not avec_exemples:
         assoc = assoc.filter(pl.col("centralite") == "sujet")
     assoc = assoc.filter(~pl.col("role").is_in(roles_exclus))

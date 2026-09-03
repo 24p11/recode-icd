@@ -1,0 +1,136 @@
+# Guide méthodologique MCO 2026 (version provisoire) — ÉTAT GRABATAIRE (imprimées 103-104)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 111-112  (imprimées : 103-104)
+#
+# Commande exacte :
+#   pdftotext -layout -f 111 -l 112 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                     103
+
+          Exemples :
+          – patient porteur d'un cœur transplanté, hospitalisé pour bilan de surveillance
+                                                                                         47
+            postgreffe ; aucune anomalie n'est constatée ; le DP du séjour est codé Z94.1 ;
+          – patient porteur d’un pontage coronaire hospitalisé pour bilan de surveillance ;
+            aucune anomalie n’est constatée : le DP du séjour est codé Z95.1.
+
+Les catégories Z96 et Z97 permettent le codage de la présence de divers implants,
+prothèses et appareils. Leur emploi n’est admissible qu’en l’absence de complication. En cas
+de soins nécessités par une complication, se reporter plus haut dans ce chapitre au point
+traitant des complications des actes médicaux et chirurgicaux.
+
+Lorsqu’un code des catégories Z93, Z95 ou Z96 de la CIM–10 correspond à une prise
+en charge pour laquelle un code d’acte existe dans la CCAM, la saisie dans le même
+RUM du code Z93.–, Z95.– ou Z96.– en position de diagnostic associé (DA) en sus de
+celui de l’acte est redondante et n’est pas justifiée. Un tel emploi de « codes Z » serait
+                                  48
+incorrect au regard de la CIM–10 .
+
+          Exemples :
+      -   dans le cas d’un séjour comportant une colectomie sans rétablissement de la
+          continuité, il n’est pas justifié d’associer dans le même RUM le code de l’acte et Z93.3
+          en position de DA ;
+      -   dans le cas d’un séjour de pose de stimulateur cardiaque, il n’est pas justifié d’associer
+          dans le même RUM le code de l’acte et Z95.0 en position de DA ;
+      -   dans le cas d’un séjour comportant une implantation de prothèse articulaire, il n’est
+          pas justifié d’associer dans le même RUM le code de l’acte et Z96.6 en position de DA,
+          etc.
+
+Catégorie Z99 – Dépendance envers des machines et appareils auxiliaires, non classée
+ailleurs
+Est dépendante envers une machine ou un appareil une personne atteinte d’une affection
+chronique dont la survie est subordonnée à l’utilisation régulière et durable de ce matériel.
+C’est en ce sens que doit être comprise l’utilisation des codes de la catégorie Z99. Ils ne
+doivent pas être employés pour mentionner l’utilisation d’un matériel de ce type en phase
+aigüe : par exemple, Z99.0 Dépendance envers un aspirateur ou Z99.1 Dépendance envers
+un respirateur ne doivent pas servir à mentionner l’utilisation de ces matériels chez un patient
+sous ventilation mécanique pour insuffisance respiratoire aigüe, Z99.2 Dépendance envers
+une dialyse rénale ne peut pas être employé pour les séjours des patients dialysés pour
+insuffisance rénale aigüe.
+
+
+
+ÉTAT GRABATAIRE
+
+
+Son codage (R26.30) est réservé aux situations correspondant à la définition suivante : «
+état d'une personne confinée au lit ou au fauteuil par sa maladie, incapable de subvenir
+seule sans aide et en toute sécurité à ses besoins alimentaires, d'hygiène personnelle,
+d'élimination et d'exonération, de transfert et de déplacement ».
+
+   NB la conjonction « et » — non « ou » — qui lie les différents besoins. Le mot « maladie »
+est aussi essentiel. Le codage d’un état grabataire suppose la chronicité. Sont en
+conséquence exclus les états qui correspondent transitoirement à la définition (par exemple,
+dans les suites d’une intervention chirurgicale) mais tels que « l’état grabataire » n’existait pas
+
+
+47
+     Un rejet, en revanche, doit être codé T86.2.
+48
+     Se reporter aux explications données à la première page du chapitre XXI dans le volume 1.
+                                                  104
+
+avant les soins, leur est dû, et est appelé à disparaitre dans un délai bref, de l’ordre de la
+durée du séjour en MCO.
+
+
+HÉMANGIOME ET LYMPHANGIOME
+
+Ces lésions, tumorales ou dysplasiques selon les cas, n’obéissent pas au mode de
+classement habituel adopté dans le chapitre II du volume 1 de la CIM–10 : alors que le
+classement des tumeurs y suit une logique topographique, l'OMS fait ici une exception en les
+distinguant d’après leur nature. En France, la consigne est d'employer la catégorie D18 pour
+les seuls hémangiomes et lymphangiomes superficiels (limités aux téguments), mais
+d’enregistrer le code de tumeur bénigne de l'organe lorsque ces tumeurs atteignent un organe
+profond. Par exemple, un hémangiome du côlon droit doit être codé D12.2 et non D18.0.
+
+
+
+HYPOTENSION ET BAISSE DE LA TENSION ARTÉRIELLE
+
+La CIM–10 distingue deux modalités de codage des baisses de la pression intraartérielle
+[tension artérielle]. Elles correspondent à deux conditions très différentes de diagnostic.
+
+Une baisse de la pression intraartérielle peut être un signe d’accompagnement de
+diverses maladies, ou une « découverte fortuite isolée », qui ne permet pas de porter le
+diagnostic de maladie hypotensive chronique. Dans les deux circonstances, cette chute
+tensionnelle est qualifiée par la CIM–10 de « non spécifique » : elle doit alors être
+codée R03.1 Constatation d’une baisse non spécifique de la tension artérielle. Elle répond
+en effet aux critères qui conduisent à utiliser le chapitre XVIII qui contient les signes et
+symptômes « a) […] pour lesquels aucun diagnostic plus précis n’a pu être porté, même après
+examen de tous les faits s'y rapportant ; b) […] existant lors de la première consultation, qui
+se sont avérés être transitoires et dont les causes n'ont pu être déterminées ; c) [se
+rapportant] aux diagnostics provisoires chez un malade qui n'est pas revenu pour d'autres
+investigations ou soins […] ». L’utilisation du code R03.1 suit ainsi la logique exposée dans la
+note placée sous le libellé Constatation d’une élévation de la tension artérielle, sans diagnostic
+d’hypertension (R03.0) : par analogie, on doit considérer que « cette catégorie [R03.1] doit
+être utilisée pour enregistrer soit un épisode [hypotensif] chez un malade pour lequel aucun
+diagnostic formel d’[hypotension] n'a été porté, soit une découverte fortuite isolée. »
+
+A contrario, l’hypotension artérielle qualifiée d’idiopathique ou d’orthostatique est une
+maladie chronique invalidante, nécessitant habituellement un traitement prolongé. Son
+diagnostic repose sur la constatation répétée d’une baisse des pressions diastolique et
+systolique, mesurées dans des conditions rigoureuses. Les codes I95.0, I95.1 et I95.8 ne
+doivent être employés que devant un diagnostic établi de maladie hypotensive chronique
+(sauf si elle s’intègre dans un ensemble de troubles neurovégétatifs et neurologiques,
+constituant alors le syndrome de Shy et Drager, code G23.8).
+La même argumentation conduit à distinguer la maladie hypertensive (I10) et l’élévation «
+non spécifique » de la pression intraartérielle (R03.0).
+
+
+IDENTIFICATION DU POLYHANDICAP LOURD
+
+
+Le polyhandicap se définit par l’association de quatre critères :
+   • une déficience mentale profonde ou une démence sévère ;
+   • un trouble moteur à type de paralysie partielle ou totale, d’ataxie, de tremblements
+       sévères, de dyskinésie ou de dystonie ;
+   • une mobilité réduite conséquence du trouble moteur ;
+

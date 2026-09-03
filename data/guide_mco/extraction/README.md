@@ -91,6 +91,30 @@ toutes parsables, toutes résolues contre `merged_codes.parquet`.
    basculée ; AVC-01, AVC-04, AVC-06, AVC-12 (plages de l'affection
    même) et XXI-49 (interdiction) restent `chaque`.
 
+9. **Plage à borne absente du nested set : erreur au rapport, pas de
+   résolution élargie** (RF, 2026-09-03, cas OMS-01/`U00-U49`). La
+   résolution d'une plage exige l'existence de ses deux bornes ;
+   `U00` n'existe pas — le chapitre XXII est clairsemé par conception.
+   On n'étend pas la résolution aux plages creuses : mécanisme sans
+   valeur actuelle (la consigne atteint les fiches U07 par sa seconde
+   association), on réinstruit si un second cas apparaît **avec une
+   perte réelle**. L'expression part au rapport
+   `guide_mco_expressions_non_resolues.csv`, jamais au silence —
+   invariant verrouillé par test de régression.
+
+10. **Attribut `rendu_fiche` (oui|non, défaut oui) au niveau de la
+    consigne** (RF, 2026-09-03, cas ANT-01). Les consignes de très
+    large portée sont du bruit dans les fiches de **génération** —
+    utiles à la base et au futur vérificateur, pas au rédacteur de
+    CRH. Critère de bascule : « aide le rédacteur de CRH » (rendue)
+    vs « aide seulement le contrôleur » (non rendue). Le niveau
+    consigne, et non association, est retenu : le critère porte sur le
+    contenu de la consigne, pas sur ses cibles, et une consigne « à
+    moitié rendue » serait illisible. `rendu_fiche=non` exige une
+    justification datée ; le build liste ces consignes dans
+    `guide_mco_consignes_non_rendues.csv` et le rendu des fiches
+    filtre dessus. Première bascule : ANT-01.
+
 ## Points laissés ouverts
 
 - **`GM2026-V-AVC-18`** (complications codées en DAS) n'a **aucune
