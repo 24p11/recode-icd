@@ -759,37 +759,37 @@ B94.1,I,I/B94.1.md,Séquelles d'encéphalite virale,true,false,true,false,true,1
 B94.2,I,I/B94.2.md,Séquelles d'hépatite virale,true,false,true,false,true,1232
 B94.8,I,I/B94.8.md,Séquelles d'autres maladies infectieuses et parasitaires précisées,true,false,true,false,true,1686
 B94.9,I,I/B94.9.md,"Séquelles de maladie infectieuse ou parasitaire, sans précision",true,false,true,false,true,1518
-B95.0,I,I/B95.0.md,"Streptocoques, groupe A, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1310
-B95.1,I,I/B95.1.md,"Streptocoques, groupe B, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1335
-B95.2,I,I/B95.2.md,"Streptocoques, groupe D, et entérocoques, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1504
-B95.3,I,I/B95.3.md,"Streptococcus pneumoniae, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1296
-B95.4,I,I/B95.4.md,"Autres streptocoques, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1472
-B95.5,I,I/B95.5.md,"Streptocoques non précisés, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1324
-B95.6,I,I/B95.6.md,"Staphylococcus aureus, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1386
-B95.7,I,I/B95.7.md,"Autres staphylocoques, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1355
-B95.8,I,I/B95.8.md,"Staphylocoques non précisés, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,2114
-B96.0,I,I/B96.0.md,"Mycoplasma pneumoniae, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1310
-B96.1,I,I/B96.1.md,"Klebsiella pneumoniae [subsp. pneumoniae], cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1296
-B96.2,I,I/B96.2.md,"Escherichia coli, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1282
-B96.3,I,I/B96.3.md,"Haemophilus influenzae, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1251
-B96.4,I,I/B96.4.md,"Proteus (P. mirabilis) (P. morganii), cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1372
-B96.5,I,I/B96.5.md,"Pseudomonas (P. aeruginosa), cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1402
-B96.6,I,I/B96.6.md,"Bacillus fragilis, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1254
-B96.7,I,I/B96.7.md,"Clostridium perfringens, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1276
-B96.80,I,I/B96.80.md,"Acinetobacter (A. baumannii), cause de maladies classées dans d'autres chapitres",true,false,true,false,false,1194
-B96.81,I,I/B96.81.md,"Citrobacter, cause de maladies classées dans d'autres chapitres",true,false,true,false,false,1177
-B96.88,I,I/B96.88.md,"Autres agents bactériens précisés, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1259
-B97.0,I,I/B97.0.md,"Adénovirus, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1254
-B97.1,I,I/B97.1.md,"Entérovirus, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1359
-B97.2,I,I/B97.2.md,"Coronavirus, cause de maladies classées dans d'autres chapitres",true,false,true,false,false,1175
-B97.3,I,I/B97.3.md,"Rétrovirus, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1288
-B97.4,I,I/B97.4.md,"Virus respiratoire syncytial, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1303
-B97.5,I,I/B97.5.md,"Réovirus, cause de maladies classées dans d'autres chapitres",true,false,true,false,false,1172
-B97.6,I,I/B97.6.md,"Parvovirus, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1271
-B97.7,I,I/B97.7.md,"Papillovirus, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1291
-B97.8,I,I/B97.8.md,"Autres virus, cause de maladies classées dans d'autres chapitres",true,false,true,false,true,2051
-B98.0,I,I/B98.0.md,"Helicobacter pylori [H. pylori], cause de maladies classées dans d'autres chapitres",true,false,true,false,true,1272
-B98.1,I,I/B98.1.md,"Vibrio vulnificus, cause de maladies classées dans d'autres chapitres",true,false,true,false,false,1181
+B95.0,I,I/B95.0.md,"Streptocoques, groupe A, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1776
+B95.1,I,I/B95.1.md,"Streptocoques, groupe B, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1801
+B95.2,I,I/B95.2.md,"Streptocoques, groupe D, et entérocoques, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1970
+B95.3,I,I/B95.3.md,"Streptococcus pneumoniae, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1762
+B95.4,I,I/B95.4.md,"Autres streptocoques, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1938
+B95.5,I,I/B95.5.md,"Streptocoques non précisés, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1790
+B95.6,I,I/B95.6.md,"Staphylococcus aureus, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1852
+B95.7,I,I/B95.7.md,"Autres staphylocoques, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1821
+B95.8,I,I/B95.8.md,"Staphylocoques non précisés, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,2580
+B96.0,I,I/B96.0.md,"Mycoplasma pneumoniae, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1776
+B96.1,I,I/B96.1.md,"Klebsiella pneumoniae [subsp. pneumoniae], cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1762
+B96.2,I,I/B96.2.md,"Escherichia coli, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1748
+B96.3,I,I/B96.3.md,"Haemophilus influenzae, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1717
+B96.4,I,I/B96.4.md,"Proteus (P. mirabilis) (P. morganii), cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1838
+B96.5,I,I/B96.5.md,"Pseudomonas (P. aeruginosa), cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1868
+B96.6,I,I/B96.6.md,"Bacillus fragilis, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1720
+B96.7,I,I/B96.7.md,"Clostridium perfringens, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1742
+B96.80,I,I/B96.80.md,"Acinetobacter (A. baumannii), cause de maladies classées dans d'autres chapitres",true,false,true,true,false,1660
+B96.81,I,I/B96.81.md,"Citrobacter, cause de maladies classées dans d'autres chapitres",true,false,true,true,false,1643
+B96.88,I,I/B96.88.md,"Autres agents bactériens précisés, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1725
+B97.0,I,I/B97.0.md,"Adénovirus, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1720
+B97.1,I,I/B97.1.md,"Entérovirus, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1825
+B97.2,I,I/B97.2.md,"Coronavirus, cause de maladies classées dans d'autres chapitres",true,false,true,true,false,1641
+B97.3,I,I/B97.3.md,"Rétrovirus, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1754
+B97.4,I,I/B97.4.md,"Virus respiratoire syncytial, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1769
+B97.5,I,I/B97.5.md,"Réovirus, cause de maladies classées dans d'autres chapitres",true,false,true,true,false,1638
+B97.6,I,I/B97.6.md,"Parvovirus, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1737
+B97.7,I,I/B97.7.md,"Papillovirus, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1757
+B97.8,I,I/B97.8.md,"Autres virus, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,2517
+B98.0,I,I/B98.0.md,"Helicobacter pylori [H. pylori], cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1738
+B98.1,I,I/B98.1.md,"Vibrio vulnificus, cause de maladies classées dans d'autres chapitres",true,false,true,true,false,1647
 B99.+0,I,I/B99.+0.md,Autres maladies infectieuses précisées,true,false,true,false,false,1129
 B99.+1,I,I/B99.+1.md,Syndrome infectieux sans cause trouvée,true,false,true,false,false,1129
 C00.0,II,II/C00.0.md,"Tumeur maligne de la lèvre supérieure, bord libre",true,false,true,false,true,1122
@@ -4047,7 +4047,7 @@ I31.9,IX,IX/I31.9.md,"Maladie du péricarde, sans précision",true,false,true,fa
 I32.0,IX,IX/I32.0.md,Péricardite au cours de maladies bactériennes classées ailleurs,true,false,true,false,false,1210
 I32.1,IX,IX/I32.1.md,Péricardite au cours d'autres maladies infectieuses et parasitaires classées ailleurs,true,false,true,false,false,1154
 I32.8,IX,IX/I32.8.md,Péricardite au cours d'autres maladies classées ailleurs,true,false,true,false,true,1548
-I33.0,IX,IX/I33.0.md,Endocardite infectieuse aigüe et subaigüe,true,false,true,true,true,2898
+I33.0,IX,IX/I33.0.md,Endocardite infectieuse aigüe et subaigüe,true,false,true,true,true,3302
 I33.9,IX,IX/I33.9.md,"Endocardite aigüe, sans précision",true,false,true,false,true,1606
 I34.0,IX,IX/I34.0.md,Insuffisance (de la valvule) mitrale,true,false,true,false,true,2018
 I34.1,IX,IX/I34.1.md,Prolapsus (de la valvule) mitral(e),true,false,true,false,true,1876
@@ -4414,7 +4414,7 @@ J30.4,X,X/J30.4.md,"Rhinite allergique, sans précision",true,false,true,false,t
 J31.0,X,X/J31.0.md,Rhinite chronique,true,false,true,false,true,1465
 J31.1,X,X/J31.1.md,Rhinopharyngite chronique,false,false,true,false,true,1102
 J31.2,X,X/J31.2.md,Pharyngite chronique,true,false,true,false,true,1356
-J32.0,X,X/J32.0.md,Sinusite maxillaire chronique,true,false,true,false,true,1764
+J32.0,X,X/J32.0.md,Sinusite maxillaire chronique,true,false,true,true,true,2270
 J32.1,X,X/J32.1.md,Sinusite frontale chronique,true,false,true,false,true,1597
 J32.2,X,X/J32.2.md,Sinusite ethmoïdale chronique,true,false,true,false,true,1643
 J32.3,X,X/J32.3.md,Sinusite sphénoïdale chronique,true,false,true,false,true,1567
@@ -4740,7 +4740,7 @@ K28.6,XI,XI/K28.6.md,"Ulcère gastrojéjunal - "" Chronique ou non précisé, av
 K28.7,XI,XI/K28.7.md,"Ulcère gastrojéjunal - "" Chronique sans hémorragie ni perforation """,true,false,true,false,false,1783
 K28.9,XI,XI/K28.9.md,"Ulcère gastrojéjunal - "" Non précisé comme étant aigu ou chronique, sans hémorragie ni perforation """,true,false,true,false,true,2183
 K29.0,XI,XI/K29.0.md,Gastrite hémorragique aigüe,true,false,true,false,true,1675
-K29.1,XI,XI/K29.1.md,Autres gastrites aigües,false,false,true,false,true,1403
+K29.1,XI,XI/K29.1.md,Autres gastrites aigües,false,false,true,true,true,1853
 K29.2,XI,XI/K29.2.md,Gastrite alcoolique,false,false,true,false,true,1242
 K29.3,XI,XI/K29.3.md,Gastrite chronique superficielle,false,false,true,false,false,1146
 K29.4,XI,XI/K29.4.md,Gastrite chronique atrophique,true,false,true,false,true,1389
@@ -5031,13 +5031,13 @@ K93.88,XI,XI/K93.88.md,"Atteintes d’organes digestifs précisés autres, au co
 L00,XII,XII/L00.md,Syndrome d'épidermolyse staphylococcique du nourrisson,true,false,true,false,true,2520
 L01.0,XII,XII/L01.0.md,Impétigo [tout microorganisme] [toute localisation],true,false,true,false,true,2409
 L01.1,XII,XII/L01.1.md,Impétiginisation d'autres dermatoses,false,false,true,false,true,1991
-L02.0,XII,XII/L02.0.md,"Abcès cutané, furoncle et anthrax de la face",true,false,true,false,true,2582
-L02.1,XII,XII/L02.1.md,"Abcès cutané, furoncle et anthrax du cou",true,false,true,false,true,2282
-L02.2,XII,XII/L02.2.md,"Abcès cutané, furoncle et anthrax du tronc",true,false,true,true,true,3405
-L02.3,XII,XII/L02.3.md,"Abcès cutané, furoncle et anthrax de la fesse",true,false,true,false,true,2447
-L02.4,XII,XII/L02.4.md,"Abcès cutané, furoncle et anthrax d'un membre",true,false,true,false,true,2561
-L02.8,XII,XII/L02.8.md,"Abcès cutané, furoncle et anthrax d'autres localisations",true,false,true,false,true,2574
-L02.9,XII,XII/L02.9.md,"Abcès cutané, furoncle et anthrax, sans précision",true,false,true,false,true,2427
+L02.0,XII,XII/L02.0.md,"Abcès cutané, furoncle et anthrax de la face",true,false,true,true,true,3088
+L02.1,XII,XII/L02.1.md,"Abcès cutané, furoncle et anthrax du cou",true,false,true,true,true,2788
+L02.2,XII,XII/L02.2.md,"Abcès cutané, furoncle et anthrax du tronc",true,false,true,true,true,3809
+L02.3,XII,XII/L02.3.md,"Abcès cutané, furoncle et anthrax de la fesse",true,false,true,true,true,2953
+L02.4,XII,XII/L02.4.md,"Abcès cutané, furoncle et anthrax d'un membre",true,false,true,true,true,3067
+L02.8,XII,XII/L02.8.md,"Abcès cutané, furoncle et anthrax d'autres localisations",true,false,true,true,true,3080
+L02.9,XII,XII/L02.9.md,"Abcès cutané, furoncle et anthrax, sans précision",true,false,true,true,true,2933
 L03.0,XII,XII/L03.0.md,Phlegmon des doigts et des orteils,true,false,true,false,true,2911
 L03.1,XII,XII/L03.1.md,Phlegmon d'autres parties d'un membre,true,false,true,false,true,3007
 L03.2,XII,XII/L03.2.md,Phlegmon de la face,true,false,true,false,true,2642
@@ -9346,96 +9346,96 @@ M85.96,XIII,XIII/M85.96.md,"Anomalie de la densité et de la structure osseuses,
 M85.97,XIII,XIII/M85.97.md,"Anomalie de la densité et de la structure osseuses, sans précision - "" Cheville et pied """,false,true,true,false,false,1577
 M85.98,XIII,XIII/M85.98.md,"Anomalie de la densité et de la structure osseuses, sans précision - "" Autres """,false,true,true,false,false,1499
 M85.99,XIII,XIII/M85.99.md,"Anomalie de la densité et de la structure osseuses, sans précision - "" Siège non précisé """,false,false,true,false,false,1356
-M86.00,XIII,XIII/M86.00.md,"Ostéomyélite hématogène aigüe - "" Sièges multiples """,false,false,true,true,false,2105
-M86.01,XIII,XIII/M86.01.md,"Ostéomyélite hématogène aigüe - "" Région scapulaire """,false,true,true,true,false,2392
-M86.02,XIII,XIII/M86.02.md,"Ostéomyélite hématogène aigüe - "" Bras """,false,true,true,true,false,2207
-M86.03,XIII,XIII/M86.03.md,"Ostéomyélite hématogène aigüe - "" Avant-bras """,false,true,true,true,false,2233
-M86.04,XIII,XIII/M86.04.md,"Ostéomyélite hématogène aigüe - "" Main """,false,true,true,true,false,2251
-M86.05,XIII,XIII/M86.05.md,"Ostéomyélite hématogène aigüe - "" Région pelvienne et cuisse """,false,true,true,true,false,2321
-M86.06,XIII,XIII/M86.06.md,"Ostéomyélite hématogène aigüe - "" Jambe """,false,true,true,true,false,2220
-M86.07,XIII,XIII/M86.07.md,"Ostéomyélite hématogène aigüe - "" Cheville et pied """,false,true,true,true,false,2327
-M86.08,XIII,XIII/M86.08.md,"Ostéomyélite hématogène aigüe - "" Autres """,false,true,true,true,false,2249
-M86.09,XIII,XIII/M86.09.md,"Ostéomyélite hématogène aigüe - "" Siège non précisé """,false,false,true,true,false,2106
-M86.10,XIII,XIII/M86.10.md,"Autres ostéomyélites aigües - "" Sièges multiples """,false,false,true,true,false,2103
-M86.11,XIII,XIII/M86.11.md,"Autres ostéomyélites aigües - "" Région scapulaire """,false,true,true,true,false,2390
-M86.12,XIII,XIII/M86.12.md,"Autres ostéomyélites aigües - "" Bras """,false,true,true,true,false,2205
-M86.13,XIII,XIII/M86.13.md,"Autres ostéomyélites aigües - "" Avant-bras """,false,true,true,true,false,2231
-M86.14,XIII,XIII/M86.14.md,"Autres ostéomyélites aigües - "" Main """,false,true,true,true,false,2249
-M86.15,XIII,XIII/M86.15.md,"Autres ostéomyélites aigües - "" Région pelvienne et cuisse """,false,true,true,true,false,2319
-M86.16,XIII,XIII/M86.16.md,"Autres ostéomyélites aigües - "" Jambe """,false,true,true,true,false,2218
-M86.17,XIII,XIII/M86.17.md,"Autres ostéomyélites aigües - "" Cheville et pied """,false,true,true,true,false,2325
-M86.18,XIII,XIII/M86.18.md,"Autres ostéomyélites aigües - "" Autres """,false,true,true,true,false,2247
-M86.19,XIII,XIII/M86.19.md,"Autres ostéomyélites aigües - "" Siège non précisé """,false,false,true,true,false,2104
-M86.20,XIII,XIII/M86.20.md,"Ostéomyélite subaigüe - "" Sièges multiples """,false,false,true,true,false,2097
-M86.21,XIII,XIII/M86.21.md,"Ostéomyélite subaigüe - "" Région scapulaire """,false,true,true,true,false,2384
-M86.22,XIII,XIII/M86.22.md,"Ostéomyélite subaigüe - "" Bras """,false,true,true,true,false,2199
-M86.23,XIII,XIII/M86.23.md,"Ostéomyélite subaigüe - "" Avant-bras """,false,true,true,true,false,2225
-M86.24,XIII,XIII/M86.24.md,"Ostéomyélite subaigüe - "" Main """,false,true,true,true,false,2243
-M86.25,XIII,XIII/M86.25.md,"Ostéomyélite subaigüe - "" Région pelvienne et cuisse """,false,true,true,true,false,2313
-M86.26,XIII,XIII/M86.26.md,"Ostéomyélite subaigüe - "" Jambe """,false,true,true,true,false,2212
-M86.27,XIII,XIII/M86.27.md,"Ostéomyélite subaigüe - "" Cheville et pied """,false,true,true,true,false,2319
-M86.28,XIII,XIII/M86.28.md,"Ostéomyélite subaigüe - "" Autres """,false,true,true,true,false,2241
-M86.29,XIII,XIII/M86.29.md,"Ostéomyélite subaigüe - "" Siège non précisé """,false,false,true,true,false,2098
-M86.30,XIII,XIII/M86.30.md,"Ostéomyélite chronique multifocale - "" Sièges multiples """,false,false,true,true,false,2110
-M86.31,XIII,XIII/M86.31.md,"Ostéomyélite chronique multifocale - "" Région scapulaire """,false,true,true,true,false,2397
-M86.32,XIII,XIII/M86.32.md,"Ostéomyélite chronique multifocale - "" Bras """,false,true,true,true,false,2212
-M86.33,XIII,XIII/M86.33.md,"Ostéomyélite chronique multifocale - "" Avant-bras """,false,true,true,true,false,2238
-M86.34,XIII,XIII/M86.34.md,"Ostéomyélite chronique multifocale - "" Main """,false,true,true,true,false,2256
-M86.35,XIII,XIII/M86.35.md,"Ostéomyélite chronique multifocale - "" Région pelvienne et cuisse """,false,true,true,true,false,2326
-M86.36,XIII,XIII/M86.36.md,"Ostéomyélite chronique multifocale - "" Jambe """,false,true,true,true,false,2225
-M86.37,XIII,XIII/M86.37.md,"Ostéomyélite chronique multifocale - "" Cheville et pied """,false,true,true,true,false,2332
-M86.38,XIII,XIII/M86.38.md,"Ostéomyélite chronique multifocale - "" Autres """,false,true,true,true,false,2254
-M86.39,XIII,XIII/M86.39.md,"Ostéomyélite chronique multifocale - "" Siège non précisé """,false,false,true,true,false,2111
-M86.40,XIII,XIII/M86.40.md,"Ostéomyélite chronique avec fistule de drainage - "" Sièges multiples """,false,false,true,true,false,2123
-M86.41,XIII,XIII/M86.41.md,"Ostéomyélite chronique avec fistule de drainage - "" Région scapulaire """,false,true,true,true,false,2410
-M86.42,XIII,XIII/M86.42.md,"Ostéomyélite chronique avec fistule de drainage - "" Bras """,false,true,true,true,false,2225
-M86.43,XIII,XIII/M86.43.md,"Ostéomyélite chronique avec fistule de drainage - "" Avant-bras """,false,true,true,true,false,2251
-M86.44,XIII,XIII/M86.44.md,"Ostéomyélite chronique avec fistule de drainage - "" Main """,false,true,true,true,false,2269
-M86.45,XIII,XIII/M86.45.md,"Ostéomyélite chronique avec fistule de drainage - "" Région pelvienne et cuisse """,false,true,true,true,false,2339
-M86.46,XIII,XIII/M86.46.md,"Ostéomyélite chronique avec fistule de drainage - "" Jambe """,false,true,true,true,false,2238
-M86.47,XIII,XIII/M86.47.md,"Ostéomyélite chronique avec fistule de drainage - "" Cheville et pied """,false,true,true,true,false,2345
-M86.48,XIII,XIII/M86.48.md,"Ostéomyélite chronique avec fistule de drainage - "" Autres """,false,true,true,true,false,2267
-M86.49,XIII,XIII/M86.49.md,"Ostéomyélite chronique avec fistule de drainage - "" Siège non précisé """,false,false,true,true,false,2124
-M86.50,XIII,XIII/M86.50.md,"Autres ostéomyélites hématogènes chroniques - "" Sièges multiples """,false,false,true,true,false,2119
-M86.51,XIII,XIII/M86.51.md,"Autres ostéomyélites hématogènes chroniques - "" Région scapulaire """,false,true,true,true,false,2406
-M86.52,XIII,XIII/M86.52.md,"Autres ostéomyélites hématogènes chroniques - "" Bras """,false,true,true,true,false,2221
-M86.53,XIII,XIII/M86.53.md,"Autres ostéomyélites hématogènes chroniques - "" Avant-bras """,false,true,true,true,false,2247
-M86.54,XIII,XIII/M86.54.md,"Autres ostéomyélites hématogènes chroniques - "" Main """,false,true,true,true,false,2265
-M86.55,XIII,XIII/M86.55.md,"Autres ostéomyélites hématogènes chroniques - "" Région pelvienne et cuisse """,false,true,true,true,false,2335
-M86.56,XIII,XIII/M86.56.md,"Autres ostéomyélites hématogènes chroniques - "" Jambe """,false,true,true,true,false,2234
-M86.57,XIII,XIII/M86.57.md,"Autres ostéomyélites hématogènes chroniques - "" Cheville et pied """,false,true,true,true,false,2341
-M86.58,XIII,XIII/M86.58.md,"Autres ostéomyélites hématogènes chroniques - "" Autres """,false,true,true,true,false,2263
-M86.59,XIII,XIII/M86.59.md,"Autres ostéomyélites hématogènes chroniques - "" Siège non précisé """,false,false,true,true,false,2120
-M86.60,XIII,XIII/M86.60.md,"Autres ostéomyélites chroniques - "" Sièges multiples """,false,false,true,true,false,2107
-M86.61,XIII,XIII/M86.61.md,"Autres ostéomyélites chroniques - "" Région scapulaire """,false,true,true,true,false,2394
-M86.62,XIII,XIII/M86.62.md,"Autres ostéomyélites chroniques - "" Bras """,false,true,true,true,false,2209
-M86.63,XIII,XIII/M86.63.md,"Autres ostéomyélites chroniques - "" Avant-bras """,false,true,true,true,false,2235
-M86.64,XIII,XIII/M86.64.md,"Autres ostéomyélites chroniques - "" Main """,false,true,true,true,false,2253
-M86.65,XIII,XIII/M86.65.md,"Autres ostéomyélites chroniques - "" Région pelvienne et cuisse """,false,true,true,true,false,2323
-M86.66,XIII,XIII/M86.66.md,"Autres ostéomyélites chroniques - "" Jambe """,false,true,true,true,false,2222
-M86.67,XIII,XIII/M86.67.md,"Autres ostéomyélites chroniques - "" Cheville et pied """,false,true,true,true,false,2329
-M86.68,XIII,XIII/M86.68.md,"Autres ostéomyélites chroniques - "" Autres """,false,true,true,true,false,2251
-M86.69,XIII,XIII/M86.69.md,"Autres ostéomyélites chroniques - "" Siège non précisé """,false,false,true,true,false,2108
-M86.80,XIII,XIII/M86.80.md,"Autres ostéomyélites - "" Sièges multiples """,true,false,true,true,false,2190
-M86.81,XIII,XIII/M86.81.md,"Autres ostéomyélites - "" Région scapulaire """,true,true,true,true,false,2477
-M86.82,XIII,XIII/M86.82.md,"Autres ostéomyélites - "" Bras """,true,true,true,true,false,2292
-M86.83,XIII,XIII/M86.83.md,"Autres ostéomyélites - "" Avant-bras """,true,true,true,true,false,2318
-M86.84,XIII,XIII/M86.84.md,"Autres ostéomyélites - "" Main """,true,true,true,true,false,2336
-M86.85,XIII,XIII/M86.85.md,"Autres ostéomyélites - "" Région pelvienne et cuisse """,true,true,true,true,false,2406
-M86.86,XIII,XIII/M86.86.md,"Autres ostéomyélites - "" Jambe """,true,true,true,true,false,2305
-M86.87,XIII,XIII/M86.87.md,"Autres ostéomyélites - "" Cheville et pied """,true,true,true,true,false,2412
-M86.88,XIII,XIII/M86.88.md,"Autres ostéomyélites - "" Autres """,true,true,true,true,false,2334
-M86.89,XIII,XIII/M86.89.md,"Autres ostéomyélites - "" Siège non précisé """,true,false,true,true,false,2191
-M86.90,XIII,XIII/M86.90.md,"Ostéomyélite, sans précision - "" Sièges multiples """,true,false,true,true,false,2219
-M86.91,XIII,XIII/M86.91.md,"Ostéomyélite, sans précision - "" Région scapulaire """,true,true,true,true,false,2506
-M86.92,XIII,XIII/M86.92.md,"Ostéomyélite, sans précision - "" Bras """,true,true,true,true,false,2321
-M86.93,XIII,XIII/M86.93.md,"Ostéomyélite, sans précision - "" Avant-bras """,true,true,true,true,false,2347
-M86.94,XIII,XIII/M86.94.md,"Ostéomyélite, sans précision - "" Main """,true,true,true,true,false,2365
-M86.95,XIII,XIII/M86.95.md,"Ostéomyélite, sans précision - "" Région pelvienne et cuisse """,true,true,true,true,false,2435
-M86.96,XIII,XIII/M86.96.md,"Ostéomyélite, sans précision - "" Jambe """,true,true,true,true,false,2334
-M86.97,XIII,XIII/M86.97.md,"Ostéomyélite, sans précision - "" Cheville et pied """,true,true,true,true,false,2441
-M86.98,XIII,XIII/M86.98.md,"Ostéomyélite, sans précision - "" Autres """,true,true,true,true,false,2363
-M86.99,XIII,XIII/M86.99.md,"Ostéomyélite, sans précision - "" Siège non précisé """,true,false,true,true,false,2220
+M86.00,XIII,XIII/M86.00.md,"Ostéomyélite hématogène aigüe - "" Sièges multiples """,false,false,true,true,false,2509
+M86.01,XIII,XIII/M86.01.md,"Ostéomyélite hématogène aigüe - "" Région scapulaire """,false,true,true,true,false,2796
+M86.02,XIII,XIII/M86.02.md,"Ostéomyélite hématogène aigüe - "" Bras """,false,true,true,true,false,2611
+M86.03,XIII,XIII/M86.03.md,"Ostéomyélite hématogène aigüe - "" Avant-bras """,false,true,true,true,false,2637
+M86.04,XIII,XIII/M86.04.md,"Ostéomyélite hématogène aigüe - "" Main """,false,true,true,true,false,2655
+M86.05,XIII,XIII/M86.05.md,"Ostéomyélite hématogène aigüe - "" Région pelvienne et cuisse """,false,true,true,true,false,2725
+M86.06,XIII,XIII/M86.06.md,"Ostéomyélite hématogène aigüe - "" Jambe """,false,true,true,true,false,2624
+M86.07,XIII,XIII/M86.07.md,"Ostéomyélite hématogène aigüe - "" Cheville et pied """,false,true,true,true,false,2731
+M86.08,XIII,XIII/M86.08.md,"Ostéomyélite hématogène aigüe - "" Autres """,false,true,true,true,false,2653
+M86.09,XIII,XIII/M86.09.md,"Ostéomyélite hématogène aigüe - "" Siège non précisé """,false,false,true,true,false,2510
+M86.10,XIII,XIII/M86.10.md,"Autres ostéomyélites aigües - "" Sièges multiples """,false,false,true,true,false,2507
+M86.11,XIII,XIII/M86.11.md,"Autres ostéomyélites aigües - "" Région scapulaire """,false,true,true,true,false,2794
+M86.12,XIII,XIII/M86.12.md,"Autres ostéomyélites aigües - "" Bras """,false,true,true,true,false,2609
+M86.13,XIII,XIII/M86.13.md,"Autres ostéomyélites aigües - "" Avant-bras """,false,true,true,true,false,2635
+M86.14,XIII,XIII/M86.14.md,"Autres ostéomyélites aigües - "" Main """,false,true,true,true,false,2653
+M86.15,XIII,XIII/M86.15.md,"Autres ostéomyélites aigües - "" Région pelvienne et cuisse """,false,true,true,true,false,2723
+M86.16,XIII,XIII/M86.16.md,"Autres ostéomyélites aigües - "" Jambe """,false,true,true,true,false,2622
+M86.17,XIII,XIII/M86.17.md,"Autres ostéomyélites aigües - "" Cheville et pied """,false,true,true,true,false,2729
+M86.18,XIII,XIII/M86.18.md,"Autres ostéomyélites aigües - "" Autres """,false,true,true,true,false,2651
+M86.19,XIII,XIII/M86.19.md,"Autres ostéomyélites aigües - "" Siège non précisé """,false,false,true,true,false,2508
+M86.20,XIII,XIII/M86.20.md,"Ostéomyélite subaigüe - "" Sièges multiples """,false,false,true,true,false,2501
+M86.21,XIII,XIII/M86.21.md,"Ostéomyélite subaigüe - "" Région scapulaire """,false,true,true,true,false,2788
+M86.22,XIII,XIII/M86.22.md,"Ostéomyélite subaigüe - "" Bras """,false,true,true,true,false,2603
+M86.23,XIII,XIII/M86.23.md,"Ostéomyélite subaigüe - "" Avant-bras """,false,true,true,true,false,2629
+M86.24,XIII,XIII/M86.24.md,"Ostéomyélite subaigüe - "" Main """,false,true,true,true,false,2647
+M86.25,XIII,XIII/M86.25.md,"Ostéomyélite subaigüe - "" Région pelvienne et cuisse """,false,true,true,true,false,2717
+M86.26,XIII,XIII/M86.26.md,"Ostéomyélite subaigüe - "" Jambe """,false,true,true,true,false,2616
+M86.27,XIII,XIII/M86.27.md,"Ostéomyélite subaigüe - "" Cheville et pied """,false,true,true,true,false,2723
+M86.28,XIII,XIII/M86.28.md,"Ostéomyélite subaigüe - "" Autres """,false,true,true,true,false,2645
+M86.29,XIII,XIII/M86.29.md,"Ostéomyélite subaigüe - "" Siège non précisé """,false,false,true,true,false,2502
+M86.30,XIII,XIII/M86.30.md,"Ostéomyélite chronique multifocale - "" Sièges multiples """,false,false,true,true,false,2514
+M86.31,XIII,XIII/M86.31.md,"Ostéomyélite chronique multifocale - "" Région scapulaire """,false,true,true,true,false,2801
+M86.32,XIII,XIII/M86.32.md,"Ostéomyélite chronique multifocale - "" Bras """,false,true,true,true,false,2616
+M86.33,XIII,XIII/M86.33.md,"Ostéomyélite chronique multifocale - "" Avant-bras """,false,true,true,true,false,2642
+M86.34,XIII,XIII/M86.34.md,"Ostéomyélite chronique multifocale - "" Main """,false,true,true,true,false,2660
+M86.35,XIII,XIII/M86.35.md,"Ostéomyélite chronique multifocale - "" Région pelvienne et cuisse """,false,true,true,true,false,2730
+M86.36,XIII,XIII/M86.36.md,"Ostéomyélite chronique multifocale - "" Jambe """,false,true,true,true,false,2629
+M86.37,XIII,XIII/M86.37.md,"Ostéomyélite chronique multifocale - "" Cheville et pied """,false,true,true,true,false,2736
+M86.38,XIII,XIII/M86.38.md,"Ostéomyélite chronique multifocale - "" Autres """,false,true,true,true,false,2658
+M86.39,XIII,XIII/M86.39.md,"Ostéomyélite chronique multifocale - "" Siège non précisé """,false,false,true,true,false,2515
+M86.40,XIII,XIII/M86.40.md,"Ostéomyélite chronique avec fistule de drainage - "" Sièges multiples """,false,false,true,true,false,2527
+M86.41,XIII,XIII/M86.41.md,"Ostéomyélite chronique avec fistule de drainage - "" Région scapulaire """,false,true,true,true,false,2814
+M86.42,XIII,XIII/M86.42.md,"Ostéomyélite chronique avec fistule de drainage - "" Bras """,false,true,true,true,false,2629
+M86.43,XIII,XIII/M86.43.md,"Ostéomyélite chronique avec fistule de drainage - "" Avant-bras """,false,true,true,true,false,2655
+M86.44,XIII,XIII/M86.44.md,"Ostéomyélite chronique avec fistule de drainage - "" Main """,false,true,true,true,false,2673
+M86.45,XIII,XIII/M86.45.md,"Ostéomyélite chronique avec fistule de drainage - "" Région pelvienne et cuisse """,false,true,true,true,false,2743
+M86.46,XIII,XIII/M86.46.md,"Ostéomyélite chronique avec fistule de drainage - "" Jambe """,false,true,true,true,false,2642
+M86.47,XIII,XIII/M86.47.md,"Ostéomyélite chronique avec fistule de drainage - "" Cheville et pied """,false,true,true,true,false,2749
+M86.48,XIII,XIII/M86.48.md,"Ostéomyélite chronique avec fistule de drainage - "" Autres """,false,true,true,true,false,2671
+M86.49,XIII,XIII/M86.49.md,"Ostéomyélite chronique avec fistule de drainage - "" Siège non précisé """,false,false,true,true,false,2528
+M86.50,XIII,XIII/M86.50.md,"Autres ostéomyélites hématogènes chroniques - "" Sièges multiples """,false,false,true,true,false,2523
+M86.51,XIII,XIII/M86.51.md,"Autres ostéomyélites hématogènes chroniques - "" Région scapulaire """,false,true,true,true,false,2810
+M86.52,XIII,XIII/M86.52.md,"Autres ostéomyélites hématogènes chroniques - "" Bras """,false,true,true,true,false,2625
+M86.53,XIII,XIII/M86.53.md,"Autres ostéomyélites hématogènes chroniques - "" Avant-bras """,false,true,true,true,false,2651
+M86.54,XIII,XIII/M86.54.md,"Autres ostéomyélites hématogènes chroniques - "" Main """,false,true,true,true,false,2669
+M86.55,XIII,XIII/M86.55.md,"Autres ostéomyélites hématogènes chroniques - "" Région pelvienne et cuisse """,false,true,true,true,false,2739
+M86.56,XIII,XIII/M86.56.md,"Autres ostéomyélites hématogènes chroniques - "" Jambe """,false,true,true,true,false,2638
+M86.57,XIII,XIII/M86.57.md,"Autres ostéomyélites hématogènes chroniques - "" Cheville et pied """,false,true,true,true,false,2745
+M86.58,XIII,XIII/M86.58.md,"Autres ostéomyélites hématogènes chroniques - "" Autres """,false,true,true,true,false,2667
+M86.59,XIII,XIII/M86.59.md,"Autres ostéomyélites hématogènes chroniques - "" Siège non précisé """,false,false,true,true,false,2524
+M86.60,XIII,XIII/M86.60.md,"Autres ostéomyélites chroniques - "" Sièges multiples """,false,false,true,true,false,2511
+M86.61,XIII,XIII/M86.61.md,"Autres ostéomyélites chroniques - "" Région scapulaire """,false,true,true,true,false,2798
+M86.62,XIII,XIII/M86.62.md,"Autres ostéomyélites chroniques - "" Bras """,false,true,true,true,false,2613
+M86.63,XIII,XIII/M86.63.md,"Autres ostéomyélites chroniques - "" Avant-bras """,false,true,true,true,false,2639
+M86.64,XIII,XIII/M86.64.md,"Autres ostéomyélites chroniques - "" Main """,false,true,true,true,false,2657
+M86.65,XIII,XIII/M86.65.md,"Autres ostéomyélites chroniques - "" Région pelvienne et cuisse """,false,true,true,true,false,2727
+M86.66,XIII,XIII/M86.66.md,"Autres ostéomyélites chroniques - "" Jambe """,false,true,true,true,false,2626
+M86.67,XIII,XIII/M86.67.md,"Autres ostéomyélites chroniques - "" Cheville et pied """,false,true,true,true,false,2733
+M86.68,XIII,XIII/M86.68.md,"Autres ostéomyélites chroniques - "" Autres """,false,true,true,true,false,2655
+M86.69,XIII,XIII/M86.69.md,"Autres ostéomyélites chroniques - "" Siège non précisé """,false,false,true,true,false,2512
+M86.80,XIII,XIII/M86.80.md,"Autres ostéomyélites - "" Sièges multiples """,true,false,true,true,false,2594
+M86.81,XIII,XIII/M86.81.md,"Autres ostéomyélites - "" Région scapulaire """,true,true,true,true,false,2881
+M86.82,XIII,XIII/M86.82.md,"Autres ostéomyélites - "" Bras """,true,true,true,true,false,2696
+M86.83,XIII,XIII/M86.83.md,"Autres ostéomyélites - "" Avant-bras """,true,true,true,true,false,2722
+M86.84,XIII,XIII/M86.84.md,"Autres ostéomyélites - "" Main """,true,true,true,true,false,2740
+M86.85,XIII,XIII/M86.85.md,"Autres ostéomyélites - "" Région pelvienne et cuisse """,true,true,true,true,false,2810
+M86.86,XIII,XIII/M86.86.md,"Autres ostéomyélites - "" Jambe """,true,true,true,true,false,2709
+M86.87,XIII,XIII/M86.87.md,"Autres ostéomyélites - "" Cheville et pied """,true,true,true,true,false,2816
+M86.88,XIII,XIII/M86.88.md,"Autres ostéomyélites - "" Autres """,true,true,true,true,false,2738
+M86.89,XIII,XIII/M86.89.md,"Autres ostéomyélites - "" Siège non précisé """,true,false,true,true,false,2595
+M86.90,XIII,XIII/M86.90.md,"Ostéomyélite, sans précision - "" Sièges multiples """,true,false,true,true,false,2623
+M86.91,XIII,XIII/M86.91.md,"Ostéomyélite, sans précision - "" Région scapulaire """,true,true,true,true,false,2910
+M86.92,XIII,XIII/M86.92.md,"Ostéomyélite, sans précision - "" Bras """,true,true,true,true,false,2725
+M86.93,XIII,XIII/M86.93.md,"Ostéomyélite, sans précision - "" Avant-bras """,true,true,true,true,false,2751
+M86.94,XIII,XIII/M86.94.md,"Ostéomyélite, sans précision - "" Main """,true,true,true,true,false,2769
+M86.95,XIII,XIII/M86.95.md,"Ostéomyélite, sans précision - "" Région pelvienne et cuisse """,true,true,true,true,false,2839
+M86.96,XIII,XIII/M86.96.md,"Ostéomyélite, sans précision - "" Jambe """,true,true,true,true,false,2738
+M86.97,XIII,XIII/M86.97.md,"Ostéomyélite, sans précision - "" Cheville et pied """,true,true,true,true,false,2845
+M86.98,XIII,XIII/M86.98.md,"Ostéomyélite, sans précision - "" Autres """,true,true,true,true,false,2767
+M86.99,XIII,XIII/M86.99.md,"Ostéomyélite, sans précision - "" Siège non précisé """,true,false,true,true,false,2624
 M87.00,XIII,XIII/M87.00.md,"Ostéonécrose aseptique idiopathique - "" Sièges multiples """,true,false,true,false,false,1504
 M87.01,XIII,XIII/M87.01.md,"Ostéonécrose aseptique idiopathique - "" Région scapulaire """,true,true,true,false,false,1791
 M87.02,XIII,XIII/M87.02.md,"Ostéonécrose aseptique idiopathique - "" Bras """,true,true,true,false,false,1606
@@ -10331,7 +10331,7 @@ N08.3,XIV,XIV/N08.3.md,Glomérulopathie au cours du diabète sucré ( avec le qu
 N08.4,XIV,XIV/N08.4.md,"Glomérulopathie au cours d'autres maladies endocriniennes, nutritionnelles et métaboliques",true,false,true,false,true,1769
 N08.5,XIV,XIV/N08.5.md,Glomérulopathie au cours d'affections disséminées du tissu conjonctif,true,false,true,false,true,1923
 N08.8,XIV,XIV/N08.8.md,Glomérulopathie au cours d'autres maladies classées ailleurs,true,false,true,false,true,2184
-N10,XIV,XIV/N10.md,Néphrite tubulo-interstitielle aigüe,true,false,true,false,true,1663
+N10,XIV,XIV/N10.md,Néphrite tubulo-interstitielle aigüe,true,false,true,true,true,2169
 N11.0,XIV,XIV/N11.0.md,Pyélonéphrite non obstructive chronique associée à un reflux,true,false,true,false,true,1623
 N11.1,XIV,XIV/N11.1.md,Pyélonéphrite obstructive chronique,true,false,true,false,true,2364
 N11.8,XIV,XIV/N11.8.md,Autres néphrites tubulo-interstitielles chroniques,true,false,true,false,true,1636
@@ -11053,29 +11053,29 @@ O80.0,XV,XV/O80.0.md,Accouchement spontané par présentation du sommet,true,fal
 O80.1,XV,XV/O80.1.md,Accouchement spontané par présentation du siège,true,false,true,false,false,1155
 O80.8,XV,XV/O80.8.md,Autres accouchements uniques et spontanés,true,false,true,false,false,1311
 O80.9,XV,XV/O80.9.md,"Accouchement unique et spontané, sans précision",true,false,true,false,true,1315
-O81.0,XV,XV/O81.0.md,Accouchement par forceps bas,false,false,true,false,true,1057
-O81.1,XV,XV/O81.1.md,Accouchement par forceps (moyen) à la partie moyenne de l'excavation,false,false,true,false,false,1018
-O81.2,XV,XV/O81.2.md,"Accouchement par forceps (moyen) à la partie moyenne de l'excavation, avec rotation",false,false,true,false,false,1033
-O81.3,XV,XV/O81.3.md,"Accouchements par forceps, autres et sans précision",false,false,true,false,false,1001
-O81.4,XV,XV/O81.4.md,Accouchement par extraction pneumatique,true,false,true,false,true,1130
-O81.5,XV,XV/O81.5.md,Accouchement par association d'un forceps et d'une ventouse,true,false,true,false,false,1100
-O82.0,XV,XV/O82.0.md,Accouchement par césarienne programmée,true,false,true,false,false,935
-O82.1,XV,XV/O82.1.md,Accouchement par césarienne d'urgence,false,false,true,false,false,857
-O82.2,XV,XV/O82.2.md,Accouchement par césarienne avec hystérectomie,false,false,true,false,false,866
-O82.8,XV,XV/O82.8.md,Autres accouchements uniques par césarienne,false,false,true,false,true,1134
-O82.9,XV,XV/O82.9.md,"Accouchement par césarienne, sans précision",false,false,true,false,true,963
-O83.0,XV,XV/O83.0.md,Extraction par le siège,false,false,true,false,false,843
-O83.1,XV,XV/O83.1.md,Autres accouchements par le siège avec assistance,true,false,true,false,false,953
-O83.2,XV,XV/O83.2.md,Autres accouchements avec l'aide de manipulations,true,false,true,false,true,1026
-O83.3,XV,XV/O83.3.md,Accouchement d'un fœtus viable après grossesse abdominale,false,false,true,false,true,972
-O83.4,XV,XV/O83.4.md,Intervention destructrice lors d'un accouchement,true,false,true,false,true,1180
-O83.8,XV,XV/O83.8.md,"Autres accouchements uniques précisés, avec assistance",false,false,true,false,false,1206
-O83.9,XV,XV/O83.9.md,"Accouchement unique avec assistance, sans précision",true,false,true,false,true,1029
-O84.0,XV,XV/O84.0.md,"Accouchements multiples, tous spontanés",false,false,true,false,false,859
-O84.1,XV,XV/O84.1.md,"Accouchements multiples, tous avec forceps et ventouse",false,false,true,false,false,874
-O84.2,XV,XV/O84.2.md,"Accouchements multiples, tous par césarienne",false,false,true,false,false,864
-O84.8,XV,XV/O84.8.md,Autres accouchements multiples,true,false,true,false,false,1173
-O84.9,XV,XV/O84.9.md,"Accouchements multiples, sans précision",false,false,true,false,true,924
+O81.0,XV,XV/O81.0.md,Accouchement par forceps bas,false,false,true,true,true,1492
+O81.1,XV,XV/O81.1.md,Accouchement par forceps (moyen) à la partie moyenne de l'excavation,false,false,true,true,false,1453
+O81.2,XV,XV/O81.2.md,"Accouchement par forceps (moyen) à la partie moyenne de l'excavation, avec rotation",false,false,true,true,false,1468
+O81.3,XV,XV/O81.3.md,"Accouchements par forceps, autres et sans précision",false,false,true,true,false,1436
+O81.4,XV,XV/O81.4.md,Accouchement par extraction pneumatique,true,false,true,true,true,1565
+O81.5,XV,XV/O81.5.md,Accouchement par association d'un forceps et d'une ventouse,true,false,true,true,false,1535
+O82.0,XV,XV/O82.0.md,Accouchement par césarienne programmée,true,false,true,true,false,1370
+O82.1,XV,XV/O82.1.md,Accouchement par césarienne d'urgence,false,false,true,true,false,1292
+O82.2,XV,XV/O82.2.md,Accouchement par césarienne avec hystérectomie,false,false,true,true,false,1301
+O82.8,XV,XV/O82.8.md,Autres accouchements uniques par césarienne,false,false,true,true,true,1569
+O82.9,XV,XV/O82.9.md,"Accouchement par césarienne, sans précision",false,false,true,true,true,1398
+O83.0,XV,XV/O83.0.md,Extraction par le siège,false,false,true,true,false,1278
+O83.1,XV,XV/O83.1.md,Autres accouchements par le siège avec assistance,true,false,true,true,false,1388
+O83.2,XV,XV/O83.2.md,Autres accouchements avec l'aide de manipulations,true,false,true,true,true,1461
+O83.3,XV,XV/O83.3.md,Accouchement d'un fœtus viable après grossesse abdominale,false,false,true,true,true,1407
+O83.4,XV,XV/O83.4.md,Intervention destructrice lors d'un accouchement,true,false,true,true,true,1615
+O83.8,XV,XV/O83.8.md,"Autres accouchements uniques précisés, avec assistance",false,false,true,true,false,1641
+O83.9,XV,XV/O83.9.md,"Accouchement unique avec assistance, sans précision",true,false,true,true,true,1464
+O84.0,XV,XV/O84.0.md,"Accouchements multiples, tous spontanés",false,false,true,true,false,1294
+O84.1,XV,XV/O84.1.md,"Accouchements multiples, tous avec forceps et ventouse",false,false,true,true,false,1309
+O84.2,XV,XV/O84.2.md,"Accouchements multiples, tous par césarienne",false,false,true,true,false,1299
+O84.8,XV,XV/O84.8.md,Autres accouchements multiples,true,false,true,true,false,1608
+O84.9,XV,XV/O84.9.md,"Accouchements multiples, sans précision",false,false,true,true,true,1359
 O85,XV,XV/O85.md,Sepsis puerpéral,true,false,true,false,true,1482
 O86.0,XV,XV/O86.0.md,Infection d'une plaie d'origine obstétricale chirurgicale,true,false,true,true,true,1991
 O86.1,XV,XV/O86.1.md,"Autres infections des voies génitales, après accouchement",true,false,true,false,true,1397
@@ -11149,54 +11149,54 @@ O99.5,XV,XV/O99.5.md,"Maladies de l'appareil respiratoire compliquant la grosses
 O99.6,XV,XV/O99.6.md,"Maladies de l'appareil digestif compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,false,1550
 O99.7,XV,XV/O99.7.md,"Maladies de la peau et du tissu cellulaire souscutané compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1622
 O99.8,XV,XV/O99.8.md,"Autres maladies et affections précisées compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,3223
-P00.0,XVI,XVI/P00.0.md,Fœtus et nouveau-né affectés par des troubles hypertensifs de la mère,true,false,true,false,true,2028
-P00.1,XVI,XVI/P00.1.md,Fœtus et nouveau-né affectés par des maladies rénales et des voies urinaires de la mère,true,false,true,false,true,2167
-P00.2,XVI,XVI/P00.2.md,Fœtus et nouveau-né affectés par des maladies infectieuses et parasitaires de la mère,true,false,true,false,true,2371
-P00.3,XVI,XVI/P00.3.md,Fœtus et nouveau-né affectés par d'autres maladies circulatoires et respiratoires de la mère,true,false,true,false,true,2218
-P00.4,XVI,XVI/P00.4.md,Fœtus et nouveau-né affectés par des troubles nutritionnels de la mère,true,false,true,false,true,1841
-P00.5,XVI,XVI/P00.5.md,Fœtus et nouveau-né affectés par un traumatisme de la mère,true,false,true,false,true,1948
-P00.6,XVI,XVI/P00.6.md,Fœtus et nouveau-né affectés par une intervention chirurgicale chez la mère,true,false,true,false,true,1991
-P00.7,XVI,XVI/P00.7.md,"Fœtus et nouveau-né affectés par d'autres interventions médicales chez la mère, non classées ailleurs",true,false,true,false,true,2209
-P00.8,XVI,XVI/P00.8.md,Fœtus et nouveau-né affectés par d'autres affections maternelles,true,false,true,false,true,3103
-P00.9,XVI,XVI/P00.9.md,"Fœtus et nouveau-né affectés par une affection maternelle, sans précision",true,false,true,false,true,1692
-P01.0,XVI,XVI/P01.0.md,Fœtus et nouveau-né affectés par la béance du col,true,false,true,false,true,1537
-P01.1,XVI,XVI/P01.1.md,Fœtus et nouveau-né affectés par la rupture prématurée des membranes,true,false,true,false,true,1653
-P01.2,XVI,XVI/P01.2.md,Fœtus et nouveau-né affectés par un oligoamnios,true,false,true,false,true,1516
-P01.3,XVI,XVI/P01.3.md,Fœtus et nouveau-né affectés par un hydramnios,true,false,true,false,true,1466
-P01.4,XVI,XVI/P01.4.md,Fœtus et nouveau-né affectés par une grossesse extra-utérine,true,false,true,false,false,1364
-P01.5,XVI,XVI/P01.5.md,Fœtus et nouveau-né affectés par une grossesse multiple,true,false,true,false,true,1764
-P01.6,XVI,XVI/P01.6.md,Fœtus et nouveau-né affectés par la mort de la mère,true,false,true,false,true,1380
-P01.7,XVI,XVI/P01.7.md,Fœtus et nouveau-né affectés par une présentation anormale avant le travail,true,false,true,false,false,1561
-P01.8,XVI,XVI/P01.8.md,Fœtus et nouveau-né affectés par d'autres complications de la grossesse chez la mère,true,false,true,false,true,2245
-P01.9,XVI,XVI/P01.9.md,"Fœtus et nouveau-né affectés par une complication de la grossesse chez la mère, sans précision",true,false,true,false,true,1456
-P02.0,XVI,XVI/P02.0.md,Fœtus et nouveau-né affectés par placenta prævia,true,false,true,false,true,1554
-P02.1,XVI,XVI/P02.1.md,Fœtus et nouveau-né affectés par d'autres formes de décollement et d'hémorragie placentaires,true,false,true,false,true,1924
-P02.2,XVI,XVI/P02.2.md,"Fœtus et nouveau-né affectés par des anomalies morphologiques et fonctionnelles du placenta, autres et sans précision",true,false,true,false,true,1821
-P02.3,XVI,XVI/P02.3.md,Fœtus et nouveau-né affectés par des syndromes de transfusion placentaire,true,false,true,false,true,1884
-P02.4,XVI,XVI/P02.4.md,Fœtus et nouveau-né affectés par une procidence du cordon ombilical,true,false,true,false,true,1605
-P02.5,XVI,XVI/P02.5.md,Fœtus et nouveau-né affectés par d'autres formes de compression du cordon ombilical,true,false,true,false,true,2001
-P02.6,XVI,XVI/P02.6.md,"Fœtus et nouveau-né affectés par des affections du cordon ombilical, autres et sans précision",true,false,true,false,true,1832
-P02.7,XVI,XVI/P02.7.md,Fœtus et nouveau-né affectés par une chorioamniotite,true,false,true,false,true,1874
-P02.8,XVI,XVI/P02.8.md,Fœtus et nouveau-né affectés par d'autres anomalies des membranes,true,false,true,false,true,2284
-P02.9,XVI,XVI/P02.9.md,"Fœtus et nouveau-né affectés par une anomalie des membranes, sans précision",true,false,true,false,false,1335
-P03.0,XVI,XVI/P03.0.md,Fœtus et nouveau-né affectés par un accouchement et une extraction par le siège,true,false,true,false,true,1623
-P03.1,XVI,XVI/P03.1.md,Fœtus et nouveau-né affectés par d'autres présentations et positions vicieuses du fœtus et disproportions fœtopelviennes au cours du travail et de l'accouchement,true,false,true,false,true,2027
-P03.2,XVI,XVI/P03.2.md,Fœtus et nouveau-né affectés par un accouchement par forceps,true,false,true,false,true,1483
-P03.3,XVI,XVI/P03.3.md,Fœtus et nouveau-né affectés par un accouchement par extracteur pneumatique [ventouse],true,false,true,false,true,1504
-P03.4,XVI,XVI/P03.4.md,Fœtus et nouveau-né affectés par un accouchement par césarienne,true,false,true,false,true,1535
-P03.5,XVI,XVI/P03.5.md,Fœtus et nouveau-né affectés par un accouchement précipité,true,false,true,false,true,1628
-P03.6,XVI,XVI/P03.6.md,Fœtus et nouveau-né affectés par des contractions anormales de l'utérus,true,false,true,false,true,1606
-P03.8,XVI,XVI/P03.8.md,Fœtus et nouveau-né affectés par d'autres complications précisées du travail et de l'accouchement,true,false,true,false,true,2883
-P03.9,XVI,XVI/P03.9.md,"Fœtus et nouveau-né affectés par une complication du travail et de l'accouchement, sans précision",true,false,true,false,true,1571
-P04.0,XVI,XVI/P04.0.md,"Fœtus et nouveau-né affectés par une anesthésie et par une analgésie de la mère, au cours de la grossesse, du travail et de l'accouchement",true,false,true,false,true,1955
-P04.1,XVI,XVI/P04.1.md,Fœtus et nouveau-né affectés par d'autres médicaments absorbés par la mère,true,false,true,false,true,2250
-P04.2,XVI,XVI/P04.2.md,Fœtus et nouveau-né affectés par le tabagisme de la mère,true,false,true,false,true,1699
-P04.3,XVI,XVI/P04.3.md,Fœtus et nouveau-né affectés par l'alcoolisme de la mère,true,false,true,false,true,1932
-P04.4,XVI,XVI/P04.4.md,Fœtus et nouveau-né affectés par la toxicomanie de la mère,true,false,true,false,true,1958
-P04.5,XVI,XVI/P04.5.md,Fœtus et nouveau-né affectés par une utilisation par la mère de substances chimiques nutritionnelles,true,false,true,false,false,1665
-P04.6,XVI,XVI/P04.6.md,Fœtus et nouveau-né affectés par l'exposition de la mère à des substances chimiques de l'environnement,true,false,true,false,false,1667
-P04.8,XVI,XVI/P04.8.md,Fœtus et nouveau-né affectés par d'autres effets nocifs maternels,true,false,true,false,true,2455
-P04.9,XVI,XVI/P04.9.md,"Fœtus et nouveau-né affectés par un effet nocif maternel, sans précision",true,false,true,false,true,1698
+P00.0,XVI,XVI/P00.0.md,Fœtus et nouveau-né affectés par des troubles hypertensifs de la mère,true,false,true,true,true,2743
+P00.1,XVI,XVI/P00.1.md,Fœtus et nouveau-né affectés par des maladies rénales et des voies urinaires de la mère,true,false,true,true,true,2882
+P00.2,XVI,XVI/P00.2.md,Fœtus et nouveau-né affectés par des maladies infectieuses et parasitaires de la mère,true,false,true,true,true,3086
+P00.3,XVI,XVI/P00.3.md,Fœtus et nouveau-né affectés par d'autres maladies circulatoires et respiratoires de la mère,true,false,true,true,true,2933
+P00.4,XVI,XVI/P00.4.md,Fœtus et nouveau-né affectés par des troubles nutritionnels de la mère,true,false,true,true,true,2556
+P00.5,XVI,XVI/P00.5.md,Fœtus et nouveau-né affectés par un traumatisme de la mère,true,false,true,true,true,2663
+P00.6,XVI,XVI/P00.6.md,Fœtus et nouveau-né affectés par une intervention chirurgicale chez la mère,true,false,true,true,true,2706
+P00.7,XVI,XVI/P00.7.md,"Fœtus et nouveau-né affectés par d'autres interventions médicales chez la mère, non classées ailleurs",true,false,true,true,true,2924
+P00.8,XVI,XVI/P00.8.md,Fœtus et nouveau-né affectés par d'autres affections maternelles,true,false,true,true,true,3818
+P00.9,XVI,XVI/P00.9.md,"Fœtus et nouveau-né affectés par une affection maternelle, sans précision",true,false,true,true,true,2407
+P01.0,XVI,XVI/P01.0.md,Fœtus et nouveau-né affectés par la béance du col,true,false,true,true,true,2252
+P01.1,XVI,XVI/P01.1.md,Fœtus et nouveau-né affectés par la rupture prématurée des membranes,true,false,true,true,true,2368
+P01.2,XVI,XVI/P01.2.md,Fœtus et nouveau-né affectés par un oligoamnios,true,false,true,true,true,2231
+P01.3,XVI,XVI/P01.3.md,Fœtus et nouveau-né affectés par un hydramnios,true,false,true,true,true,2181
+P01.4,XVI,XVI/P01.4.md,Fœtus et nouveau-né affectés par une grossesse extra-utérine,true,false,true,true,false,2079
+P01.5,XVI,XVI/P01.5.md,Fœtus et nouveau-né affectés par une grossesse multiple,true,false,true,true,true,2479
+P01.6,XVI,XVI/P01.6.md,Fœtus et nouveau-né affectés par la mort de la mère,true,false,true,true,true,2095
+P01.7,XVI,XVI/P01.7.md,Fœtus et nouveau-né affectés par une présentation anormale avant le travail,true,false,true,true,false,2276
+P01.8,XVI,XVI/P01.8.md,Fœtus et nouveau-né affectés par d'autres complications de la grossesse chez la mère,true,false,true,true,true,2960
+P01.9,XVI,XVI/P01.9.md,"Fœtus et nouveau-né affectés par une complication de la grossesse chez la mère, sans précision",true,false,true,true,true,2171
+P02.0,XVI,XVI/P02.0.md,Fœtus et nouveau-né affectés par placenta prævia,true,false,true,true,true,2269
+P02.1,XVI,XVI/P02.1.md,Fœtus et nouveau-né affectés par d'autres formes de décollement et d'hémorragie placentaires,true,false,true,true,true,2639
+P02.2,XVI,XVI/P02.2.md,"Fœtus et nouveau-né affectés par des anomalies morphologiques et fonctionnelles du placenta, autres et sans précision",true,false,true,true,true,2536
+P02.3,XVI,XVI/P02.3.md,Fœtus et nouveau-né affectés par des syndromes de transfusion placentaire,true,false,true,true,true,2599
+P02.4,XVI,XVI/P02.4.md,Fœtus et nouveau-né affectés par une procidence du cordon ombilical,true,false,true,true,true,2320
+P02.5,XVI,XVI/P02.5.md,Fœtus et nouveau-né affectés par d'autres formes de compression du cordon ombilical,true,false,true,true,true,2716
+P02.6,XVI,XVI/P02.6.md,"Fœtus et nouveau-né affectés par des affections du cordon ombilical, autres et sans précision",true,false,true,true,true,2547
+P02.7,XVI,XVI/P02.7.md,Fœtus et nouveau-né affectés par une chorioamniotite,true,false,true,true,true,2589
+P02.8,XVI,XVI/P02.8.md,Fœtus et nouveau-né affectés par d'autres anomalies des membranes,true,false,true,true,true,2999
+P02.9,XVI,XVI/P02.9.md,"Fœtus et nouveau-né affectés par une anomalie des membranes, sans précision",true,false,true,true,false,2050
+P03.0,XVI,XVI/P03.0.md,Fœtus et nouveau-né affectés par un accouchement et une extraction par le siège,true,false,true,true,true,2338
+P03.1,XVI,XVI/P03.1.md,Fœtus et nouveau-né affectés par d'autres présentations et positions vicieuses du fœtus et disproportions fœtopelviennes au cours du travail et de l'accouchement,true,false,true,true,true,2742
+P03.2,XVI,XVI/P03.2.md,Fœtus et nouveau-né affectés par un accouchement par forceps,true,false,true,true,true,2198
+P03.3,XVI,XVI/P03.3.md,Fœtus et nouveau-né affectés par un accouchement par extracteur pneumatique [ventouse],true,false,true,true,true,2219
+P03.4,XVI,XVI/P03.4.md,Fœtus et nouveau-né affectés par un accouchement par césarienne,true,false,true,true,true,2250
+P03.5,XVI,XVI/P03.5.md,Fœtus et nouveau-né affectés par un accouchement précipité,true,false,true,true,true,2343
+P03.6,XVI,XVI/P03.6.md,Fœtus et nouveau-né affectés par des contractions anormales de l'utérus,true,false,true,true,true,2321
+P03.8,XVI,XVI/P03.8.md,Fœtus et nouveau-né affectés par d'autres complications précisées du travail et de l'accouchement,true,false,true,true,true,3598
+P03.9,XVI,XVI/P03.9.md,"Fœtus et nouveau-né affectés par une complication du travail et de l'accouchement, sans précision",true,false,true,true,true,2286
+P04.0,XVI,XVI/P04.0.md,"Fœtus et nouveau-né affectés par une anesthésie et par une analgésie de la mère, au cours de la grossesse, du travail et de l'accouchement",true,false,true,true,true,2670
+P04.1,XVI,XVI/P04.1.md,Fœtus et nouveau-né affectés par d'autres médicaments absorbés par la mère,true,false,true,true,true,2965
+P04.2,XVI,XVI/P04.2.md,Fœtus et nouveau-né affectés par le tabagisme de la mère,true,false,true,true,true,2414
+P04.3,XVI,XVI/P04.3.md,Fœtus et nouveau-né affectés par l'alcoolisme de la mère,true,false,true,true,true,2647
+P04.4,XVI,XVI/P04.4.md,Fœtus et nouveau-né affectés par la toxicomanie de la mère,true,false,true,true,true,2673
+P04.5,XVI,XVI/P04.5.md,Fœtus et nouveau-né affectés par une utilisation par la mère de substances chimiques nutritionnelles,true,false,true,true,false,2380
+P04.6,XVI,XVI/P04.6.md,Fœtus et nouveau-né affectés par l'exposition de la mère à des substances chimiques de l'environnement,true,false,true,true,false,2382
+P04.8,XVI,XVI/P04.8.md,Fœtus et nouveau-né affectés par d'autres effets nocifs maternels,true,false,true,true,true,3170
+P04.9,XVI,XVI/P04.9.md,"Fœtus et nouveau-né affectés par un effet nocif maternel, sans précision",true,false,true,true,true,2413
 P05.0,XVI,XVI/P05.0.md,Faible poids pour l'âge gestationnel,true,false,true,false,true,1159
 P05.1,XVI,XVI/P05.1.md,Petite taille pour l'âge gestationnel,true,false,true,false,true,1216
 P05.2,XVI,XVI/P05.2.md,"Malnutrition du fœtus, sans mention de léger ou petit pour l'âge gestationnel",true,false,true,false,false,1318
@@ -11486,10 +11486,10 @@ P94.1,XVI,XVI/P94.1.md,Hypertonie congénitale,true,false,true,false,false,877
 P94.2,XVI,XVI/P94.2.md,Hypotonie congénitale,true,false,true,false,true,1236
 P94.8,XVI,XVI/P94.8.md,Autres anomalies du tonus musculaire du nouveau-né,true,false,true,false,true,1232
 P94.9,XVI,XVI/P94.9.md,"Anomalie du tonus musculaire du nouveau-né, sans précision",true,false,true,false,false,913
-P95.+0,XVI,XVI/P95.+0.md,Mort fœtale in utero ou perpartum suite à une interruption médicale de grossesse,true,false,true,false,false,937
-P95.+1,XVI,XVI/P95.+1.md,Mort fœtale in utero en dehors d'une interruption médicale de grossesse,true,false,true,false,false,928
-P95.+2,XVI,XVI/P95.+2.md,Mort fœtale perpartum en dehors d'une interruption médicale de grossesse,true,false,true,false,false,1057
-P95.+8,XVI,XVI/P95.+8.md,Mort fœtale sans précision en dehors d'une interruption médicale de grossesse,true,false,true,false,false,934
+P95.+0,XVI,XVI/P95.+0.md,Mort fœtale in utero ou perpartum suite à une interruption médicale de grossesse,true,false,true,true,false,1335
+P95.+1,XVI,XVI/P95.+1.md,Mort fœtale in utero en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1326
+P95.+2,XVI,XVI/P95.+2.md,Mort fœtale perpartum en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1455
+P95.+8,XVI,XVI/P95.+8.md,Mort fœtale sans précision en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1332
 P96.0,XVI,XVI/P96.0.md,Insuffisance rénale congénitale,true,false,true,false,true,1271
 P96.1,XVI,XVI/P96.1.md,Symptômes de sevrage du nouveau-né dus à la toxicomanie de la mère,true,false,true,false,true,1276
 P96.2,XVI,XVI/P96.2.md,Symptômes de sevrage après utilisation thérapeutique de médicaments chez le nouveau-né,true,false,true,false,true,1025
@@ -12119,7 +12119,7 @@ Q99.2,XVII,XVII/Q99.2.md,Chromosome X fragile,true,false,true,false,true,604
 Q99.8,XVII,XVII/Q99.8.md,Autres anomalies précisées des chromosomes,false,false,true,false,true,924
 Q99.9,XVII,XVII/Q99.9.md,"Anomalie chromosomique, sans précision",false,false,true,false,true,800
 R00.0,XVIII,XVIII/R00.0.md,"Tachycardie, sans précision",true,false,true,false,true,1163
-R00.1,XVIII,XVIII/R00.1.md,"Bradycardie, sans précision",true,false,true,false,true,1142
+R00.1,XVIII,XVIII/R00.1.md,"Bradycardie, sans précision",true,false,true,true,true,1592
 R00.2,XVIII,XVIII/R00.2.md,Palpitations,true,false,true,false,true,961
 R00.3,XVIII,XVIII/R00.3.md,"Activité électrique sans pouls, non classée ailleurs",true,false,true,false,false,942
 R00.8,XVIII,XVIII/R00.8.md,"Anomalies du rythme cardiaque, autres et non précisées",false,false,true,false,true,1079
@@ -12169,7 +12169,7 @@ R16.1,XVIII,XVIII/R16.1.md,"Splénomégalie, non classée ailleurs",true,false,t
 R16.2,XVIII,XVIII/R16.2.md,"Hépatomégalie avec splénomégalie, non classées ailleurs",true,false,true,false,true,1288
 R17.0,XVIII,XVIII/R17.0.md,"Hyperbilirubinémie, avec mention d'ictère, non classée ailleurs",true,false,true,false,false,1186
 R17.9,XVIII,XVIII/R17.9.md,"Hyperbilirubinémie, sans mention d'ictère, non classée ailleurs",true,false,true,false,false,1169
-R18,XVIII,XVIII/R18.md,Ascite,true,false,true,false,true,1403
+R18,XVIII,XVIII/R18.md,Ascite,true,false,true,true,true,1909
 R19.0,XVIII,XVIII/R19.0.md,Tuméfaction et masse intraabdominales et pelviennes,true,false,true,false,true,1823
 R19.1,XVIII,XVIII/R19.1.md,Bruits abdominaux anormaux,true,false,true,false,true,1307
 R19.2,XVIII,XVIII/R19.2.md,Péristaltisme apparent,true,false,true,false,true,1251
@@ -12205,7 +12205,7 @@ R25.8,XVIII,XVIII/R25.8.md,"Mouvements involontaires anormaux, autres et non pr�
 R26.0,XVIII,XVIII/R26.0.md,Démarche ataxique,true,false,true,true,true,1226
 R26.1,XVIII,XVIII/R26.1.md,Démarche paralytique,true,false,true,true,false,1095
 R26.2,XVIII,XVIII/R26.2.md,"Difficulté à la marche, non classée ailleurs",false,false,true,true,true,1346
-R26.30,XVIII,XVIII/R26.30.md,État grabataire,true,false,true,true,false,1128
+R26.30,XVIII,XVIII/R26.30.md,État grabataire,true,false,true,true,false,1862
 R26.38,XVIII,XVIII/R26.38.md,"Immobilité, autre et sans précision",true,false,true,true,false,1148
 R26.8,XVIII,XVIII/R26.8.md,"Anomalies de la démarche et de la motilité, autres et non précisées",true,false,true,true,true,1676
 R27.0,XVIII,XVIII/R27.0.md,"Ataxie, sans précision",false,false,true,false,true,785
@@ -12230,11 +12230,11 @@ R39.0,XVIII,XVIII/R39.0.md,Extravasation d'urine,false,false,true,false,true,695
 R39.1,XVIII,XVIII/R39.1.md,Autres troubles de la miction,true,false,true,false,true,944
 R39.2,XVIII,XVIII/R39.2.md,Urémie extrarénale,true,false,true,false,true,736
 R39.8,XVIII,XVIII/R39.8.md,"Symptômes et signes relatifs à l'appareil urinaire, autres et non précisés",false,false,true,false,true,1009
-R40.0,XVIII,XVIII/R40.0.md,Somnolence,true,false,true,false,true,1108
-R40.10,XVIII,XVIII/R40.10.md,État paucirelationnel,true,false,true,false,false,1169
-R40.18,XVIII,XVIII/R40.18.md,"Stupeur, autre et sans précision",true,false,true,false,true,1211
-R40.20,XVIII,XVIII/R40.20.md,État végétatif chronique,false,false,true,false,false,967
-R40.28,XVIII,XVIII/R40.28.md,"Coma, autre et sans précision",true,false,true,false,true,1107
+R40.0,XVIII,XVIII/R40.0.md,Somnolence,true,false,true,true,true,1966
+R40.10,XVIII,XVIII/R40.10.md,État paucirelationnel,true,false,true,true,false,2027
+R40.18,XVIII,XVIII/R40.18.md,"Stupeur, autre et sans précision",true,false,true,true,true,2069
+R40.20,XVIII,XVIII/R40.20.md,État végétatif chronique,false,false,true,true,false,1825
+R40.28,XVIII,XVIII/R40.28.md,"Coma, autre et sans précision",true,false,true,true,true,1965
 R41.0,XVIII,XVIII/R41.0.md,"Désorientation, sans précision",true,false,true,false,true,1352
 R41.1,XVIII,XVIII/R41.1.md,Amnésie antérograde,false,false,true,false,true,895
 R41.2,XVIII,XVIII/R41.2.md,Amnésie rétrograde,false,false,true,false,true,893
@@ -13484,143 +13484,143 @@ T35.4,XIX,XIX/T35.4.md,"Gelure du membre supérieur, sans précision",false,fals
 T35.5,XIX,XIX/T35.5.md,"Gelure du membre inférieur, sans précision",false,false,true,false,true,889
 T35.6,XIX,XIX/T35.6.md,"Gelure de parties multiples du corps, sans précision",true,false,true,false,true,882
 T35.7,XIX,XIX/T35.7.md,"Gelure, sans précision, de localisation non précisée",true,false,true,false,true,861
-T36.0,XIX,XIX/T36.0.md,Intoxication par pénicillines,true,false,true,false,false,1845
-T36.1,XIX,XIX/T36.1.md,Intoxication par céphalosporines et autres bêtalactamines,true,false,true,false,false,1873
-T36.2,XIX,XIX/T36.2.md,Intoxication par groupe du chloramphénicol,true,false,true,false,false,1858
-T36.3,XIX,XIX/T36.3.md,Intoxication par macrolides,true,false,true,false,false,1843
-T36.4,XIX,XIX/T36.4.md,Intoxication par tétracyclines,true,false,true,false,false,1846
-T36.5,XIX,XIX/T36.5.md,Intoxication par aminosides,true,false,true,false,false,1880
-T36.6,XIX,XIX/T36.6.md,Intoxication par rifamycines,true,false,true,false,false,1844
-T36.7,XIX,XIX/T36.7.md,Intoxication par antibiotiques antifongiques administrés par voie générale,true,false,true,false,false,1890
-T36.8,XIX,XIX/T36.8.md,Intoxication par autres antibiotiques systémiques,true,false,true,false,false,2324
-T36.9,XIX,XIX/T36.9.md,"Intoxication par antibiotique systémique, sans précision",true,false,true,false,false,1843
-T37.0,XIX,XIX/T37.0.md,Intoxication par sulfamides,true,false,true,false,false,1811
-T37.1,XIX,XIX/T37.1.md,Intoxication par antimycobactériens,true,false,true,false,false,1900
-T37.2,XIX,XIX/T37.2.md,Intoxication par antipaludiques et médicaments agissant sur d'autres protozoaires du sang,true,false,true,false,false,1951
-T37.3,XIX,XIX/T37.3.md,Intoxication par autres antiprotozoaires,true,false,true,false,false,1824
-T37.4,XIX,XIX/T37.4.md,Intoxication par anthelminthiques,true,false,true,false,false,1817
-T37.5,XIX,XIX/T37.5.md,Intoxication par antiviraux,true,false,true,false,false,1888
-T37.8,XIX,XIX/T37.8.md,Intoxication par autres anti-infectieux et antiparasitaires systémiques précisés,true,false,true,false,true,2424
-T37.9,XIX,XIX/T37.9.md,"Intoxication par anti-infectieux et antiparasitaire systémiques, sans précision",true,false,true,false,false,1834
-T38.0,XIX,XIX/T38.0.md,Intoxication par glucocorticoïdes et analogues synthétiques,true,false,true,false,true,1999
-T38.1,XIX,XIX/T38.1.md,Intoxication par hormones thyroïdiennes et leurs dérivés,true,false,true,false,false,1838
-T38.2,XIX,XIX/T38.2.md,Intoxication par antithyroïdiens,true,false,true,false,false,1814
-T38.3,XIX,XIX/T38.3.md,Intoxication par insuline et hypoglycémiants oraux [antidiabétiques],true,false,true,false,true,1947
-T38.4,XIX,XIX/T38.4.md,Intoxication par contraceptifs oraux,true,false,true,false,false,1898
-T38.5,XIX,XIX/T38.5.md,Intoxication par autres oestrogènes et progestatifs,true,false,true,false,false,1880
-T38.6,XIX,XIX/T38.6.md,"Intoxication par antigonadotropines, anti-oestrogènes, anti-androgènes, non classés ailleurs",true,false,true,false,false,1908
-T38.7,XIX,XIX/T38.7.md,Intoxication par androgènes et autres anabolisants,true,false,true,false,false,1832
-T38.8,XIX,XIX/T38.8.md,"Intoxication par hormones et leurs substituts synthétiques, autres et sans précision",true,false,true,false,false,2526
-T38.9,XIX,XIX/T38.9.md,"Intoxication par antagonistes hormonaux, autres et sans précision",true,false,true,false,false,1818
-T39.0,XIX,XIX/T39.0.md,Intoxication par salicylés,true,false,true,false,false,1608
-T39.1,XIX,XIX/T39.1.md,Intoxication par dérivés du 4-aminophénol,true,false,true,false,false,1623
-T39.2,XIX,XIX/T39.2.md,Intoxication par dérivés pyrazolés,true,false,true,false,false,1616
-T39.3,XIX,XIX/T39.3.md,Intoxication par autres anti-inflammatoires non stéroïdiens [AINS],true,false,true,false,false,1648
-T39.4,XIX,XIX/T39.4.md,"Intoxication par antirhumatismaux, non classés ailleurs",true,false,true,false,false,1719
-T39.8,XIX,XIX/T39.8.md,"Intoxication par autres analgésiques non opioïdes et antipyrétiques, non classés ailleurs",true,false,true,false,false,1999
-T39.9,XIX,XIX/T39.9.md,"Intoxication par analgésique non opioïde, antipyrétique et antirhumatismal, sans précision",true,false,true,false,false,1672
-T40.0,XIX,XIX/T40.0.md,Intoxication par opium,true,false,true,false,false,1714
-T40.1,XIX,XIX/T40.1.md,Intoxication par héroïne,true,false,true,false,false,1716
-T40.2,XIX,XIX/T40.2.md,Intoxication par autres opioïdes,true,false,true,false,false,1766
-T40.3,XIX,XIX/T40.3.md,Intoxication par méthadone,true,false,true,false,false,1718
-T40.4,XIX,XIX/T40.4.md,Intoxication par autres narcotiques synthétiques,true,false,true,false,false,1773
-T40.5,XIX,XIX/T40.5.md,Intoxication par cocaïne,true,false,true,false,false,1716
-T40.6,XIX,XIX/T40.6.md,"Intoxication par narcotiques, autres et sans précision",true,false,true,false,false,1746
-T40.7,XIX,XIX/T40.7.md,Intoxication par cannabis (dérivés),true,false,true,false,false,1727
-T40.8,XIX,XIX/T40.8.md,Intoxication par lysergide [LSD],true,false,true,false,false,2134
-T40.9,XIX,XIX/T40.9.md,"Intoxication par psychodysleptiques [hallucinogènes], autres et sans précision",true,false,true,false,false,1800
-T41.0,XIX,XIX/T41.0.md,Intoxication par anesthésiques gazeux,true,false,true,false,false,1805
-T41.1,XIX,XIX/T41.1.md,Intoxication par anesthésiques intraveineux,true,false,true,false,false,1797
-T41.2,XIX,XIX/T41.2.md,"Intoxication par anesthésiques généraux, autres et sans précision",true,false,true,false,false,1778
-T41.3,XIX,XIX/T41.3.md,Intoxication par anesthésiques locaux,true,false,true,false,false,1750
-T41.4,XIX,XIX/T41.4.md,"Intoxication par anesthésiques, sans précision",true,false,true,false,true,1827
-T41.5,XIX,XIX/T41.5.md,Intoxication par gaz thérapeutiques,true,false,true,false,false,1800
-T42.0,XIX,XIX/T42.0.md,Intoxication par dérivés de l'hydantoïne,true,false,true,false,false,1732
-T42.1,XIX,XIX/T42.1.md,Intoxication par iminostilbènes,true,false,true,false,false,1760
-T42.2,XIX,XIX/T42.2.md,Intoxication par succinimides et oxazolidine-diones,true,false,true,false,false,1743
-T42.3,XIX,XIX/T42.3.md,Intoxication par barbituriques,true,false,true,false,false,1787
-T42.4,XIX,XIX/T42.4.md,Intoxication par benzodiazépines,true,false,true,false,false,1724
-T42.5,XIX,XIX/T42.5.md,"Intoxication par anti-épileptiques en association, non classés ailleurs",true,false,true,false,false,1763
-T42.6,XIX,XIX/T42.6.md,"Intoxication par autres anti-épileptiques, sédatifs et hypnotiques",true,false,true,false,false,1874
-T42.7,XIX,XIX/T42.7.md,"Intoxication par anti-épileptiques, sédatifs et hypnotiques, sans précision",true,false,true,false,false,1866
-T42.8,XIX,XIX/T42.8.md,Intoxication par antiparkinsoniens et autres dépresseurs centraux du tonus musculaire,true,false,true,false,false,2352
-T43.0,XIX,XIX/T43.0.md,Intoxication par antidépresseurs tricycliques et tétracycliques,true,false,true,false,false,1893
-T43.1,XIX,XIX/T43.1.md,Intoxication par antidépresseurs inhibiteurs de la mono-amine-oxydase,true,false,true,false,false,1899
-T43.2,XIX,XIX/T43.2.md,"Intoxication par antidépresseurs, autres et non précisés",true,false,true,false,false,1886
-T43.3,XIX,XIX/T43.3.md,Intoxication par psycholeptiques et neuroleptiques dérivés de la phénothiazine,true,false,true,false,false,1908
-T43.4,XIX,XIX/T43.4.md,Intoxication par neuroleptiques de type butyrophénone et thioxanthène,true,false,true,false,false,1899
-T43.5,XIX,XIX/T43.5.md,"Intoxication par psycholeptiques et neuroleptiques, autres et non précisés",true,false,true,false,false,1961
-T43.6,XIX,XIX/T43.6.md,Intoxication par psychostimulants présentant un risque d'abus,true,false,true,false,false,1946
-T43.8,XIX,XIX/T43.8.md,"Intoxication par autres médicaments psychotropes, non classés ailleurs",true,false,true,false,false,2502
-T43.9,XIX,XIX/T43.9.md,"Intoxication par médicament psychotrope, sans précision",true,false,true,false,false,1856
-T44.0,XIX,XIX/T44.0.md,Intoxication par anticholinestérasiques,true,false,true,false,false,1621
-T44.1,XIX,XIX/T44.1.md,Intoxication par autres parasympathomimétiques [cholinergiques],true,false,true,false,false,1645
-T44.2,XIX,XIX/T44.2.md,"Intoxication par ganglioplégiques, non classés ailleurs",true,false,true,false,false,1637
-T44.3,XIX,XIX/T44.3.md,"Intoxication par autres agents parasympatholytiques [anticholinergiques et antimuscariniques] et spasmolytiques, non classés ailleurs",true,false,true,false,false,1749
-T44.4,XIX,XIX/T44.4.md,"Intoxication par agents principalement alpha-sympathomimétiques, non classés ailleurs",true,false,true,false,false,1702
-T44.5,XIX,XIX/T44.5.md,"Intoxication par agents principalement bêta-sympathomimétiques, non classés ailleurs",true,false,true,false,false,1763
-T44.6,XIX,XIX/T44.6.md,"Intoxication par alpha-bloquants, non classés ailleurs",true,false,true,false,false,1715
-T44.7,XIX,XIX/T44.7.md,"Intoxication par bêta-bloquants, non classés ailleurs",true,false,true,false,false,1635
-T44.8,XIX,XIX/T44.8.md,"Intoxication par agents bloquants neuronaux adrénergiques et d'action centrale, non classés ailleurs",true,false,true,false,false,2471
-T44.9,XIX,XIX/T44.9.md,"Intoxication par médicaments agissant essentiellement sur le système nerveux autonome, autres et sans précision",true,false,true,false,false,1792
-T45.0,XIX,XIX/T45.0.md,Intoxication par médicaments antiallergiques et antiémétiques,true,false,true,false,false,1729
-T45.1,XIX,XIX/T45.1.md,Intoxication par médicaments antitumoraux et immunosuppresseurs,true,false,true,false,false,1766
-T45.2,XIX,XIX/T45.2.md,"Intoxication par vitamines, non classées ailleurs",true,false,true,false,false,1725
-T45.3,XIX,XIX/T45.3.md,"Intoxication par enzymes, non classées ailleurs",true,false,true,false,false,1629
-T45.4,XIX,XIX/T45.4.md,Intoxication par fer et ses composés,true,false,true,false,false,1618
-T45.5,XIX,XIX/T45.5.md,Intoxication par anticoagulants,true,false,true,false,false,1613
-T45.6,XIX,XIX/T45.6.md,Intoxication par médicaments agissant sur la fibrinolyse,true,false,true,false,false,1638
-T45.7,XIX,XIX/T45.7.md,"Intoxication par antagonistes des anticoagulants, vitamine K et autres coagulants",true,false,true,false,false,1663
-T45.8,XIX,XIX/T45.8.md,Intoxication par autres substances essentiellement systémiques et hématologiques,true,false,true,false,false,2450
-T45.9,XIX,XIX/T45.9.md,"Intoxication par substance essentiellement systémique et hématologique, sans précision",true,false,true,false,false,1668
-T46.0,XIX,XIX/T46.0.md,Intoxication par glucosides cardiotoniques et médicaments d'action similaire,true,false,true,false,false,1746
-T46.1,XIX,XIX/T46.1.md,Intoxication par inhibiteurs calciques,true,false,true,false,false,1708
-T46.2,XIX,XIX/T46.2.md,"Intoxication par autres antiarythmisants, non classés ailleurs",true,false,true,false,false,1793
-T46.3,XIX,XIX/T46.3.md,"Intoxication par vasodilatateurs coronariens, non classés ailleurs",true,false,true,false,false,1863
-T46.4,XIX,XIX/T46.4.md,Intoxication par inhibiteurs de l'enzyme de conversion,true,false,true,false,false,1724
-T46.5,XIX,XIX/T46.5.md,"Intoxication par autres antihypertenseurs, non classés ailleurs",true,false,true,false,false,1910
-T46.6,XIX,XIX/T46.6.md,Intoxication par antihyperlipidémiants et antiartériosclérosants,true,false,true,false,false,1734
-T46.7,XIX,XIX/T46.7.md,Intoxication par vasodilatateurs périphériques,true,false,true,false,false,1825
-T46.8,XIX,XIX/T46.8.md,"Intoxication par substances antivariqueuses, y compris les agents sclérosants",true,false,true,false,false,2361
-T46.9,XIX,XIX/T46.9.md,"Intoxication par substances agissant essentiellement sur le système cardio-vasculaire, autres et sans précision",true,false,true,false,false,1752
-T47.0,XIX,XIX/T47.0.md,Intoxication par inhibiteurs des récepteurs histaminiques H2,true,false,true,false,false,1642
-T47.1,XIX,XIX/T47.1.md,Intoxication par autres antiacides et antisécrétoires gastriques,true,false,true,false,false,1646
-T47.2,XIX,XIX/T47.2.md,Intoxication par laxatifs stimulants,true,false,true,false,false,1618
-T47.3,XIX,XIX/T47.3.md,Intoxication par laxatifs salins et osmotiques,true,false,true,false,false,1628
-T47.4,XIX,XIX/T47.4.md,Intoxication par autres laxatifs,true,false,true,false,false,1614
-T47.5,XIX,XIX/T47.5.md,Intoxication par médicaments facilitant la digestion,true,false,true,false,false,1634
-T47.6,XIX,XIX/T47.6.md,Intoxication par antidiarrhéiques,true,false,true,false,false,1715
-T47.7,XIX,XIX/T47.7.md,Intoxication par émétiques,true,false,true,false,false,1608
-T47.8,XIX,XIX/T47.8.md,Intoxication par autres substances agissant essentiellement sur le tractus gastro-intestinal,true,false,true,false,false,2168
-T47.9,XIX,XIX/T47.9.md,"Intoxication par substance agissant essentiellement sur le tractus gastro-intestinal, sans précision",true,false,true,false,false,1682
-T48.0,XIX,XIX/T48.0.md,Intoxication par ocytociques,true,false,true,false,false,1704
-T48.1,XIX,XIX/T48.1.md,Intoxication par myorelaxants (muscles striés) [bloquants neuro-musculaires],true,false,true,false,false,1658
-T48.2,XIX,XIX/T48.2.md,"Intoxication par substances agissant essentiellement sur les muscles, autres et sans précision",true,false,true,false,false,1676
-T48.3,XIX,XIX/T48.3.md,Intoxication par antitussifs,true,false,true,false,false,1610
-T48.4,XIX,XIX/T48.4.md,Intoxication par expectorants,true,false,true,false,false,1611
-T48.5,XIX,XIX/T48.5.md,Intoxication par médicaments contre le coryza [rhume banal],true,false,true,false,false,1641
-T48.6,XIX,XIX/T48.6.md,"Intoxication par antiasthmatiques, non classés ailleurs",true,false,true,false,false,1833
-T48.7,XIX,XIX/T48.7.md,"Intoxication par substances agissant essentiellement sur l'appareil respiratoire, autres et sans précision",true,false,true,false,false,1688
-T49.0,XIX,XIX/T49.0.md,"Intoxication par médicaments antifongiques, anti-infectieux et anti-inflammatoires à usage topique, non classés ailleurs",true,false,true,false,false,1780
-T49.1,XIX,XIX/T49.1.md,Intoxication par antiprurigineux,true,false,true,false,false,1692
-T49.2,XIX,XIX/T49.2.md,Intoxication par astringents et détergents locaux,true,false,true,false,false,1709
-T49.3,XIX,XIX/T49.3.md,"Intoxication par émollients, calmants et protecteurs",true,false,true,false,false,1712
-T49.4,XIX,XIX/T49.4.md,"Intoxication par kératolytiques, kératoplastiques et autres médicaments et préparations capillaires",true,false,true,false,false,1759
-T49.5,XIX,XIX/T49.5.md,Intoxication par médicaments et préparations ophtalmologiques,true,false,true,false,false,1773
-T49.6,XIX,XIX/T49.6.md,Intoxication par médicaments et préparations utilisés en oto-rhino-laryngologie,true,false,true,false,false,1804
-T49.7,XIX,XIX/T49.7.md,Intoxication par médicaments dentaires à usage topique,true,false,true,false,false,1714
-T49.8,XIX,XIX/T49.8.md,Intoxication par autres topiques,true,false,true,false,false,2418
-T49.9,XIX,XIX/T49.9.md,"Intoxication par topique, sans précision",true,false,true,false,false,1700
-T50.0,XIX,XIX/T50.0.md,Intoxication par minéralocorticoïdes et leurs antagonistes,true,false,true,false,false,1640
-T50.1,XIX,XIX/T50.1.md,Intoxication par diurétiques de l'anse,true,false,true,false,false,1620
-T50.2,XIX,XIX/T50.2.md,"Intoxication par inhibiteurs de l'anhydrase carbonique, benzothiadiazides et autres diurétiques",true,false,true,false,false,1714
-T50.3,XIX,XIX/T50.3.md,"Intoxication par produits agissant sur l'équilibre électrolytique, calorique et hydrique",true,false,true,false,false,1721
-T50.4,XIX,XIX/T50.4.md,Intoxication par médicaments agissant sur le métabolisme de l'acide urique,true,false,true,false,false,1656
-T50.5,XIX,XIX/T50.5.md,Intoxication par anorexigènes,true,false,true,false,false,1611
-T50.6,XIX,XIX/T50.6.md,"Intoxication par antidotes et chélateurs, non classés ailleurs",true,false,true,false,false,1706
-T50.7,XIX,XIX/T50.7.md,Intoxication par analeptiques et antagonistes des opiacés,true,false,true,false,false,1639
-T50.8,XIX,XIX/T50.8.md,Intoxication par agents de diagnostic,true,false,true,false,false,2265
-T50.9,XIX,XIX/T50.9.md,"Intoxication par médicaments et substances biologiques, autres et sans précision",true,false,true,false,true,1915
+T36.0,XIX,XIX/T36.0.md,Intoxication par pénicillines,true,false,true,true,false,3125
+T36.1,XIX,XIX/T36.1.md,Intoxication par céphalosporines et autres bêtalactamines,true,false,true,true,false,3153
+T36.2,XIX,XIX/T36.2.md,Intoxication par groupe du chloramphénicol,true,false,true,true,false,3138
+T36.3,XIX,XIX/T36.3.md,Intoxication par macrolides,true,false,true,true,false,3123
+T36.4,XIX,XIX/T36.4.md,Intoxication par tétracyclines,true,false,true,true,false,3126
+T36.5,XIX,XIX/T36.5.md,Intoxication par aminosides,true,false,true,true,false,3160
+T36.6,XIX,XIX/T36.6.md,Intoxication par rifamycines,true,false,true,true,false,3124
+T36.7,XIX,XIX/T36.7.md,Intoxication par antibiotiques antifongiques administrés par voie générale,true,false,true,true,false,3170
+T36.8,XIX,XIX/T36.8.md,Intoxication par autres antibiotiques systémiques,true,false,true,true,false,3604
+T36.9,XIX,XIX/T36.9.md,"Intoxication par antibiotique systémique, sans précision",true,false,true,true,false,3123
+T37.0,XIX,XIX/T37.0.md,Intoxication par sulfamides,true,false,true,true,false,3091
+T37.1,XIX,XIX/T37.1.md,Intoxication par antimycobactériens,true,false,true,true,false,3180
+T37.2,XIX,XIX/T37.2.md,Intoxication par antipaludiques et médicaments agissant sur d'autres protozoaires du sang,true,false,true,true,false,3231
+T37.3,XIX,XIX/T37.3.md,Intoxication par autres antiprotozoaires,true,false,true,true,false,3104
+T37.4,XIX,XIX/T37.4.md,Intoxication par anthelminthiques,true,false,true,true,false,3097
+T37.5,XIX,XIX/T37.5.md,Intoxication par antiviraux,true,false,true,true,false,3168
+T37.8,XIX,XIX/T37.8.md,Intoxication par autres anti-infectieux et antiparasitaires systémiques précisés,true,false,true,true,true,3704
+T37.9,XIX,XIX/T37.9.md,"Intoxication par anti-infectieux et antiparasitaire systémiques, sans précision",true,false,true,true,false,3114
+T38.0,XIX,XIX/T38.0.md,Intoxication par glucocorticoïdes et analogues synthétiques,true,false,true,true,true,3279
+T38.1,XIX,XIX/T38.1.md,Intoxication par hormones thyroïdiennes et leurs dérivés,true,false,true,true,false,3118
+T38.2,XIX,XIX/T38.2.md,Intoxication par antithyroïdiens,true,false,true,true,false,3094
+T38.3,XIX,XIX/T38.3.md,Intoxication par insuline et hypoglycémiants oraux [antidiabétiques],true,false,true,true,true,3227
+T38.4,XIX,XIX/T38.4.md,Intoxication par contraceptifs oraux,true,false,true,true,false,3178
+T38.5,XIX,XIX/T38.5.md,Intoxication par autres oestrogènes et progestatifs,true,false,true,true,false,3160
+T38.6,XIX,XIX/T38.6.md,"Intoxication par antigonadotropines, anti-oestrogènes, anti-androgènes, non classés ailleurs",true,false,true,true,false,3188
+T38.7,XIX,XIX/T38.7.md,Intoxication par androgènes et autres anabolisants,true,false,true,true,false,3112
+T38.8,XIX,XIX/T38.8.md,"Intoxication par hormones et leurs substituts synthétiques, autres et sans précision",true,false,true,true,false,3806
+T38.9,XIX,XIX/T38.9.md,"Intoxication par antagonistes hormonaux, autres et sans précision",true,false,true,true,false,3098
+T39.0,XIX,XIX/T39.0.md,Intoxication par salicylés,true,false,true,true,false,2888
+T39.1,XIX,XIX/T39.1.md,Intoxication par dérivés du 4-aminophénol,true,false,true,true,false,2903
+T39.2,XIX,XIX/T39.2.md,Intoxication par dérivés pyrazolés,true,false,true,true,false,2896
+T39.3,XIX,XIX/T39.3.md,Intoxication par autres anti-inflammatoires non stéroïdiens [AINS],true,false,true,true,false,2928
+T39.4,XIX,XIX/T39.4.md,"Intoxication par antirhumatismaux, non classés ailleurs",true,false,true,true,false,2999
+T39.8,XIX,XIX/T39.8.md,"Intoxication par autres analgésiques non opioïdes et antipyrétiques, non classés ailleurs",true,false,true,true,false,3279
+T39.9,XIX,XIX/T39.9.md,"Intoxication par analgésique non opioïde, antipyrétique et antirhumatismal, sans précision",true,false,true,true,false,2952
+T40.0,XIX,XIX/T40.0.md,Intoxication par opium,true,false,true,true,false,2994
+T40.1,XIX,XIX/T40.1.md,Intoxication par héroïne,true,false,true,true,false,2996
+T40.2,XIX,XIX/T40.2.md,Intoxication par autres opioïdes,true,false,true,true,false,3046
+T40.3,XIX,XIX/T40.3.md,Intoxication par méthadone,true,false,true,true,false,2998
+T40.4,XIX,XIX/T40.4.md,Intoxication par autres narcotiques synthétiques,true,false,true,true,false,3053
+T40.5,XIX,XIX/T40.5.md,Intoxication par cocaïne,true,false,true,true,false,2996
+T40.6,XIX,XIX/T40.6.md,"Intoxication par narcotiques, autres et sans précision",true,false,true,true,false,3026
+T40.7,XIX,XIX/T40.7.md,Intoxication par cannabis (dérivés),true,false,true,true,false,3007
+T40.8,XIX,XIX/T40.8.md,Intoxication par lysergide [LSD],true,false,true,true,false,3414
+T40.9,XIX,XIX/T40.9.md,"Intoxication par psychodysleptiques [hallucinogènes], autres et sans précision",true,false,true,true,false,3080
+T41.0,XIX,XIX/T41.0.md,Intoxication par anesthésiques gazeux,true,false,true,true,false,3085
+T41.1,XIX,XIX/T41.1.md,Intoxication par anesthésiques intraveineux,true,false,true,true,false,3077
+T41.2,XIX,XIX/T41.2.md,"Intoxication par anesthésiques généraux, autres et sans précision",true,false,true,true,false,3058
+T41.3,XIX,XIX/T41.3.md,Intoxication par anesthésiques locaux,true,false,true,true,false,3030
+T41.4,XIX,XIX/T41.4.md,"Intoxication par anesthésiques, sans précision",true,false,true,true,true,3107
+T41.5,XIX,XIX/T41.5.md,Intoxication par gaz thérapeutiques,true,false,true,true,false,3080
+T42.0,XIX,XIX/T42.0.md,Intoxication par dérivés de l'hydantoïne,true,false,true,true,false,3847
+T42.1,XIX,XIX/T42.1.md,Intoxication par iminostilbènes,true,false,true,true,false,3875
+T42.2,XIX,XIX/T42.2.md,Intoxication par succinimides et oxazolidine-diones,true,false,true,true,false,3858
+T42.3,XIX,XIX/T42.3.md,Intoxication par barbituriques,true,false,true,true,false,3902
+T42.4,XIX,XIX/T42.4.md,Intoxication par benzodiazépines,true,false,true,true,false,3839
+T42.5,XIX,XIX/T42.5.md,"Intoxication par anti-épileptiques en association, non classés ailleurs",true,false,true,true,false,3878
+T42.6,XIX,XIX/T42.6.md,"Intoxication par autres anti-épileptiques, sédatifs et hypnotiques",true,false,true,true,false,3989
+T42.7,XIX,XIX/T42.7.md,"Intoxication par anti-épileptiques, sédatifs et hypnotiques, sans précision",true,false,true,true,false,3981
+T42.8,XIX,XIX/T42.8.md,Intoxication par antiparkinsoniens et autres dépresseurs centraux du tonus musculaire,true,false,true,true,false,4467
+T43.0,XIX,XIX/T43.0.md,Intoxication par antidépresseurs tricycliques et tétracycliques,true,false,true,true,false,3173
+T43.1,XIX,XIX/T43.1.md,Intoxication par antidépresseurs inhibiteurs de la mono-amine-oxydase,true,false,true,true,false,3179
+T43.2,XIX,XIX/T43.2.md,"Intoxication par antidépresseurs, autres et non précisés",true,false,true,true,false,3166
+T43.3,XIX,XIX/T43.3.md,Intoxication par psycholeptiques et neuroleptiques dérivés de la phénothiazine,true,false,true,true,false,3188
+T43.4,XIX,XIX/T43.4.md,Intoxication par neuroleptiques de type butyrophénone et thioxanthène,true,false,true,true,false,3179
+T43.5,XIX,XIX/T43.5.md,"Intoxication par psycholeptiques et neuroleptiques, autres et non précisés",true,false,true,true,false,3241
+T43.6,XIX,XIX/T43.6.md,Intoxication par psychostimulants présentant un risque d'abus,true,false,true,true,false,3226
+T43.8,XIX,XIX/T43.8.md,"Intoxication par autres médicaments psychotropes, non classés ailleurs",true,false,true,true,false,3782
+T43.9,XIX,XIX/T43.9.md,"Intoxication par médicament psychotrope, sans précision",true,false,true,true,false,3136
+T44.0,XIX,XIX/T44.0.md,Intoxication par anticholinestérasiques,true,false,true,true,false,2901
+T44.1,XIX,XIX/T44.1.md,Intoxication par autres parasympathomimétiques [cholinergiques],true,false,true,true,false,2925
+T44.2,XIX,XIX/T44.2.md,"Intoxication par ganglioplégiques, non classés ailleurs",true,false,true,true,false,2917
+T44.3,XIX,XIX/T44.3.md,"Intoxication par autres agents parasympatholytiques [anticholinergiques et antimuscariniques] et spasmolytiques, non classés ailleurs",true,false,true,true,false,3029
+T44.4,XIX,XIX/T44.4.md,"Intoxication par agents principalement alpha-sympathomimétiques, non classés ailleurs",true,false,true,true,false,2982
+T44.5,XIX,XIX/T44.5.md,"Intoxication par agents principalement bêta-sympathomimétiques, non classés ailleurs",true,false,true,true,false,3043
+T44.6,XIX,XIX/T44.6.md,"Intoxication par alpha-bloquants, non classés ailleurs",true,false,true,true,false,2995
+T44.7,XIX,XIX/T44.7.md,"Intoxication par bêta-bloquants, non classés ailleurs",true,false,true,true,false,2915
+T44.8,XIX,XIX/T44.8.md,"Intoxication par agents bloquants neuronaux adrénergiques et d'action centrale, non classés ailleurs",true,false,true,true,false,3751
+T44.9,XIX,XIX/T44.9.md,"Intoxication par médicaments agissant essentiellement sur le système nerveux autonome, autres et sans précision",true,false,true,true,false,3072
+T45.0,XIX,XIX/T45.0.md,Intoxication par médicaments antiallergiques et antiémétiques,true,false,true,true,false,3009
+T45.1,XIX,XIX/T45.1.md,Intoxication par médicaments antitumoraux et immunosuppresseurs,true,false,true,true,false,3046
+T45.2,XIX,XIX/T45.2.md,"Intoxication par vitamines, non classées ailleurs",true,false,true,true,false,3005
+T45.3,XIX,XIX/T45.3.md,"Intoxication par enzymes, non classées ailleurs",true,false,true,true,false,2909
+T45.4,XIX,XIX/T45.4.md,Intoxication par fer et ses composés,true,false,true,true,false,2898
+T45.5,XIX,XIX/T45.5.md,Intoxication par anticoagulants,true,false,true,true,false,2893
+T45.6,XIX,XIX/T45.6.md,Intoxication par médicaments agissant sur la fibrinolyse,true,false,true,true,false,2918
+T45.7,XIX,XIX/T45.7.md,"Intoxication par antagonistes des anticoagulants, vitamine K et autres coagulants",true,false,true,true,false,2943
+T45.8,XIX,XIX/T45.8.md,Intoxication par autres substances essentiellement systémiques et hématologiques,true,false,true,true,false,3730
+T45.9,XIX,XIX/T45.9.md,"Intoxication par substance essentiellement systémique et hématologique, sans précision",true,false,true,true,false,2948
+T46.0,XIX,XIX/T46.0.md,Intoxication par glucosides cardiotoniques et médicaments d'action similaire,true,false,true,true,false,3026
+T46.1,XIX,XIX/T46.1.md,Intoxication par inhibiteurs calciques,true,false,true,true,false,2988
+T46.2,XIX,XIX/T46.2.md,"Intoxication par autres antiarythmisants, non classés ailleurs",true,false,true,true,false,3073
+T46.3,XIX,XIX/T46.3.md,"Intoxication par vasodilatateurs coronariens, non classés ailleurs",true,false,true,true,false,3143
+T46.4,XIX,XIX/T46.4.md,Intoxication par inhibiteurs de l'enzyme de conversion,true,false,true,true,false,3004
+T46.5,XIX,XIX/T46.5.md,"Intoxication par autres antihypertenseurs, non classés ailleurs",true,false,true,true,false,3190
+T46.6,XIX,XIX/T46.6.md,Intoxication par antihyperlipidémiants et antiartériosclérosants,true,false,true,true,false,3014
+T46.7,XIX,XIX/T46.7.md,Intoxication par vasodilatateurs périphériques,true,false,true,true,false,3105
+T46.8,XIX,XIX/T46.8.md,"Intoxication par substances antivariqueuses, y compris les agents sclérosants",true,false,true,true,false,3641
+T46.9,XIX,XIX/T46.9.md,"Intoxication par substances agissant essentiellement sur le système cardio-vasculaire, autres et sans précision",true,false,true,true,false,3032
+T47.0,XIX,XIX/T47.0.md,Intoxication par inhibiteurs des récepteurs histaminiques H2,true,false,true,true,false,2922
+T47.1,XIX,XIX/T47.1.md,Intoxication par autres antiacides et antisécrétoires gastriques,true,false,true,true,false,2926
+T47.2,XIX,XIX/T47.2.md,Intoxication par laxatifs stimulants,true,false,true,true,false,2898
+T47.3,XIX,XIX/T47.3.md,Intoxication par laxatifs salins et osmotiques,true,false,true,true,false,2908
+T47.4,XIX,XIX/T47.4.md,Intoxication par autres laxatifs,true,false,true,true,false,2894
+T47.5,XIX,XIX/T47.5.md,Intoxication par médicaments facilitant la digestion,true,false,true,true,false,2914
+T47.6,XIX,XIX/T47.6.md,Intoxication par antidiarrhéiques,true,false,true,true,false,2995
+T47.7,XIX,XIX/T47.7.md,Intoxication par émétiques,true,false,true,true,false,2888
+T47.8,XIX,XIX/T47.8.md,Intoxication par autres substances agissant essentiellement sur le tractus gastro-intestinal,true,false,true,true,false,3448
+T47.9,XIX,XIX/T47.9.md,"Intoxication par substance agissant essentiellement sur le tractus gastro-intestinal, sans précision",true,false,true,true,false,2962
+T48.0,XIX,XIX/T48.0.md,Intoxication par ocytociques,true,false,true,true,false,2984
+T48.1,XIX,XIX/T48.1.md,Intoxication par myorelaxants (muscles striés) [bloquants neuro-musculaires],true,false,true,true,false,2938
+T48.2,XIX,XIX/T48.2.md,"Intoxication par substances agissant essentiellement sur les muscles, autres et sans précision",true,false,true,true,false,2956
+T48.3,XIX,XIX/T48.3.md,Intoxication par antitussifs,true,false,true,true,false,2890
+T48.4,XIX,XIX/T48.4.md,Intoxication par expectorants,true,false,true,true,false,2891
+T48.5,XIX,XIX/T48.5.md,Intoxication par médicaments contre le coryza [rhume banal],true,false,true,true,false,2921
+T48.6,XIX,XIX/T48.6.md,"Intoxication par antiasthmatiques, non classés ailleurs",true,false,true,true,false,3113
+T48.7,XIX,XIX/T48.7.md,"Intoxication par substances agissant essentiellement sur l'appareil respiratoire, autres et sans précision",true,false,true,true,false,2968
+T49.0,XIX,XIX/T49.0.md,"Intoxication par médicaments antifongiques, anti-infectieux et anti-inflammatoires à usage topique, non classés ailleurs",true,false,true,true,false,3060
+T49.1,XIX,XIX/T49.1.md,Intoxication par antiprurigineux,true,false,true,true,false,2972
+T49.2,XIX,XIX/T49.2.md,Intoxication par astringents et détergents locaux,true,false,true,true,false,2989
+T49.3,XIX,XIX/T49.3.md,"Intoxication par émollients, calmants et protecteurs",true,false,true,true,false,2992
+T49.4,XIX,XIX/T49.4.md,"Intoxication par kératolytiques, kératoplastiques et autres médicaments et préparations capillaires",true,false,true,true,false,3039
+T49.5,XIX,XIX/T49.5.md,Intoxication par médicaments et préparations ophtalmologiques,true,false,true,true,false,3053
+T49.6,XIX,XIX/T49.6.md,Intoxication par médicaments et préparations utilisés en oto-rhino-laryngologie,true,false,true,true,false,3084
+T49.7,XIX,XIX/T49.7.md,Intoxication par médicaments dentaires à usage topique,true,false,true,true,false,2994
+T49.8,XIX,XIX/T49.8.md,Intoxication par autres topiques,true,false,true,true,false,3698
+T49.9,XIX,XIX/T49.9.md,"Intoxication par topique, sans précision",true,false,true,true,false,2980
+T50.0,XIX,XIX/T50.0.md,Intoxication par minéralocorticoïdes et leurs antagonistes,true,false,true,true,false,2920
+T50.1,XIX,XIX/T50.1.md,Intoxication par diurétiques de l'anse,true,false,true,true,false,2900
+T50.2,XIX,XIX/T50.2.md,"Intoxication par inhibiteurs de l'anhydrase carbonique, benzothiadiazides et autres diurétiques",true,false,true,true,false,2994
+T50.3,XIX,XIX/T50.3.md,"Intoxication par produits agissant sur l'équilibre électrolytique, calorique et hydrique",true,false,true,true,false,3001
+T50.4,XIX,XIX/T50.4.md,Intoxication par médicaments agissant sur le métabolisme de l'acide urique,true,false,true,true,false,2936
+T50.5,XIX,XIX/T50.5.md,Intoxication par anorexigènes,true,false,true,true,false,2891
+T50.6,XIX,XIX/T50.6.md,"Intoxication par antidotes et chélateurs, non classés ailleurs",true,false,true,true,false,2986
+T50.7,XIX,XIX/T50.7.md,Intoxication par analeptiques et antagonistes des opiacés,true,false,true,true,false,2919
+T50.8,XIX,XIX/T50.8.md,Intoxication par agents de diagnostic,true,false,true,true,false,3545
+T50.9,XIX,XIX/T50.9.md,"Intoxication par médicaments et substances biologiques, autres et sans précision",true,false,true,true,true,3195
 T51.0,XIX,XIX/T51.0.md,Effet toxique de l'éthanol,true,false,true,false,false,1072
 T51.1,XIX,XIX/T51.1.md,Effet toxique du méthanol,true,false,true,false,false,915
 T51.2,XIX,XIX/T51.2.md,Effet toxique du 2-Propanol,true,false,true,false,false,920
@@ -14854,11 +14854,11 @@ X36,XX,XX/X36.md,"Victime d'avalanche, glissement de terrain et autres mouvement
 X37,XX,XX/X37.md,Victime de tempête cataclysmique,true,false,true,false,false,768
 X38,XX,XX/X38.md,Victime d'inondation,true,false,true,false,false,745
 X39,XX,XX/X39.md,"Exposition à des forces de la nature, autres et sans précision",true,false,true,false,false,560
-X40,XX,XX/X40.md,"Intoxication accidentelle par des analgésiques, antipyrétiques et antirhumatismaux, non opiacés et exposition à ces produits",true,false,true,false,false,1834
-X41,XX,XX/X41.md,"Intoxication accidentelle par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs",true,false,true,false,false,1940
-X42,XX,XX/X42.md,"Intoxication accidentelle par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs",true,false,true,false,false,1847
-X43,XX,XX/X43.md,Intoxication accidentelle par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces substances,true,false,true,false,false,1927
-X44,XX,XX/X44.md,"Intoxication accidentelle par des médicaments et substances biologiques et exposition à ces produits, autres et sans précision",true,false,true,false,false,2245
+X40,XX,XX/X40.md,"Intoxication accidentelle par des analgésiques, antipyrétiques et antirhumatismaux, non opiacés et exposition à ces produits",true,false,true,true,false,2284
+X41,XX,XX/X41.md,"Intoxication accidentelle par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs",true,false,true,true,false,2390
+X42,XX,XX/X42.md,"Intoxication accidentelle par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs",true,false,true,true,false,2297
+X43,XX,XX/X43.md,Intoxication accidentelle par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces substances,true,false,true,true,false,2377
+X44,XX,XX/X44.md,"Intoxication accidentelle par des médicaments et substances biologiques et exposition à ces produits, autres et sans précision",true,false,true,true,false,2695
 X45,XX,XX/X45.md,Intoxication accidentelle par l'alcool et exposition à l'alcool,true,false,true,false,false,1849
 X46,XX,XX/X46.md,Intoxication accidentelle par des solvants organiques et des hydrocarbures halogénés et leurs émanations et exposition à ces produits,true,false,true,false,false,1839
 X47.0,XX,XX/X47.0.md,Intoxication accidentelle par le monoxyde de carbone issu de gaz d'échappement de moteur,true,false,true,false,false,2398
@@ -14879,11 +14879,11 @@ X57,XX,XX/X57.md,"Privation, sans précision",true,false,true,false,false,525
 X58,XX,XX/X58.md,Exposition à d'autres facteurs précisés,false,false,false,false,false,369
 X59.0,XX,XX/X59.0.md,Exposition à des facteurs non précisés responsables de fracture,true,false,false,false,false,503
 X59.9,XX,XX/X59.9.md,Exposition à des facteurs non précisés responsables de lésions autres et non précisées,true,false,false,false,false,579
-X60,XX,XX/X60.md,"Auto-intoxication par des analgésiques, antipyrétiques et antirhumatismaux non opiacés et exposition à ces produits",true,false,false,false,false,715
-X61,XX,XX/X61.md,"Auto-intoxication par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs",true,false,false,false,false,822
-X62,XX,XX/X62.md,"Auto-intoxication par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs",true,false,false,false,false,729
-X63,XX,XX/X63.md,Auto-intoxication par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces produits,true,false,false,false,false,807
-X64,XX,XX/X64.md,"Auto-intoxication par des médicaments et substances biologiques et exposition à ces produits, autres et sans précision",true,false,false,false,false,1188
+X60,XX,XX/X60.md,"Auto-intoxication par des analgésiques, antipyrétiques et antirhumatismaux non opiacés et exposition à ces produits",true,false,false,true,false,1165
+X61,XX,XX/X61.md,"Auto-intoxication par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs",true,false,false,true,false,1272
+X62,XX,XX/X62.md,"Auto-intoxication par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs",true,false,false,true,false,1179
+X63,XX,XX/X63.md,Auto-intoxication par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces produits,true,false,false,true,false,1257
+X64,XX,XX/X64.md,"Auto-intoxication par des médicaments et substances biologiques et exposition à ces produits, autres et sans précision",true,false,false,true,false,1638
 X65,XX,XX/X65.md,Auto-intoxication par l'alcool et exposition à l'alcool,true,false,false,false,false,731
 X66,XX,XX/X66.md,Auto-intoxication par des solvants organiques et des hydrocarbures halogénés et leurs émanations et exposition à ces produits,true,false,false,false,false,721
 X67.0,XX,XX/X67.0.md,Auto-intoxication  par le monoxyde de carbone issu de gaz d'échappement de moteur,true,false,true,false,false,1153
@@ -14999,181 +14999,181 @@ Y36.6,XX,XX/Y36.6.md,Faits de guerre impliquant des armes biologiques,true,false
 Y36.7,XX,XX/Y36.7.md,Faits de guerre impliquant des armes chimiques et autres moyens non classiques,true,false,false,false,false,532
 Y36.8,XX,XX/Y36.8.md,Faits de guerre survenu après la cessation des hostilités,true,false,true,false,false,1436
 Y36.9,XX,XX/Y36.9.md,"Faits de guerre, sans précision",true,false,false,false,false,417
-Y40.0,XX,XX/Y40.0.md,Effets indésirables des pénicillines au cours de leur usage thérapeutique,true,false,true,false,false,1816
-Y40.1,XX,XX/Y40.1.md,Effets indésirables des céphalosporines et autres bêtalactamines au cours de leur usage thérapeutique,true,false,true,false,false,1844
-Y40.2,XX,XX/Y40.2.md,Effets indésirables des antibiotiques du groupe du chloramphénicol au cours de leur usage thérapeutique,true,false,true,false,false,1846
-Y40.3,XX,XX/Y40.3.md,Effets indésirables des macrolides au cours de leur usage thérapeutique,true,false,true,false,false,1814
-Y40.4,XX,XX/Y40.4.md,Effets indésirables des tétracyclines au cours de leur usage thérapeutique,true,false,true,false,false,1817
-Y40.5,XX,XX/Y40.5.md,Effets indésirables des aminosides au cours de leur usage thérapeutique,true,false,true,false,false,1851
-Y40.6,XX,XX/Y40.6.md,Effets indésirables des rifamycines au cours de leur usage thérapeutique,true,false,true,false,false,1815
-Y40.7,XX,XX/Y40.7.md,Effets indésirables des antibiotiques antifongiques systémiques au cours de leur usage thérapeutique,true,false,true,false,false,1843
-Y40.8,XX,XX/Y40.8.md,Effets indésirables d'autres antibiotiques systémiques au cours de leur usage thérapeutique,true,false,true,false,false,2644
-Y40.9,XX,XX/Y40.9.md,"Effets indésirables d'un antibiotique systémique, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1814
-Y41.0,XX,XX/Y41.0.md,Effets indésirables des sulfamides au cours de leur usage thérapeutique,true,false,true,false,false,1785
-Y41.1,XX,XX/Y41.1.md,Effets indésirables des antimycobactériens au cours de leur usage thérapeutique,true,false,true,false,false,1874
-Y41.2,XX,XX/Y41.2.md,Effets indésirables des antipaludiques et médicaments agissant sur d'autres protozoaires du sang au cours de leur usage thérapeutique,true,false,true,false,false,1925
-Y41.3,XX,XX/Y41.3.md,Effets indésirables d'autres antiprotozoaires au cours de leur usage thérapeutique,true,false,true,false,false,1796
-Y41.4,XX,XX/Y41.4.md,Effets indésirables des anthelminthiques au cours de leur usage thérapeutique,true,false,true,false,false,1791
-Y41.5,XX,XX/Y41.5.md,Effets indésirables des antiviraux au cours de leur usage thérapeutique,true,false,true,false,false,1862
-Y41.8,XX,XX/Y41.8.md,Effets indésirables d'autres anti-infectieux et antiparasitaires systémiques précisés au cours de leur usage thérapeutique,true,false,true,false,false,2584
-Y41.9,XX,XX/Y41.9.md,"Effets indésirables d'un anti-infectieux et antiparasitaire systémiques, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1808
-Y42.0,XX,XX/Y42.0.md,Effets indésirables des glucocorticoïdes et analogues synthétiques au cours de leur usage thérapeutique,true,false,true,false,false,1996
-Y42.1,XX,XX/Y42.1.md,Effets indésirables des hormones thyroïdiennes et leurs dérivés au cours de leur usage thérapeutique,true,false,true,false,false,1913
-Y42.2,XX,XX/Y42.2.md,Effets indésirables des antithyroïdiens au cours de leur usage thérapeutique,true,false,true,false,false,1889
-Y42.3,XX,XX/Y42.3.md,Effets indésirables de l'insuline et des hypoglycémiants oraux [antidiabétiques] au cours de leur usage thérapeutique,true,false,true,false,false,1930
-Y42.4,XX,XX/Y42.4.md,Effets indésirables des contraceptifs oraux au cours de leur usage thérapeutique,true,false,true,false,false,1972
-Y42.5,XX,XX/Y42.5.md,Effets indésirables d'autres oestrogènes et progestatifs au cours de leur usage thérapeutique,true,false,true,false,false,1953
-Y42.6,XX,XX/Y42.6.md,"Effets indésirables des antigonadotrophines, anti-oestrogènes, anti-androgènes, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1984
-Y42.7,XX,XX/Y42.7.md,Effets indésirables des androgènes et autres anabolisants au cours de leur usage thérapeutique,true,false,true,false,false,1907
-Y42.8,XX,XX/Y42.8.md,"Effets indésirables des hormones et leurs substituts synthétiques, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,2957
-Y42.9,XX,XX/Y42.9.md,"Effets indésirables des antagonistes hormonaux, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1893
-Y43.0,XX,XX/Y43.0.md,Effets indésirables des anti-allergiques et anti-émétiques au cours de leur usage thérapeutique,true,false,true,false,false,1872
-Y43.1,XX,XX/Y43.1.md,Effets indésirables des antimétabolites antitumoraux au cours de leur usage thérapeutique,true,false,true,false,false,1820
-Y43.2,XX,XX/Y43.2.md,Effets indésirables des produits antitumoraux naturels au cours de leur usage thérapeutique,true,false,true,false,false,1788
-Y43.3,XX,XX/Y43.3.md,Effets indésirables d'autres médicaments antitumoraux au cours de leur usage thérapeutique,true,false,true,false,false,1895
-Y43.4,XX,XX/Y43.4.md,Effets indésirables des agents immunosuppresseurs au cours de leur usage thérapeutique,true,false,true,false,false,1783
-Y43.5,XX,XX/Y43.5.md,Effets indésirables des acidifiants et alcalinisants au cours de leur usage thérapeutique,true,false,true,false,false,1786
-Y43.6,XX,XX/Y43.6.md,"Effets indésirables des enzymes, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1787
-Y43.8,XX,XX/Y43.8.md,"Effets indésirables d'autres substances d'action pharmacologique essentiellement systémique, non classées ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,2664
-Y43.9,XX,XX/Y43.9.md,"Effets indésirables d'une substance d'action pharmacologique essentiellement systémique, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1807
-Y44.0,XX,XX/Y44.0.md,Effets indésirables des préparations à base de fer et autres préparations prescrites dans les anémies hypochromes au cours de leur usage thérapeutique,true,false,true,false,false,1757
-Y44.1,XX,XX/Y44.1.md,"Effets indésirables de la vitamine B12, de l'acide folique et autres préparations prescrites dans les anémies mégaloblastiques au cours de leur usage thérapeutique",true,false,true,false,false,1770
-Y44.2,XX,XX/Y44.2.md,Effets indésirables des anticoagulants au cours de leur usage thérapeutique,true,false,true,false,false,1682
-Y44.3,XX,XX/Y44.3.md,"Effets indésirables des antagonistes des anticoagulants, de la vitamine K et autres coagulants au cours de leur usage thérapeutique",true,false,true,false,false,1738
-Y44.4,XX,XX/Y44.4.md,Effets indésirables des antithrombotiques [inhibiteurs de l'agrégation plaquettaire] au cours de leur usage thérapeutique,true,false,true,false,false,1820
-Y44.5,XX,XX/Y44.5.md,Effets indésirables des thrombolytiques au cours de leur usage thérapeutique,true,false,true,false,false,1683
-Y44.6,XX,XX/Y44.6.md,Effets indésirables du sang naturel et produits sanguins au cours de leur usage thérapeutique,true,false,true,false,false,1764
-Y44.7,XX,XX/Y44.7.md,Effets indésirables des succédanés du plasma au cours de leur usage thérapeutique,true,false,true,false,false,1688
-Y44.9,XX,XX/Y44.9.md,"Effets indésirables des substances agissant essentiellement sur les constituants du sang, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1758
-Y45.0,XX,XX/Y45.0.md,Effets indésirables des opioïdes et analgésiques apparentés au cours de leur usage thérapeutique,true,false,true,false,false,1703
-Y45.1,XX,XX/Y45.1.md,Effets indésirables des salicylés au cours de leur usage thérapeutique,true,false,true,false,false,1677
-Y45.2,XX,XX/Y45.2.md,Effets indésirables des dérivés de l'acide propionique au cours de leur usage thérapeutique,true,false,true,false,false,1752
-Y45.3,XX,XX/Y45.3.md,Effets indésirables d'autres anti-inflammatoires non stéroïdiens [AINS] au cours de leur usage thérapeutique,true,false,true,false,false,1715
-Y45.4,XX,XX/Y45.4.md,Effets indésirables des antirhumatismaux au cours de leur usage thérapeutique,true,false,true,false,false,1786
-Y45.5,XX,XX/Y45.5.md,Effets indésirables des dérivés du 4-aminophénol au cours de leur usage thérapeutique,true,false,true,false,false,1692
-Y45.8,XX,XX/Y45.8.md,"Effets indésirables d'autres médicaments analgésiques, antipyrétiques au cours de leur usage thérapeutique",true,false,true,false,false,2359
-Y45.9,XX,XX/Y45.9.md,"Effets indésirables d'un médicament analgésique, antipyrétique et anti-inflammatoire, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1743
-Y46.0,XX,XX/Y46.0.md,Effets indésirables des succinimides au cours de leur usage thérapeutique,true,false,true,false,false,1840
-Y46.1,XX,XX/Y46.1.md,Effets indésirables des oxazolidine-diones au cours de leur usage thérapeutique,true,false,true,false,false,1846
-Y46.2,XX,XX/Y46.2.md,Effets indésirables des dérivés de l'hydantoïne au cours de leur usage thérapeutique,true,false,true,false,false,1851
-Y46.3,XX,XX/Y46.3.md,Effets indésirables des désoxybarbituriques au cours de leur usage thérapeutique,true,false,true,false,false,1847
-Y46.4,XX,XX/Y46.4.md,Effets indésirables des iminostilbènes au cours de leur usage thérapeutique,true,false,true,false,false,1879
-Y46.5,XX,XX/Y46.5.md,Effets indésirables de l'acide valproïque au cours de son usage thérapeutique,true,false,true,false,false,1844
-Y46.6,XX,XX/Y46.6.md,"Effets indésirables des anti-épileptiques, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1871
-Y46.7,XX,XX/Y46.7.md,Effets indésirables des  antiparkinsoniens au cours de leur usage thérapeutique,true,false,true,false,false,1880
-Y46.8,XX,XX/Y46.8.md,Effets indésirables des myorelaxants d'action centrale au cours de leur usage thérapeutique,true,false,true,false,false,2717
-Y47.0,XX,XX/Y47.0.md,"Effets indésirables des barbituriques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1796
-Y47.1,XX,XX/Y47.1.md,Effets indésirables des benzodiazépines au cours de leur usage thérapeutique,true,false,true,false,false,1683
-Y47.2,XX,XX/Y47.2.md,Effets indésirables des dérivés du chloral au cours de leur usage thérapeutique,true,false,true,false,false,1686
-Y47.3,XX,XX/Y47.3.md,Effets indésirables des paraldéhyde au cours de leur usage thérapeutique,true,false,true,false,false,1679
-Y47.4,XX,XX/Y47.4.md,Effets indésirables des dérivés du brome au cours de leur usage thérapeutique,true,false,true,false,false,1684
-Y47.5,XX,XX/Y47.5.md,"Effets indésirables des sédatifs et hypnotiques en association, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1728
-Y47.8,XX,XX/Y47.8.md,"Effets indésirables d'autres sédatifs, hypnotiques et tranquillisants au cours de leur usage thérapeutique",true,false,true,false,false,2389
-Y47.9,XX,XX/Y47.9.md,"Effets indésirables d'un sédatif, hypnotique et tranquillisant, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1759
-Y48.0,XX,XX/Y48.0.md,Effets indésirables des anesthésiques inhalés au cours de leur usage thérapeutique,true,false,true,false,false,1689
-Y48.1,XX,XX/Y48.1.md,Effets indésirables des anesthésiques par voie parentérale au cours de leur usage thérapeutique,true,false,true,false,false,1743
-Y48.2,XX,XX/Y48.2.md,"Effets indésirables des anesthésiques généraux, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1716
-Y48.3,XX,XX/Y48.3.md,Effets indésirables des anesthésiques locaux au cours de leur usage thérapeutique,true,false,true,false,false,1688
-Y48.4,XX,XX/Y48.4.md,"Effets indésirables des anesthésiques, sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1697
-Y48.5,XX,XX/Y48.5.md,Effets indésirables des gaz thérapeutiques,true,false,true,false,false,1649
-Y49.0,XX,XX/Y49.0.md,Effets indésirables des antidépresseurs tri- et tétracycliques au cours de leur usage thérapeutique,true,false,true,false,false,1925
-Y49.1,XX,XX/Y49.1.md,Effets indésirables des antidépresseurs inhibiteurs de la mono-amine-oxydase au cours de leur usage thérapeutique,true,false,true,false,false,1939
-Y49.2,XX,XX/Y49.2.md,"Effets indésirables des antidépresseurs, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1928
-Y49.3,XX,XX/Y49.3.md,Effets indésirables des antipsychotiques phénothiaziniques et neuroleptiques au cours de leur usage thérapeutique,true,false,true,false,false,1939
-Y49.4,XX,XX/Y49.4.md,Effets indésirables des neuroleptiques à base de butyrophénone et de thioxanthène au cours de leur usage thérapeutique,true,false,true,false,false,1944
-Y49.5,XX,XX/Y49.5.md,Effets indésirables d'autres antipsychotiques et neuroleptiques au cours de leur usage thérapeutique,true,false,true,false,false,1983
-Y49.6,XX,XX/Y49.6.md,Effets indésirables des psychodysleptiques [hallucinogènes] au cours de leur usage thérapeutique,true,false,true,false,false,1922
-Y49.7,XX,XX/Y49.7.md,Effets indésirables des psychostimulants pouvant faire l'objet d'un abus au cours de leur usage thérapeutique,true,false,true,false,false,1935
-Y49.8,XX,XX/Y49.8.md,"Effets indésirables d'autres médicaments psychotropes, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,2933
-Y49.9,XX,XX/Y49.9.md,"Effets indésirables d'un médicament psychotrope, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1896
-Y50.0,XX,XX/Y50.0.md,Effets indésirables des analeptiques au cours de leur usage thérapeutique,true,false,true,false,false,1680
-Y50.1,XX,XX/Y50.1.md,Effets indésirables d'un antagoniste des opioïdes au cours de son usage thérapeutique,true,false,true,false,false,1692
-Y50.2,XX,XX/Y50.2.md,"Effets indésirables des méthylxanthines, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1838
-Y50.8,XX,XX/Y50.8.md,Effets indésirables d'autres stimulants du système nerveux central au cours de leur usage thérapeutique,true,false,true,false,false,2046
-Y50.9,XX,XX/Y50.9.md,"Effets indésirables d'un stimulant du système nerveux central, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1720
-Y51.0,XX,XX/Y51.0.md,Effets indésirables des anticholinestérasiques au cours de leur usage thérapeutique,true,false,true,false,false,1690
-Y51.1,XX,XX/Y51.1.md,Effets indésirables d'autres parasympathomimétiques [cholinergiques] au cours de leur usage thérapeutique,true,false,true,false,false,1712
-Y51.2,XX,XX/Y51.2.md,"Effets indésirables des ganglioplégiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1706
-Y51.3,XX,XX/Y51.3.md,"Effets indésirables d'autres parasympatholytiques [anticholinergiques et antimuscariniques] et spasmolytiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1809
-Y51.4,XX,XX/Y51.4.md,"Effets indésirables des agents principalement alpha-sympathomimétiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1771
-Y51.5,XX,XX/Y51.5.md,"Effets indésirables des agents principalement bêta-sympathomimétiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1793
-Y51.6,XX,XX/Y51.6.md,"Effets indésirables des alpha-bloquants, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1784
-Y51.7,XX,XX/Y51.7.md,"Effets indésirables des bêta-bloquants, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1704
-Y51.8,XX,XX/Y51.8.md,"Effets indésirables des agents bloquants neuronaux adrénergiques et d'action centrale, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,2881
-Y51.9,XX,XX/Y51.9.md,"Effets indésirables des médicaments agissant essentiellement sur le système nerveux autonome, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1861
-Y52.0,XX,XX/Y52.0.md,Effets indésirables des glucosides cardiotoniques et médicaments d'action similaire au cours de leur usage thérapeutique,true,false,true,false,false,1815
-Y52.1,XX,XX/Y52.1.md,Effets indésirables des inhibiteurs calciques au cours de leur usage thérapeutique,true,false,true,false,false,1777
-Y52.2,XX,XX/Y52.2.md,"Effets indésirables d'autres anti-arythmisants, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1861
-Y52.3,XX,XX/Y52.3.md,"Effets indésirables des vasodilatateurs coronariens, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1932
-Y52.4,XX,XX/Y52.4.md,Effets indésirables des inhibiteurs de l'enzyme de conversion au cours de leur usage thérapeutique,true,false,true,false,false,1793
-Y52.5,XX,XX/Y52.5.md,"Effets indésirables d'autres antihypertenseurs, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1977
-Y52.6,XX,XX/Y52.6.md,Effets indésirables des antihyperlipidémiants et anti-artériosclérosants au cours de leur usage thérapeutique,true,false,true,false,false,1804
-Y52.7,XX,XX/Y52.7.md,Effets indésirables des vasodilatateurs périphériques au cours de leur usage thérapeutique,true,false,true,false,false,1894
-Y52.8,XX,XX/Y52.8.md,"Effets indésirables des substances antivariqueuses, y compris les agents sclérosants au cours de leur usage thérapeutique",true,false,true,false,false,2780
-Y52.9,XX,XX/Y52.9.md,"Effets indésirables des substances agissant essentiellement sur le système cardio-vasculaire, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1821
-Y53.0,XX,XX/Y53.0.md,Effets indésirables d'un inhibiteur des récepteurs histaminique H2 au cours de son usage thérapeutique,true,false,true,false,false,1709
-Y53.1,XX,XX/Y53.1.md,Effets indésirables d'autres anti-acides et antisécrétoires gastriques au cours de leur usage thérapeutique,true,false,true,false,false,1714
-Y53.2,XX,XX/Y53.2.md,Effets indésirables des laxatifs stimulants au cours de leur usage thérapeutique,true,false,true,false,false,1687
-Y53.3,XX,XX/Y53.3.md,Effets indésirables des laxatifs salins et osmotiques au cours de leur usage thérapeutique,true,false,true,false,false,1697
-Y53.4,XX,XX/Y53.4.md,Effets indésirables d'autres laxatifs au cours de leur usage thérapeutique,true,false,true,false,false,1742
-Y53.5,XX,XX/Y53.5.md,Effets indésirables des médicaments facilitant la digestion au cours de leur usage thérapeutique,true,false,true,false,false,1703
-Y53.6,XX,XX/Y53.6.md,Effets indésirables des antidiarrhéiques au cours de leur usage thérapeutique,true,false,true,false,false,1784
-Y53.7,XX,XX/Y53.7.md,Effets indésirables des émétiques au cours de leur usage thérapeutique,true,false,true,false,false,1677
-Y53.8,XX,XX/Y53.8.md,Effets indésirables d'autres substances agissant essentiellement sur le tractus gastro-intestinal au cours de leur usage thérapeutique,true,false,true,false,false,2582
-Y53.9,XX,XX/Y53.9.md,"Effets indésirables d'une substance agissant essentiellement sur le tractus gastro-intestinal, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1752
-Y54.0,XX,XX/Y54.0.md,Effets indésirables des minéralocorticoïdes au cours de leur usage thérapeutique,true,false,true,false,false,1687
-Y54.1,XX,XX/Y54.1.md,Effets indésirables des antagonistes des minéralocorticoïdes [antagonistes de l'aldostérone] au cours de leur usage thérapeutique,true,false,true,false,false,1736
-Y54.2,XX,XX/Y54.2.md,Effets indésirables des inhibiteurs de l'anhydrase carbonique au cours de leur usage thérapeutique,true,false,true,false,false,1742
-Y54.3,XX,XX/Y54.3.md,Effets indésirables des dérivés de la benzothiadiazine au cours de leur usage thérapeutique,true,false,true,false,false,1698
-Y54.4,XX,XX/Y54.4.md,Effets indésirables des diurétiques de l'anse au cours de leur usage thérapeutique,true,false,true,false,false,1689
-Y54.5,XX,XX/Y54.5.md,Effets indésirables d'autres diurétiques au cours de leur usage thérapeutique,true,false,true,false,false,1684
-Y54.6,XX,XX/Y54.6.md,"Effets indésirables des produits agissant sur l'équilibre électrolytique, calorique et hydrique au cours de leur usage thérapeutique",true,false,true,false,false,1790
-Y54.7,XX,XX/Y54.7.md,Effets indésirables des médicaments agissant sur le métabolisme du calcium au cours de leur usage thérapeutique,true,false,true,false,false,1805
-Y54.8,XX,XX/Y54.8.md,Effets indésirables des médicaments agissant sur le métabolisme de l'acide urique au cours de leur usage thérapeutique,true,false,true,false,false,2670
-Y54.9,XX,XX/Y54.9.md,"Effets indésirables des sels minéraux, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1703
-Y55.0,XX,XX/Y55.0.md,Effets indésirables des ocytociques au cours de leur usage thérapeutique,true,false,true,false,false,1828
-Y55.1,XX,XX/Y55.1.md,Effets indésirables des myorelaxants au cours de leur usage thérapeutique,true,false,true,false,false,1758
-Y55.2,XX,XX/Y55.2.md,"Effets indésirables des médicaments agissant essentiellement sur les muscles, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1746
-Y55.3,XX,XX/Y55.3.md,Effets indésirables des antitussifs au cours de leur usage thérapeutique,true,false,true,false,false,1679
-Y55.4,XX,XX/Y55.4.md,Effets indésirables des expectorants au cours de leur usage thérapeutique,true,false,true,false,false,1680
-Y55.5,XX,XX/Y55.5.md,Effets indésirables des médicaments contre le coryza [rhume banal] au cours de leur usage thérapeutique,true,false,true,false,false,1710
-Y55.6,XX,XX/Y55.6.md,"Effets indésirables des anti-asthmatiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1921
-Y55.7,XX,XX/Y55.7.md,"Effets indésirables des substances agissant essentiellement sur l'appareil respiratoire, autres et sans précision au cours de leur usage thérapeutique",true,false,true,false,false,1757
-Y56.0,XX,XX/Y56.0.md,"Effets indésirables des médicaments antifongiques, anti-infectieux et anti-inflammatoires pour application locale, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1857
-Y56.1,XX,XX/Y56.1.md,Effets indésirables des antiprurigineux au cours de leur usage thérapeutique,true,false,true,false,false,1761
-Y56.2,XX,XX/Y56.2.md,Effets indésirables des astringents et détergents locaux au cours de leur usage thérapeutique,true,false,true,false,false,1778
-Y56.3,XX,XX/Y56.3.md,"Effets indésirables des émollients, adoucissants et protecteurs au cours de leur usage thérapeutique",true,false,true,false,false,1785
-Y56.4,XX,XX/Y56.4.md,"Effets indésirables des kératolytiques, kératoplastiques et autres médicaments et préparations capillaires au cours de leur usage thérapeutique",true,false,true,false,false,1828
-Y56.5,XX,XX/Y56.5.md,Effets indésirables des médicaments et préparations ophtalmologiques au cours de leur usage thérapeutique,true,false,true,false,false,1790
-Y56.6,XX,XX/Y56.6.md,Effets indésirables des médicaments et préparations utilisés en oto-rhino-laryngologie au cours de leur usage thérapeutique,true,false,true,false,false,1808
-Y56.7,XX,XX/Y56.7.md,Effets indésirables des médicaments dentaires pour application locale au cours de leur usage thérapeutique,true,false,true,false,false,1791
-Y56.8,XX,XX/Y56.8.md,Effets indésirables d'autres topiques agissant essentiellement sur la peau et les muqueuses au cours de leur usage thérapeutique,true,false,true,false,false,2911
-Y56.9,XX,XX/Y56.9.md,"Effets indésirables d'un topique agissant essentiellement sur la peau et les muqueuses, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1823
-Y57.0,XX,XX/Y57.0.md,Effets indésirables des dépresseurs de l'appétit [anorexigènes] au cours de leur usage thérapeutique,true,false,true,false,false,1707
-Y57.1,XX,XX/Y57.1.md,Effets indésirables des lipotropes au cours de leur usage thérapeutique,true,false,true,false,false,1678
-Y57.2,XX,XX/Y57.2.md,"Effets indésirables des antidotes et chélateurs, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1713
-Y57.3,XX,XX/Y57.3.md,Effets indésirables des produits de désintoxication alcoolique au cours de leur usage thérapeutique,true,false,true,false,false,1706
-Y57.4,XX,XX/Y57.4.md,Effets indésirables des excipients pharmaceutiques au cours de leur usage thérapeutique,true,false,true,false,false,1694
-Y57.5,XX,XX/Y57.5.md,Effets indésirables d'un produit de contraste utilisé en radiologie au cours de son usage thérapeutique,true,false,true,false,false,1710
-Y57.6,XX,XX/Y57.6.md,Effets indésirables d'autres agents de diagnostic au cours de leur usage thérapeutique,true,false,true,false,false,1693
-Y57.7,XX,XX/Y57.7.md,"Effets indésirables des vitamines, non classées ailleurs au cours de leur usage thérapeutique",true,false,true,false,false,1820
-Y57.8,XX,XX/Y57.8.md,Effets indésirables d'autres substances et médicaments au cours de leur usage thérapeutique,true,false,true,false,false,2588
-Y57.9,XX,XX/Y57.9.md,"Effets indésirables d'une substance et médicament, sans précision au cours de son usage thérapeutique",true,false,true,false,false,1708
-Y58.0,XX,XX/Y58.0.md,Effets indésirables du vaccin BCG,true,false,true,false,false,1640
-Y58.1,XX,XX/Y58.1.md,Effets indésirables du vaccin antityphoïdique et paratyphoïdique,true,false,true,false,false,1671
-Y58.2,XX,XX/Y58.2.md,Effets indésirables du vaccin anticholérique,true,false,true,false,false,1651
-Y58.3,XX,XX/Y58.3.md,Effets indésirables du vaccin antipesteux,true,false,true,false,false,1648
-Y58.4,XX,XX/Y58.4.md,Effets indésirables du vaccin antitétanique,true,false,true,false,false,1650
-Y58.5,XX,XX/Y58.5.md,Effets indésirables du vaccin antidiphtérique,true,false,true,false,false,1652
-Y58.6,XX,XX/Y58.6.md,"Effets indésirables du vaccin anticoquelucheux, y compris en association",true,false,true,false,false,1679
-Y58.8,XX,XX/Y58.8.md,"Effets indésirables des vaccins bactériens mixtes, sauf ceux qui contiennent du vaccin anticoquelucheux",true,false,true,false,false,2184
-Y58.9,XX,XX/Y58.9.md,"Effets indésirables des vaccins bactériens, autres et sans précision",true,false,true,false,false,1675
-Y59.0,XX,XX/Y59.0.md,Effets indésirables des vaccins antiviraux,true,false,true,false,false,1649
-Y59.1,XX,XX/Y59.1.md,Effets indésirables des vaccins antirickettsies,true,false,true,false,false,1654
-Y59.2,XX,XX/Y59.2.md,Effets indésirables des vaccins antiprotozoaires,true,false,true,false,false,1655
-Y59.3,XX,XX/Y59.3.md,Effets indésirables des immunoglobulines,true,false,true,false,false,1647
-Y59.8,XX,XX/Y59.8.md,Effets indésirables d'autres vaccins et substances biologiques précisés,true,false,true,false,false,1948
-Y59.9,XX,XX/Y59.9.md,"Effets indésirables de vaccin ou substance biologique, sans précision",true,false,true,false,false,1676
+Y40.0,XX,XX/Y40.0.md,Effets indésirables des pénicillines au cours de leur usage thérapeutique,true,false,true,true,false,2226
+Y40.1,XX,XX/Y40.1.md,Effets indésirables des céphalosporines et autres bêtalactamines au cours de leur usage thérapeutique,true,false,true,true,false,2254
+Y40.2,XX,XX/Y40.2.md,Effets indésirables des antibiotiques du groupe du chloramphénicol au cours de leur usage thérapeutique,true,false,true,true,false,2256
+Y40.3,XX,XX/Y40.3.md,Effets indésirables des macrolides au cours de leur usage thérapeutique,true,false,true,true,false,2224
+Y40.4,XX,XX/Y40.4.md,Effets indésirables des tétracyclines au cours de leur usage thérapeutique,true,false,true,true,false,2227
+Y40.5,XX,XX/Y40.5.md,Effets indésirables des aminosides au cours de leur usage thérapeutique,true,false,true,true,false,2261
+Y40.6,XX,XX/Y40.6.md,Effets indésirables des rifamycines au cours de leur usage thérapeutique,true,false,true,true,false,2225
+Y40.7,XX,XX/Y40.7.md,Effets indésirables des antibiotiques antifongiques systémiques au cours de leur usage thérapeutique,true,false,true,true,false,2253
+Y40.8,XX,XX/Y40.8.md,Effets indésirables d'autres antibiotiques systémiques au cours de leur usage thérapeutique,true,false,true,true,false,3054
+Y40.9,XX,XX/Y40.9.md,"Effets indésirables d'un antibiotique systémique, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2224
+Y41.0,XX,XX/Y41.0.md,Effets indésirables des sulfamides au cours de leur usage thérapeutique,true,false,true,true,false,2195
+Y41.1,XX,XX/Y41.1.md,Effets indésirables des antimycobactériens au cours de leur usage thérapeutique,true,false,true,true,false,2284
+Y41.2,XX,XX/Y41.2.md,Effets indésirables des antipaludiques et médicaments agissant sur d'autres protozoaires du sang au cours de leur usage thérapeutique,true,false,true,true,false,2335
+Y41.3,XX,XX/Y41.3.md,Effets indésirables d'autres antiprotozoaires au cours de leur usage thérapeutique,true,false,true,true,false,2206
+Y41.4,XX,XX/Y41.4.md,Effets indésirables des anthelminthiques au cours de leur usage thérapeutique,true,false,true,true,false,2201
+Y41.5,XX,XX/Y41.5.md,Effets indésirables des antiviraux au cours de leur usage thérapeutique,true,false,true,true,false,2272
+Y41.8,XX,XX/Y41.8.md,Effets indésirables d'autres anti-infectieux et antiparasitaires systémiques précisés au cours de leur usage thérapeutique,true,false,true,true,false,2994
+Y41.9,XX,XX/Y41.9.md,"Effets indésirables d'un anti-infectieux et antiparasitaire systémiques, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2218
+Y42.0,XX,XX/Y42.0.md,Effets indésirables des glucocorticoïdes et analogues synthétiques au cours de leur usage thérapeutique,true,false,true,true,false,2406
+Y42.1,XX,XX/Y42.1.md,Effets indésirables des hormones thyroïdiennes et leurs dérivés au cours de leur usage thérapeutique,true,false,true,true,false,2323
+Y42.2,XX,XX/Y42.2.md,Effets indésirables des antithyroïdiens au cours de leur usage thérapeutique,true,false,true,true,false,2299
+Y42.3,XX,XX/Y42.3.md,Effets indésirables de l'insuline et des hypoglycémiants oraux [antidiabétiques] au cours de leur usage thérapeutique,true,false,true,true,false,2340
+Y42.4,XX,XX/Y42.4.md,Effets indésirables des contraceptifs oraux au cours de leur usage thérapeutique,true,false,true,true,false,2382
+Y42.5,XX,XX/Y42.5.md,Effets indésirables d'autres oestrogènes et progestatifs au cours de leur usage thérapeutique,true,false,true,true,false,2363
+Y42.6,XX,XX/Y42.6.md,"Effets indésirables des antigonadotrophines, anti-oestrogènes, anti-androgènes, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2394
+Y42.7,XX,XX/Y42.7.md,Effets indésirables des androgènes et autres anabolisants au cours de leur usage thérapeutique,true,false,true,true,false,2317
+Y42.8,XX,XX/Y42.8.md,"Effets indésirables des hormones et leurs substituts synthétiques, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,3367
+Y42.9,XX,XX/Y42.9.md,"Effets indésirables des antagonistes hormonaux, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2303
+Y43.0,XX,XX/Y43.0.md,Effets indésirables des anti-allergiques et anti-émétiques au cours de leur usage thérapeutique,true,false,true,true,false,2282
+Y43.1,XX,XX/Y43.1.md,Effets indésirables des antimétabolites antitumoraux au cours de leur usage thérapeutique,true,false,true,true,false,2230
+Y43.2,XX,XX/Y43.2.md,Effets indésirables des produits antitumoraux naturels au cours de leur usage thérapeutique,true,false,true,true,false,2198
+Y43.3,XX,XX/Y43.3.md,Effets indésirables d'autres médicaments antitumoraux au cours de leur usage thérapeutique,true,false,true,true,false,2305
+Y43.4,XX,XX/Y43.4.md,Effets indésirables des agents immunosuppresseurs au cours de leur usage thérapeutique,true,false,true,true,false,2193
+Y43.5,XX,XX/Y43.5.md,Effets indésirables des acidifiants et alcalinisants au cours de leur usage thérapeutique,true,false,true,true,false,2196
+Y43.6,XX,XX/Y43.6.md,"Effets indésirables des enzymes, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2197
+Y43.8,XX,XX/Y43.8.md,"Effets indésirables d'autres substances d'action pharmacologique essentiellement systémique, non classées ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,3074
+Y43.9,XX,XX/Y43.9.md,"Effets indésirables d'une substance d'action pharmacologique essentiellement systémique, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2217
+Y44.0,XX,XX/Y44.0.md,Effets indésirables des préparations à base de fer et autres préparations prescrites dans les anémies hypochromes au cours de leur usage thérapeutique,true,false,true,true,false,2167
+Y44.1,XX,XX/Y44.1.md,"Effets indésirables de la vitamine B12, de l'acide folique et autres préparations prescrites dans les anémies mégaloblastiques au cours de leur usage thérapeutique",true,false,true,true,false,2180
+Y44.2,XX,XX/Y44.2.md,Effets indésirables des anticoagulants au cours de leur usage thérapeutique,true,false,true,true,false,2092
+Y44.3,XX,XX/Y44.3.md,"Effets indésirables des antagonistes des anticoagulants, de la vitamine K et autres coagulants au cours de leur usage thérapeutique",true,false,true,true,false,2148
+Y44.4,XX,XX/Y44.4.md,Effets indésirables des antithrombotiques [inhibiteurs de l'agrégation plaquettaire] au cours de leur usage thérapeutique,true,false,true,true,false,2230
+Y44.5,XX,XX/Y44.5.md,Effets indésirables des thrombolytiques au cours de leur usage thérapeutique,true,false,true,true,false,2093
+Y44.6,XX,XX/Y44.6.md,Effets indésirables du sang naturel et produits sanguins au cours de leur usage thérapeutique,true,false,true,true,false,2174
+Y44.7,XX,XX/Y44.7.md,Effets indésirables des succédanés du plasma au cours de leur usage thérapeutique,true,false,true,true,false,2098
+Y44.9,XX,XX/Y44.9.md,"Effets indésirables des substances agissant essentiellement sur les constituants du sang, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2168
+Y45.0,XX,XX/Y45.0.md,Effets indésirables des opioïdes et analgésiques apparentés au cours de leur usage thérapeutique,true,false,true,true,false,2113
+Y45.1,XX,XX/Y45.1.md,Effets indésirables des salicylés au cours de leur usage thérapeutique,true,false,true,true,false,2087
+Y45.2,XX,XX/Y45.2.md,Effets indésirables des dérivés de l'acide propionique au cours de leur usage thérapeutique,true,false,true,true,false,2162
+Y45.3,XX,XX/Y45.3.md,Effets indésirables d'autres anti-inflammatoires non stéroïdiens [AINS] au cours de leur usage thérapeutique,true,false,true,true,false,2125
+Y45.4,XX,XX/Y45.4.md,Effets indésirables des antirhumatismaux au cours de leur usage thérapeutique,true,false,true,true,false,2196
+Y45.5,XX,XX/Y45.5.md,Effets indésirables des dérivés du 4-aminophénol au cours de leur usage thérapeutique,true,false,true,true,false,2102
+Y45.8,XX,XX/Y45.8.md,"Effets indésirables d'autres médicaments analgésiques, antipyrétiques au cours de leur usage thérapeutique",true,false,true,true,false,2769
+Y45.9,XX,XX/Y45.9.md,"Effets indésirables d'un médicament analgésique, antipyrétique et anti-inflammatoire, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2153
+Y46.0,XX,XX/Y46.0.md,Effets indésirables des succinimides au cours de leur usage thérapeutique,true,false,true,true,false,2250
+Y46.1,XX,XX/Y46.1.md,Effets indésirables des oxazolidine-diones au cours de leur usage thérapeutique,true,false,true,true,false,2256
+Y46.2,XX,XX/Y46.2.md,Effets indésirables des dérivés de l'hydantoïne au cours de leur usage thérapeutique,true,false,true,true,false,2261
+Y46.3,XX,XX/Y46.3.md,Effets indésirables des désoxybarbituriques au cours de leur usage thérapeutique,true,false,true,true,false,2257
+Y46.4,XX,XX/Y46.4.md,Effets indésirables des iminostilbènes au cours de leur usage thérapeutique,true,false,true,true,false,2289
+Y46.5,XX,XX/Y46.5.md,Effets indésirables de l'acide valproïque au cours de son usage thérapeutique,true,false,true,true,false,2254
+Y46.6,XX,XX/Y46.6.md,"Effets indésirables des anti-épileptiques, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2281
+Y46.7,XX,XX/Y46.7.md,Effets indésirables des  antiparkinsoniens au cours de leur usage thérapeutique,true,false,true,true,false,2290
+Y46.8,XX,XX/Y46.8.md,Effets indésirables des myorelaxants d'action centrale au cours de leur usage thérapeutique,true,false,true,true,false,3127
+Y47.0,XX,XX/Y47.0.md,"Effets indésirables des barbituriques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2206
+Y47.1,XX,XX/Y47.1.md,Effets indésirables des benzodiazépines au cours de leur usage thérapeutique,true,false,true,true,false,2093
+Y47.2,XX,XX/Y47.2.md,Effets indésirables des dérivés du chloral au cours de leur usage thérapeutique,true,false,true,true,false,2096
+Y47.3,XX,XX/Y47.3.md,Effets indésirables des paraldéhyde au cours de leur usage thérapeutique,true,false,true,true,false,2089
+Y47.4,XX,XX/Y47.4.md,Effets indésirables des dérivés du brome au cours de leur usage thérapeutique,true,false,true,true,false,2094
+Y47.5,XX,XX/Y47.5.md,"Effets indésirables des sédatifs et hypnotiques en association, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2138
+Y47.8,XX,XX/Y47.8.md,"Effets indésirables d'autres sédatifs, hypnotiques et tranquillisants au cours de leur usage thérapeutique",true,false,true,true,false,2799
+Y47.9,XX,XX/Y47.9.md,"Effets indésirables d'un sédatif, hypnotique et tranquillisant, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2169
+Y48.0,XX,XX/Y48.0.md,Effets indésirables des anesthésiques inhalés au cours de leur usage thérapeutique,true,false,true,true,false,2099
+Y48.1,XX,XX/Y48.1.md,Effets indésirables des anesthésiques par voie parentérale au cours de leur usage thérapeutique,true,false,true,true,false,2153
+Y48.2,XX,XX/Y48.2.md,"Effets indésirables des anesthésiques généraux, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2126
+Y48.3,XX,XX/Y48.3.md,Effets indésirables des anesthésiques locaux au cours de leur usage thérapeutique,true,false,true,true,false,2098
+Y48.4,XX,XX/Y48.4.md,"Effets indésirables des anesthésiques, sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2107
+Y48.5,XX,XX/Y48.5.md,Effets indésirables des gaz thérapeutiques,true,false,true,true,false,2059
+Y49.0,XX,XX/Y49.0.md,Effets indésirables des antidépresseurs tri- et tétracycliques au cours de leur usage thérapeutique,true,false,true,true,false,2335
+Y49.1,XX,XX/Y49.1.md,Effets indésirables des antidépresseurs inhibiteurs de la mono-amine-oxydase au cours de leur usage thérapeutique,true,false,true,true,false,2349
+Y49.2,XX,XX/Y49.2.md,"Effets indésirables des antidépresseurs, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2338
+Y49.3,XX,XX/Y49.3.md,Effets indésirables des antipsychotiques phénothiaziniques et neuroleptiques au cours de leur usage thérapeutique,true,false,true,true,false,2349
+Y49.4,XX,XX/Y49.4.md,Effets indésirables des neuroleptiques à base de butyrophénone et de thioxanthène au cours de leur usage thérapeutique,true,false,true,true,false,2354
+Y49.5,XX,XX/Y49.5.md,Effets indésirables d'autres antipsychotiques et neuroleptiques au cours de leur usage thérapeutique,true,false,true,true,false,2393
+Y49.6,XX,XX/Y49.6.md,Effets indésirables des psychodysleptiques [hallucinogènes] au cours de leur usage thérapeutique,true,false,true,true,false,2332
+Y49.7,XX,XX/Y49.7.md,Effets indésirables des psychostimulants pouvant faire l'objet d'un abus au cours de leur usage thérapeutique,true,false,true,true,false,2345
+Y49.8,XX,XX/Y49.8.md,"Effets indésirables d'autres médicaments psychotropes, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,3343
+Y49.9,XX,XX/Y49.9.md,"Effets indésirables d'un médicament psychotrope, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2306
+Y50.0,XX,XX/Y50.0.md,Effets indésirables des analeptiques au cours de leur usage thérapeutique,true,false,true,true,false,2090
+Y50.1,XX,XX/Y50.1.md,Effets indésirables d'un antagoniste des opioïdes au cours de son usage thérapeutique,true,false,true,true,false,2102
+Y50.2,XX,XX/Y50.2.md,"Effets indésirables des méthylxanthines, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2248
+Y50.8,XX,XX/Y50.8.md,Effets indésirables d'autres stimulants du système nerveux central au cours de leur usage thérapeutique,true,false,true,true,false,2456
+Y50.9,XX,XX/Y50.9.md,"Effets indésirables d'un stimulant du système nerveux central, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2130
+Y51.0,XX,XX/Y51.0.md,Effets indésirables des anticholinestérasiques au cours de leur usage thérapeutique,true,false,true,true,false,2100
+Y51.1,XX,XX/Y51.1.md,Effets indésirables d'autres parasympathomimétiques [cholinergiques] au cours de leur usage thérapeutique,true,false,true,true,false,2122
+Y51.2,XX,XX/Y51.2.md,"Effets indésirables des ganglioplégiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2116
+Y51.3,XX,XX/Y51.3.md,"Effets indésirables d'autres parasympatholytiques [anticholinergiques et antimuscariniques] et spasmolytiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2219
+Y51.4,XX,XX/Y51.4.md,"Effets indésirables des agents principalement alpha-sympathomimétiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2181
+Y51.5,XX,XX/Y51.5.md,"Effets indésirables des agents principalement bêta-sympathomimétiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2203
+Y51.6,XX,XX/Y51.6.md,"Effets indésirables des alpha-bloquants, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2194
+Y51.7,XX,XX/Y51.7.md,"Effets indésirables des bêta-bloquants, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2114
+Y51.8,XX,XX/Y51.8.md,"Effets indésirables des agents bloquants neuronaux adrénergiques et d'action centrale, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,3291
+Y51.9,XX,XX/Y51.9.md,"Effets indésirables des médicaments agissant essentiellement sur le système nerveux autonome, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2271
+Y52.0,XX,XX/Y52.0.md,Effets indésirables des glucosides cardiotoniques et médicaments d'action similaire au cours de leur usage thérapeutique,true,false,true,true,false,2225
+Y52.1,XX,XX/Y52.1.md,Effets indésirables des inhibiteurs calciques au cours de leur usage thérapeutique,true,false,true,true,false,2187
+Y52.2,XX,XX/Y52.2.md,"Effets indésirables d'autres anti-arythmisants, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2271
+Y52.3,XX,XX/Y52.3.md,"Effets indésirables des vasodilatateurs coronariens, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2342
+Y52.4,XX,XX/Y52.4.md,Effets indésirables des inhibiteurs de l'enzyme de conversion au cours de leur usage thérapeutique,true,false,true,true,false,2203
+Y52.5,XX,XX/Y52.5.md,"Effets indésirables d'autres antihypertenseurs, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2387
+Y52.6,XX,XX/Y52.6.md,Effets indésirables des antihyperlipidémiants et anti-artériosclérosants au cours de leur usage thérapeutique,true,false,true,true,false,2214
+Y52.7,XX,XX/Y52.7.md,Effets indésirables des vasodilatateurs périphériques au cours de leur usage thérapeutique,true,false,true,true,false,2304
+Y52.8,XX,XX/Y52.8.md,"Effets indésirables des substances antivariqueuses, y compris les agents sclérosants au cours de leur usage thérapeutique",true,false,true,true,false,3190
+Y52.9,XX,XX/Y52.9.md,"Effets indésirables des substances agissant essentiellement sur le système cardio-vasculaire, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2231
+Y53.0,XX,XX/Y53.0.md,Effets indésirables d'un inhibiteur des récepteurs histaminique H2 au cours de son usage thérapeutique,true,false,true,true,false,2119
+Y53.1,XX,XX/Y53.1.md,Effets indésirables d'autres anti-acides et antisécrétoires gastriques au cours de leur usage thérapeutique,true,false,true,true,false,2124
+Y53.2,XX,XX/Y53.2.md,Effets indésirables des laxatifs stimulants au cours de leur usage thérapeutique,true,false,true,true,false,2097
+Y53.3,XX,XX/Y53.3.md,Effets indésirables des laxatifs salins et osmotiques au cours de leur usage thérapeutique,true,false,true,true,false,2107
+Y53.4,XX,XX/Y53.4.md,Effets indésirables d'autres laxatifs au cours de leur usage thérapeutique,true,false,true,true,false,2152
+Y53.5,XX,XX/Y53.5.md,Effets indésirables des médicaments facilitant la digestion au cours de leur usage thérapeutique,true,false,true,true,false,2113
+Y53.6,XX,XX/Y53.6.md,Effets indésirables des antidiarrhéiques au cours de leur usage thérapeutique,true,false,true,true,false,2194
+Y53.7,XX,XX/Y53.7.md,Effets indésirables des émétiques au cours de leur usage thérapeutique,true,false,true,true,false,2087
+Y53.8,XX,XX/Y53.8.md,Effets indésirables d'autres substances agissant essentiellement sur le tractus gastro-intestinal au cours de leur usage thérapeutique,true,false,true,true,false,2992
+Y53.9,XX,XX/Y53.9.md,"Effets indésirables d'une substance agissant essentiellement sur le tractus gastro-intestinal, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2162
+Y54.0,XX,XX/Y54.0.md,Effets indésirables des minéralocorticoïdes au cours de leur usage thérapeutique,true,false,true,true,false,2097
+Y54.1,XX,XX/Y54.1.md,Effets indésirables des antagonistes des minéralocorticoïdes [antagonistes de l'aldostérone] au cours de leur usage thérapeutique,true,false,true,true,false,2146
+Y54.2,XX,XX/Y54.2.md,Effets indésirables des inhibiteurs de l'anhydrase carbonique au cours de leur usage thérapeutique,true,false,true,true,false,2152
+Y54.3,XX,XX/Y54.3.md,Effets indésirables des dérivés de la benzothiadiazine au cours de leur usage thérapeutique,true,false,true,true,false,2108
+Y54.4,XX,XX/Y54.4.md,Effets indésirables des diurétiques de l'anse au cours de leur usage thérapeutique,true,false,true,true,false,2099
+Y54.5,XX,XX/Y54.5.md,Effets indésirables d'autres diurétiques au cours de leur usage thérapeutique,true,false,true,true,false,2094
+Y54.6,XX,XX/Y54.6.md,"Effets indésirables des produits agissant sur l'équilibre électrolytique, calorique et hydrique au cours de leur usage thérapeutique",true,false,true,true,false,2200
+Y54.7,XX,XX/Y54.7.md,Effets indésirables des médicaments agissant sur le métabolisme du calcium au cours de leur usage thérapeutique,true,false,true,true,false,2215
+Y54.8,XX,XX/Y54.8.md,Effets indésirables des médicaments agissant sur le métabolisme de l'acide urique au cours de leur usage thérapeutique,true,false,true,true,false,3080
+Y54.9,XX,XX/Y54.9.md,"Effets indésirables des sels minéraux, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2113
+Y55.0,XX,XX/Y55.0.md,Effets indésirables des ocytociques au cours de leur usage thérapeutique,true,false,true,true,false,2238
+Y55.1,XX,XX/Y55.1.md,Effets indésirables des myorelaxants au cours de leur usage thérapeutique,true,false,true,true,false,2168
+Y55.2,XX,XX/Y55.2.md,"Effets indésirables des médicaments agissant essentiellement sur les muscles, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2156
+Y55.3,XX,XX/Y55.3.md,Effets indésirables des antitussifs au cours de leur usage thérapeutique,true,false,true,true,false,2089
+Y55.4,XX,XX/Y55.4.md,Effets indésirables des expectorants au cours de leur usage thérapeutique,true,false,true,true,false,2090
+Y55.5,XX,XX/Y55.5.md,Effets indésirables des médicaments contre le coryza [rhume banal] au cours de leur usage thérapeutique,true,false,true,true,false,2120
+Y55.6,XX,XX/Y55.6.md,"Effets indésirables des anti-asthmatiques, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2331
+Y55.7,XX,XX/Y55.7.md,"Effets indésirables des substances agissant essentiellement sur l'appareil respiratoire, autres et sans précision au cours de leur usage thérapeutique",true,false,true,true,false,2167
+Y56.0,XX,XX/Y56.0.md,"Effets indésirables des médicaments antifongiques, anti-infectieux et anti-inflammatoires pour application locale, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2267
+Y56.1,XX,XX/Y56.1.md,Effets indésirables des antiprurigineux au cours de leur usage thérapeutique,true,false,true,true,false,2171
+Y56.2,XX,XX/Y56.2.md,Effets indésirables des astringents et détergents locaux au cours de leur usage thérapeutique,true,false,true,true,false,2188
+Y56.3,XX,XX/Y56.3.md,"Effets indésirables des émollients, adoucissants et protecteurs au cours de leur usage thérapeutique",true,false,true,true,false,2195
+Y56.4,XX,XX/Y56.4.md,"Effets indésirables des kératolytiques, kératoplastiques et autres médicaments et préparations capillaires au cours de leur usage thérapeutique",true,false,true,true,false,2238
+Y56.5,XX,XX/Y56.5.md,Effets indésirables des médicaments et préparations ophtalmologiques au cours de leur usage thérapeutique,true,false,true,true,false,2200
+Y56.6,XX,XX/Y56.6.md,Effets indésirables des médicaments et préparations utilisés en oto-rhino-laryngologie au cours de leur usage thérapeutique,true,false,true,true,false,2218
+Y56.7,XX,XX/Y56.7.md,Effets indésirables des médicaments dentaires pour application locale au cours de leur usage thérapeutique,true,false,true,true,false,2201
+Y56.8,XX,XX/Y56.8.md,Effets indésirables d'autres topiques agissant essentiellement sur la peau et les muqueuses au cours de leur usage thérapeutique,true,false,true,true,false,3321
+Y56.9,XX,XX/Y56.9.md,"Effets indésirables d'un topique agissant essentiellement sur la peau et les muqueuses, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2233
+Y57.0,XX,XX/Y57.0.md,Effets indésirables des dépresseurs de l'appétit [anorexigènes] au cours de leur usage thérapeutique,true,false,true,true,false,2117
+Y57.1,XX,XX/Y57.1.md,Effets indésirables des lipotropes au cours de leur usage thérapeutique,true,false,true,true,false,2088
+Y57.2,XX,XX/Y57.2.md,"Effets indésirables des antidotes et chélateurs, non classés ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2123
+Y57.3,XX,XX/Y57.3.md,Effets indésirables des produits de désintoxication alcoolique au cours de leur usage thérapeutique,true,false,true,true,false,2116
+Y57.4,XX,XX/Y57.4.md,Effets indésirables des excipients pharmaceutiques au cours de leur usage thérapeutique,true,false,true,true,false,2104
+Y57.5,XX,XX/Y57.5.md,Effets indésirables d'un produit de contraste utilisé en radiologie au cours de son usage thérapeutique,true,false,true,true,false,2120
+Y57.6,XX,XX/Y57.6.md,Effets indésirables d'autres agents de diagnostic au cours de leur usage thérapeutique,true,false,true,true,false,2103
+Y57.7,XX,XX/Y57.7.md,"Effets indésirables des vitamines, non classées ailleurs au cours de leur usage thérapeutique",true,false,true,true,false,2230
+Y57.8,XX,XX/Y57.8.md,Effets indésirables d'autres substances et médicaments au cours de leur usage thérapeutique,true,false,true,true,false,2998
+Y57.9,XX,XX/Y57.9.md,"Effets indésirables d'une substance et médicament, sans précision au cours de son usage thérapeutique",true,false,true,true,false,2118
+Y58.0,XX,XX/Y58.0.md,Effets indésirables du vaccin BCG,true,false,true,true,false,2050
+Y58.1,XX,XX/Y58.1.md,Effets indésirables du vaccin antityphoïdique et paratyphoïdique,true,false,true,true,false,2081
+Y58.2,XX,XX/Y58.2.md,Effets indésirables du vaccin anticholérique,true,false,true,true,false,2061
+Y58.3,XX,XX/Y58.3.md,Effets indésirables du vaccin antipesteux,true,false,true,true,false,2058
+Y58.4,XX,XX/Y58.4.md,Effets indésirables du vaccin antitétanique,true,false,true,true,false,2060
+Y58.5,XX,XX/Y58.5.md,Effets indésirables du vaccin antidiphtérique,true,false,true,true,false,2062
+Y58.6,XX,XX/Y58.6.md,"Effets indésirables du vaccin anticoquelucheux, y compris en association",true,false,true,true,false,2089
+Y58.8,XX,XX/Y58.8.md,"Effets indésirables des vaccins bactériens mixtes, sauf ceux qui contiennent du vaccin anticoquelucheux",true,false,true,true,false,2594
+Y58.9,XX,XX/Y58.9.md,"Effets indésirables des vaccins bactériens, autres et sans précision",true,false,true,true,false,2085
+Y59.0,XX,XX/Y59.0.md,Effets indésirables des vaccins antiviraux,true,false,true,true,false,2059
+Y59.1,XX,XX/Y59.1.md,Effets indésirables des vaccins antirickettsies,true,false,true,true,false,2064
+Y59.2,XX,XX/Y59.2.md,Effets indésirables des vaccins antiprotozoaires,true,false,true,true,false,2065
+Y59.3,XX,XX/Y59.3.md,Effets indésirables des immunoglobulines,true,false,true,true,false,2057
+Y59.8,XX,XX/Y59.8.md,Effets indésirables d'autres vaccins et substances biologiques précisés,true,false,true,true,false,2358
+Y59.9,XX,XX/Y59.9.md,"Effets indésirables de vaccin ou substance biologique, sans précision",true,false,true,true,false,2086
 Y60.0,XX,XX/Y60.0.md,"Coupure, piqûre, perforation ou hémorragie accidentelles au cours d'une intervention chirurgicale",true,false,true,true,false,2693
 Y60.1,XX,XX/Y60.1.md,"Coupure, piqûre, perforation ou hémorragie accidentelles au cours d'une perfusion ou transfusion",true,false,true,true,false,2692
 Y60.2,XX,XX/Y60.2.md,"Coupure, piqûre, perforation ou hémorragie accidentelles au cours d'une dialyse rénale ou autre perfusion",true,false,true,true,false,2701
@@ -15438,15 +15438,15 @@ Z20.7,XXI,XXI/Z20.7.md,"Sujets en contact avec et exposés à la pédiculose, l'
 Z20.8,XXI,XXI/Z20.8.md,Sujets en contact avec et exposés à d'autres maladies transmissibles,false,false,true,true,false,1977
 Z20.9,XXI,XXI/Z20.9.md,Sujets en contact avec et exposés à une maladie transmissible non précisée,false,false,false,true,false,1279
 Z21,XXI,XXI/Z21.md,Infection asymptomatique par le virus de l'immunodéficience humaine [VIH],true,false,true,true,true,1667
-Z22.0,XXI,XXI/Z22.0.md,Sujet porteur de typhoïde,true,false,false,true,false,1085
-Z22.1,XXI,XXI/Z22.1.md,Sujet porteur d'autres maladies intestinales infectieuses,true,false,false,true,false,1117
-Z22.2,XXI,XXI/Z22.2.md,Sujet porteur de diphtérie,true,false,false,true,false,1086
-Z22.3,XXI,XXI/Z22.3.md,Sujet porteur d'autres maladies bactériennes précisées,true,false,false,true,false,1334
-Z22.4,XXI,XXI/Z22.4.md,Sujet porteur de maladies dont le mode de transmission est essentiellement sexuel,true,false,false,true,false,1221
-Z22.6,XXI,XXI/Z22.6.md,Sujet porteur d'une infection à virus lymphotrope des lymphocytes T humains de type 1 [HTLV-1],true,false,false,true,false,1154
-Z22.7,XXI,XXI/Z22.7.md,Sujet porteur d'infection tuberculeuse latente,true,false,true,true,false,1268
-Z22.8,XXI,XXI/Z22.8.md,Sujet porteur d'autres maladies infectieuses,true,false,true,true,false,1640
-Z22.9,XXI,XXI/Z22.9.md,"Sujet porteur d'une maladie infectieuse, sans précision",true,false,false,true,false,1115
+Z22.0,XXI,XXI/Z22.0.md,Sujet porteur de typhoïde,true,false,false,true,false,1206
+Z22.1,XXI,XXI/Z22.1.md,Sujet porteur d'autres maladies intestinales infectieuses,true,false,false,true,false,1238
+Z22.2,XXI,XXI/Z22.2.md,Sujet porteur de diphtérie,true,false,false,true,false,1207
+Z22.3,XXI,XXI/Z22.3.md,Sujet porteur d'autres maladies bactériennes précisées,true,false,false,true,false,1455
+Z22.4,XXI,XXI/Z22.4.md,Sujet porteur de maladies dont le mode de transmission est essentiellement sexuel,true,false,false,true,false,1342
+Z22.6,XXI,XXI/Z22.6.md,Sujet porteur d'une infection à virus lymphotrope des lymphocytes T humains de type 1 [HTLV-1],true,false,false,true,false,1275
+Z22.7,XXI,XXI/Z22.7.md,Sujet porteur d'infection tuberculeuse latente,true,false,true,true,false,1389
+Z22.8,XXI,XXI/Z22.8.md,Sujet porteur d'autres maladies infectieuses,true,false,true,true,false,1761
+Z22.9,XXI,XXI/Z22.9.md,"Sujet porteur d'une maladie infectieuse, sans précision",true,false,false,true,false,1236
 Z23.0,XXI,XXI/Z23.0.md,Nécessité d'une vaccination contre le choléra seul,false,false,true,true,false,771
 Z23.1,XXI,XXI/Z23.1.md,Nécessité d'une vaccination contre la typhoïde-paratyphoïde seule [TAB],false,false,true,true,false,792
 Z23.2,XXI,XXI/Z23.2.md,Nécessité d'une vaccination contre la tuberculose [BCG],false,false,true,true,false,776

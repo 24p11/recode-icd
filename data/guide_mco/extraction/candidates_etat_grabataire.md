@@ -10,7 +10,7 @@
 > Texte source : `data/guide_mco/extraits/etat_grabataire.md`
 > (guide chap. V, pp. imprimées 103-104). Les `L…` y renvoient.
 
-**1 consignes, 0 associations**.
+**1 consignes, 1 associations**.
 
 ---
 
@@ -27,5 +27,7 @@
 **Citation** (`etat_grabataire.md` L10-12) :
 « Son codage (R26.30) est réservé aux situations correspondant à la définition suivante : « état d'une personne confinée au lit ou au fauteuil par sa maladie, incapable de subvenir seule sans aide et en toute sécurité à ses besoins alimentaires, d'hygiène personnelle, d'élimination et d'exonération, de transfert et de déplacement ». […] NB la conjonction « et » […] Le codage d’un état grabataire suppose la chronicité. »
 
-*Aucune association.* Le guide ne nomme ici aucun code : en attribuer supposerait de **choisir** des cibles que le texte ne donne pas.
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `R26.30` | `regi` | sujet | chaque | chronicité, tous les besoins de la définition atteints |
 

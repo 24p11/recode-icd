@@ -559,6 +559,26 @@ validations:
   douleur_chronique_refractaire:
     relecteur: "RF"
     date: "2026-09-03"
+  # -- chantier B, lot 3 (verdict global OK, gras du PDF reporté par RF
+  # sur effets_nocifs) --
+  effets_nocifs_medicaments:
+    relecteur: "RF"
+    date: "2026-09-03"
+  groupe_b95_b98:
+    relecteur: "RF"
+    date: "2026-09-03"
+  categories_o80_o84:
+    relecteur: "RF"
+    date: "2026-09-03"
+  categories_p00_p04:
+    relecteur: "RF"
+    date: "2026-09-03"
+  enfants_nes_sans_vie:
+    relecteur: "RF"
+    date: "2026-09-03"
+  etat_grabataire:
+    relecteur: "RF"
+    date: "2026-09-03"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés
