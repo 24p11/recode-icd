@@ -437,6 +437,26 @@ validations:
   chutes_a_repetition:
     relecteur: "RF"
     date: "2026-09-03"
+  # -- chantier B, lot 2 (verdict global OK, corrections RF sur
+  # complications_actes et douleur_chronique_refractaire) --
+  codes_oms_usage_urgent:
+    relecteur: "RF"
+    date: "2026-09-03"
+  complications_actes:
+    relecteur: "RF"
+    date: "2026-09-03"
+  cystite_aigue:
+    relecteur: "RF"
+    date: "2026-09-03"
+  diabete_type2_insuline:
+    relecteur: "RF"
+    date: "2026-09-03"
+  douleur_chronique:
+    relecteur: "RF"
+    date: "2026-09-03"
+  douleur_chronique_refractaire:
+    relecteur: "RF"
+    date: "2026-09-03"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés
