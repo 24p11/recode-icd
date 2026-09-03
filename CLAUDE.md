@@ -31,6 +31,17 @@
    diff se vide coûte cher et converge mal. Poser d'abord toutes les
    déclarations nécessaires, produire, puis regarder le résultat une
    fois.
+8. **Un clone (ou worktree) par session — jamais deux sessions dans le
+   même arbre de travail.** Règle actée le 2026-09-03 après incident :
+   un `git commit -a` d'une session a embarqué le travail non committé
+   d'une autre, sur la mauvaise branche. Le clone principal
+   (`recode-icd`) appartient au chantier fiches ; tout chantier
+   parallèle travaille dans son worktree (`git worktree add`, ex.
+   `../recode-icd-serie1` pour le chantier B guide MCO). Corollaires :
+   committer par chemins explicites plutôt que `-a`, vérifier la
+   branche courante avant tout commit, et un conflit sur un parquet de
+   recommandations se résout par rebuild (`build guide-mco` puis
+   rebuild des fiches), jamais à la main.
 
 ## Objectifs métier
 
