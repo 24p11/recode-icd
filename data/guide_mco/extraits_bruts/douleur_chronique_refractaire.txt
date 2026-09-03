@@ -1,0 +1,140 @@
+# Guide méthodologique MCO 2026 (version provisoire) — DOULEUR CHRONIQUE REFRACTAIRE (REBELLE) (imprimées 89-90)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 97-98  (imprimées : 89-90)
+#
+# Commande exacte :
+#   pdftotext -layout -f 97 -l 98 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                                              89
+
+DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE
+
+
+Des extensions des codes de la catégorie E11 Diabète sucré de type 2 de la CIM–10 ont été
+créées en 2011 pour distinguer le diabète de type 2 traité par voie orale de celui
+nécessitant un traitement par insuline (diabète de type 2 dit insulinonécessitant,
+insulinorequérant ou insulinotraité). Les codes étendus correspondant à ces derniers sont
+ceux possédant le chiffre 0 » en cinquième position du code : E11.00 Diabète sucré de type
+2 insulinotraité, avec coma, E11.10 Diabète sucré de type 2 insulinotraité, avec acidocétose,
+E11.20 Diabète sucré de type 2 insulinotraité, avec complications rénales […] E11.90 Diabète
+sucré de type 2 insulinotraité, sans complication. Ces codes sont réservés au diabète de
+type 2 insulinotraité au long cours. Ils ne doivent pas être employés lorsqu’un évènement
+ponctuel exige, pendant une hospitalisation, un bref remplacement d’un traitement
+antidiabétique oral par l’insuline, par exemple pour une anesthésie. La mention d’un code
+étendu E11.–0 dans un RUM suppose que le patient fût déjà traité par insuline à son domicile
+avant son hospitalisation ou que le traitement insulinique soit poursuivi à domicile après la
+sortie (il est alors mentionné dans l’ordonnance de sortie).
+
+
+DOULEUR CHRONIQUE
+
+La douleur chronique prise en compte dans les recommandations de la HAS 14 est un
+syndrome multidimensionnel exprimé par la personne qui en est atteinte ; il y a douleur
+chronique, quelles que soient sa topographie et son intensité, lorsque la douleur présente
+plusieurs des caractéristiques suivantes :
+
+      •     Persistance ou récurrence ;
+      •     Durée au-delà de ce qui est habituel pour la cause initiale présumée, notamment si la
+            douleur évolue depuis plus de 3 mois ;
+      •     Réponse insuffisante au traitement ;
+      •     Détérioration significative et progressive du fait de la douleur, des capacités
+            fonctionnelles et relationnelles du patient dans ses activités de la vie journalière, au
+            domicile comme à l’école ou au travail.
+
+
+La douleur chronique peut être accompagnée de manifestations psychopathologiques.
+
+L’utilisation du code R52.2 douleur chronique nécessite que le dossier mentionne l’existence
+d’une douleur chronique dans le cadre de cette définition.
+
+DOULEUR CHRONIQUE REFRACTAIRE (REBELLE)
+
+Une douleur chronique réfractaire15 est une douleur :
+   • ne répondant pas aux traitements conventionnels recommandés et conduits
+      conformément aux règles de bonnes pratiques,
+   • et ne permettant pas un soulagement satisfaisant et durable de la douleur, ni une
+      qualité de vie acceptable pour le patient, et/ou occasionnant des effets indésirables
+      intolérables et incontrôlables.
+
+Une douleur chronique réfractaire peut nécessiter une hospitalisation pour avis
+diagnostique pluri professionnel et/ou prise en charge thérapeutique spécifique nécessitant
+des compétences particulières : traitements médicaux invasifs ou traitements médicaux
+nécessitant une surveillance particulière, actes de radiologie interventionnelle, actes
+
+
+14 Douleur chronique HAS décembre 2008 : reconnaître le syndrome douloureux chronique, l’évaluer et orienter le patient
+
+15
+     Les termes suivants peuvent être utilisés à la place du terme réfractaire (à privilégier) : rebelle / irréductible
+                                                     90
+
+d’infiltrations ou d’analgésie        locorégionale,      actes   chirurgicaux,    traitements    non
+médicamenteux associés ...
+
+EFFETS NOCIFS DES MÉDICAMENTS
+
+Une « intoxication » médicamenteuse doit être codée de manière différente selon qu’elle est
+accidentelle ou volontaire, ou bien s’il s’agit d’un effet indésirable. La CIM–10 désigne les
+premières circonstances par le mot empoisonnement16 et les distingue de l’effet indésirable
+en usage thérapeutique17.
+
+1. Les intoxications accidentelles et volontaires
+
+Le codage des intoxications médicamenteuses accidentelles et volontaires (la CIM–10
+emploie pour les secondes les qualificatifs auto-infligées, intentionnelles et auto-induites) doit
+utiliser les catégories T36 à T50. La distinction entre les circonstances accidentelles et
+volontaires est assurée par des codes du chapitre XX : catégories X40 à X44 pour les
+                                                                                       18
+premières, X60 à X64 pour les secondes, saisis en tant que diagnostic associé (DA) .
+
+Le codage du symptôme ou du syndrome engendré par une intoxication médicamenteuse au
+lieu d’employer son code « T » a souvent pour origine une confusion entre la définition du
+                                                                                             19
+diagnostic principal (DP) et la notion de problème ayant mobilisé l’essentiel des soins . On
+rappelle que le DP doit être déterminé sur la base de sa définition et selon la situation clinique,
+et que la notion de problème ayant mobilisé l’essentiel des soins n’est d’utile que dans les
+rares cas où l’analyse en termes de situation clinique conduit à un choix entre plusieurs DP.
+
+Le « coma » (terme sans doute employé de manière générique pour les divers troubles de la
+conscience classés dans la catégorie R40) après prise de psychotrope en est un exemple. Il
+est souvent avancé que « c’est le coma qui a mobilisé l’essentiel des soins » pour le coder
+comme DP, l’intoxication (le code « T ») étant mentionnée comme DA. Le résultat est le
+classement du résumé de sortie dans le groupe homogène de malades (GHM) Troubles de
+la conscience et comas d’origine non traumatique. Cette attitude est erronée : d’une part, le
+symptôme R40.– n’a pas à être choisi pour DP alors que sa cause, l’intoxication, est identifiée
+(règle D1) ; d’autre part, le contenu du GHM Troubles de la conscience et comas d’origine
+non traumatique dans lequel classe le DP « coma » correspond à des affections dont la cause
+est ignorée. Ainsi, pour une intoxication volontaire par prise de psychotrope sédatif ou
+hypnotique à l’origine de troubles de la conscience, le code exact est celui de l’intoxication
+par le produit (catégorie T42). Le coma ou d’autres complications éventuelles doivent être
+enregistrées comme DA.
+
+Cette règle n’est pas réservée aux troubles de la conscience et aux médicaments
+psychotropes. Conformément à la définition du DP et au guide des situations cliniques,
+elle doit être appliquée de manière générale aux complications des intoxications
+médicamenteuses accidentelles et volontaires.
+
+
+
+
+16
+   On doit considérer qu’il correspond au mot intoxication du langage médical courant. Le mot
+empoisonnement de la CIM–10 ne doit en effet pas être compris selon l’acception pénale qu’il a en France.
+17
+   La distinction est lisible en tête de chaque page de l’Index des médicaments et autres substances
+chimiques (Table des effets nocifs) de l’index alphabétique de la CIM–10 (volume 3). On rappelle que l’emploi
+de ce tableau facilite considérablement le codage des effets nocifs des médicaments.
+18
+   Ces codes ont quatre caractères. C’est le sens du signe « .– » (point tiret) qui les suit dans l’index
+alphabétique de la CIM–10. Une note dans le volume 1 de la CIM–10, sous le titre des deux groupes, indique
+que les quatrièmes caractères sont indiqués au début du chapitre.
+19
+   Se reporter au point 1.5 du chapitre précédent.
+

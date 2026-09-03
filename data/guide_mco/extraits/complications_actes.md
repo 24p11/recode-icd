@@ -1,0 +1,150 @@
+<!-- Transcription curée — COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX
+     Premier jet produit par scripts/curer_guide_mco.py, retravaillé (listes,
+     titres, blocs d'exemples, jetons « .8 »/« .9 » dessoudés), À RELIRE.
+     Brut : extraits_bruts/complications_actes.txt, lignes 32-290.
+     Curation déclarée : extraits/curation.yaml.
+     Le test garantit qu'aucun mot n'a bougé ; il ne dit rien des
+     tableaux, de l'ancrage des notes, ni de ce que pdftotext a perdu. -->
+
+## COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX
+
+L’importance de leur enregistrement tient notamment au fait que la réduction de la iatrogénie fait partie des objectifs nationaux de santé publique. [^9: Loi n° 2004-806 du 9 aout 2004, objectifs n° 26 à 29.] Le volume 2 de la CIM–10 présente, pages 107-108 ou 140-141, [^10: Dans l’ensemble de ce chapitre, les numéros de page renvoient au volume 2 de l’édition imprimée de la Classification statistique internationale des maladies et des problèmes de santé connexes, dixième révision (CIM–10) ; OMS éd. Le premier numéro (ici « 103 ») correspond à l’édition de 1993, le second (« 134 ») à l’édition de 2008..] les rubriques destinées au codage des complications des actes médicochirurgicaux.
+
+Les recommandations qui suivent s’appuient :
+
+- sur la page 105 ou 136 du volume 2 : « Il est recommandé, pour les traumatismes et autres affections dues à des causes externes, de coder tant la nature de l’affection que les circonstances de la cause externe. Le code préféré pour " l’affection principale " devrait être celui qui désigne la nature de l’affection. » ;
+- et sur la règle MB4 pour le choix de l’affection principale (ib. page 109 ou 147) : « Lorsque le diagnostic enregistré comme " affection principale " décrit une affection en termes généraux et qu’un terme donnant des informations plus précises sur le siège ou la nature de l’affection est enregistré ailleurs, choisir ce dernier comme " affection principale ", si cela n’entraine pas une perte d’information. »
+
+### Résumé
+
+Une complication d’un acte diagnostique ou thérapeutique doit être codée dans le respect de la règle générale, c’est-à-dire de la façon la plus précise au regard de l’information. La notion de précision s’entend ici par rapport à la nature de la complication — notion prioritaire — et à son caractère secondaire à un acte.
+
+La règle générale est : pour le codage des complications des actes médicaux et chirurgicaux, on préfère toujours un codage privilégiant la nature de la complication.
+
+Il en résulte que le codage d’une complication d’un acte diagnostique ou thérapeutique peut être décrit comme suit au regard de la CIM–10 :
+
+- avec un code du groupe T80–T88 lorsque le code le plus précis pour la complication appartient à ce groupe ;
+- sinon avec un code d’une catégorie « Atteintes [troubles] [affections] de l’appareil [...] après un acte à visée [...] » lorsque la nature de la complication figure dans l’intitulé, ce qui exclut les sous-catégories .8 et .9 ;
+- dans les autres cas avec un code « habituel » de la CIM–10.
+
+Lorsque le codage utilise un code « habituel » de la CIM–10 il est complété par le code du groupe T80–T88 correspondant à la nature de la complication.
+
+Dans tous les cas le codage est complété par le ou les codes ad hoc du chapitre XX (Y60– Y84, Y88, Y95).
+
+### Les codes du groupe T80–T88
+
+Les codes du groupe T80–T88 doivent être employés lorsqu’ils apportent le plus de précision, c’est-à-dire lorsque la CIM–10 n’offre pas par ailleurs une possibilité de codage plus précis, notamment selon la nature de la complication. [^11: NB le titre du groupe T80-T88 : « Complications de soins chirurgicaux et médicaux, non classées ailleurs ».]
+
+Des sous-catégories telles que Embolie gazeuse consécutive à une injection thérapeutique... (T80.0) ou Choc anaphylactique dû au sérum (T80.5) contiennent la manifestation (embolie gazeuse, choc) et son étiologie (injection, administration de sérum). Les sous-catégories des complications mécaniques de prothèse (T82.0 à T82.5, T83.0 à T83.4, T84.0 à T84.4, T85.0 à T85.6) sont comparables, ainsi que les catégories T86 et T87. Il n’existe pas d’autre code dans la CIM–10 permettant d’enregistrer une information aussi complète plus précisément.
+
+> Exemples :
+> - déplacement d’une électrode de stimulation cardiaque : T82.1 ;
+> - luxation d’une prothèse de hanche : T84.0 ;
+> - rejet d’une greffe de rein : T86.1 ;
+> - névrome d’un moignon d’amputation de jambe : T87.3.
+
+En revanche, plusieurs sous-catégories sont très imprécises. L’emploi de certaines n’est pas autorisé pour le codage du diagnostic principal (DP) : T80.2, T81.2, T81.4, T88.0, T88.1, T88.7 [^12: Auxquels s’ajoutent T81.3, T85.5, T86.0 et T86.8, devenus imprécis du fait de leur subdivision.] et toutes les subdivisions .8 et .9 hors celles de la catégorie T86. Mais les autres codes du groupe T80–T88 ne doivent pas pour autant être considérés comme satisfaisant à priori à la règle selon laquelle le meilleur code est le plus précis par rapport à l’information à coder. Pour le codage des complications des actes médicaux et chirurgicaux, on préférera toujours un codage selon la nature de la complication.
+
+### Les catégories « atteintes [troubles] [affections] de l’appareil [...] après un acte à visée diagnostique et thérapeutique, non classé[e]s ailleurs »
+
+Les sous-catégories contiennent habituellement une manifestation précise et son étiologie.
+
+> Exemples :
+> - I97.2 Lymphœdème après mastectomie ;
+> - J95.1 Insuffisance pulmonaire aigüe consécutive à une intervention chirurgicale thoracique.
+
+On en rapproche les complications d’actes classées dans le chapitre XV de la CIM–10 Grossesse, accouchement et puerpéralité : quatrièmes caractères des catégories O03–O06 et O08 pour les grossesses terminées par un avortement, catégories O29, O74... Leur emploi s’impose pour le dossier de la mère pendant la grossesse, le travail, l’accouchement et la puerpéralité. Par exemple, O35.7, O75.4, O86.0 et O90.0 à O90.2.
+
+On en rapproche également les codes dont le libellé mentionne explicitement ou implicitement le fait que l’affection est toujours consécutive à un acte. Par exemple, K43.1 Eventration postopératoire, avec gangrène ou K43.5 Hernie péristomiale, sans occlusion ni gangrène.
+
+Les sous-catégories codées .9 ne sont pas autorisées comme DP et une information orientant vers l’une d’elles doit faire rechercher davantage de précision.
+
+Les sous-catégories codées .8 telles que I97.8 Autres troubles de l’appareil circulatoire après un acte à visée diagnostique et thérapeutique [...], J95.8 Autres troubles respiratoires après un acte à visée diagnostique et thérapeutique [...] ou K91.8 Autres atteintes de l’appareil digestif après un acte à visée diagnostique et thérapeutique [...] sont imprécises. Aux sous- catégories .8 il faut préférer les codes « habituels » de la CIM–10. [^13: NB le titre des catégories : « Atteintes [Troubles]... de l’appareil... après un acte à visée..., non classées ailleurs ».]
+
+### Les codes « habituels » de la CIM–10
+
+Le volume 2 désigne ainsi les autres codes des chapitres I à XIX. Les affections qui leurs correspondent peuvent compliquer un acte médicochirurgical ou bien apparaitre indépendamment de tout contexte iatrogénique. La CIM–10 donne pour exemples : pneumopathie, embolie pulmonaire (volume 2 p. 108 ou 140). On pourrait ajouter : anémie, infection urinaire, ulcère gastroduodénal « de stress », etc.
+
+Un code « habituel » doit être préféré à un code « T » imprécis ou à un code « .8 » d’une catégorie « Atteintes [Troubles] [Affections] de l’appareil [...] après un acte à visée [...] ». On privilégie en effet le codage le plus précis selon la nature de la complication.
+
+> Exemples par rapport aux codes T imprécis :
+> - sepsis à staphylocoques consécutif à une perfusion : A41.2 ;
+> - abcès de paroi après appendicectomie : L02.2 ;
+> - abcès sous-phrénique après cholécystectomie : K65.0 ;
+> - thrombose d’un pontage artériel synthétique fémoropoplité : I74.3 ;
+> - infection à bactéries pyogènes d’une prothèse articulaire : M00.– ;
+> - infection osseuse due à un matériel d’ostéosynthèse : M86.– ;
+> - endocardite infectieuse sur valve prothétique : I33.0 ;
+> - rupture de sutures tendineuses de doigts : S66.– ;
+> - phlébite superficielle du membre supérieur due à une perfusion : I80.8 ;
+> - pneumothorax compliquant une intervention thoracique : S27.01.
+
+> Exemples par rapport aux codes « .8 » des catégories « Atteintes [Troubles] [Affections] de l’appareil... après un acte à visée... » :
+> - pneumonie postopératoire : J18.9 (non J95.8) ;
+> - ulcère gastrique « de stress » postopératoire : K25.3 (non K91.8) ;
+> - infarctus du myocarde postopératoire : I21.– (non I97.8).
+
+Lorsqu’un codage précis selon la nature de la complication conduit à l’enregistrer avec un code « habituel », il doit être complété par un code du groupe T80–T88, quelle que soit l’imprécision de celui-ci, y compris s’il s’agit d’un code non autorisé comme DP :
+
+- lorsque le code « habituel » est préférable à un code du groupe T80–T88 : le code « T » auquel il a été préféré doit être enregistré comme diagnostic associé ;
+- lorsque le code « habituel » est préférable à un code « .8 » d’une catégorie « Atteintes [Troubles] [Affections] de l’appareil [...] après un acte à visée […] », le code « T » correspondant doit être enregistré comme diagnostic associé.
+
+> Exemples :
+> - sepsis à staphylocoques consécutif à une perfusion : A41.2, T80.2 ;
+> - abcès de paroi après appendicectomie : L02.2, T81.4 ;
+> - abcès sous-phrénique après cholécystectomie : K65.0, T81.4 ;
+> - thrombose d’un pontage artériel synthétique fémoropoplité : I74.3, T82.8 ;
+> - infection à bactéries pyogènes d’une prothèse articulaire : M00.–, T84.5 ;
+> - infection osseuse due à un matériel d’ostéosynthèse : M86.–, T84.6 ;
+> - endocardite infectieuse sur valve prothétique : I33.0, T82.6 ;
+> - rupture de sutures tendineuses de doigts : S66.–, T81.38 ;
+> - phlébite superficielle du membre supérieur due à une perfusion : I80.8, T80.1 ;
+> - pneumothorax compliquant une intervention thoracique : S27.01, T81.2 ;
+> - pneumonie postopératoire : J18.9, T81.4 ;
+> - ulcère gastrique « de stress » postopératoire : K25.3, T81.8 ;
+> - infarctus du myocarde postopératoire : I21.–, T81.8.
+
+À la question « quel code "T" choisir ? », la réponse est : lorsque l’index alphabétique (volume 3) de la CIM–10 indique pour la complication un code du groupe T80–T88, c’est lui qui doit compléter le code « habituel ».
+
+> Exemples :
+> - infection à bactéries pyogènes d’une prothèse articulaire : M00.–, T84.5 car à l’entrée « Complication, prothèse, implant, greffe, articulaire interne, infection, inflammation » l’index alphabétique indique T84.5 ;
+> - infection osseuse due à un matériel d’ostéosynthèse : M86.–, T84.6 car à l’entrée « Complication, ostéosynthèse, infection, inflammation » il est indiqué T84.6 ;
+> - endocardite infectieuse sur valve prothétique : I33.0, T82.6 car à l’entrée « Complication, prothèse, implant, greffe, valvulaire cardiaque, infection, inflammation NCA » il est indiqué T82.6.
+
+Ce codage complémentaire en tant que diagnostic associé ne s’applique qu’aux codes « habituels ». Il ne concerne ni les codes « T » ni les codes des catégories « Atteintes [Troubles] [Affections] de l’appareil [...] après un acte à visée […] »
+
+### Les circonstances sont enregistrées avec le chapitre XX de la CIM–10
+
+Quel que soit le code de la complication — qu’il soit issu du groupe T80–T88, d’une catégorie « Atteintes [Troubles] [Affections] de l’appareil [...] après un acte à visée [...] » ou qu’il s’agisse d’un code « habituel » —, les circonstances iatrogéniques doivent être enregistrées au moyen d’un code du chapitre XX en position de diagnostic associé.
+
+> Exemples :
+> - déplacement d’une électrode de stimulation cardiaque : T82.1, Y83.1 ;
+> - luxation d’une prothèse de hanche : T84.0, Y83.1 ;
+> - rejet d’une greffe de rein : T86.1, Y83.0 ;
+> - névrome d’un moignon d’amputation de jambe : T87.3, Y83.5 ;
+> - sepsis à staphylocoques consécutif à une perfusion : A41.2, T80.2, Y84.8 ;
+> - abcès de paroi après appendicectomie : L02.2, T81.4, Y83.6 ;
+> - abcès sous-phrénique après cholécystectomie : K65.0, T81.4, Y83.6 ;
+> - thrombose d’un pontage artériel synthétique fémoropoplité : I74.3, T82.8, Y83.1 ;
+> - infection à bactéries pyogènes d’une prothèse articulaire : M00.–, T84.5, Y83.1 ;
+> - infection osseuse due à un matériel d’ostéosynthèse : M86.–, T84.6, Y83.4 ;
+> - endocardite infectieuse sur valve prothétique : I33.0, T82.6, Y83.1 ;
+> - rupture de sutures tendineuses de doigts : S66.–, T81.38, Y83.4 ;
+> - phlébite superficielle du membre supérieur due à une perfusion : I80.8, T80.1, Y84.8 ;
+> - pneumothorax compliquant une intervention thoracique : S27.01, T81.2, Y83.– ;
+> - pneumonie postopératoire : J18.9, T81.4, Y83.– ;
+> - ulcère gastrique « de stress » postopératoire : K25.3, T81.8, Y83.– ;
+> - infarctus du myocarde postopératoire : I21.–, T81.8, Y83.–.
+
+Les codes « Y » donnés ici à titre d’exemple appartiennent au groupe Y83–Y84 Actes chirurgicaux et autres actes médicaux à l’origine de réactions anormales du patient ou de complications ultérieures, sans mention d’accident au cours de l’intervention. Ils permettent l’enregistrement de circonstances comparables à la notion d’aléa médical.
+
+Lorsque les circonstances de la complication sont différentes, on dispose des codes des groupes Y60–Y69 Accidents et complications au cours d’actes médicaux et chirurgicaux et Y70–Y82 Appareils médicaux associés à des accidents au cours d’actes diagnostiques et thérapeutiques.
+
+> Exemple : perforation sigmoïdienne au cours d’une coloscopie : S36.50, T81.2, Y60.4.
+
+Lorsque la complication est une séquelle d’un acte antérieur, le codage, conforme aux consignes données au début de ce chapitre sur les complications des actes médicaux ou chirurgicaux, est complété avec la catégorie Y88.
+
+> Exemple : cicatrice classification hypertrophique séquellaire d’une intervention chirurgicale : L91.0, T81.8, Y88.3.
+
+S’agissant de complications dues à des actes effectués dans des établissements d’hospitalisation, le codage doit être complété en tant que de besoin par le code Y95 Facteurs nosocomiaux.
+

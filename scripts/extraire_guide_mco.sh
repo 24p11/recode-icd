@@ -36,6 +36,12 @@ ARTICLES=(
   "atherosclerose_gangrene:91:91:ATHEROSCLEROSE AVEC GANGRENE (imprimée 83)"
   "carences_vitaminiques:91:91:CARENCES VITAMINIQUES (imprimée 83)"
   "chutes_a_repetition:91:91:CHUTES A REPETITION (imprimée 83)"
+  "codes_oms_usage_urgent:92:92:CODES OMS RÉSERVÉS A UN USAGE URGENT (imprimée 84)"
+  "complications_actes:92:96:COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX (imprimées 84-88)"
+  "cystite_aigue:96:96:CYSTITE AIGÜE (imprimée 88)"
+  "diabete_type2_insuline:97:97:DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE (imprimée 89)"
+  "douleur_chronique:97:97:DOULEUR CHRONIQUE (imprimée 89)"
+  "douleur_chronique_refractaire:97:98:DOULEUR CHRONIQUE REFRACTAIRE (REBELLE) (imprimées 89-90)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"

@@ -88,6 +88,48 @@ bornes:
     derniere_ligne: 69
     titre: "CHUTES A REPETITION"
 
+  codes_oms_usage_urgent:
+    premiere_ligne: 17
+    derniere_ligne: 30
+    titre: "CODES OMS RÉSERVÉS A UN USAGE URGENT"
+
+  # L'article exceptionnel de la file (~4 pages denses, 5 notes). Il
+  # s'achève en haut de la page 88 (« …Y95 Facteurs nosocomiaux. ») ;
+  # les définitions des notes 9-13 sont aux bas des pages 84-86, toutes
+  # dans les bornes.
+  complications_actes:
+    premiere_ligne: 32
+    derniere_ligne: 290
+    titre: "COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX"
+
+  cystite_aigue:
+    premiere_ligne: 58
+    derniere_ligne: 69
+    titre: "CYSTITE AIGÜE"
+
+  diabete_type2_insuline:
+    premiere_ligne: 17
+    derniere_ligne: 33
+    titre: "DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE"
+
+  # Bornée jusqu'à la définition de la note 14 (bas de page 89), APRÈS
+  # le début de l'article voisin (DOULEUR CHRONIQUE REFRACTAIRE), qui
+  # part en suppression éditoriale — précédent chapitre XXI / ÉTAT
+  # GRABATAIRE. La définition de la note 15 (l. 74-75) appartient au
+  # voisin et reste hors bornes.
+  douleur_chronique:
+    premiere_ligne: 36
+    derniere_ligne: 72
+    titre: "DOULEUR CHRONIQUE"
+
+  # L'article continue en haut de la page 90 ; la définition de la note
+  # 14 (l. 72, article voisin) tombe dans les bornes et part en
+  # suppression éditoriale — précédent de la note 5 du D62.
+  douleur_chronique_refractaire:
+    premiere_ligne: 57
+    derniere_ligne: 79
+    titre: "DOULEUR CHRONIQUE REFRACTAIRE (REBELLE)"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -136,6 +178,34 @@ suppressions_editoriales:
   malnutrition_denutrition:
     - texte: "https://www.has-sante.fr/upload/docs/application/pdf/2019-11/fiche_outil_diagnostic_denutrition.pdf"
       motif: "URL externe — couche 2, sans valeur pour le codage"
+
+  douleur_chronique:
+    - texte: >-
+        DOULEUR CHRONIQUE REFRACTAIRE (REBELLE) Une douleur chronique
+        réfractaire15 est une douleur : • ne répondant pas aux
+        traitements conventionnels recommandés et conduits conformément
+        aux règles de bonnes pratiques, • et ne permettant pas un
+        soulagement satisfaisant et durable de la douleur, ni une
+        qualité de vie acceptable pour le patient, et/ou occasionnant
+        des effets indésirables intolérables et incontrôlables. Une
+        douleur chronique réfractaire peut nécessiter une
+        hospitalisation pour avis diagnostique pluri professionnel
+        et/ou prise en charge thérapeutique spécifique nécessitant des
+        compétences particulières : traitements médicaux invasifs ou
+        traitements médicaux nécessitant une surveillance particulière,
+        actes de radiologie interventionnelle, actes
+      motif: >-
+        Article VOISIN (DOULEUR CHRONIQUE REFRACTAIRE), imprimé sur la
+        page partagée. Il entre dans les bornes parce qu'elles ont dû
+        être étendues jusqu'à la définition de la note 14, au bas de la
+        page. Son curé existe par ailleurs. Précédent ÉTAT GRABATAIRE.
+
+  douleur_chronique_refractaire:
+    - texte: "14 Douleur chronique HAS décembre 2008 : reconnaître le syndrome douloureux chronique, l’évaluer et orienter le patient"
+      motif: >-
+        Définition de la note 14 de l'article VOISIN (DOULEUR
+        CHRONIQUE), imprimée au bas de la page partagée : son appel est
+        dans l'article précédent. Précédent de la note 5 du D62.
 
   accouchement_impromptu:
     - texte: >-
@@ -213,6 +283,9 @@ appels_notes:
                  41, 42, 43, 44, 45, 46, 47, 48]
   accouchement_impromptu: [5]
   antecedents: [6, 7, 8]
+  complications_actes: [9, 10, 11, 12, 13]
+  douleur_chronique: [14]
+  douleur_chronique_refractaire: [15]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -252,6 +325,33 @@ ancres_notes:
     # Exposant hissé après le guillemet fermant de la seconde citation
     # (« cancer datant de 10 ans ») ; la définition traite du délai.
     "8": "cancer datant de 10 ans »."
+
+  # Les cinq appels sont hissés par le rendu ; ancres lues d'après la
+  # colonne de l'exposant dans le brut, à contre-lire sur le PDF.
+  complications_actes:
+    # Hissé au-dessus de la fin de « …objectifs nationaux de santé
+    # publique » ; la note cite la loi de 2004.
+    "9": "objectifs nationaux de santé publique."
+    # Hissé après les numéros de pages ; la note explique la double
+    # numérotation (éditions 1993 et 2008 du volume 2).
+    "10": "pages 107-108 ou 140-141,"
+    # Hissé en fin de « …possibilité de codage plus précis, notamment
+    # selon la nature de la complication » ; la note rappelle le titre
+    # du groupe T80-T88.
+    "11": "notamment selon la nature de la complication."
+    # Hissé au-dessus de « T88.7 », dernier code de l'énumération des
+    # codes interdits en DP ; la note ajoute T81.3, T85.5, T86.0, T86.8.
+    "12": "T88.7"
+    # Hissé en fin de « Aux sous-catégories .8 il faut préférer les
+    # codes « habituels » … » ; la note rappelle le titre des catégories.
+    "13": "il faut préférer les codes « habituels » de la CIM–10."
+
+  # L'appel « 14 » est rendu comme un jeton isolé en plein texte
+  # (« de la HAS 14 est un syndrome ») : l'ancre place la note après
+  # « HAS », et le jeton nu est retiré à la main du curé (c'est un
+  # exposant, du balisage — le contrôle le dépouille des deux côtés).
+  douleur_chronique:
+    "14": "prise en compte dans les recommandations de la HAS"
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et
@@ -337,6 +437,26 @@ validations:
   chutes_a_repetition:
     relecteur: "RF"
     date: "2026-09-03"
+  # -- chantier B, lot 2 (verdict global OK, corrections RF sur
+  # complications_actes et douleur_chronique_refractaire) --
+  codes_oms_usage_urgent:
+    relecteur: "RF"
+    date: "2026-09-03"
+  complications_actes:
+    relecteur: "RF"
+    date: "2026-09-03"
+  cystite_aigue:
+    relecteur: "RF"
+    date: "2026-09-03"
+  diabete_type2_insuline:
+    relecteur: "RF"
+    date: "2026-09-03"
+  douleur_chronique:
+    relecteur: "RF"
+    date: "2026-09-03"
+  douleur_chronique_refractaire:
+    relecteur: "RF"
+    date: "2026-09-03"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés
@@ -352,3 +472,7 @@ scissions:
   chapitre_xxi:
     "obligatoire33.On": ["obligatoire.", "On"]
     "antepartum29.": ["antepartum."]
+  # Le rendu soude le libellé d'attente au verbe (« Usage urgent de
+  # U07sont ») : ce n'est pas un appel de note, juste une soudure.
+  codes_oms_usage_urgent:
+    "U07sont": ["U07", "sont"]
