@@ -1,0 +1,76 @@
+# Guide méthodologique MCO 2026 (version provisoire) — CODES OMS RÉSERVÉS A UN USAGE URGENT (imprimée 84)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 92-92  (imprimées : 84-84)
+#
+# Commande exacte :
+#   pdftotext -layout -f 92 -l 92 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                               84
+
+CODES OMS RÉSERVÉS A UN USAGE URGENT
+
+
+Les codes U00-U49 sont utilisés par l’OMS pour une attribution provisoire à de nouvelles
+maladies d’étiologie incertaine. Pour les situations où de nouveaux problèmes de santé
+surviendraient et nécessiteraient d’être identifiés et suivis de manière urgente dans les
+systèmes d’information, l’OMS a retenu 10 codes d’attente dans les catégories U07. Ces
+catégories et sous-catégories doivent être disponibles dans tous les systèmes électroniques à
+tout moment et utilisées, sans délai, selon les instructions de l’OMS adaptées au PMSI et
+publiées sur le site de l’ATIH. Ces codes, dont le libellé d’attente est Usage urgent de U07sont
+intégrés à la liste des codes utilisables dans les recueils PMSI. Cependant, en l’absence de
+consignes spécifiques données par l’OMS, leur utilisation est proscrite et conduit à un groupage
+en erreur. En 2020, les consignes OMS données pour les codes en lien avec la crise sanitaire
+permettent d’utiliser ces codes spécifiques, sans groupage en erreur.
+
+COMPLICATIONS DES ACTES MÉDICAUX ET CHIRURGICAUX
+
+L’importance de leur enregistrement tient notamment au fait que la réduction de la
+                                                                9
+iatrogénie fait partie des objectifs nationaux de santé publique .
+                                                                                   10
+Le volume 2 de la CIM–10 présente, pages 107-108 ou 140-141 , les rubriques destinées au
+codage des complications des actes médicochirurgicaux.
+
+Les recommandations qui suivent s’appuient :
+   • sur la page 105 ou 136 du volume 2 : « Il est recommandé, pour les traumatismes et
+       autres affections dues à des causes externes, de coder tant la nature de l’affection
+       que les circonstances de la cause externe. Le code préféré pour " l’affection
+       principale " devrait être celui qui désigne la nature de l’affection. » ;
+   • et sur la règle MB4 pour le choix de l’affection principale (ib. page 109 ou 147) :
+       « Lorsque le diagnostic enregistré comme " affection principale " décrit une affection
+       en termes généraux et qu’un terme donnant des informations plus précises sur le
+       siège ou la nature de l’affection est enregistré ailleurs, choisir ce dernier comme "
+       affection principale ", si cela n’entraine pas une perte d’information. »
+
+
+
+
+                                                         Résumé
+
+     Une complication d’un acte diagnostique ou thérapeutique doit être codée dans le respect
+     de la règle générale, c’est-à-dire de la façon la plus précise au regard de l’information. La
+     notion de précision s’entend ici par rapport à la nature de la complication — notion prioritaire
+     — et à son caractère secondaire à un acte.
+
+     La règle générale est : pour le codage des complications des actes médicaux
+     et chirurgicaux, on préfère toujours un codage privilégiant la nature de la
+     complication.
+
+     Il en résulte que le codage d’une complication d’un acte diagnostique ou thérapeutique
+     peut être décrit comme suit au regard de la CIM–10 :
+
+
+9
+  Loi n° 2004-806 du 9 aout 2004, objectifs n° 26 à 29.
+10
+   Dans l’ensemble de ce chapitre, les numéros de page renvoient au volume 2 de l’édition imprimée de la Classification statistique
+internationale des maladies et des problèmes de santé connexes, dixième révision (CIM–10) ; OMS éd. Le premier numéro (ici « 103 »)
+correspond à l’édition de 1993, le second (« 134 ») à l’édition de 2008..
+

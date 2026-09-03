@@ -88,6 +88,11 @@ bornes:
     derniere_ligne: 69
     titre: "CHUTES A REPETITION"
 
+  codes_oms_usage_urgent:
+    premiere_ligne: 17
+    derniere_ligne: 30
+    titre: "CODES OMS RÉSERVÉS A UN USAGE URGENT"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -352,3 +357,7 @@ scissions:
   chapitre_xxi:
     "obligatoire33.On": ["obligatoire.", "On"]
     "antepartum29.": ["antepartum."]
+  # Le rendu soude le libellé d'attente au verbe (« Usage urgent de
+  # U07sont ») : ce n'est pas un appel de note, juste une soudure.
+  codes_oms_usage_urgent:
+    "U07sont": ["U07", "sont"]

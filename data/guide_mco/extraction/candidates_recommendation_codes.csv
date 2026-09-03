@@ -211,3 +211,6 @@ GM2026-V-CAR-02,E50-E56,interdit,sujet,"supplémentation systématique du nouvea
 GM2026-V-CHU-01,R29.6,regi,sujet,,,
 GM2026-V-CHU-02,R29.6,DP,sujet,"séjour motivé par la chute, aucune lésion traitée, aucune cause trouvée",,
 GM2026-V-CHU-03,R29.6,DAS,sujet,"lésion consécutive à la chute en DP, aucune causalité retrouvée",,
+GM2026-V-OMS-01,U00-U49,regi,sujet,,,
+GM2026-V-OMS-01,U07,regi,sujet,,,
+GM2026-V-OMS-02,U07,interdit,sujet,absence de consignes spécifiques données par l'OMS,,
