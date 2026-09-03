@@ -23,16 +23,16 @@ ressortent au rapport de build sous
 
 ### GM2026-V-AVC-02
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I60-I63` | `interdit_association` | sujet | un code plus précis existe |
-| `I64` | `regi` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I60-I63` | `interdit_association` | sujet | chaque | un code plus précis existe |
+| `I64` | `regi` | sujet | chaque |  |
 
 ### GM2026-V-AVC-04
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I60-I64` | `DP` | sujet | récidive confirmée par l'imagerie |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I60-I64` | `DP` | sujet | chaque | récidive confirmée par l'imagerie |
 
 ---
 
@@ -49,10 +49,10 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L123-124) :
 « Un code d’AIT (G45.–) et un code d’AVC constitué (I60–I64) ne peuvent être associés que s’il s’agit de deux épisodes distincts au cours du même séjour. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `G45` | `interdit_association` | sujet | sauf deux épisodes distincts |
-| `I60-I64` | `interdit_association` | sujet | sauf deux épisodes distincts |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `G45` | `interdit_association` | sujet | chaque | sauf deux épisodes distincts |
+| `I60-I64` | `interdit_association` | sujet | chaque | sauf deux épisodes distincts |
 
 ### GM2026-V-AVC-08 — `regle_position`
 
@@ -65,11 +65,11 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L126-129) :
 « Les manifestations cliniques de l’AVC sont codées comme diagnostics associés significatifs (DAS) si elles en respectent la définition. Il importe de les coder le plus précisément possible et d’employer les extensions prévues pour certains codes (hémiplégie, dysphasie et aphasie : se reporter au point 2 supra). »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `G81` | `DAS` | sujet |  |
-| `I60-I64` | `contexte` | sujet |  |
-| `R47` | `DAS` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `G81` | `DAS` | sujet | chaque |  |
+| `I60-I64` | `contexte` | sujet | chaque |  |
+| `R47` | `DAS` | sujet | chaque |  |
 
 ### GM2026-V-AVC-09 — `interdiction`
 
@@ -82,11 +82,11 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L76-81) :
 « la CIM–10 réserve les codes G46.0 à G46.2 […] à l’enregistrement de syndromes neurologiques résultant d’une insuffisance circulatoire sans infarctus […]. Ainsi, G46.0, G46.1 et G46.2 ne peuvent pas être associés à un code d’infarctus cérébral, alors que cette association est possible pour les codes G46.3 à G46.8. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `G46.0-G46.2` | `interdit_association` | sujet |  |
-| `G46.3-G46.8` | `regi` | sujet | association autorisée |
-| `I63` | `contexte` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `G46.0-G46.2` | `interdit_association` | sujet | chaque |  |
+| `G46.3-G46.8` | `regi` | sujet | chaque | association autorisée |
+| `I63` | `contexte` | sujet | chaque |  |
 
 ### GM2026-V-AVC-10 — `regle_position`
 
@@ -99,9 +99,9 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L89-92) :
 « Leur codage donne la priorité aux manifestations cliniques observées, auxquelles on associe un code de la catégorie I69 Séquelles de maladies cérébrovasculaires. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I69` | `regi` | sujet | associé à la manifestation |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I69` | `regi` | sujet | chaque | associé à la manifestation |
 
 ### GM2026-V-AVC-11 — `condition_emploi`
 
@@ -114,10 +114,10 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L94-97) :
 « Par construction de la CIM–10, la notion d’antécédent d’AVC, codée Z86.70, exclut celle de séquelle. Le code Z86.70 Antécédents personnels de maladies cérébrovasculaires doit être employé dès que l’AVC est considéré comme ancien et qu’il ne persiste aucune séquelle fonctionnelle. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I69` | `interdit_association` | sujet | incompatible avec l'antécédent |
-| `Z86.70` | `regi` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I69` | `interdit_association` | sujet | chaque | incompatible avec l'antécédent |
+| `Z86.70` | `regi` | sujet | chaque |  |
 
 ### GM2026-V-AVC-12 — `regle_position`
 
@@ -130,9 +130,9 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L152-155) :
 « en cas de transfert dans un autre établissement de MCO après sortie d’unité neurovasculaire, l’AVC peut être codé comme DP dans l’autre établissement dès lors qu’il continue d’être le sujet des soins (situation clinique de traitement unique partagé […]). »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I60-I64` | `DP` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I60-I64` | `DP` | sujet | chaque |  |
 
 ### GM2026-V-AVC-13 — `regle_position`
 
@@ -145,14 +145,14 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L157-166) :
 « La manifestation ou la complication prise en charge est codée comme DP. Les exemples les plus fréquents sont les troubles de la marche ou l’aggravation de la spasticité (catégorie R26 […]), le syndrome dépressif (catégorie F32 […]), l’épilepsie (catégories G40 […] et G41 […]), la démence vasculaire (catégorie F01 […]). Un code de séquelle d’AVC (I69) est placé en DAS. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `F01` | `DP` | **exemple** |  |
-| `F32` | `DP` | **exemple** |  |
-| `G40` | `DP` | **exemple** |  |
-| `G41` | `DP` | **exemple** |  |
-| `I69` | `DAS` | sujet |  |
-| `R26` | `DP` | **exemple** |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `F01` | `DP` | **exemple** | chaque |  |
+| `F32` | `DP` | **exemple** | chaque |  |
+| `G40` | `DP` | **exemple** | chaque |  |
+| `G41` | `DP` | **exemple** | chaque |  |
+| `I69` | `DAS` | sujet | chaque |  |
+| `R26` | `DP` | **exemple** | chaque |  |
 
 ### GM2026-V-AVC-14 — `regle_position`
 
@@ -165,10 +165,10 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L176-180) :
 « S’il n’est pas découvert d’affection nouvelle le code du DP appartient au chapitre XXI de la CIM-10 […]. Un code de séquelle d’AVC (I69) est placé en DR et les manifestations séquellaires éventuelles sont codées comme DAS si elles en respectent la définition. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I69` | `DR` | sujet |  |
-| `XXI` | `DP` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I69` | `DR` | sujet | chaque |  |
+| `XXI` | `DP` | sujet | chaque |  |
 
 ### GM2026-V-AVC-15 — `regle_position`
 
@@ -181,9 +181,9 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L185-189) :
 « Si une affection nouvelle liée à l’AVC, c’est-à-dire une complication de celui-ci ou de son traitement, est découverte (surveillance dite positive), cette affection est le DP. Les éventuelles manifestations séquellaires respectant la définition d’un DAS, complétées par un code de séquelle I69.–, sont enregistrées en position de diagnostics associés. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I69.–` | `DAS` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I69.–` | `DAS` | sujet | chaque |  |
 
 ### GM2026-V-AVC-16 — `regle_position`
 
@@ -196,11 +196,11 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L199-202) :
 « Séjour pour répit de la famille ou des aidants : le DP est codé Z74.2 […] ou Z75.5 Prise en charge pendant les vacances. Un code de séquelle de maladie cérébrovasculaire (I69.–) est saisi en position de DAS. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I69.–` | `DAS` | sujet |  |
-| `Z74.2` | `DP` | sujet |  |
-| `Z75.5` | `DP` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I69.–` | `DAS` | sujet | chaque |  |
+| `Z74.2` | `DP` | sujet | chaque |  |
+| `Z75.5` | `DP` | sujet | chaque |  |
 
 ### GM2026-V-AVC-17 — `condition_emploi`
 
@@ -213,12 +213,12 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L143-144 et L85-87) :
 « L’étiologie ne peut être codée comme diagnostic associé que si elle en respecte la définition. — Les étiologies des AVC sont classées dans des rubriques diverses de la CIM–10 ; par exemple la fibrillation auriculaire (I48), les malformations congénitales vasculaires cérébrales (Q28.–), l’athérosclérose cérébrale (I67.2), l’encéphalopathie hypertensive (I67.4), etc. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I48` | `DAS` | **exemple** |  |
-| `I67.2` | `DAS` | **exemple** |  |
-| `I67.4` | `DAS` | **exemple** |  |
-| `Q28.–` | `DAS` | **exemple** |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I48` | `DAS` | **exemple** | chaque |  |
+| `I67.2` | `DAS` | **exemple** | chaque |  |
+| `I67.4` | `DAS` | **exemple** | chaque |  |
+| `Q28.–` | `DAS` | **exemple** | chaque |  |
 
 ### GM2026-V-AVC-18 — `condition_emploi`
 
@@ -244,9 +244,9 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L28-39) :
 « Le codage des AVC constitués fait appel, à la phase aigüe, aux catégories I60 à I63 qui excluent les lésions traumatiques. […] I60 Hémorragie sous-arachnoïdienne ; cette catégorie inclut la rupture d’anévrisme d’artère cérébrale ; […] I62 […] cette catégorie inclut l’hémorragie sous-durale et extradurale. Les AVC par infarctus cérébral ou AVC ischémiques — embolie, thrombose, bas débit — sont codés avec la catégorie I63 Infarctus cérébral. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `I60-I63` | `regi` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `I60-I63` | `regi` | sujet | chaque |  |
 
 ### GM2026-V-AVC-20 — `definition`
 
@@ -259,8 +259,8 @@ ressortent au rapport de build sous
 **Citation** (`avc.txt` L50-62) :
 « À l’initiative de la Société française neurovasculaire, ces deux catégories ont fait l’objet d’extensions par l’ATIH en 2007 afin de distinguer les symptômes selon leur moment d’apparition et leur évolution : G81.0 Hémiplégie flasque est subdivisé en : G81.00 […], G81.01 […] et G81.08 […] ; on emploie les mêmes codes pour les parésies et les paralysies […] ; R47.0 Dysphasie et aphasie est subdivisé en : R47.00 […], R47.01 […], R47.02 […], R47.03 Dysphasie. »
 
-| code_expr | role | centralite | condition |
-|---|---|---|---|
-| `G81.0` | `regi` | sujet |  |
-| `R47.0` | `regi` | sujet |  |
+| code_expr | role | centralite | portee | condition |
+|---|---|---|---|---|
+| `G81.0` | `regi` | sujet | chaque |  |
+| `R47.0` | `regi` | sujet | chaque |  |
 

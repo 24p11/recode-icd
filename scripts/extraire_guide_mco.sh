@@ -30,6 +30,8 @@ ARTICLES=(
   "anemie_posthemorragique_d62:89:90:ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION (imprimées 81-82)"
   "chapitre_xxi:101:111:EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM-10 (imprimées 93-103)"
   "malnutrition_denutrition:117:122:MALNUTRITION, DÉNUTRITION (imprimées 109-114)"
+  # -- chantier B (file : data/guide_mco/extraction/file_chantier_B.md) --
+  "accouchement_impromptu:89:89:ACCOUCHEMENT IMPROMPTU OU À DOMICILE (imprimée 81)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"

@@ -48,6 +48,17 @@ bornes:
     derniere_ligne: 695
     titre: "EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM–10"
 
+  # ------------------- chantier B ------------------------------------
+  accouchement_impromptu:
+    premiere_ligne: 27
+    # Bornée jusqu'à la fin de la page physique (zone de rattrapage des
+    # notes, arbitrage du pilote) : la définition de la note 5 est
+    # imprimée au bas de la page, APRÈS le début de l'article voisin
+    # (ANÉMIE), qui part donc en suppression éditoriale — même
+    # configuration que chapitre_xxi / ÉTAT GRABATAIRE.
+    derniere_ligne: 72
+    titre: "ACCOUCHEMENT IMPROMPTU OU À DOMICILE"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -97,6 +108,41 @@ suppressions_editoriales:
     - texte: "https://www.has-sante.fr/upload/docs/application/pdf/2019-11/fiche_outil_diagnostic_denutrition.pdf"
       motif: "URL externe — couche 2, sans valeur pour le codage"
 
+  accouchement_impromptu:
+    - texte: >-
+        ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION L’emploi du
+        code D62 Anémie posthémorragique aigüe pour mentionner la
+        constatation d’une anémie postopératoire se discute devant un
+        résultat d’hémogramme postopératoire prouvant la chute de
+        l’hémoglobine en deçà de 13 grammes par décilitre chez l’homme,
+        12 grammes par décilitre chez la femme (11 grammes par décilitre
+        chez la femme enceinte), chez un adulte jusqu’alors non anémié.
+        Le présent article vise à rappeler et à préciser les règles
+        justifiant l’emploi du code D62 dans cette circonstance
+        particulière. Les règles de l’art en matière de transfusion de
+        patients subissant une intervention ont été définies par les
+        experts de la Société française d’anesthésie et de réanimation
+        (SFAR) lors de l’élaboration de la Classification commune des
+        actes médicaux. Il a été admis que l'anesthésiste doit assurer
+        la compensation des pertes sanguines, en particulier au cours
+        des interventions par nature hémorragiques : certaines
+        interventions sur le squelette (particulièrement hanche, fémur,
+        genou, colonne vertébrale) ou le système cardiovasculaire. Cette
+        restitution du volume sanguin peut utiliser des modalités très
+        variables : allotransfusion, autotransfusion, emploi de système
+        de récupération sanguine peropératoire. Elle peut être
+        entièrement effectuée au cours de l’intervention selon les
+        pertes estimées, et éventuellement poursuivie au décours de
+        l’opération. Dans ces conditions le code D62 ne doit pas être
+        mentionné.
+      motif: >-
+        Article VOISIN (ANÉMIE POSTHÉMORRAGIQUE), imprimé sur la page
+        que les deux articles se partagent. Il entre dans les bornes
+        parce qu'elles ont dû être étendues jusqu'à la définition de la
+        note 5, imprimée au bas de la page. Même précédent qu'ÉTAT
+        GRABATAIRE dans les bornes du chapitre XXI. Le curé de l'ANÉMIE
+        existe par ailleurs (pilote).
+
 # ---------------------------------------------------------------------
 # 4. Restitutions — contenu du PDF absent du brut
 # ---------------------------------------------------------------------
@@ -136,6 +182,7 @@ appels_notes:
   anemie_posthemorragique_d62: []
   chapitre_xxi: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
                  41, 42, 43, 44, 45, 46, 47, 48]
+  accouchement_impromptu: [5]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -151,6 +198,14 @@ appels_notes:
 ancres_notes:
   avc:
     "4": "locked-in syndrome (G83.5)."
+
+  # Note 5 : appel hissé seul sur sa ligne par le rendu (aucun jeton du
+  # corps ne le porte), et définition indentée d'une espace en bas de
+  # page — le script ne la capte pas, la note est repliée À LA MAIN dans
+  # le curé. L'ancre déclarée documente le point d'appel exact (fin de la
+  # phrase « ni pour la mère ni pour le nouveau-né »), à contre-lire.
+  accouchement_impromptu:
+    "5": "ni pour la mère ni pour le nouveau-né."
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et
