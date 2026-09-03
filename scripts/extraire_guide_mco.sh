@@ -42,6 +42,7 @@ ARTICLES=(
   "diabete_type2_insuline:97:97:DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE (imprimée 89)"
   "douleur_chronique:97:97:DOULEUR CHRONIQUE (imprimée 89)"
   "douleur_chronique_refractaire:97:98:DOULEUR CHRONIQUE REFRACTAIRE (REBELLE) (imprimées 89-90)"
+  "effets_nocifs_medicaments:98:99:EFFETS NOCIFS DES MÉDICAMENTS (imprimées 90-91)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"

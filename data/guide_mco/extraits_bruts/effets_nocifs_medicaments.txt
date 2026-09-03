@@ -1,0 +1,135 @@
+# Guide méthodologique MCO 2026 (version provisoire) — EFFETS NOCIFS DES MÉDICAMENTS (imprimées 90-91)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 98-99  (imprimées : 90-91)
+#
+# Commande exacte :
+#   pdftotext -layout -f 98 -l 99 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                     90
+
+d’infiltrations ou d’analgésie        locorégionale,      actes   chirurgicaux,    traitements    non
+médicamenteux associés ...
+
+EFFETS NOCIFS DES MÉDICAMENTS
+
+Une « intoxication » médicamenteuse doit être codée de manière différente selon qu’elle est
+accidentelle ou volontaire, ou bien s’il s’agit d’un effet indésirable. La CIM–10 désigne les
+premières circonstances par le mot empoisonnement16 et les distingue de l’effet indésirable
+en usage thérapeutique17.
+
+1. Les intoxications accidentelles et volontaires
+
+Le codage des intoxications médicamenteuses accidentelles et volontaires (la CIM–10
+emploie pour les secondes les qualificatifs auto-infligées, intentionnelles et auto-induites) doit
+utiliser les catégories T36 à T50. La distinction entre les circonstances accidentelles et
+volontaires est assurée par des codes du chapitre XX : catégories X40 à X44 pour les
+                                                                                       18
+premières, X60 à X64 pour les secondes, saisis en tant que diagnostic associé (DA) .
+
+Le codage du symptôme ou du syndrome engendré par une intoxication médicamenteuse au
+lieu d’employer son code « T » a souvent pour origine une confusion entre la définition du
+                                                                                             19
+diagnostic principal (DP) et la notion de problème ayant mobilisé l’essentiel des soins . On
+rappelle que le DP doit être déterminé sur la base de sa définition et selon la situation clinique,
+et que la notion de problème ayant mobilisé l’essentiel des soins n’est d’utile que dans les
+rares cas où l’analyse en termes de situation clinique conduit à un choix entre plusieurs DP.
+
+Le « coma » (terme sans doute employé de manière générique pour les divers troubles de la
+conscience classés dans la catégorie R40) après prise de psychotrope en est un exemple. Il
+est souvent avancé que « c’est le coma qui a mobilisé l’essentiel des soins » pour le coder
+comme DP, l’intoxication (le code « T ») étant mentionnée comme DA. Le résultat est le
+classement du résumé de sortie dans le groupe homogène de malades (GHM) Troubles de
+la conscience et comas d’origine non traumatique. Cette attitude est erronée : d’une part, le
+symptôme R40.– n’a pas à être choisi pour DP alors que sa cause, l’intoxication, est identifiée
+(règle D1) ; d’autre part, le contenu du GHM Troubles de la conscience et comas d’origine
+non traumatique dans lequel classe le DP « coma » correspond à des affections dont la cause
+est ignorée. Ainsi, pour une intoxication volontaire par prise de psychotrope sédatif ou
+hypnotique à l’origine de troubles de la conscience, le code exact est celui de l’intoxication
+par le produit (catégorie T42). Le coma ou d’autres complications éventuelles doivent être
+enregistrées comme DA.
+
+Cette règle n’est pas réservée aux troubles de la conscience et aux médicaments
+psychotropes. Conformément à la définition du DP et au guide des situations cliniques,
+elle doit être appliquée de manière générale aux complications des intoxications
+médicamenteuses accidentelles et volontaires.
+
+
+
+
+16
+   On doit considérer qu’il correspond au mot intoxication du langage médical courant. Le mot
+empoisonnement de la CIM–10 ne doit en effet pas être compris selon l’acception pénale qu’il a en France.
+17
+   La distinction est lisible en tête de chaque page de l’Index des médicaments et autres substances
+chimiques (Table des effets nocifs) de l’index alphabétique de la CIM–10 (volume 3). On rappelle que l’emploi
+de ce tableau facilite considérablement le codage des effets nocifs des médicaments.
+18
+   Ces codes ont quatre caractères. C’est le sens du signe « .– » (point tiret) qui les suit dans l’index
+alphabétique de la CIM–10. Une note dans le volume 1 de la CIM–10, sous le titre des deux groupes, indique
+que les quatrièmes caractères sont indiqués au début du chapitre.
+19
+   Se reporter au point 1.5 du chapitre précédent.
+                                                     91
+                               20
+2. Les effets indésirables
+
+Les notes d’inclusion et d’exclusion qui figurent sous l’intitulé du groupe T36–T50 dans le
+volume 1 de la CIM–10 indiquent que l’effet indésirable d’une « substance appropriée
+administrée correctement » doit être codé selon la nature de l’effet. Le codage des effets
+indésirables des médicaments n’utilise donc pas les codes du groupe T36–T50. Il associe au
+code de la nature de l’effet un code du chapitre XX de la CIM–10 (catégories Y40–Y59).
+        Exemples :
+        – bradycardie au cours d’un traitement par la digitaline : R00.1, Y52.0 ;
+        – gastrite aigüe au cours d’un traitement par antiinflammatoire non stéroïdien : K29.1,
+          Y45.3
+
+Pour un effet donné, enregistrer qu’il est secondaire à un traitement médicamenteux n’est
+possible qu’en employant le chapitre XX de la CIM–10.
+
+Le mot « surdosage » est parfois à l’origine de difficultés. Par « substance appropriée
+administrée correctement » on entend le respect de la prescription médicamenteuse,
+notamment de la posologie. En présence d’une complication d’un traitement médicamenteux,
+le langage médical courant utilise parfois le mot « surdosage », par exemple, lorsqu’une
+hémorragie au cours d’un traitement anticoagulant coexiste avec une élévation de
+l’international normalized ratio (INR) au-dessus de la valeur thérapeutique souhaitée ou
+lorsqu’une complication d’un traitement s’accompagne d’une concentration sanguine de
+médicament supérieure à la valeur thérapeutique admise (digoxinémie, lithémie…). De tels
+cas, lorsque la prescription a été respectée, doivent être classés comme des effets
+indésirables et leur codage ne doit pas utiliser les codes du groupe T36–T50.
+
+
+EMPLOI DES CODES DU GROUPE B95–B98 CIM–10
+
+
+Ces codes ne doivent être utilisés qu’en position de diagnostic associé. Leur usage doit être
+conforme à leur intitulé. Ils sont donc réservés aux cas dans lesquels une infection est
+présente, infection classée dans un chapitre distinct du chapitre I (CIM–10, vol. 2, § 4.4.4). La
+rubrique de l’infection s’accompagne souvent d’une note signalant la possibilité
+d’association : « Utiliser, au besoin, un code supplémentaire (B95–B98) pour identifier l’agent
+infectieux ».
+
+        Exemples :
+        – endocardite subaigüe à streptocoques D: I33.0, B95.2 ;
+        – sinusite maxillaire chronique à Hæmophilus influenzæ : J32.0, B96.3 ;
+        – abcès cutané à Staphylococcus aureus : L02.–, B95.6 ;
+        – ostéite à Staphylococcus aureus : M86.–, B95.6 ;
+        – pyélonéphrite aigüe à Escherichia coli : N10, B96.2 ;
+        – ascite infectée à Escherichia coli : R18, B96.2.
+
+En l’absence d’infection, une colonisation (« portage sain ») doit être codée avec la
+catégorie Z22.
+
+
+
+
+20
+  L’importance de leur enregistrement tient entre autres au fait que la réduction de la iatrogénie fait partie
+des objectifs nationaux de santé publique (loi n° 2004-806 du 9 aout 2004, objectifs n° 26 à 29).
+

@@ -90,6 +90,13 @@ def decoupe(article: str) -> tuple[list[str], dict[str, str]]:
                 and not (
                     (suite := re.match(r"^(\d{1,3})\s+\S", lignes[j])) and suite.group(1) in appels
                 )
+                # …et sur un titre de section numéroté : un « 2. Les effets
+                # indésirables » n'est jamais du texte de note. Sans ce
+                # garde, la note 19 des EFFETS NOCIFS avalait le titre de
+                # la section suivante — sa définition est suivie du numéro
+                # de page, de l'appel hissé « 20 » et du titre, sans ligne
+                # vide pour arrêter la boucle.
+                and not _RE_TITRE_NUMEROTE.match(lignes[j].strip())
             ):
                 if not re.fullmatch(r"\s*\d{1,3}\s*", lignes[j]):
                     buf.append(lignes[j].strip())
@@ -108,6 +115,13 @@ def decoupe(article: str) -> tuple[list[str], dict[str, str]]:
                 and not (
                     (suite := re.match(r"^(\d{1,3})\s+\S", lignes[j])) and suite.group(1) in appels
                 )
+                # …et sur un titre de section numéroté : un « 2. Les effets
+                # indésirables » n'est jamais du texte de note. Sans ce
+                # garde, la note 19 des EFFETS NOCIFS avalait le titre de
+                # la section suivante — sa définition est suivie du numéro
+                # de page, de l'appel hissé « 20 » et du titre, sans ligne
+                # vide pour arrêter la boucle.
+                and not _RE_TITRE_NUMEROTE.match(lignes[j].strip())
             ):
                 if not re.fullmatch(r"\s*\d{1,3}\s*", lignes[j]):
                     buf.append(lignes[j].strip())

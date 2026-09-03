@@ -130,6 +130,14 @@ bornes:
     derniere_ligne: 79
     titre: "DOULEUR CHRONIQUE REFRACTAIRE (REBELLE)"
 
+  # Bornée jusqu'à la définition de la note 20 (bas de page 91), APRÈS
+  # l'article voisin (B95-B98), qui part en suppression éditoriale —
+  # précédent ÉTAT GRABATAIRE.
+  effets_nocifs_medicaments:
+    premiere_ligne: 20
+    derniere_ligne: 134
+    titre: "EFFETS NOCIFS DES MÉDICAMENTS"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -206,6 +214,14 @@ suppressions_editoriales:
         Définition de la note 14 de l'article VOISIN (DOULEUR
         CHRONIQUE), imprimée au bas de la page partagée : son appel est
         dans l'article précédent. Précédent de la note 5 du D62.
+
+  effets_nocifs_medicaments:
+    - texte: "EMPLOI DES CODES DU GROUPE B95–B98 CIM–10 Ces codes ne doivent être utilisés qu’en position de diagnostic associé. Leur usage doit être conforme à leur intitulé. Ils sont donc réservés aux cas dans lesquels une infection est présente, infection classée dans un chapitre distinct du chapitre I (CIM–10, vol. 2, § 4.4.4). La rubrique de l’infection s’accompagne souvent d’une note signalant la possibilité d’association : « Utiliser, au besoin, un code supplémentaire (B95–B98) pour identifier l’agent infectieux ». Exemples : – endocardite subaigüe à streptocoques D: I33.0, B95.2 ; – sinusite maxillaire chronique à Hæmophilus influenzæ : J32.0, B96.3 ; – abcès cutané à Staphylococcus aureus : L02.–, B95.6 ; – ostéite à Staphylococcus aureus : M86.–, B95.6 ; – pyélonéphrite aigüe à Escherichia coli : N10, B96.2 ; – ascite infectée à Escherichia coli : R18, B96.2. En l’absence d’infection, une colonisation (« portage sain ») doit être codée avec la catégorie Z22."
+      motif: >-
+        Article VOISIN (EMPLOI DES CODES DU GROUPE B95-B98), imprimé
+        sur la page partagée. Il entre dans les bornes parce qu'elles
+        ont dû être étendues jusqu'à la définition de la note 20, au
+        bas de la page 91. Précédent ÉTAT GRABATAIRE.
 
   accouchement_impromptu:
     - texte: >-
@@ -286,6 +302,7 @@ appels_notes:
   complications_actes: [9, 10, 11, 12, 13]
   douleur_chronique: [14]
   douleur_chronique_refractaire: [15]
+  effets_nocifs_medicaments: [16, 17, 18, 19, 20]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -352,6 +369,17 @@ ancres_notes:
   # exposant, du balisage — le contrôle le dépouille des deux côtés).
   douleur_chronique:
     "14": "prise en compte dans les recommandations de la HAS"
+
+  # 16 et 17 sont collés à leur mot (automatiques) ; 18, 19 et 20 sont
+  # hissés — ancres d'après la colonne de l'exposant, à contre-lire.
+  effets_nocifs_medicaments:
+    "18": "en tant que diagnostic associé (DA)."
+    # Deux occurrences de « l'essentiel des soins » dans l'article : le
+    # point final rend celle-ci unique (l'autre enchaîne « n'est
+    # d'utile »).
+    "19": "la notion de problème ayant mobilisé l’essentiel des soins."
+    # Hissé au-dessus du titre de la section 2, qu'il qualifie.
+    "20": "2. Les effets indésirables"
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et

@@ -45,6 +45,7 @@ ARTICLES = {
     "DIA": ("diabete_type2_insuline", "DIABÈTE DE TYPE 2 TRAITÉ PAR INSULINE", "89", "extraits"),
     "DOU": ("douleur_chronique", "DOULEUR CHRONIQUE", "89", "extraits"),
     "REB": ("douleur_chronique_refractaire", "DOULEUR CHRONIQUE REFRACTAIRE (REBELLE)", "89-90", "extraits"),
+    "EFN": ("effets_nocifs_medicaments", "EFFETS NOCIFS DES MÉDICAMENTS", "90-91", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.
