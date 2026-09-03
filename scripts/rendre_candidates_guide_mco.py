@@ -24,11 +24,21 @@ import polars as pl
 RACINE = Path(__file__).resolve().parents[1]
 EXTRACTION = RACINE / "data" / "guide_mco" / "extraction"
 
+#: (fichier, titre, pages imprimées, répertoire d'ancrage des citations).
+#: Le pilote reste ancré sur les bruts (citations validées ligne à ligne,
+#: on ne réancre pas) ; les articles du chantier B s'ancrent sur leur
+#: transcription curée.
 ARTICLES = {
-    "AVC": ("avc", "ACCIDENTS VASCULAIRES CÉRÉBRAUX", "78-81"),
-    "D62": ("anemie_posthemorragique_d62", "ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION", "81-82"),
-    "DEN": ("malnutrition_denutrition", "MALNUTRITION, DÉNUTRITION", "109-114"),
-    "XXI": ("chapitre_xxi", "EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM-10", "93-103"),
+    "AVC": ("avc", "ACCIDENTS VASCULAIRES CÉRÉBRAUX", "78-81", "extraits_bruts"),
+    "D62": ("anemie_posthemorragique_d62", "ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION", "81-82", "extraits_bruts"),
+    "DEN": ("malnutrition_denutrition", "MALNUTRITION, DÉNUTRITION", "109-114", "extraits_bruts"),
+    "XXI": ("chapitre_xxi", "EMPLOI DES CODES DU CHAPITRE XXI DE LA CIM-10", "93-103", "extraits_bruts"),
+    # -- chantier B (file : data/guide_mco/extraction/file_chantier_B.md) --
+    "ACC": ("accouchement_impromptu", "ACCOUCHEMENT IMPROMPTU OU À DOMICILE", "81", "extraits"),
+    "ANT": ("antecedents", "ANTÉCÉDENTS", "82-83", "extraits"),
+    "ATH": ("atherosclerose_gangrene", "ATHEROSCLEROSE AVEC GANGRENE", "83", "extraits"),
+    "CAR": ("carences_vitaminiques", "CARENCES VITAMINIQUES", "83", "extraits"),
+    "CHU": ("chutes_a_repetition", "CHUTES A REPETITION", "83", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.
@@ -40,7 +50,8 @@ def article_de(rec_id: str) -> str:
 
 
 def rend(cle: str, recs: pl.DataFrame, codes: pl.DataFrame) -> str:
-    fichier, titre, pages = ARTICLES[cle]
+    fichier, titre, pages, repertoire = ARTICLES[cle]
+    extension = "md" if repertoire == "extraits" else "txt"
     mes_recs = recs.filter(pl.col("rec_id").str.contains(f"-{cle}-")).sort("rec_id")
     mes_codes = codes.filter(pl.col("rec_id").str.contains(f"-{cle}-"))
 
@@ -54,7 +65,7 @@ def rend(cle: str, recs: pl.DataFrame, codes: pl.DataFrame) -> str:
         "> Ne pas éditer à la main — les rôles ne doivent exister qu'à un seul",
         "> endroit (cf. l'incident ORPHANET du chantier `chapter_policy`).",
         ">",
-        f"> Texte source : `data/guide_mco/extraits_bruts/{fichier}.txt`",
+        f"> Texte source : `data/guide_mco/{repertoire}/{fichier}.{extension}`",
         f"> (guide chap. V, pp. imprimées {pages}). Les `L…` y renvoient.",
         "",
         f"**{mes_recs.height} consignes, "
@@ -117,12 +128,20 @@ def rend(cle: str, recs: pl.DataFrame, codes: pl.DataFrame) -> str:
 
 
 def _table(df: pl.DataFrame) -> str:
-    out = ["| code_expr | role | centralite | condition |", "|---|---|---|---|"]
+    out = [
+        "| code_expr | role | centralite | portee | condition |",
+        "|---|---|---|---|---|",
+    ]
     for ligne in df.iter_rows(named=True):
         centralite = ligne["centralite"]
         marque = f"**{centralite}**" if centralite == "exemple" else centralite
+        # `portee` vide = `chaque` (défaut). Une bascule `ensemble` est une
+        # décision de curation : elle se met en relief, avec sa justification.
+        portee = ligne.get("portee") or "chaque"
+        if portee == "ensemble":
+            portee = f"**ensemble** — {ligne.get('justification') or '⚠ justification manquante'}"
         out.append(
-            f"| `{ligne['code_expr']}` | `{ligne['role']}` | {marque} | "
+            f"| `{ligne['code_expr']}` | `{ligne['role']}` | {marque} | {portee} | "
             f"{ligne['condition'] or ''} |"
         )
     return "\n".join(out)

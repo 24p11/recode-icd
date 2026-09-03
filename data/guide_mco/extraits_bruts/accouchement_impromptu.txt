@@ -1,0 +1,73 @@
+# Guide méthodologique MCO 2026 (version provisoire) — ACCOUCHEMENT IMPROMPTU OU À DOMICILE (imprimée 81)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 89-89  (imprimées : 81-81)
+#
+# Commande exacte :
+#   pdftotext -layout -f 89 -l 89 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                          81
+
+ se fasse au sein d’un même établissement ou d’établissements différents (voir ci-dessus
+ séjour pour poursuite des soins), soit un code de séquelle d’AVC si ce dernier a été pris en
+ charge lors d’un précédent séjour.
+
+ 7°) Séjour pour répit de la famille ou des aidants : le DP est codé Z74.2 Besoin d’assistance
+ à domicile, aucun autre membre du foyer n’étant capable d’assurer les soins ou Z75.5 Prise
+ en charge pendant les vacances. Un code de séquelle de maladie cérébrovasculaire (I69.–)
+ est saisi en position de DAS.
+
+
+ ACCOUCHEMENT IMPROMPTU OU À DOMICILE
+
+Un séjour faisant suite à un accouchement impromptu survenu avant l’arrivée de la mère dans un
+établissement de santé, par exemple au domicile ou pendant le trajet vers la maternité, que
+l’accouchement ait eu lieu, ou pas, en présence du SMUR, est codé comme suit :
+
+              •     DP : Z39.00 ;
+               •    DA : Z37.– ;
+              •     pas d’acte d’accouchement.
+
+L’accouchement à domicile, résultant du choix de la mère, ne donne pas lieu à la production d’un
+                                                                                           5
+RSS puisqu’il n’existe pas de séjour hospitalier, ni pour la mère ni pour le nouveau-né . Une
+hospitalisation ne surviendrait qu’en cas de complication :
+     • si la complication concerne la mère, son séjour est un séjour du postpartum,
+         non d’accouchement ; le DP est déterminé conformément à sa définition et au guide
+         des situations cliniques ; en l’absence de problème de santé propre au nouveau-né
+         et pris en charge, le séjour de celui-ci est aussi un séjour du postpartum, son DP
+         est codé Z76.2 Surveillance médicale et soins médicaux d’autres nourrissons et
+         enfants en bonne santé ;
+     • si la complication concerne l’enfant, un RSS est produit pour lui ; le DP est
+         déterminé conformément à sa définition et au guide des situations cliniques.
+
+
+ ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION
+
+ L’emploi du code D62 Anémie posthémorragique aigüe pour mentionner la constatation
+ d’une anémie postopératoire se discute devant un résultat d’hémogramme postopératoire
+ prouvant la chute de l’hémoglobine en deçà de 13 grammes par décilitre chez l’homme,
+ 12 grammes par décilitre chez la femme (11 grammes par décilitre chez la femme enceinte),
+ chez un adulte jusqu’alors non anémié. Le présent article vise à rappeler et à préciser les
+ règles justifiant l’emploi du code D62 dans cette circonstance particulière.
+
+ Les règles de l’art en matière de transfusion de patients subissant une intervention ont été
+ définies par les experts de la Société française d’anesthésie et de réanimation (SFAR) lors de
+ l’élaboration de la Classification commune des actes médicaux. Il a été admis que l'anesthésiste
+ doit assurer la compensation des pertes sanguines, en particulier au cours des interventions par
+ nature hémorragiques : certaines interventions sur le squelette (particulièrement hanche, fémur,
+ genou, colonne vertébrale) ou le système cardiovasculaire. Cette restitution du volume sanguin
+ peut utiliser des modalités très variables : allotransfusion, autotransfusion, emploi de système de
+ récupération sanguine peropératoire. Elle peut être entièrement effectuée au cours de
+ l’intervention selon les pertes estimées, et éventuellement poursuivie au décours de l’opération.
+ Dans ces conditions le code D62 ne doit pas être mentionné.
+
+ 5
+     Y compris si celui-ci est né sans vie (voir pages 70 et 92).
+

@@ -198,7 +198,9 @@ def test_detect_sections_via_build_card(ctx: ExplorationContext) -> None:
     assert sections["has_exclusions"] is True
     assert sections["has_formulations"] is True
     assert sections["has_localisations"] is False  # A18.1 pas type=D
-    assert sections["has_consignes"] is False  # A18.1 non cité par le guide
+    # A18.1 (chapitre I) porte la règle générale ANT-01 depuis le lot 1
+    # du chantier B (ANTÉCÉDENTS descend sur les chapitres I à XIX).
+    assert sections["has_consignes"] is True
 
 
 def test_detect_sections_consignes_millesime_variable() -> None:

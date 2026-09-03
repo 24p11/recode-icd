@@ -1,0 +1,70 @@
+# Guide méthodologique MCO 2026 (version provisoire) — ATHEROSCLEROSE AVEC GANGRENE (imprimée 83)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 91-91  (imprimées : 83-83)
+#
+# Commande exacte :
+#   pdftotext -layout -f 91 -l 91 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                  83
+
+Ainsi, il n’appartient pas au médecin responsable de l’information médicale ni au
+codeur de trancher entre cancer et antécédent de cancer. Ce diagnostic est de la
+compétence du médecin qui dispense les soins au patient.
+
+
+ATHEROSCLEROSE AVEC GANGRENE
+
+Des subdivisions ont été créées par l’OMS en 2013 avec les sous-catégories appropriées en
+I70 Athérosclérose pour indiquer la présence ou l’absence de gangrène. Le code I70.21
+Athérosclérose des artères distales, avec gangrène comporte intrinsèquement la notion de
+gangrène. De ce fait, lorsqu’il est utilisé comme diagnostic principal, I70.21 ne devrait pas
+permettre de codage supplémentaire pour décrire la gangrène associée. Ainsi, la note
+accompagnant le code R02 Gangrène non classée ailleurs dans le volume 1 de la CIM-10
+précise que ce code est à utiliser « à l’exclusion de gangrène au cours d’athérosclérose
+(I70.2). ». Toutefois, à titre d’exception, l’utilisation en diagnostic associé, du code R02
+lorsque I70.21 est codé en DP, est autorisée. En effet, porter le code R02 en diagnostic
+associé est actuellement le seul moyen de discriminer les prises en charge avec gangrène
+lors du groupage en GHM.
+
+
+CARENCES VITAMINIQUES
+
+L’enregistrement dans le RUM-RSS d’un code de carence vitaminique ou d’avitaminose —
+catégories E50 à E56 de la CIM–10 — nécessite la mention du diagnostic dans le dossier
+médical, étayé par un dosage biologique témoignant d’une carence, d’un déficit, d’une
+insuffisance vitaminique ou d’une hypovitaminose.
+
+La supplémentation systématique du nouveau-né en vitamines A, D, E et K ne doit pas
+donner lieu à l’enregistrement de codes de carence vitaminique ou d’avitaminose.
+
+CHUTES A REPETITION
+
+Le codage des chutes à répétition (R29.6) est réservé aux situations correspondant à la
+définition suivante : chutes à répétition en raison du grand âge ou d'autres problèmes de santé
+mal définis. La chute est définie comme le fait de se retrouver involontairement sur le sol ou
+dans une position de niveau inférieur par rapport à sa position de départ. Le caractère répétitif
+des chutes est considéré à partir du moment où la personne a fait au moins deux chutes dans
+l’année qui précède le recueil d’information.
+
+Exemples
+
+La chute à répétition est le DP d’un séjour motivé par la chute, séjour au cours duquel aucune
+lésion (conséquence de la chute) n’est traitée et aucune cause n’est trouvée. Il peut donc s’agir :
+            • d’une chute constatée répétitive (au moins deux chutes dans l’année), le DP est
+               la chute R29.6 ;
+            • d’un bilan de chutes répétitives à la recherche d’une pathologie causale et sans
+               que cette cause soit trouvée, le DP est la chute R29.6 ;
+
+La notion de chute à répétition peut être un DAS car elle marque une fragilité du patient dans
+les cas pour lesquels elle ne sera pas le DP :
+           • Dans les cas où la chute à répétition est à l’origine de lésion, la lésion étant le
+               DP du séjour, et seulement si aucune causalité n’est retrouvée, le DAS est la
+               chute R29.6.
+
