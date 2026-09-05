@@ -649,6 +649,62 @@ def _title(code: str, ctx: ExplorationContext) -> str:
     return f"# {code}"
 
 
+def statut_mco_de(code: str, ctx: ExplorationContext) -> tuple[int | None, str] | None:
+    """`(type_mco, statut)` du code selon le kit ATIH, ou None sans kit.
+
+    Source : `ctx.atih` (`atih_codes.parquet`) ; à défaut, les colonnes
+    jointes de `merged` (`build merged --atih`). Un code que le kit ne
+    connaît pas est `inconnu_atih` — ce n'est pas une absence
+    d'information, c'est un code non codable en MCO. Sans kit du tout,
+    None : la fiche ne porte pas de ligne de statut plutôt qu'une fausse.
+    """
+    from recode_icd.loaders.atih import STATUT_INCONNU
+
+    if ctx.atih is not None:
+        atih = _eager(ctx.atih)
+        ligne = atih.filter(pl.col("code") == code)
+        if ligne.is_empty():
+            return (None, STATUT_INCONNU)
+        r = ligne.row(0, named=True)
+        statut = str(r["statut_mco"])
+        if r["supprime"] and r["supprime_millesime"]:
+            statut = f"{statut}:{r['supprime_millesime']}"
+        return (int(r["type_mco"]), statut)
+    merged = _eager(ctx.merged)
+    if "statut_mco" not in merged.columns:
+        return None
+    ligne = merged.filter(pl.col("code") == code)
+    if ligne.is_empty() or ligne["statut_mco"][0] is None:
+        return None
+    r = ligne.row(0, named=True)
+    return (None if r["type_mco"] is None else int(r["type_mco"]), str(r["statut_mco"]))
+
+
+def _ligne_statut_mco(code: str, ctx: ExplorationContext) -> str | None:
+    """« Statut MCO (kit ATIH 2025) : … » — la ligne qui suit le titre.
+
+    Filtre de génération (un code non codable ne se tire jamais) et
+    rappel de la position autorisée. Le libellé vient de
+    `loaders.atih.LIBELLES_STATUT`, seule source du vocabulaire.
+    """
+    from recode_icd.loaders.atih import LIBELLES_STATUT, MILLESIME_DEFAUT
+
+    statut = statut_mco_de(code, ctx)
+    if statut is None:
+        return None
+    _type, token = statut
+    cle, _, su = token.partition(":")
+    texte = LIBELLES_STATUT.get(cle, cle)
+    if su:
+        texte = f"{texte} (SU{su})"
+    millesime = MILLESIME_DEFAUT
+    if ctx.atih is not None:
+        atih = _eager(ctx.atih)
+        if "millesime" in atih.columns and atih.height:
+            millesime = str(atih["millesime"][0])
+    return f"Statut MCO (kit ATIH {millesime}) : {texte}."
+
+
 def build_card(
     code: str,
     ctx: ExplorationContext,
@@ -672,7 +728,8 @@ def build_card(
         \\n...\\n</fiche_code>\\n`. Les sections vides sont omises.
 
     Sections produites (dans l'ordre) :
-        1. Titre + libellé
+        1. Titre + libellé, puis la ligne « Statut MCO (kit ATIH) » —
+           filtre de génération et position autorisée (D1)
         2. Position dans la classification
         3. Localisations anatomiques (codes type=D chap XIII uniquement)
         4. Périmètre clinique du code (héritages + niveau code)
@@ -684,6 +741,7 @@ def build_card(
     """
     sections = [
         _title(code, ctx),
+        _ligne_statut_mco(code, ctx),
         _section_hierarchy(code, ctx),
         _section_localisations(code, ctx),
         _section_perimeter(code, ctx),
@@ -840,12 +898,15 @@ def build_cards_library(
             fname = f"{code}.md"
             (chap_dir / fname).write_text(card, encoding="utf-8")
             sections = _detect_sections(card)
+            statut = statut_mco_de(code, ctx)
             index_rows.append(
                 {
                     "code": code,
                     "chapter": chapter,
                     "filepath": f"{chapter}/{fname}",
                     "libelle": _libelle_of(csv, code),
+                    "type_mco": None if statut is None else statut[0],
+                    "statut_mco": None if statut is None else statut[1].partition(":")[0],
                     "nb_chars": len(card),
                     **sections,
                 }
@@ -877,9 +938,13 @@ def build_cards_library(
             "has_exclusions",
             "has_consignes",
             "has_formulations",
+            "type_mco",
+            "statut_mco",
             "nb_chars",
         ]
-        pl.DataFrame(index_rows).select(ordered_cols).write_csv(index_path)
+        pl.DataFrame(
+            index_rows, schema_overrides={"type_mco": pl.Int64, "statut_mco": pl.String}
+        ).select(ordered_cols).write_csv(index_path)
 
     # Comptage des fiches portant la section Consignes, par chapitre,
     # dans l'ordre de la classification. Le nested set ANS ne convient
@@ -1300,6 +1365,7 @@ def build_categories_library(
             (chap_dir / fname).write_text(card, encoding="utf-8")
             sections = _detect_category_sections(card)
             n_enfants = len(_category_direct_children(code, merged))
+            statut = statut_mco_de(code, ctx)
             index_rows.append(
                 {
                     "code": code,
@@ -1307,6 +1373,8 @@ def build_categories_library(
                     "filepath": f"{chapter}/{fname}",
                     "libelle": libelle,
                     "n_enfants": n_enfants,
+                    "type_mco": None if statut is None else statut[0],
+                    "statut_mco": None if statut is None else statut[1].partition(":")[0],
                     "nb_chars": len(card),
                     **sections,
                 }
@@ -1336,9 +1404,13 @@ def build_categories_library(
             "has_perimetre",
             "has_exclusions",
             "has_formulations",
+            "type_mco",
+            "statut_mco",
             "nb_chars",
         ]
-        pl.DataFrame(index_rows).select(ordered_cols).write_csv(index_path)
+        pl.DataFrame(
+            index_rows, schema_overrides={"type_mco": pl.Int64, "statut_mco": pl.String}
+        ).select(ordered_cols).write_csv(index_path)
 
     elapsed = time.perf_counter() - t0
     return BuildSummary(

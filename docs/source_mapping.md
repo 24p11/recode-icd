@@ -1246,6 +1246,76 @@ Le merger calcule également les deux flags `is_dagger_in_pair` et
 `is_asterisk_in_pair` pour chaque code, sur la base de sa présence
 dans DAGSTAR (cf section "Couples dague/astérisque").
 
+## Kit de nomenclature ATIH : statut MCO et écriture des codes
+
+*Chantier couverture ATIH, phase 2 (D1), 2026-09-05.*
+
+Le kit `data/CIM_ATIH_2025/LIBCIM10MULTI.TXT` est **la** source de
+l'autorisation de codage en MCO. Il devient une donnée des livrables :
+
+| Champ | Source primaire | Fallback |
+|---|---|---|
+| Statut MCO d'un code (`type_mco`, `statut_mco`, `codable_mco`) | ATIH (`atih_codes.parquet`) | — (un code absent du kit est `inconnu_atih`, c'est-à-dire non codable) |
+| Règles positionnelles (`interdit_dp`, `interdit_dr`, `interdit_das`) | ATIH, dérivées du type par construction | — |
+| Écriture compacte ↔ maître | table de notation unique `referentials/curation/notations_codes.yaml` | — |
+
+Le kit ne remplace ni l'ANS ni l'OFS pour quoi que ce soit d'autre :
+libellés, notes, existence des codes gardent leur politique. Il n'est
+jamais « corrigé » : un libellé `*** SUaa ***` est décodé en
+`supprime=True` + millésime, pas réécrit.
+
+### Sémantique du Type MCO/HAD (cim.pdf du kit)
+
+| Valeur | Sens | `statut_mco` |
+|---|---|---|
+| 0 | pas de restriction | `codable` |
+| 1 | interdit en DP et DR, autorisé ailleurs | `interdit_dp_dr` |
+| 2 | interdit en DP et DR — cause externe de morbidité | `cause_externe` |
+| 3 | interdit en DP, DR et DA — catégorie ou sous-catégorie non vide, ou code père interdit | `pere_interdit` |
+| 4 | interdit en DP, autorisé ailleurs | `interdit_dp` |
+| (type 3 + `*** SUaa ***`) | code supprimé du kit | `supprime` |
+
+**Codable en MCO = type ≠ 3 et non supprimé** (40 419 codes sur
+42 897 au millésime 2025). ⚠ Le type 3 n'est pas une interdiction
+clinique : c'est un père (`A00`, `U07.1`) ou un code supprimé.
+
+### Où le statut vit
+
+- `atih_codes.parquet` (`build atih`) : source de vérité, schéma
+  `AtihCodesSchema`, métadonnée Parquet `atih_kit_version`, rapport
+  `reports/atih_kit_summary.csv` ;
+- `merged_codes.parquet` (`build merged --atih`) : vue jointe —
+  `type_mco` (null si inconnu du kit), `statut_mco` (`inconnu_atih` si
+  inconnu), `codable_mco` (False si inconnu). Sans kit joint, les trois
+  colonnes sont nulles : « non joint » n'est pas « inconnu » ;
+- fiches : ligne « Statut MCO (kit ATIH 2025) : … » sous le titre, et
+  colonnes `type_mco` / `statut_mco` des `_index.csv`.
+
+Le CSV maître (9 colonnes) **n'est pas modifié** : le statut n'est pas
+une note.
+
+### Écriture des codes — table de notation unique
+
+Trois écritures coexistent : **compacte** (kit, RUM : `O0490`,
+`M62810`, `B24+0`), **pointée** (guide MCO : `O04.90`, `M62.810`,
+`B24+0`) et **maître** (livrables, héritée de l'export ANS). La règle
+« point après le 3e caractère, sauf `+` en 4e » vaut pour 99,4 % des
+codes ; le maître s'en écarte sur trois familles, toutes déclarées dans
+`notations_codes.yaml` et lues par `recode_icd.notations` :
+
+| Famille | Compacte | Maître |
+|---|---|---|
+| O04 inversé | `O04<4e><5e>` | `O04.-<5e>.<4e>` |
+| M62.8 inversé à tiret | `M628<5e><6e>` | `M62.8-<6e><5e>` |
+| `+` ponctué (9 catégories) | `B24+0` | `B24.+0` |
+
+Testée dans les deux sens : compacte → maître → compacte est l'identité
+sur tout le kit ; maître → compacte → maître est l'identité sur tout le
+nested set (les huit nœuds de regroupement à tiret — `O04.-0..3`,
+`M62.8-0/8`, `S37.8-0/8` — sont les seuls sans compacte). Aucune règle
+de notation n'est en dur ailleurs (arbitrage 12 du registre du guide
+MCO, étendu).
+
 ## Cas particuliers et exceptions
 
 ### Exclusions indirectes (INDIR)
@@ -1394,6 +1464,9 @@ dans la section Loader OWL/ANS pour la règle d'application :
   synonyme à partir de `xkos:inclusionNote`.
 - `reports/post_2006_codes.csv` : codes présents uniquement en ANS,
   avec colonnes décrites ci-dessus.
+- `reports/atih_kit_summary.csv` : effectifs du kit ATIH par statut ×
+  type MCO et par millésime de suppression (cf section « Kit de
+  nomenclature ATIH »).
 - `reports/dagger_asterisk_conflicts.csv` : écarts OFS / ANS sur
   les appariements dague/astérisque.
 - `reports/synthesized_skipped.csv` : codes .8 où la synthèse a été

@@ -417,3 +417,72 @@ def test_label_conflict_real_semantic_difference_flagged() -> None:
     row = conf.row(0, named=True)
     assert row["code"] == "A02.1"
     assert row["resolved_to"] == "OWL_ANS"
+
+
+# ----------------------------------------------------------------------
+# Kit ATIH joint à merged (chantier couverture ATIH, D1)
+# ----------------------------------------------------------------------
+
+
+def _make_atih(rows: list[dict[str, object]]) -> pl.DataFrame:
+    """Extrait minimal d'`atih_codes.parquet` (les colonnes que la jointure lit)."""
+    return pl.DataFrame(
+        rows,
+        schema={
+            "code": pl.String,
+            "type_mco": pl.Int64,
+            "statut_mco": pl.String,
+            "codable_mco": pl.Boolean,
+        },
+    )
+
+
+def test_attach_atih_joint_le_statut_et_marque_les_inconnus() -> None:
+    merged = pl.DataFrame({"code": ["A00.0", "W00", "M16.00"]})
+    atih = _make_atih(
+        [
+            {"code": "A00.0", "type_mco": 0, "statut_mco": "codable", "codable_mco": True},
+            {"code": "W00", "type_mco": 3, "statut_mco": "pere_interdit", "codable_mco": False},
+        ]
+    )
+    out = merge.attach_atih(merged, atih)
+    par = {r["code"]: r for r in out.iter_rows(named=True)}
+    assert par["A00.0"]["statut_mco"] == "codable" and par["A00.0"]["codable_mco"]
+    assert par["W00"]["type_mco"] == 3 and not par["W00"]["codable_mco"]
+    # Un code du maître que le kit ne connaît pas n'est pas codable en
+    # MCO — et le statut le dit, plutôt qu'un null ambigu.
+    assert par["M16.00"]["type_mco"] is None
+    assert par["M16.00"]["statut_mco"] == "inconnu_atih"
+    assert par["M16.00"]["codable_mco"] is False
+
+
+def test_attach_atih_sans_kit_laisse_les_colonnes_nulles() -> None:
+    """« Non joint » n'est pas « inconnu du kit »."""
+    out = merge.attach_atih(pl.DataFrame({"code": ["A00.0"]}), None)
+    assert out.columns == ["code", "type_mco", "statut_mco", "codable_mco"]
+    assert out.row(0) == ("A00.0", None, None, None)
+
+
+def test_merge_codes_avec_et_sans_kit_valide_le_schema() -> None:
+    owl = _make_owl(
+        [
+            {"code": "A00", "label": "Choléra", "left": 1, "right": 4, "depth": 1},
+            {"code": "A00.0", "label": "Choléra à Vibrio", "left": 2, "right": 3, "depth": 2},
+        ]
+    )
+    ofs = _make_ofs([])
+    sans = merge.merge_codes(owl, ofs)
+    MergedCodesSchema.validate(sans)
+    assert sans["statut_mco"].null_count() == sans.height
+    avec = merge.merge_codes(
+        owl,
+        ofs,
+        _make_atih(
+            [{"code": "A00.0", "type_mco": 0, "statut_mco": "codable", "codable_mco": True}]
+        ),
+    )
+    MergedCodesSchema.validate(avec)
+    assert dict(avec.select("code", "statut_mco").rows()) == {
+        "A00": "inconnu_atih",
+        "A00.0": "codable",
+    }

@@ -157,9 +157,26 @@ def build_merged(
             help="Répertoire de sortie pour les rapports de conflits/orphelins.",
         ),
     ] = Path("reports"),
+    atih_path: Annotated[
+        Path,
+        typer.Option(
+            "--atih",
+            dir_okay=False,
+            help="atih_codes.parquet (`build atih`) : statut MCO joint à merged. "
+            "S'il est absent, les colonnes restent nulles et un avertissement est émis.",
+        ),
+    ] = Path("referentials/processed/atih_codes.parquet"),
 ) -> None:
     """Fusionner owl_codes + ofs_codes selon la politique CLAUDE.md."""
-    paths = merge.to_parquet_and_reports(owl_path, ofs_path, output_dir, reports_dir)
+    if not atih_path.is_file():
+        typer.echo(
+            f"Avertissement : {atih_path} introuvable — statut MCO non joint "
+            f"(lancer `recode-icd build atih`).",
+            err=True,
+        )
+    paths = merge.to_parquet_and_reports(
+        owl_path, ofs_path, output_dir, reports_dir, atih_path if atih_path.is_file() else None
+    )
     for p in paths.values():
         typer.echo(f"Écrit : {p}")
 

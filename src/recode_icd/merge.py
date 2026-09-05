@@ -243,8 +243,43 @@ def find_orphan_type_d_codes(
     ).sort("code")
 
 
-def merge_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFrame:
+def attach_atih(merged: pl.DataFrame, atih: pl.DataFrame | None) -> pl.DataFrame:
+    """Joint le statut MCO du kit ATIH à `merged` (chantier couverture ATIH, D1).
+
+    Trois colonnes : `type_mco` (0-4, null si le code est inconnu du
+    kit), `statut_mco` (`codable`, `interdit_dp_dr`, `cause_externe`,
+    `interdit_dp`, `pere_interdit`, `supprime`, ou `inconnu_atih` — un
+    code du maître que le kit ne connaît pas n'est pas codable en MCO,
+    et c'est une information) et `codable_mco`.
+
+    Sans kit (`atih=None`), les trois colonnes existent et sont nulles :
+    « non joint » n'est pas « inconnu du kit ». Le statut est une vue ;
+    la source de vérité reste `atih_codes.parquet`.
+    """
+    if atih is None:
+        return merged.with_columns(
+            pl.lit(None, dtype=pl.Int64).alias("type_mco"),
+            pl.lit(None, dtype=pl.String).alias("statut_mco"),
+            pl.lit(None, dtype=pl.Boolean).alias("codable_mco"),
+        )
+    from recode_icd.loaders.atih import STATUT_INCONNU
+
+    return merged.join(
+        atih.select("code", "type_mco", "statut_mco", "codable_mco"), on="code", how="left"
+    ).with_columns(
+        pl.col("type_mco").cast(pl.Int64),
+        pl.col("statut_mco").fill_null(STATUT_INCONNU),
+        pl.col("codable_mco").fill_null(False),
+    )
+
+
+def merge_codes(
+    owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame, atih: pl.DataFrame | None = None
+) -> pl.DataFrame:
     """Fusion OFS ⊕ OWL conforme à `docs/source_mapping.md`.
+
+    `atih` : `atih_codes.parquet` (kit ATIH) — joint par `attach_atih`,
+    colonnes `type_mco` / `statut_mco` / `codable_mco` (nulles sans kit).
 
     OWL = univers (left join). Pour chaque (code, type_de_note), matching
     élément-par-élément des notes OFS et OWL sur leur texte normalisé.
@@ -360,6 +395,7 @@ def merge_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl.DataFram
         )
         .sort("left")
     )
+    out = attach_atih(out, atih)
 
     MergedCodesSchema.validate(out)
     return out
@@ -524,11 +560,13 @@ def to_parquet_and_reports(
     ofs_path: Path,
     output_dir: Path,
     reports_dir: Path,
+    atih_path: Path | None = None,
 ) -> dict[str, Path]:
     owl = pl.read_parquet(owl_path)
     ofs = pl.read_parquet(ofs_path)
+    atih = pl.read_parquet(atih_path) if atih_path is not None else None
 
-    merged = merge_codes(owl, ofs)
+    merged = merge_codes(owl, ofs, atih)
     conflicts = find_conflicts(owl, ofs)
     orphans = find_orphans(owl, ofs)
     note_merges = find_note_merges(owl, ofs)

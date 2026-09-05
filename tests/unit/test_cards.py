@@ -176,6 +176,8 @@ def test_build_cards_library_index_csv_schema(ctx: ExplorationContext, tmp_path)
         "has_exclusions",
         "has_consignes",
         "has_formulations",
+        "type_mco",
+        "statut_mco",
         "nb_chars",
     }
     assert set(index.columns) == expected
@@ -245,3 +247,50 @@ def test_rang_romain_ordre_de_la_classification() -> None:
     ]
     assert sorted(chapitres, key=_rang_romain) == chapitres
     assert _rang_romain("hors-classification") > _rang_romain("XXII")
+
+
+# ----------------------------------------------------------------------
+# Statut MCO (kit ATIH) — chantier couverture ATIH, D1
+# ----------------------------------------------------------------------
+
+
+def test_la_fiche_porte_son_statut_mco_sous_le_titre(ctx: ExplorationContext) -> None:
+    """Filtre de génération : la ligne suit immédiatement le titre.
+
+    Témoins : un code codable sans restriction, un père interdit (`W00`,
+    catégorie du chapitre XX), un code supprimé (`M07.20`, SU09) et un
+    code inconnu du kit (`M16.00`, localisation du chapitre XIII).
+    """
+    if ctx.atih is None:
+        pytest.skip("atih_codes.parquet absent (`recode-icd build atih`).")
+    attendus = {
+        "A18.1": "Statut MCO (kit ATIH 2025) : codable en MCO, pas de restriction.",
+        "W00": "Statut MCO (kit ATIH 2025) : non codable en MCO (catégorie non vide ou code père interdit).",
+        "M07.20": "Statut MCO (kit ATIH 2025) : supprimé du kit ATIH (SU09).",
+        "M16.00": "Statut MCO (kit ATIH 2025) : inconnu du kit ATIH.",
+    }
+    for code, ligne in attendus.items():
+        card = build_card(code, ctx, random.Random(DEFAULT_SEED))
+        lignes = card.splitlines()
+        titre = next(i for i, ligne_ in enumerate(lignes) if ligne_.startswith("# "))
+        assert lignes[titre + 2] == ligne, (code, lignes[titre : titre + 3])
+
+
+def test_lindex_porte_type_et_statut_mco(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
+    if ctx.atih is None:
+        pytest.skip("atih_codes.parquet absent (`recode-icd build atih`).")
+    import polars as pl
+
+    summary = build_cards_library(ctx=ctx, output_dir=tmp_path / "lib", limit=3, progress=False)
+    index = pl.read_csv(summary.index_path)
+    assert {"type_mco", "statut_mco"} <= set(index.columns)
+    assert index["statut_mco"].null_count() == 0
+    assert set(index["statut_mco"].to_list()) <= {
+        "codable",
+        "interdit_dp_dr",
+        "cause_externe",
+        "interdit_dp",
+        "pere_interdit",
+        "supprime",
+        "inconnu_atih",
+    }

@@ -202,6 +202,8 @@ def test_build_categories_library_with_limit(ctx: ExplorationContext, tmp_path) 
         "has_perimetre",
         "has_exclusions",
         "has_formulations",
+        "type_mco",
+        "statut_mco",
         "nb_chars",
     }
     assert set(index.columns) == expected

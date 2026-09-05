@@ -184,6 +184,22 @@ class MergedCodesSchema(pa.DataFrameModel):
     scope_notes: list[str] = pa.Field(nullable=True)
     synonymes: list[str] = pa.Field()
     has_ofs_match: bool = pa.Field()
+    # Kit ATIH (chantier couverture ATIH, D1) : nuls quand le kit n'a pas
+    # été joint ; `inconnu_atih` / False quand le kit ne connaît pas le code.
+    type_mco: int = pa.Field(nullable=True, isin=[0, 1, 2, 3, 4])
+    statut_mco: str = pa.Field(
+        nullable=True,
+        isin=[
+            "codable",
+            "interdit_dp_dr",
+            "cause_externe",
+            "interdit_dp",
+            "pere_interdit",
+            "supprime",
+            "inconnu_atih",
+        ],
+    )
+    codable_mco: bool = pa.Field(nullable=True)
 
     class Config:
         strict = True
