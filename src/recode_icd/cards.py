@@ -649,6 +649,21 @@ def _title(code: str, ctx: ExplorationContext) -> str:
     return f"# {code}"
 
 
+def codes_codables(merged: pl.DataFrame) -> frozenset[str]:
+    """Les codes codables en MCO selon le kit joint à `merged` (D4).
+
+    Exige la colonne `codable_mco` **et** un kit effectivement joint :
+    sans lui, le profil `generation` est inapplicable — on le dit,
+    plutôt que de construire 16 000 fiches en croyant filtrer.
+    """
+    if "codable_mco" not in merged.columns or merged["codable_mco"].null_count() == merged.height:
+        raise ValueError(
+            "Profil `generation` : merged_codes ne porte pas le statut MCO du kit ATIH "
+            "(lancer `recode-icd build atih` puis `build merged`)."
+        )
+    return frozenset(merged.filter(pl.col("codable_mco"))["code"].to_list())
+
+
 def statut_mco_de(code: str, ctx: ExplorationContext) -> tuple[int | None, str] | None:
     """`(type_mco, statut)` du code selon le kit ATIH, ou None sans kit.
 
@@ -779,6 +794,10 @@ class BuildSummary:
     n_consignes: int = 0
     consignes_par_chapitre: tuple[tuple[str, int], ...] = ()
     avertissements: tuple[str, ...] = ()
+    #: Profil de bibliothèque (D4) et nombre de codes du CSV écartés
+    #: parce que non codables en MCO (0 pour le profil `controle`).
+    profil: str = policy_module.PROFIL_DEFAUT
+    n_exclus_non_codables: int = 0
 
 
 def _detect_sections(card: str) -> dict[str, bool]:
@@ -834,8 +853,13 @@ def build_cards_library(
     progress: bool = True,
     policy_path: Path | None = None,
     lexicons_dir: Path | None = None,
+    profil: str = policy_module.PROFIL_DEFAUT,
 ) -> BuildSummary:
     """Génère la bibliothèque complète de fiches CIM-10.
+
+    `profil` (D4) : `generation` (défaut) ne construit que les codes
+    codables en MCO — statut du kit ATIH joint à `merged` ; `controle`
+    construit tout. Chaque profil a sa bibliothèque et son `_index.csv`.
 
     Args:
         ctx : contexte d'exploration ; chargé automatiquement avec
@@ -868,13 +892,20 @@ def build_cards_library(
     # déterministe.
     codes_all = sorted(csv["code"].unique().to_list())
     codes = [c for c in codes_all if code_to_chap.get(c) is not None]
+    outils = charge_politique(merged, policy_path, lexicons_dir)
+    regle_profil = outils.policy.profil(profil)
+    n_exclus_non_codables = 0
+    if regle_profil.codables_seulement:
+        codables = codes_codables(merged)
+        avant = len(codes)
+        codes = [c for c in codes if c in codables]
+        n_exclus_non_codables = avant - len(codes)
     if chapter_filter is not None:
         codes = [c for c in codes if code_to_chap.get(c) == chapter_filter]
     if limit is not None:
         codes = codes[:limit]
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    outils = charge_politique(merged, policy_path, lexicons_dir)
     avertissements: list[str] = []
     if ctx.recommendations is None or ctx.recommendation_codes is None:
         msg = (
@@ -968,6 +999,8 @@ def build_cards_library(
         n_consignes=sum(par_chapitre.values()),
         consignes_par_chapitre=consignes_par_chapitre,
         avertissements=tuple(avertissements),
+        profil=profil,
+        n_exclus_non_codables=n_exclus_non_codables,
     )
 
 

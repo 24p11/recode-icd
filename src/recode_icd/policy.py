@@ -39,6 +39,14 @@ DEFAULT_LEXICONS_DIR = _RACINE_DEPOT / "referentials/processed"
 #: couverture bidirectionnel interdit qu'elle apparaisse en pratique.
 FAMILLE_INCONNUE = "AUTRE"
 
+#: Profil de bibliothèque par défaut (`cards build`).
+PROFIL_DEFAUT = "generation"
+#: Valeurs admises de `profils.<nom>.codes`.
+SELECTIONS_CODES = ("codables_mco", "tous")
+#: Profils implicites quand le YAML n'en déclare pas (tables de test,
+#: politiques antérieures à D4) : le défaut reste la génération.
+_PROFILS_IMPLICITES = {"generation": "codables_mco", "controle": "tous"}
+
 
 class PolicyError(ValueError):
     """Incohérence détectée dans le YAML de politique."""
@@ -57,6 +65,24 @@ class Regle:
 
     sources_externes: bool = True
     generation_llm: bool = True
+
+
+@dataclass(frozen=True)
+class Profil:
+    """Un profil de bibliothèque : quels codes construire.
+
+    `codes` : `codables_mco` (statut MCO codable — type ≠ 3, non
+    supprimé, connu du kit) ou `tous`. Le statut est celui de
+    `merged.statut_mco` ; sans kit joint, le profil `codables_mco` est
+    inapplicable et le build le dit.
+    """
+
+    nom: str
+    codes: str = "tous"
+
+    @property
+    def codables_seulement(self) -> bool:
+        return self.codes == "codables_mco"
 
 
 @dataclass(frozen=True)
@@ -90,6 +116,17 @@ class ChapterPolicy:
     chapitres: dict[str, Regle]
     blocs: dict[str, Regle]
     normalisation_index: NormalisationIndex
+    profils: dict[str, Profil] = field(default_factory=dict)
+
+    # -- profils (D4) ---------------------------------------------------
+    def profil(self, nom: str) -> Profil:
+        """Le profil demandé, ou `PolicyError` s'il n'est pas déclaré."""
+        try:
+            return self.profils[nom]
+        except KeyError as err:
+            raise PolicyError(
+                f"Profil « {nom} » inconnu — déclarés : {sorted(self.profils)}."
+            ) from err
 
     # -- R1 ------------------------------------------------------------
     def famille_de(self, libelle: str) -> str:
@@ -178,6 +215,20 @@ def load_policy(path: Path | None = None) -> ChapterPolicy:
     ni = dict(brut.get("normalisation_index", {}))
     enum = dict(ni.get("enumeration", {}))
 
+    profils_bruts: dict[str, Any] = dict(brut.get("profils") or {})
+    if not profils_bruts:
+        profils_bruts = {nom: {"codes": sel} for nom, sel in _PROFILS_IMPLICITES.items()}
+    profils: dict[str, Profil] = {}
+    for nom, decl in profils_bruts.items():
+        codes = str((decl or {}).get("codes", "tous"))
+        if codes not in SELECTIONS_CODES:
+            raise PolicyError(
+                f"Profil « {nom} » : `codes: {codes}` inconnu — admis : {SELECTIONS_CODES}."
+            )
+        profils[str(nom)] = Profil(nom=str(nom), codes=codes)
+    if PROFIL_DEFAUT not in profils:
+        raise PolicyError(f"Le profil par défaut « {PROFIL_DEFAUT} » doit être déclaré.")
+
     return ChapterPolicy(
         familles=familles,
         familles_sources=familles_sources,
@@ -201,6 +252,7 @@ def load_policy(path: Path | None = None) -> ChapterPolicy:
             enumeration_prefixe_min=int(enum.get("prefixe_min", 5)),
             enumeration_ratio_min=float(enum.get("ratio_min", 0.5)),
         ),
+        profils=profils,
     )
 
 
@@ -208,9 +260,12 @@ __all__ = (
     "DEFAULT_LEXICONS_DIR",
     "DEFAULT_POLICY_PATH",
     "FAMILLE_INCONNUE",
+    "PROFIL_DEFAUT",
+    "SELECTIONS_CODES",
     "ChapterPolicy",
     "NormalisationIndex",
     "PolicyError",
+    "Profil",
     "Regle",
     "load_policy",
 )

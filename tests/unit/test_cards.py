@@ -294,3 +294,52 @@ def test_lindex_porte_type_et_statut_mco(ctx: ExplorationContext, tmp_path) -> N
         "supprime",
         "inconnu_atih",
     }
+
+
+# ----------------------------------------------------------------------
+# Profils de bibliothèque (chantier couverture ATIH, D4)
+# ----------------------------------------------------------------------
+
+
+def test_le_profil_generation_exclut_les_non_codables(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
+    """Chapitre XXII (codes U) : `controle` construit tout, `generation`
+    écarte ce qui n'est pas codable — et l'index de chaque bibliothèque
+    en témoigne, autoportant."""
+    if ctx.atih is None:
+        pytest.skip("atih_codes.parquet absent (`recode-icd build atih`).")
+    import polars as pl
+
+    controle = build_cards_library(
+        ctx=ctx,
+        output_dir=tmp_path / "controle",
+        chapter_filter="XXII",
+        progress=False,
+        profil="controle",
+    )
+    generation = build_cards_library(
+        ctx=ctx, output_dir=tmp_path / "generation", chapter_filter="XXII", progress=False
+    )
+    idx_controle = pl.read_csv(controle.index_path)
+    idx_generation = pl.read_csv(generation.index_path)
+    non_codables = {"pere_interdit", "supprime", "inconnu_atih"}
+    assert generation.profil == "generation" and controle.n_exclus_non_codables == 0
+    assert idx_generation.filter(pl.col("statut_mco").is_in(non_codables)).is_empty()
+    assert idx_controle.height >= idx_generation.height
+    assert generation.n_exclus_non_codables > 0, "le CSV porte des non-codables avant D4"
+
+
+def test_profil_generation_sans_kit_joint_echoue_bruyamment() -> None:
+    """Sans statut MCO dans merged, filtrer « les codables » serait un mensonge."""
+    import polars as pl
+
+    from recode_icd.cards import codes_codables
+
+    with pytest.raises(ValueError, match="statut MCO"):
+        codes_codables(pl.DataFrame({"code": ["A00"]}))
+    with pytest.raises(ValueError, match="statut MCO"):
+        codes_codables(
+            pl.DataFrame(
+                {"code": ["A00"], "codable_mco": [None]},
+                schema_overrides={"codable_mco": pl.Boolean},
+            )
+        )

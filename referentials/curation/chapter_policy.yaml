@@ -85,6 +85,28 @@ plafond_famille_categories: 20
 plafond_global_categories: 50
 
 # ---------------------------------------------------------------------
+# Profils de bibliothèque — chantier couverture ATIH (D4)
+# ---------------------------------------------------------------------
+# Premier axe réel du backlog « profils de fiches par usage » : le
+# statut MCO du code (kit ATIH, `statut_mco` de merged). Le profil
+# `generation` — défaut de `cards build` — ne construit que les codes
+# CODABLES en MCO (type ≠ 3, non supprimés, connus du kit) : un code
+# père, supprimé ou inconnu du kit ne se tire jamais pour générer un
+# RUM. Le profil `controle` construit tout, avec la ligne de statut.
+#
+# Chaque profil a SA bibliothèque et SON `_index.csv` (autoportance) :
+# outputs/cards_library (generation), outputs/cards_library_controle.
+#
+# Pas d'héritage entre profils : une valeur par clé, résolue telle
+# quelle — le piège remplacement/fusion des plages ne se pose pas ici.
+# Les autres axes du backlog (ORPHANET, exclusions, R3) restent ouverts.
+profils:
+  generation:
+    codes: codables_mco
+  controle:
+    codes: tous
+
+# ---------------------------------------------------------------------
 # R1 — politique par plage de codes
 # ---------------------------------------------------------------------
 defaut:

@@ -200,3 +200,43 @@ def test_blocs_non_positionnels() -> None:
     assert lignes["C50.8"]["chapitre"] == "II"
     assert lignes["C50.8"]["categorie"] == "C50", "la catégorie vient du code, pas du path"
     assert lignes["R51"]["categorie"] == "R51"
+
+
+# ----------------------------------------------------------------------
+# Profils de bibliothèque (chantier couverture ATIH, D4)
+# ----------------------------------------------------------------------
+
+
+def test_les_deux_profils_sont_declares(policy) -> None:  # type: ignore[no-untyped-def]
+    assert policy.profil("generation").codables_seulement
+    assert not policy.profil("controle").codables_seulement
+
+
+def test_profil_inconnu_leve(policy) -> None:  # type: ignore[no-untyped-def]
+    with pytest.raises(PolicyError, match="inconnu"):
+        policy.profil("verification")
+
+
+def test_sans_section_profils_les_implicites_sappliquent(tmp_path: Path) -> None:
+    """Une politique antérieure à D4 garde le défaut : génération = codables."""
+    yaml_test = tmp_path / "p.yaml"
+    yaml_test.write_text("familles: [OFS]\n", encoding="utf-8")
+    pol = load_policy(yaml_test)
+    assert pol.profil("generation").codes == "codables_mco"
+    assert pol.profil("controle").codes == "tous"
+
+
+def test_selection_de_codes_inconnue_rejetee(tmp_path: Path) -> None:
+    yaml_test = tmp_path / "p.yaml"
+    yaml_test.write_text(
+        "familles: [OFS]\nprofils:\n  generation: {codes: codables}\n", encoding="utf-8"
+    )
+    with pytest.raises(PolicyError, match="codes"):
+        load_policy(yaml_test)
+
+
+def test_le_profil_par_defaut_doit_exister(tmp_path: Path) -> None:
+    yaml_test = tmp_path / "p.yaml"
+    yaml_test.write_text("familles: [OFS]\nprofils:\n  controle: {codes: tous}\n", encoding="utf-8")
+    with pytest.raises(PolicyError, match="generation"):
+        load_policy(yaml_test)

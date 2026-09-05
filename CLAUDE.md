@@ -599,6 +599,23 @@ R1/R2/R3 gouvernent la **seule** section Formulations. La section
 section guide MCO) n'y est **pas** soumise — contrat `(code, ctx)` sans
 `rng` ni `outils`, et `test_section_hors_chapter_policy` l'affirme.
 
+### Profils de bibliothèque (chantier couverture ATIH, D4)
+
+Clé `profils:` du même YAML — premier axe réel du backlog « profils de
+fiches par usage » : le **statut MCO** du code. `generation` (défaut de
+`cards build`, `outputs/cards_library`) ne construit que les codes
+codables en MCO (`merged.codable_mco`, kit ATIH joint) ; `controle`
+(`cards build --profil controle`, `outputs/cards_library_controle`)
+construit tout, avec la ligne de statut. **Un `_index.csv` par
+bibliothèque** (autoportance). Pas d'héritage entre profils : une
+valeur par clé. Invariant dual, testé (`test_couverture_invariants.py`) :
+**aucun père interdit, code supprimé ou inconnu du kit dans la
+bibliothèque de génération** — on n'en retire rien du CSV maître ni du
+nested set, on ne les construit pas dans ce profil. Sans kit joint, le
+profil `generation` échoue bruyamment plutôt que de « filtrer » sur
+rien. Les fiches catégories (3-car) ne sont pas profilées : une
+catégorie n'est pas un code à tirer.
+
 ### Résolution par REMPLACEMENT, pas par fusion
 
 L'ordre est **bloc > chapitre > défaut**, et la règle la plus spécifique
@@ -640,7 +657,8 @@ sources en silence. Verrouillé par `test_remplacement_et_non_fusion`.
 
 ```bash
 uv run recode-icd build lexicons          # les trois lexiques (déterministe)
-uv run recode-icd cards build             # --policy / --lexicons-dir
+uv run recode-icd cards build             # profil generation (codables MCO) → outputs/cards_library
+uv run recode-icd cards build --profil controle   # tous les codes → outputs/cards_library_controle
 uv run recode-icd cards build-categories
 uv run python scripts/explore/relectures/export_relecture_index.py --graine 4242
 ```
