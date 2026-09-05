@@ -745,6 +745,25 @@ validations:
   insuffisance_respiratoire_adulte:
     relecteur: "RF"
     date: "2026-09-03"
+  # -- chantier B, lot 5 (verdict global OK ; arbitrage 12 sur O04) --
+  interruption_grossesse:
+    relecteur: "RF"
+    date: "2026-09-05"
+  lesions_traumatiques:
+    relecteur: "RF"
+    date: "2026-09-05"
+  maladies_professionnelles:
+    relecteur: "RF"
+    date: "2026-09-05"
+  oedeme_pulmonaire:
+    relecteur: "RF"
+    date: "2026-09-05"
+  precarite:
+    relecteur: "RF"
+    date: "2026-09-05"
+  resistance_antimicrobiens:
+    relecteur: "RF"
+    date: "2026-09-05"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés

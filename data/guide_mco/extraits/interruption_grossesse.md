@@ -73,7 +73,7 @@ Si la cause est une anomalie fœtale :
 
 Si la cause de l’interruption est maternelle :
 - DP : selon que la cause est classée dans le chapitre XV de la CIM–10 ou dans un autre chapitre, on choisit le code ad hoc du chapitre XV ou un code des catégories O98 ou O99 ; pas de DR ;
-- DA : on enregistre par convention un code de la catégorie Z37 (en général Z37.11 Naissance unique, enfant mort-né, à la suite d’une interruption de la grossesse pour motif médical) ; si besoin, un code des chapitres I à XVII et XIX précise le DP53 ;
+- DA : on enregistre par convention un code de la catégorie Z37 (en général Z37.11 Naissance unique, enfant mort-né, à la suite d’une interruption de la grossesse pour motif médical) ; si besoin, un code des chapitres I à XVII et XIX précise le DP53 ; <!-- « DP53 » : second appel de la note 53 dans l'original, collé au mot (§2.2). La note est repliée à son premier appel (§2) ; le repli force le premier, ce second appel reste tel quel — artefact conservé, non réparé. -->
 - acte d’accouchement ;
 - âge gestationnel et date des dernières règles.
 
