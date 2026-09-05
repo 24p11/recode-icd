@@ -25,6 +25,47 @@ class OwlCodesSchema(pa.DataFrameModel):
         coerce = False
 
 
+class AtihCodesSchema(pa.DataFrameModel):
+    """Kit de nomenclature ATIH (`atih_codes.parquet`), cf `loaders/atih.py`.
+
+    `code` est l'écriture du maître (table de notation unique),
+    `code_atih` la compacte du kit. Les booléens de position sont dérivés
+    du type par construction — ils ne se curent pas.
+    """
+
+    code: str = pa.Field(str_matches=_CODE_RE, unique=True)
+    code_atih: str = pa.Field(str_matches=r"^[A-Z]\d{2}[0-9+]{0,3}$", unique=True)
+    type_mco: int = pa.Field(isin=[0, 1, 2, 3, 4])
+    profil_smr: str = pa.Field(str_matches=r"^[ON]{3}$")
+    smr_mmp: bool = pa.Field()
+    smr_ae: bool = pa.Field()
+    smr_das: bool = pa.Field()
+    type_psy: int = pa.Field(isin=[0, 1, 3])
+    supprime: bool = pa.Field()
+    supprime_millesime: str = pa.Field(nullable=True, str_matches=r"^\d{2}$")
+    statut_mco: str = pa.Field(
+        isin=[
+            "codable",
+            "interdit_dp_dr",
+            "cause_externe",
+            "interdit_dp",
+            "pere_interdit",
+            "supprime",
+        ]
+    )
+    codable_mco: bool = pa.Field()
+    interdit_dp: bool = pa.Field()
+    interdit_dr: bool = pa.Field()
+    interdit_das: bool = pa.Field()
+    libelle_court: str = pa.Field()
+    libelle_long: str = pa.Field()
+    millesime: str = pa.Field()
+
+    class Config:
+        strict = True
+        coerce = False
+
+
 class DaggerAsteriskSchema(pa.DataFrameModel):
     asterisk_code: str = pa.Field(str_matches=_CODE_RE)
     dagger_code: str = pa.Field(str_matches=_CODE_RE)
@@ -143,6 +184,22 @@ class MergedCodesSchema(pa.DataFrameModel):
     scope_notes: list[str] = pa.Field(nullable=True)
     synonymes: list[str] = pa.Field()
     has_ofs_match: bool = pa.Field()
+    # Kit ATIH (chantier couverture ATIH, D1) : nuls quand le kit n'a pas
+    # été joint ; `inconnu_atih` / False quand le kit ne connaît pas le code.
+    type_mco: int = pa.Field(nullable=True, isin=[0, 1, 2, 3, 4])
+    statut_mco: str = pa.Field(
+        nullable=True,
+        isin=[
+            "codable",
+            "interdit_dp_dr",
+            "cause_externe",
+            "interdit_dp",
+            "pere_interdit",
+            "supprime",
+            "inconnu_atih",
+        ],
+    )
+    codable_mco: bool = pa.Field(nullable=True)
 
     class Config:
         strict = True

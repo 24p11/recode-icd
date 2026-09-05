@@ -104,6 +104,11 @@ _ORPHANET_XML_REL = "data/Orphanet_Nomenclature_Pack_FR_2025/ORPHA_ICD10_mapping
 _HECTOR_XLSX_REL = "data/CIM_APHP_2019/Dictionnaire_Hector_MAJ062019.xlsx"
 _CEPIDC_CSV_REL = "data/CIM_CEPIDC_2015/CepiDc_Dictionnaire2015.csv"
 
+# Kit de nomenclature CIM-10 ATIH (chantier couverture ATIH). Le fichier
+# complet ; `_ch20` / `_saufch20` en sont les deux moitiés (vérifié :
+# leur concaténation est le fichier complet à l'octet près).
+_ATIH_LIBCIM10_REL = "data/CIM_ATIH_2025/LIBCIM10MULTI.TXT"
+
 # Chemins candidats du RDF ANS (chargé seulement si `load_rdf=True`).
 _RDF_PATH_CANDIDATES: tuple[str, ...] = (
     "data/CIM_ANS_2026/dat/terminologie-cim-10-2025-01-01.rdf",
@@ -173,6 +178,8 @@ class ExplorationContext:
     owl_dagger_asterisk: Frame | None = None
     recommendations: Frame | None = None
     recommendation_codes: Frame | None = None
+    #: `atih_codes.parquet` (kit ATIH : statut MCO, règles positionnelles).
+    atih: Frame | None = None
     external: dict[str, pl.DataFrame] = field(default_factory=dict)
     reports: dict[str, Frame] = field(default_factory=dict)
     # Graphe RDF ANS chargé via rdflib (opt-in via `load_rdf=True`).
@@ -215,6 +222,18 @@ def _load_csv(path: Path, lazy: bool) -> Frame | None:
     if lazy:
         return pl.scan_csv(path)
     return pl.read_csv(path)
+
+
+def load_atih_libcim10(path: Path | None = None) -> pl.DataFrame:
+    """Kit de nomenclature CIM-10 ATIH (`LIBCIM10MULTI.TXT`), tel quel.
+
+    Délègue à `recode_icd.loaders.atih.load_atih_kit` (format, sémantique
+    du Type MCO/HAD et garde sur les 6 champs y sont documentés). Ici,
+    seulement le chemin par défaut du kit livré.
+    """
+    from recode_icd.loaders.atih import load_atih_kit
+
+    return load_atih_kit(path if path is not None else _default_root() / _ATIH_LIBCIM10_REL)
 
 
 def _load_ofs_table(path: Path, name: str, lazy: bool) -> Frame | None:
@@ -381,6 +400,7 @@ def load_exploration_context(
     recommendation_codes = _load_parquet(
         actual_processed / "recommendation_codes.parquet", lazy=lazy
     )
+    atih = _load_parquet(actual_processed / "atih_codes.parquet", lazy=lazy)
 
     reports: dict[str, Frame] = {}
     for fname in _REPORTS:
@@ -415,6 +435,7 @@ def load_exploration_context(
         owl_dagger_asterisk=owl_dagger_asterisk,
         recommendations=recommendations,
         recommendation_codes=recommendation_codes,
+        atih=atih,
         external=external,
         reports=reports,
         ans_graph=ans_graph,

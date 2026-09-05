@@ -11,8 +11,8 @@ from __future__ import annotations
 import polars as pl
 import pytest
 
+from recode_icd.notations import FamilleInversee, Notations
 from recode_icd.recommendations.code_expr import TypeExpr, parse_code_expr
-from recode_icd.recommendations.notations import CategorieInversee, Notations
 from recode_icd.recommendations.resolution import ResolutionError, cle_de_tri, resout
 
 pytestmark = pytest.mark.unit
@@ -164,7 +164,13 @@ def merged_o04() -> pl.DataFrame:
 
 @pytest.fixture
 def notations_o04() -> Notations:
-    return Notations(categories={"O04": CategorieInversee("O04", ("4", "9"), ("0", "1", "2"))})
+    return Notations(
+        familles={
+            "O04": FamilleInversee(
+                "O04", "O04", "O04", "{base}.-{b}.{a}", "{base}.-{b}", ("4", "9"), ("0", "1", "2")
+            )
+        }
+    )
 
 
 def test_feuille_traduite_se_resout_en_elle_meme(
@@ -188,7 +194,13 @@ def test_quatrieme_seul_se_resout_a_travers_les_cinquiemes(
         # La table déclare la 5e position 2, que ce référentiel miniature
         # n'a pas : un nœud traduit absent lève comme un code absent.
         resout(parse_code_expr("O04.4", notations_o04), merged_o04)
-    table_ajustee = Notations(categories={"O04": CategorieInversee("O04", ("4", "9"), ("0", "1"))})
+    table_ajustee = Notations(
+        familles={
+            "O04": FamilleInversee(
+                "O04", "O04", "O04", "{base}.-{b}.{a}", "{base}.-{b}", ("4", "9"), ("0", "1")
+            )
+        }
+    )
     assert resout(parse_code_expr("O04.4", table_ajustee), merged_o04) == ["O04.-0.4", "O04.-1.4"]
 
 

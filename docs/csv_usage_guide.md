@@ -309,3 +309,63 @@ inspect_code("A18.1")            # code exact
 inspect_code("A18")              # préfixe (toute la catégorie)
 inspect_code(["A18.1", "N33.0"]) # liste
 ```
+
+## Résoudre un code vers sa fiche — ne jamais joindre à la main
+
+*Chantier couverture ATIH, D0 (2026-09-05).*
+
+Un code peut s'écrire de trois façons — compacte (kit ATIH, RUM :
+`O0490`), pointée (`O04.90`), maître (`O04.-0.9`) — et trois familles
+divergent de la règle « point après le 3e caractère » (O04, M62.8, neuf
+catégories à `+`). Une jointure naïve sur `code` échoue en silence.
+Passer par le résolveur :
+
+```python
+from recode_icd.couverture import charge_contexte, resoudre_code
+
+ctx = charge_contexte()                 # atih_codes + merged_codes + _index.csv
+r = resoudre_code("O0490", ctx)
+r.statut        # "fiche"
+r.code          # "O04.-0.9"  (écriture du maître)
+r.fiche         # "XV/O04.-0.9.md"
+r.codable_mco   # True
+```
+
+### Le statut MCO d'un code — sept valeurs, et ce que veut dire « null »
+
+`statut_mco` (colonne des `_index.csv`, de `merged_codes.parquet`, champ
+du résolveur) vient du Type MCO/HAD du kit ATIH 2025 :
+
+| `statut_mco` | Type MCO | Codable en MCO ? | Sens |
+|---|---|---|---|
+| `codable` | 0 | oui | pas de restriction |
+| `interdit_dp_dr` | 1 | oui | jamais en DP ni en DR, autorisé ailleurs |
+| `cause_externe` | 2 | oui | jamais en DP ni en DR — cause externe de morbidité (chapitre XX) |
+| `interdit_dp` | 4 | oui | jamais en DP, autorisé ailleurs |
+| `pere_interdit` | 3 | **non** | catégorie ou sous-catégorie non vide, ou code père interdit : ses subdivisions se codent, pas lui |
+| `supprime` | 3 + `*** SUaa ***` | **non** | supprimé du kit au millésime `aa` |
+| `inconnu_atih` | — | **non** | présent dans nos livrables, absent du kit : pas codable en MCO (ex. localisations `M16.0x` du chapitre XIII) |
+
+`codable_mco` résume la troisième colonne. **`inconnu_atih` n'est pas
+un `null`** : c'est une information (le kit ne connaît pas ce code).
+Un `null` dans `merged_codes.parquet` ne veut dire qu'une chose — la
+jointure avec le kit n'a pas été faite (`build merged` sans
+`atih_codes.parquet`) — et n'apparaît jamais dans les livrables
+publiés.
+
+Réponses négatives, toujours motivées (`r.raison`) et avec un repli :
+
+| `statut` | Repli fourni |
+|---|---|
+| `intermediaire` (codable, subdivisé, sans fiche propre) | `codes_avec_fiche` : ses feuilles |
+| `pere_interdit` (type 3) | `codes_avec_fiche` : ses enfants |
+| `tronc_chapitre_xx` (extension lieu/activité) | `ancetre` : le tronc, et sa fiche |
+| `absent_du_maitre` (extension ATIH récente) | `ancetre` |
+| `sans_ligne`, `supprime`, `inconnu_atih`, `inconnu`, `notation_invalide` | — |
+
+Une fiche sur un code non codable (supprimé, inconnu du kit, père)
+est rendue `fiche` avec `codable_mco=False` : filtrer dessus avant tout
+tirage de génération. CLI équivalente : `recode-icd resoudre CODE…
+[--json] [--journal fichier.jsonl]` — le journal n'enregistre que les
+réponses négatives ; **envoyez-le**, il priorise les fiches à produire.
+

@@ -9,9 +9,9 @@ import typer
 from recode_icd import lexicons, merge, merge_external, propagation
 from recode_icd import policy as policy_mod
 from recode_icd.exporters import flat_csv
-from recode_icd.loaders import ofs, owl
+from recode_icd.loaders import atih, ofs, owl
+from recode_icd.notations import charge_notations
 from recode_icd.recommendations import build as guide_mco
-from recode_icd.recommendations.notations import charge_notations
 from recode_icd.relations import dagger_asterisk, sibling_exclusions
 from recode_icd.reports import csv_stats
 
@@ -77,6 +77,47 @@ def build_ofs(
     typer.echo(f"Écrit : {pairs_path}")
 
 
+@build_app.command("atih")
+def build_atih(
+    kit_path: Annotated[
+        Path,
+        typer.Option(
+            "--kit",
+            "-k",
+            exists=True,
+            dir_okay=False,
+            readable=True,
+            help="Kit de nomenclature ATIH (LIBCIM10MULTI.TXT).",
+        ),
+    ] = Path("data/CIM_ATIH_2025/LIBCIM10MULTI.TXT"),
+    millesime: Annotated[
+        str,
+        typer.Option("--millesime", help="Millésime du kit (il ne le porte pas lui-même)."),
+    ] = atih.MILLESIME_DEFAUT,
+    notations_path: Annotated[
+        Path,
+        typer.Option("--notations", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/curation/notations_codes.yaml"),
+    output_dir: Annotated[
+        Path,
+        typer.Option("--output-dir", "-o", file_okay=False),
+    ] = Path("referentials/processed"),
+    reports_dir: Annotated[
+        Path,
+        typer.Option("--reports-dir", file_okay=False),
+    ] = Path("reports"),
+) -> None:
+    """Construire atih_codes.parquet depuis le kit de nomenclature ATIH.
+
+    Statut MCO de chaque code (type 0-4, codes supprimés) et règles
+    positionnelles dérivées par construction ; écriture du maître via la
+    table de notation unique. Rapport : reports/atih_kit_summary.csv.
+    """
+    paths = atih.to_parquet(kit_path, output_dir, reports_dir, notations_path, millesime)
+    for p in paths.values():
+        typer.echo(f"Écrit : {p}")
+
+
 @build_app.command("merged")
 def build_merged(
     owl_path: Annotated[
@@ -116,9 +157,26 @@ def build_merged(
             help="Répertoire de sortie pour les rapports de conflits/orphelins.",
         ),
     ] = Path("reports"),
+    atih_path: Annotated[
+        Path,
+        typer.Option(
+            "--atih",
+            dir_okay=False,
+            help="atih_codes.parquet (`build atih`) : statut MCO joint à merged. "
+            "S'il est absent, les colonnes restent nulles et un avertissement est émis.",
+        ),
+    ] = Path("referentials/processed/atih_codes.parquet"),
 ) -> None:
     """Fusionner owl_codes + ofs_codes selon la politique CLAUDE.md."""
-    paths = merge.to_parquet_and_reports(owl_path, ofs_path, output_dir, reports_dir)
+    if not atih_path.is_file():
+        typer.echo(
+            f"Avertissement : {atih_path} introuvable — statut MCO non joint "
+            f"(lancer `recode-icd build atih`).",
+            err=True,
+        )
+    paths = merge.to_parquet_and_reports(
+        owl_path, ofs_path, output_dir, reports_dir, atih_path if atih_path.is_file() else None
+    )
     for p in paths.values():
         typer.echo(f"Écrit : {p}")
 
@@ -494,7 +552,7 @@ def build_guide_mco(
     notations_path: Annotated[
         Path,
         typer.Option("--notations", exists=True, dir_okay=False, readable=True),
-    ] = Path("referentials/curation/notations_guide.yaml"),
+    ] = Path("referentials/curation/notations_codes.yaml"),
 ) -> None:
     """Construire la base des recommandations du guide méthodologique MCO.
 

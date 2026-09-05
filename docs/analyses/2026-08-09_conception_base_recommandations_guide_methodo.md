@@ -218,7 +218,7 @@ L'expansion de `code_expr` réutilise l'outillage existant :
   telle qu'écrite par le guide ; quand le référentiel encode la
   catégorie autrement (4e et 5e caractères inversés, `O04.-<5e>.<4e>`),
   la traduction est déclarée dans
-  `referentials/curation/notations_guide.yaml` et appliquée par le
+  `referentials/curation/notations_codes.yaml` et appliquée par le
   parseur au build, jamais par la curation. Formes traduites : `Xnn.<4e><5e>`
   (feuille, granularité `CODE`), `Xnn.-<5e>` (nœud de 5e position) et
   `Xnn.<4e>` (une feuille par 5e déclarée), ces deux dernières à la

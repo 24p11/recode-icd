@@ -34,7 +34,7 @@ from enum import IntEnum
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from recode_icd.recommendations.notations import Notations
+    from recode_icd.notations import Notations
 
 #: Tiret typographique utilisé par le guide (« I63.– »). Le guide n'est
 #: pas constant : on accepte aussi le tiret ASCII et le tiret demi-cadratin.

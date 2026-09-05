@@ -1,0 +1,70 @@
+# Table de notation unique des codes CIM-10 FR — guide MCO, kit ATIH,
+# référentiel (nested set ANS / CSV maître)
+# ---------------------------------------------------------------------
+# Arbitrage n° 12 du registre (RF, 2026-09-05, cas O04), étendu par le
+# chantier couverture ATIH (phase 2, D1-c) : LA CURATION EST FIDÈLE À LA
+# NOTATION DE SA SOURCE, LA RÉSOLUTION TRADUIT — JAMAIS L'INVERSE.
+#
+# Trois écritures d'un même code coexistent :
+#   - COMPACTE (kit ATIH, RUM) : point omis, `+` possible — `O0490`,
+#     `M62810`, `B24+0`, `C169+0` ;
+#   - POINTÉE (guide MCO, usage courant) : point après le 3e caractère,
+#     sauf quand le 4e est `+` — `O04.90`, `M62.810`, `B24+0`, `C16.9+0` ;
+#   - MAÎTRE (nos livrables, héritée de l'export ANS) : pointée, sauf
+#     les familles déclarées ici.
+#
+# `recode_icd.notations` lit ce fichier ; aucune règle de notation n'est
+# en dur ailleurs. Chaque entrée est testée dans les deux sens sur le kit
+# ATIH entier (42 897 codes → identité) et sur le maître (injectivité) :
+# `tests/unit/test_notations.py`, `tests/regression/test_atih_kit.py`,
+# `tests/regression/test_guide_mco_notations.py`.
+#
+# FAMILLES INVERSÉES : le maître écrit deux positions dans l'ordre
+# inverse de la compacte. `a` est la première position (ordre compact),
+# `b` la seconde ; le maître écrit `b` avant `a`. Le nœud de regroupement
+# par `b` (`O04.-1`, `M62.8-0`) n'a pas d'équivalent compact.
+#   O04   : compacte O04<4e><5e>  ↔ maître O04.-<5e>.<4e>  (O0490 ↔ O04.-0.9)
+#   M62.8 : compacte M628<5e><6e> ↔ maître M62.8-<6e><5e>  (M62810 ↔ M62.8-01)
+#     — vérifié sur les libellés : M62810 « Rhabdomyolyse - Région
+#     scapulaire » = M62.8-01.
+#
+# `+` PONCTUÉ : pour ces neuf catégories, le maître écrit un point avant
+# le `+` de 4e position (`B24.+0`) ; pour les autres (F03, T08, T10, T12)
+# il ne le fait pas (`T08+0`, `F03+00`). C'est une inconstance de
+# l'export ANS, déclarée telle quelle.
+#
+# Formes du guide traduites par le parseur des consignes, pour une
+# famille inversée (granularité entre parenthèses) :
+#   pointée feuille  `O04.90`, `M62.810`   → feuille du maître      (CODE)
+#   nœud             `O04.-1`, `M62.8-0`   → nœud de regroupement   (CATEGORIE)
+#   `a` seul         `O04.4`,  `M62.81`    → une feuille par `b`     (CATEGORIE)
+# Toute autre forme sur une famille déclarée reste NON PARSABLE, au
+# rapport — jamais au silence.
+
+familles_inversees:
+  O04:
+    libelle: "Avortement médical"
+    base_compacte: "O04"
+    base_maitre: "O04"
+    feuille_maitre: "{base}.-{b}.{a}"
+    noeud_maitre: "{base}.-{b}"
+    # a = 4e caractère (OMS) : .0-.4 avortement incomplet, .5-.9 complet
+    # ou sans précision ; .4 et .9 = sans complication.
+    a: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    # b = 5e caractère (extension ATIH) : 0 = IVG, 1 = IMG cause
+    # embryonnaire ou fœtale, 2 = IMG cause maternelle, 3 = association.
+    b: ["0", "1", "2", "3"]
+  M62.8:
+    libelle: "Autres atteintes musculaires précisées"
+    base_compacte: "M628"
+    base_maitre: "M62.8"
+    feuille_maitre: "{base}-{b}{a}"
+    noeud_maitre: "{base}-{b}"
+    # a = 5e caractère : localisation ostéo-articulaire (0 sièges
+    # multiples … 9 siège non précisé).
+    a: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    # b = 6e caractère : 0 = rhabdomyolyse, 8 = autres atteintes
+    # musculaires précisées, non classées ailleurs.
+    b: ["0", "8"]
+
+plus_ponctue: [B24, B99, F55, F61, P95, R53, R54, S47, T68]

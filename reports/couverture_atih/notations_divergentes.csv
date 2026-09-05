@@ -1,0 +1,90 @@
+code_atih,code_maitre,famille,feuille_maitre,fiche
+B24+0,B24.+0,code à + ponctué (A99.+9),True,True
+B24+1,B24.+1,code à + ponctué (A99.+9),True,True
+B24+9,B24.+9,code à + ponctué (A99.+9),True,True
+B99+0,B99.+0,code à + ponctué (A99.+9),True,True
+B99+1,B99.+1,code à + ponctué (A99.+9),True,True
+F55+0,F55.+0,code à + ponctué (A99.+9),True,True
+F55+1,F55.+1,code à + ponctué (A99.+9),True,True
+F55+2,F55.+2,code à + ponctué (A99.+9),True,True
+F55+3,F55.+3,code à + ponctué (A99.+9),True,True
+F55+4,F55.+4,code à + ponctué (A99.+9),True,True
+F55+5,F55.+5,code à + ponctué (A99.+9),True,True
+F55+6,F55.+6,code à + ponctué (A99.+9),True,True
+F55+8,F55.+8,code à + ponctué (A99.+9),True,True
+F55+9,F55.+9,code à + ponctué (A99.+9),True,True
+F61+0,F61.+0,code à + ponctué (A99.+9),True,True
+F61+1,F61.+1,code à + ponctué (A99.+9),True,True
+M62800,M62.8-00,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62808,M62.8-80,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62810,M62.8-01,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62818,M62.8-81,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62820,M62.8-02,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62828,M62.8-82,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62830,M62.8-03,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62838,M62.8-83,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62840,M62.8-04,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62848,M62.8-84,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62850,M62.8-05,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62858,M62.8-85,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62860,M62.8-06,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62868,M62.8-86,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62870,M62.8-07,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62878,M62.8-87,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62880,M62.8-08,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62888,M62.8-88,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62890,M62.8-09,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+M62898,M62.8-89,M62.8 inversé à tiret (A99.9-<6e><5e>),True,True
+O0400,O04.-0.0,O04 inversé (O04.-<5e>.<4e>),True,True
+O0401,O04.-1.0,O04 inversé (O04.-<5e>.<4e>),True,True
+O0402,O04.-2.0,O04 inversé (O04.-<5e>.<4e>),True,True
+O0403,O04.-3.0,O04 inversé (O04.-<5e>.<4e>),True,True
+O0410,O04.-0.1,O04 inversé (O04.-<5e>.<4e>),True,True
+O0411,O04.-1.1,O04 inversé (O04.-<5e>.<4e>),True,True
+O0412,O04.-2.1,O04 inversé (O04.-<5e>.<4e>),True,True
+O0413,O04.-3.1,O04 inversé (O04.-<5e>.<4e>),True,True
+O0420,O04.-0.2,O04 inversé (O04.-<5e>.<4e>),True,True
+O0421,O04.-1.2,O04 inversé (O04.-<5e>.<4e>),True,True
+O0422,O04.-2.2,O04 inversé (O04.-<5e>.<4e>),True,True
+O0423,O04.-3.2,O04 inversé (O04.-<5e>.<4e>),True,True
+O0430,O04.-0.3,O04 inversé (O04.-<5e>.<4e>),True,True
+O0431,O04.-1.3,O04 inversé (O04.-<5e>.<4e>),True,True
+O0432,O04.-2.3,O04 inversé (O04.-<5e>.<4e>),True,True
+O0433,O04.-3.3,O04 inversé (O04.-<5e>.<4e>),True,True
+O0440,O04.-0.4,O04 inversé (O04.-<5e>.<4e>),True,True
+O0441,O04.-1.4,O04 inversé (O04.-<5e>.<4e>),True,True
+O0442,O04.-2.4,O04 inversé (O04.-<5e>.<4e>),True,True
+O0443,O04.-3.4,O04 inversé (O04.-<5e>.<4e>),True,True
+O0450,O04.-0.5,O04 inversé (O04.-<5e>.<4e>),True,True
+O0451,O04.-1.5,O04 inversé (O04.-<5e>.<4e>),True,True
+O0452,O04.-2.5,O04 inversé (O04.-<5e>.<4e>),True,True
+O0453,O04.-3.5,O04 inversé (O04.-<5e>.<4e>),True,True
+O0460,O04.-0.6,O04 inversé (O04.-<5e>.<4e>),True,True
+O0461,O04.-1.6,O04 inversé (O04.-<5e>.<4e>),True,True
+O0462,O04.-2.6,O04 inversé (O04.-<5e>.<4e>),True,True
+O0463,O04.-3.6,O04 inversé (O04.-<5e>.<4e>),True,True
+O0470,O04.-0.7,O04 inversé (O04.-<5e>.<4e>),True,True
+O0471,O04.-1.7,O04 inversé (O04.-<5e>.<4e>),True,True
+O0472,O04.-2.7,O04 inversé (O04.-<5e>.<4e>),True,True
+O0473,O04.-3.7,O04 inversé (O04.-<5e>.<4e>),True,True
+O0480,O04.-0.8,O04 inversé (O04.-<5e>.<4e>),True,True
+O0481,O04.-1.8,O04 inversé (O04.-<5e>.<4e>),True,True
+O0482,O04.-2.8,O04 inversé (O04.-<5e>.<4e>),True,True
+O0483,O04.-3.8,O04 inversé (O04.-<5e>.<4e>),True,True
+O0490,O04.-0.9,O04 inversé (O04.-<5e>.<4e>),True,True
+O0491,O04.-1.9,O04 inversé (O04.-<5e>.<4e>),True,True
+O0492,O04.-2.9,O04 inversé (O04.-<5e>.<4e>),True,True
+O0493,O04.-3.9,O04 inversé (O04.-<5e>.<4e>),True,True
+P95+0,P95.+0,code à + ponctué (A99.+9),True,True
+P95+1,P95.+1,code à + ponctué (A99.+9),True,True
+P95+2,P95.+2,code à + ponctué (A99.+9),True,True
+P95+8,P95.+8,code à + ponctué (A99.+9),True,True
+R53+0,R53.+0,code à + ponctué (A99.+9),True,True
+R53+1,R53.+1,code à + ponctué (A99.+9),True,True
+R53+2,R53.+2,code à + ponctué (A99.+9),True,True
+R54+0,R54.+0,code à + ponctué (A99.+9),True,True
+R54+8,R54.+8,code à + ponctué (A99.+9),True,True
+S47+0,S47.+0,code à + ponctué (A99.+9),True,True
+S47+8,S47.+8,code à + ponctué (A99.+9),True,True
+T68+0,T68.+0,code à + ponctué (A99.+9),True,True
+T68+8,T68.+8,code à + ponctué (A99.+9),True,True

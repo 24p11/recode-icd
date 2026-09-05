@@ -30,8 +30,8 @@ encode O04 avec ses 4e et 5e caractères inversés (`O04.-<5e>.<4e>`,
 - la table curée déclare les expressions **telles qu'écrites par le
   guide** (aucune ligne curée modifiée) ;
 - extension du parseur + **table de correspondance déclarative**
-  `referentials/curation/notations_guide.yaml`, lue par le nouveau
-  module `recommendations/notations.py` et passée au parseur par le
+  `referentials/curation/notations_codes.yaml`, lue par le nouveau
+  module `notations.py` et passée au parseur par le
   build (`--notations`) ; limitée aux catégories à encodage inversé
   (O04 seule aujourd'hui — 44 codes `X00.-…` dans le référentiel,
   tous sous O04) ;

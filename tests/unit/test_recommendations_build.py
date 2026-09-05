@@ -12,12 +12,12 @@ from pathlib import Path
 import polars as pl
 import pytest
 
+from recode_icd.notations import FamilleInversee, Notations
 from recode_icd.recommendations.build import (
     CurationError,
     charge_tables_curees,
     construit,
 )
-from recode_icd.recommendations.notations import CategorieInversee, Notations
 
 pytestmark = pytest.mark.unit
 
@@ -363,7 +363,13 @@ def merged_o04() -> pl.DataFrame:
 def test_expression_traduite_est_resolue_et_tracee(merged_o04: pl.DataFrame) -> None:
     """La table curée porte la notation du guide ; le Parquet porte les
     feuilles du référentiel ; le rapport dit par quels nœuds on est passé."""
-    table = Notations(categories={"O04": CategorieInversee("O04", ("9",), ("0", "1"))})
+    table = Notations(
+        familles={
+            "O04": FamilleInversee(
+                "O04", "O04", "O04", "{base}.-{b}.{a}", "{base}.-{b}", ("9",), ("0", "1")
+            )
+        }
+    )
     _, resolus, rapport = construit(
         _recs("GM2026-V-X-01", "GM2026-V-X-02"),
         _codes([("GM2026-V-X-01", "O04.90"), ("GM2026-V-X-02", "O04.-1")]),
@@ -397,7 +403,13 @@ def test_sans_table_la_notation_du_guide_va_au_rapport(merged_o04: pl.DataFrame)
 
 
 def test_forme_hors_table_va_au_rapport_des_non_parsables(merged_o04: pl.DataFrame) -> None:
-    table = Notations(categories={"O04": CategorieInversee("O04", ("9",), ("0", "1"))})
+    table = Notations(
+        familles={
+            "O04": FamilleInversee(
+                "O04", "O04", "O04", "{base}.-{b}.{a}", "{base}.-{b}", ("9",), ("0", "1")
+            )
+        }
+    )
     _, resolus, rapport = construit(
         _recs("GM2026-V-X-01"), _codes([("GM2026-V-X-01", "O04.95")]), merged_o04, notations=table
     )
