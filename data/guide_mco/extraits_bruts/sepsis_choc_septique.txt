@@ -1,0 +1,133 @@
+# Guide méthodologique MCO 2026 (version provisoire) — SEPSIS ET CHOC SEPTIQUE (imprimées 116-117)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 124-125  (imprimées : 116-117)
+#
+# Commande exacte :
+#   pdftotext -layout -f 124 -l 125 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                          116
+                                                                                66
+avec notamment l’ajout d’un caractère supplémentaire en 6e position pour les catégories
+U82 et U83 afin d’indiquer si la situation de résistance concerne un germe responsable d’une
+infection en cours ou une situation de portage sain.
+
+Dans le cadre du recueil PMSI, l’emploi des codes de ces catégories doit respecter deux
+conditions :
+     •    la résistance doit être mentionnée dans le compte rendu du laboratoire de
+          bactériologie ;
+     •    la résistance doit entrainer une modification du schéma thérapeutique habituel, ou la
+                                                              67
+          mise en œuvre de mesures d’isolement spécifiques 71.
+En conséquence de ces conditions :
+     •    les situations de résistance naturelle, c'est-à-dire les situations où la résistance est
+          liée à la nature du germe en termes de genre ou d’espèce, ne se codent pas ;
+     •    les situations de portage sain de germe présentant une résistance et faisant l’objet, du
+          fait de cette résistance, de mesures telles que l’isolement, l’utilisation de matériels ou
+          d’un chariot de soins spécifiques autorisent l’emploi des codes des catégories U82 et
+          U83.
+
+La mention de la résistance est indispensable : résistance à un antibiotique, ou
+multirésistance.
+La notion de bactérie multirésistante [BMR] ne concerne que certains germes et certaines
+résistances bien précisées par les laboratoires de bactériologie et les CCLIN. Ce terme doit
+figurer dans le dossier, la seule présence de plusieurs résistances sans mention de bactérie
+ou de germe multirésistant n'autorise pas le code U83.71–.
+     Exemples :
+     –    pneumonie à pneumocoque résistant à la pénicilline : J13, U82.0+0 ;
+     –    endocardite à Pseudomonas aeruginosa multirésistant : I33.0, B96.5, U83.710 ;
+     –    colonisation nasale par Staphylococcus aureus résistant à la méthicilline [SARM]
+          ayant entrainé des mesures d’isolement et de décontamination : Z22.3, Z29.0,
+          U82.101.
+
+
+
+SEPSIS ET CHOC SEPTIQUE
+
+         1. Sepsis
+
+
+À partir du 1er mars 2021 et suite à la modification de la définition du sepsis depuis 2016
+(sepsis-368), le codage de celui-ci ne se basera plus sur le codage du syndrome de réponse
+inflammatoire systémique d'origine infectieuse avec défaillance d'organe (R65.1). Il sera décrit
+avec les codes qui comportent les termes sepsis dans leur libellé, dans les catégories A40-
+
+
+
+
+66
+   Pour les codes qui ne comportent que 4 caractères, le signe « + » doit être noté en 5e position.
+67
+   Par mesure d’isolement spécifique on entend les mesures d’hygiène dites d’isolement septique qui sont
+mises en place selon le mode de transmission (air, gouttelettes, contact) de l’agent infectieux : port de
+vêtement spécifique, matériel dédié, port de masque, limitation des contacts ou déplacements,…
+Ces mesures se distinguent des précautions d’hygiène standard.
+68 Fascicule de codage des maladies infectieuses publié sur le site de l’ATIH
+                                                              117
+
+A41, B37.7, P36.-0 et O85 (exemples A40.0 Sepsis à streptocoques, groupe A, A41.5 Sepsis
+à d'autres microorganismes Gram négatif).
+
+En cas de sepsis et à fortiori de choc septique, le syndrome de réponse inflammatoire
+systémique d'origine infectieuse avec défaillance d'organe (R65.1) ne doit plus être codé.
+
+En cas d’infection hors sepsis, le syndrome de réponse inflammatoire systémique d'origine
+infectieuse sans défaillance d'organe (R65.0) reste accessible au codage lorsque qu’il apporte
+une information supplémentaire sur la sévérité de l’infection. (exemple infection urinaire
+basse).
+
+Une bactériémie isolée, sans infection d’organe ou porte d’entrée précisée ni critères de sepsis
+et, en dehors d’une complication suivant la pose de prothèses, d’implants et greffes internes
+ou cardiaques et vasculaires, ne permet pas de coder l’infection ou le sepsis. Dans ce cas un
+code de la catégorie A49 sera utilisé en DP. Pour une bactériémie iatrogène, on codera
+d’abord la complication dans T80-T88 lorsqu’elle est précisée.
+
+De façon générale, les informations propres à étayer le codage d’un diagnostic doivent être
+présentes dans le dossier médical du patient. S’agissant du sepsis, la référence au score
+SOFA est recommandée mais n’est pas nécessaire dans le cadre du codage de l’information
+médicale pour le PMSI. Le diagnostic de sepsis, posé par le clinicien, doit être mentionné
+dans le dossier médical du patient.
+
+
+       2. Choc septique
+
+Le choc septique est un sous-ensemble du sepsis au cours duquel les anomalies circulatoires
+et cellulaires ou métaboliques sous-jacentes sont suffisamment profondes pour augmenter
+considérablement la mortalité à un mois de 25% à 35% Le choc septique est défini par la
+présence des critères suivants au cours d’un sepsis[1] :
+    • Besoin d’un traitement vasopresseur par catécholamines en continu, malgré un
+        remplissage vasculaire adéquat, pour maintenir la pression artérielle moyenne à plus
+        de 65 mmHg
+    • Augmentation des lactates sériques >2mmol/l (ou 18mg/dl)
+
+Lorsque l’infection s’accompagne d’un sepsis avec choc septique comme défini ci-dessus, le
+code R57.2 Choc septique devra être associé au code du sepsis.
+
+Les actes CCAM de suppléance vitale, de remplissage vasculaire, d’épuration extra-rénale
+doivent aussi être codés à chaque fois qu’ils sont réalisés.
+
+
+SÉQUELLES DE MALADIES ET DE LÉSIONS TRAUMATIQUES
+
+
+La CIM–10 définit les séquelles comme des « états pathologiques stables, conséquences
+                                                                       69
+d'affections qui ne sont plus en phase active » (volume 2 page 28 ou 33 ).
+
+
+
+
+[1] The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3) JAMA. 2016 ; 315(8) : 801-810. doi :
+
+10.1001/jama.2016.0287 Abstract
+69
+   Dans l’ensemble de ce chapitre, les numéros de page renvoient au volume 2 de l’édition imprimée de la Classification statistique
+internationale des maladies et des problèmes de santé connexes, dixième révision (CIM–10) ; OMS éd. Le premier numéro (ici « 103 »)
+correspond à l’édition de 1993, le second (« 134 ») à l’édition de 2008.
+

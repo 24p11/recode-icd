@@ -63,6 +63,12 @@ ARTICLES = {
     "OED": ("oedeme_pulmonaire", "ŒDÈME PULMONAIRE", "114", "extraits"),
     "PRE": ("precarite", "PRÉCARITÉ", "114-115", "extraits"),
     "RAM": ("resistance_antimicrobiens", "RÉSISTANCE AUX ANTIMICROBIENS", "115-116", "extraits"),
+    "SEP": ("sepsis_choc_septique", "SEPSIS ET CHOC SEPTIQUE", "116-117", "extraits"),
+    "SEQ": ("sequelles_maladies_lesions", "SÉQUELLES DE MALADIES ET DE LÉSIONS TRAUMATIQUES", "117-119", "extraits"),
+    "SUI": ("suicides_tentatives", "SUICIDES ET TENTATIVES DE SUICIDE", "119", "extraits"),
+    "BRU": ("grands_brules", "TRAITEMENT DES GRANDS BRULÉS", "119", "extraits"),
+    "TUM": ("tumeurs_evolution_imprevisible", "TUMEURS À ÉVOLUTION IMPRÉVISIBLE OU INCONNUE", "119-120", "extraits"),
+    "VIO": ("violence_routiere", "VIOLENCE ROUTIÈRE", "120-121", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.

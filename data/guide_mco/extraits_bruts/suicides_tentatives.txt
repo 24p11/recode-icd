@@ -1,0 +1,79 @@
+# Guide méthodologique MCO 2026 (version provisoire) — SUICIDES ET TENTATIVES DE SUICIDE (imprimée 119)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 127-127  (imprimées : 119-119)
+#
+# Commande exacte :
+#   pdftotext -layout -f 127 -l 127 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                                 119
+
+SUICIDES ET TENTATIVES DE SUICIDE
+
+
+L’importance de leur enregistrement tient au fait que la réduction de leur nombre fait partie des
+                                     75
+objectifs nationaux de santé publique .
+
+Les RUM produits pour les séjours dont suicide ou tentative de suicide sont le motif,
+mentionnent un diagnostic principal codé avec le chapitre XIX de la CIM–10 Lésions
+traumatiques, empoisonnements et certaines autres conséquences de cause externe. On
+enregistre en tant que diagnostics associés (DA) les éventuelles complications,
+conformément à la définition d’un DA significatif (se reporter au point 2 du chapitre IV) ainsi
+                                                  76
+qu’un code du groupe X60–X84 du chapitre XX pour enregistrer le caractère auto-infligé
+des lésions et le ou les moyens utilisés.
+
+
+À propos des suicides et tentatives de suicide médicamenteuses, voir les effets nocifs des
+médicaments plus haut dans ce chapitre.
+
+
+TRAITEMENT DES GRANDS BRULÉS
+
+L’article R.6123-117 du code de la santé publique dispose que le titulaire de l'autorisation de
+traitement des grands brulés participe aux actions de prévention et recueille à cet effet les
+données sur les causes des brûlures qu'il est amené à prendre en charge. En
+conséquence, une attention particulière sera portée au codage des causes des brulures avec
+le chapitre XX de la CIM–10, en particulier au moyen du logiciel de dépistage des atypies de
+l’information médicale (DAtIM) lors de la transmission des données vers la plateforme e-
+       77
+PMSI .
+
+
+TUMEURS À ÉVOLUTION IMPRÉVISIBLE OU INCONNUE
+
+Le classement des tumeurs dans la CIM–10 tient notamment compte de leur
+comportement évolutif : tumeurs malignes (C00–C97), tumeurs in situ (D00–D09), tumeurs
+bénignes (D10–D36), tumeurs à évolution imprévisible ou inconnue (D37–D48). Une note en
+tête du groupe D37–D48 explique l’utilisation de ses codes.
+
+Une tumeur à évolution imprévisible possède des caractéristiques déterminées et son
+classement comme telle est un diagnostic positif qui repose sur un examen histologique. La
+notion de tumeur à évolution imprévisible sous-entend l’élimination des comportements malin,
+in situ et bénin, et l’identification d’un comportement évolutif différent. Un polyadénome
+colique, par exemple, ne doit pas être considéré comme une tumeur à évolution imprévisible
+au motif que, laissé à une évolution naturelle, il est susceptible de devenir malin. La CIM–10
+classe le polyadénome colique avec les tumeurs bénignes et ce classement (code D12.6) doit
+être respecté. En revanche, la CIM–10 classe le polype de vessie avec les tumeurs à
+évolution imprévisible et ce classement (code D41.4) doit aussi être respecté. Le codage d’une
+tumeur comme étant à évolution imprévisible nécessite que les informations contenues
+dans le dossier médical, en particulier dans le compte rendu de l’examen
+anatomopathologique, soient conformes à ce diagnostic.
+
+
+
+75
+   Loi n° 2004-806 du 9 aout 2004, objectif n° 92.
+76
+   NB : les codes du groupe X60-X84 sont des codes à quatre caractères. Une note dans le volume 1
+de la CIM–10, sous le titre du groupe, indique que les quatrièmes caractères sont indiqués au début du chapitre.
+77
+   La transmission des données vers la plateforme e-PMSI, est traitée dans le point 1 du chapitre III.
+
