@@ -178,6 +178,8 @@ class ExplorationContext:
     owl_dagger_asterisk: Frame | None = None
     recommendations: Frame | None = None
     recommendation_codes: Frame | None = None
+    #: `atih_codes.parquet` (kit ATIH : statut MCO, règles positionnelles).
+    atih: Frame | None = None
     external: dict[str, pl.DataFrame] = field(default_factory=dict)
     reports: dict[str, Frame] = field(default_factory=dict)
     # Graphe RDF ANS chargé via rdflib (opt-in via `load_rdf=True`).
@@ -225,41 +227,13 @@ def _load_csv(path: Path, lazy: bool) -> Frame | None:
 def load_atih_libcim10(path: Path | None = None) -> pl.DataFrame:
     """Kit de nomenclature CIM-10 ATIH (`LIBCIM10MULTI.TXT`), tel quel.
 
-    Format, d'après le `cim.pdf` du kit : ISO-8859-1, enregistrements
-    terminés par CR LF, **6 champs séparés par `|`** — code sur 6
-    caractères (point omis, bourrage par des espaces, `+` possible en 4e
-    et 5e position), Type MCO/HAD (0-4), Profil SMR (3 × O/N), Type PSY
-    (0, 1, 3), libellé court, libellé long.
-
-    Sémantique du Type MCO/HAD (cim.pdf p. 5) : 0 = pas de restriction ;
-    1 = interdit en DP et DR, autorisé ailleurs ; 2 = interdit en DP et
-    DR, cause externe de morbidité ; 3 = interdit en DP, DR et DA —
-    catégories et sous-catégories non vides ou code père interdit ;
-    4 = interdit en DP, autorisé ailleurs. **Autorisé en MCO** = type ≠ 3.
-
-    Aucune normalisation du code : `code` est le code compact ATIH
-    débarrassé de son bourrage. La correspondance avec l'écriture du
-    maître est un calcul, il ne vit pas dans un chargeur.
+    Délègue à `recode_icd.loaders.atih.load_atih_kit` (format, sémantique
+    du Type MCO/HAD et garde sur les 6 champs y sont documentés). Ici,
+    seulement le chemin par défaut du kit livré.
     """
-    chemin = path if path is not None else _default_root() / _ATIH_LIBCIM10_REL
-    lignes = [ligne for ligne in chemin.read_text(encoding="iso-8859-1").splitlines() if ligne]
-    champs = [ligne.split("|") for ligne in lignes]
-    fautives = [ligne for ligne, c in zip(lignes, champs, strict=True) if len(c) != 6]
-    if fautives:
-        raise ValueError(
-            f"{chemin} : {len(fautives)} enregistrement(s) sans exactement 6 champs, "
-            f"ex. {fautives[0][:60]!r}."
-        )
-    return pl.DataFrame(
-        {
-            "code": [c[0].strip() for c in champs],
-            "type_mco": [int(c[1]) for c in champs],
-            "profil_smr": [c[2] for c in champs],
-            "type_psy": [int(c[3]) for c in champs],
-            "libelle_court": [c[4] for c in champs],
-            "libelle_long": [c[5] for c in champs],
-        }
-    )
+    from recode_icd.loaders.atih import load_atih_kit
+
+    return load_atih_kit(path if path is not None else _default_root() / _ATIH_LIBCIM10_REL)
 
 
 def _load_ofs_table(path: Path, name: str, lazy: bool) -> Frame | None:
@@ -426,6 +400,7 @@ def load_exploration_context(
     recommendation_codes = _load_parquet(
         actual_processed / "recommendation_codes.parquet", lazy=lazy
     )
+    atih = _load_parquet(actual_processed / "atih_codes.parquet", lazy=lazy)
 
     reports: dict[str, Frame] = {}
     for fname in _REPORTS:
@@ -460,6 +435,7 @@ def load_exploration_context(
         owl_dagger_asterisk=owl_dagger_asterisk,
         recommendations=recommendations,
         recommendation_codes=recommendation_codes,
+        atih=atih,
         external=external,
         reports=reports,
         ans_graph=ans_graph,
