@@ -309,3 +309,41 @@ inspect_code("A18.1")            # code exact
 inspect_code("A18")              # préfixe (toute la catégorie)
 inspect_code(["A18.1", "N33.0"]) # liste
 ```
+
+## Résoudre un code vers sa fiche — ne jamais joindre à la main
+
+*Chantier couverture ATIH, D0 (2026-09-05).*
+
+Un code peut s'écrire de trois façons — compacte (kit ATIH, RUM :
+`O0490`), pointée (`O04.90`), maître (`O04.-0.9`) — et trois familles
+divergent de la règle « point après le 3e caractère » (O04, M62.8, neuf
+catégories à `+`). Une jointure naïve sur `code` échoue en silence.
+Passer par le résolveur :
+
+```python
+from recode_icd.couverture import charge_contexte, resoudre_code
+
+ctx = charge_contexte()                 # atih_codes + merged_codes + _index.csv
+r = resoudre_code("O0490", ctx)
+r.statut        # "fiche"
+r.code          # "O04.-0.9"  (écriture du maître)
+r.fiche         # "XV/O04.-0.9.md"
+r.codable_mco   # True
+```
+
+Réponses négatives, toujours motivées (`r.raison`) et avec un repli :
+
+| `statut` | Repli fourni |
+|---|---|
+| `intermediaire` (codable, subdivisé, sans fiche propre) | `codes_avec_fiche` : ses feuilles |
+| `pere_interdit` (type 3) | `codes_avec_fiche` : ses enfants |
+| `tronc_chapitre_xx` (extension lieu/activité) | `ancetre` : le tronc, et sa fiche |
+| `absent_du_maitre` (extension ATIH récente) | `ancetre` |
+| `sans_ligne`, `supprime`, `inconnu_atih`, `inconnu`, `notation_invalide` | — |
+
+Une fiche sur un code non codable (supprimé, inconnu du kit, père)
+est rendue `fiche` avec `codable_mco=False` : filtrer dessus avant tout
+tirage de génération. CLI équivalente : `recode-icd resoudre CODE…
+[--json] [--journal fichier.jsonl]` — le journal n'enregistre que les
+réponses négatives ; **envoyez-le**, il priorise les fiches à produire.
+

@@ -87,6 +87,7 @@ uv sync                                  # installer
 uv run pytest                            # tous les tests
 uv run pytest -m unit                    # unitaires seuls
 uv run pytest -m regression              # régression seule
+uv run recode-icd build atih             # kit ATIH → atih_codes.parquet
 uv run ruff check src/ tests/
 uv run ruff format src/ tests/
 uv run mypy src/recode_icd
@@ -101,11 +102,14 @@ src/recode_icd/
 ├── loaders/
 │   ├── ofs.py             # base relationnelle OFS suisse (2006)
 │   ├── owl.py             # surcharge locale de smt2parquet (CIM-10 ANS)
+│   ├── atih.py            # kit de nomenclature ATIH (statut MCO, règles positionnelles)
 │   └── external/          # sources tierces de synonymes/inclusions
 │       ├── __init__.py
 │       ├── index_cim10.py # feuille "Cim Alphabétique" du HECTOR (Index vol3 officiel)
 │       ├── aphp_hector.py # 9 feuilles AP-HP métier (loader unifié paramétré)
 │       └── orphanet.py    # XML ORPHANET (relations E + NTBT)
+├── notations.py           # table de notation unique (compacte ↔ pointée ↔ maître)
+├── couverture.py          # résolveur des consommateurs : toute écriture → fiche ou raison (D0)
 ├── model.py               # entités pydantic canoniques
 ├── merge.py               # fusion OFS ⊕ OWL avec politique de résolution
 ├── propagation.py         # propagation bloc/catégorie → code (nested set)
@@ -119,7 +123,8 @@ src/recode_icd/
 referentials/
 ├── raw/                   # fichiers sources (gitignored si volumineux)
 ├── processed/             # Parquets dérivés (committés)
-└── curation/              # CSV de curation manuelle (dagger_curation.csv)
+└── curation/              # curation manuelle : dagger_curation.csv, chapter_policy.yaml,
+                           # notations_codes.yaml (table de notation unique)
 tests/
 ├── unit/
 ├── regression/            # golden-files sur 10 codes témoins
@@ -140,6 +145,8 @@ data/
 ├── Orphanet_Nomenclature_Pack_FR_2025/         # ORPHANET 2025
 │   ├── ORPHA_ICD10_mapping_fr_2025.xml
 │   └── ORPHA_ICD10_mapping_en_2020.xsd
+├── CIM_ATIH_2025/                              # kit de nomenclature ATIH (cim.pdf = format)
+│   └── LIBCIM10MULTI.TXT                       # 42 897 codes, Type MCO/HAD 0-4
 └── guide_mco/                                  # guide méthodologique MCO
     ├── guide_methodo_mco_2026_version_provisoire.pdf
     ├── extraits_bruts/                         # pdftotext -layout intact
@@ -858,6 +865,66 @@ bruts, on ne recale rien.
 uv run recode-icd build guide-mco                    # les deux Parquet + rapport
 uv run pytest -k transcription                       # intégrité des curés
 uv run python scripts/rendre_candidates_guide_mco.py # fiches de relecture (générées)
+```
+
+## Kit ATIH : statut MCO des codes (chantier couverture ATIH)
+
+> Référence : `docs/source_mapping.md` section « Kit de nomenclature
+> ATIH » ; mesure et propositions dans
+> `docs/analyses/2026-09-05_couverture_atih_phase{1,2}_*.md`.
+
+Le kit `data/CIM_ATIH_2025/LIBCIM10MULTI.TXT` est **la** source de
+l'autorisation de codage en MCO. `build atih` → `atih_codes.parquet`
+(source de vérité : `type_mco`, `statut_mco`, `codable_mco`,
+`interdit_dp/dr/das` dérivés par construction, `supprime`) ; `build
+merged --atih` joint `type_mco` / `statut_mco` / `codable_mco` à
+`merged_codes` ; chaque fiche porte « Statut MCO (kit ATIH 2025) : … »
+sous son titre et les `_index.csv` les colonnes `type_mco` /
+`statut_mco`. Le CSV maître n'est pas modifié.
+
+**Codable en MCO = type ≠ 3 et non supprimé.**
+
+### Pitfalls
+
+1. **Le type 3 n'est pas une interdiction clinique.** C'est un père
+   (`A00`, `U07.1`, `W00` — dont les enfants sont codables) ou un code
+   supprimé (`*** SUaa ***`, décodé en `supprime` + millésime, jamais
+   réécrit). `U07.1` est type 3 : le témoin post-2006 des tests est
+   `U07.13`, pas lui.
+2. **Un code du maître inconnu du kit est `inconnu_atih`, pas null.**
+   Ce n'est pas une absence d'information : le code n'est pas codable en
+   MCO (1 618 localisations du chapitre XIII, `N06.9`). Null ne veut dire
+   qu'une chose — le kit n'a pas été joint (`build merged` sans
+   `atih_codes.parquet`).
+3. **Trois écritures d'un même code, une seule table.** Compacte
+   (`O0490`), pointée (`O04.90`), maître (`O04.-0.9`) : la traduction
+   vit dans `referentials/curation/notations_codes.yaml` lue par
+   `recode_icd.notations`, deux familles inversées (O04, M62.8) et neuf
+   catégories à `+` ponctué. Ne jamais insérer un point « à la main » ;
+   `S37.8-0` (nœud) ≠ `S37.80` (feuille).
+
+### Résolveur officiel des consommateurs (D0)
+
+`recode_icd.couverture.resoudre_code(code, ctx)` — et la CLI
+`recode-icd resoudre CODE…` — accepte **toute écriture** (compacte
+`O0490`, pointée `O04.90`, maître `O04.-0.9`) et répond soit la fiche,
+soit la **raison motivée** de l'absence : `intermediaire` (avec ses
+feuilles qui ont une fiche), `sans_ligne`, `pere_interdit` (avec ses
+enfants), `supprime`, `tronc_chapitre_xx` (avec le tronc),
+`absent_du_maitre` (avec l'ancêtre), `inconnu_atih`, `inconnu`,
+`notation_invalide`. Une fiche sur un code non codable est rendue
+`fiche` avec `codable_mco=False` et un avertissement. **Aucun
+traitement aval ne joint plus « à la main » sur le code** : il passe
+par le résolveur, et journalise ses réponses négatives (`--journal`,
+JSONL) — c'est la mesure d'usage qui priorise la suite.
+
+### Commandes
+
+```bash
+uv run recode-icd build atih          # kit → atih_codes.parquet + reports/atih_kit_summary.csv
+uv run recode-icd build merged        # joint le statut (option --atih, défaut : le parquet)
+uv run recode-icd resoudre O0490 M000 W0004 --journal outputs/usage/resolutions.jsonl
+uv run recode-icd resoudre A18.1 --json
 ```
 
 ## Mapping sources internes ↔ libellés CSV

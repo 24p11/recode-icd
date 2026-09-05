@@ -54,6 +54,10 @@ _RE_CHIFFRE = re.compile(r"^\d$")
 _RE_TIRETS = re.compile(f"[{TIRETS}]")
 #: `+` en 4e position (`B24+0`, `B24.+0`).
 _RE_PLUS_4E = re.compile(r"^([A-Z]\d{2})\.?\+(\d+)$")
+#: Écriture compacte admissible (cim.pdf du kit : 6 positions au plus).
+_RE_COMPACTE = re.compile(r"^[A-Z]\d{2}[0-9+]{0,3}$")
+#: Nœud de regroupement à tiret du maître (`S37.8-0`, `M62.8-0`, `O04.-1`).
+_RE_NOEUD_TIRET = re.compile(r"^[A-Z]\d{2}\.\d?-\d$")
 
 
 class NotationsError(ValueError):
@@ -269,8 +273,22 @@ class Notations:
             # Un tiret n'existe que dans les écritures du maître (feuilles
             # inversées, nœuds de regroupement) : la forme est déjà celle
             # du maître, ou n'est rien.
-            return nettoye
-        return self.ecriture_maitre(nettoye.replace(".", ""))
+            if any(
+                fam._re_feuille.match(nettoye) or fam._re_noeud.match(nettoye)
+                for fam in self.familles.values()
+            ) or _RE_NOEUD_TIRET.match(nettoye):
+                return nettoye
+            raise CodeExprError(
+                f"« {saisie} » : écriture à tiret qui n'est ni une feuille inversée déclarée "
+                f"ni un nœud de regroupement."
+            )
+        compact = nettoye.replace(".", "")
+        if not _RE_COMPACTE.match(compact):
+            raise CodeExprError(
+                f"« {saisie} » : écriture non reconnue — attendu une lettre, deux chiffres, "
+                f"puis au plus trois caractères parmi chiffres et `+`."
+            )
+        return self.ecriture_maitre(compact)
 
 
 def _chiffres(brut: Any, champ: str, nom: str) -> tuple[str, ...]:

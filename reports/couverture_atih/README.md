@@ -12,6 +12,16 @@ cause identifiée, listée ci-dessous. Le chapitre XX pèse à lui seul
 25 348 codes absents — c'est une sous-nomenclature lieu × activité que
 les fiches ne couvrent pas encore.
 
+## Avant tout : le résolveur
+
+Depuis D0, ne joignez plus vos codes « à la main » sur les fichiers
+ci-dessous : `recode-icd resoudre CODE…` (ou
+`recode_icd.couverture.resoudre_code`) accepte toute écriture et répond
+la fiche ou la raison motivée de son absence, avec un repli (feuilles,
+tronc, ancêtre). Avec `--journal fichier.jsonl`, les réponses négatives
+sont consignées : c'est la mesure d'usage qui priorise la suite —
+envoyez-nous ce fichier. Détail dans `docs/csv_usage_guide.md`.
+
 ## Le fichier à ouvrir en premier
 
 **`a_atih_autorises_sans_fiche.csv`** — un enregistrement par code

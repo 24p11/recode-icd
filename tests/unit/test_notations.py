@@ -238,9 +238,12 @@ def test_resout_ecriture_accepte_toute_forme(
     assert notations.resout_ecriture(saisie) == maitre
 
 
-def test_resout_ecriture_refuse_le_vide(notations: Notations) -> None:
+@pytest.mark.parametrize("saisie", ["  ", "O4", "XYZ", "A00-1-2", "A0000000", "A00.-"])
+def test_resout_ecriture_refuse_les_ecritures_non_reconnues(
+    notations: Notations, saisie: str
+) -> None:
     with pytest.raises(CodeExprError):
-        notations.resout_ecriture("  ")
+        notations.resout_ecriture(saisie)
 
 
 # -- la table et son chargement --------------------------------------------
