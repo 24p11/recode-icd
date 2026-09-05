@@ -104,6 +104,11 @@ _ORPHANET_XML_REL = "data/Orphanet_Nomenclature_Pack_FR_2025/ORPHA_ICD10_mapping
 _HECTOR_XLSX_REL = "data/CIM_APHP_2019/Dictionnaire_Hector_MAJ062019.xlsx"
 _CEPIDC_CSV_REL = "data/CIM_CEPIDC_2015/CepiDc_Dictionnaire2015.csv"
 
+# Kit de nomenclature CIM-10 ATIH (chantier couverture ATIH). Le fichier
+# complet ; `_ch20` / `_saufch20` en sont les deux moitiés (vérifié :
+# leur concaténation est le fichier complet à l'octet près).
+_ATIH_LIBCIM10_REL = "data/CIM_ATIH_2025/LIBCIM10MULTI.TXT"
+
 # Chemins candidats du RDF ANS (chargé seulement si `load_rdf=True`).
 _RDF_PATH_CANDIDATES: tuple[str, ...] = (
     "data/CIM_ANS_2026/dat/terminologie-cim-10-2025-01-01.rdf",
@@ -215,6 +220,46 @@ def _load_csv(path: Path, lazy: bool) -> Frame | None:
     if lazy:
         return pl.scan_csv(path)
     return pl.read_csv(path)
+
+
+def load_atih_libcim10(path: Path | None = None) -> pl.DataFrame:
+    """Kit de nomenclature CIM-10 ATIH (`LIBCIM10MULTI.TXT`), tel quel.
+
+    Format, d'après le `cim.pdf` du kit : ISO-8859-1, enregistrements
+    terminés par CR LF, **6 champs séparés par `|`** — code sur 6
+    caractères (point omis, bourrage par des espaces, `+` possible en 4e
+    et 5e position), Type MCO/HAD (0-4), Profil SMR (3 × O/N), Type PSY
+    (0, 1, 3), libellé court, libellé long.
+
+    Sémantique du Type MCO/HAD (cim.pdf p. 5) : 0 = pas de restriction ;
+    1 = interdit en DP et DR, autorisé ailleurs ; 2 = interdit en DP et
+    DR, cause externe de morbidité ; 3 = interdit en DP, DR et DA —
+    catégories et sous-catégories non vides ou code père interdit ;
+    4 = interdit en DP, autorisé ailleurs. **Autorisé en MCO** = type ≠ 3.
+
+    Aucune normalisation du code : `code` est le code compact ATIH
+    débarrassé de son bourrage. La correspondance avec l'écriture du
+    maître est un calcul, il ne vit pas dans un chargeur.
+    """
+    chemin = path if path is not None else _default_root() / _ATIH_LIBCIM10_REL
+    lignes = [ligne for ligne in chemin.read_text(encoding="iso-8859-1").splitlines() if ligne]
+    champs = [ligne.split("|") for ligne in lignes]
+    fautives = [ligne for ligne, c in zip(lignes, champs, strict=True) if len(c) != 6]
+    if fautives:
+        raise ValueError(
+            f"{chemin} : {len(fautives)} enregistrement(s) sans exactement 6 champs, "
+            f"ex. {fautives[0][:60]!r}."
+        )
+    return pl.DataFrame(
+        {
+            "code": [c[0].strip() for c in champs],
+            "type_mco": [int(c[1]) for c in champs],
+            "profil_smr": [c[2] for c in champs],
+            "type_psy": [int(c[3]) for c in champs],
+            "libelle_court": [c[4] for c in champs],
+            "libelle_long": [c[5] for c in champs],
+        }
+    )
 
 
 def _load_ofs_table(path: Path, name: str, lazy: bool) -> Frame | None:
