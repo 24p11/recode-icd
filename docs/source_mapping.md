@@ -1317,6 +1317,38 @@ Pas de synthèse des descendants dans le CSV : une section
 « Subdivisions codables » des fiches reste au backlog pour le
 vérificateur.
 
+### Existence des codes : OWL_ANS, fallback ATIH (D3)
+
+Le kit ATIH connaît des codes codables que l'export ANS 2025 n'a pas
+(extensions récentes : `I70.00/01`, `J96.1xx`, `M45+x`, localisations
+`M11.9x`, `M13.9x`, `M83.xx`, `M62.8x` — 72 codes hors chapitre XX).
+`loaders/owl.py` les **injecte dans le nested set** au chargement
+(`build owl --atih`) : rattachés à leur ancêtre le plus proche par
+troncature de l'écriture (`I70.00` → `I70.0`, `M45+0` → `M45`), libellé
+long du kit, `type=category`, aucune note propre. Ils héritent ensuite
+des notes de leur ancêtre par la propagation ordinaire, reçoivent les
+consignes du guide qui les visent, entrent au CSV (D2) et ont une fiche.
+
+| Champ | Source primaire | Fallback |
+|---|---|---|
+| Existence du code | OWL_ANS | **ATIH** (codables, hors chapitre XX) |
+| Libellé d'un code injecté | ATIH (`libelle_long`) | — (jamais un libellé ANS écrasé) |
+
+La colonne `source_existence` (`OWL_ANS` / `ATIH`) le trace dans
+`owl_codes`, `merged_codes` et les `_index.csv` ; le rapport
+`reports/atih_only_codes.csv` (patron `post_2006_codes.csv`) les liste.
+Aucune ligne n'est ajoutée au CSV maître pour dire l'origine (décision
+RF 2026-09-05 : trace au rapport + colonne d'index, réversible si
+l'usage réclame la ligne). Les extensions lieu/activité du chapitre
+XX ne sont pas injectées : elles relèvent d'une composition (D5). Un
+code type 3 absent (`O04.0`, niveau intermédiaire du kit sur une
+famille inversée) n'est jamais injecté — il ferait un nœud parallèle.
+
+Les codes codables **présents** dans l'ANS mais sans aucune ligne au
+CSV (59 : `Z37.10..71`, `U07.2..9`, résistances `U82/U83+x`, `Y90.x`…)
+ont désormais une fiche par le seul fait d'être codables :
+`build_cards_library` construit `codes du CSV ∪ codes codables`.
+
 ### Écriture des codes — table de notation unique
 
 Trois écritures coexistent : **compacte** (kit, RUM : `O0490`,
@@ -1490,6 +1522,9 @@ dans la section Loader OWL/ANS pour la règle d'application :
 - `reports/atih_kit_summary.csv` : effectifs du kit ATIH par statut ×
   type MCO et par millésime de suppression (cf section « Kit de
   nomenclature ATIH »).
+- `reports/atih_only_codes.csv` : codes injectés depuis le kit ATIH
+  dans le nested set (D3) — code, libellé, chemin, profondeur, code
+  ATIH, type et statut MCO.
 - `reports/dagger_asterisk_conflicts.csv` : écarts OFS / ANS sur
   les appariements dague/astérisque.
 - `reports/synthesized_skipped.csv` : codes .8 où la synthèse a été

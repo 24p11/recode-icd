@@ -295,7 +295,7 @@ Politique par champ, à respecter :
 | Champ                    | Source primaire    | Fallback   |
 |--------------------------|--------------------|------------|
 | `libelle` du code        | OWL_ANS            | OFS        |
-| Existence du code        | OWL_ANS            | —          |
+| Existence du code        | OWL_ANS            | ATIH (codables hors chap. XX, D3) |
 | Inclusions typées        | OFS                | OWL_ANS    |
 | Exclusions typées        | OFS                | OWL_ANS    |
 | Notes éditoriales        | OFS                | OWL_ANS    |
@@ -917,7 +917,13 @@ sous son titre et les `_index.csv` les colonnes `type_mco` /
    MCO (1 618 localisations du chapitre XIII, `N06.9`). Null ne veut dire
    qu'une chose — le kit n'a pas été joint (`build merged` sans
    `atih_codes.parquet`).
-3. **Trois écritures d'un même code, une seule table.** Compacte
+3. **Les codes injectés depuis le kit (D3) sont des codes comme les
+   autres.** `build owl --atih` rattache les codables absents de l'ANS
+   (72, hors chapitre XX) à leur ancêtre ; `source_existence=ATIH` les
+   trace dans `merged` et les index, `reports/atih_only_codes.csv` les
+   liste. Pas de ligne au CSV pour le dire. Le chapitre XX ne s'injecte
+   pas (composition, D5) ; un type 3 absent non plus (nœud parallèle).
+4. **Trois écritures d'un même code, une seule table.** Compacte
    (`O0490`), pointée (`O04.90`), maître (`O04.-0.9`) : la traduction
    vit dans `referentials/curation/notations_codes.yaml` lue par
    `recode_icd.notations`, deux familles inversées (O04, M62.8) et neuf
@@ -943,6 +949,8 @@ JSONL) — c'est la mesure d'usage qui priorise la suite.
 
 ```bash
 uv run recode-icd build atih          # kit → atih_codes.parquet + reports/atih_kit_summary.csv
+uv run recode-icd build owl --rdf-path data/CIM_ANS_2026/dat/terminologie-cim-10-2025-01-01.rdf
+                                      # injecte les codables absents de l'ANS (--atih, défaut : le parquet)
 uv run recode-icd build merged        # joint le statut (option --atih, défaut : le parquet)
 uv run recode-icd resoudre O0490 M000 W0004 --journal outputs/usage/resolutions.jsonl
 uv run recode-icd resoudre A18.1 --json

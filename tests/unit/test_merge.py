@@ -27,6 +27,7 @@ def _make_owl(rows: list[dict[str, object]]) -> pl.DataFrame:
         "definitions": [],
         "scope_notes": [],
         "structured_exclusions": [],
+        "source_existence": "OWL_ANS",
     }
     return pl.DataFrame(
         [{**defaults, **r} for r in rows],
@@ -44,6 +45,7 @@ def _make_owl(rows: list[dict[str, object]]) -> pl.DataFrame:
             "definitions": pl.List(pl.String),
             "scope_notes": pl.List(pl.String),
             "structured_exclusions": pl.List(pl.String),
+            "source_existence": pl.String,
         },
     )
 

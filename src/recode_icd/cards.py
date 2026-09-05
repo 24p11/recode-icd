@@ -834,6 +834,20 @@ def _code_to_chapter_map(merged: pl.DataFrame) -> dict[str, str]:
     return {r["code"]: r["chap"] for r in rows.iter_rows(named=True)}
 
 
+def _label_merged(merged: pl.DataFrame, code: str) -> str:
+    """Libellé d'un code via `merged` (codes sans ligne au CSV, D3)."""
+    row = merged.filter(pl.col("code") == code)
+    return "" if row.is_empty() else (row["label"][0] or "")
+
+
+def _source_existence(merged: pl.DataFrame, code: str) -> str | None:
+    """`OWL_ANS` ou `ATIH` (code injecté depuis le kit, D3) ; None sans la colonne."""
+    if "source_existence" not in merged.columns:
+        return None
+    row = merged.filter(pl.col("code") == code)
+    return None if row.is_empty() else str(row["source_existence"][0])
+
+
 def _libelle_of(csv: pl.DataFrame, code: str) -> str:
     """Libellé d'un code via la colonne `libelle` du CSV (1ère ligne)."""
     row = csv.filter(pl.col("code") == code)
@@ -890,8 +904,14 @@ def build_cards_library(
 
     # Liste des codes uniques du CSV, dans l'ordre lexicographique
     # déterministe.
-    codes_all = sorted(csv["code"].unique().to_list())
-    codes = [c for c in codes_all if code_to_chap.get(c) is not None]
+    # Codes construits : ceux du CSV, plus les codes codables du référentiel
+    # (D3 — un code codable auquel aucune source n'attache de ligne a
+    # quand même une fiche : titre, position, statut, consignes, notes
+    # ANS). Sans statut MCO dans merged, les seuls codes du CSV.
+    codes_all = set(csv["code"].unique().to_list())
+    if "codable_mco" in merged.columns and merged["codable_mco"].null_count() < merged.height:
+        codes_all |= set(codes_codables(merged))
+    codes = sorted(c for c in codes_all if code_to_chap.get(c) is not None)
     outils = charge_politique(merged, policy_path, lexicons_dir)
     regle_profil = outils.policy.profil(profil)
     n_exclus_non_codables = 0
@@ -935,9 +955,10 @@ def build_cards_library(
                     "code": code,
                     "chapter": chapter,
                     "filepath": f"{chapter}/{fname}",
-                    "libelle": _libelle_of(csv, code),
+                    "libelle": _libelle_of(csv, code) or _label_merged(merged, code),
                     "type_mco": None if statut is None else statut[0],
                     "statut_mco": None if statut is None else statut[1].partition(":")[0],
+                    "source_existence": _source_existence(merged, code),
                     "nb_chars": len(card),
                     **sections,
                 }
@@ -971,10 +992,16 @@ def build_cards_library(
             "has_formulations",
             "type_mco",
             "statut_mco",
+            "source_existence",
             "nb_chars",
         ]
         pl.DataFrame(
-            index_rows, schema_overrides={"type_mco": pl.Int64, "statut_mco": pl.String}
+            index_rows,
+            schema_overrides={
+                "type_mco": pl.Int64,
+                "statut_mco": pl.String,
+                "source_existence": pl.String,
+            },
         ).select(ordered_cols).write_csv(index_path)
 
     # Comptage des fiches portant la section Consignes, par chapitre,

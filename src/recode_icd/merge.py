@@ -392,6 +392,7 @@ def merge_codes(
             "scope_notes",
             "synonymes",
             "has_ofs_match",
+            "source_existence",
         )
         .sort("left")
     )
@@ -548,8 +549,13 @@ def find_post_2006_codes(owl_codes: pl.DataFrame, ofs_codes: pl.DataFrame) -> pl
     les codes ajoutés depuis (U07.1 COVID, etc.) ne sont QUE dans l'ANS.
     """
     ofs_codes_norm = _normalize_ofs(ofs_codes).select(pl.col("code_norm").alias("code"))
+    # Les codes injectés depuis le kit ATIH (D3) ne sont pas des codes
+    # ANS : ils ont leur propre rapport (`atih_only_codes.csv`).
+    ans_seulement = owl_codes
+    if "source_existence" in owl_codes.columns:
+        ans_seulement = owl_codes.filter(pl.col("source_existence") == "OWL_ANS")
     return (
-        owl_codes.join(ofs_codes_norm, on="code", how="anti")
+        ans_seulement.join(ofs_codes_norm, on="code", how="anti")
         .select("code", "label", "type", "depth")
         .sort("code")
     )

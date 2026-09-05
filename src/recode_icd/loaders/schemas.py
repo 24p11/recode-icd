@@ -19,6 +19,9 @@ class OwlCodesSchema(pa.DataFrameModel):
     definitions: list[str] = pa.Field(nullable=True)
     scope_notes: list[str] = pa.Field(nullable=True)
     structured_exclusions: list[str] = pa.Field(nullable=True)
+    # D3 : existence du code — OWL_ANS, fallback ATIH (codes du kit
+    # injectés dans le nested set, hors chapitre XX).
+    source_existence: str = pa.Field(isin=["OWL_ANS", "ATIH"])
 
     class Config:
         strict = True
@@ -200,6 +203,7 @@ class MergedCodesSchema(pa.DataFrameModel):
         ],
     )
     codable_mco: bool = pa.Field(nullable=True)
+    source_existence: str = pa.Field(isin=["OWL_ANS", "ATIH"])
 
     class Config:
         strict = True
