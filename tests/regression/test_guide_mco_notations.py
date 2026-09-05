@@ -25,9 +25,9 @@ from pathlib import Path
 import polars as pl
 import pytest
 
+from recode_icd.notations import Notations, charge_notations
 from recode_icd.recommendations.build import RECOMMENDATION_CODES_FILENAME
 from recode_icd.recommendations.code_expr import parse_code_expr
-from recode_icd.recommendations.notations import Notations, charge_notations
 
 pytestmark = pytest.mark.regression
 
@@ -81,21 +81,23 @@ def test_chaque_position_declaree_existe_dans_le_referentiel(
     notations: Notations, merged_codes: pl.DataFrame
 ) -> None:
     codes = set(merged_codes["code"].to_list())
-    for cat in notations.categories.values():
-        assert cat.categorie in codes
-        for cinquieme in cat.cinquiemes:
-            assert cat.noeud(cinquieme) in codes, cat.noeud(cinquieme)
-            for quatrieme in cat.quatriemes:
-                assert cat.feuille(quatrieme, cinquieme) in codes, cat.feuille(quatrieme, cinquieme)
+    for fam in notations.familles.values():
+        assert fam.base_maitre in codes
+        for b in fam.b:
+            assert fam.noeud(b) in codes, fam.noeud(b)
+            for a in fam.a:
+                assert fam.feuille(a, b) in codes, fam.feuille(a, b)
 
 
 def test_chaque_code_du_referentiel_retraduit_vers_le_guide(
     notations: Notations, merged_codes: pl.DataFrame
 ) -> None:
     """Sens référentiel -> guide -> référentiel, exhaustif sur la catégorie."""
-    for cat in notations.categories.values():
-        sous = merged_codes.filter(pl.col("code").str.starts_with(f"{cat.categorie}.-"))
-        assert sous.height > 0
+    for fam in notations.familles.values():
+        sous = merged_codes.filter(
+            pl.col("code").str.starts_with(fam.base_maitre) & pl.col("code").str.contains(r"-\d")
+        )
+        assert sous.height > 0, fam.nom
         for code in sous["code"].to_list():
             guide = notations.vers_guide(code)
             assert guide is not None, f"{code} n'a pas de notation guide"

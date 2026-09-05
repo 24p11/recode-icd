@@ -19,8 +19,8 @@ from pathlib import Path
 
 import polars as pl
 
+from recode_icd.notations import Notations
 from recode_icd.recommendations.code_expr import CodeExprError, parse_code_expr
-from recode_icd.recommendations.notations import Notations
 from recode_icd.recommendations.resolution import ResolutionError, resout
 
 RECOMMENDATIONS_FILENAME = "recommendations.parquet"

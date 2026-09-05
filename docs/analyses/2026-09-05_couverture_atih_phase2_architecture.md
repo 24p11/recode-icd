@@ -96,10 +96,10 @@ que les consignes (rôles `interdit_DP`/`interdit_DR` existent déjà).
 ### Option D1-c — La table de notation unique (transversale, incluse dans D1-a)
 
 La clé de correspondance de la phase 1 devient
-`referentials/curation/notations_guide.yaml` élargi — renommé
+`referentials/curation/notations_codes.yaml` élargi — renommé
 `notations_codes.yaml` — avec **deux familles inversées déclarées**
 (`O04` : `O04.-<5e>.<4e>` ; `M62.8` : `M62.8-<6e><5e>`) et les neuf
-catégories à `+` ponctué, lue par `recommendations/notations.py` (déjà
+catégories à `+` ponctué, lue par `notations.py` (déjà
 en place, à généraliser : la traduction guide ↔ référentiel et ATIH ↔
 référentiel sont la même fonction, `O0490` du kit et `O04.90` du guide
 ne différant que par le point). Testée dans les deux sens sur le kit

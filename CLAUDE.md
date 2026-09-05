@@ -748,8 +748,8 @@ régression dans `tests/regression/test_cards_consignes.py`.
    catégories sont encodées par le référentiel avec 4e et 5e caractères
    **inversés** : « O04.90 » du guide est la feuille `O04.-0.9`. La
    table curée écrit ce que le guide écrit ; la traduction est
-   déclarée dans `referentials/curation/notations_guide.yaml` (lue par
-   `recommendations/notations.py`, passée au parseur par le build),
+   déclarée dans `referentials/curation/notations_codes.yaml` (lue par
+   `notations.py`, passée au parseur par le build),
    limitée aux catégories à encodage inversé, chaque entrée testée dans
    les deux sens. Toute forme hors table reste non parsable, au
    rapport ; les traductions sont tracées dans

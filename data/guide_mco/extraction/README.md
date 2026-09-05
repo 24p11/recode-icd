@@ -140,8 +140,8 @@ toutes parsables, toutes résolues contre `merged_codes.parquet`.
     qu'écrite par le guide** — jamais la notation interne du
     référentiel, sans quoi elle ne prouverait plus ce que le guide dit.
     La traduction vit dans une table de correspondance déclarative
-    (`referentials/curation/notations_guide.yaml`, lue par
-    `recommendations/notations.py`), **limitée aux catégories à
+    (`referentials/curation/notations_codes.yaml`, lue par
+    `notations.py`), **limitée aux catégories à
     encodage inversé** (O04 et semblables), chaque entrée testée dans
     les deux sens — dorés : les cinq expressions d'ITG. Toute forme
     hors table reste non parsable, au rapport ; les traductions sont
