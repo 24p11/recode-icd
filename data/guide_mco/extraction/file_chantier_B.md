@@ -62,3 +62,5 @@
 
 Les cases se cochent au versement (curé figé + candidates versées dans
 les tables curées), pas à la soumission.
+
+**File close le 2026-09-05** — 35/35 versés (lots 1-6), chantier B terminé.

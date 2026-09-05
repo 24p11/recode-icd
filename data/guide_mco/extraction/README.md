@@ -1,5 +1,12 @@
 # Candidates du pilote — registre de curation
 
+> **CHANTIER B CLOS le 2026-09-05.** Les 35 articles de la file
+> (`file_chantier_B.md`) sont versés, figés et mergés en six lots
+> (relecture RF par lot, rapports dans `docs/sessions/2026-09-0{3,5}_chantier_B_lot*_rapport.md`).
+> Base finale : **185 consignes, 447 associations → 20 282 couples sur
+> 15 803 codes feuilles**, 12 arbitrages ci-dessous. Bilan de la série
+> dans le rapport du lot 6. Ce qui reste ouvert vit dans `docs/backlog/`.
+
 > **VERSÉ le 2026-08-17.** Les 85 consignes et 171 associations de ce
 > répertoire sont dans `../recommendations_curated.csv` et
 > `../recommendation_codes_curated.csv`. Ce qui reste ici est la
