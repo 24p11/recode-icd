@@ -15,6 +15,15 @@ jamais du nested set — qui ne sert qu'à l'expansion.
 Une expression non parsable est une **erreur remontée au rapport de
 build**, jamais une ligne silencieusement ignorée : une consigne perdue
 est indétectable en aval.
+
+**Notation du guide ≠ encodage du référentiel** (arbitrage n° 12, RF
+2026-09-05, cas O04). Quelques catégories sont encodées par le
+référentiel avec leurs 4e et 5e caractères dans l'ordre inverse de celui
+qu'écrit le guide (« O04.90 » du guide = feuille `O04.-0.9`). La table
+curée déclare l'expression **telle qu'écrite par le guide** ; la
+traduction est confiée à une table de correspondance déclarative
+(`notations.py`), passée en argument. Sans table, ou pour une forme hors
+table, l'expression reste non parsable — au rapport, jamais au silence.
 """
 
 from __future__ import annotations
@@ -22,6 +31,10 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from enum import IntEnum
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from recode_icd.recommendations.notations import Notations
 
 #: Tiret typographique utilisé par le guide (« I63.– »). Le guide n'est
 #: pas constant : on accepte aussi le tiret ASCII et le tiret demi-cadratin.
@@ -77,6 +90,11 @@ class ExpressionCode:
 
     `debut` / `fin` ne sont renseignés que pour une `PLAGE`. Pour les
     trois autres formes, `valeur` porte le code ou le chiffre romain.
+
+    `noeuds` n'est renseigné que pour une expression **traduite** par la
+    table de notations (cf. `notations.py`) : ce sont les nœuds du
+    référentiel qu'elle désigne, quand sa notation n'est pas celle du
+    référentiel. Vide sinon — `valeur` suffit à la résolution.
     """
 
     brut: str
@@ -84,6 +102,7 @@ class ExpressionCode:
     valeur: str
     debut: str | None = None
     fin: str | None = None
+    noeuds: tuple[str, ...] = ()
 
 
 class CodeExprError(ValueError):
@@ -102,8 +121,15 @@ _RE_CATEGORIE_TIRET = re.compile(rf"^([A-Z]\d{{2}})\.[{TIRETS}]$")
 _RE_PLAGE = re.compile(rf"^([A-Z]\d{{2}}(?:\.\d{{1,3}})?)[{TIRETS}]([A-Z]\d{{2}}(?:\.\d{{1,3}})?)$")
 
 
-def parse_code_expr(expr: str) -> ExpressionCode:
+def parse_code_expr(expr: str, notations: Notations | None = None) -> ExpressionCode:
     """Parse une expression de codes, ou lève `CodeExprError`.
+
+    `notations` : table de correspondance des catégories à encodage
+    inversé (arbitrage n° 12). Consultée **avant** les formes génériques,
+    pour les seules catégories qu'elle déclare : « O04.90 » ressemble à
+    un code et le serait sans elle — introuvable dans le référentiel.
+    Sans table, ces expressions restent non parsables ou non résolues,
+    et partent au rapport.
 
     Cinq formes reconnues :
 
@@ -128,6 +154,9 @@ def parse_code_expr(expr: str) -> ExpressionCode:
     nettoye = expr.strip()
     if not nettoye:
         raise CodeExprError("Expression vide.")
+
+    if notations is not None and (traduite := notations.traduit(nettoye, brut=expr)) is not None:
+        return traduite
 
     if nettoye in CHAPITRES_ROMAINS:
         return ExpressionCode(brut=expr, type=TypeExpr.CHAPITRE, valeur=nettoye)

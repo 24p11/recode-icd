@@ -12,6 +12,7 @@ import polars as pl
 import pytest
 
 from recode_icd.recommendations.code_expr import TypeExpr, parse_code_expr
+from recode_icd.recommendations.notations import CategorieInversee, Notations
 from recode_icd.recommendations.resolution import ResolutionError, cle_de_tri, resout
 
 pytestmark = pytest.mark.unit
@@ -129,3 +130,75 @@ def test_le_tri_est_total() -> None:
     a = cle_de_tri(TypeExpr.CODE, "sujet", "GM2026-V-AVC-02")
     b = cle_de_tri(TypeExpr.CODE, "sujet", "GM2026-V-AVC-01")
     assert b < a
+
+
+# -- expressions traduites par la table de notations (arbitrage n° 12) ----
+
+
+@pytest.fixture
+def merged_o04() -> pl.DataFrame:
+    """Nested set miniature d'une catégorie à encodage inversé.
+
+    O04 (1,14)
+    ├── O04.-0 (2,7)    → O04.-0.4  O04.-0.9
+    └── O04.-1 (8,13)   → O04.-1.4  O04.-1.9
+    """
+    lignes = [
+        ("O04", "category", 1, 14),
+        ("O04.-0", "category", 2, 7),
+        ("O04.-0.4", "category", 3, 4),
+        ("O04.-0.9", "category", 5, 6),
+        ("O04.-1", "category", 8, 13),
+        ("O04.-1.4", "category", 9, 10),
+        ("O04.-1.9", "category", 11, 12),
+    ]
+    return pl.DataFrame(
+        {
+            "code": [c for c, _, _, _ in lignes],
+            "type": [t for _, t, _, _ in lignes],
+            "left": [g for _, _, g, _ in lignes],
+            "right": [d for _, _, _, d in lignes],
+        }
+    )
+
+
+@pytest.fixture
+def notations_o04() -> Notations:
+    return Notations(categories={"O04": CategorieInversee("O04", ("4", "9"), ("0", "1", "2"))})
+
+
+def test_feuille_traduite_se_resout_en_elle_meme(
+    merged_o04: pl.DataFrame, notations_o04: Notations
+) -> None:
+    """« O04.90 » du guide est la feuille O04.-0.9 du référentiel."""
+    assert resout(parse_code_expr("O04.90", notations_o04), merged_o04) == ["O04.-0.9"]
+
+
+def test_noeud_de_cinquieme_position_se_resout_en_ses_feuilles(
+    merged_o04: pl.DataFrame, notations_o04: Notations
+) -> None:
+    assert resout(parse_code_expr("O04.-1", notations_o04), merged_o04) == ["O04.-1.4", "O04.-1.9"]
+
+
+def test_quatrieme_seul_se_resout_a_travers_les_cinquiemes(
+    merged_o04: pl.DataFrame, notations_o04: Notations
+) -> None:
+    """« O04.4 » traverse les nœuds de 5e position : une feuille par nœud."""
+    with pytest.raises(ResolutionError, match=r"O04\.-2\.4"):
+        # La table déclare la 5e position 2, que ce référentiel miniature
+        # n'a pas : un nœud traduit absent lève comme un code absent.
+        resout(parse_code_expr("O04.4", notations_o04), merged_o04)
+    table_ajustee = Notations(categories={"O04": CategorieInversee("O04", ("4", "9"), ("0", "1"))})
+    assert resout(parse_code_expr("O04.4", table_ajustee), merged_o04) == ["O04.-0.4", "O04.-1.4"]
+
+
+def test_la_categorie_nue_reste_resolue_par_le_nested_set(
+    merged_o04: pl.DataFrame, notations_o04: Notations
+) -> None:
+    """« O04 » n'est pas traduite : la table ne touche pas aux formes génériques."""
+    assert resout(parse_code_expr("O04", notations_o04), merged_o04) == [
+        "O04.-0.4",
+        "O04.-0.9",
+        "O04.-1.4",
+        "O04.-1.9",
+    ]

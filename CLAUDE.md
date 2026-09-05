@@ -743,6 +743,21 @@ régression dans `tests/regression/test_cards_consignes.py`.
    (fiche de Z23.0 comprise). L'association `ensemble` part au rapport
    de build, et le pandera de la table résolue verrouille l'invariant.
 
+8. **La curation est fidèle à la notation du guide, la résolution
+   traduit — jamais l'inverse** (arbitrage n° 12, cas O04). Quelques
+   catégories sont encodées par le référentiel avec 4e et 5e caractères
+   **inversés** : « O04.90 » du guide est la feuille `O04.-0.9`. La
+   table curée écrit ce que le guide écrit ; la traduction est
+   déclarée dans `referentials/curation/notations_guide.yaml` (lue par
+   `recommendations/notations.py`, passée au parseur par le build),
+   limitée aux catégories à encodage inversé, chaque entrée testée dans
+   les deux sens. Toute forme hors table reste non parsable, au
+   rapport ; les traductions sont tracées dans
+   `guide_mco_expressions_traduites.csv`. Ne jamais « corriger » une
+   expression curée vers la forme du référentiel pour faire passer un
+   build : déclarer la catégorie dans la table, ou laisser l'expression
+   au rapport.
+
 ### Substrat : brut → curé → validé → figé
 
 On ne devine pas, on déclare — voir la cible du procédé en tête de section. Un curé n'existe qu'en vert (test d'intégrité) et n'est figé qu'après relecture humaine, avec relecteur et date dans curation.yaml.

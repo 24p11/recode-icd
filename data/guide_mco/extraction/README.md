@@ -124,6 +124,24 @@ toutes parsables, toutes résolues contre `merged_codes.parquet`.
     `texte`. `centralite=exemple` est réservé aux codes cités comme
     instances de la consigne elle-même.
 
+12. **La curation est fidèle à la notation du guide, la résolution
+    traduit — jamais l'inverse** (RF, 2026-09-05, cas O04 / ITG-02,
+    ITG-05, ITG-07). Le guide écrit « O04.90 », « O04.4 », « O04.-1 » ;
+    le référentiel encode la catégorie avec ses 4e et 5e caractères
+    dans l'ordre **inverse** (`O04.-<5e>.<4e>` : « O04.90 » du guide est
+    la feuille `O04.-0.9`). La table curée déclare l'expression **telle
+    qu'écrite par le guide** — jamais la notation interne du
+    référentiel, sans quoi elle ne prouverait plus ce que le guide dit.
+    La traduction vit dans une table de correspondance déclarative
+    (`referentials/curation/notations_guide.yaml`, lue par
+    `recommendations/notations.py`), **limitée aux catégories à
+    encodage inversé** (O04 et semblables), chaque entrée testée dans
+    les deux sens — dorés : les cinq expressions d'ITG. Toute forme
+    hors table reste non parsable, au rapport ; les traductions sont
+    tracées dans `reports/guide_mco_expressions_traduites.csv`.
+    Invariant absolu, testé sur la table entière : aucune expression
+    curée ne porte la forme `Xnn.-<5e>.<4e>`.
+
 ## Points laissés ouverts
 
 - **`GM2026-V-AVC-18`** (complications codées en DAS) n'a **aucune

@@ -11,6 +11,7 @@ from recode_icd import policy as policy_mod
 from recode_icd.exporters import flat_csv
 from recode_icd.loaders import ofs, owl
 from recode_icd.recommendations import build as guide_mco
+from recode_icd.recommendations.notations import charge_notations
 from recode_icd.relations import dagger_asterisk, sibling_exclusions
 from recode_icd.reports import csv_stats
 
@@ -490,6 +491,10 @@ def build_guide_mco(
         Path,
         typer.Option("--reports-dir", file_okay=False),
     ] = Path("reports"),
+    notations_path: Annotated[
+        Path,
+        typer.Option("--notations", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/curation/notations_guide.yaml"),
 ) -> None:
     """Construire la base des recommandations du guide méthodologique MCO.
 
@@ -497,9 +502,14 @@ def build_guide_mco(
     humainement ligne à ligne. L'extraction LLM ne rentre jamais dans le
     pipeline : les fichiers de `data/guide_mco/extraction/` sont une
     trace de curation, pas une entrée.
+
+    `--notations` : table de correspondance notation du guide ↔ encodage
+    du référentiel (catégories à encodage inversé, O04). Les tables
+    curées portent la notation du guide ; la résolution traduit.
     """
     recs_curees, codes_cures = guide_mco.charge_tables_curees(curation_dir)
     merged = pl.read_parquet(merged_path)
+    notations = charge_notations(notations_path)
 
     # Le CSV maître n'est lu que pour le rapport de recouvrement — une
     # heuristique de repérage, jamais un dédoublonnage. Son absence ne
@@ -513,7 +523,9 @@ def build_guide_mco(
             err=True,
         )
 
-    recs, resolus, rapport = guide_mco.construit(recs_curees, codes_cures, merged, flat)
+    recs, resolus, rapport = guide_mco.construit(
+        recs_curees, codes_cures, merged, flat, notations=notations
+    )
 
     for label, chemin in guide_mco.ecrit_parquets(recs, resolus, output_dir).items():
         typer.echo(f"Écrit ({label}) : {chemin}")
@@ -527,6 +539,11 @@ def build_guide_mco(
         f"{stats['couples_rec_code']} couples (rec, code) sur "
         f"{stats['codes_touches']} codes."
     )
+    if rapport.expressions_traduites:
+        typer.echo(
+            f"{len(rapport.expressions_traduites)} expression(s) traduite(s) par la table "
+            f"de notations — voir guide_mco_expressions_traduites.csv."
+        )
     if rapport.recommandations_sans_code:
         typer.echo(
             f"{len(rapport.recommandations_sans_code)} recommandation(s) sans code résolu : "

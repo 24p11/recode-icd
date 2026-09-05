@@ -17,6 +17,7 @@ from recode_icd.recommendations.build import (
     charge_tables_curees,
     construit,
 )
+from recode_icd.recommendations.notations import CategorieInversee, Notations
 
 pytestmark = pytest.mark.unit
 
@@ -333,3 +334,73 @@ def test_rendu_fiche_valeur_inconnue_leve(merged: pl.DataFrame) -> None:
             _codes([("GM2026-V-X-01", "I63")]),
             merged,
         )
+
+
+# ----------------------------------------------------------------------
+# table de notations (arbitrage n° 12 du registre, RF 2026-09-05)
+# ----------------------------------------------------------------------
+
+
+@pytest.fixture
+def merged_o04() -> pl.DataFrame:
+    lignes = [
+        ("O04", "category", 1, 10),
+        ("O04.-0", "category", 2, 5),
+        ("O04.-0.9", "category", 3, 4),
+        ("O04.-1", "category", 6, 9),
+        ("O04.-1.9", "category", 7, 8),
+    ]
+    return pl.DataFrame(
+        {
+            "code": [c for c, _, _, _ in lignes],
+            "type": [t for _, t, _, _ in lignes],
+            "left": [g for _, _, g, _ in lignes],
+            "right": [d for _, _, _, d in lignes],
+        }
+    )
+
+
+def test_expression_traduite_est_resolue_et_tracee(merged_o04: pl.DataFrame) -> None:
+    """La table curée porte la notation du guide ; le Parquet porte les
+    feuilles du référentiel ; le rapport dit par quels nœuds on est passé."""
+    table = Notations(categories={"O04": CategorieInversee("O04", ("9",), ("0", "1"))})
+    _, resolus, rapport = construit(
+        _recs("GM2026-V-X-01", "GM2026-V-X-02"),
+        _codes([("GM2026-V-X-01", "O04.90"), ("GM2026-V-X-02", "O04.-1")]),
+        merged_o04,
+        notations=table,
+    )
+    assert dict(resolus.select("code_expr", "code").rows()) == {
+        "O04.90": "O04.-0.9",
+        "O04.-1": "O04.-1.9",
+    }, "code_expr conserve la notation du guide, code porte celle du référentiel"
+    assert [(t["code_expr"], t["noeuds_referentiel"]) for t in rapport.expressions_traduites] == [
+        ("O04.90", "O04.-0.9"),
+        ("O04.-1", "O04.-1"),
+    ]
+    assert rapport.statistiques["expressions_traduites"] == 2
+    assert not rapport.a_des_erreurs
+
+
+def test_sans_table_la_notation_du_guide_va_au_rapport(merged_o04: pl.DataFrame) -> None:
+    """Rien n'est deviné : sans table, « O04.-1 » est non parsable et
+    « O04.90 » non résolu. Les deux se voient, aucun ne passe."""
+    _, resolus, rapport = construit(
+        _recs("GM2026-V-X-01", "GM2026-V-X-02"),
+        _codes([("GM2026-V-X-01", "O04.90"), ("GM2026-V-X-02", "O04.-1")]),
+        merged_o04,
+    )
+    assert resolus.height == 0
+    assert [t["code_expr"] for t in rapport.expressions_non_parsables] == ["O04.-1"]
+    assert [t["code_expr"] for t in rapport.expressions_non_resolues] == ["O04.90"]
+    assert rapport.expressions_traduites == []
+
+
+def test_forme_hors_table_va_au_rapport_des_non_parsables(merged_o04: pl.DataFrame) -> None:
+    table = Notations(categories={"O04": CategorieInversee("O04", ("9",), ("0", "1"))})
+    _, resolus, rapport = construit(
+        _recs("GM2026-V-X-01"), _codes([("GM2026-V-X-01", "O04.95")]), merged_o04, notations=table
+    )
+    assert resolus.height == 0
+    assert len(rapport.expressions_non_parsables) == 1
+    assert "hors de la table" in rapport.expressions_non_parsables[0]["erreur"]

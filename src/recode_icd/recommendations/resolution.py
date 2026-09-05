@@ -50,7 +50,24 @@ def resout(expr: ExpressionCode, merged: pl.DataFrame) -> list[str]:
     des subdivisions (rare mais réel : `U07.1` porte `U07.10`..`U07.15`)
     se résout en ses feuilles. C'est cohérent avec le CSV maître, qui ne
     retient que les feuilles.
+
+    Une expression **traduite** par la table de notations (`noeuds`
+    renseigné, cf. `notations.py`) se résout en l'union des feuilles de
+    ses nœuds : « O04.4 » du guide désigne `O04.-0.4`, `O04.-1.4`,
+    `O04.-2.4`, `O04.-3.4`. Un nœud absent lève comme un code absent.
     """
+    if expr.noeuds:
+        feuilles = _feuilles(merged)
+        couverts_traduits: set[str] = set()
+        for noeud in expr.noeuds:
+            gauche, droite = _bornes(merged, noeud)
+            couverts_traduits.update(
+                feuilles.filter((pl.col("left") >= gauche) & (pl.col("right") <= droite))[
+                    "code"
+                ].to_list()
+            )
+        return sorted(couverts_traduits)
+
     if expr.type is TypeExpr.PLAGE:
         assert expr.debut is not None and expr.fin is not None
         gauche, _ = _bornes(merged, expr.debut)
