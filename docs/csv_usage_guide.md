@@ -310,6 +310,15 @@ inspect_code("A18")              # préfixe (toute la catégorie)
 inspect_code(["A18.1", "N33.0"]) # liste
 ```
 
+## Périmètre des codes du CSV (depuis le 2026-09-05)
+
+Le CSV porte les **feuilles** du référentiel **et les codes
+intermédiaires codables en MCO** (`M00.0`, `F00.0`, `M16.0`… — 800
+codes) : un code codable qui a des subdivisions y a ses propres lignes
+et ses lignes héritées. Les codes non codables (pères comme `U07.1`,
+supprimés) n'y sont pas. La colonne `statut_mco` de l'index des fiches
+dit lequel est lequel ; le résolveur ci-dessous aussi.
+
 ## Résoudre un code vers sa fiche — ne jamais joindre à la main
 
 *Chantier couverture ATIH, D0 (2026-09-05).*

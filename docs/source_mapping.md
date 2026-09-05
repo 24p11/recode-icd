@@ -1294,6 +1294,29 @@ clinique : c'est un père (`A00`, `U07.1`) ou un code supprimé.
 Le CSV maître (9 colonnes) **n'est pas modifié** : le statut n'est pas
 une note.
 
+### Périmètre du CSV maître : feuilles ∪ codes intermédiaires codables (D2)
+
+Jusqu'au 2026-09-05, le CSV ne retenait que les **feuilles strictes**
+du nested set (`right - left == 1`) : `U07.1`, `M00.0`, `F00.0` en
+étaient absents bien que codables. Depuis D2 (« fiche par héritage »),
+`exporters.flat_csv.codes_du_csv` retient **les feuilles ∪ les nœuds
+`category` codables en MCO** (`merged.codable_mco`, kit ATIH joint) :
+
+- le code reçoit ses lignes propres et ses lignes héritées par le
+  mécanisme de propagation ordinaire (`source_level`,
+  `inherited_from_code` restent exacts) ;
+- les sources externes ne le rejettent plus comme « non terminal »
+  (`merge_external` lit la même fonction — un seul périmètre, décidé
+  une fois) ;
+- les nœuds **non codables** — pères interdits (`U07.1`, `A00`), codes
+  supprimés, blocs, chapitres — restent hors du CSV ;
+- sans statut MCO dans `merged`, le périmètre est celui d'avant D2
+  (feuilles), jamais un périmètre deviné.
+
+Pas de synthèse des descendants dans le CSV : une section
+« Subdivisions codables » des fiches reste au backlog pour le
+vérificateur.
+
 ### Écriture des codes — table de notation unique
 
 Trois écritures coexistent : **compacte** (kit, RUM : `O0490`,

@@ -788,3 +788,39 @@ def test_flat_csv_build_returns_stats() -> None:
         merged, _make_propagated([]), _make_siblings([]), _make_owl([]), ofs, dag
     )
     assert stats.n_synonyms_filtered_as_duplicates == 1
+
+
+# ----------------------------------------------------------------------
+# Périmètre du CSV : feuilles + codes intermédiaires codables (D2)
+# ----------------------------------------------------------------------
+
+
+def test_codes_du_csv_sans_statut_reste_aux_feuilles() -> None:
+    """Sans kit joint, le périmètre d'avant D2 — jamais deviné."""
+    from recode_icd.exporters.flat_csv import codes_du_csv
+
+    merged = _make_merged(
+        [
+            {"code": "A00", "label": "A00 internal", "type": "category", "left": 1, "right": 4},
+            {"code": "A00.0", "label": "A00.0 leaf", "type": "category", "left": 2, "right": 3},
+        ]
+    )
+    assert codes_du_csv(merged)["code"].to_list() == ["A00.0"]
+
+
+def test_codes_du_csv_ajoute_les_intermediaires_codables() -> None:
+    """`M00.0` codable et subdivisé entre au CSV ; `U07.1` (père, type 3) non."""
+    import polars as pl
+
+    from recode_icd.exporters.flat_csv import codes_du_csv
+
+    merged = _make_merged(
+        [
+            {"code": "M00.0", "label": "codable", "type": "category", "left": 1, "right": 4},
+            {"code": "M00.00", "label": "feuille", "type": "category", "left": 2, "right": 3},
+            {"code": "U07.1", "label": "père", "type": "category", "left": 5, "right": 8},
+            {"code": "U07.10", "label": "feuille", "type": "category", "left": 6, "right": 7},
+            {"code": "I", "label": "chapitre", "type": "chapter", "left": 9, "right": 10},
+        ]
+    ).with_columns(pl.Series("codable_mco", [True, True, False, True, None], dtype=pl.Boolean))
+    assert codes_du_csv(merged)["code"].to_list() == ["M00.0", "M00.00", "U07.10"]

@@ -75,10 +75,27 @@ class FlatCsvStats:
         ]
 
 
-def _leaf_codes(merged: pl.DataFrame) -> pl.DataFrame:
-    return merged.filter(
-        (pl.col("type") == "category") & ((pl.col("right") - pl.col("left")) == 1)
-    ).select(pl.col("code"), pl.col("label").alias("libelle"))
+def codes_du_csv(merged: pl.DataFrame) -> pl.DataFrame:
+    """Les codes qui existent dans le CSV maître : `(code, libelle)`.
+
+    Feuilles strictes du nested set **+ codes intermédiaires codables en
+    MCO** (chantier couverture ATIH, D2 — « fiche par héritage ») : un
+    code comme `M00.0` ou `F00.0`, codable selon le kit ATIH et subdivisé
+    au référentiel, reçoit ses lignes propres et ses lignes héritées par
+    le mécanisme de propagation ordinaire, et les sources externes ne le
+    rejettent plus comme « non terminal ». Les nœuds non codables (pères
+    interdits comme `U07.1`, blocs, chapitres) restent hors du CSV.
+
+    Sans statut MCO dans `merged` (kit non joint, fixtures), seules les
+    feuilles : le comportement d'avant D2, jamais un périmètre deviné.
+    """
+    est_feuille = (pl.col("right") - pl.col("left")) == 1
+    critere = est_feuille
+    if "codable_mco" in merged.columns:
+        critere = est_feuille | pl.col("codable_mco").fill_null(False)
+    return merged.filter((pl.col("type") == "category") & critere).select(
+        pl.col("code"), pl.col("label").alias("libelle")
+    )
 
 
 def _build_inclusions_exclusions(propagated: pl.DataFrame, siblings: pl.DataFrame) -> pl.DataFrame:
@@ -262,7 +279,8 @@ def build(
       3. Concaténation des entrées externes (ORPHANET/Index/AP-HP)
          déjà dédupliquées et filtrées par `merge_external`
          (source_level=code, inherited_from_code=null).
-      4. Restriction aux codes feuilles + traduction des sources.
+      4. Restriction aux codes du CSV (feuilles + codables MCO, cf
+         `codes_du_csv`) + traduction des sources.
          Dédup (code, type, source, texte) priorisant la version la
          plus spécifique (source_level=code).
       5. Calcul des flags is_dagger_in_pair / is_asterisk_in_pair via
@@ -282,7 +300,7 @@ def build(
         `(df, stats)`. `stats` est utilisé pour enrichir
         `reports/curation_applied.csv`.
     """
-    leaves = _leaf_codes(merged)
+    leaves = codes_du_csv(merged)
     inex = _build_inclusions_exclusions(propagated, siblings)
     # Retypage altLabel ANS → inclusion pour codes type=D du chapitre
     # XIII : `_build_synonymes` lit `owl` directement (pas `merged`), il

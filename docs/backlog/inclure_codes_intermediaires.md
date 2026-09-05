@@ -1,7 +1,16 @@
 # Backlog — Inclure les codes intermédiaires dans le CSV final
 
-> Statut : **différé**. Décision RF du 2026-05-25 — on reste sur les
-> codes terminaux uniquement pour l'instant.
+> Statut : **appliqué le 2026-09-05** (chantier couverture ATIH, D2) —
+> mais **pas l'option B** décrite ci-dessous : le périmètre du CSV est
+> désormais « feuilles ∪ codes intermédiaires **codables en MCO** »
+> (kit ATIH), soit 800 codes de plus, et non les 2 893 codes catégorie.
+> Les 1 846 autres nœuds sont des pères interdits (type 3) qui ne se
+> codent pas — `U07.1` en fait partie : le témoin de ce backlog n'était
+> pas un code autorisé, ses feuilles `U07.10..15` le sont. Cf
+> `docs/analyses/2026-09-05_couverture_atih_phase1.md` §5 et
+> `docs/source_mapping.md` § « Périmètre du CSV maître ».
+> Décision RF initiale du 2026-05-25 : différé, codes terminaux
+> uniquement.
 > Diagnostic complet : voir [../sessions/2026-05-25_phase3_dagger_asterisk.md](../sessions/2026-05-25_phase3_dagger_asterisk.md)
 > §4 et la session de migration du 2026-05-25.
 
