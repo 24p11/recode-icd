@@ -44,6 +44,7 @@ du projet), pas dans `docs/`. Les principaux :
 | `reports/external_sources_summary.csv` | Bilan par source externe (chargé / absorbé / orphan / ajouté). |
 | `reports/dagger_asterisk_summary.csv` | Métadonnées des paires dague/astérisque. |
 | `reports/curation_applied.csv` | Impact de la curation dague/astérisque appliquée au build. |
+| `reports/couverture_atih/` | Couverture des fiches par le kit ATIH 2025 (codes autorisés MCO sans fiche, classés par cause ; fiches sur codes interdits). Note de lecture pour les data scientists dans le `README.md` du dossier. Régénéré par `scripts/explore/2026-09-05_couverture_atih.py`. |
 
 ## Notebooks
 

@@ -28,7 +28,8 @@ sens (la clé du maître est bien le code ATIH, et l'écriture naïve
 `point après le 3e caractère` retrouve — ou non — l'écriture du maître :
 c'est la classe « notation divergente »).
 
-Produit `scripts/explore/_couverture_atih_artifacts/*.csv` et un résumé
+Produit `reports/couverture_atih/*.csv` (à disposition des data
+scientists, note de lecture dans le README du dossier) et un résumé
 sur stdout. Lancement :
 
     uv run python scripts/explore/2026-09-05_couverture_atih.py
@@ -45,7 +46,7 @@ import polars as pl
 from recode_icd.utils.loaders_dev import load_atih_libcim10, load_exploration_context
 
 ROOT = Path(__file__).resolve().parents[2]
-ARTEFACTS = ROOT / "scripts" / "explore" / "_couverture_atih_artifacts"
+ARTEFACTS = ROOT / "reports" / "couverture_atih"
 
 ctx = load_exploration_context()
 assert ctx.merged is not None and ctx.flat is not None

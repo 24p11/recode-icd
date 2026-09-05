@@ -13,7 +13,7 @@ documente les pièges de notation. Il instruit les backlogs
 
 Outillage (versionné, lecture seule) : `loaders_dev.load_atih_libcim10`
 (+ 3 tests unitaires), `scripts/explore/2026-09-05_couverture_atih.py`,
-artefacts dans `scripts/explore/_couverture_atih_artifacts/`.
+artefacts dans `reports/couverture_atih/` (note de lecture : `reports/couverture_atih/README.md`).
 
 ---
 
