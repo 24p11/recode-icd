@@ -2,4 +2,7 @@ rec_id,code_expr,role,centralite,n_codes_domaine,justification
 GM2026-V-ANT-01,XXI,regi,sujet,750,"Domaine du choix : le code Z est choisi selon la nature de l'antécédent, et l'essentiel du chapitre XXI ne code pas d'antécédents — précédent AVC-14 (fiche de Z23.0)"
 GM2026-V-ANT-05,II,regi,sujet,781,"« code adapté du chapitre II » : domaine du choix ; l'alternative cancer/antécédent ne régit pas chaque membre du chapitre II (tumeurs bénignes, in situ, à évolution imprévisible non concernées)"
 GM2026-V-AVC-14,XXI,DP,sujet,750,"Domaine d'un choix fait par le motif de séjour (surveillance sans affection nouvelle), extérieur à l'expression : la consigne ne régit pas chaque code Z. Décision RF 2026-09-02, cas témoin Z23.0."
+GM2026-V-BRU-01,XX,regi,sujet,1396,"Domaine du choix de la cause : la consigne appelle à soigner le codage des causes de brûlures, elle ne régit pas chaque code du chapitre XX (précédent AVC-14)"
 GM2026-V-O80-01,XV,regi,sujet,467,« parmi les autres codes du chapitre XV » : domaine du choix du DP de remplacement — la consigne ne régit pas chaque code du chapitre XV (précédent AVC-14)
+GM2026-V-SUI-01,XIX,DP,sujet,1444,Domaine du choix du DP : le motif de séjour (suicide/tentative) est extérieur à l'expression — la consigne ne régit pas chaque code du chapitre XIX (précédent AVC-14)
+GM2026-V-VIO-01,XIX,regi,sujet,1444,Domaine du choix du code de lésion : le motif (accident de la circulation) est extérieur à l'expression — la consigne ne régit pas chaque code du chapitre XIX (précédent AVC-14)

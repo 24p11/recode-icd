@@ -60,12 +60,39 @@ ARTICLES=(
   "oedeme_pulmonaire:122:122:ŒDÈME PULMONAIRE (imprimée 114)"
   "precarite:122:123:PRÉCARITÉ (imprimées 114-115)"
   "resistance_antimicrobiens:123:124:RÉSISTANCE AUX ANTIMICROBIENS (imprimées 115-116)"
+  # -- lot 6 (dernier) --
+  "sepsis_choc_septique:124:125:SEPSIS ET CHOC SEPTIQUE (imprimées 116-117)"
+  "sequelles_maladies_lesions:125:127:SÉQUELLES DE MALADIES ET DE LÉSIONS TRAUMATIQUES (imprimées 117-119)"
+  "suicides_tentatives:127:127:SUICIDES ET TENTATIVES DE SUICIDE (imprimée 119)"
+  "grands_brules:127:127:TRAITEMENT DES GRANDS BRÛLÉS (imprimée 119)"
+  "tumeurs_evolution_imprevisible:127:128:TUMEURS À ÉVOLUTION IMPRÉVISIBLE OU INCONNUE (imprimées 119-120)"
+  "violence_routiere:128:129:VIOLENCE ROUTIÈRE (imprimées 120-121)"
 )
 
 VERSION_POPPLER="$(pdftotext -v 2>&1 | head -1)"
 
+# Sans argument : tous les articles. Avec des noms d'articles en
+# arguments : ceux-là seulement. Les bruts sont verrouillés par
+# empreinte et leurs citations ancrées par numéro de ligne : on
+# n'en régénère pas 33 pour en produire 6 — surtout avec une autre
+# version de poppler que celle inscrite en tête des existants.
+if (($# > 0)); then
+  for demande in "$@"; do
+    trouve=0
+    for entree in "${ARTICLES[@]}"; do
+      [[ "${entree%%:*}" == "$demande" ]] && trouve=1
+    done
+    ((trouve)) || { echo "Article inconnu : $demande" >&2; exit 1; }
+  done
+fi
+
 for entree in "${ARTICLES[@]}"; do
   IFS=':' read -r nom premiere derniere titre <<<"$entree"
+  if (($# > 0)); then
+    voulu=0
+    for demande in "$@"; do [[ "$nom" == "$demande" ]] && voulu=1; done
+    ((voulu)) || continue
+  fi
   cible="$SORTIE/$nom.txt"
   {
     echo "# Guide méthodologique MCO 2026 (version provisoire) — $titre"

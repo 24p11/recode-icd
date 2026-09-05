@@ -1,0 +1,204 @@
+# Guide méthodologique MCO 2026 (version provisoire) — SÉQUELLES DE MALADIES ET DE LÉSIONS TRAUMATIQUES (imprimées 117-119)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 125-127  (imprimées : 117-119)
+#
+# Commande exacte :
+#   pdftotext -layout -f 125 -l 127 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                              117
+
+A41, B37.7, P36.-0 et O85 (exemples A40.0 Sepsis à streptocoques, groupe A, A41.5 Sepsis
+à d'autres microorganismes Gram négatif).
+
+En cas de sepsis et à fortiori de choc septique, le syndrome de réponse inflammatoire
+systémique d'origine infectieuse avec défaillance d'organe (R65.1) ne doit plus être codé.
+
+En cas d’infection hors sepsis, le syndrome de réponse inflammatoire systémique d'origine
+infectieuse sans défaillance d'organe (R65.0) reste accessible au codage lorsque qu’il apporte
+une information supplémentaire sur la sévérité de l’infection. (exemple infection urinaire
+basse).
+
+Une bactériémie isolée, sans infection d’organe ou porte d’entrée précisée ni critères de sepsis
+et, en dehors d’une complication suivant la pose de prothèses, d’implants et greffes internes
+ou cardiaques et vasculaires, ne permet pas de coder l’infection ou le sepsis. Dans ce cas un
+code de la catégorie A49 sera utilisé en DP. Pour une bactériémie iatrogène, on codera
+d’abord la complication dans T80-T88 lorsqu’elle est précisée.
+
+De façon générale, les informations propres à étayer le codage d’un diagnostic doivent être
+présentes dans le dossier médical du patient. S’agissant du sepsis, la référence au score
+SOFA est recommandée mais n’est pas nécessaire dans le cadre du codage de l’information
+médicale pour le PMSI. Le diagnostic de sepsis, posé par le clinicien, doit être mentionné
+dans le dossier médical du patient.
+
+
+       2. Choc septique
+
+Le choc septique est un sous-ensemble du sepsis au cours duquel les anomalies circulatoires
+et cellulaires ou métaboliques sous-jacentes sont suffisamment profondes pour augmenter
+considérablement la mortalité à un mois de 25% à 35% Le choc septique est défini par la
+présence des critères suivants au cours d’un sepsis[1] :
+    • Besoin d’un traitement vasopresseur par catécholamines en continu, malgré un
+        remplissage vasculaire adéquat, pour maintenir la pression artérielle moyenne à plus
+        de 65 mmHg
+    • Augmentation des lactates sériques >2mmol/l (ou 18mg/dl)
+
+Lorsque l’infection s’accompagne d’un sepsis avec choc septique comme défini ci-dessus, le
+code R57.2 Choc septique devra être associé au code du sepsis.
+
+Les actes CCAM de suppléance vitale, de remplissage vasculaire, d’épuration extra-rénale
+doivent aussi être codés à chaque fois qu’ils sont réalisés.
+
+
+SÉQUELLES DE MALADIES ET DE LÉSIONS TRAUMATIQUES
+
+
+La CIM–10 définit les séquelles comme des « états pathologiques stables, conséquences
+                                                                       69
+d'affections qui ne sont plus en phase active » (volume 2 page 28 ou 33 ).
+
+
+
+
+[1] The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3) JAMA. 2016 ; 315(8) : 801-810. doi :
+
+10.1001/jama.2016.0287 Abstract
+69
+   Dans l’ensemble de ce chapitre, les numéros de page renvoient au volume 2 de l’édition imprimée de la Classification statistique
+internationale des maladies et des problèmes de santé connexes, dixième révision (CIM–10) ; OMS éd. Le premier numéro (ici « 103 »)
+correspond à l’édition de 1993, le second (« 134 ») à l’édition de 2008.
+                                                                     118
+
+Elle précise (ib. page 101 ou 132) : « Si un épisode de soins se rapporte au traitement ou aux
+examens entrepris pour une affection résiduelle (séquelle) d’une maladie qui n’existe plus, on
+décrira la nature de la séquelle de manière exhaustive et on en donnera l’origine [...] ».
+
+Page 106 ou 138 : « La CIM–10 fournit un certain nombre de catégories intitulées "
+                                 70                                           71
+Séquelles de... " (B90-B94, E64.– , E68, G09, I69.–, O97, T90-T98, Y85-Y89) . Celles-ci
+peuvent être utilisées pour coder les conséquences des affections qui ne sont pas elles-
+mêmes présentes lors de l’épisode de soins, comme causes du problème justifiant les soins
+ou les examens. Le code retenu pour " affection principale " doit être celui qui désigne la
+nature des séquelles elles-mêmes, auquel on peut ajouter le code " Séquelles de…" [...]. »
+
+Un délai « d’un an ou plus après le début de la maladie » est cité dans les notes propres à
+certaines rubriques (G09, I69, T90-T98, Y85-Y89, O94). Il n’y a pas lieu d’en tenir compte. Il
+concerne les règles de codage de la mortalité et son sens est indiqué à la page 75 ou 101
+du volume 2. Les situations concernées sont celles dans lesquelles il n’est pas identifié
+                       72
+d’autre cause au décès .
+
+La notion de séquelle doit être retenue et codée chaque fois qu’elle est
+explicitement mentionnée. Il n’appartient pas au médecin responsable de l’information
+médicale ni au codeur de trancher entre le codage d’une maladie présente ou d’un état
+séquellaire. Ce diagnostic est de la compétence du médecin qui a dispensé les soins
+au patient.
+
+Pour le codage d’une séquelle, conformément à la consigne de la CIM–10, on donne la
+priorité au code qui correspond à sa nature. Le code de séquelle est un diagnostic associé
+                                              73
+(se reporter au point 2 du chapitre précédent) .
+
+             Exemples :
+             – salpingite tuberculeuse dix ans auparavant, responsable d'une stérilité : on code
+               d’abord la stérilité et on lui associe la séquelle de tuberculose : N97.1, B90.1 ;
+             – monoplégie d’un membre inférieur séquellaire d’une poliomyélite : on code d’abord
+               la monoplégie et on lui associe la séquelle de poliomyélite : G83.1, B91 ;
+             – épilepsie séquellaire d’un infarctus cérébral : on code d’abord l’épilepsie et on lui
+               associe la séquelle d’infarctus cérébral : G40.–, I69.3 ;
+
+
+Les catégories Y85–Y89 (chapitre XX de la CIM–10) permettent de coder des
+circonstances d’origine des séquelles. Il est recommandé de les utiliser, en position de
+                  74
+diagnostic associé , chaque fois qu’on dispose de l’information nécessaire.
+             Exemple : épilepsie séquellaire d’un traumatisme intracrânien dû à un ; le codage
+             associe G40.–, T90.5 et Y85.0.
+
+
+
+
+70
+   On rappelle que le signe « .– » (point tiret) de la CIM–10 indique que le quatrième caractère du code dépend de l’information à coder
+et doit être cherché dans la catégorie indiquée.
+71
+   Auxquelles s’ajoute O94 Séquelles de complications de la grossesse, de l’accouchement et de la puerpéralité, du fait de la mise à
+jour de 2003.
+72
+   L’exemple 17 donné page 106 ou 138 du volume 2 de la CIM–10 illustre le cadre d’emploi des codes de séquelles et l’absence de
+signification du délai de un an en matière de morbidité.
+73
+   À partir du 1er mars 2013, un code de séquelle peut aussi être enregistré comme diagnostic relié lorsqu’il en respecte la définition.
+74
+     On rappelle que les codes du chapitre XX de la CIM–10 ne doivent jamais être utilisés en position de diagnostic principal ou relié.
+                                                                 119
+
+SUICIDES ET TENTATIVES DE SUICIDE
+
+
+L’importance de leur enregistrement tient au fait que la réduction de leur nombre fait partie des
+                                     75
+objectifs nationaux de santé publique .
+
+Les RUM produits pour les séjours dont suicide ou tentative de suicide sont le motif,
+mentionnent un diagnostic principal codé avec le chapitre XIX de la CIM–10 Lésions
+traumatiques, empoisonnements et certaines autres conséquences de cause externe. On
+enregistre en tant que diagnostics associés (DA) les éventuelles complications,
+conformément à la définition d’un DA significatif (se reporter au point 2 du chapitre IV) ainsi
+                                                  76
+qu’un code du groupe X60–X84 du chapitre XX pour enregistrer le caractère auto-infligé
+des lésions et le ou les moyens utilisés.
+
+
+À propos des suicides et tentatives de suicide médicamenteuses, voir les effets nocifs des
+médicaments plus haut dans ce chapitre.
+
+
+TRAITEMENT DES GRANDS BRULÉS
+
+L’article R.6123-117 du code de la santé publique dispose que le titulaire de l'autorisation de
+traitement des grands brulés participe aux actions de prévention et recueille à cet effet les
+données sur les causes des brûlures qu'il est amené à prendre en charge. En
+conséquence, une attention particulière sera portée au codage des causes des brulures avec
+le chapitre XX de la CIM–10, en particulier au moyen du logiciel de dépistage des atypies de
+l’information médicale (DAtIM) lors de la transmission des données vers la plateforme e-
+       77
+PMSI .
+
+
+TUMEURS À ÉVOLUTION IMPRÉVISIBLE OU INCONNUE
+
+Le classement des tumeurs dans la CIM–10 tient notamment compte de leur
+comportement évolutif : tumeurs malignes (C00–C97), tumeurs in situ (D00–D09), tumeurs
+bénignes (D10–D36), tumeurs à évolution imprévisible ou inconnue (D37–D48). Une note en
+tête du groupe D37–D48 explique l’utilisation de ses codes.
+
+Une tumeur à évolution imprévisible possède des caractéristiques déterminées et son
+classement comme telle est un diagnostic positif qui repose sur un examen histologique. La
+notion de tumeur à évolution imprévisible sous-entend l’élimination des comportements malin,
+in situ et bénin, et l’identification d’un comportement évolutif différent. Un polyadénome
+colique, par exemple, ne doit pas être considéré comme une tumeur à évolution imprévisible
+au motif que, laissé à une évolution naturelle, il est susceptible de devenir malin. La CIM–10
+classe le polyadénome colique avec les tumeurs bénignes et ce classement (code D12.6) doit
+être respecté. En revanche, la CIM–10 classe le polype de vessie avec les tumeurs à
+évolution imprévisible et ce classement (code D41.4) doit aussi être respecté. Le codage d’une
+tumeur comme étant à évolution imprévisible nécessite que les informations contenues
+dans le dossier médical, en particulier dans le compte rendu de l’examen
+anatomopathologique, soient conformes à ce diagnostic.
+
+
+
+75
+   Loi n° 2004-806 du 9 aout 2004, objectif n° 92.
+76
+   NB : les codes du groupe X60-X84 sont des codes à quatre caractères. Une note dans le volume 1
+de la CIM–10, sous le titre du groupe, indique que les quatrièmes caractères sont indiqués au début du chapitre.
+77
+   La transmission des données vers la plateforme e-PMSI, est traitée dans le point 1 du chapitre III.
+

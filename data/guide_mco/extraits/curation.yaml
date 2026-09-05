@@ -247,6 +247,48 @@ bornes:
     derniere_ligne: 132
     titre: "RÉSISTANCE AUX ANTIMICROBIENS"
 
+  # Bornée jusqu'à la référence [1] (bas de page 117) ; le début de
+  # SÉQUELLES part en suppression. La note 69 (voisin) reste hors
+  # bornes.
+  sepsis_choc_septique:
+    premiere_ligne: 51
+    derniere_ligne: 128
+    titre: "SEPSIS ET CHOC SEPTIQUE"
+
+  # Bornée jusqu'aux définitions des notes 70-74 (bas de page 118) ; la
+  # référence [1] du voisin SEPSIS part en suppression.
+  sequelles_maladies_lesions:
+    premiere_ligne: 59
+    derniere_ligne: 139
+    titre: "SÉQUELLES DE MALADIES ET DE LÉSIONS TRAUMATIQUES"
+
+  # Bornée jusqu'à la définition de la note 76 (bas de page 119) ; les
+  # voisins BRÛLÉS et TUMEURS partent en une suppression contiguë.
+  suicides_tentatives:
+    premiere_ligne: 17
+    derniere_ligne: 76
+    titre: "SUICIDES ET TENTATIVES DE SUICIDE"
+
+  # Bornée jusqu'à la définition de sa note 77 ; le voisin TUMEURS et
+  # les définitions des notes 75-76 (voisin SUICIDES) partent en
+  # suppressions.
+  grands_brules:
+    premiere_ligne: 38
+    derniere_ligne: 78
+    titre: "TRAITEMENT DES GRANDS BRULÉS"
+
+  # L'article continue en haut de la page 120 ; les définitions des
+  # notes 75-77 (voisins SUICIDES et BRÛLÉS) tombent dans les bornes.
+  tumeurs_evolution_imprevisible:
+    premiere_ligne: 50
+    derniere_ligne: 86
+    titre: "TUMEURS À ÉVOLUTION IMPRÉVISIBLE OU INCONNUE"
+
+  violence_routiere:
+    premiere_ligne: 25
+    derniere_ligne: 63
+    titre: "VIOLENCE ROUTIÈRE"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -264,7 +306,12 @@ suppressions_mecaniques:
       # note se rattache à son mot par le marqueur `[^n: …]`.
       - '\s*\d{1,3}\s*'
       - '\s*'
-  articles: {}
+  articles:
+    # Ligne où le rendu hisse DEUX appels côte à côte (« 70   71 ») :
+    # même artefact que l'appel seul, en double.
+    sequelles_maladies_lesions:
+      lignes_regex:
+        - '\s*\d{1,3}\s+\d{1,3}\s*'
 
 # ---------------------------------------------------------------------
 # 3. Suppressions éditoriales — renvois de « couche 2 »
@@ -397,6 +444,51 @@ suppressions_editoriales:
         définitions des notes 66-67 au bas de la page 116. Son curé
         viendra au prochain lot. Précédent ÉTAT GRABATAIRE.
 
+  sepsis_choc_septique:
+    - texte: "Pour les codes qui ne comportent que 4 caractères, le signe « + » doit être noté en 5e position. Par mesure d’isolement spécifique on entend les mesures d’hygiène dites d’isolement septique qui sont mises en place selon le mode de transmission (air, gouttelettes, contact) de l’agent infectieux : port de vêtement spécifique, matériel dédié, port de masque, limitation des contacts ou déplacements,… Ces mesures se distinguent des précautions d’hygiène standard."
+      motif: >-
+        Définitions des notes 66 et 67 de l'article VOISIN
+        (RÉSISTANCE), imprimées au bas de la page partagée 116.
+        Précédent note 5/D62.
+    - texte: "SÉQUELLES DE MALADIES ET DE LÉSIONS TRAUMATIQUES La CIM–10 définit les séquelles comme des « états pathologiques stables, conséquences d'affections qui ne sont plus en phase active » (volume 2 page 28 ou 33 )."
+      motif: >-
+        Article VOISIN (SÉQUELLES), imprimé avant la référence [1] au
+        bas de la page 117. Son curé existe par ailleurs. Précédent
+        ÉTAT GRABATAIRE.
+
+  sequelles_maladies_lesions:
+    - texte: "[1] The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3) JAMA. 2016 ; 315(8) : 801-810. doi : 10.1001/jama.2016.0287 Abstract"
+      motif: >-
+        Référence bibliographique [1] de l'article VOISIN (SEPSIS),
+        imprimée au bas de la page partagée 117. Précédent note 5/D62.
+
+  suicides_tentatives:
+    - texte: "TRAITEMENT DES GRANDS BRULÉS L’article R.6123-117 du code de la santé publique dispose que le titulaire de l'autorisation de traitement des grands brulés participe aux actions de prévention et recueille à cet effet les données sur les causes des brûlures qu'il est amené à prendre en charge. En conséquence, une attention particulière sera portée au codage des causes des brulures avec le chapitre XX de la CIM–10, en particulier au moyen du logiciel de dépistage des atypies de l’information médicale (DAtIM) lors de la transmission des données vers la plateforme e- PMSI . TUMEURS À ÉVOLUTION IMPRÉVISIBLE OU INCONNUE Le classement des tumeurs dans la CIM–10 tient notamment compte de leur comportement évolutif : tumeurs malignes (C00–C97), tumeurs in situ (D00–D09), tumeurs bénignes (D10–D36), tumeurs à évolution imprévisible ou inconnue (D37–D48). Une note en tête du groupe D37–D48 explique l’utilisation de ses codes. Une tumeur à évolution imprévisible possède des caractéristiques déterminées et son classement comme telle est un diagnostic positif qui repose sur un examen histologique. La notion de tumeur à évolution imprévisible sous-entend l’élimination des comportements malin, in situ et bénin, et l’identification d’un comportement évolutif différent. Un polyadénome colique, par exemple, ne doit pas être considéré comme une tumeur à évolution imprévisible au motif que, laissé à une évolution naturelle, il est susceptible de devenir malin. La CIM–10 classe le polyadénome colique avec les tumeurs bénignes et ce classement (code D12.6) doit être respecté. En revanche, la CIM–10 classe le polype de vessie avec les tumeurs à évolution imprévisible et ce classement (code D41.4) doit aussi être respecté. Le codage d’une tumeur comme étant à évolution imprévisible nécessite que les informations contenues dans le dossier médical, en particulier dans le compte rendu de l’examen anatomopathologique, soient conformes à ce diagnostic."
+      motif: >-
+        Articles VOISINS (GRANDS BRÛLÉS puis début de TUMEURS),
+        imprimés avant les définitions des notes 75-76 au bas de la
+        page 119. Leurs curés existent par ailleurs. Précédent O80.
+
+  grands_brules:
+    - texte: "TUMEURS À ÉVOLUTION IMPRÉVISIBLE OU INCONNUE Le classement des tumeurs dans la CIM–10 tient notamment compte de leur comportement évolutif : tumeurs malignes (C00–C97), tumeurs in situ (D00–D09), tumeurs bénignes (D10–D36), tumeurs à évolution imprévisible ou inconnue (D37–D48). Une note en tête du groupe D37–D48 explique l’utilisation de ses codes. Une tumeur à évolution imprévisible possède des caractéristiques déterminées et son classement comme telle est un diagnostic positif qui repose sur un examen histologique. La notion de tumeur à évolution imprévisible sous-entend l’élimination des comportements malin, in situ et bénin, et l’identification d’un comportement évolutif différent. Un polyadénome colique, par exemple, ne doit pas être considéré comme une tumeur à évolution imprévisible au motif que, laissé à une évolution naturelle, il est susceptible de devenir malin. La CIM–10 classe le polyadénome colique avec les tumeurs bénignes et ce classement (code D12.6) doit être respecté. En revanche, la CIM–10 classe le polype de vessie avec les tumeurs à évolution imprévisible et ce classement (code D41.4) doit aussi être respecté. Le codage d’une tumeur comme étant à évolution imprévisible nécessite que les informations contenues dans le dossier médical, en particulier dans le compte rendu de l’examen anatomopathologique, soient conformes à ce diagnostic."
+      motif: >-
+        Article VOISIN (TUMEURS), imprimé entre le corps et la
+        définition de la note 77. Son curé existe par ailleurs.
+    - texte: "Loi n° 2004-806 du 9 aout 2004, objectif n° 92. NB : les codes du groupe X60-X84 sont des codes à quatre caractères. Une note dans le volume 1 de la CIM–10, sous le titre du groupe, indique que les quatrièmes caractères sont indiqués au début du chapitre."
+      motif: >-
+        Définitions des notes 75 et 76 de l'article VOISIN (SUICIDES),
+        imprimées au bas de la page partagée 119.
+
+  tumeurs_evolution_imprevisible:
+    - texte: "Loi n° 2004-806 du 9 aout 2004, objectif n° 92. NB : les codes du groupe X60-X84 sont des codes à quatre caractères. Une note dans le volume 1 de la CIM–10, sous le titre du groupe, indique que les quatrièmes caractères sont indiqués au début du chapitre."
+      motif: >-
+        Définitions des notes 75 et 76 de l'article VOISIN (SUICIDES),
+        au bas de la page 119, entre les deux moitiés de l'article.
+    - texte: "La transmission des données vers la plateforme e-PMSI, est traitée dans le point 1 du chapitre III."
+      motif: >-
+        Définition de la note 77 de l'article VOISIN (GRANDS BRÛLÉS),
+        même configuration.
+
   accouchement_impromptu:
     - texte: >-
         ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION L’emploi du
@@ -483,6 +575,11 @@ appels_notes:
   interruption_grossesse: [50, 51, 52, 53, 54, 55, 56]
   precarite: [65]
   resistance_antimicrobiens: [66, 67]
+  sepsis_choc_septique: [68]
+  sequelles_maladies_lesions: [69, 70, 71, 72, 73, 74]
+  suicides_tentatives: [75, 76]
+  grands_brules: [77]
+  violence_routiere: [78, 79]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -601,6 +698,31 @@ ancres_notes:
   resistance_antimicrobiens:
     "66": "d’un caractère supplémentaire en 6e position"
     "67": "la mise en œuvre de mesures d’isolement spécifiques"
+
+  # La référence « [1] » du choc septique n'est pas un appel numérique :
+  # elle reste dans le corps (appel « sepsis[1] » et référence
+  # bibliographique en fin d'article), hors du mécanisme des notes.
+  # L'appel 68 est collé (« sepsis-368 »), replié automatiquement.
+
+  # Six appels hissés, ancres d'après la colonne de l'exposant.
+  sequelles_maladies_lesions:
+    "69": "(volume 2 page 28 ou 33 )."
+    "70": "(B90-B94, E64.–"
+    "71": "T90-T98, Y85-Y89)"
+    "72": "d’autre cause au décès."
+    "73": "au point 2 du chapitre précédent)."
+    "74": "de les utiliser, en position de diagnostic associé,"
+
+  suicides_tentatives:
+    "75": "objectifs nationaux de santé publique."
+    "76": "un code du groupe X60–X84 du chapitre XX"
+
+  grands_brules:
+    "77": "vers la plateforme e- PMSI."
+
+  violence_routiere:
+    "78": "Pour tout accident de la circulation routière"
+    "79": "d’« accident de la voie publique » sans précision."
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et
@@ -762,6 +884,25 @@ validations:
     relecteur: "RF"
     date: "2026-09-05"
   resistance_antimicrobiens:
+    relecteur: "RF"
+    date: "2026-09-05"
+  # -- chantier B, lot 6 (dernier ; verdict global OK) --
+  sepsis_choc_septique:
+    relecteur: "RF"
+    date: "2026-09-05"
+  sequelles_maladies_lesions:
+    relecteur: "RF"
+    date: "2026-09-05"
+  suicides_tentatives:
+    relecteur: "RF"
+    date: "2026-09-05"
+  grands_brules:
+    relecteur: "RF"
+    date: "2026-09-05"
+  tumeurs_evolution_imprevisible:
+    relecteur: "RF"
+    date: "2026-09-05"
+  violence_routiere:
     relecteur: "RF"
     date: "2026-09-05"
 

@@ -244270,6 +244270,9 @@ GM2026-V-RAM-03,U84.8,interdit,CIM-10 frères,Résistance aux médicaments antiv
 GM2026-V-RAM-03,U84.8,interdit,CIM-10 frères,Résistance à de multiples médicaments antimicrobiens (U84.7),non
 GM2026-V-RAM-03,U84.9,interdit,ANS,"résistance aux antibiotiques [U82–U83]
 ",oui
+GM2026-V-SEP-01,R65.1,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+résultats anormaux constatés au cours de l'examen prénatal systématique de la mère (O28.-)
+",non
 GM2026-V-XXI-08,Z04.800,interdit,ANS,"examens relatifs à la grossesse et à la reproduction (Z30-Z36)  (Z39.-)
 ",non
 GM2026-V-XXI-08,Z04.800,interdit,CIM-10,examens relatifs à la grossesse et à la reproduction,non
