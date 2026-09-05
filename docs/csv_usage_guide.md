@@ -331,6 +331,28 @@ r.fiche         # "XV/O04.-0.9.md"
 r.codable_mco   # True
 ```
 
+### Le statut MCO d'un code — sept valeurs, et ce que veut dire « null »
+
+`statut_mco` (colonne des `_index.csv`, de `merged_codes.parquet`, champ
+du résolveur) vient du Type MCO/HAD du kit ATIH 2025 :
+
+| `statut_mco` | Type MCO | Codable en MCO ? | Sens |
+|---|---|---|---|
+| `codable` | 0 | oui | pas de restriction |
+| `interdit_dp_dr` | 1 | oui | jamais en DP ni en DR, autorisé ailleurs |
+| `cause_externe` | 2 | oui | jamais en DP ni en DR — cause externe de morbidité (chapitre XX) |
+| `interdit_dp` | 4 | oui | jamais en DP, autorisé ailleurs |
+| `pere_interdit` | 3 | **non** | catégorie ou sous-catégorie non vide, ou code père interdit : ses subdivisions se codent, pas lui |
+| `supprime` | 3 + `*** SUaa ***` | **non** | supprimé du kit au millésime `aa` |
+| `inconnu_atih` | — | **non** | présent dans nos livrables, absent du kit : pas codable en MCO (ex. localisations `M16.0x` du chapitre XIII) |
+
+`codable_mco` résume la troisième colonne. **`inconnu_atih` n'est pas
+un `null`** : c'est une information (le kit ne connaît pas ce code).
+Un `null` dans `merged_codes.parquet` ne veut dire qu'une chose — la
+jointure avec le kit n'a pas été faite (`build merged` sans
+`atih_codes.parquet`) — et n'apparaît jamais dans les livrables
+publiés.
+
 Réponses négatives, toujours motivées (`r.raison`) et avec un repli :
 
 | `statut` | Repli fourni |
