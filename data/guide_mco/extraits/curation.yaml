@@ -886,6 +886,25 @@ validations:
   resistance_antimicrobiens:
     relecteur: "RF"
     date: "2026-09-05"
+  # -- chantier B, lot 6 (dernier ; verdict global OK) --
+  sepsis_choc_septique:
+    relecteur: "RF"
+    date: "2026-09-05"
+  sequelles_maladies_lesions:
+    relecteur: "RF"
+    date: "2026-09-05"
+  suicides_tentatives:
+    relecteur: "RF"
+    date: "2026-09-05"
+  grands_brules:
+    relecteur: "RF"
+    date: "2026-09-05"
+  tumeurs_evolution_imprevisible:
+    relecteur: "RF"
+    date: "2026-09-05"
+  violence_routiere:
+    relecteur: "RF"
+    date: "2026-09-05"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés
