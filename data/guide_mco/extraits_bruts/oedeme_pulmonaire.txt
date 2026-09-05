@@ -1,0 +1,71 @@
+# Guide méthodologique MCO 2026 (version provisoire) — ŒDÈME PULMONAIRE (imprimée 114)
+#
+# Source  : data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf
+# Chapitre du guide : V (Consignes de codage avec la 10e révision de la CIM)
+# Pages PDF : 122-122  (imprimées : 114-114)
+#
+# Commande exacte :
+#   pdftotext -layout -f 122 -l 122 \
+#     data/guide_mco/guide_methodo_mco_2026_version_provisoire.pdf <sortie>
+# Outil : pdftotext version 26.08.0
+#
+# Régénérer : scripts/extraire_guide_mco.sh
+# ---------------------------------------------------------------------
+
+                                                           114
+
+4.3 Critère « MNA »
+
+Ce dépistage peut être formalisé par un questionnaire tel que le Mini Nutritional Assessment.
+
+4.4 Courbes IOTF (IMC) et courbe de poids chez l’enfant
+
+Les courbes disponibles sur le site de la CRESS64 .
+
+4.5 Courbe de poids chez l’enfant : définition du couloir habituel
+
+Le couloir habituel est le couloir habituel de croissance pondérale de l’enfant ou de référence
+pour des pathologies spécifiques (trisomie 21, myopathie, etc.).
+
+4.6 Critère « stagnation pondérale aboutissant à un poids situé entre 2 et 3 couloirs en dessous
+du couloir habituel » pour la dénutrition modérée chez l’enfant
+
+Pour le critère de la définition HAS, il faut comprendre 2 couloirs en dessous du couloir habituel,
+et jusqu’à la limite du 3ème couloir
+
+4.7 Critère « stagnation pondérale aboutissant à un poids situé au moins 3 couloirs en dessous
+du couloir habituel » pour la dénutrition sévère chez l’enfant
+
+Pour le critère de la définition HAS « poids situé au moins « 3 couloirs (représentant 3 écart-
+types) » il faut comprendre 3 couloirs en percentiles.
+
+
+
+
+ŒDÈME PULMONAIRE
+
+
+Les dénominations « œdème pulmonaire », « œdème aigu pulmonaire », « OAP »,
+correspondent habituellement à une insuffisance ventriculaire [insuffisance cardiaque]
+gauche. Dans ce cas, leur code est I50.1 Insuffisance ventriculaire gauche. Il s’agit d’une
+affection fréquente relevant d’une prise en charge cardiologique. La cause de l’œdème
+pulmonaire est cardiaque, d’où son classement dans le chapitre IX de la CIM–10 avec les
+maladies cardiaques. On doit donc coder I50.1 tout œdème pulmonaire dont l’origine est
+cardiaque.
+Les œdèmes pulmonaires dus à des agents externes sont classés en J60–J70. Les autres
+formes d’œdème pulmonaire se codent en J81 Œdème pulmonaire. C’est le cas par exemple
+de l’œdème pulmonaire de surcharge observé au cours de l’insuffisance rénale.
+
+PRÉCARITÉ
+
+
+Pour mieux décrire les situations de précarité rencontrées par les patients et susceptibles
+d’avoir un impact sur leur prise en charge, des consignes d’utilisation de codes existants ont
+été apportées et des extensions nationales ont été créées en 2015.
+
+
+
+
+64
+     https://cress-umr1153.fr/index.php/courbes-carnet-de-sante/
+

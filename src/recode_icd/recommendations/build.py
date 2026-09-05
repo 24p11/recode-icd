@@ -20,6 +20,7 @@ from pathlib import Path
 import polars as pl
 
 from recode_icd.recommendations.code_expr import CodeExprError, parse_code_expr
+from recode_icd.recommendations.notations import Notations
 from recode_icd.recommendations.resolution import ResolutionError, resout
 
 RECOMMENDATIONS_FILENAME = "recommendations.parquet"
@@ -57,6 +58,11 @@ class RapportBuild:
 
     expressions_non_parsables: list[dict[str, str]] = field(default_factory=list)
     expressions_non_resolues: list[dict[str, str]] = field(default_factory=list)
+    #: Expressions TRADUITES par la table de notations (arbitrage n° 12) :
+    #: la table curée porte la notation du guide, le Parquet résolu porte
+    #: les feuilles du référentiel — la trace dit par quels nœuds on est
+    #: passé. Ni une erreur, ni un silence.
+    expressions_traduites: list[dict[str, str]] = field(default_factory=list)
     recommandations_sans_code: list[str] = field(default_factory=list)
     recouvrement_potentiel: list[dict[str, str]] = field(default_factory=list)
     #: Associations de portée `ensemble`, volontairement non résolues.
@@ -113,8 +119,14 @@ def construit(
     codes: pl.DataFrame,
     merged: pl.DataFrame,
     flat: pl.DataFrame | None = None,
+    notations: Notations | None = None,
 ) -> tuple[pl.DataFrame, pl.DataFrame, RapportBuild]:
     """Résout les expressions et produit les deux tables de sortie.
+
+    `notations` : table de correspondance des catégories à encodage
+    inversé (`notations.py`, arbitrage n° 12). Sans elle, « O04.-1 » est
+    non parsable et « O04.90 » non résolu — tous deux au rapport, rien
+    n'est deviné. Le CLI la charge depuis `referentials/curation/`.
 
     Retourne `(recommendations, recommendation_codes_resolus, rapport)`.
     La table résolue porte **une ligne par (rec_id, code_expr, code)** :
@@ -137,12 +149,21 @@ def construit(
                 f"valeurs admises : {PORTEES} (vide = chaque)."
             )
         try:
-            expr = parse_code_expr(expr_brute)
+            expr = parse_code_expr(expr_brute, notations)
         except CodeExprError as err:
             rapport.expressions_non_parsables.append(
                 {"rec_id": rec_id, "code_expr": expr_brute, "erreur": str(err)}
             )
             continue
+        if expr.noeuds:
+            rapport.expressions_traduites.append(
+                {
+                    "rec_id": rec_id,
+                    "code_expr": expr_brute,
+                    "type_expr": expr.type.name,
+                    "noeuds_referentiel": " ".join(expr.noeuds),
+                }
+            )
         try:
             feuilles = resout(expr, merged)
         except ResolutionError as err:
@@ -212,6 +233,7 @@ def construit(
     rapport.statistiques = _statistiques(
         recs_tries, resolus, codes.height, len(rapport.associations_ensemble)
     )
+    rapport.statistiques["expressions_traduites"] = len(rapport.expressions_traduites)
     if flat is not None:
         rapport.recouvrement_potentiel = _recouvrement_potentiel(resolus, flat)
 
@@ -396,6 +418,15 @@ def ecrit_rapport(rapport: RapportBuild, reports_dir: Path) -> dict[str, Path]:
         "guide_mco_expressions_non_resolues": pl.DataFrame(
             rapport.expressions_non_resolues,
             schema={"rec_id": pl.String, "code_expr": pl.String, "erreur": pl.String},
+        ),
+        "guide_mco_expressions_traduites": pl.DataFrame(
+            rapport.expressions_traduites,
+            schema={
+                "rec_id": pl.String,
+                "code_expr": pl.String,
+                "type_expr": pl.String,
+                "noeuds_referentiel": pl.String,
+            },
         ),
         "guide_mco_recommandations_sans_code": pl.DataFrame(
             {"rec_id": rapport.recommandations_sans_code}, schema={"rec_id": pl.String}

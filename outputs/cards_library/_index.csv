@@ -4140,10 +4140,10 @@ I50.00,IX,IX/I50.00.md,"Insuffisance cardiaque congestive, avec fraction d'éjec
 I50.01,IX,IX/I50.01.md,"Insuffisance cardiaque congestive, avec fraction d'éjection ventriculaire gauche [FEVG] inférieure à 50 et supérieure ou égale à 40",true,false,true,false,false,1744
 I50.02,IX,IX/I50.02.md,"Insuffisance cardiaque congestive, avec fraction d'éjection ventriculaire gauche [FEVG] inférieure à 40",true,false,true,false,false,1716
 I50.09,IX,IX/I50.09.md,"Insuffisance cardiaque congestive, avec fraction d'éjection ventriculaire gauche [FEVG] non précisée",true,false,true,false,true,2089
-I50.10,IX,IX/I50.10.md,"Insuffisance ventriculaire gauche, avec fraction d'éjection ventriculaire gauche [FEVG] supérieure ou égale à 50",true,false,true,false,false,1828
-I50.11,IX,IX/I50.11.md,"Insuffisance ventriculaire gauche, avec fraction d'éjection ventriculaire gauche [FEVG] inférieure à 50 et supérieure ou égale à 40",true,false,true,false,false,1847
-I50.12,IX,IX/I50.12.md,"Insuffisance ventriculaire gauche, avec fraction d'éjection ventriculaire gauche [FEVG] inférieure à 40",true,false,true,false,false,1819
-I50.19,IX,IX/I50.19.md,"Insuffisance ventriculaire gauche, avec fraction d'éjection ventriculaire gauche [FEVG] non précisée",true,false,true,false,false,1816
+I50.10,IX,IX/I50.10.md,"Insuffisance ventriculaire gauche, avec fraction d'éjection ventriculaire gauche [FEVG] supérieure ou égale à 50",true,false,true,true,false,2312
+I50.11,IX,IX/I50.11.md,"Insuffisance ventriculaire gauche, avec fraction d'éjection ventriculaire gauche [FEVG] inférieure à 50 et supérieure ou égale à 40",true,false,true,true,false,2331
+I50.12,IX,IX/I50.12.md,"Insuffisance ventriculaire gauche, avec fraction d'éjection ventriculaire gauche [FEVG] inférieure à 40",true,false,true,true,false,2303
+I50.19,IX,IX/I50.19.md,"Insuffisance ventriculaire gauche, avec fraction d'éjection ventriculaire gauche [FEVG] non précisée",true,false,true,true,false,2300
 I50.9,IX,IX/I50.9.md,"Insuffisance cardiaque, sans précision",true,false,true,false,true,1911
 I51.0,IX,IX/I51.0.md,"Anomalie d'un septum cardiaque, acquise",true,false,true,false,true,1725
 I51.1,IX,IX/I51.1.md,"Rupture des cordages tendineux, non classée ailleurs",false,false,true,false,true,1623
@@ -4367,7 +4367,7 @@ J12.2,X,X/J12.2.md,Pneumopathie due aux virus paragrippaux,true,false,true,false
 J12.3,X,X/J12.3.md,Pneumopathie due à métapneumovirus humain,true,false,true,false,true,1725
 J12.8,X,X/J12.8.md,Autres pneumopathies virales,true,false,true,false,true,2138
 J12.9,X,X/J12.9.md,"Pneumopathie virale, sans précision",true,false,true,false,true,1883
-J13,X,X/J13.md,Pneumonie due à Streptococcus pneumoniae,true,false,true,false,true,1634
+J13,X,X/J13.md,Pneumonie due à Streptococcus pneumoniae,true,false,true,true,true,2155
 J14,X,X/J14.md,Pneumopathie due à Haemophilus influenzae,true,false,true,false,true,1620
 J15.0,X,X/J15.0.md,Pneumopathie due à Klebsiella pneumoniae,true,false,true,false,true,1552
 J15.1,X,X/J15.1.md,Pneumopathie due à Pseudomonas,true,false,true,false,true,1642
@@ -4473,52 +4473,52 @@ J45.8,X,X/J45.8.md,Asthme associé,true,false,true,false,true,1615
 J45.9,X,X/J45.9.md,"Asthme, sans précision",true,false,true,false,true,1739
 J46,X,X/J46.md,État de mal asthmatique,true,false,true,false,true,1442
 J47,X,X/J47.md,Bronchectasie,true,false,true,false,true,1577
-J60,X,X/J60.md,Pneumoconiose des mineurs de charbon,true,false,true,false,true,1557
-J61,X,X/J61.md,Pneumoconiose due à l'amiante et à d'autres fibres minérales,true,false,true,false,true,1483
-J62.0,X,X/J62.0.md,Pneumoconiose due à la poussière du talc,true,false,true,false,true,1221
-J62.8,X,X/J62.8.md,Pneumoconiose due à d'autres poussières de silice,true,false,true,false,true,1653
-J63.0,X,X/J63.0.md,Aluminose (du poumon),false,false,true,false,true,1100
-J63.1,X,X/J63.1.md,Fibrose (du poumon) due à la bauxite,false,false,true,false,true,1150
-J63.2,X,X/J63.2.md,Bérylliose,false,false,true,false,true,1080
-J63.3,X,X/J63.3.md,Fibrose (du poumon) due au graphite,false,false,true,false,true,1101
-J63.4,X,X/J63.4.md,Sidérose,false,false,true,false,true,1203
-J63.5,X,X/J63.5.md,Stannose,false,false,true,false,true,1060
-J63.8,X,X/J63.8.md,Pneumoconiose due à d'autres poussières inorganiques précisées,false,false,true,false,true,1622
-J64,X,X/J64.md,"Pneumoconiose, sans précision",false,false,true,false,true,1139
-J65,X,X/J65.md,Pneumoconiose associée à la tuberculose,true,false,true,false,true,1564
-J66.0,X,X/J66.0.md,Byssinose,true,false,true,false,true,1288
-J66.1,X,X/J66.1.md,Maladie des apprêteurs du lin,false,false,true,false,false,1144
-J66.2,X,X/J66.2.md,Cannabinose,false,false,true,false,true,1180
-J66.8,X,X/J66.8.md,Affection des voies aériennes due à d'autres poussières organiques précisées,false,false,true,false,false,1320
-J67.0,X,X/J67.0.md,Poumon de fermier,true,false,true,false,true,1646
-J67.1,X,X/J67.1.md,Bagassose,true,false,true,false,true,1401
-J67.2,X,X/J67.2.md,Poumon des oiseleurs,true,false,true,false,true,1700
-J67.3,X,X/J67.3.md,Subérose,true,false,true,false,true,1437
-J67.4,X,X/J67.4.md,Poumon des malteurs,true,false,true,false,false,1315
-J67.5,X,X/J67.5.md,Poumon des champignonnistes,true,false,true,false,true,1336
-J67.6,X,X/J67.6.md,Poumon des écorceurs d'érables,true,false,true,false,false,1345
-J67.7,X,X/J67.7.md,Maladie pulmonaire due aux systèmes de conditionnement et d'humidification de l'air,true,false,true,false,false,1504
-J67.8,X,X/J67.8.md,Pneumopathie par hypersensibilité à d'autres poussières organiques,true,false,true,false,true,2104
-J67.9,X,X/J67.9.md,"Pneumopathie par hypersensibilité aux poussières organiques, sans précision",true,false,true,false,true,1778
-J68.0,X,X/J68.0.md,"Bronchite et pneumonopathie dues à des agents chimiques, des émanations, des fumées et des gaz",true,false,true,false,true,1228
-J68.1,X,X/J68.1.md,"Œdème du poumon dû à des agents chimiques, des émanations, des fumées et des gaz",true,false,true,false,true,1159
-J68.2,X,X/J68.2.md,"Inflammation des voies respiratoires supérieures due à des agents chimiques, des émanations, des fumées et des gaz, non classée ailleurs",false,false,true,false,false,1003
-J68.3,X,X/J68.3.md,"Autres affections respiratoires aigües et subaigües dues à des agents chimiques, des émanations, des fumées et des gaz",true,false,true,false,true,1171
-J68.4,X,X/J68.4.md,"Affections respiratoires chroniques dues à des agents chimiques, des émanations, des fumées et des gaz",true,false,true,false,true,1773
-J68.8,X,X/J68.8.md,"Autres affections respiratoires dues à des agents chimiques, des émanations, des fumées et des gaz",false,false,true,false,true,1690
-J68.9,X,X/J68.9.md,"Affection respiratoire due à des agents chimiques, des émanations, des fumées et des gaz, sans précision",false,false,true,false,true,1093
-J69.0,X,X/J69.0.md,Pneumopathie due à des aliments et des vomissements,true,false,true,false,true,1872
-J69.1,X,X/J69.1.md,Pneumopathie due à des huiles et des essences,true,false,true,false,true,1331
-J69.8,X,X/J69.8.md,Pneumopathie due à d'autres substances solides et liquides,true,false,true,false,true,1366
-J70.0,X,X/J70.0.md,Affections pulmonaires aigües dues à une irradiation,true,false,true,false,true,1401
-J70.1,X,X/J70.1.md,Affections pulmonaires chroniques et autres dues à une irradiation,true,false,true,false,true,1425
-J70.2,X,X/J70.2.md,"Affections pulmonaires interstitielles aigües, médicamenteuses",false,false,true,false,true,1180
-J70.3,X,X/J70.3.md,"Affections pulmonaires interstitielles chroniques, médicamenteuses",false,false,true,false,true,1315
-J70.4,X,X/J70.4.md,"Affection pulmonaire interstitielle médicamenteuse, sans précision",false,false,true,false,true,1335
-J70.8,X,X/J70.8.md,Affections respiratoires dues à d'autres agents externes précisés,false,false,true,false,true,1680
-J70.9,X,X/J70.9.md,Affection respiratoire due à un agent externe non précisé,false,false,true,false,true,1365
+J60,X,X/J60.md,Pneumoconiose des mineurs de charbon,true,false,true,true,true,2041
+J61,X,X/J61.md,Pneumoconiose due à l'amiante et à d'autres fibres minérales,true,false,true,true,true,1967
+J62.0,X,X/J62.0.md,Pneumoconiose due à la poussière du talc,true,false,true,true,true,1705
+J62.8,X,X/J62.8.md,Pneumoconiose due à d'autres poussières de silice,true,false,true,true,true,2137
+J63.0,X,X/J63.0.md,Aluminose (du poumon),false,false,true,true,true,1584
+J63.1,X,X/J63.1.md,Fibrose (du poumon) due à la bauxite,false,false,true,true,true,1634
+J63.2,X,X/J63.2.md,Bérylliose,false,false,true,true,true,1564
+J63.3,X,X/J63.3.md,Fibrose (du poumon) due au graphite,false,false,true,true,true,1585
+J63.4,X,X/J63.4.md,Sidérose,false,false,true,true,true,1687
+J63.5,X,X/J63.5.md,Stannose,false,false,true,true,true,1544
+J63.8,X,X/J63.8.md,Pneumoconiose due à d'autres poussières inorganiques précisées,false,false,true,true,true,2106
+J64,X,X/J64.md,"Pneumoconiose, sans précision",false,false,true,true,true,1623
+J65,X,X/J65.md,Pneumoconiose associée à la tuberculose,true,false,true,true,true,2048
+J66.0,X,X/J66.0.md,Byssinose,true,false,true,true,true,1772
+J66.1,X,X/J66.1.md,Maladie des apprêteurs du lin,false,false,true,true,false,1628
+J66.2,X,X/J66.2.md,Cannabinose,false,false,true,true,true,1664
+J66.8,X,X/J66.8.md,Affection des voies aériennes due à d'autres poussières organiques précisées,false,false,true,true,false,1804
+J67.0,X,X/J67.0.md,Poumon de fermier,true,false,true,true,true,2130
+J67.1,X,X/J67.1.md,Bagassose,true,false,true,true,true,1885
+J67.2,X,X/J67.2.md,Poumon des oiseleurs,true,false,true,true,true,2184
+J67.3,X,X/J67.3.md,Subérose,true,false,true,true,true,1921
+J67.4,X,X/J67.4.md,Poumon des malteurs,true,false,true,true,false,1799
+J67.5,X,X/J67.5.md,Poumon des champignonnistes,true,false,true,true,true,1820
+J67.6,X,X/J67.6.md,Poumon des écorceurs d'érables,true,false,true,true,false,1829
+J67.7,X,X/J67.7.md,Maladie pulmonaire due aux systèmes de conditionnement et d'humidification de l'air,true,false,true,true,false,1988
+J67.8,X,X/J67.8.md,Pneumopathie par hypersensibilité à d'autres poussières organiques,true,false,true,true,true,2588
+J67.9,X,X/J67.9.md,"Pneumopathie par hypersensibilité aux poussières organiques, sans précision",true,false,true,true,true,2262
+J68.0,X,X/J68.0.md,"Bronchite et pneumonopathie dues à des agents chimiques, des émanations, des fumées et des gaz",true,false,true,true,true,1712
+J68.1,X,X/J68.1.md,"Œdème du poumon dû à des agents chimiques, des émanations, des fumées et des gaz",true,false,true,true,true,1643
+J68.2,X,X/J68.2.md,"Inflammation des voies respiratoires supérieures due à des agents chimiques, des émanations, des fumées et des gaz, non classée ailleurs",false,false,true,true,false,1487
+J68.3,X,X/J68.3.md,"Autres affections respiratoires aigües et subaigües dues à des agents chimiques, des émanations, des fumées et des gaz",true,false,true,true,true,1655
+J68.4,X,X/J68.4.md,"Affections respiratoires chroniques dues à des agents chimiques, des émanations, des fumées et des gaz",true,false,true,true,true,2257
+J68.8,X,X/J68.8.md,"Autres affections respiratoires dues à des agents chimiques, des émanations, des fumées et des gaz",false,false,true,true,true,2174
+J68.9,X,X/J68.9.md,"Affection respiratoire due à des agents chimiques, des émanations, des fumées et des gaz, sans précision",false,false,true,true,true,1577
+J69.0,X,X/J69.0.md,Pneumopathie due à des aliments et des vomissements,true,false,true,true,true,2356
+J69.1,X,X/J69.1.md,Pneumopathie due à des huiles et des essences,true,false,true,true,true,1815
+J69.8,X,X/J69.8.md,Pneumopathie due à d'autres substances solides et liquides,true,false,true,true,true,1850
+J70.0,X,X/J70.0.md,Affections pulmonaires aigües dues à une irradiation,true,false,true,true,true,1885
+J70.1,X,X/J70.1.md,Affections pulmonaires chroniques et autres dues à une irradiation,true,false,true,true,true,1909
+J70.2,X,X/J70.2.md,"Affections pulmonaires interstitielles aigües, médicamenteuses",false,false,true,true,true,1664
+J70.3,X,X/J70.3.md,"Affections pulmonaires interstitielles chroniques, médicamenteuses",false,false,true,true,true,1799
+J70.4,X,X/J70.4.md,"Affection pulmonaire interstitielle médicamenteuse, sans précision",false,false,true,true,true,1819
+J70.8,X,X/J70.8.md,Affections respiratoires dues à d'autres agents externes précisés,false,false,true,true,true,2164
+J70.9,X,X/J70.9.md,Affection respiratoire due à un agent externe non précisé,false,false,true,true,true,1849
 J80,X,X/J80.md,Syndrome de détresse respiratoire aigüe,true,false,true,false,true,1550
-J81,X,X/J81.md,Œdème pulmonaire,true,false,true,false,true,1687
+J81,X,X/J81.md,Œdème pulmonaire,true,false,true,true,true,2171
 J82,X,X/J82.md,"Éosinophilie pulmonaire, non classée ailleurs",true,false,true,false,true,1878
 J84.0,X,X/J84.0.md,Pneumopathies alvéolaires et pariétoalvéolaires,true,false,true,false,true,1914
 J84.1,X,X/J84.1.md,Autres affections pulmonaires interstitielles avec fibrose,true,false,true,false,true,2167
@@ -10704,46 +10704,46 @@ O03.6,XV,XV/O03.6.md,"Avortement spontané - "" Complet ou sans précision, comp
 O03.7,XV,XV/O03.7.md,"Avortement spontané - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,1685
 O03.8,XV,XV/O03.8.md,"Avortement spontané - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2572
 O03.9,XV,XV/O03.9.md,"Avortement spontané - "" Complet ou sans précision, sans complication """,true,false,true,true,true,1908
-O04.-0.0,XV,XV/O04.-0.0.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2091
-O04.-0.1,XV,XV/O04.-0.1.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2065
-O04.-0.2,XV,XV/O04.-0.2.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,2043
-O04.-0.3,XV,XV/O04.-0.3.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, avec complications autres et non précisées """,true,false,true,true,false,2068
-O04.-0.4,XV,XV/O04.-0.4.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, sans complication """,true,false,true,true,false,1990
-O04.-0.5,XV,XV/O04.-0.5.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2107
-O04.-0.6,XV,XV/O04.-0.6.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2081
-O04.-0.7,XV,XV/O04.-0.7.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,2059
-O04.-0.8,XV,XV/O04.-0.8.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2084
-O04.-0.9,XV,XV/O04.-0.9.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, sans complication """,true,false,true,true,false,2006
-O04.-1.0,XV,XV/O04.-1.0.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2100
-O04.-1.1,XV,XV/O04.-1.1.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2074
-O04.-1.2,XV,XV/O04.-1.2.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,2052
-O04.-1.3,XV,XV/O04.-1.3.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, avec complications autres et non précisées """,true,false,true,true,false,2077
-O04.-1.4,XV,XV/O04.-1.4.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, sans complication """,true,false,true,true,false,1999
-O04.-1.5,XV,XV/O04.-1.5.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2116
-O04.-1.6,XV,XV/O04.-1.6.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2090
-O04.-1.7,XV,XV/O04.-1.7.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,2068
-O04.-1.8,XV,XV/O04.-1.8.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2093
-O04.-1.9,XV,XV/O04.-1.9.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, sans complication """,true,false,true,true,false,2015
-O04.-2.0,XV,XV/O04.-2.0.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2088
-O04.-2.1,XV,XV/O04.-2.1.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2062
-O04.-2.2,XV,XV/O04.-2.2.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,2040
-O04.-2.3,XV,XV/O04.-2.3.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, avec complications autres et non précisées """,true,false,true,true,false,2065
-O04.-2.4,XV,XV/O04.-2.4.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, sans complication """,true,false,true,true,false,1987
-O04.-2.5,XV,XV/O04.-2.5.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2104
-O04.-2.6,XV,XV/O04.-2.6.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2078
-O04.-2.7,XV,XV/O04.-2.7.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,2056
-O04.-2.8,XV,XV/O04.-2.8.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2081
-O04.-2.9,XV,XV/O04.-2.9.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, sans complication """,true,false,true,true,false,2003
-O04.-3.0,XV,XV/O04.-3.0.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2114
-O04.-3.1,XV,XV/O04.-3.1.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2088
-O04.-3.2,XV,XV/O04.-3.2.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,2066
-O04.-3.3,XV,XV/O04.-3.3.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, avec complications autres et non précisées """,true,false,true,true,false,2091
-O04.-3.4,XV,XV/O04.-3.4.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, sans complication """,true,false,true,true,false,2013
-O04.-3.5,XV,XV/O04.-3.5.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2130
-O04.-3.6,XV,XV/O04.-3.6.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2104
-O04.-3.7,XV,XV/O04.-3.7.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,2082
-O04.-3.8,XV,XV/O04.-3.8.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2107
-O04.-3.9,XV,XV/O04.-3.9.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, sans complication """,true,false,true,true,false,2029
+O04.-0.0,XV,XV/O04.-0.0.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2394
+O04.-0.1,XV,XV/O04.-0.1.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2368
+O04.-0.2,XV,XV/O04.-0.2.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,2346
+O04.-0.3,XV,XV/O04.-0.3.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, avec complications autres et non précisées """,true,false,true,true,false,2371
+O04.-0.4,XV,XV/O04.-0.4.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Incomplet, sans complication """,true,false,true,true,false,2659
+O04.-0.5,XV,XV/O04.-0.5.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2410
+O04.-0.6,XV,XV/O04.-0.6.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2384
+O04.-0.7,XV,XV/O04.-0.7.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,2362
+O04.-0.8,XV,XV/O04.-0.8.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2387
+O04.-0.9,XV,XV/O04.-0.9.md,"Interruption médicale volontaire de grossesse [IVG dans le cadre légal] - "" Complet ou sans précision, sans complication """,true,false,true,true,false,2928
+O04.-1.0,XV,XV/O04.-1.0.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2984
+O04.-1.1,XV,XV/O04.-1.1.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2958
+O04.-1.2,XV,XV/O04.-1.2.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,2936
+O04.-1.3,XV,XV/O04.-1.3.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, avec complications autres et non précisées """,true,false,true,true,false,2961
+O04.-1.4,XV,XV/O04.-1.4.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Incomplet, sans complication """,true,false,true,true,false,3249
+O04.-1.5,XV,XV/O04.-1.5.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,3000
+O04.-1.6,XV,XV/O04.-1.6.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2974
+O04.-1.7,XV,XV/O04.-1.7.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,2952
+O04.-1.8,XV,XV/O04.-1.8.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2977
+O04.-1.9,XV,XV/O04.-1.9.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause embryonnaire ou fœtale - "" Complet ou sans précision, sans complication """,true,false,true,true,false,2899
+O04.-2.0,XV,XV/O04.-2.0.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2972
+O04.-2.1,XV,XV/O04.-2.1.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2946
+O04.-2.2,XV,XV/O04.-2.2.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,2924
+O04.-2.3,XV,XV/O04.-2.3.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, avec complications autres et non précisées """,true,false,true,true,false,2949
+O04.-2.4,XV,XV/O04.-2.4.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Incomplet, sans complication """,true,false,true,true,false,3237
+O04.-2.5,XV,XV/O04.-2.5.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2988
+O04.-2.6,XV,XV/O04.-2.6.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2962
+O04.-2.7,XV,XV/O04.-2.7.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,2940
+O04.-2.8,XV,XV/O04.-2.8.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2965
+O04.-2.9,XV,XV/O04.-2.9.md,"Interruption médicale de grossesse [IMG] [ITG] pour cause maternelle - "" Complet ou sans précision, sans complication """,true,false,true,true,false,2887
+O04.-3.0,XV,XV/O04.-3.0.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,2998
+O04.-3.1,XV,XV/O04.-3.1.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2972
+O04.-3.2,XV,XV/O04.-3.2.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,2950
+O04.-3.3,XV,XV/O04.-3.3.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, avec complications autres et non précisées """,true,false,true,true,false,2975
+O04.-3.4,XV,XV/O04.-3.4.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Incomplet, sans complication """,true,false,true,true,false,3263
+O04.-3.5,XV,XV/O04.-3.5.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,3014
+O04.-3.6,XV,XV/O04.-3.6.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,2988
+O04.-3.7,XV,XV/O04.-3.7.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,2966
+O04.-3.8,XV,XV/O04.-3.8.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2991
+O04.-3.9,XV,XV/O04.-3.9.md,"Interruption médicale de grossesse [IMG] [ITG] pour association de causes fœtale et maternelle - "" Complet ou sans précision, sans complication """,true,false,true,true,false,2913
 O05.0,XV,XV/O05.0.md,"Autres formes d'avortement - "" Incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens """,true,false,true,true,false,1665
 O05.1,XV,XV/O05.1.md,"Autres formes d'avortement - "" Incomplet, compliqué d'une hémorragie retardée ou sévère """,true,false,true,true,false,1639
 O05.2,XV,XV/O05.2.md,"Autres formes d'avortement - "" Incomplet, compliqué d'une embolie """,true,false,true,true,false,1617
@@ -10764,26 +10764,26 @@ O06.6,XV,XV/O06.6.md,"Avortement, sans précision - "" Complet ou sans précisio
 O06.7,XV,XV/O06.7.md,"Avortement, sans précision - "" Complet ou sans précision, compliqué d'une embolie """,true,false,true,true,false,1702
 O06.8,XV,XV/O06.8.md,"Avortement, sans précision - "" Complet ou sans précision, avec complications autres et non précisées """,true,false,true,true,false,2645
 O06.9,XV,XV/O06.9.md,"Avortement, sans précision - "" Complet ou sans précision, sans complication """,true,false,true,true,true,1749
-O07.0,XV,XV/O07.0.md,"Échec d'une tentative d'avortement médical, compliqué d'une infection de l'appareil génital et des organes pelviens",true,false,true,false,false,1279
-O07.1,XV,XV/O07.1.md,"Échec d'une tentative d'avortement médical, compliqué d'une hémorragie retardée ou sévère",true,false,true,false,false,1253
-O07.2,XV,XV/O07.2.md,"Échec d'une tentative d'avortement médical, compliqué d'une embolie",true,false,true,false,false,1231
-O07.3,XV,XV/O07.3.md,"Échec d'une tentative d'avortement médical, avec complications autres et non précisées",true,false,true,false,false,1292
-O07.4,XV,XV/O07.4.md,"Échec d'une tentative d'avortement médical, sans complication",true,false,true,false,false,1248
-O07.5,XV,XV/O07.5.md,"Échecs d'une tentative d'avortement, autres et sans précision, compliqués d'une infection de l'appareil génital et des organes pelviens",true,false,true,false,false,1299
-O07.6,XV,XV/O07.6.md,"Échecs d'une tentative d'avortement, autres et sans précision, compliqués d'une hémorragie retardée ou sévère",true,false,true,false,false,1273
-O07.7,XV,XV/O07.7.md,"Échecs d'une tentative d'avortement, autres et sans précision, compliqués d'une embolie",true,false,true,false,false,1251
-O07.8,XV,XV/O07.8.md,"Échecs d'une tentative d'avortement, autres et sans précision, avec complications autres et non précisées",true,false,true,false,false,2205
-O07.9,XV,XV/O07.9.md,"Échecs d'une tentative d'avortement, autres et sans précision, sans complication",true,false,true,false,false,1230
-O08.0,XV,XV/O08.0.md,"Infection de l'appareil génital et des organes pelviens consécutive à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,3060
-O08.1,XV,XV/O08.1.md,"Hémorragie retardée ou sévère consécutive à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,2476
-O08.2,XV,XV/O08.2.md,"Embolie consécutive à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,2662
-O08.3,XV,XV/O08.3.md,"Choc consécutif à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,1962
-O08.4,XV,XV/O08.4.md,"Insuffisance rénale consécutive à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,2337
-O08.5,XV,XV/O08.5.md,"Troubles du métabolisme consécutifs à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,false,1737
-O08.6,XV,XV/O08.6.md,"Lésions des organes et tissus pelviens consécutives à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,2759
-O08.7,XV,XV/O08.7.md,"Autres complications veineuses consécutives à un avortement, une grossesse extra-utérine et molaire",false,false,true,true,false,1571
-O08.8,XV,XV/O08.8.md,"Autres complications consécutives à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,false,2695
-O08.9,XV,XV/O08.9.md,"Complication consécutive à un avortement, une grossesse extra-utérine et molaire, sans précision",true,false,true,true,false,1743
+O07.0,XV,XV/O07.0.md,"Échec d'une tentative d'avortement médical, compliqué d'une infection de l'appareil génital et des organes pelviens",true,false,true,true,false,1667
+O07.1,XV,XV/O07.1.md,"Échec d'une tentative d'avortement médical, compliqué d'une hémorragie retardée ou sévère",true,false,true,true,false,1641
+O07.2,XV,XV/O07.2.md,"Échec d'une tentative d'avortement médical, compliqué d'une embolie",true,false,true,true,false,1619
+O07.3,XV,XV/O07.3.md,"Échec d'une tentative d'avortement médical, avec complications autres et non précisées",true,false,true,true,false,1680
+O07.4,XV,XV/O07.4.md,"Échec d'une tentative d'avortement médical, sans complication",true,false,true,true,false,2255
+O07.5,XV,XV/O07.5.md,"Échecs d'une tentative d'avortement, autres et sans précision, compliqués d'une infection de l'appareil génital et des organes pelviens",true,false,true,true,false,1687
+O07.6,XV,XV/O07.6.md,"Échecs d'une tentative d'avortement, autres et sans précision, compliqués d'une hémorragie retardée ou sévère",true,false,true,true,false,1661
+O07.7,XV,XV/O07.7.md,"Échecs d'une tentative d'avortement, autres et sans précision, compliqués d'une embolie",true,false,true,true,false,1639
+O07.8,XV,XV/O07.8.md,"Échecs d'une tentative d'avortement, autres et sans précision, avec complications autres et non précisées",true,false,true,true,false,2593
+O07.9,XV,XV/O07.9.md,"Échecs d'une tentative d'avortement, autres et sans précision, sans complication",true,false,true,true,false,2237
+O08.0,XV,XV/O08.0.md,"Infection de l'appareil génital et des organes pelviens consécutive à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,3729
+O08.1,XV,XV/O08.1.md,"Hémorragie retardée ou sévère consécutive à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,3145
+O08.2,XV,XV/O08.2.md,"Embolie consécutive à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,3331
+O08.3,XV,XV/O08.3.md,"Choc consécutif à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,2631
+O08.4,XV,XV/O08.4.md,"Insuffisance rénale consécutive à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,3006
+O08.5,XV,XV/O08.5.md,"Troubles du métabolisme consécutifs à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,false,2406
+O08.6,XV,XV/O08.6.md,"Lésions des organes et tissus pelviens consécutives à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,true,3428
+O08.7,XV,XV/O08.7.md,"Autres complications veineuses consécutives à un avortement, une grossesse extra-utérine et molaire",false,false,true,true,false,2240
+O08.8,XV,XV/O08.8.md,"Autres complications consécutives à un avortement, une grossesse extra-utérine et molaire",true,false,true,true,false,3364
+O08.9,XV,XV/O08.9.md,"Complication consécutive à un avortement, une grossesse extra-utérine et molaire, sans précision",true,false,true,true,false,2412
 O10.0,XV,XV/O10.0.md,"Hypertension essentielle préexistante compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1487
 O10.1,XV,XV/O10.1.md,"Cardiopathie hypertensive préexistante compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,false,1393
 O10.2,XV,XV/O10.2.md,"Néphropathie hypertensive préexistante compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1502
@@ -10899,16 +10899,16 @@ O34.6,XV,XV/O34.6.md,Soins maternels pour anomalies du vagin,true,false,true,fal
 O34.7,XV,XV/O34.7.md,Soins maternels pour anomalies de la vulve et du périnée,true,false,true,false,true,1729
 O34.8,XV,XV/O34.8.md,Soins maternels pour d'autres anomalies des organes pelviens,true,false,true,false,true,2389
 O34.9,XV,XV/O34.9.md,"Soins maternels pour anomalie d'un organe pelvien, sans précision",true,false,true,false,true,1351
-O35.0,XV,XV/O35.0.md,Soins maternels pour malformation (présumée) du système nerveux central du fœtus,true,false,true,false,false,1549
-O35.1,XV,XV/O35.1.md,Soins maternels pour anomalie chromosomique (présumée) du fœtus,true,false,true,false,false,1312
-O35.2,XV,XV/O35.2.md,Soins maternels pour maladie héréditaire (présumée) du fœtus,true,false,true,false,false,1388
-O35.3,XV,XV/O35.3.md,Soins maternels pour lésions fœtales (présumées) résultant d'une maladie virale de la mère,true,false,true,false,false,1584
-O35.4,XV,XV/O35.4.md,Soins maternels pour lésions fœtales (présumées) dues à l'alcoolisme maternel,true,false,true,false,false,1326
-O35.5,XV,XV/O35.5.md,Soins maternels pour lésions fœtales (présumées) médicamenteuses,true,false,true,false,false,1554
-O35.6,XV,XV/O35.6.md,Soins maternels pour lésions fœtales (présumées) dues à une irradiation,true,false,true,false,false,1320
-O35.7,XV,XV/O35.7.md,Soins maternels pour lésions fœtales (présumées) dues à d'autres actes à visée diagnostique et thérapeutique,true,false,true,true,false,2336
-O35.8,XV,XV/O35.8.md,Soins maternels pour d'autres anomalies et lésions fœtales (présumées),true,false,true,false,true,2404
-O35.9,XV,XV/O35.9.md,"Soins maternels pour anomalie et lésion fœtale (présumées), sans précision",true,false,true,false,false,1294
+O35.0,XV,XV/O35.0.md,Soins maternels pour malformation (présumée) du système nerveux central du fœtus,true,false,true,true,false,2778
+O35.1,XV,XV/O35.1.md,Soins maternels pour anomalie chromosomique (présumée) du fœtus,true,false,true,true,false,2541
+O35.2,XV,XV/O35.2.md,Soins maternels pour maladie héréditaire (présumée) du fœtus,true,false,true,true,false,2617
+O35.3,XV,XV/O35.3.md,Soins maternels pour lésions fœtales (présumées) résultant d'une maladie virale de la mère,true,false,true,true,false,2813
+O35.4,XV,XV/O35.4.md,Soins maternels pour lésions fœtales (présumées) dues à l'alcoolisme maternel,true,false,true,true,false,2555
+O35.5,XV,XV/O35.5.md,Soins maternels pour lésions fœtales (présumées) médicamenteuses,true,false,true,true,false,2783
+O35.6,XV,XV/O35.6.md,Soins maternels pour lésions fœtales (présumées) dues à une irradiation,true,false,true,true,false,2549
+O35.7,XV,XV/O35.7.md,Soins maternels pour lésions fœtales (présumées) dues à d'autres actes à visée diagnostique et thérapeutique,true,false,true,true,false,3502
+O35.8,XV,XV/O35.8.md,Soins maternels pour d'autres anomalies et lésions fœtales (présumées),true,false,true,true,true,3633
+O35.9,XV,XV/O35.9.md,"Soins maternels pour anomalie et lésion fœtale (présumées), sans précision",true,false,true,true,false,2523
 O36.0,XV,XV/O36.0.md,Soins maternels pour iso-immunisation anti-Rh,true,false,true,false,true,1513
 O36.1,XV,XV/O36.1.md,Soins maternels pour une autre iso-immunisation,true,false,true,false,false,1433
 O36.2,XV,XV/O36.2.md,Soins maternels pour anasarque fœtoplacentaire,true,false,true,false,true,1560
@@ -11130,25 +11130,25 @@ O96.9,XV,XV/O96.9.md,Mort relevant d'une cause obstétricale non précisée surv
 O97.0,XV,XV/O97.0.md,Mort de séquelles relevant directement d’une cause obstétricale,false,false,true,false,true,1343
 O97.1,XV,XV/O97.1.md,Mort de séquelles relevant indirectement d’une cause obstétricale,false,false,true,false,false,1101
 O97.9,XV,XV/O97.9.md,"Mort de séquelles relevant d’une cause obstétricale, non précisée",false,false,true,false,true,1385
-O98.0,XV,XV/O98.0.md,"Tuberculose compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1691
-O98.1,XV,XV/O98.1.md,"Syphilis compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1702
-O98.2,XV,XV/O98.2.md,"Gonococcie compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,false,1620
-O98.3,XV,XV/O98.3.md,"Autres maladies dont le mode de transmission est essentiellement sexuel, compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,false,1723
-O98.4,XV,XV/O98.4.md,"Hépatite virale compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,false,1629
-O98.5,XV,XV/O98.5.md,"Autres maladies virales compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1755
-O98.6,XV,XV/O98.6.md,"Maladies à protozoaires compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,false,1637
-O98.7,XV,XV/O98.7.md,"Maladies dues au virus de l’immunodéficience [VIH] compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1759
-O98.8,XV,XV/O98.8.md,"Autres maladies infectieuses et parasitaires de la mère compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,2551
-O98.9,XV,XV/O98.9.md,"Maladie infectieuse ou parasitaire de la mère compliquant la grossesse, l'accouchement et la puerpéralité, sans précision",true,false,true,false,true,1830
-O99.0,XV,XV/O99.0.md,"Anémie compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1511
-O99.1,XV,XV/O99.1.md,"Autres maladies du sang et des organes hématopoïétiques et certaines anomalies du système immunitaire compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1655
-O99.2,XV,XV/O99.2.md,"Maladies endocriniennes, nutritionnelles et métaboliques compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1662
-O99.3,XV,XV/O99.3.md,"Troubles mentaux et maladies du système nerveux compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1739
-O99.4,XV,XV/O99.4.md,"Maladies de l'appareil circulatoire compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,2156
-O99.5,XV,XV/O99.5.md,"Maladies de l'appareil respiratoire compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1655
-O99.6,XV,XV/O99.6.md,"Maladies de l'appareil digestif compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,false,1550
-O99.7,XV,XV/O99.7.md,"Maladies de la peau et du tissu cellulaire souscutané compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,1622
-O99.8,XV,XV/O99.8.md,"Autres maladies et affections précisées compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,false,true,3223
+O98.0,XV,XV/O98.0.md,"Tuberculose compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2920
+O98.1,XV,XV/O98.1.md,"Syphilis compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2931
+O98.2,XV,XV/O98.2.md,"Gonococcie compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,false,2849
+O98.3,XV,XV/O98.3.md,"Autres maladies dont le mode de transmission est essentiellement sexuel, compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,false,2952
+O98.4,XV,XV/O98.4.md,"Hépatite virale compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,false,2858
+O98.5,XV,XV/O98.5.md,"Autres maladies virales compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2984
+O98.6,XV,XV/O98.6.md,"Maladies à protozoaires compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,false,2866
+O98.7,XV,XV/O98.7.md,"Maladies dues au virus de l’immunodéficience [VIH] compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2988
+O98.8,XV,XV/O98.8.md,"Autres maladies infectieuses et parasitaires de la mère compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,3780
+O98.9,XV,XV/O98.9.md,"Maladie infectieuse ou parasitaire de la mère compliquant la grossesse, l'accouchement et la puerpéralité, sans précision",true,false,true,true,true,3059
+O99.0,XV,XV/O99.0.md,"Anémie compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2740
+O99.1,XV,XV/O99.1.md,"Autres maladies du sang et des organes hématopoïétiques et certaines anomalies du système immunitaire compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2884
+O99.2,XV,XV/O99.2.md,"Maladies endocriniennes, nutritionnelles et métaboliques compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2891
+O99.3,XV,XV/O99.3.md,"Troubles mentaux et maladies du système nerveux compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2968
+O99.4,XV,XV/O99.4.md,"Maladies de l'appareil circulatoire compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,3385
+O99.5,XV,XV/O99.5.md,"Maladies de l'appareil respiratoire compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2884
+O99.6,XV,XV/O99.6.md,"Maladies de l'appareil digestif compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,false,2779
+O99.7,XV,XV/O99.7.md,"Maladies de la peau et du tissu cellulaire souscutané compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,2851
+O99.8,XV,XV/O99.8.md,"Autres maladies et affections précisées compliquant la grossesse, l'accouchement et la puerpéralité",true,false,true,true,true,4452
 P00.0,XVI,XVI/P00.0.md,Fœtus et nouveau-né affectés par des troubles hypertensifs de la mère,true,false,true,true,true,2743
 P00.1,XVI,XVI/P00.1.md,Fœtus et nouveau-né affectés par des maladies rénales et des voies urinaires de la mère,true,false,true,true,true,2882
 P00.2,XVI,XVI/P00.2.md,Fœtus et nouveau-né affectés par des maladies infectieuses et parasitaires de la mère,true,false,true,true,true,3086
@@ -11486,10 +11486,10 @@ P94.1,XVI,XVI/P94.1.md,Hypertonie congénitale,true,false,true,false,false,877
 P94.2,XVI,XVI/P94.2.md,Hypotonie congénitale,true,false,true,false,true,1236
 P94.8,XVI,XVI/P94.8.md,Autres anomalies du tonus musculaire du nouveau-né,true,false,true,false,true,1232
 P94.9,XVI,XVI/P94.9.md,"Anomalie du tonus musculaire du nouveau-né, sans précision",true,false,true,false,false,913
-P95.+0,XVI,XVI/P95.+0.md,Mort fœtale in utero ou perpartum suite à une interruption médicale de grossesse,true,false,true,true,false,1335
-P95.+1,XVI,XVI/P95.+1.md,Mort fœtale in utero en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1326
-P95.+2,XVI,XVI/P95.+2.md,Mort fœtale perpartum en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1455
-P95.+8,XVI,XVI/P95.+8.md,Mort fœtale sans précision en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1332
+P95.+0,XVI,XVI/P95.+0.md,Mort fœtale in utero ou perpartum suite à une interruption médicale de grossesse,true,false,true,true,false,1549
+P95.+1,XVI,XVI/P95.+1.md,Mort fœtale in utero en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1540
+P95.+2,XVI,XVI/P95.+2.md,Mort fœtale perpartum en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1669
+P95.+8,XVI,XVI/P95.+8.md,Mort fœtale sans précision en dehors d'une interruption médicale de grossesse,true,false,true,true,false,1546
 P96.0,XVI,XVI/P96.0.md,Insuffisance rénale congénitale,true,false,true,false,true,1271
 P96.1,XVI,XVI/P96.1.md,Symptômes de sevrage du nouveau-né dus à la toxicomanie de la mère,true,false,true,false,true,1276
 P96.2,XVI,XVI/P96.2.md,Symptômes de sevrage après utilisation thérapeutique de médicaments chez le nouveau-né,true,false,true,false,true,1025
@@ -13926,25 +13926,25 @@ U07.15,XXII,XXII/U07.15.md,"COVID-19, autres formes cliniques, virus non identif
 U07.8,XXII,XXII/U07.8.md,Usage urgent de U07.8,false,false,true,true,false,1425
 U10.9,XXII,XXII/U10.9.md,"Syndrome inflammatoire multisystémique associé à la COVID-19, sans précision",true,false,true,false,false,785
 U11.9,XXII,XXII/U11.9.md,"Nécessité d’une vaccination contre la COVID-19, sans précision",false,false,true,false,false,377
-U82.0+0,XXII,XXII/U82.0+0.md,"Résistance à la pénicilline, situation d'infection",true,false,false,false,false,400
-U82.0+1,XXII,XXII/U82.0+1.md,"Résistance à la pénicilline, situation de portage sain",true,false,false,false,false,404
-U82.100,XXII,XXII/U82.100.md,"Staphylococcus aureus résistant à la méthicilline [SARM], situation d'infection",true,false,false,false,false,452
-U82.101,XXII,XXII/U82.101.md,"Staphylococcus aureus résistant à la méthicilline [SARM], situation de portage sain",true,false,false,false,false,456
-U82.180,XXII,XXII/U82.180.md,"Staphylocoques, autres et non précisés, résistants à la méthicilline, situation d'infection",true,false,false,false,false,464
-U82.181,XXII,XXII/U82.181.md,"Staphylocoques, autres et non précisés, résistants à la méthicilline, , situation de portage sain",true,false,false,false,false,470
-U83.700,XXII,XXII/U83.700.md,"Bactérie hautement résistante émergente [BHRe], situation d'infection",true,false,false,false,false,472
-U83.701,XXII,XXII/U83.701.md,"Bactérie hautement résistante émergente [BHRe], situation de portage sain",true,false,false,false,false,476
-U83.710,XXII,XXII/U83.710.md,"Bactérie multirésistante [BMR], situation d'infection",false,false,true,false,false,498
-U83.711,XXII,XXII/U83.711.md,"Bactérie multirésistante [BMR], situation de portage sain",false,false,true,false,false,502
-U83.9+0,XXII,XXII/U83.9+0.md,"Résistance à un antibiotique non précisé - "" Situation d'infection """,true,false,false,false,false,402
-U83.9+1,XXII,XXII/U83.9+1.md,"Résistance à un antibiotique non précisé - "" Situation de portage sain """,true,false,false,false,false,406
-U84.0,XXII,XXII/U84.0.md,Résistance aux médicaments antiparasitaires,true,false,true,false,false,486
-U84.1,XXII,XXII/U84.1.md,Résistance aux médicaments antifongiques,false,false,true,false,false,387
-U84.2,XXII,XXII/U84.2.md,Résistance aux médicaments antiviraux,false,false,true,false,false,384
-U84.3,XXII,XXII/U84.3.md,Résistance aux médicaments antituberculeux,false,false,true,false,true,454
-U84.7,XXII,XXII/U84.7.md,Résistance à de multiples médicaments antimicrobiens,false,false,true,false,true,617
-U84.8,XXII,XXII/U84.8.md,Résistance à un autre antimicrobien précisé,false,false,true,false,false,710
-U84.9,XXII,XXII/U84.9.md,Résistance à un antimicrobien non précisé,true,false,true,false,false,443
+U82.0+0,XXII,XXII/U82.0+0.md,"Résistance à la pénicilline, situation d'infection",true,false,false,true,false,1846
+U82.0+1,XXII,XXII/U82.0+1.md,"Résistance à la pénicilline, situation de portage sain",true,false,false,true,false,1850
+U82.100,XXII,XXII/U82.100.md,"Staphylococcus aureus résistant à la méthicilline [SARM], situation d'infection",true,false,false,true,false,1898
+U82.101,XXII,XXII/U82.101.md,"Staphylococcus aureus résistant à la méthicilline [SARM], situation de portage sain",true,false,false,true,false,1902
+U82.180,XXII,XXII/U82.180.md,"Staphylocoques, autres et non précisés, résistants à la méthicilline, situation d'infection",true,false,false,true,false,1910
+U82.181,XXII,XXII/U82.181.md,"Staphylocoques, autres et non précisés, résistants à la méthicilline, , situation de portage sain",true,false,false,true,false,1916
+U83.700,XXII,XXII/U83.700.md,"Bactérie hautement résistante émergente [BHRe], situation d'infection",true,false,false,true,false,1918
+U83.701,XXII,XXII/U83.701.md,"Bactérie hautement résistante émergente [BHRe], situation de portage sain",true,false,false,true,false,1922
+U83.710,XXII,XXII/U83.710.md,"Bactérie multirésistante [BMR], situation d'infection",false,false,true,true,false,2361
+U83.711,XXII,XXII/U83.711.md,"Bactérie multirésistante [BMR], situation de portage sain",false,false,true,true,false,2365
+U83.9+0,XXII,XXII/U83.9+0.md,"Résistance à un antibiotique non précisé - "" Situation d'infection """,true,false,false,true,false,1848
+U83.9+1,XXII,XXII/U83.9+1.md,"Résistance à un antibiotique non précisé - "" Situation de portage sain """,true,false,false,true,false,1852
+U84.0,XXII,XXII/U84.0.md,Résistance aux médicaments antiparasitaires,true,false,true,true,false,1637
+U84.1,XXII,XXII/U84.1.md,Résistance aux médicaments antifongiques,false,false,true,true,false,1538
+U84.2,XXII,XXII/U84.2.md,Résistance aux médicaments antiviraux,false,false,true,true,false,1535
+U84.3,XXII,XXII/U84.3.md,Résistance aux médicaments antituberculeux,false,false,true,true,true,1605
+U84.7,XXII,XXII/U84.7.md,Résistance à de multiples médicaments antimicrobiens,false,false,true,true,true,1768
+U84.8,XXII,XXII/U84.8.md,Résistance à un autre antimicrobien précisé,false,false,true,true,false,1861
+U84.9,XXII,XXII/U84.9.md,Résistance à un antimicrobien non précisé,true,false,true,true,false,1594
 U85,XXII,XXII/U85.md,Résistance aux médicaments antinéoplasiques,true,false,false,false,false,378
 U90.0,XXII,XXII/U90.0.md,Résistance aux antiépileptiques,false,false,true,false,false,389
 U90.9,XXII,XXII/U90.9.md,"Résistances à un traitement, autres et sans précision",false,false,true,false,false,382
@@ -15329,7 +15329,7 @@ Y91.2,XX,XX/Y91.2.md,Intoxication alcoolique sévère,true,false,true,false,fals
 Y91.3,XX,XX/Y91.3.md,Intoxication alcoolique très sévère,true,false,true,false,false,649
 Y91.9,XX,XX/Y91.9.md,"Rôle de l'alcool, sans autre indication",true,false,true,false,false,517
 Y95,XX,XX/Y95.md,Facteurs nosocomiaux,false,false,false,true,false,1043
-Y96,XX,XX/Y96.md,Facteurs liés aux conditions de travail,false,false,false,false,false,299
+Y96,XX,XX/Y96.md,Facteurs liés aux conditions de travail,false,false,false,true,false,790
 Z00.0,XXI,XXI/Z00.0.md,Examen médical général,true,false,true,true,true,1423
 Z00.1,XXI,XXI/Z00.1.md,Examen de routine de l'enfant,true,false,true,true,false,1389
 Z00.2,XXI,XXI/Z00.2.md,Examen à la période de croissance rapide de l'enfance,false,false,true,true,true,1236
@@ -15441,7 +15441,7 @@ Z21,XXI,XXI/Z21.md,Infection asymptomatique par le virus de l'immunodéficience 
 Z22.0,XXI,XXI/Z22.0.md,Sujet porteur de typhoïde,true,false,false,true,false,1206
 Z22.1,XXI,XXI/Z22.1.md,Sujet porteur d'autres maladies intestinales infectieuses,true,false,false,true,false,1238
 Z22.2,XXI,XXI/Z22.2.md,Sujet porteur de diphtérie,true,false,false,true,false,1207
-Z22.3,XXI,XXI/Z22.3.md,Sujet porteur d'autres maladies bactériennes précisées,true,false,false,true,false,1455
+Z22.3,XXI,XXI/Z22.3.md,Sujet porteur d'autres maladies bactériennes précisées,true,false,false,true,false,1913
 Z22.4,XXI,XXI/Z22.4.md,Sujet porteur de maladies dont le mode de transmission est essentiellement sexuel,true,false,false,true,false,1342
 Z22.6,XXI,XXI/Z22.6.md,Sujet porteur d'une infection à virus lymphotrope des lymphocytes T humains de type 1 [HTLV-1],true,false,false,true,false,1275
 Z22.7,XXI,XXI/Z22.7.md,Sujet porteur d'infection tuberculeuse latente,true,false,true,true,false,1389
@@ -15481,7 +15481,7 @@ Z28.1,XXI,XXI/Z28.1.md,Vaccination non faite par décision du sujet pour raisons
 Z28.2,XXI,XXI/Z28.2.md,Vaccination non faite par décision du sujet pour des raisons autres et non précisées,false,false,false,true,false,660
 Z28.8,XXI,XXI/Z28.8.md,Vaccination non faite pour d'autres raisons,false,false,true,true,false,952
 Z28.9,XXI,XXI/Z28.9.md,"Vaccination non faite, sans précision",false,false,false,true,true,677
-Z29.0,XXI,XXI/Z29.0.md,Isolement,true,false,true,true,true,1576
+Z29.0,XXI,XXI/Z29.0.md,Isolement,true,false,true,true,true,2034
 Z29.1,XXI,XXI/Z29.1.md,Immunothérapie prophylactique,true,false,true,true,true,1467
 Z29.2,XXI,XXI/Z29.2.md,Autres mesures de chimiothérapie prophylactique,true,false,true,true,true,1471
 Z29.8,XXI,XXI/Z29.8.md,Autres mesures prophylactiques précisées,false,false,true,true,false,1204
@@ -15528,8 +15528,8 @@ Z36.4,XXI,XXI/Z36.4.md,Dépistage prénatal de retard de croissance du fœtus pa
 Z36.5,XXI,XXI/Z36.5.md,Dépistage prénatal d'iso-immunisation,false,false,true,true,false,846
 Z36.8,XXI,XXI/Z36.8.md,Autres dépistages prénatals,true,false,true,true,false,1396
 Z36.9,XXI,XXI/Z36.9.md,"Dépistage prénatal, sans précision",false,false,true,true,true,875
-Z37.90,XXI,XXI/Z37.90.md,"Résultat de l'accouchement, sans précision - "" naissance en dehors d’une interruption de grossesse pour motif médical """,true,false,false,true,false,1636
-Z37.91,XXI,XXI/Z37.91.md,"Résultat de l'accouchement, sans précision - "" naissance à la suite d’une interruption de grossesse pour motif médical """,true,false,false,true,false,1637
+Z37.90,XXI,XXI/Z37.90.md,"Résultat de l'accouchement, sans précision - "" naissance en dehors d’une interruption de grossesse pour motif médical """,true,false,false,true,false,2220
+Z37.91,XXI,XXI/Z37.91.md,"Résultat de l'accouchement, sans précision - "" naissance à la suite d’une interruption de grossesse pour motif médical """,true,false,false,true,false,2221
 Z38.0,XXI,XXI/Z38.0.md,"Enfant unique, né à l'hôpital",false,false,false,true,false,929
 Z38.1,XXI,XXI/Z38.1.md,"Enfant unique, né hors d'un hôpital",false,false,false,true,false,627
 Z38.2,XXI,XXI/Z38.2.md,"Enfant unique, lieu de naissance non précisé",true,false,false,true,false,711
@@ -15665,9 +15665,9 @@ Z54.4,XXI,XXI/Z54.4.md,Convalescence après traitement d'une fracture,false,fals
 Z54.7,XXI,XXI/Z54.7.md,Convalescence après traitements combinés,true,false,true,true,false,940
 Z54.8,XXI,XXI/Z54.8.md,Convalescence après un autre traitement,false,false,true,true,false,1149
 Z54.9,XXI,XXI/Z54.9.md,Convalescence après un traitement non précisé,false,false,true,true,true,888
-Z55.00,XXI,XXI/Z55.00.md,Analphabétisme et illettrisme,false,false,true,true,false,773
+Z55.00,XXI,XXI/Z55.00.md,Analphabétisme et illettrisme,false,false,true,true,false,1645
 Z55.08,XXI,XXI/Z55.08.md,"Faibles niveaux éducatifs, autres et sans précision",false,false,true,true,false,795
-Z55.1,XXI,XXI/Z55.1.md,Scolarisation inexistante ou inaccessible,false,false,true,true,true,868
+Z55.1,XXI,XXI/Z55.1.md,Scolarisation inexistante ou inaccessible,false,false,true,true,true,1803
 Z55.2,XXI,XXI/Z55.2.md,Échec aux examens,false,false,true,true,false,759
 Z55.3,XXI,XXI/Z55.3.md,Mauvais résultats scolaires,false,false,true,true,false,769
 Z55.4,XXI,XXI/Z55.4.md,Mauvaise adaptation éducative et difficultés avec les enseignants et les autres élèves,false,false,true,true,false,828
@@ -15701,20 +15701,20 @@ Z58.6,XXI,XXI/Z58.6.md,Approvisionnement insuffisant en eau potable,false,false,
 Z58.7,XXI,XXI/Z58.7.md,Exposition à la fumée du tabac,true,false,true,true,false,1052
 Z58.8,XXI,XXI/Z58.8.md,Autres difficultés liées à l'environnement physique,false,false,true,true,false,1189
 Z58.9,XXI,XXI/Z58.9.md,"Difficulté liée à l'environnement physique, sans précision",false,false,true,true,false,756
-Z59.0,XXI,XXI/Z59.0.md,Sans abri,false,false,true,true,true,884
-Z59.10,XXI,XXI/Z59.10.md,Logement insalubre ou impropre à l’habitation,true,false,true,true,false,1194
-Z59.11,XXI,XXI/Z59.11.md,Logement sans confort,true,false,true,true,false,1024
-Z59.12,XXI,XXI/Z59.12.md,Logement inadéquat du fait de l’état de santé de la personne,true,false,true,true,false,1063
-Z59.13,XXI,XXI/Z59.13.md,Logement en habitat temporaire ou de fortune,true,false,true,true,false,1119
+Z59.0,XXI,XXI/Z59.0.md,Sans abri,false,false,true,true,true,1663
+Z59.10,XXI,XXI/Z59.10.md,Logement insalubre ou impropre à l’habitation,true,false,true,true,false,1969
+Z59.11,XXI,XXI/Z59.11.md,Logement sans confort,true,false,true,true,false,1824
+Z59.12,XXI,XXI/Z59.12.md,Logement inadéquat du fait de l’état de santé de la personne,true,false,true,true,false,1807
+Z59.13,XXI,XXI/Z59.13.md,Logement en habitat temporaire ou de fortune,true,false,true,true,false,1838
 Z59.18,XXI,XXI/Z59.18.md,"Logements inadéquats, autres et non précisés",true,false,true,true,false,1047
 Z59.2,XXI,XXI/Z59.2.md,"Désaccord avec les voisins, les locataires et le propriétaire",false,false,true,true,false,806
 Z59.3,XXI,XXI/Z59.3.md,Difficulté liée à la vie en institution,true,false,true,true,true,984
 Z59.4,XXI,XXI/Z59.4.md,Alimentation défectueuse,false,false,true,true,false,910
-Z59.50,XXI,XXI/Z59.50.md,"Absence totale de revenu, d’aide et de prestation financières",false,false,true,true,false,808
+Z59.50,XXI,XXI/Z59.50.md,"Absence totale de revenu, d’aide et de prestation financières",false,false,true,true,false,1719
 Z59.58,XXI,XXI/Z59.58.md,"Situations de pauvreté extrême, autres et sans précision",false,false,true,true,false,803
 Z59.60,XXI,XXI/Z59.60.md,Bénéficiaire de l’aide de l’État à la complémentaire santé,true,false,true,true,false,908
 Z59.61,XXI,XXI/Z59.61.md,Bénéficiaire de l’AME,false,false,true,true,false,768
-Z59.62,XXI,XXI/Z59.62.md,Bénéficiaire de minima sociaux,false,false,true,true,false,777
+Z59.62,XXI,XXI/Z59.62.md,Bénéficiaire de minima sociaux,false,false,true,true,false,1523
 Z59.68,XXI,XXI/Z59.68.md,"Faibles revenus, autres et non précisés",false,false,true,true,false,864
 Z59.70,XXI,XXI/Z59.70.md,Absence de couverture sociale,false,false,true,true,false,776
 Z59.78,XXI,XXI/Z59.78.md,"Couverture sociale et secours insuffisants, autres et non précisés",false,false,true,true,false,813
@@ -15722,7 +15722,7 @@ Z59.8,XXI,XXI/Z59.8.md,Autres difficultés liées au logement et aux conditions 
 Z59.9,XXI,XXI/Z59.9.md,"Difficulté liée au logement et aux conditions économiques, sans précision",false,false,true,true,true,900
 Z60.0,XXI,XXI/Z60.0.md,Difficultés d'ajustement aux transitions entre les différentes périodes de vie,true,false,false,true,false,1097
 Z60.1,XXI,XXI/Z60.1.md,Situation parentale atypique,false,false,false,true,true,1017
-Z60.30,XXI,XXI/Z60.30.md,Difficultés liées à la langue,true,false,false,true,false,1048
+Z60.30,XXI,XXI/Z60.30.md,Difficultés liées à la langue,true,false,false,true,false,1788
 Z60.38,XXI,XXI/Z60.38.md,"Difficultés d’acculturation, autres et non précisées",true,false,false,true,false,1071
 Z60.4,XXI,XXI/Z60.4.md,Exclusion et rejet sociaux,false,false,true,true,true,1312
 Z60.5,XXI,XXI/Z60.5.md,Cible d'une discrimination et d'une persécution,false,false,true,true,true,1380
@@ -15757,7 +15757,7 @@ Z63.6,XXI,XXI/Z63.6.md,"Parent à charge au domicile, nécessitant des soins",fa
 Z63.7,XXI,XXI/Z63.7.md,Autres événements difficiles ayant une incidence sur la famille et le foyer,true,false,true,true,true,1254
 Z63.8,XXI,XXI/Z63.8.md,Autres difficultés précisées liées à l'entourage immédiat,true,false,true,true,true,1710
 Z63.9,XXI,XXI/Z63.9.md,"Difficulté liée à l'entourage immédiat, sans précision",false,false,true,true,true,927
-Z64.0,XXI,XXI/Z64.0.md,Difficultés liées à une grossesse non désirée,false,false,true,true,true,928
+Z64.0,XXI,XXI/Z64.0.md,Difficultés liées à une grossesse non désirée,false,false,true,true,true,1548
 Z64.1,XXI,XXI/Z64.1.md,Difficultés liées à une multiparité,false,false,true,true,true,819
 Z64.2,XXI,XXI/Z64.2.md,"Recherche et acceptation d'interventions physiques, nutritionnelles et chimiques connues comme dangereuses et nuisibles",false,false,true,true,false,847
 Z64.3,XXI,XXI/Z64.3.md,Recherche et acceptation d'interventions comportementales et psychologiques connues comme dangereuses et nuisibles,false,false,false,true,false,717

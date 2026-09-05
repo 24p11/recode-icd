@@ -57,6 +57,12 @@ ARTICLES = {
     "IDM": ("infarctus_myocarde", "INFARCTUS DU MYOCARDE", "105", "extraits"),
     "IRF": ("insuffisance_renale_fonctionnelle", "INSUFFISANCE RÉNALE FONCTIONNELLE", "105-106", "extraits"),
     "IRA": ("insuffisance_respiratoire_adulte", "INSUFFISANCE RESPIRATOIRE DE L’ADULTE", "106", "extraits"),
+    "ITG": ("interruption_grossesse", "INTERRUPTION DE LA GROSSESSE", "106-109", "extraits"),
+    "LES": ("lesions_traumatiques", "LÉSIONS TRAUMATIQUES", "109", "extraits"),
+    "MPR": ("maladies_professionnelles", "MALADIES PROFESSIONNELLES", "109", "extraits"),
+    "OED": ("oedeme_pulmonaire", "ŒDÈME PULMONAIRE", "114", "extraits"),
+    "PRE": ("precarite", "PRÉCARITÉ", "114-115", "extraits"),
+    "RAM": ("resistance_antimicrobiens", "RÉSISTANCE AUX ANTIMICROBIENS", "115-116", "extraits"),
 }
 
 #: Associations déjà versées au commit 2 dont seule l'association manque.

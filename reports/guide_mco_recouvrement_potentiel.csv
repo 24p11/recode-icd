@@ -244243,6 +244243,33 @@ GM2026-V-OMS-02,U07.8,interdit,CIM-10 frères,Usage urgent de U07.4 (U07.4),non
 GM2026-V-OMS-02,U07.8,interdit,CIM-10 frères,Usage urgent de U07.5 (U07.5),non
 GM2026-V-OMS-02,U07.8,interdit,CIM-10 frères,Usage urgent de U07.6 (U07.6),non
 GM2026-V-OMS-02,U07.8,interdit,CIM-10 frères,Usage urgent de U07.7 (U07.7),non
+GM2026-V-RAM-03,U83.710,interdit,ANS,"résistance par bétalactamases à spectre étendu [BLSE] [U82.2-]
+Staphylococcus aureus résistant à la méthicilline [SARM] [U82.10-]
+",oui
+GM2026-V-RAM-03,U83.711,interdit,ANS,"résistance par bétalactamases à spectre étendu [BLSE] [U82.2-]
+Staphylococcus aureus résistant à la méthicilline [SARM] [U82.10-]
+",oui
+GM2026-V-RAM-03,U84.0,interdit,ANS,"résistance aux antibiotiques [U82–U83]
+",oui
+GM2026-V-RAM-03,U84.1,interdit,ANS,"résistance aux antibiotiques [U82–U83]
+",oui
+GM2026-V-RAM-03,U84.2,interdit,ANS,"résistance aux antibiotiques [U82–U83]
+",oui
+GM2026-V-RAM-03,U84.3,interdit,ANS,"résistance aux antibiotiques [U82–U83]
+",oui
+GM2026-V-RAM-03,U84.7,interdit,ANS,"résistance aux antibiotiques [U82–U83]
+",oui
+GM2026-V-RAM-03,U84.7,interdit,ANS,"résistance à de multiples antibiotiques seulement (U83.7)
+",oui
+GM2026-V-RAM-03,U84.8,interdit,ANS,"résistance aux antibiotiques [U82–U83]
+",oui
+GM2026-V-RAM-03,U84.8,interdit,CIM-10 frères,Résistance aux médicaments antifongiques (U84.1),non
+GM2026-V-RAM-03,U84.8,interdit,CIM-10 frères,Résistance aux médicaments antiparasitaires (U84.0),non
+GM2026-V-RAM-03,U84.8,interdit,CIM-10 frères,Résistance aux médicaments antituberculeux (U84.3),non
+GM2026-V-RAM-03,U84.8,interdit,CIM-10 frères,Résistance aux médicaments antiviraux (U84.2),non
+GM2026-V-RAM-03,U84.8,interdit,CIM-10 frères,Résistance à de multiples médicaments antimicrobiens (U84.7),non
+GM2026-V-RAM-03,U84.9,interdit,ANS,"résistance aux antibiotiques [U82–U83]
+",oui
 GM2026-V-XXI-08,Z04.800,interdit,ANS,"examens relatifs à la grossesse et à la reproduction (Z30-Z36)  (Z39.-)
 ",non
 GM2026-V-XXI-08,Z04.800,interdit,CIM-10,examens relatifs à la grossesse et à la reproduction,non

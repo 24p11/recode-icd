@@ -113,6 +113,7 @@ allowed-confusables = ["×", "æ", "’"]
 # Le tiret typographique du guide (« I63.– ») EST la donnée parsée : il
 # figure dans TIRETS et dans les doctests, on ne peut pas le remplacer.
 "src/recode_icd/recommendations/code_expr.py" = ["RUF001", "RUF002", "RUF003"]
+"tests/unit/test_notations.py" = ["RUF001", "RUF002"]   # tiret typographique du guide (« O04.–1 ») testé explicitement
 "tests/unit/test_code_expr.py" = ["RUF001", "RUF002"]
 # Les caractères de puce (– — •) SONT la donnée comparée.
 "src/recode_icd/recommendations/transcription.py" = ["RUF001", "RUF002", "RUF003"]

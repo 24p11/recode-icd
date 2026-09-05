@@ -207,6 +207,46 @@ bornes:
     derniere_ligne: 37
     titre: "INSUFFISANCE RESPIRATOIRE DE L’ADULTE"
 
+  # Bornée jusqu'à la définition de la note 56 (bas de page 108) ;
+  # l'article suivant (LÉSIONS TRAUMATIQUES) commence page 109, hors
+  # bornes — pas de suppression d'article voisin.
+  interruption_grossesse:
+    premiere_ligne: 40
+    derniere_ligne: 192
+    titre: "INTERRUPTION DE LA GROSSESSE"
+
+  lesions_traumatiques:
+    premiere_ligne: 17
+    derniere_ligne: 21
+    titre: "LÉSIONS TRAUMATIQUES"
+
+  maladies_professionnelles:
+    premiere_ligne: 23
+    derniere_ligne: 31
+    titre: "MALADIES PROFESSIONNELLES"
+
+  oedeme_pulmonaire:
+    premiere_ligne: 45
+    derniere_ligne: 57
+    titre: "ŒDÈME PULMONAIRE"
+
+  # Bornée jusqu'à la définition de la note 65 (bas de page 115) : la
+  # définition de la note 64 du voisin MALNUTRITION (une URL, que le
+  # pilote supprimait déjà de son côté) et le début de RÉSISTANCE
+  # partent en suppressions — précédents note 5/D62 et ÉTAT GRABATAIRE.
+  precarite:
+    premiere_ligne: 59
+    derniere_ligne: 132
+    titre: "PRÉCARITÉ"
+
+  # Bornée jusqu'à la définition de la note 67 (bas de page 116) ; la
+  # définition de la note 65 (voisin PRÉCARITÉ) et le début de SEPSIS
+  # partent en suppressions ; la note 68 (SEPSIS) reste hors bornes.
+  resistance_antimicrobiens:
+    premiere_ligne: 63
+    derniere_ligne: 132
+    titre: "RÉSISTANCE AUX ANTIMICROBIENS"
+
 # ---------------------------------------------------------------------
 # 2. Suppressions mécaniques — artefacts de pagination
 # ---------------------------------------------------------------------
@@ -334,6 +374,29 @@ suppressions_editoriales:
         LOURD), imprimée au bas de la page partagée. Précédent de la
         note 5 du D62.
 
+  precarite:
+    - texte: "https://cress-umr1153.fr/index.php/courbes-carnet-de-sante/"
+      motif: >-
+        Définition de la note 64 de l'article VOISIN (MALNUTRITION,
+        DÉNUTRITION — une URL de couche 2, que le pilote supprimait
+        déjà), imprimée au bas de la page partagée 114.
+    - texte: "RÉSISTANCE AUX ANTIMICROBIENS Lors de la mise à jour de la CIM–10 de 2013, applicable dans le PMSI en 2014, la description des résistances aux traitements antibiotiques a été entièrement revue par l’OMS. Elle repose sur trois catégories U82 Résistance aux antibiotiques bétalactamines [bétalactames], U83 Résistance aux autres antibiotiques et U84 Résistance aux autres antimicrobiens. Les codes de résistance aux antibiotiques ont été enrichis en 2015 par l’ATIH"
+      motif: >-
+        Article VOISIN (RÉSISTANCE AUX ANTIMICROBIENS), imprimé avant
+        la définition de la note 65 au bas de la page 115. Son curé
+        existe par ailleurs. Précédent ÉTAT GRABATAIRE.
+
+  resistance_antimicrobiens:
+    - texte: "Ces situations doivent être mentionnées dans le dossier médical notamment suite à l’intervention d’une assistante sociale."
+      motif: >-
+        Définition de la note 65 de l'article VOISIN (PRÉCARITÉ),
+        imprimée au bas de la page partagée 115.
+    - texte: "SEPSIS ET CHOC SEPTIQUE 1. Sepsis À partir du 1er mars 2021 et suite à la modification de la définition du sepsis depuis 2016 (sepsis-368), le codage de celui-ci ne se basera plus sur le codage du syndrome de réponse inflammatoire systémique d'origine infectieuse avec défaillance d'organe (R65.1). Il sera décrit avec les codes qui comportent les termes sepsis dans leur libellé, dans les catégories A40-"
+      motif: >-
+        Article VOISIN (SEPSIS ET CHOC SEPTIQUE), imprimé avant les
+        définitions des notes 66-67 au bas de la page 116. Son curé
+        viendra au prochain lot. Précédent ÉTAT GRABATAIRE.
+
   accouchement_impromptu:
     - texte: >-
         ANÉMIE POSTHÉMORRAGIQUE AIGÜE APRÈS UNE INTERVENTION L’emploi du
@@ -417,6 +480,9 @@ appels_notes:
   categories_o80_o84: [21]
   enfants_nes_sans_vie: [22]
   polyhandicap_lourd: [49]
+  interruption_grossesse: [50, 51, 52, 53, 54, 55, 56]
+  precarite: [65]
+  resistance_antimicrobiens: [66, 67]
 
 # ---------------------------------------------------------------------
 # 6. Ancres de notes — on ne devine pas, on déclare
@@ -510,6 +576,31 @@ ancres_notes:
   # Hissé entre « des quatre listes » et « doit être présent ».
   polyhandicap_lourd:
     "49": "Un code au moins de chacune des quatre listes"
+
+  # Les sept appels sont hissés par le rendu. La note 53 a en outre un
+  # second appel COLLÉ (« le DP53 », §2.2) : l'ancre force le repli sur
+  # le premier appel (§2 intro) — le jeton « DP53 » garde son exposant,
+  # dépouillé par le contrôle. Un « 51 » isolé à côté de l'appel 53 est
+  # un artefact de l'original (résidu d'ancienne numérotation), retiré
+  # du curé comme balisage.
+  interruption_grossesse:
+    "50": "l’interruption pour motif médical (IMG)"
+    "51": "surveillance de l’expulsion, consultation de contrôle)."
+    "52": "p. 123 ou 158 )."
+    "53": "au moment de l’interruption"
+    "54": "connues ou présumées)"
+    "55": "précisé si besoin par un code des chapitres I à XVII et XIX"
+    "56": "pour motif médical )"
+
+  # Appel hissé au-dessus de « …prise en charge particulière ».
+  precarite:
+    "65": "ont justifié une prise en charge particulière."
+
+  # Appels hissés ; un « 71 » isolé après « spécifiques » est un
+  # artefact de l'original (résidu de numérotation), conservé en corps.
+  resistance_antimicrobiens:
+    "66": "d’un caractère supplémentaire en 6e position"
+    "67": "la mise en œuvre de mesures d’isolement spécifiques"
 
   # Chapitre XXI : 19 des 26 notes sont orphelines — leurs appels sont
   # hissés seuls sur leur ligne par le rendu, ou absents. Ancres lues et
@@ -654,6 +745,25 @@ validations:
   insuffisance_respiratoire_adulte:
     relecteur: "RF"
     date: "2026-09-03"
+  # -- chantier B, lot 5 (verdict global OK ; arbitrage 12 sur O04) --
+  interruption_grossesse:
+    relecteur: "RF"
+    date: "2026-09-05"
+  lesions_traumatiques:
+    relecteur: "RF"
+    date: "2026-09-05"
+  maladies_professionnelles:
+    relecteur: "RF"
+    date: "2026-09-05"
+  oedeme_pulmonaire:
+    relecteur: "RF"
+    date: "2026-09-05"
+  precarite:
+    relecteur: "RF"
+    date: "2026-09-05"
+  resistance_antimicrobiens:
+    relecteur: "RF"
+    date: "2026-09-05"
 
 # ---------------------------------------------------------------------
 # 8. Scissions — jetons que le rendu a soudés

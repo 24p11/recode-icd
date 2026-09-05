@@ -1,0 +1,46 @@
+# Notations du guide méthodologique MCO ↔ encodage du référentiel CIM-10
+# ---------------------------------------------------------------------
+# Arbitrage n° 12 du registre (RF, 2026-09-05, cas O04 / article
+# INTERRUPTION DE LA GROSSESSE) :
+#
+#   LA CURATION EST FIDÈLE À LA NOTATION DU GUIDE, LA RÉSOLUTION TRADUIT
+#   — JAMAIS L'INVERSE.
+#
+# Les tables curées (`data/guide_mco/*_curated.csv`) déclarent chaque
+# expression TELLE QU'ÉCRITE par le guide. Quand le référentiel encode
+# une catégorie autrement, c'est ici — et seulement ici — qu'on déclare
+# la correspondance. `recode_icd.recommendations.notations` lit ce
+# fichier ; aucune règle de traduction n'est en dur ailleurs.
+#
+# Catégories à encodage INVERSÉ : le guide écrit `Xnn.<4e><5e>`
+# (« O04.90 »), le référentiel encode `Xnn.-<5e>.<4e>` (feuille
+# `O04.-0.9`) et `Xnn.-<5e>` (nœud de 5e position, `O04.-0`). Trois
+# formes du guide sont traduites, pour une catégorie déclarée :
+#
+#   | Guide          | Référentiel                                  | Granularité |
+#   |----------------|----------------------------------------------|-------------|
+#   | `Xnn.<4e><5e>` | feuille `Xnn.-<5e>.<4e>`                     | CODE        |
+#   | `Xnn.-<5e>`    | nœud `Xnn.-<5e>` (toutes les 4e)             | CATEGORIE   |
+#   | `Xnn.<4e>`     | feuilles `Xnn.-<5e>.<4e>`, une par 5e déclarée | CATEGORIE |
+#
+# `Xnn` nu, `Xnn.–` et les plages restent des formes génériques, hors de
+# cette table. Toute forme d'une catégorie déclarée qui n'est pas dans la
+# table (5e ou 4e non déclarée, trois chiffres…) reste NON PARSABLE et
+# part au rapport de build — jamais au silence.
+#
+# Chaque entrée est testée dans les deux sens (guide → référentiel →
+# guide, et retour) contre `merged_codes.parquet` :
+# `tests/unit/test_notations.py`, `tests/regression/test_guide_mco_notations.py`.
+# Dorés : les cinq expressions de l'article ITG (O04.90, O04.4, O04.-1,
+# O04.-2, O04.-3).
+
+categories_inversees:
+  O04:
+    libelle: "Avortement médical"
+    # 5e caractère (extension ATIH) : 0 = IVG, 1 = IMG pour cause
+    # embryonnaire ou fœtale, 2 = IMG pour cause maternelle, 3 = IMG pour
+    # association de causes. Nœuds `O04.-0` à `O04.-3` du référentiel.
+    cinquiemes: ["0", "1", "2", "3"]
+    # 4e caractère (OMS) : .0-.4 avortement incomplet, .5-.9 complet ou
+    # sans précision ; .4 et .9 = sans complication.
+    quatriemes: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]

@@ -213,6 +213,16 @@ L'expansion de `code_expr` réutilise l'outillage existant :
   (mécanisme analogue à R2), tri par `centralite` (sujet avant exemple)
   puis spécificité ; les `centralite=exemple` peuvent être exclus des
   fiches par défaut (paramètre).
+- **notation du guide ≠ encodage du référentiel** (arbitrage n° 12 du
+  registre, 2026-09-05, cas O04) : la table curée porte l'expression
+  telle qu'écrite par le guide ; quand le référentiel encode la
+  catégorie autrement (4e et 5e caractères inversés, `O04.-<5e>.<4e>`),
+  la traduction est déclarée dans
+  `referentials/curation/notations_guide.yaml` et appliquée par le
+  parseur au build, jamais par la curation. Formes traduites : `Xnn.<4e><5e>`
+  (feuille, granularité `CODE`), `Xnn.-<5e>` (nœud de 5e position) et
+  `Xnn.<4e>` (une feuille par 5e déclarée), ces deux dernières à la
+  granularité `CATEGORIE`. Hors table : non parsable, au rapport.
 
 ## 5. Preuve de concept : remplissage manuel
 
