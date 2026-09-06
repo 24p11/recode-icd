@@ -1,0 +1,158 @@
+code,chapitre,forme_rendue,forme_source,source,signal,proposition,motif,version_regle
+A18.4,I,abcès scrofuleux,"Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), scrofuleux",CIM-10 index,sonde:scrofule+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+A18.4,I,lichen scrofulosorum,"Lichen, scrofulosorum (primaire)",CIM-10 index,sonde:scrofule+isolement,garder,lichen scrofulosorum : dénomination vivante (tuberculide),v1
+A18.4,I,ulcère scrofuleux,"Ulcère (à) (de), scrofuleux (tuberculeux)",CIM-10 index,sonde:scrofule+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+A36.0,I,croup,Croup (canada j05.0),CIM-10 index,sonde:croup+isolement,garder,"croup : terme officiel vivant (J05.0, diphtérie A36)",v1
+A36.0,I,croup diphtérique,"Croup (canada j05.0), diphtérique",CIM-10 index,sonde:croup+isolement,garder,"croup : terme officiel vivant (J05.0, diphtérie A36)",v1
+A36.0,I,croup,croup,CepiDc 2015,sonde:croup+isolement,garder,"croup : terme officiel vivant (J05.0, diphtérie A36)",v1
+A50.4,I,tabès juvénile,"Tabès (cérébrospinal) (dorsal) (latent) (spasmodique), juvénile",CIM-10 index,sonde:tabès+isolement,garder,"tabès : terminologie officielle vivante (A52.1, G95)",v1
+A52.1,I,paralysie générale,"Paralysie (de), générale (syphilitique)",CIM-10 index,sonde:paralysie générale+isolement,garder,"paralysie générale : dénomination encore en usage (neurosyphilis, A52.1)",v1
+A52.1,I,tabès,Tabès (cérébrospinal) (dorsal) (latent) (spasmodique),CIM-10 index,sonde:tabès+isolement,garder,"tabès : terminologie officielle vivante (A52.1, G95)",v1
+A52.1,I,tabès avec arthropathie,"Tabès (cérébrospinal) (dorsal) (latent) (spasmodique), avec arthropathie",CIM-10 index,sonde:tabès+isolement,garder,"tabès : terminologie officielle vivante (A52.1, G95)",v1
+A52.1,I,antécédent tabès,antécédent tabès,CepiDc 2015,sonde:tabès+isolement,garder,"tabès : terminologie officielle vivante (A52.1, G95)",v1
+A52.1,I,maladie tabès,maladie tabès,CepiDc 2015,sonde:tabès+isolement,garder,"tabès : terminologie officielle vivante (A52.1, G95)",v1
+A52.1,I,paralysie générale,paralysie générale,CepiDc 2015,sonde:paralysie générale+isolement,garder,"paralysie générale : dénomination encore en usage (neurosyphilis, A52.1)",v1
+A52.1,I,tabès syphilitique,tabès syphilitique,CepiDc 2015,sonde:tabès+isolement,garder,"tabès : terminologie officielle vivante (A52.1, G95)",v1
+A52.1,I,tabès viscéral,tabès viscéral,CepiDc 2015,sonde:tabès+isolement,garder,"tabès : terminologie officielle vivante (A52.1, G95)",v1
+B37.9,I,Muguet,Muguet,CIM-10 index,sonde:muguet+isolement,garder,muguet : terme vivant de la candidose buccale (B37.0),v1
+B94.8,I,séquelles croup,séquelles croup,CepiDc 2015,sonde:croup+isolement,garder,"croup : terme officiel vivant (J05.0, diphtérie A36)",v1
+D22.9,II,Naevus mongolien,Naevus mongolien,AP-HP Dermatologie,sonde:mongolisme,garder,tache/naevus mongolien : terme dermatologique classique (mélanocytose dermique),v1
+D50.8,III,Chlorose,Chlorose,CIM-10 index,sonde:chlorose+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E00.0,IV,crétinisme neurologique,"Crétinisme (congénital) (endémique) (sporadique), neurologique",CIM-10 index,sonde:crétinisme+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E00.1,IV,crétinisme hypothyroïdien,"Crétinisme (congénital) (endémique) (sporadique), hypothyroïdien",CIM-10 index,sonde:crétinisme+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E00.1,IV,crétinisme myxoedémateux,"Crétinisme (congénital) (endémique) (sporadique), myxoedémateux",CIM-10 index,sonde:crétinisme+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E00.2,IV,crétinisme mixte,"Crétinisme (congénital) (endémique) (sporadique), mixte",CIM-10 index,sonde:crétinisme+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E00.9,IV,crétinisme,Crétinisme (congénital) (endémique) (sporadique),CIM-10 index,sonde:crétinisme+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E00.9,IV,crétinisme congénital,crétinisme congénital,CepiDc 2015,sonde:crétinisme+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E41,IV,athrepsie,Athrepsie (due à dénutrition),CIM-10 index,sonde:athrepsie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E41,IV,athrepsie,athrepsie,CepiDc 2015,sonde:athrepsie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E75.4,IV,idiotie amaurotique (de bielschowsky) (infantile) (juvénile),"Idiotie (congénitale) (qi au-dessous de 20), amaurotique (de bielschowsky(-jansky)) (familiale) (infantile(tardive)) (juvénile(tardive)) (de spielmeyer-vogt)",CIM-10 index,sonde:idiotie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+E75.4,IV,idiotie amaurotique familiale de Jansky-bielschowsky,"Jansky-bielschowsky, idiotie amaurotique familiale de",CIM-10 index,sonde:idiotie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F03,V,démence précoce,démence précoce,CepiDc 2015,sonde:démence précoce+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F03,V,sénilité démentielle,sénilité démentielle,CepiDc 2015,sonde:sénilité+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F03,V,sénilité mentale,sénilité mentale,CepiDc 2015,sonde:sénilité+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F03,V,sénilité psychique,sénilité psychique,CepiDc 2015,sonde:sénilité+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F20.1,V,hébéphrénie,Hébéphrénie (aiguë),CIM-10 index,sonde:hébéphrénie+isolement,garder,"hébéphrénie : terminologie CIM-10 vivante (F20.1, schizophrénie hébéphrénique)",v1
+F20.1,V,schizophrénie hébéphrénique,"Schizophrénie, hébéphrénique",CIM-10 index,sonde:hébéphrénie,garder,"hébéphrénie : terminologie CIM-10 vivante (F20.1, schizophrénie hébéphrénique)",v1
+F20.1,V,psychose hébéphrénique,psychose hébéphrénique,CepiDc 2015,sonde:hébéphrénie+isolement,garder,"hébéphrénie : terminologie CIM-10 vivante (F20.1, schizophrénie hébéphrénique)",v1
+F20.1,V,schizophrénie type hébéphrénique,schizophrénie type hébéphrénique,CepiDc 2015,sonde:hébéphrénie+isolement,garder,"hébéphrénie : terminologie CIM-10 vivante (F20.1, schizophrénie hébéphrénique)",v1
+F20.1,V,troubles hébéphréniques,troubles hébéphréniques,CepiDc 2015,sonde:hébéphrénie+isolement,garder,"hébéphrénie : terminologie CIM-10 vivante (F20.1, schizophrénie hébéphrénique)",v1
+F20.3,V,schizophrénie hébéphréno-catatonique,schizophrénie hébéphréno-catatonique,CepiDc 2015,sonde:hébéphrénie+isolement,garder,"hébéphrénie : terminologie CIM-10 vivante (F20.1, schizophrénie hébéphrénique)",v1
+F29,V,aliénation mentale,aliénation mentale,CepiDc 2015,sonde:aliénation+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F32.9,V,ictus dépressif,ictus dépressif,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.3,V,agitation hystérique,"Agitation, hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,attitude hystériques,"Attitude(s), hystériques",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,automatisme ambulatoire hystérique,"Automatisme, ambulatoire hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,automatisme hystérique,"Automatisme, hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,Balancement hystérique,Balancement hystérique,CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,chorée hystérique,"Chorée (de), hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,claudication hystérique,"Claudication (vasculaire), hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,contracture hystérique,"Contracture (de), hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,hémiplégie hystérique,"Hémiplégie, hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,monoplégie hystérique,"Monoplégie (de), hystérique (transitoire)",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,mouvement hystériques,"Mouvement(s), hystériques",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,paralysie hystérique,"Paralysie (de), hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,spasme hystérique,"Spasme (de), hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,torticolis hystérique,"Torticolis, hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.4,V,tremblement hystérique,"Tremblement (de), hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.5,V,convulsions hystériques,"Convulsions (idiopathiques) (de), hystériques",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.5,V,tétanie hystérique,"Tétanie, hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.8,V,manie hystérique,"Manie (monopolaire), hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.8,V,vertige hystérique,"Vertige (de), hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,conversion hystérique,conversion hystérique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,hystérie,hystérie,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,hystérie conversion,hystérie conversion,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,névrose hystérique,névrose hystérique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,névrose hystérique ancienne,névrose hystérique ancienne,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,névrose hystérique chronique,névrose hystérique chronique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,personnalité névrotico-hystérique,personnalité névrotico-hystérique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,psychopathie hystérique,psychopathie hystérique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,syndrome conversion hystérique,syndrome conversion hystérique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,syndrome hystérique,syndrome hystérique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,terrain hystérique,terrain hystérique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F44.9,V,état névrotique type hystérique,état névrotique type hystérique,CepiDc 2015,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F45.8,V,dysphagie hystérique,"Dysphagie, hystérique",CIM-10 index,sonde:hystérie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F48.0,V,neurasthénie,Neurasthénie,CIM-10 index,sonde:neurasthénie,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F71.9,V,imbécillité,imbécillité,CepiDc 2015,sonde:imbécillité+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F73.9,V,idiotie,idiotie,CepiDc 2015,sonde:idiotie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+F99,V,folie,Folie,CIM-10 index,sonde:folie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G31.1,VI,sénilité cérébrale,sénilité cérébrale,CepiDc 2015,sonde:sénilité+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G45.4,VI,ictus amnésique,"Ictus, amnésique (transitoire)",CIM-10 index,sonde:ictus+isolement,garder,ictus amnésique : entité clinique vivante (G45.4),v1
+G45.9,VI,ictus cérébral transitoire,ictus cérébral transitoire,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G45.9,VI,ictus transitoire,ictus transitoire,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G83.9,VI,paralysie générale,paralysie générale,CepiDc 2015,sonde:paralysie générale+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,congestion cérébrale,"Congestion (chronique) (passive) (de), cérébrale",CIM-10 index,sonde:congestion cérébrale+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement cérébral,"Ramollissement (de), cérébral",CIM-10 index,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement cérébral ancien,ramollissement cérébral ancien,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement cérébral bihémisphérique,ramollissement cérébral bihémisphérique,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement cérébral bilatéral,ramollissement cérébral bilatéral,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement fonctions cérébrales,ramollissement fonctions cérébrales,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement hémi-cérébelleux,ramollissement hémi-cérébelleux,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement pariétal ancien,ramollissement pariétal ancien,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement pariéto-temporal,ramollissement pariéto-temporal,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissement temporal,ramollissement temporal,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G93.8,VI,ramollissements bi-hémisphériques multiples,ramollissements bi-hémisphériques multiples,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+G95.8,VI,ramollissement de la moelle,"Ramollissement (de), moelle (épinière)",CIM-10 index,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+H65.9,VIII,catarrhe (de) oreille moyenne,"Catarrhe (de(s)), oreille moyenne",CIM-10 index,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+H65.9,VIII,catarrhe (de) tubo-tympanique,"Catarrhe (de(s)), tubo-tympanique",CIM-10 index,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+H68.0,VIII,catarrhe (de) tubaire,"Catarrhe (de(s)), tubaire",CIM-10 index,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I02.9,IX,chorée de Sydenham,"Sydenham, chorée de",CIM-10 index,sonde:chorée de sydenham+isolement,garder,chorée de Sydenham : dénomination vivante (I02),v1
+I27.9,IX,ictus cardio-pulmonaire,ictus cardio-pulmonaire,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I51.6,IX,ictus cardio-circulatoire,ictus cardio-circulatoire,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I51.6,IX,ictus cardio-vasculaire,ictus cardio-vasculaire,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I51.6,IX,ictus cardiovasculaire,ictus cardiovasculaire,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I62.9,IX,ramollissements hémorragiques intracrâniens,ramollissements hémorragiques intracrâniens,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I64,IX,apoplexie,Apoplexie (de),CIM-10 index,sonde:apoplexie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I64,IX,apoplexie basilaire,"Apoplexie (de), basilaire",CIM-10 index,sonde:apoplexie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I64,IX,apoplexie bulbaire,"Apoplexie (de), bulbaire",CIM-10 index,sonde:apoplexie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I64,IX,apoplexie du cerveau,"Apoplexie (de), cerveau",CIM-10 index,sonde:apoplexie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I64,IX,apoplexie congestive,"Apoplexie (de), congestive",CIM-10 index,sonde:apoplexie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I64,IX,apoplexie cérébrale,"Apoplexie (de), cérébrale",CIM-10 index,sonde:apoplexie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I64,IX,coma apoplectique,"Coma, apoplectique",CIM-10 index,sonde:apoplexie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I67.8,IX,congestion cérébrale ischémique,congestion cérébrale ischémique,CepiDc 2015,sonde:congestion cérébrale+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I69.8,IX,antécédent ramollissement cérébral,antécédent ramollissement cérébral,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I69.8,IX,antécédent ramollissement sylvien,antécédent ramollissement sylvien,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I97.8,IX,ramollissement cérébral post-opératoire,ramollissement cérébral post-opératoire,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I97.8,IX,ramollissement hémorragique post-fibrinolyse,ramollissement hémorragique post-fibrinolyse,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+I97.8,IX,ramollissement tronc cérébral post-opératoire,ramollissement tronc cérébral post-opératoire,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+J02.9,X,catarrhe (de) pharyngé,"Catarrhe (de(s)), pharyngé (aigu)",CIM-10 index,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+J05.0,X,croup faux,"Croup (canada j05.0), faux (canada j38.7)",CIM-10 index,sonde:croup+isolement,garder,"croup : terme officiel vivant (J05.0, diphtérie A36)",v1
+J05.0,X,faux croup,"Faux, croup (canada j38.7)",CIM-10 index,sonde:croup+isolement,garder,"croup : terme officiel vivant (J05.0, diphtérie A36)",v1
+J31.0,X,catarrhe nasal,catarrhe nasal,CepiDc 2015,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+J31.0,X,catarrhe oculo-nasal,catarrhe oculo-nasal,CepiDc 2015,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+J31.1,X,catarrhe (de) rhinopharyngé,"Catarrhe (de(s)), rhinopharyngé (chronique)",CIM-10 index,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+J31.2,X,catarrhe (de) fumeurs,"Catarrhe (de(s)), fumeurs",CIM-10 index,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+J37.0,X,catarrhe (de) laryngé,"Catarrhe (de(s)), laryngé (chronique)",CIM-10 index,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+J38.0,X,ictus laryngé,ictus laryngé,CepiDc 2015,sonde:ictus+isolement,garder,ictus laryngé : dénomination établie de la syncope tussive (ictus laryngis),v1
+J38.7,X,ictus laryngé,ictus laryngé,CepiDc 2015,sonde:ictus+isolement,garder,ictus laryngé : dénomination établie de la syncope tussive (ictus laryngis),v1
+J39.2,X,ictus pharyngé,ictus pharyngé,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+J40,X,catarrhe bronchique,catarrhe bronchique,CepiDc 2015,sonde:catarrhe+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+K31.8,XI,embarras gastrique,embarras gastrique,CepiDc 2015,sonde:embarras gastrique+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+K35.8,XI,sphacèle appendiculaire,sphacèle appendiculaire,CepiDc 2015,sonde:sphacèle+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+K62.8,XI,sphacèle rectum,sphacèle rectum,CepiDc 2015,sonde:sphacèle+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+K80.2,XI,sphacèle vésicule biliaire lithiasique,sphacèle vésicule biliaire lithiasique,CepiDc 2015,sonde:sphacèle+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+K81.0,XI,sphacèle vésiculaire,sphacèle vésiculaire,CepiDc 2015,sonde:sphacèle+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+L60.3,XII,ramollissement de l'ongle,"Ramollissement (de), ongle",CIM-10 index,sonde:ramollissement+isolement,garder,sens propre vivant (hapalonychie — ramollissement unguéal),v1
+N64.5,XIV,engorgement du sein,Engorgement du sein,CIM-10 index,sonde:engorgement+isolement,garder,engorgement mammaire/lymphatique : usage clinique vivant,v1
+O45.9,XV,apoplexie utéro-placentaire,apoplexie utéro-placentaire,CepiDc 2015,sonde:apoplexie+isolement,garder,apoplexie utéro-placentaire : dénomination vivante (syndrome de Couvelaire),v1
+O85,XV,fièvre puerpérale,"Fièvre (de) (des) (due à), puerpérale (infection grave)",CIM-10 index,sonde:fièvre puerpérale+isolement,garder,fièvre puerpérale : libellé officiel vivant (O85),v1
+P02.1,XVI,apoplexie utéro-placentaire,apoplexie utéro-placentaire,CepiDc 2015,sonde:apoplexie+isolement,garder,apoplexie utéro-placentaire : dénomination vivante (syndrome de Couvelaire),v1
+P83.2,XVI,hydropisie foetus,"Hydropisie, foetus",CIM-10 index,sonde:hydropisie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+P83.4,XVI,engorgement du sein nouveau-né,"Engorgement du sein, nouveau-né",CIM-10 index,sonde:engorgement+isolement,garder,engorgement mammaire/lymphatique : usage clinique vivant,v1
+P91.0,XVI,ramollissement encéphalique périnatal,ramollissement encéphalique périnatal,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+P91.0,XVI,ramollissement ischémique diffus,ramollissement ischémique diffus,CepiDc 2015,sonde:ramollissement+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+Q82.5,XVII,Tache mongolique,Tache mongolique,AP-HP Dermatologie,sonde:mongolisme,garder,tache/naevus mongolien : terme dermatologique classique (mélanocytose dermique),v1
+Q90.9,XVII,Mongolisme,Mongolisme,AP-HP Dermatologie,sonde:mongolisme,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+Q90.9,XVII,Trisomie 21 (mongolisme),Trisomie 21 (mongolisme),AP-HP Dermatologie,sonde:mongolisme,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+Q90.9,XVII,mongolien,mongolien,CepiDc 2015,sonde:mongolisme+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R02,XVIII,sphacèle orteil,sphacèle orteil,CepiDc 2015,sonde:sphacèle+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R09.2,XVIII,ictus cardio-respiratoire,ictus cardio-respiratoire,CepiDc 2015,sonde:ictus+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R15,XVIII,gâtisme,gâtisme,CepiDc 2015,sonde:gâtisme+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R41.8,XVIII,sénilité précoce,sénilité précoce,CepiDc 2015,sonde:sénilité+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R60.1,XVIII,hydropisie,Hydropisie,CIM-10 index,sonde:hydropisie+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R63.4,XVIII,consomption,consomption,CepiDc 2015,sonde:consomption+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R63.4,XVIII,consomption terminale,consomption terminale,CepiDc 2015,sonde:consomption+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R64,XVIII,misère physiologique,misère physiologique,CepiDc 2015,sonde:misère physiologique+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R64,XVIII,misère physiologique ancienne,misère physiologique ancienne,CepiDc 2015,sonde:misère physiologique+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R64,XVIII,misère physiologique extrême,misère physiologique extrême,CepiDc 2015,sonde:misère physiologique+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1
+R64,XVIII,état misère physiologique,état misère physiologique,CepiDc 2015,sonde:misère physiologique+isolement,ecarter,registre archaïque (certificat de décès / terminologie désuète),v1

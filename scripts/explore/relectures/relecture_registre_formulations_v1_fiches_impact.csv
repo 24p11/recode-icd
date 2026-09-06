@@ -1,0 +1,9 @@
+code,chapitre,formulations_avant,formulations_apres,section_videe,version_regle
+E00.0,IV,1,0,true,v1
+E00.1,IV,3,1,false,v1
+E00.2,IV,1,0,true,v1
+E00.9,IV,3,1,false,v1
+F44.5,V,4,2,false,v1
+H65.9,VIII,2,0,true,v1
+I64,IX,8,1,false,v1
+J31.1,X,3,2,false,v1
