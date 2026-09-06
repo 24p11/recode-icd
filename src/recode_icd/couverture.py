@@ -17,7 +17,8 @@ Statuts de résolution (`Resolution.statut`) :
 | `sans_ligne` | feuille codable du maître à laquelle aucune source n'attache de ligne (D3) | libellé |
 | `pere_interdit` | type 3 non supprimé : ne se code pas, ses enfants oui | ses enfants avec fiche |
 | `supprime` | code supprimé du kit ATIH (`*** SUaa ***`) | millésime de suppression |
-| `tronc_chapitre_xx` | extension lieu/activité du chapitre XX (D5 étendra à la validation de la composition) | le tronc et sa fiche |
+| `compose` | code composé du chapitre XX valide (D5) : tronc + lieu / activité / précision | la fiche du tronc et la décomposition |
+| `composition_invalide` | code du chapitre XX dont le suffixe n'est pas dans le kit | le tronc et la position fautive |
 | `absent_du_maitre` | connu du kit, absent du nested set (extensions ATIH récentes, D3) | l'ancêtre le plus proche |
 | `inconnu_atih` | au maître mais inconnu du kit : pas codable en MCO | la fiche si elle existe |
 | `inconnu` | ni au kit ni au maître | — |
@@ -40,6 +41,7 @@ from pathlib import Path
 
 import polars as pl
 
+from recode_icd.composition import Composition, decompose, explique_suffixe_invalide
 from recode_icd.loaders.atih import LIBELLES_STATUT, STATUT_INCONNU
 from recode_icd.notations import Notations, charge_notations
 from recode_icd.policy import _RACINE_DEPOT
@@ -54,7 +56,8 @@ STATUTS_RESOLUTION = (
     "sans_ligne",
     "pere_interdit",
     "supprime",
-    "tronc_chapitre_xx",
+    "compose",
+    "composition_invalide",
     "absent_du_maitre",
     "inconnu_atih",
     "inconnu",
@@ -82,10 +85,15 @@ class Resolution:
     codes_avec_fiche: tuple[str, ...] = field(default_factory=tuple)
     #: Ancêtre le plus proche au maître (absent du maître, tronc XX).
     ancetre: str | None = None
+    #: Décomposition d'un code composé du chapitre XX (D5) :
+    #: `{"tronc": …, "lieu": ("0", "domicile"), "activite": …}`.
+    composition: dict[str, object] = field(default_factory=dict)
 
     @property
     def negative(self) -> bool:
-        return self.statut != "fiche"
+        """Une réponse est positive si une fiche répond : la sienne, ou celle
+        de son tronc pour un code composé du chapitre XX."""
+        return self.statut not in ("fiche", "compose")
 
     def to_json(self) -> str:
         return json.dumps(asdict(self), ensure_ascii=False)
@@ -101,6 +109,8 @@ class ContexteResolution:
     #: `code → chemin de la fiche` de la bibliothèque visée (son `_index.csv`).
     fiches: dict[str, str]
     bibliotheque: str = ""
+    #: Chapitre XX par composition (D5) ; None si `build atih` n'a pas produit les tables.
+    composition: Composition | None = None
 
 
 def charge_contexte(
@@ -125,12 +135,22 @@ def charge_contexte(
         csv = pl.read_csv(processed / "inclusions_exclusions_synonymes.csv", columns=["code"])
         fiches = {c: "" for c in csv["code"].unique().to_list()}
         bibliotheque = "(CSV maître : bibliothèque non générée)"
+    composition: Composition | None = None
+    if (processed / "chapitre_xx_troncs.parquet").is_file():
+        composition = Composition(
+            troncs=pl.read_parquet(processed / "chapitre_xx_troncs.parquet"),
+            valeurs=pl.read_parquet(processed / "chapitre_xx_valeurs.parquet"),
+            codes=pl.read_parquet(processed / "chapitre_xx_codes.parquet"),
+            variantes=pl.DataFrame(),
+            patrons=pl.DataFrame(),
+        )
     return ContexteResolution(
         notations=charge_notations(notations_path),
         atih=atih,
         merged=merged,
         fiches=fiches,
         bibliotheque=bibliotheque,
+        composition=composition,
     )
 
 
@@ -188,7 +208,7 @@ def resoudre_code(saisie: str, ctx: ContexteResolution) -> Resolution:
     codable = (
         bool(kit["codable_mco"]) if kit is not None else (False if noeud is not None else None)
     )
-    base = {
+    base: dict[str, object] = {
         "saisie": saisie,
         "code": code,
         "code_atih": code_atih,
@@ -196,6 +216,15 @@ def resoudre_code(saisie: str, ctx: ContexteResolution) -> Resolution:
         "statut_mco": statut_mco,
         "codable_mco": codable,
     }
+
+    if (
+        ctx.composition is not None
+        and code_atih is not None
+        and _RE_CHAPITRE_XX.match(code)
+        and code not in ctx.fiches
+        and decompose(code_atih, ctx.composition) is not None
+    ):
+        return _resout_composition(code_atih, _ancetre_au_maitre(ctx, code_atih), ctx, base)
 
     fiche = ctx.fiches.get(code)
     if fiche is not None:
@@ -208,6 +237,17 @@ def resoudre_code(saisie: str, ctx: ContexteResolution) -> Resolution:
         return Resolution(statut="fiche", fiche=fiche, raison=raison, **base)  # type: ignore[arg-type]
 
     if kit is None and noeud is None:
+        if _RE_CHAPITRE_XX.match(code) and ctx.composition is not None and code_atih:
+            # Un suffixe du chapitre XX que le kit ne connaît pas : dire
+            # pourquoi il ne se compose pas, pas seulement « inconnu ».
+            motif = explique_suffixe_invalide(code_atih, ctx.composition)
+            if motif is not None:
+                return Resolution(
+                    statut="composition_invalide",
+                    ancetre=_ancetre_au_maitre(ctx, code_atih),
+                    raison=motif,
+                    **base,  # type: ignore[arg-type]
+                )
         return Resolution(
             statut="inconnu",
             raison="Code inconnu du kit ATIH et du référentiel : aucune forme ne lui correspond.",
@@ -225,18 +265,10 @@ def resoudre_code(saisie: str, ctx: ContexteResolution) -> Resolution:
     if noeud is None:
         # Connu du kit, absent du nested set.
         ancetre = _ancetre_au_maitre(ctx, str(code_atih))
-        if _RE_CHAPITRE_XX.match(code) and kit is not None and _entier(kit["type_mco"]) == 2:
-            return Resolution(
-                statut="tronc_chapitre_xx",
-                ancetre=ancetre,
-                codes_avec_fiche=tuple(c for c in (ancetre,) if c in ctx.fiches),
-                raison=(
-                    "Extension lieu/activité du chapitre XX : la fiche est celle du tronc "
-                    f"{ancetre or '(introuvable)'} ; la composition (lieu, activité) se valide "
-                    "contre le kit — D5 l'outillera."
-                ),
-                **base,  # type: ignore[arg-type]
-            )
+        if _RE_CHAPITRE_XX.match(code) and ctx.composition is not None:
+            # Chapitre XX connu du kit mais non décomposable : branche morte
+            # (type 3 hérité) ou suffixe que la dérivation n'a pas retenu.
+            return _resout_composition(str(code_atih), ancetre, ctx, base)
         return Resolution(
             statut="absent_du_maitre",
             ancetre=ancetre,
@@ -289,6 +321,88 @@ def resoudre_code(saisie: str, ctx: ContexteResolution) -> Resolution:
     )
 
 
+def _resout_composition(
+    code_atih: str, ancetre: str | None, ctx: ContexteResolution, base: dict[str, object]
+) -> Resolution:
+    """Un code du chapitre XX connu du kit et absent du maître : composé, ou invalide."""
+    assert ctx.composition is not None
+    d = decompose(code_atih, ctx.composition)
+    if d is None:
+        motif = explique_suffixe_invalide(code_atih, ctx.composition) or (
+            f"« {code_atih} » n'est pas un code composé du chapitre XX."
+        )
+        return Resolution(statut="composition_invalide", ancetre=ancetre, raison=motif, **base)  # type: ignore[arg-type]
+    tronc = str(d["tronc"])
+    valeurs = ctx.composition.valeurs
+    parts: dict[str, object] = {"tronc": tronc, "forme_plus": bool(d["forme_plus"])}
+    lisible: list[str] = []
+    for position in ("lieu", "activite", "precision"):
+        v = d.get(position)
+        if v is None:
+            continue
+        table = valeurs.filter(
+            (pl.col("table") == position)
+            & ((pl.col("tronc") == tronc) if position == "precision" else pl.col("tronc").is_null())
+            & (pl.col("valeur") == str(v))
+        )
+        libelle = str(table["libelle"][0]) if table.height else ""
+        parts[position] = (str(v), libelle)
+        lisible.append(f"{position} {v} « {libelle} »")
+    fiche = ctx.fiches.get(tronc)
+    return Resolution(
+        statut="compose",
+        fiche=fiche,
+        ancetre=tronc,
+        codes_avec_fiche=(tronc,) if fiche is not None else (),
+        composition=parts,
+        raison=(
+            f"Code composé du chapitre XX : tronc {tronc} + {' + '.join(lisible)}"
+            + (" (forme `+`, sans lieu)" if d["forme_plus"] else "")
+            + (
+                " — fiche du tronc."
+                if fiche is not None
+                else " — le tronc n'a pas de fiche dans cette bibliothèque."
+            )
+        ),
+        **base,  # type: ignore[arg-type]
+    )
+
+
+#: Statuts MCO qui ne s'émettent pas ; seule la classe `tronc_composition`
+#: peut les porter dans la bibliothèque de génération.
+STATUTS_NON_CODABLES = frozenset({"pere_interdit", "supprime", "inconnu_atih"})
+
+
+def verifie_generation(index: pl.DataFrame, troncs: pl.DataFrame | None) -> list[str]:
+    """Invariant I2 reformulé (D5) : les violations, ou la liste vide.
+
+    Aucun code non codable présenté comme émissible dans la génération :
+    une ligne non codable doit être de classe `tronc_composition` ET
+    figurer parmi les troncs de composition du kit ; une ligne de classe
+    `tronc_composition` doit être un tel tronc. Tout autre type 3,
+    supprimé ou inconnu du kit est une violation — `M07.20` échoue, `W00`
+    passe.
+    """
+    admis: set[str] = set()
+    if troncs is not None and troncs.height:
+        admis = set(troncs.filter(pl.col("classe") == "tronc_composition")["tronc"].to_list())
+    violations: list[str] = []
+    classe = (
+        index["classe_generation"]
+        if "classe_generation" in index.columns
+        else pl.Series([None] * index.height)
+    )
+    for code, statut, cl in zip(index["code"], index["statut_mco"], classe, strict=True):
+        non_codable = statut is None or statut in STATUTS_NON_CODABLES
+        if cl == "tronc_composition":
+            if code not in admis:
+                violations.append(f"{code} : classe tronc_composition sans être un tronc du kit")
+            continue
+        if non_codable:
+            violations.append(f"{code} : {statut or 'statut inconnu'} présenté comme émissible")
+    return violations
+
+
 def journalise(resolution: Resolution, journal: Path) -> None:
     """Ajoute une réponse NÉGATIVE au journal JSONL (mesure d'usage)."""
     if not resolution.negative:
@@ -302,10 +416,12 @@ def journalise(resolution: Resolution, journal: Path) -> None:
 __all__ = (
     "DEFAULT_INDEX_PATH",
     "DEFAULT_PROCESSED_DIR",
+    "STATUTS_NON_CODABLES",
     "STATUTS_RESOLUTION",
     "ContexteResolution",
     "Resolution",
     "charge_contexte",
     "journalise",
     "resoudre_code",
+    "verifie_generation",
 )

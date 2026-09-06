@@ -180,6 +180,11 @@ class ExplorationContext:
     recommendation_codes: Frame | None = None
     #: `atih_codes.parquet` (kit ATIH : statut MCO, règles positionnelles).
     atih: Frame | None = None
+    #: Chapitre XX par composition (D5) : troncs, tables lieu/activité,
+    #: codes composés décomposés.
+    composition_troncs: Frame | None = None
+    composition_valeurs: Frame | None = None
+    composition_codes: Frame | None = None
     external: dict[str, pl.DataFrame] = field(default_factory=dict)
     reports: dict[str, Frame] = field(default_factory=dict)
     # Graphe RDF ANS chargé via rdflib (opt-in via `load_rdf=True`).
@@ -401,6 +406,9 @@ def load_exploration_context(
         actual_processed / "recommendation_codes.parquet", lazy=lazy
     )
     atih = _load_parquet(actual_processed / "atih_codes.parquet", lazy=lazy)
+    composition_troncs = _load_parquet(actual_processed / "chapitre_xx_troncs.parquet", lazy=lazy)
+    composition_valeurs = _load_parquet(actual_processed / "chapitre_xx_valeurs.parquet", lazy=lazy)
+    composition_codes = _load_parquet(actual_processed / "chapitre_xx_codes.parquet", lazy=lazy)
 
     reports: dict[str, Frame] = {}
     for fname in _REPORTS:
@@ -436,6 +444,9 @@ def load_exploration_context(
         recommendations=recommendations,
         recommendation_codes=recommendation_codes,
         atih=atih,
+        composition_troncs=composition_troncs,
+        composition_valeurs=composition_valeurs,
+        composition_codes=composition_codes,
         external=external,
         reports=reports,
         ans_graph=ans_graph,

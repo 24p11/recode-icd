@@ -228,9 +228,34 @@ def to_parquet(
     paths = {
         "atih_codes": output_dir / "atih_codes.parquet",
         "summary": reports_dir / "atih_kit_summary.csv",
+        "chapitre_xx_troncs": output_dir / "chapitre_xx_troncs.parquet",
+        "chapitre_xx_valeurs": output_dir / "chapitre_xx_valeurs.parquet",
+        "chapitre_xx_codes": output_dir / "chapitre_xx_codes.parquet",
+        "chapitre_xx_composition": reports_dir / "chapitre_xx_composition.csv",
     }
     core.write_parquet_with_metadata(codes, paths["atih_codes"], metadata)
     resume_kit(codes).write_csv(paths["summary"])
+
+    # Chapitre XX par composition (D5) : table dérivée déterministe du kit.
+    from recode_icd.composition import derive_composition
+
+    composition = derive_composition(codes)
+    core.write_parquet_with_metadata(composition.troncs, paths["chapitre_xx_troncs"], metadata)
+    core.write_parquet_with_metadata(composition.valeurs, paths["chapitre_xx_valeurs"], metadata)
+    core.write_parquet_with_metadata(composition.codes, paths["chapitre_xx_codes"], metadata)
+    rapport = pl.concat(
+        [
+            composition.patrons.select(
+                "dimension", "valeur", pl.col("n").cast(pl.String).alias("detail")
+            ),
+            composition.variantes.filter(~pl.col("canonique")).select(
+                pl.lit("variante_libelle").alias("dimension"),
+                (pl.col("table") + " " + pl.col("valeur")).alias("valeur"),
+                (pl.col("libelle") + " (" + pl.col("n").cast(pl.String) + ")").alias("detail"),
+            ),
+        ]
+    )
+    rapport.write_csv(paths["chapitre_xx_composition"])
     return paths
 
 

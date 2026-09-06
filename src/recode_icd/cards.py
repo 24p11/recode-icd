@@ -24,6 +24,7 @@ import re
 import time
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 import polars as pl
 
@@ -695,6 +696,97 @@ def statut_mco_de(code: str, ctx: ExplorationContext) -> tuple[int | None, str] 
     return (None if r["type_mco"] is None else int(r["type_mco"]), str(r["statut_mco"]))
 
 
+def troncs_de_composition(ctx: ExplorationContext) -> frozenset[str]:
+    """Les troncs de classe `tronc_composition` (catégories du chapitre XX, D5)."""
+    if ctx.composition_troncs is None:
+        return frozenset()
+    troncs = _eager(ctx.composition_troncs)
+    return frozenset(troncs.filter(pl.col("classe") == "tronc_composition")["tronc"].to_list())
+
+
+def _tronc(code: str, ctx: ExplorationContext) -> dict[str, Any] | None:
+    if ctx.composition_troncs is None:
+        return None
+    ligne = _eager(ctx.composition_troncs).filter(pl.col("tronc") == code)
+    return None if ligne.is_empty() else ligne.row(0, named=True)
+
+
+_POSITION_LIBELLE = {"lieu": "lieu", "activite": "activité", "precision": "précision"}
+
+
+def _ligne_tronc(code: str, ctx: ExplorationContext) -> str | None:
+    """Marquage d'un tronc de composition — la PREMIÈRE ligne sous le titre.
+
+    Avant le statut, avant tout contenu (garde-fou 2 de D5) : un
+    consommateur qui lit la fiche sait d'abord que ce code ne s'émet pas
+    seul. Les troncs codables (`V01.0`) n'ont pas de marquage : ils
+    s'émettent, la composition y est facultative.
+    """
+    tronc = _tronc(code, ctx)
+    if tronc is None or tronc["classe"] != "tronc_composition":
+        return None
+    positions = list(tronc["positions"])
+    parts = [
+        f"{'du lieu' if p == 'lieu' else "de l'activité" if p == 'activite' else 'de la précision'} ({4 + i}e caractère)"
+        for i, p in enumerate(positions)
+    ]
+    composition = ", ".join(parts[:-1]) + " et " + parts[-1] if len(parts) > 1 else parts[0]
+    return (
+        f"**Tronc de composition (chapitre XX) — non codable seul : se compose "
+        f"{composition}.** Voir « Composition MCO »."
+    )
+
+
+def _section_composition(code: str, ctx: ExplorationContext) -> str | None:
+    """« Composition MCO (kit ATIH 2025) » : positions, tables, forme `+`."""
+    tronc = _tronc(code, ctx)
+    if tronc is None or ctx.composition_valeurs is None:
+        return None
+    valeurs = _eager(ctx.composition_valeurs)
+    positions = list(tronc["positions"])
+    debut = 4 if len(code.replace(".", "")) == 3 else 5
+    seul = tronc["classe"] == "tronc_composition"
+    lignes = ["## Composition MCO (kit ATIH 2025)", ""]
+    if seul:
+        lignes.append(
+            f"Ce code ne s'émet pas seul : le code MCO se forme en ajoutant à `{code}` "
+            f"les caractères ci-dessous, dans l'ordre. {tronc['n_codes_composes']} codes composés "
+            f"sont autorisés en MCO (jamais en DP ni en DR : cause externe de morbidité)."
+        )
+    else:
+        lignes.append(
+            f"`{code}` s'émet tel quel ; il peut se préciser en ajoutant les caractères "
+            f"ci-dessous, dans l'ordre ({tronc['n_codes_composes']} codes composés autorisés)."
+        )
+    for i, position in enumerate(positions):
+        rang = debut + i
+        obligatoire = seul and i == 0
+        admis = {
+            "lieu": str(tronc["valeurs_lieu"]),
+            "activite": str(tronc["valeurs_activite"]),
+        }.get(position)
+        if position == "precision":
+            table = valeurs.filter((pl.col("table") == "precision") & (pl.col("tronc") == code))
+        else:
+            table = valeurs.filter((pl.col("table") == position) & pl.col("tronc").is_null())
+            if admis:
+                table = table.filter(pl.col("valeur").is_in(list(admis)))
+        lignes.append("")
+        lignes.append(
+            f"### {rang}e caractère — {_POSITION_LIBELLE[position]}"
+            + (" (obligatoire)" if obligatoire else " (facultatif)")
+        )
+        lignes.append("")
+        for r in table.sort("valeur").iter_rows(named=True):
+            lignes.append(f"- `{r['valeur']}` : {r['libelle']}")
+    if tronc["forme_plus"]:
+        lignes.append("")
+        lignes.append(
+            f"Forme `+` : `{code.replace('.', '')}+<activité>` précise l'activité sans le lieu."
+        )
+    return "\n".join(lignes)
+
+
 def _ligne_statut_mco(code: str, ctx: ExplorationContext) -> str | None:
     """« Statut MCO (kit ATIH 2025) : … » — la ligne qui suit le titre.
 
@@ -756,8 +848,10 @@ def build_card(
     """
     sections = [
         _title(code, ctx),
+        _ligne_tronc(code, ctx),
         _ligne_statut_mco(code, ctx),
         _section_hierarchy(code, ctx),
+        _section_composition(code, ctx),
         _section_localisations(code, ctx),
         _section_perimeter(code, ctx),
         _section_exclusions(code, ctx),
@@ -911,14 +1005,19 @@ def build_cards_library(
     codes_all = set(csv["code"].unique().to_list())
     if "codable_mco" in merged.columns and merged["codable_mco"].null_count() < merged.height:
         codes_all |= set(codes_codables(merged))
+    # Troncs de composition du chapitre XX (D5) : construits dans toutes
+    # les bibliothèques ; en génération, admis par l'exception du profil.
+    troncs_composition = troncs_de_composition(ctx)
+    codes_all |= troncs_composition
     codes = sorted(c for c in codes_all if code_to_chap.get(c) is not None)
     outils = charge_politique(merged, policy_path, lexicons_dir)
     regle_profil = outils.policy.profil(profil)
     n_exclus_non_codables = 0
     if regle_profil.codables_seulement:
         codables = codes_codables(merged)
+        admis = troncs_composition if "tronc_composition" in regle_profil.exceptions else set()
         avant = len(codes)
-        codes = [c for c in codes if c in codables]
+        codes = [c for c in codes if c in codables or c in admis]
         n_exclus_non_codables = avant - len(codes)
     if chapter_filter is not None:
         codes = [c for c in codes if code_to_chap.get(c) == chapter_filter]
@@ -959,6 +1058,9 @@ def build_cards_library(
                     "type_mco": None if statut is None else statut[0],
                     "statut_mco": None if statut is None else statut[1].partition(":")[0],
                     "source_existence": _source_existence(merged, code),
+                    "classe_generation": (
+                        "tronc_composition" if code in troncs_composition else "emissible"
+                    ),
                     "nb_chars": len(card),
                     **sections,
                 }
@@ -993,6 +1095,7 @@ def build_cards_library(
             "type_mco",
             "statut_mco",
             "source_existence",
+            "classe_generation",
             "nb_chars",
         ]
         pl.DataFrame(
@@ -1001,6 +1104,7 @@ def build_cards_library(
                 "type_mco": pl.Int64,
                 "statut_mco": pl.String,
                 "source_existence": pl.String,
+                "classe_generation": pl.String,
             },
         ).select(ordered_cols).write_csv(index_path)
 

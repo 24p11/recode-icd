@@ -43,9 +43,14 @@ FAMILLE_INCONNUE = "AUTRE"
 PROFIL_DEFAUT = "generation"
 #: Valeurs admises de `profils.<nom>.codes`.
 SELECTIONS_CODES = ("codables_mco", "tous")
+#: Classes admissibles en `profils.<nom>.exceptions`.
+EXCEPTIONS_ADMISES = ("tronc_composition",)
 #: Profils implicites quand le YAML n'en déclare pas (tables de test,
 #: politiques antérieures à D4) : le défaut reste la génération.
-_PROFILS_IMPLICITES = {"generation": "codables_mco", "controle": "tous"}
+_PROFILS_IMPLICITES: dict[str, dict[str, Any]] = {
+    "generation": {"codes": "codables_mco", "exceptions": ["tronc_composition"]},
+    "controle": {"codes": "tous"},
+}
 
 
 class PolicyError(ValueError):
@@ -79,6 +84,9 @@ class Profil:
 
     nom: str
     codes: str = "tous"
+    #: Classes de codes non codables admises par exception déclarée
+    #: (D5 : `tronc_composition`). Vide pour un profil qui prend tout.
+    exceptions: frozenset[str] = frozenset()
 
     @property
     def codables_seulement(self) -> bool:
@@ -217,7 +225,7 @@ def load_policy(path: Path | None = None) -> ChapterPolicy:
 
     profils_bruts: dict[str, Any] = dict(brut.get("profils") or {})
     if not profils_bruts:
-        profils_bruts = {nom: {"codes": sel} for nom, sel in _PROFILS_IMPLICITES.items()}
+        profils_bruts = {nom: dict(decl) for nom, decl in _PROFILS_IMPLICITES.items()}
     profils: dict[str, Profil] = {}
     for nom, decl in profils_bruts.items():
         codes = str((decl or {}).get("codes", "tous"))
@@ -225,7 +233,13 @@ def load_policy(path: Path | None = None) -> ChapterPolicy:
             raise PolicyError(
                 f"Profil « {nom} » : `codes: {codes}` inconnu — admis : {SELECTIONS_CODES}."
             )
-        profils[str(nom)] = Profil(nom=str(nom), codes=codes)
+        exceptions = frozenset(str(e) for e in ((decl or {}).get("exceptions") or []))
+        if not exceptions <= set(EXCEPTIONS_ADMISES):
+            raise PolicyError(
+                f"Profil « {nom} » : exception(s) inconnue(s) "
+                f"{sorted(exceptions - set(EXCEPTIONS_ADMISES))} — admises : {EXCEPTIONS_ADMISES}."
+            )
+        profils[str(nom)] = Profil(nom=str(nom), codes=codes, exceptions=exceptions)
     if PROFIL_DEFAUT not in profils:
         raise PolicyError(f"Le profil par défaut « {PROFIL_DEFAUT} » doit être déclaré.")
 
@@ -259,6 +273,7 @@ def load_policy(path: Path | None = None) -> ChapterPolicy:
 __all__ = (
     "DEFAULT_LEXICONS_DIR",
     "DEFAULT_POLICY_PATH",
+    "EXCEPTIONS_ADMISES",
     "FAMILLE_INCONNUE",
     "PROFIL_DEFAUT",
     "SELECTIONS_CODES",

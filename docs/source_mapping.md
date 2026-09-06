@@ -1349,6 +1349,52 @@ CSV (59 : `Z37.10..71`, `U07.2..9`, résistances `U82/U83+x`, `Y90.x`…)
 ont désormais une fiche par le seul fait d'être codables :
 `build_cards_library` construit `codes du CSV ∪ codes codables`.
 
+### Chapitre XX par composition : troncs, lieu, activité (D5)
+
+Le kit ATIH décline chaque cause externe (V01-Y98) en une combinatoire
+lieu × activité absente de l'ANS : 27 097 codes, 373 catégories.
+Décision RF (2026-09-06) : on ne matérialise pas cette combinatoire en
+fiches. **La catégorie porte la fiche de tronc**, marquée en première
+ligne « non codable seul — se compose du lieu (4ᵉ) et de l'activité
+(5ᵉ) », et admise dans la bibliothèque de génération par **exception
+déclarée au profil** (`profils.generation.exceptions: [tronc_composition]`).
+
+Tout est dérivé du kit, déterministe (`recode_icd.composition`, écrit
+par `build atih`) :
+
+| Table | Contenu |
+|---|---|
+| `chapitre_xx_troncs.parquet` | 1 057 troncs : 207 catégories (`W00`, `Y34`, `X49`, `X59`… — classe `tronc_composition`, type 3) et 850 codes OMS à 4 caractères (`V01.0`, `W26.0` — classe `tronc_codable`, déjà codables) ; patron, positions, forme `+`, valeurs de lieu/activité observées, nombre de codes composés |
+| `chapitre_xx_valeurs.parquet` | tables lieu (10) et activité (7) — libellé **majoritaire** du kit —, précisions par tronc (`X49` : agent) |
+| `chapitre_xx_codes.parquet` | les 25 308 codes composés décomposés (tronc, lieu, activité, précision, forme `+`) |
+| `reports/chapitre_xx_composition.csv` | effectifs par patron, branches mortes, variantes de libellé |
+
+Patrons mesurés : lieu + activité (207 catégories), OMS + activité
+(99), OMS + lieu + activité avec forme `+` (6 : `W26`, `X34`, `X47`,
+`X67`, `X88`, `Y17`), OMS seul (51), sans subdivision (10). Deux cas
+absorbés par une décision **par valeur** plutôt que par position :
+`X59` (0 et 9 = sous-codes OMS codables, 1-8 = lieu) et `X49` (6ᵉ
+caractère = agent). **200 codes de type 3 forment des branches mortes**
+(`W261`…, `X342`… : un ancien encodage « lieu en 4ᵉ » conservé dans le
+kit) — ni troncs ni composés, comptés au rapport. Les variantes de
+libellé (« école, lieu public ») sont reconnues comme leur valeur,
+jamais corrigées.
+
+Conséquences :
+
+- fiches : le marquage ouvre la fiche de tronc, avant le statut et tout
+  contenu ; section « Composition MCO (kit ATIH 2025) » sur tous les
+  troncs (positions, tables, forme `+`) ; colonne `classe_generation`
+  (`emissible` / `tronc_composition`) des `_index.csv` ;
+- invariant I2 reformulé (`couverture.verifie_generation`) : aucun code
+  non codable **présenté comme émissible** — la seule classe admise est
+  `tronc_composition`, inscrite dans la table des troncs ; tout autre
+  type 3, supprimé ou inconnu du kit est une violation ;
+- invariant I1 étendu : un code composé est couvert si son tronc a une
+  fiche de génération ;
+- résolveur : `W0009` → `compose` (fiche du tronc + lieu 0 « domicile »
+  + activité 9), `W0005` → `composition_invalide` motivé.
+
 ### Écriture des codes — table de notation unique
 
 Trois écritures coexistent : **compacte** (kit, RUM : `O0490`,

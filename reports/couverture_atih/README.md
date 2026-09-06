@@ -10,10 +10,12 @@ tous ceux hors chapitre XX — ont une fiche dans la bibliothèque de
 génération (`outputs/cards_library`, 100 %).** Les 89 codes « notation
 divergente » de la mesure ci-dessous ont aussi leur fiche, sous
 l'écriture du maître (`O0490` → `O04.-0.9`) : le résolveur la trouve.
-Restent les 25 348 codes du chapitre XX (sous-nomenclature lieu ×
-activité, jamais DP/DR) : ils se couvriront par composition à partir
-de la fiche du tronc (palier 3, D5) — le résolveur répond déjà
-`tronc_chapitre_xx` avec le tronc.
+Les 25 308 codes du chapitre XX (sous-nomenclature lieu × activité,
+jamais DP/DR) sont couverts **par composition** depuis le 2026-09-06
+(D5) : la fiche est celle du tronc (`W00`, `V01.0`), marquée « non
+codable seul » quand c'est une catégorie, avec la section « Composition
+MCO » ; `recode-icd resoudre W0009` rend `compose` et la décomposition,
+`W0005` un rejet motivé.
 
 État du 2026-09-05 au matin, pour mémoire : 14 140 fiches (93,8 %
 hors chapitre XX), 931 manquants en quatre classes — toutes traitées

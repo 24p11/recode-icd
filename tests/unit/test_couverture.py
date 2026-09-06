@@ -101,7 +101,7 @@ def ctx() -> ContexteResolution:
         ("M000", "intermediaire", "M00.0"),
         ("M00.9", "sans_ligne", "M00.9"),
         ("W00", "pere_interdit", "W00"),
-        ("W000", "tronc_chapitre_xx", "W00.0"),
+        ("W000", "absent_du_maitre", "W00.0"),  # sans table de composition : absent, motivé
         ("I7000", "absent_du_maitre", "I70.00"),
         ("Z99.9", "inconnu", "Z99.9"),
         ("O04.123", "inconnu", "O04.123"),  # plausible, simplement inconnu
@@ -143,6 +143,7 @@ def test_la_fiche_dun_code_non_codable_avertit(ctx: ContexteResolution) -> None:
 def test_le_tronc_xx_et_labsent_portent_leur_ancetre(ctx: ContexteResolution) -> None:
     xx = resoudre_code("W000", ctx)
     assert xx.ancetre == "W00" and xx.code_atih == "W000"
+    assert xx.statut == "absent_du_maitre", "sans table de composition, pas de composition devinée"
     absent = resoudre_code("I7000", ctx)
     assert absent.ancetre == "I70.0" and absent.codes_avec_fiche == ("I70.0",)
 
@@ -162,3 +163,113 @@ def test_to_json_est_complet(ctx: ContexteResolution) -> None:
     r = resoudre_code("M000", ctx)
     assert json.loads(r.to_json())["codes_avec_fiche"] == ["M00.00", "M00.01"]
     assert isinstance(r, Resolution)
+
+
+# ----------------------------------------------------------------------
+# Chapitre XX par composition (D5) : résolveur et invariant I2 reformulé
+# ----------------------------------------------------------------------
+
+
+def _composition_synthetique():  # type: ignore[no-untyped-def]
+    from recode_icd.composition import Composition
+
+    troncs = pl.DataFrame(
+        {
+            "tronc": ["W00"],
+            "tronc_atih": ["W00"],
+            "patron": ["lieu_activite"],
+            "positions": [["lieu", "activite"]],
+            "forme_plus": [False],
+            "classe": ["tronc_composition"],
+            "n_codes_composes": [2],
+            "libelle": ["Chute de plain-pied"],
+            "valeurs_lieu": ["0"],
+            "valeurs_activite": ["9"],
+        }
+    )
+    valeurs = pl.DataFrame(
+        {
+            "tronc": [None, None],
+            "table": ["lieu", "activite"],
+            "valeur": ["0", "9"],
+            "libelle": ["domicile", "en participant à une activité non précisée"],
+        },
+        schema={"tronc": pl.String, "table": pl.String, "valeur": pl.String, "libelle": pl.String},
+    )
+    codes = pl.DataFrame(
+        {
+            "code_atih": ["W000", "W0009"],
+            "code": ["W00.0", "W00.09"],
+            "tronc": ["W00", "W00"],
+            "lieu": ["0", "0"],
+            "activite": [None, "9"],
+            "precision": [None, None],
+            "forme_plus": [False, False],
+        },
+        schema={
+            "code_atih": pl.String,
+            "code": pl.String,
+            "tronc": pl.String,
+            "lieu": pl.String,
+            "activite": pl.String,
+            "precision": pl.String,
+            "forme_plus": pl.Boolean,
+        },
+    )
+    return Composition(
+        troncs=troncs,
+        valeurs=valeurs,
+        codes=codes,
+        variantes=pl.DataFrame(),
+        patrons=pl.DataFrame(),
+    )
+
+
+@pytest.fixture(scope="module")
+def ctx_xx(ctx: ContexteResolution) -> ContexteResolution:
+    from dataclasses import replace
+
+    return replace(ctx, composition=_composition_synthetique())
+
+
+def test_un_code_compose_valide_rend_le_tronc_et_sa_decomposition(
+    ctx_xx: ContexteResolution,
+) -> None:
+    r = resoudre_code("W0009", ctx_xx)
+    assert r.statut == "compose" and not r.negative
+    assert r.ancetre == "W00" and r.composition["tronc"] == "W00"
+    assert r.composition["lieu"] == ("0", "domicile")
+    assert r.composition["activite"] == ("9", "en participant à une activité non précisée")
+    assert "tronc W00 + lieu 0" in r.raison
+
+
+def test_un_suffixe_invalide_est_rejete_avec_sa_raison(ctx_xx: ContexteResolution) -> None:
+    r = resoudre_code("W0005", ctx_xx)
+    assert r.statut == "composition_invalide" and r.negative
+    assert "activite « 5 » hors table" in r.raison and r.ancetre == "W00"
+
+
+def test_verifie_generation_dans_les_deux_sens() -> None:
+    """Garde-fou 1 : les troncs passent, un M07.20 échoue, un faux tronc échoue."""
+    from recode_icd.couverture import verifie_generation
+
+    troncs = _composition_synthetique().troncs
+    index = pl.DataFrame(
+        {
+            "code": ["A18.1", "W00", "M07.20", "M16.00", "X06"],
+            "statut_mco": ["codable", "pere_interdit", "supprime", "inconnu_atih", "pere_interdit"],
+            "classe_generation": [
+                "emissible",
+                "tronc_composition",
+                "emissible",
+                "emissible",
+                "tronc_composition",
+            ],
+        }
+    )
+    violations = verifie_generation(index, troncs)
+    assert [v.split(" : ")[0] for v in violations] == ["M07.20", "M16.00", "X06"]
+    assert verifie_generation(index.filter(pl.col("code").is_in(["A18.1", "W00"])), troncs) == []
+    assert verifie_generation(index.filter(pl.col("code") == "W00"), None) == [
+        "W00 : classe tronc_composition sans être un tronc du kit"
+    ]

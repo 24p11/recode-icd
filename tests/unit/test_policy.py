@@ -240,3 +240,18 @@ def test_le_profil_par_defaut_doit_exister(tmp_path: Path) -> None:
     yaml_test.write_text("familles: [OFS]\nprofils:\n  controle: {codes: tous}\n", encoding="utf-8")
     with pytest.raises(PolicyError, match="generation"):
         load_policy(yaml_test)
+
+
+def test_exception_tronc_composition_declaree_en_generation(policy) -> None:  # type: ignore[no-untyped-def]
+    assert policy.profil("generation").exceptions == frozenset({"tronc_composition"})
+    assert policy.profil("controle").exceptions == frozenset()
+
+
+def test_exception_inconnue_rejetee(tmp_path: Path) -> None:
+    yaml_test = tmp_path / "p.yaml"
+    yaml_test.write_text(
+        "familles: [OFS]\nprofils:\n  generation: {codes: codables_mco, exceptions: [pere_interdit]}\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(PolicyError, match="exception"):
+        load_policy(yaml_test)

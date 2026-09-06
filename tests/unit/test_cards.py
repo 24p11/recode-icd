@@ -14,6 +14,7 @@ import random
 
 import pytest
 
+from recode_icd import policy as policy_module
 from recode_icd.cards import (
     DEFAULT_SEED,
     BuildSummary,
@@ -181,6 +182,7 @@ def test_build_cards_library_index_csv_schema(ctx: ExplorationContext, tmp_path)
         "type_mco",
         "statut_mco",
         "source_existence",
+        "classe_generation",
         "nb_chars",
     }
     assert set(index.columns) == expected
@@ -276,7 +278,10 @@ def test_la_fiche_porte_son_statut_mco_sous_le_titre(ctx: ExplorationContext) ->
         card = build_card(code, ctx, random.Random(DEFAULT_SEED))
         lignes = card.splitlines()
         titre = next(i for i, ligne_ in enumerate(lignes) if ligne_.startswith("# "))
-        assert lignes[titre + 2] == ligne, (code, lignes[titre : titre + 3])
+        # Un tronc de composition (W00, D5) ouvre sur son marquage : le
+        # statut vient juste après ; sinon le statut suit le titre.
+        decalage = 4 if lignes[titre + 2].startswith("**Tronc de composition") else 2
+        assert lignes[titre + decalage] == ligne, (code, lignes[titre : titre + 5])
 
 
 def test_lindex_porte_type_et_statut_mco(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
@@ -346,3 +351,69 @@ def test_profil_generation_sans_kit_joint_echoue_bruyamment() -> None:
                 schema_overrides={"codable_mco": pl.Boolean},
             )
         )
+
+
+# ----------------------------------------------------------------------
+# Chapitre XX par composition — troncs (D5)
+# ----------------------------------------------------------------------
+
+
+def test_la_fiche_de_tronc_ouvre_sur_son_marquage(ctx: ExplorationContext) -> None:
+    """Garde-fou 2 : le marquage est la première ligne sous le titre, avant
+    le statut et tout contenu ; la section de composition suit la position."""
+    if ctx.composition_troncs is None:
+        pytest.skip("Tables de composition absentes (`recode-icd build atih`).")
+    card = build_card("W00", ctx, random.Random(DEFAULT_SEED))
+    lignes = card.splitlines()
+    titre = next(i for i, ligne_ in enumerate(lignes) if ligne_.startswith("# "))
+    assert lignes[titre + 2].startswith("**Tronc de composition (chapitre XX) — non codable seul")
+    assert lignes[titre + 4].startswith("Statut MCO (kit ATIH 2025) : non codable")
+    assert "## Composition MCO (kit ATIH 2025)" in card
+    assert "### 4e caractère — lieu (obligatoire)" in card
+    assert "### 5e caractère — activité (facultatif)" in card
+    assert "- `0` : domicile" in card
+
+
+def test_un_tronc_codable_a_la_section_sans_le_marquage(ctx: ExplorationContext) -> None:
+    if ctx.composition_troncs is None:
+        pytest.skip("Tables de composition absentes.")
+    card = build_card("V01.0", ctx, random.Random(DEFAULT_SEED))
+    assert "Tronc de composition" not in card
+    assert "## Composition MCO (kit ATIH 2025)" in card
+    assert "### 5e caractère — activité (facultatif)" in card
+
+
+def test_le_profil_generation_admet_les_troncs_par_exception(
+    ctx: ExplorationContext, tmp_path
+) -> None:  # type: ignore[no-untyped-def]
+    """`W00` (type 3) est construit en génération avec la classe
+    `tronc_composition` ; sans l'exception, il en sort."""
+    if ctx.composition_troncs is None or ctx.atih is None:
+        pytest.skip("Tables absentes.")
+    import polars as pl
+
+    avec = build_cards_library(
+        ctx=ctx, output_dir=tmp_path / "gen", chapter_filter="XX", progress=False
+    )
+    index = pl.read_csv(avec.index_path)
+    w00 = index.filter(pl.col("code") == "W00")
+    assert w00.height == 1 and w00["classe_generation"][0] == "tronc_composition"
+    assert w00["statut_mco"][0] == "pere_interdit"
+    assert index.filter(pl.col("classe_generation") == "tronc_composition").height >= 200
+
+    sans_exception = tmp_path / "policy.yaml"
+    sans_exception.write_text(
+        policy_module.DEFAULT_POLICY_PATH.read_text(encoding="utf-8").replace(
+            "    exceptions: [tronc_composition]\n", ""
+        ),
+        encoding="utf-8",
+    )
+    sans = build_cards_library(
+        ctx=ctx,
+        output_dir=tmp_path / "gen_sans",
+        chapter_filter="XX",
+        progress=False,
+        policy_path=sans_exception,
+    )
+    index_sans = pl.read_csv(sans.index_path)
+    assert index_sans.filter(pl.col("code") == "W00").is_empty()
