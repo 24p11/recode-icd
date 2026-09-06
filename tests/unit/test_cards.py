@@ -146,8 +146,10 @@ def test_build_cards_library_chapter_filter(ctx: ExplorationContext, tmp_path) -
         chapter_filter="XXII",
         progress=False,
     )
-    # Chapitre XXII : 33 codes attendus (codes U post-2006).
-    assert 20 <= summary.n_written <= 50
+    # Chapitre XXII : 33 codes en juin 2026 ; depuis D3/D4, les codables
+    # sans ligne (U07.2..9, U08.9, U09.9, U12.9, résistances U82/U83+x)
+    # s'ajoutent et les non-codables sortent du profil `generation`.
+    assert 20 <= summary.n_written <= 70
     # Toutes les fiches doivent être sous tmp_path/lib/XXII/.
     chap_dir = tmp_path / "lib" / "XXII"
     assert chap_dir.is_dir()
@@ -178,6 +180,7 @@ def test_build_cards_library_index_csv_schema(ctx: ExplorationContext, tmp_path)
         "has_formulations",
         "type_mco",
         "statut_mco",
+        "source_existence",
         "nb_chars",
     }
     assert set(index.columns) == expected

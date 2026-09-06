@@ -68,4 +68,6 @@ def test_un_code_injecte_herite_et_entre_au_csv() -> None:
     lignes = csv.filter(pl.col("code") == "I70.00")
     assert lignes.height > 0
     assert set(lignes["source_level"].to_list()) <= {"chapter", "block", "category", "code"}
-    assert "I70.0" in lignes["inherited_from_code"].drop_nulls().to_list()
+    # `I70.0` n'a aucune note propre : l'héritage vient de `I70` et du chapitre.
+    herites = set(lignes["inherited_from_code"].drop_nulls().to_list())
+    assert herites and herites <= {"I70", "I70-I79", "IX", "I70.0"}, herites

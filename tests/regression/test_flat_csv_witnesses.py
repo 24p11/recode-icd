@@ -172,8 +172,9 @@ def test_u07_0_synonymes_ans_preserved_outside_chap_xiii() -> None:
 
 
 def test_orphan_type_d_codes_report_exists() -> None:
-    """Le rapport orphan_type_d_codes.csv doit être généré avec ~90
-    lignes (codes type=D dans OFS absents du RDF ANS)."""
+    """Le rapport orphan_type_d_codes.csv doit être généré avec ~40
+    lignes (codes type=D dans OFS absents du RDF ANS ; 90 avant D3, dont
+    50 réinjectés depuis le kit ATIH — M11.9x, M13.9x, M83.xx, M62.8x)."""
     root = Path(__file__).resolve().parents[2]
     path = root / "reports" / "orphan_type_d_codes.csv"
     if not path.is_file():
@@ -186,7 +187,9 @@ def test_orphan_type_d_codes_report_exists() -> None:
         "categorie_orphan",
     }
     # Empiriquement 90 codes. Tolérance ±10 si l'OFS ou l'ANS bouge.
-    assert 80 <= df.height <= 100, f"orphan_type_d_codes.csv : {df.height} lignes (attendu ~90)"
+    assert (
+        30 <= df.height <= 50
+    )  # 90 avant D3 ; 50 d'entre eux injectés depuis le kit ATIH, f"orphan_type_d_codes.csv : {df.height} lignes (attendu ~90)"
     # Tous dans le chapitre XIII.
     assert set(df["chapter"].unique().to_list()) == {"(M00-M99)"}
 

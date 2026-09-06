@@ -145,12 +145,12 @@ def _entier(valeur: object) -> int:
     return valeur
 
 
-def _feuilles_sous(merged: pl.DataFrame, noeud: dict[str, object]) -> list[str]:
+def _descendants(merged: pl.DataFrame, noeud: dict[str, object]) -> list[str]:
+    """Tous les descendants d'un nœud — feuilles ET intermédiaires codables
+    (depuis D2, `M00.0` a une fiche comme `M00.00`)."""
     return (
         merged.filter(
-            (pl.col("left") > _entier(noeud["left"]))
-            & (pl.col("right") < _entier(noeud["right"]))
-            & (pl.col("right") == pl.col("left") + 1)
+            (pl.col("left") > _entier(noeud["left"])) & (pl.col("right") < _entier(noeud["right"]))
         )["code"]
         .sort()
         .to_list()
@@ -249,7 +249,7 @@ def resoudre_code(saisie: str, ctx: ContexteResolution) -> Resolution:
         )
 
     est_feuille = _entier(noeud["right"]) == _entier(noeud["left"]) + 1
-    feuilles = [] if est_feuille else _feuilles_sous(ctx.merged, noeud)
+    feuilles = [] if est_feuille else _descendants(ctx.merged, noeud)
     avec_fiche = tuple(f for f in feuilles if f in ctx.fiches)
 
     if kit is None:
@@ -282,8 +282,8 @@ def resoudre_code(saisie: str, ctx: ContexteResolution) -> Resolution:
         statut="intermediaire",
         codes_avec_fiche=avec_fiche,
         raison=(
-            f"Code codable en MCO, subdivisé au référentiel : {len(feuilles)} feuille(s), "
-            f"dont {len(avec_fiche)} avec fiche — pas de fiche propre tant que D2 n'est pas fait."
+            f"Code codable en MCO, subdivisé au référentiel : {len(feuilles)} descendant(s), "
+            f"dont {len(avec_fiche)} avec fiche."
         ),
         **base,  # type: ignore[arg-type]
     )
