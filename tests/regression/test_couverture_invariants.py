@@ -38,13 +38,38 @@ def _index(path: Path) -> pl.DataFrame:
     return pl.read_csv(path, schema_overrides={"statut_mco": pl.String})
 
 
-def test_i2_aucun_non_codable_dans_la_generation() -> None:
+_TRONCS = _RACINE / "referentials" / "processed" / "chapitre_xx_troncs.parquet"
+_CODES_XX = _RACINE / "referentials" / "processed" / "chapitre_xx_codes.parquet"
+
+
+def test_i2_aucun_non_codable_presente_comme_emissible_dans_la_generation() -> None:
+    """Reformulé par D5 : les troncs du chapitre XX sont une classe déclarée
+    (`tronc_composition`), la seule admise ; tout autre non-codable est une
+    violation — `couverture.verifie_generation`, testé dans les deux sens
+    sur données synthétiques (`test_couverture.py`)."""
+    from recode_icd.couverture import verifie_generation
+
     index = _index(_INDEX_GENERATION)
-    assert "statut_mco" in index.columns
-    fautives = index.filter(
-        pl.col("statut_mco").is_in(NON_CODABLES) | pl.col("statut_mco").is_null()
-    )
-    assert fautives.is_empty(), fautives.select("code", "statut_mco").head(10).rows()
+    troncs = pl.read_parquet(_TRONCS) if _TRONCS.is_file() else None
+    violations = verifie_generation(index, troncs)
+    assert not violations, violations[:10]
+    if troncs is not None and "classe_generation" in index.columns:
+        n_troncs = index.filter(pl.col("classe_generation") == "tronc_composition").height
+        assert n_troncs == troncs.filter(pl.col("classe") == "tronc_composition").height, (
+            "chaque tronc de composition du kit a sa fiche de génération, rien d'autre ne porte la classe"
+        )
+
+
+def test_i1_par_composition_le_chapitre_xx_est_couvert() -> None:
+    """Un code composé du chapitre XX est couvert si son tronc a une fiche de génération."""
+    if not (_CODES_XX.is_file() and _TRONCS.is_file()):
+        pytest.skip("Tables de composition absentes (`recode-icd build atih`).")
+    index = _index(_INDEX_GENERATION)
+    fiches = set(index["code"].to_list())
+    codes = pl.read_parquet(_CODES_XX)
+    sans_tronc = codes.filter(~pl.col("tronc").is_in(sorted(fiches)))
+    assert sans_tronc.is_empty(), sans_tronc["tronc"].unique().to_list()[:10]
+    assert codes.height >= 25_000
 
 
 def test_la_bibliotheque_controle_garde_tout_avec_le_statut() -> None:

@@ -1,0 +1,11 @@
+dimension,valeur,detail
+branches_mortes_type_3,codes,200
+categories,aucun,10
+categories,lieu_activite,211
+categories,oms_activite,95
+categories,oms_lieu_activite,6
+categories,oms_seul,51
+codes_composes,codes,25348
+troncs,troncs,1021
+variante_libelle,lieu 2,"école, lieu public (2)"
+variante_libelle,lieu 2,lieu public (1)

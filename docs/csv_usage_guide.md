@@ -368,7 +368,8 @@ Réponses négatives, toujours motivées (`r.raison`) et avec un repli :
 |---|---|
 | `intermediaire` (codable, subdivisé, sans fiche propre) | `codes_avec_fiche` : ses feuilles |
 | `pere_interdit` (type 3) | `codes_avec_fiche` : ses enfants |
-| `tronc_chapitre_xx` (extension lieu/activité) | `ancetre` : le tronc, et sa fiche |
+| `compose` (code composé du chapitre XX, **positif**) | `fiche` : celle du tronc ; `composition` : tronc + lieu / activité / précision, libellés à l'appui |
+| `composition_invalide` (suffixe hors kit) | `ancetre` : le tronc ; `raison` : la position fautive et les valeurs admises |
 | `absent_du_maitre` (extension ATIH récente) | `ancetre` |
 | `sans_ligne`, `supprime`, `inconnu_atih`, `inconnu`, `notation_invalide` | — |
 
@@ -377,4 +378,18 @@ est rendue `fiche` avec `codable_mco=False` : filtrer dessus avant tout
 tirage de génération. CLI équivalente : `recode-icd resoudre CODE…
 [--json] [--journal fichier.jsonl]` — le journal n'enregistre que les
 réponses négatives ; **envoyez-le**, il priorise les fiches à produire.
+
+## Chapitre XX : un code se compose, il ne se cherche pas
+
+Les 25 348 codes de causes externes du kit (`W0009`, `V0104`,
+`W260+4`…) n'ont pas de fiche propre : **la fiche est celle du tronc**
+(`W00`, `V01.0`, `W26.0`), qui porte une section « Composition MCO »
+avec les tables — lieu (4ᵉ ou 5ᵉ caractère, 10 valeurs) et activité
+(7 valeurs), plus une précision pour `X49`. Une fiche de tronc de
+catégorie (`W00`) ouvre sur son marquage : **non codable seul**. Pour
+générer : tirer le tronc, composer lieu et activité depuis la section ;
+pour vérifier : `resoudre_code("W0009")` rend `compose` avec la
+décomposition, ou `composition_invalide` avec la raison. Les tables
+vivent dans `referentials/processed/chapitre_xx_{troncs,valeurs,codes}.parquet`,
+dérivées du kit à chaque `build atih`.
 

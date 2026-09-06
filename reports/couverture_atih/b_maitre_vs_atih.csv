@@ -13913,13 +13913,145 @@ V97.3,V973,connu de l'ATIH,type MCO 2,V973,Personne au sol blessée dans un acci
 V97.8,V978,connu de l'ATIH,type MCO 2,V978,"Autres accidents de transport aérien, non classés ailleurs"
 V98,V98,connu de l'ATIH,type MCO 2,V98,Autres accidents de transport précisés
 V99,V99,connu de l'ATIH,type MCO 2,V99,"Accident de transport, sans précision"
+W00,W00,connu de l'ATIH,type MCO 3 — interdit en MCO,W00,Chute de plain-pied due à la glace et la neige
+W01,W01,connu de l'ATIH,type MCO 3 — interdit en MCO,W01,"Chute de plain-pied résultant de glissade, faux-pas et trébuchement"
+W02,W02,connu de l'ATIH,type MCO 3 — interdit en MCO,W02,"Chute impliquant des patins à glace, des skis, des patins à roulettes ou une planche à roulettes"
+W03,W03,connu de l'ATIH,type MCO 3 — interdit en MCO,W03,Autre chute de plain-pied due à une collision avec un tiers ou une poussée par un tiers
+W04,W04,connu de l'ATIH,type MCO 3 — interdit en MCO,W04,"Chute, en étant porté ou soutenu par des tiers"
+W05,W05,connu de l'ATIH,type MCO 3 — interdit en MCO,W05,Chute d'un fauteuil roulant
+W06,W06,connu de l'ATIH,type MCO 3 — interdit en MCO,W06,Chute d'un lit
+W07,W07,connu de l'ATIH,type MCO 3 — interdit en MCO,W07,Chute d'une chaise
+W08,W08,connu de l'ATIH,type MCO 3 — interdit en MCO,W08,Chute d'un autre meuble
+W09,W09,connu de l'ATIH,type MCO 3 — interdit en MCO,W09,Chute du haut d'agrès équipant un terrain de jeux
+W10,W10,connu de l'ATIH,type MCO 3 — interdit en MCO,W10,Chute dans et d'un escalier et de marches
+W11,W11,connu de l'ATIH,type MCO 3 — interdit en MCO,W11,Chute sur ou d'une échelle
+W12,W12,connu de l'ATIH,type MCO 3 — interdit en MCO,W12,Chute sur ou d'un échafaudage
+W13,W13,connu de l'ATIH,type MCO 3 — interdit en MCO,W13,Chute du haut d'un bâtiment ou d'un autre ouvrage
+W14,W14,connu de l'ATIH,type MCO 3 — interdit en MCO,W14,Chute du haut d'un arbre
+W15,W15,connu de l'ATIH,type MCO 3 — interdit en MCO,W15,Chute d'une falaise
+W16,W16,connu de l'ATIH,type MCO 3 — interdit en MCO,W16,Plongée ou saut dans l'eau provoquant une lésion traumatique autre que noyade ou submersion
+W17,W17,connu de l'ATIH,type MCO 3 — interdit en MCO,W17,Autre chute d'un niveau à un autre
+W18,W18,connu de l'ATIH,type MCO 3 — interdit en MCO,W18,Autre chute de plain-pied
+W19,W19,connu de l'ATIH,type MCO 3 — interdit en MCO,W19,"Chute, sans précision"
+W20,W20,connu de l'ATIH,type MCO 3 — interdit en MCO,W20,Heurt causé par le lancement ou la chute (d'un)(d') objet(s)
+W21,W21,connu de l'ATIH,type MCO 3 — interdit en MCO,W21,Heurt contre ou par du matériel de sport
+W22,W22,connu de l'ATIH,type MCO 3 — interdit en MCO,W22,Heurt contre ou par (un)(d')autre(s) objet(s)
+W23,W23,connu de l'ATIH,type MCO 3 — interdit en MCO,W23,"Compression, écrasement ou blocage dans des objets ou entre des objets"
+W24,W24,connu de l'ATIH,type MCO 3 — interdit en MCO,W24,"Contact avec (un)(des) dispositif(s) de levage et de transmission, non classé(s) ailleurs"
+W25,W25,connu de l'ATIH,type MCO 3 — interdit en MCO,W25,Contact avec du verre tranchant
 W26.0,W260,connu de l'ATIH,type MCO 2,W260,"Contact avec un couteau, une épée ou un poignard"
 W26.8,W268,connu de l'ATIH,type MCO 2,W268,"Contact avec d'autres objets tranchants, non classé ailleurs"
 W26.9,W269,connu de l'ATIH,type MCO 2,W269,"Contact avec un objet tranchant, sans précision"
+W27,W27,connu de l'ATIH,type MCO 3 — interdit en MCO,W27,Contact avec un outil à main non électrique
+W28,W28,connu de l'ATIH,type MCO 3 — interdit en MCO,W28,Contact avec tondeuse à gazon à moteur
+W29,W29,connu de l'ATIH,type MCO 3 — interdit en MCO,W29,Contact avec d'autres outils manuels électriques et appareils électro-ménagers
+W30,W30,connu de l'ATIH,type MCO 3 — interdit en MCO,W30,Contact avec du matériel agricole
+W31,W31,connu de l'ATIH,type MCO 3 — interdit en MCO,W31,"Contact avec des appareils, autres et sans précision"
+W32,W32,connu de l'ATIH,type MCO 3 — interdit en MCO,W32,Décharge d'arme de poing
+W33,W33,connu de l'ATIH,type MCO 3 — interdit en MCO,W33,"Décharge de fusil, de carabine et d'arme de plus grande taille"
+W34,W34,connu de l'ATIH,type MCO 3 — interdit en MCO,W34,"Décharge d'armes, autres et sans précision"
+W35,W35,connu de l'ATIH,type MCO 3 — interdit en MCO,W35,Explosion et éclatement d'une chaudière
+W36,W36,connu de l'ATIH,type MCO 3 — interdit en MCO,W36,Explosion et éclatement d'une bouteille de gaz
+W37,W37,connu de l'ATIH,type MCO 3 — interdit en MCO,W37,Explosion et éclatement de pneumatique ou de tuyau sous pression
+W38,W38,connu de l'ATIH,type MCO 3 — interdit en MCO,W38,Explosion et éclatement d'autres appareils précisés sous pression
+W39,W39,connu de l'ATIH,type MCO 3 — interdit en MCO,W39,Projections de feu d'artifice
+W40,W40,connu de l'ATIH,type MCO 3 — interdit en MCO,W40,Explosion d'autres matériaux
+W41,W41,connu de l'ATIH,type MCO 3 — interdit en MCO,W41,Exposition à un jet à haute pression
+W42,W42,connu de l'ATIH,type MCO 3 — interdit en MCO,W42,Exposition au bruit
+W43,W43,connu de l'ATIH,type MCO 3 — interdit en MCO,W43,Exposition aux vibrations
+W44,W44,connu de l'ATIH,type MCO 3 — interdit en MCO,W44,Corps étranger pénétrant dans l'œil ou un orifice naturel
+W45,W45,connu de l'ATIH,type MCO 3 — interdit en MCO,W45,Corps étranger ou objet pénétrant dans la peau
+W46,W46,connu de l'ATIH,type MCO 3 — interdit en MCO,W46,Contact avec aiguille à usage médical [aiguille hypodermique]
+W49,W49,connu de l'ATIH,type MCO 3 — interdit en MCO,W49,"Exposition à des forces mécaniques, autres et sans précision"
+W50,W50,connu de l'ATIH,type MCO 3 — interdit en MCO,W50,"Coup, torsion, morsure ou écorchure infligés par un tiers"
+W51,W51,connu de l'ATIH,type MCO 3 — interdit en MCO,W51,Collision entre deux personnes
+W52,W52,connu de l'ATIH,type MCO 3 — interdit en MCO,W52,"Ecrasement, poussée ou piétinement par une foule humaine"
+W53,W53,connu de l'ATIH,type MCO 3 — interdit en MCO,W53,Morsure de rat
+W54,W54,connu de l'ATIH,type MCO 3 — interdit en MCO,W54,Morsure ou coup donné par un chien
+W55,W55,connu de l'ATIH,type MCO 3 — interdit en MCO,W55,Morsure ou coup donné par d'autres mammifères
+W56,W56,connu de l'ATIH,type MCO 3 — interdit en MCO,W56,Contact avec un animal marin
+W57,W57,connu de l'ATIH,type MCO 3 — interdit en MCO,W57,Morsure ou piqure non venimeuse d'insectes et autres arthropodes
+W58,W58,connu de l'ATIH,type MCO 3 — interdit en MCO,W58,Morsure ou coup donné par un crocodile ou un alligator
+W59,W59,connu de l'ATIH,type MCO 3 — interdit en MCO,W59,Morsure ou écrasement par d'autres reptiles
+W60,W60,connu de l'ATIH,type MCO 3 — interdit en MCO,W60,Contact avec des épines de plantes et des feuilles acérées
+W64,W64,connu de l'ATIH,type MCO 3 — interdit en MCO,W64,"Exposition à des forces animées, autres et sans précision"
+W65,W65,connu de l'ATIH,type MCO 3 — interdit en MCO,W65,Noyade et submersion dans une baignoire
+W66,W66,connu de l'ATIH,type MCO 3 — interdit en MCO,W66,Noyade et submersion consécutives à une chute dans une baignoire
+W67,W67,connu de l'ATIH,type MCO 3 — interdit en MCO,W67,Noyade et submersion dans une piscine
+W68,W68,connu de l'ATIH,type MCO 3 — interdit en MCO,W68,Noyade et submersion consécutives à une chute dans une piscine
+W69,W69,connu de l'ATIH,type MCO 3 — interdit en MCO,W69,Noyade et submersion dans des eaux naturelles
+W70,W70,connu de l'ATIH,type MCO 3 — interdit en MCO,W70,Noyade et submersion consécutives à une chute dans des eaux naturelles
+W73,W73,connu de l'ATIH,type MCO 3 — interdit en MCO,W73,Autres formes de noyade et submersion précisées
+W74,W74,connu de l'ATIH,type MCO 3 — interdit en MCO,W74,"Noyade et submersion, sans précision"
+W75,W75,connu de l'ATIH,type MCO 3 — interdit en MCO,W75,Suffocation et strangulation accidentelles dans un lit
+W76,W76,connu de l'ATIH,type MCO 3 — interdit en MCO,W76,Autre pendaison et strangulation accidentelles
+W77,W77,connu de l'ATIH,type MCO 3 — interdit en MCO,W77,"Danger pour la respiration dû à un affaissement du sol, une coulée de terre et d'autres substances"
+W78,W78,connu de l'ATIH,type MCO 3 — interdit en MCO,W78,Inhalation du contenu de l'estomac
+W79,W79,connu de l'ATIH,type MCO 3 — interdit en MCO,W79,Inhalation et ingestion d'aliments provoquant une obstruction des voies respiratoires
+W80,W80,connu de l'ATIH,type MCO 3 — interdit en MCO,W80,Inhalation et ingestion d'autres objets provoquant une obstruction des voies respiratoires
+W81,W81,connu de l'ATIH,type MCO 3 — interdit en MCO,W81,Confinement ou emprisonnement dans un environnement pauvre en oxygène
+W83,W83,connu de l'ATIH,type MCO 3 — interdit en MCO,W83,Autres dangers pour la respiration
+W84,W84,connu de l'ATIH,type MCO 3 — interdit en MCO,W84,"Danger pour la respiration, sans précision"
+W85,W85,connu de l'ATIH,type MCO 3 — interdit en MCO,W85,Exposition aux lignes électriques
+W86,W86,connu de l'ATIH,type MCO 3 — interdit en MCO,W86,Exposition à d'autres formes précisées de courant électrique
+W87,W87,connu de l'ATIH,type MCO 3 — interdit en MCO,W87,"Exposition au courant électrique, sans précision"
+W88,W88,connu de l'ATIH,type MCO 3 — interdit en MCO,W88,Exposition aux rayonnements ionisants
+W89,W89,connu de l'ATIH,type MCO 3 — interdit en MCO,W89,Exposition à une source lumineuse artificielle visible et aux ultraviolets
+W90,W90,connu de l'ATIH,type MCO 3 — interdit en MCO,W90,Exposition à d'autres rayonnements non ionisants
+W91,W91,connu de l'ATIH,type MCO 3 — interdit en MCO,W91,"Exposition aux rayonnements, sans précision"
+W92,W92,connu de l'ATIH,type MCO 3 — interdit en MCO,W92,Exposition à une chaleur artificielle excessive
+W93,W93,connu de l'ATIH,type MCO 3 — interdit en MCO,W93,Exposition à un froid artificiel excessif
+W94,W94,connu de l'ATIH,type MCO 3 — interdit en MCO,W94,Exposition à une dépression et une hyperpression et à des changements de pression barométriques
+W99,W99,connu de l'ATIH,type MCO 3 — interdit en MCO,W99,"Exposition à des facteurs propres à un environnement artificiel, autres et sans précision"
+X00,X00,connu de l'ATIH,type MCO 3 — interdit en MCO,X00,"Exposition à un feu non maitrisé, dans un bâtiment ou un ouvrage"
+X01,X01,connu de l'ATIH,type MCO 3 — interdit en MCO,X01,"Exposition à un feu non maitrisé, hors d'un bâtiment ou d'un ouvrage"
+X02,X02,connu de l'ATIH,type MCO 3 — interdit en MCO,X02,"Exposition à un feu maitrisé, dans un bâtiment ou un ouvrage"
+X03,X03,connu de l'ATIH,type MCO 3 — interdit en MCO,X03,"Exposition à un feu maitrisé, hors d'un bâtiment ou d'un ouvrage"
+X04,X04,connu de l'ATIH,type MCO 3 — interdit en MCO,X04,Exposition à l'inflammation d'une substance très inflammable
+X05,X05,connu de l'ATIH,type MCO 3 — interdit en MCO,X05,Exposition à l'inflammation ou la fonte de vêtements de nuit
+X06,X06,connu de l'ATIH,type MCO 3 — interdit en MCO,X06,Exposition à l'inflammation ou la fonte d'autres vêtements et parures
+X08,X08,connu de l'ATIH,type MCO 3 — interdit en MCO,X08,"Exposition à d'autres fumées, feux et flammes précisés"
+X09,X09,connu de l'ATIH,type MCO 3 — interdit en MCO,X09,"Exposition à la fumée, au feu et aux flammes, sans précision"
+X10,X10,connu de l'ATIH,type MCO 3 — interdit en MCO,X10,"Contact avec des boissons, aliments, graisses comestibles et huiles de cuisson brulants"
+X11,X11,connu de l'ATIH,type MCO 3 — interdit en MCO,X11,Contact avec de l'eau bouillante provenant d'un robinet
+X12,X12,connu de l'ATIH,type MCO 3 — interdit en MCO,X12,Contact avec d'autres liquides brulants
+X13,X13,connu de l'ATIH,type MCO 3 — interdit en MCO,X13,Contact avec de la vapeur d'eau et des vapeurs brulantes
+X14,X14,connu de l'ATIH,type MCO 3 — interdit en MCO,X14,Contact avec de l'air et des gaz brulants
+X15,X15,connu de l'ATIH,type MCO 3 — interdit en MCO,X15,Contact avec des appareils ménagers brulants
+X16,X16,connu de l'ATIH,type MCO 3 — interdit en MCO,X16,"Contact avec des appareils de chauffage, radiateurs et tuyaux brulants"
+X17,X17,connu de l'ATIH,type MCO 3 — interdit en MCO,X17,"Contact avec des moteurs, des machines et des outils brulants"
+X18,X18,connu de l'ATIH,type MCO 3 — interdit en MCO,X18,Contact avec d'autres métaux chauffés
+X19,X19,connu de l'ATIH,type MCO 3 — interdit en MCO,X19,"Contact avec des sources de chaleur et des substances brulantes, autres et sans précision"
+X20,X20,connu de l'ATIH,type MCO 3 — interdit en MCO,X20,Contact avec des serpents et des lézards venimeux
+X21,X21,connu de l'ATIH,type MCO 3 — interdit en MCO,X21,Contact avec des araignées venimeuses
+X22,X22,connu de l'ATIH,type MCO 3 — interdit en MCO,X22,Contact avec des scorpions
+X23,X23,connu de l'ATIH,type MCO 3 — interdit en MCO,X23,"Contact avec des frelons, guêpes et abeilles"
+X24,X24,connu de l'ATIH,type MCO 3 — interdit en MCO,X24,Contact avec des centipodes et myriapodes venimeux (tropicaux)
+X25,X25,connu de l'ATIH,type MCO 3 — interdit en MCO,X25,Contact avec d'autres arthropodes venimeux
+X26,X26,connu de l'ATIH,type MCO 3 — interdit en MCO,X26,Contact avec des animaux venimeux marins et des plantes vénéneuses marines
+X27,X27,connu de l'ATIH,type MCO 3 — interdit en MCO,X27,Contact avec d'autres animaux venimeux précisés
+X28,X28,connu de l'ATIH,type MCO 3 — interdit en MCO,X28,Contact avec d'autres plantes vénéneuses précisées
+X29,X29,connu de l'ATIH,type MCO 3 — interdit en MCO,X29,"Contact avec un animal venimeux ou une plante vénéneuse, sans précision"
+X30,X30,connu de l'ATIH,type MCO 3 — interdit en MCO,X30,Exposition à une chaleur naturelle excessive
+X31,X31,connu de l'ATIH,type MCO 3 — interdit en MCO,X31,Exposition à un froid naturel excessif
+X32,X32,connu de l'ATIH,type MCO 3 — interdit en MCO,X32,Exposition à la lumière solaire
+X33,X33,connu de l'ATIH,type MCO 3 — interdit en MCO,X33,Victime de la foudre
 X34.0,X340,connu de l'ATIH,type MCO 2,X340,Victime de mouvements telluriques cataclysmiques causés par un tremblement de terre
 X34.1,X341,connu de l'ATIH,type MCO 2,X341,Victime de tsunami
 X34.8,X348,connu de l'ATIH,type MCO 2,X348,Victime d'autres effets précisés de tremblement de terre
 X34.9,X349,connu de l'ATIH,type MCO 2,X349,"Victime de tremblement de terre, sans précision"
+X35,X35,connu de l'ATIH,type MCO 3 — interdit en MCO,X35,Victime d'éruption volcanique
+X36,X36,connu de l'ATIH,type MCO 3 — interdit en MCO,X36,"Victime d'avalanche, glissement de terrain et autres mouvements telluriques"
+X37,X37,connu de l'ATIH,type MCO 3 — interdit en MCO,X37,Victime de tempête cataclysmique
+X38,X38,connu de l'ATIH,type MCO 3 — interdit en MCO,X38,Victime d'inondation
+X39,X39,connu de l'ATIH,type MCO 3 — interdit en MCO,X39,"Exposition à des forces de la nature, autres et sans précision"
+X40,X40,connu de l'ATIH,type MCO 3 — interdit en MCO,X40,"Intoxication accidentelle par des analgésiques, antipyrétiques et antirhumatismaux, non opiacés et exposition à ces produits"
+X41,X41,connu de l'ATIH,type MCO 3 — interdit en MCO,X41,"Intoxication accidentelle par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs"
+X42,X42,connu de l'ATIH,type MCO 3 — interdit en MCO,X42,"Intoxication accidentelle par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs"
+X43,X43,connu de l'ATIH,type MCO 3 — interdit en MCO,X43,Intoxication accidentelle par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces substances
+X44,X44,connu de l'ATIH,type MCO 3 — interdit en MCO,X44,"Intoxication accidentelle par des médicaments et substances biologiques et exposition à ces produits, autres et sans précision"
+X45,X45,connu de l'ATIH,type MCO 3 — interdit en MCO,X45,Intoxication accidentelle par l'alcool et exposition à l'alcool
+X46,X46,connu de l'ATIH,type MCO 3 — interdit en MCO,X46,Intoxication accidentelle par des solvants organiques et des hydrocarbures halogénés et leurs émanations et exposition à ces produits
 X47.0,X470,connu de l'ATIH,type MCO 2,X470,Intoxication accidentelle par le monoxyde de carbone issu de gaz d'échappement de moteur
 X47.1,X471,connu de l'ATIH,type MCO 2,X471,Intoxication accidentelle par le monoxyde de carbone issu de gaz domestique
 X47.2,X472,connu de l'ATIH,type MCO 2,X472,Intoxication accidentelle par le monoxyde de carbone issu d'autres combustibles domestiques
@@ -13927,9 +14059,25 @@ X47.3,X473,connu de l'ATIH,type MCO 2,X473,Intoxication accidentelle par le mono
 X47.4,X474,connu de l'ATIH,type MCO 2,X474,Intoxication accidentelle par le monoxyde de carbone de source non précisée
 X47.8,X478,connu de l'ATIH,type MCO 2,X478,Intoxication accidentelle par d'autres gaz et vapeurs
 X47.9,X479,connu de l'ATIH,type MCO 2,X479,Intoxication accidentelle par gaz et vapeurs non précisés
+X48,X48,connu de l'ATIH,type MCO 3 — interdit en MCO,X48,Intoxication accidentelle par des pesticides et exposition à ces produits
+X49,X49,connu de l'ATIH,type MCO 3 — interdit en MCO,X49,"Intoxication accidentelle par des produits chimiques et substances nocives et exposition à ces produits, autres et sans précision"
+X50,X50,connu de l'ATIH,type MCO 3 — interdit en MCO,X50,Surmenage et mouvements épuisants ou répétés
+X51,X51,connu de l'ATIH,type MCO 3 — interdit en MCO,X51,Voyage et mouvement
 X52,X52,connu de l'ATIH,type MCO 2,X52,Séjour prolongé en apesanteur
+X53,X53,connu de l'ATIH,type MCO 3 — interdit en MCO,X53,Privation d'aliments
+X54,X54,connu de l'ATIH,type MCO 3 — interdit en MCO,X54,Privation d'eau
+X57,X57,connu de l'ATIH,type MCO 3 — interdit en MCO,X57,"Privation, sans précision"
+X58,X58,connu de l'ATIH,type MCO 3 — interdit en MCO,X58,Exposition à d'autres facteurs précisés
+X59,X59,connu de l'ATIH,type MCO 3 — interdit en MCO,X59,"Exposition à des facteurs, sans précision"
 X59.0,X590,connu de l'ATIH,type MCO 2,X590,Exposition à des facteurs non précisés responsables de fracture
 X59.9,X599,connu de l'ATIH,type MCO 2,X599,Exposition à des facteurs non précisés responsables de lésions autres et non précisées
+X60,X60,connu de l'ATIH,type MCO 3 — interdit en MCO,X60,"Auto-intoxication par des analgésiques, antipyrétiques et antirhumatismaux non opiacés et exposition à ces produits"
+X61,X61,connu de l'ATIH,type MCO 3 — interdit en MCO,X61,"Auto-intoxication par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs"
+X62,X62,connu de l'ATIH,type MCO 3 — interdit en MCO,X62,"Auto-intoxication par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs"
+X63,X63,connu de l'ATIH,type MCO 3 — interdit en MCO,X63,Auto-intoxication par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces produits
+X64,X64,connu de l'ATIH,type MCO 3 — interdit en MCO,X64,"Auto-intoxication par des médicaments et substances biologiques et exposition à ces produits, autres et sans précision"
+X65,X65,connu de l'ATIH,type MCO 3 — interdit en MCO,X65,Auto-intoxication par l'alcool et exposition à l'alcool
+X66,X66,connu de l'ATIH,type MCO 3 — interdit en MCO,X66,Auto-intoxication par des solvants organiques et des hydrocarbures halogénés et leurs émanations et exposition à ces produits
 X67.0,X670,connu de l'ATIH,type MCO 2,X670,Auto-intoxication  par le monoxyde de carbone issu de gaz d'échappement de moteur
 X67.1,X671,connu de l'ATIH,type MCO 2,X671,Auto-intoxication  par le monoxyde de carbone issu de gaz domestique
 X67.2,X672,connu de l'ATIH,type MCO 2,X672,Auto-intoxication par le monoxyde de carbone issu d'autres combustibles domestiques
@@ -13937,6 +14085,26 @@ X67.3,X673,connu de l'ATIH,type MCO 2,X673,Auto-intoxication par le monoxyde de 
 X67.4,X674,connu de l'ATIH,type MCO 2,X674,Auto-intoxication par le monoxyde de carbone de source non précisée
 X67.8,X678,connu de l'ATIH,type MCO 2,X678,Auto-intoxication par d'autres gaz et vapeurs
 X67.9,X679,connu de l'ATIH,type MCO 2,X679,Auto-intoxication par gaz et vapeurs non précisés
+X68,X68,connu de l'ATIH,type MCO 3 — interdit en MCO,X68,Auto-intoxication par des pesticides et exposition à ces produits
+X69,X69,connu de l'ATIH,type MCO 3 — interdit en MCO,X69,"Auto-intoxication par des produits chimiques et substances nocives et exposition à ces produits, autres et sans précision"
+X70,X70,connu de l'ATIH,type MCO 3 — interdit en MCO,X70,"Lésion auto-infligée par pendaison, strangulation et suffocation"
+X71,X71,connu de l'ATIH,type MCO 3 — interdit en MCO,X71,Lésion auto-infligée par noyade et submersion
+X72,X72,connu de l'ATIH,type MCO 3 — interdit en MCO,X72,Lésion auto-infligée par décharge d'une arme de poing
+X73,X73,connu de l'ATIH,type MCO 3 — interdit en MCO,X73,"Lésion auto-infligée par décharge de fusil, de carabine et d'arme de plus grande taille"
+X74,X74,connu de l'ATIH,type MCO 3 — interdit en MCO,X74,"Lésion auto-infligée par décharge d'armes à feu, autres et sans précision"
+X75,X75,connu de l'ATIH,type MCO 3 — interdit en MCO,X75,Lésion auto-infligée par utilisation de matériel explosif
+X76,X76,connu de l'ATIH,type MCO 3 — interdit en MCO,X76,"Lésion auto-infligée par exposition à la fumée, au feu et aux flammes"
+X77,X77,connu de l'ATIH,type MCO 3 — interdit en MCO,X77,"Lésion auto-infligée par exposition à la vapeur d'eau, à des gaz et objets brulants"
+X78,X78,connu de l'ATIH,type MCO 3 — interdit en MCO,X78,Lésion auto-infligée par utilisation d'objet tranchant
+X79,X79,connu de l'ATIH,type MCO 3 — interdit en MCO,X79,Lésion auto-infligée par utilisation d'objet contondant
+X80,X80,connu de l'ATIH,type MCO 3 — interdit en MCO,X80,Lésion auto-infligée par saut dans le vide
+X81,X81,connu de l'ATIH,type MCO 3 — interdit en MCO,X81,Lésion auto-infligée en sautant ou en se couchant devant un objet en mouvement
+X82,X82,connu de l'ATIH,type MCO 3 — interdit en MCO,X82,Lésion auto-infligée par collision d'un véhicule à moteur
+X83,X83,connu de l'ATIH,type MCO 3 — interdit en MCO,X83,Lésion auto-infligée par d'autres moyens précisés
+X84,X84,connu de l'ATIH,type MCO 3 — interdit en MCO,X84,Lésion auto-infligée par un moyen non précisé
+X85,X85,connu de l'ATIH,type MCO 3 — interdit en MCO,X85,Agression par médicaments et substances biologiques
+X86,X86,connu de l'ATIH,type MCO 3 — interdit en MCO,X86,Agression par une substance corrosive
+X87,X87,connu de l'ATIH,type MCO 3 — interdit en MCO,X87,Agression par des pesticides
 X88.0,X880,connu de l'ATIH,type MCO 2,X880,Agression  par le monoxyde de carbone issu de gaz d'échappement de moteur
 X88.1,X881,connu de l'ATIH,type MCO 2,X881,Agression  par le monoxyde de carbone issu de gaz domestique
 X88.2,X882,connu de l'ATIH,type MCO 2,X882,Agression par le monoxyde de carbone issu d'autres combustibles domestiques
@@ -13944,6 +14112,23 @@ X88.3,X883,connu de l'ATIH,type MCO 2,X883,Agression par le monoxyde de carbone 
 X88.4,X884,connu de l'ATIH,type MCO 2,X884,Agression par le monoxyde de carbone de source non précisée
 X88.8,X888,connu de l'ATIH,type MCO 2,X888,Agression par d'autres gaz et vapeurs
 X88.9,X889,connu de l'ATIH,type MCO 2,X889,Agression par gaz et vapeurs non précisés
+X89,X89,connu de l'ATIH,type MCO 3 — interdit en MCO,X89,Agression par d'autres produits chimiques et nocifs précisés
+X90,X90,connu de l'ATIH,type MCO 3 — interdit en MCO,X90,"Agression par un produit chimique ou nocif, sans précision"
+X91,X91,connu de l'ATIH,type MCO 3 — interdit en MCO,X91,"Agression par pendaison, strangulation et suffocation"
+X92,X92,connu de l'ATIH,type MCO 3 — interdit en MCO,X92,Agression par noyade et submersion
+X93,X93,connu de l'ATIH,type MCO 3 — interdit en MCO,X93,Agression par arme de poing
+X94,X94,connu de l'ATIH,type MCO 3 — interdit en MCO,X94,"Agression par fusil, carabine et arme de plus grande taille"
+X95,X95,connu de l'ATIH,type MCO 3 — interdit en MCO,X95,"Agression par des armes à feu, autres et sans précision"
+X96,X96,connu de l'ATIH,type MCO 3 — interdit en MCO,X96,Agression par matériel explosif
+X97,X97,connu de l'ATIH,type MCO 3 — interdit en MCO,X97,"Agression par la fumée, le feu et les flammes"
+X98,X98,connu de l'ATIH,type MCO 3 — interdit en MCO,X98,"Agression par la vapeur d'eau, des gaz et objets brulants"
+X99,X99,connu de l'ATIH,type MCO 3 — interdit en MCO,X99,Agression par objet tranchant
+Y00,Y00,connu de l'ATIH,type MCO 3 — interdit en MCO,Y00,Agression par objet contondant
+Y01,Y01,connu de l'ATIH,type MCO 3 — interdit en MCO,Y01,Agression par précipitation dans le vide
+Y02,Y02,connu de l'ATIH,type MCO 3 — interdit en MCO,Y02,Agression en poussant ou plaçant la victime devant un objet en mouvement
+Y03,Y03,connu de l'ATIH,type MCO 3 — interdit en MCO,Y03,Agression en provoquant une collision de véhicule à moteur
+Y04,Y04,connu de l'ATIH,type MCO 3 — interdit en MCO,Y04,Agression par la force physique
+Y05,Y05,connu de l'ATIH,type MCO 3 — interdit en MCO,Y05,Agression sexuelle par la force physique
 Y06.0,Y060,connu de l'ATIH,type MCO 2,Y060,Délaissement et abandon par le conjoint ou le partenaire
 Y06.1,Y061,connu de l'ATIH,type MCO 2,Y061,Délaissement et abandon par un(e) parent(e)
 Y06.2,Y062,connu de l'ATIH,type MCO 2,Y062,Délaissement et abandon par une relation ou un(e) ami(e)
@@ -13955,6 +14140,15 @@ Y07.2,Y072,connu de l'ATIH,type MCO 2,Y072,Autres mauvais traitements par une re
 Y07.3,Y073,connu de l'ATIH,type MCO 2,Y073,Autres mauvais traitements par des autorités officielles
 Y07.8,Y078,connu de l'ATIH,type MCO 2,Y078,Autres mauvais traitements par d'autres personnes précisées
 Y07.9,Y079,connu de l'ATIH,type MCO 2,Y079,Autres mauvais traitements par une personne non précisée
+Y08,Y08,connu de l'ATIH,type MCO 3 — interdit en MCO,Y08,Agression par d'autres moyens précisés
+Y09,Y09,connu de l'ATIH,type MCO 3 — interdit en MCO,Y09,Agression par un moyen non précisé
+Y10,Y10,connu de l'ATIH,type MCO 3 — interdit en MCO,Y10,"Intoxication par des analgésiques, antipyrétiques et antirhumatismaux non opiacés et exposition à ces produits, intention non déterminée"
+Y11,Y11,connu de l'ATIH,type MCO 3 — interdit en MCO,Y11,"Intoxication par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs, intention non déterminée"
+Y12,Y12,connu de l'ATIH,type MCO 3 — interdit en MCO,Y12,"Intoxication par des narcotiques et psychodysleptiques [hallucinogènes] et exposition à ces produits, non classés ailleurs, intention non déterminée"
+Y13,Y13,connu de l'ATIH,type MCO 3 — interdit en MCO,Y13,"Intoxication par d'autres substances pharmacologiques agissant sur le système nerveux autonome et exposition à ces produits, intention non déterminée"
+Y14,Y14,connu de l'ATIH,type MCO 3 — interdit en MCO,Y14,"Intoxication par des médicaments et substances biologiques, autres et sans précision et exposition à ces produits, intention non déterminée"
+Y15,Y15,connu de l'ATIH,type MCO 3 — interdit en MCO,Y15,"Intoxication par l'alcool et exposition à l'alcool, intention non déterminée"
+Y16,Y16,connu de l'ATIH,type MCO 3 — interdit en MCO,Y16,"Intoxication par des solvants organiques et des hydrocarbures halogénés et leurs émanations et exposition à ces produits, intention non déterminée"
 Y17.0,Y170,connu de l'ATIH,type MCO 2,Y170,"Intoxication  par le monoxyde de carbone issu de gaz d'échappement de moteur, intention non déterminée"
 Y17.1,Y171,connu de l'ATIH,type MCO 2,Y171,Intoxication  par le monoxyde de carbone issu de gaz domestique
 Y17.2,Y172,connu de l'ATIH,type MCO 2,Y172,"Intoxication par le monoxyde de carbone issu d'autres combustibles domestiques, intention non déterminée"
@@ -13962,6 +14156,23 @@ Y17.3,Y173,connu de l'ATIH,type MCO 2,Y173,"Intoxication par le monoxyde de carb
 Y17.4,Y174,connu de l'ATIH,type MCO 2,Y174,"Intoxication par le monoxyde de carbone de source non précisée, intention non déterminée"
 Y17.8,Y178,connu de l'ATIH,type MCO 2,Y178,Intoxication par d'autres gaz et vapeurs
 Y17.9,Y179,connu de l'ATIH,type MCO 2,Y179,Intoxication par gaz et vapeurs non précisés
+Y18,Y18,connu de l'ATIH,type MCO 3 — interdit en MCO,Y18,"Intoxication par des pesticides et exposition à ces produits, intention non déterminée"
+Y19,Y19,connu de l'ATIH,type MCO 3 — interdit en MCO,Y19,"Intoxication par des produits chimiques et substances nocives et exposition à ces produits, autres et sans précision, intention non déterminée"
+Y20,Y20,connu de l'ATIH,type MCO 3 — interdit en MCO,Y20,"Pendaison, strangulation et suffocation, intention non déterminée"
+Y21,Y21,connu de l'ATIH,type MCO 3 — interdit en MCO,Y21,"Noyade et submersion, intention non déterminée"
+Y22,Y22,connu de l'ATIH,type MCO 3 — interdit en MCO,Y22,"Décharge d'une arme de poing, intention non déterminée"
+Y23,Y23,connu de l'ATIH,type MCO 3 — interdit en MCO,Y23,"Décharge de fusil, de carabine et d'arme de plus grande taille, intention non déterminée"
+Y24,Y24,connu de l'ATIH,type MCO 3 — interdit en MCO,Y24,"Décharge d'armes à feu, autres et sans précision, intention non déterminée"
+Y25,Y25,connu de l'ATIH,type MCO 3 — interdit en MCO,Y25,"Contact avec matériel explosif, intention non déterminée"
+Y26,Y26,connu de l'ATIH,type MCO 3 — interdit en MCO,Y26,"Exposition à la fumée, au feu et aux flammes, intention non déterminée"
+Y27,Y27,connu de l'ATIH,type MCO 3 — interdit en MCO,Y27,"Contact avec de la vapeur d'eau, des gaz et objets brulants, intention non déterminée"
+Y28,Y28,connu de l'ATIH,type MCO 3 — interdit en MCO,Y28,"Contact avec objet tranchant, intention non déterminée"
+Y29,Y29,connu de l'ATIH,type MCO 3 — interdit en MCO,Y29,"Contact avec objet contondant, intention non déterminée"
+Y30,Y30,connu de l'ATIH,type MCO 3 — interdit en MCO,Y30,"Chute, saut ou précipitation dans le vide, intention non déterminée"
+Y31,Y31,connu de l'ATIH,type MCO 3 — interdit en MCO,Y31,"Lésion traumatique par un objet en mouvement (la victime étant tombée ou couchée devant l'objet ou entrée en collision avec celui-ci), intention non déterminée"
+Y32,Y32,connu de l'ATIH,type MCO 3 — interdit en MCO,Y32,"Collision de véhicule à moteur, intention non déterminée"
+Y33,Y33,connu de l'ATIH,type MCO 3 — interdit en MCO,Y33,"Autres événements précisés, intention non déterminée"
+Y34,Y34,connu de l'ATIH,type MCO 3 — interdit en MCO,Y34,"Evénement sans précision, intention non déterminée"
 Y35.0,Y350,connu de l'ATIH,type MCO 2,Y350,Intervention de la force publique impliquant l'usage d'armes à feu
 Y35.1,Y351,connu de l'ATIH,type MCO 2,Y351,Intervention de la force publique impliquant l'usage d'explosifs
 Y35.2,Y352,connu de l'ATIH,type MCO 2,Y352,Intervention de la force publique impliquant l'usage de gaz

@@ -614,10 +614,14 @@ bibliothèque** (autoportance). Pas d'héritage entre profils : une
 valeur par clé. Invariant dual, testé (`test_couverture_invariants.py`) :
 **aucun père interdit, code supprimé ou inconnu du kit dans la
 bibliothèque de génération** — on n'en retire rien du CSV maître ni du
-nested set, on ne les construit pas dans ce profil. Sans kit joint, le
-profil `generation` échoue bruyamment plutôt que de « filtrer » sur
-rien. Les fiches catégories (3-car) ne sont pas profilées : une
-catégorie n'est pas un code à tirer.
+nested set, on ne les construit pas dans ce profil. **Une exception
+déclarée** (D5) : `exceptions: [tronc_composition]` admet les troncs du
+chapitre XX (catégories `W00`…), marqués comme tels dans la fiche et à
+l'index (`classe_generation`) ; l'invariant vérifie qu'aucun autre
+non-codable n'est présenté comme émissible. Sans kit joint, le profil
+`generation` échoue bruyamment plutôt que de « filtrer » sur rien. Les
+fiches catégories (3-car) ne sont pas profilées : une catégorie n'est
+pas un code à tirer.
 
 ### Résolution par REMPLACEMENT, pas par fusion
 
@@ -923,7 +927,17 @@ sous son titre et les `_index.csv` les colonnes `type_mco` /
    trace dans `merged` et les index, `reports/atih_only_codes.csv` les
    liste. Pas de ligne au CSV pour le dire. Le chapitre XX ne s'injecte
    pas (composition, D5) ; un type 3 absent non plus (nœud parallèle).
-4. **Trois écritures d'un même code, une seule table.** Compacte
+4. **Le chapitre XX se compose, il ne se matérialise pas** (D5). La
+   catégorie (`W00`) porte la fiche de tronc, marquée en première ligne
+   « non codable seul — se compose du lieu et de l'activité », admise en
+   génération par l'exception `tronc_composition` du profil — la seule
+   classe non codable admise, inscrite dans `chapitre_xx_troncs.parquet`.
+   Les tables (lieu 10, activité 7) et les 25 348 codes composés sont
+   dérivés du kit par `recode_icd.composition` (`build atih`), jamais
+   écrits à la main ; rôle décidé par valeur (`X59` mêle OMS et lieu en
+   4ᵉ). Un code composé se résout par `recode-icd resoudre` (`compose` /
+   `composition_invalide`).
+5. **Trois écritures d'un même code, une seule table.** Compacte
    (`O0490`), pointée (`O04.90`), maître (`O04.-0.9`) : la traduction
    vit dans `referentials/curation/notations_codes.yaml` lue par
    `recode_icd.notations`, deux familles inversées (O04, M62.8) et neuf
@@ -952,7 +966,7 @@ uv run recode-icd build atih          # kit → atih_codes.parquet + reports/ati
 uv run recode-icd build owl --rdf-path data/CIM_ANS_2026/dat/terminologie-cim-10-2025-01-01.rdf
                                       # injecte les codables absents de l'ANS (--atih, défaut : le parquet)
 uv run recode-icd build merged        # joint le statut (option --atih, défaut : le parquet)
-uv run recode-icd resoudre O0490 M000 W0004 --journal outputs/usage/resolutions.jsonl
+uv run recode-icd resoudre O0490 M000 W0009 W0005 --journal outputs/usage/resolutions.jsonl
 uv run recode-icd resoudre A18.1 --json
 ```
 

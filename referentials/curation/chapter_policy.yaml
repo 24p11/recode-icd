@@ -100,9 +100,15 @@ plafond_global_categories: 50
 # Pas d'héritage entre profils : une valeur par clé, résolue telle
 # quelle — le piège remplacement/fusion des plages ne se pose pas ici.
 # Les autres axes du backlog (ORPHANET, exclusions, R3) restent ouverts.
+# `exceptions` : classes de codes NON codables admises malgré tout dans
+# le profil — la seule classe déclarée est `tronc_composition` (D5) : les
+# catégories du chapitre XX (`W00`…) qui portent la fiche de tronc, marquée
+# « non codable seul — se compose du lieu et de l'activité ». Tout autre
+# type 3 dans la génération reste une violation (invariant I2).
 profils:
   generation:
     codes: codables_mco
+    exceptions: [tronc_composition]
   controle:
     codes: tous
 

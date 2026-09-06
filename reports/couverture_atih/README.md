@@ -1,7 +1,7 @@
 # Couverture ATIH des fiches CIM-10 — ce qui manque, et pourquoi
 
 *Note pour les data scientists — 2026-09-05, mise à jour en fin de
-palier 2 du chantier « couverture ATIH » (D2, D3, D4 livrés).*
+palier 3 du chantier « couverture ATIH » (D2, D3, D4, D5 livrés).*
 
 ## En une phrase
 
@@ -10,10 +10,12 @@ tous ceux hors chapitre XX — ont une fiche dans la bibliothèque de
 génération (`outputs/cards_library`, 100 %).** Les 89 codes « notation
 divergente » de la mesure ci-dessous ont aussi leur fiche, sous
 l'écriture du maître (`O0490` → `O04.-0.9`) : le résolveur la trouve.
-Restent les 25 348 codes du chapitre XX (sous-nomenclature lieu ×
-activité, jamais DP/DR) : ils se couvriront par composition à partir
-de la fiche du tronc (palier 3, D5) — le résolveur répond déjà
-`tronc_chapitre_xx` avec le tronc.
+Les 25 348 codes du chapitre XX (sous-nomenclature lieu × activité,
+jamais DP/DR) sont couverts **par composition** depuis le 2026-09-06
+(D5) : la fiche est celle du tronc (`W00`, `V01.0`), marquée « non
+codable seul » quand c'est une catégorie, avec la section « Composition
+MCO » ; `recode-icd resoudre W0009` rend `compose` et la décomposition,
+`W0005` un rejet motivé.
 
 État du 2026-09-05 au matin, pour mémoire : 14 140 fiches (93,8 %
 hors chapitre XX), 931 manquants en quatre classes — toutes traitées
@@ -36,6 +38,8 @@ envoyez-nous ce fichier. Détail dans `docs/csv_usage_guide.md`.
 autorisé MCO (Type MCO ≠ 3) **sans fiche sous son écriture ATIH** :
 25 437 lignes — 25 348 du chapitre XX et les 89 notations divergentes
 (qui ont une fiche sous l'écriture du maître, colonne `code_maitre`).
+Depuis D5, **aucune ligne n'est « réellement absente »** : chaque code y
+a un `code_maitre` qui a une fiche.
 
 | Colonne | Contenu |
 |---|---|
@@ -51,7 +55,7 @@ Les classes encore présentes, et ce qu'il en reste :
 
 | `classe` | n | Ce que ça veut dire | Quoi faire |
 |---|---|---|---|
-| `réellement absent` / `extension chapitre XX (lieu/activité)` | 25 348 | code ATIH `W0004` = W00 + lieu `0` + activité `4` ; nos livrables s'arrêtent au tronc OMS (`W00`, `V01.0`) | utiliser la fiche du tronc (`ancetre_maitre`, ou le résolveur : `tronc_chapitre_xx`) ; lieu (4e/5e car.) et activité (5e/6e) sont deux tables de 10 et 7 valeurs, constantes sur tout le chapitre — la composition sera outillée en D5 |
+| `composé (fiche du tronc)` / `tronc avec fiche` | 25 348 | code ATIH `W0004` = tronc `W00` + lieu `0` + activité `4` : la fiche est celle du tronc (`code_maitre`), qui porte la section « Composition MCO » (tables lieu / activité, forme `+`) | utiliser `code_maitre`, ou le résolveur : `recode-icd resoudre W0004` répond `compose` avec la décomposition libellée (`W0005` : rejet motivé, activité 5 hors table). Les tables sont dérivées du kit (`chapitre_xx_valeurs.parquet`), jamais à réécrire |
 | `notation divergente` | 89 | la fiche existe sous une autre écriture (`O0490` → `O04.-0.9`, `M62810` → `M62.8-01`, `B24+0` → `B24.+0`) | utiliser `code_maitre` ou le résolveur — **`notations_divergentes.csv` donne la table complète** |
 
 Classes **soldées** au palier 2 (elles n'apparaissent plus dans le

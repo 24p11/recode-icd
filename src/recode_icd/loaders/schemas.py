@@ -69,6 +69,65 @@ class AtihCodesSchema(pa.DataFrameModel):
         coerce = False
 
 
+class ChapitreXxTroncsSchema(pa.DataFrameModel):
+    """Troncs de composition du chapitre XX (`chapitre_xx_troncs.parquet`, D5)."""
+
+    tronc: str = pa.Field(str_matches=_CODE_RE, unique=True)
+    tronc_atih: str = pa.Field(unique=True)
+    patron: str = pa.Field(
+        isin=[
+            "lieu_activite",
+            "oms_activite",
+            "oms_lieu_activite",
+            "lieu_seul",
+            "lieu_activite_precision",
+        ]
+    )
+    positions: list[str] = pa.Field()
+    forme_plus: bool = pa.Field()
+    classe: str = pa.Field(isin=["tronc_composition", "tronc_codable"])
+    n_codes_composes: int = pa.Field(ge=1)
+    libelle: str = pa.Field()
+    #: Valeurs de lieu / d'activité observées sous ce tronc (chaîne de
+    #: chiffres, vide si la position n'existe pas) : `X59` n'admet que
+    #: 1-8 en lieu, 0 et 9 étant ses sous-codes OMS.
+    valeurs_lieu: str = pa.Field(str_matches=r"^\d*$")
+    valeurs_activite: str = pa.Field(str_matches=r"^\d*$")
+
+    class Config:
+        strict = True
+        coerce = False
+
+
+class ChapitreXxValeursSchema(pa.DataFrameModel):
+    """Tables de composition : lieu et activité (communes), précisions (par tronc)."""
+
+    tronc: str = pa.Field(nullable=True)
+    table: str = pa.Field(isin=["lieu", "activite", "precision"])
+    valeur: str = pa.Field(str_matches=r"^\d$")
+    libelle: str = pa.Field()
+
+    class Config:
+        strict = True
+        coerce = False
+
+
+class ChapitreXxCodesSchema(pa.DataFrameModel):
+    """Les codes composés du chapitre XX, décomposés (`chapitre_xx_codes.parquet`)."""
+
+    code_atih: str = pa.Field(unique=True)
+    code: str = pa.Field(str_matches=_CODE_RE, unique=True)
+    tronc: str = pa.Field(str_matches=_CODE_RE)
+    lieu: str = pa.Field(nullable=True, str_matches=r"^\d$")
+    activite: str = pa.Field(nullable=True, str_matches=r"^\d$")
+    precision: str = pa.Field(nullable=True, str_matches=r"^\d$")
+    forme_plus: bool = pa.Field()
+
+    class Config:
+        strict = True
+        coerce = False
+
+
 class DaggerAsteriskSchema(pa.DataFrameModel):
     asterisk_code: str = pa.Field(str_matches=_CODE_RE)
     dagger_code: str = pa.Field(str_matches=_CODE_RE)

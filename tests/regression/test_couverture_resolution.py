@@ -56,7 +56,12 @@ def ctx_controle():  # type: ignore[no-untyped-def]
         ("M0720", "supprime", "M07.20"),  # supprimé : hors génération (D4)
         ("N069", "inconnu_atih", "N06.9"),  # inconnu du kit : hors génération (D4)
         ("M1600", "inconnu_atih", "M16.00"),  # localisation chap. XIII inconnue du kit
-        ("W0004", "tronc_chapitre_xx", "W00.04"),  # chapitre XX (D5)
+        ("W0004", "compose", "W00.04"),  # chapitre XX composé (D5)
+        ("W260+4", "compose", "W26.0+4"),
+        ("X49001", "compose", "X49.001"),
+        ("W0005", "composition_invalide", "W00.05"),  # activité 5 hors table
+        ("X590", "fiche", "X59.0"),  # sous-code OMS codable de l'hybride X59
+        ("X591", "compose", "X59.1"),
         ("Z99.99", "inconnu", "Z99.99"),
         ("O04.123", "inconnu", "O04.123"),
         ("XYZ", "notation_invalide", None),
@@ -86,12 +91,17 @@ def test_le_pere_interdit_rend_ses_subdivisions_avec_fiche(ctx) -> None:  # type
     assert {"M00.0", "M00.00"} <= set(m00.codes_avec_fiche), "intermédiaires codables ET feuilles"
 
 
-def test_le_tronc_xx_porte_son_ancetre(ctx) -> None:  # type: ignore[no-untyped-def]
-    """`W00` est un père interdit : hors génération. La fiche de tronc du
-    chapitre XX est l'objet de D5 ; le résolveur donne déjà l'ancêtre."""
+def test_un_code_compose_pointe_sur_la_fiche_de_son_tronc(ctx) -> None:  # type: ignore[no-untyped-def]
+    """Garde-fou 3 : `W0004` → tronc `W00` (fiche de génération par exception)
+    + lieu 0 + activité 4, libellés à l'appui."""
     r = resoudre_code("W0004", ctx)
-    assert r.ancetre == "W00"
-    assert r.codes_avec_fiche == (), "W00 (type 3) n'a pas de fiche de génération avant D5"
+    assert r.statut == "compose" and r.ancetre == "W00" and r.fiche
+    assert r.composition["lieu"] == ("0", "domicile")
+    assert r.composition["activite"][0] == "4"  # type: ignore[index]
+    tronc = resoudre_code("W00", ctx)
+    assert tronc.statut == "fiche" and tronc.codable_mco is False, (
+        "le tronc a sa fiche, non codable seul"
+    )
 
 
 def test_dans_la_bibliotheque_controle_les_non_codables_ont_une_fiche(ctx_controle) -> None:  # type: ignore[no-untyped-def]
