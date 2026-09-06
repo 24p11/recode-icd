@@ -88,3 +88,15 @@ un volume du même ordre que CepiDc. Vérification à faire à ce moment-là :
 ```bash
 ls -lh referentials/processed/inclusions_exclusions_synonymes.csv
 ```
+
+## Mise à jour 2026-09-06 (chantier couverture ATIH, palier 2)
+
+Le CSV pèse désormais **55,9 Mo** (338 623 lignes après D2) : GitHub
+avertit au push que le seuil recommandé de 50 Mo est dépassé. Décision
+RF : le backlog devient concret mais **ne s'ouvre pas en vol** ; il est
+versé au chantier « revue d'architecture » qui suivra la couverture.
+Réponse attendue là-bas : **la formalisation des deux couches** — le
+CSV de construction peut se partitionner ou passer sous Git LFS sans
+toucher l'interface de consommation (fiches, parquets, résolveur) — et
+non un amaigrissement à la hache du CSV.
+

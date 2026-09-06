@@ -1,8 +1,15 @@
 # Backlog — 23 codes cités par le guide sans fiche
 
-> Statut : **à instruire**. Ouvert le 2026-09-03, au chantier du rendu
-> des consignes dans les fiches (`feat/cards-recommandations`), en
-> expliquant l'écart 995 fiches / 1 018 codes cités.
+> Statut : **clos le 2026-09-06** (chantier couverture ATIH, D3/D4) —
+> 17 des 23 codes sont codables en MCO et vides de toute source : ils ont
+> une fiche depuis D3 (titre, position, statut, consignes) ; les 6 autres
+> (`Z37.00`, `Z37.01`, `Z37.20`, `Z37.21`, `Z37.50`, `Z37.51`) sont
+> **inconnus du kit ATIH**, donc non codables : pas de fiche, et le
+> résolveur (`recode-icd resoudre`) répond `inconnu_atih` avec sa raison.
+> Cf `docs/sessions/2026-09-06_couverture_atih_paliers_1_2.md`.
+> Ouvert le 2026-09-03, au chantier du rendu des consignes dans les
+> fiches (`feat/cards-recommandations`), en expliquant l'écart
+> 995 fiches / 1 018 codes cités.
 
 ## Le constat
 
