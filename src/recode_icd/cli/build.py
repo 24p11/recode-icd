@@ -40,9 +40,30 @@ def build_owl(
             help="Répertoire de sortie pour les Parquet.",
         ),
     ] = Path("referentials/processed"),
+    atih_path: Annotated[
+        Path,
+        typer.Option(
+            "--atih",
+            dir_okay=False,
+            help="atih_codes.parquet (`build atih`) : les codes codables absents de l'ANS "
+            "(hors chapitre XX) sont injectés dans le nested set (D3). Absent → pas d'injection.",
+        ),
+    ] = Path("referentials/processed/atih_codes.parquet"),
+    reports_dir: Annotated[
+        Path,
+        typer.Option("--reports-dir", file_okay=False),
+    ] = Path("reports"),
 ) -> None:
     """Construire owl_codes.parquet et owl_dagger_asterisk.parquet depuis le RDF ANS."""
-    codes_path, pairs_path = owl.to_parquet(rdf_path, output_dir)
+    if not atih_path.is_file():
+        typer.echo(
+            f"Avertissement : {atih_path} introuvable — aucun code ATIH injecté "
+            f"(lancer `recode-icd build atih`).",
+            err=True,
+        )
+    codes_path, pairs_path = owl.to_parquet(
+        rdf_path, output_dir, atih_path if atih_path.is_file() else None, reports_dir
+    )
     typer.echo(f"Écrit : {codes_path}")
     typer.echo(f"Écrit : {pairs_path}")
 

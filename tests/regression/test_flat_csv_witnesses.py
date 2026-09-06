@@ -172,8 +172,9 @@ def test_u07_0_synonymes_ans_preserved_outside_chap_xiii() -> None:
 
 
 def test_orphan_type_d_codes_report_exists() -> None:
-    """Le rapport orphan_type_d_codes.csv doit être généré avec ~90
-    lignes (codes type=D dans OFS absents du RDF ANS)."""
+    """Le rapport orphan_type_d_codes.csv doit être généré avec ~40
+    lignes (codes type=D dans OFS absents du RDF ANS ; 90 avant D3, dont
+    50 réinjectés depuis le kit ATIH — M11.9x, M13.9x, M83.xx, M62.8x)."""
     root = Path(__file__).resolve().parents[2]
     path = root / "reports" / "orphan_type_d_codes.csv"
     if not path.is_file():
@@ -186,7 +187,9 @@ def test_orphan_type_d_codes_report_exists() -> None:
         "categorie_orphan",
     }
     # Empiriquement 90 codes. Tolérance ±10 si l'OFS ou l'ANS bouge.
-    assert 80 <= df.height <= 100, f"orphan_type_d_codes.csv : {df.height} lignes (attendu ~90)"
+    assert (
+        30 <= df.height <= 50
+    )  # 90 avant D3 ; 50 d'entre eux injectés depuis le kit ATIH, f"orphan_type_d_codes.csv : {df.height} lignes (attendu ~90)"
     # Tous dans le chapitre XIII.
     assert set(df["chapter"].unique().to_list()) == {"(M00-M99)"}
 
@@ -226,3 +229,52 @@ def test_u07_1_absent_du_csv() -> None:
         assert not df.filter(pl.col("code") == code).is_empty(), (
             f"{code} (feuille du bloc COVID) absent du CSV"
         )
+
+
+# ----------------------------------------------------------------------
+# Codes intermédiaires codables au CSV (chantier couverture ATIH, D2)
+# ----------------------------------------------------------------------
+
+
+@pytest.fixture(scope="module")
+def flat_csv() -> pl.DataFrame:
+    return _final_csv()
+
+
+@pytest.mark.parametrize(
+    "code",
+    [
+        "M16.0",  # seul niveau codable : l'ATIH s'arrête là, le maître descend en M16.0x
+        "F00.0",  # les deux niveaux codables (F00.0 et F00.000…)
+        "M00.0",
+        "Z37.0",  # aucune ligne propre : une seule entrée d'Index, pas de note héritée exportable
+        "C25.9",  # descendants sans ligne (C25.9+0/+8)
+        "B18.0",
+    ],
+)
+def test_un_intermediaire_codable_est_au_csv(flat_csv: pl.DataFrame, code: str) -> None:
+    """D2, fiche par héritage : le code est au CSV avec ses lignes."""
+    assert flat_csv.filter(pl.col("code") == code).height > 0, f"{code} absent du CSV"
+
+
+@pytest.mark.parametrize("code", ["M16.0", "F00.0", "B18.0"])
+def test_un_intermediaire_herite_des_niveaux_superieurs(flat_csv: pl.DataFrame, code: str) -> None:
+    """Les lignes héritées arrivent par la propagation ordinaire, tracées par
+    `source_level`. (`Z37.0` n'a qu'une note éditoriale héritée, type que le
+    CSV n'exporte pas : il n'est pas témoin ici.)"""
+    niveaux = set(flat_csv.filter(pl.col("code") == code)["source_level"].to_list())
+    assert niveaux & {"chapter", "block", "category"}, niveaux
+
+
+def test_un_pere_interdit_reste_hors_du_csv(flat_csv: pl.DataFrame) -> None:
+    """`U07.1` (type 3 à l'ATIH) et `A00`, `M00` (catégories non vides) : pas codables, pas au CSV."""
+    assert flat_csv.filter(pl.col("code").is_in(["U07.1", "A00", "M00"])).is_empty()
+
+
+def test_les_entrees_externes_atteignent_les_intermediaires(flat_csv: pl.DataFrame) -> None:
+    """Avant D2, ~11 500 entrées externes sur ces codes étaient rejetées comme
+    « non terminales » ; `M00.0` en reçoit désormais (Index vol3)."""
+    assert (
+        flat_csv.filter((pl.col("code") == "M00.0") & (pl.col("source") == "CIM-10 index")).height
+        > 0
+    )

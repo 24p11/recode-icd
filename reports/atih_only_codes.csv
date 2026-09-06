@@ -1,0 +1,73 @@
+code,label,path,depth,code_atih,type_mco,statut_mco
+I70.00,"Athérosclérose de l'aorte, sans gangrène",IX/I70-I79/I70/I70.0/I70.00,4,I7000,0,codable
+I70.01,"Athérosclérose de l'aorte, avec gangrène",IX/I70-I79/I70/I70.0/I70.01,4,I7001,0,codable
+I70.80,"Athérosclérose d'autres artères, sans gangrène",IX/I70-I79/I70/I70.8/I70.80,4,I7080,0,codable
+I70.81,"Athérosclérose d'autres artères, avec gangrène",IX/I70-I79/I70/I70.8/I70.81,4,I7081,0,codable
+I70.90,"Athérosclérose généralisée et sans précision, sans gangrène",IX/I70-I79/I70/I70.9/I70.90,4,I7090,0,codable
+I70.91,"Athérosclérose généralisée et sans précision, avec gangrène",IX/I70-I79/I70/I70.9/I70.91,4,I7091,0,codable
+J96.100,Insuffisance respiratoire chronique obstructive de type I [hypoxique],X/J95-J99/J96/J96.1/J96.10/J96.100,5,J96100,0,codable
+J96.101,Insuffisance respiratoire chronique restrictive de type I [hypoxique],X/J95-J99/J96/J96.1/J96.10/J96.101,5,J96101,0,codable
+J96.110,Insuffisance respiratoire chronique obstructive de type II [hypercapnique],X/J95-J99/J96/J96.1/J96.11/J96.110,5,J96110,0,codable
+J96.111,Insuffisance respiratoire chronique restrictive de type II [hypercapnique],X/J95-J99/J96/J96.1/J96.11/J96.111,5,J96111,0,codable
+J96.190,"Insuffisance respiratoire chronique obstructive, type non précisé",X/J95-J99/J96/J96.1/J96.19/J96.190,5,J96190,0,codable
+J96.191,"Insuffisance respiratoire chronique restrictive, type non précisé",X/J95-J99/J96/J96.1/J96.19/J96.191,5,J96191,0,codable
+M11.90,"Arthropathie due à des microcristaux, sans précision - Sièges multiples",XIII/M00-M25/M05-M14/M11/M11.9/M11.90,5,M1190,0,codable
+M11.91,"Arthropathie due à des microcristaux, sans précision - Articulations acromio-claviculaire, scapulo-humérale, et sterno-claviculaire",XIII/M00-M25/M05-M14/M11/M11.9/M11.91,5,M1191,0,codable
+M11.92,"Arthropathie due à des microcristaux, sans précision - Articulation du coude",XIII/M00-M25/M05-M14/M11/M11.9/M11.92,5,M1192,0,codable
+M11.93,"Arthropathie due à des microcristaux, sans précision - Articulation du poignet",XIII/M00-M25/M05-M14/M11/M11.9/M11.93,5,M1193,0,codable
+M11.94,"Arthropathie due à des microcristaux, sans précision - Articulations de la main",XIII/M00-M25/M05-M14/M11/M11.9/M11.94,5,M1194,0,codable
+M11.95,"Arthropathie due à des microcristaux, sans précision - Articulations de la hanche et sacro-iliaque",XIII/M00-M25/M05-M14/M11/M11.9/M11.95,5,M1195,0,codable
+M11.96,"Arthropathie due à des microcristaux, sans précision - Articulation du genou",XIII/M00-M25/M05-M14/M11/M11.9/M11.96,5,M1196,0,codable
+M11.97,"Arthropathie due à des microcristaux, sans précision - Articulations de la cheville et du pied",XIII/M00-M25/M05-M14/M11/M11.9/M11.97,5,M1197,0,codable
+M11.98,"Arthropathie due à des microcristaux, sans précision - Autres articulations",XIII/M00-M25/M05-M14/M11/M11.9/M11.98,5,M1198,0,codable
+M11.99,"Arthropathie due à des microcristaux, sans précision - Siège non précisé",XIII/M00-M25/M05-M14/M11/M11.9/M11.99,5,M1199,0,codable
+M13.00,"Polyarthrite, sans précision - Sièges multiples",XIII/M00-M25/M05-M14/M13/M13.0/M13.00,5,M1300,0,codable
+M13.91,"Arthrite, sans précision - Articulations acromio-claviculaire, scapulo-humérale, et sterno-claviculaire",XIII/M00-M25/M05-M14/M13/M13.9/M13.91,5,M1391,0,codable
+M13.92,"Arthrite, sans précision - Articulation du coude",XIII/M00-M25/M05-M14/M13/M13.9/M13.92,5,M1392,0,codable
+M13.93,"Arthrite, sans précision - Articulation du poignet",XIII/M00-M25/M05-M14/M13/M13.9/M13.93,5,M1393,0,codable
+M13.94,"Arthrite, sans précision - Articulations de la main",XIII/M00-M25/M05-M14/M13/M13.9/M13.94,5,M1394,0,codable
+M13.95,"Arthrite, sans précision - Articulations de la hanche et sacro-iliaque",XIII/M00-M25/M05-M14/M13/M13.9/M13.95,5,M1395,0,codable
+M13.96,"Arthrite, sans précision - Articulation du genou",XIII/M00-M25/M05-M14/M13/M13.9/M13.96,5,M1396,0,codable
+M13.97,"Arthrite, sans précision - Articulations de la cheville et du pied",XIII/M00-M25/M05-M14/M13/M13.9/M13.97,5,M1397,0,codable
+M13.98,"Arthrite, sans précision - Autres articulations",XIII/M00-M25/M05-M14/M13/M13.9/M13.98,5,M1398,0,codable
+M13.99,"Arthrite, sans précision - Siège non précisé",XIII/M00-M25/M05-M14/M13/M13.9/M13.99,5,M1399,0,codable
+M45+0,Spondylarthrite ankylosante - Localisations vertébrales multiples,XIII/M40-M54/M45-M49/M45/M45+0,4,M45+0,0,codable
+M45+1,Spondylarthrite ankylosante - Région occipito-atloïdo-axoïdienne,XIII/M40-M54/M45-M49/M45/M45+1,4,M45+1,0,codable
+M45+2,Spondylarthrite ankylosante - Région cervicale,XIII/M40-M54/M45-M49/M45/M45+2,4,M45+2,0,codable
+M45+3,Spondylarthrite ankylosante - Région cervico-dorsale,XIII/M40-M54/M45-M49/M45/M45+3,4,M45+3,0,codable
+M45+4,Spondylarthrite ankylosante - Région dorsale,XIII/M40-M54/M45-M49/M45/M45+4,4,M45+4,0,codable
+M45+5,Spondylarthrite ankylosante - Région dorso-lombaire,XIII/M40-M54/M45-M49/M45/M45+5,4,M45+5,0,codable
+M45+6,Spondylarthrite ankylosante - Région lombaire,XIII/M40-M54/M45-M49/M45/M45+6,4,M45+6,0,codable
+M45+7,Spondylarthrite ankylosante - Région lombo-sacrée,XIII/M40-M54/M45-M49/M45/M45+7,4,M45+7,0,codable
+M45+8,Spondylarthrite ankylosante - Région sacrée et sacro-coccygienne,XIII/M40-M54/M45-M49/M45/M45+8,4,M45+8,0,codable
+M45+9,Spondylarthrite ankylosante - Localisation vertébrale non précisée,XIII/M40-M54/M45-M49/M45/M45+9,4,M45+9,0,codable
+M62.80,Autres atteintes musculaires précisées - Sièges multiples,XIII/M60-M79/M60-M63/M62/M62.8/M62.80,5,M6280,0,codable
+M62.81,Autres atteintes musculaires précisées - Région scapulaire,XIII/M60-M79/M60-M63/M62/M62.8/M62.81,5,M6281,0,codable
+M62.82,Autres atteintes musculaires précisées - Bras,XIII/M60-M79/M60-M63/M62/M62.8/M62.82,5,M6282,0,codable
+M62.83,Autres atteintes musculaires précisées - Avant-bras,XIII/M60-M79/M60-M63/M62/M62.8/M62.83,5,M6283,0,codable
+M62.84,Autres atteintes musculaires précisées - Main,XIII/M60-M79/M60-M63/M62/M62.8/M62.84,5,M6284,0,codable
+M62.85,Autres atteintes musculaires précisées - Région pelvienne et cuisse,XIII/M60-M79/M60-M63/M62/M62.8/M62.85,5,M6285,0,codable
+M62.86,Autres atteintes musculaires précisées - Jambe,XIII/M60-M79/M60-M63/M62/M62.8/M62.86,5,M6286,0,codable
+M62.87,Autres atteintes musculaires précisées - Cheville et pied,XIII/M60-M79/M60-M63/M62/M62.8/M62.87,5,M6287,0,codable
+M62.88,Autres atteintes musculaires précisées - Autres localisations,XIII/M60-M79/M60-M63/M62/M62.8/M62.88,5,M6288,0,codable
+M62.89,Autres atteintes musculaires précisées - Siège non précisé,XIII/M60-M79/M60-M63/M62/M62.8/M62.89,5,M6289,0,codable
+M83.00,Ostéomalacie puerpérale - Sièges multiples,XIII/M80-M94/M80-M85/M83/M83.0/M83.00,5,M8300,0,codable
+M83.01,Ostéomalacie puerpérale - Région scapulaire,XIII/M80-M94/M80-M85/M83/M83.0/M83.01,5,M8301,0,codable
+M83.02,Ostéomalacie puerpérale - Bras,XIII/M80-M94/M80-M85/M83/M83.0/M83.02,5,M8302,0,codable
+M83.03,Ostéomalacie puerpérale - Avant-bras,XIII/M80-M94/M80-M85/M83/M83.0/M83.03,5,M8303,0,codable
+M83.04,Ostéomalacie puerpérale - Main,XIII/M80-M94/M80-M85/M83/M83.0/M83.04,5,M8304,0,codable
+M83.05,Ostéomalacie puerpérale - Région pelvienne et cuisse,XIII/M80-M94/M80-M85/M83/M83.0/M83.05,5,M8305,0,codable
+M83.06,Ostéomalacie puerpérale - Jambe,XIII/M80-M94/M80-M85/M83/M83.0/M83.06,5,M8306,0,codable
+M83.07,Ostéomalacie puerpérale - Cheville et pied,XIII/M80-M94/M80-M85/M83/M83.0/M83.07,5,M8307,0,codable
+M83.08,Ostéomalacie puerpérale - Autres localisations,XIII/M80-M94/M80-M85/M83/M83.0/M83.08,5,M8308,0,codable
+M83.09,Ostéomalacie puerpérale - Siège non précisé,XIII/M80-M94/M80-M85/M83/M83.0/M83.09,5,M8309,0,codable
+M83.10,Ostéomalacie sénile - Sièges multiples,XIII/M80-M94/M80-M85/M83/M83.1/M83.10,5,M8310,0,codable
+M83.11,Ostéomalacie sénile - Région scapulaire,XIII/M80-M94/M80-M85/M83/M83.1/M83.11,5,M8311,0,codable
+M83.12,Ostéomalacie sénile - Bras,XIII/M80-M94/M80-M85/M83/M83.1/M83.12,5,M8312,0,codable
+M83.13,Ostéomalacie sénile - Avant-bras,XIII/M80-M94/M80-M85/M83/M83.1/M83.13,5,M8313,0,codable
+M83.14,Ostéomalacie sénile - Main,XIII/M80-M94/M80-M85/M83/M83.1/M83.14,5,M8314,0,codable
+M83.15,Ostéomalacie sénile - Région pelvienne et cuisse,XIII/M80-M94/M80-M85/M83/M83.1/M83.15,5,M8315,0,codable
+M83.16,Ostéomalacie sénile - Jambe,XIII/M80-M94/M80-M85/M83/M83.1/M83.16,5,M8316,0,codable
+M83.17,Ostéomalacie sénile - Cheville et pied,XIII/M80-M94/M80-M85/M83/M83.1/M83.17,5,M8317,0,codable
+M83.18,Ostéomalacie sénile - Autres localisations,XIII/M80-M94/M80-M85/M83/M83.1/M83.18,5,M8318,0,codable
+M83.19,Ostéomalacie sénile - Siège non précisé,XIII/M80-M94/M80-M85/M83/M83.1/M83.19,5,M8319,0,codable

@@ -16,17 +16,33 @@ from recode_icd.cards import (
 cards_app = typer.Typer(help="Bibliothèque de fiches CIM-10.")
 
 
+def dossier_par_profil(profil: str) -> Path:
+    """`outputs/cards_library` pour le profil de génération, `_<profil>` sinon."""
+    if profil == policy_module.PROFIL_DEFAUT:
+        return Path("outputs/cards_library")
+    return Path(f"outputs/cards_library_{profil}")
+
+
 @cards_app.command("build")
 def build_library_cmd(
     output_dir: Annotated[
-        Path,
+        Path | None,
         typer.Option(
             "--output-dir",
             "-o",
             file_okay=False,
-            help="Dossier racine de sortie (sous-dossiers <chapitre>/<code>.md).",
+            help="Dossier racine de sortie (sous-dossiers <chapitre>/<code>.md). "
+            "Défaut : outputs/cards_library pour `generation`, outputs/cards_library_<profil> sinon.",
         ),
-    ] = Path("outputs/cards_library"),
+    ] = None,
+    profil: Annotated[
+        str,
+        typer.Option(
+            "--profil",
+            help="Profil de bibliothèque (chapter_policy.yaml → profils) : "
+            "`generation` = codables MCO seulement, `controle` = tous les codes.",
+        ),
+    ] = policy_module.PROFIL_DEFAUT,
     chapter: Annotated[
         str | None,
         typer.Option(
@@ -74,17 +90,21 @@ def build_library_cmd(
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
     summary = build_cards_library(
-        output_dir=output_dir,
+        output_dir=output_dir if output_dir is not None else dossier_par_profil(profil),
         chapter_filter=chapter,
         limit=limit,
         seed=seed,
         policy_path=policy_path,
         lexicons_dir=lexicons_dir,
+        profil=profil,
     )
 
     typer.echo("")
     typer.echo("=" * 60)
     typer.echo(f"Bibliothèque générée sous : {summary.output_dir}")
+    typer.echo(f"Profil                   : {summary.profil}")
+    if summary.n_exclus_non_codables:
+        typer.echo(f"Codes non codables exclus: {summary.n_exclus_non_codables}")
     typer.echo(f"Codes total              : {summary.n_codes_total}")
     typer.echo(f"Fiches écrites           : {summary.n_written}")
     typer.echo(f"Erreurs                  : {summary.n_errors}")

@@ -1,7 +1,15 @@
 # Backlog — Profils de fiches par usage
 
-> Statut : **à instruire**. Ouvert le 2026-08-13, au chantier
-> `chapter_policy`, en actant l'exclusion d'ORPHANET des Formulations.
+> Statut : **partiellement traité** — premier axe livré le 2026-09-05
+> (chantier couverture ATIH, D4) : clé `profils:` dans
+> `chapter_policy.yaml`, profils `generation` (codables MCO seulement)
+> et `controle` (tout), une bibliothèque et un `_index.csv` par profil,
+> `cards build --profil`. Réponses aux trois questions ci-dessous pour
+> cet axe : (1) le profil vit dans le YAML existant, sans héritage
+> entre profils ; (2) une bibliothèque par profil ; (3) R3 s'applique
+> aux deux. Les axes ORPHANET / exclusions / consignes restent ouverts.
+> Ouvert le 2026-08-13, au chantier `chapter_policy`, en actant
+> l'exclusion d'ORPHANET des Formulations.
 
 ## D'où vient la question
 

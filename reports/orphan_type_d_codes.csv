@@ -1,15 +1,4 @@
 code,libelle_master,chapter,categorie_orphan
-M11.90,"arthropathie due à des microcristaux, sans précision | sièges multiples",(M00-M99),unknown
-M11.91,"arthropathie due à des microcristaux, sans précision | région scapulaire",(M00-M99),unknown
-M11.92,"arthropathie due à des microcristaux, sans précision | bras",(M00-M99),unknown
-M11.93,"arthropathie due à des microcristaux, sans précision | avant-bras",(M00-M99),unknown
-M11.94,"arthropathie due à des microcristaux, sans précision | main",(M00-M99),unknown
-M11.95,"arthropathie due à des microcristaux, sans précision | région pelvienne et cuisse",(M00-M99),unknown
-M11.96,"arthropathie due à des microcristaux, sans précision | jambe",(M00-M99),unknown
-M11.97,"arthropathie due à des microcristaux, sans précision | cheville et pied",(M00-M99),unknown
-M11.98,"arthropathie due à des microcristaux, sans précision | autres",(M00-M99),unknown
-M11.99,"arthropathie due à des microcristaux, sans précision | siège non précisé",(M00-M99),unknown
-M13.00,"polyarthrite, sans précision | sièges multiples",(M00-M99),unknown
 M13.01,"polyarthrite, sans précision | région scapulaire",(M00-M99),unknown
 M13.02,"polyarthrite, sans précision | bras",(M00-M99),unknown
 M13.03,"polyarthrite, sans précision | avant-bras",(M00-M99),unknown
@@ -20,15 +9,6 @@ M13.07,"polyarthrite, sans précision | cheville et pied",(M00-M99),unknown
 M13.08,"polyarthrite, sans précision | autres",(M00-M99),unknown
 M13.09,"polyarthrite, sans précision | siège non précisé",(M00-M99),unknown
 M13.90,"arthrite, sans précision | sièges multiples",(M00-M99),unknown
-M13.91,"arthrite, sans précision | région scapulaire",(M00-M99),unknown
-M13.92,"arthrite, sans précision | bras",(M00-M99),unknown
-M13.93,"arthrite, sans précision | avant-bras",(M00-M99),unknown
-M13.94,"arthrite, sans précision | main",(M00-M99),unknown
-M13.95,"arthrite, sans précision | région pelvienne et cuisse",(M00-M99),unknown
-M13.96,"arthrite, sans précision | jambe",(M00-M99),unknown
-M13.97,"arthrite, sans précision | cheville et pied",(M00-M99),unknown
-M13.98,"arthrite, sans précision | autres",(M00-M99),unknown
-M13.99,"arthrite, sans précision | siège non précisé",(M00-M99),unknown
 M45.X0,"spondylarthrite ankylosante, sans précision | localisations vertébrales multiples",(M00-M99),unknown
 M45.X1,"spondylarthrite ankylosante, sans précision | région occipito-atloïdo-axoïdienne",(M00-M99),unknown
 M45.X2,"spondylarthrite ankylosante, sans précision | région cervicale",(M00-M99),unknown
@@ -39,16 +19,6 @@ M45.X6,"spondylarthrite ankylosante, sans précision | région lombaire",(M00-M9
 M45.X7,"spondylarthrite ankylosante, sans précision | région lombo-sacrée",(M00-M99),unknown
 M45.X8,"spondylarthrite ankylosante, sans précision | région sacrée et sacro-coccygienne",(M00-M99),unknown
 M45.X9,"spondylarthrite ankylosante, sans précision | localisation non précisée",(M00-M99),unknown
-M62.80,autres atteintes musculaires précisées | sièges multiples,(M00-M99),unknown
-M62.81,autres atteintes musculaires précisées | région scapulaire,(M00-M99),unknown
-M62.82,autres atteintes musculaires précisées | bras,(M00-M99),unknown
-M62.83,autres atteintes musculaires précisées | avant-bras,(M00-M99),unknown
-M62.84,autres atteintes musculaires précisées | main,(M00-M99),unknown
-M62.85,autres atteintes musculaires précisées | région pelvienne et cuisse,(M00-M99),unknown
-M62.86,autres atteintes musculaires précisées | jambe,(M00-M99),unknown
-M62.87,autres atteintes musculaires précisées | cheville et pied,(M00-M99),unknown
-M62.88,autres atteintes musculaires précisées | autres,(M00-M99),unknown
-M62.89,autres atteintes musculaires précisées | siège non précisé,(M00-M99),unknown
 M72.30,fasciite nodulaire | sièges multiples,(M00-M99),unknown
 M72.31,fasciite nodulaire | région scapulaire,(M00-M99),unknown
 M72.32,fasciite nodulaire | bras,(M00-M99),unknown
@@ -69,23 +39,3 @@ M72.56,"fasciite, non classée ailleurs | jambe",(M00-M99),unknown
 M72.57,"fasciite, non classée ailleurs | cheville et pied",(M00-M99),unknown
 M72.58,"fasciite, non classée ailleurs | autres",(M00-M99),unknown
 M72.59,"fasciite, non classée ailleurs | siège non précisé",(M00-M99),unknown
-M83.00,ostéomalacie puerpérale | sièges multiples,(M00-M99),unknown
-M83.01,ostéomalacie puerpérale | région scapulaire,(M00-M99),unknown
-M83.02,ostéomalacie puerpérale | bras,(M00-M99),unknown
-M83.03,ostéomalacie puerpérale | avant-bras,(M00-M99),unknown
-M83.04,ostéomalacie puerpérale | main,(M00-M99),unknown
-M83.05,ostéomalacie puerpérale | région pelvienne et cuisse,(M00-M99),unknown
-M83.06,ostéomalacie puerpérale | jambe,(M00-M99),unknown
-M83.07,ostéomalacie puerpérale | cheville et pied,(M00-M99),unknown
-M83.08,ostéomalacie puerpérale | autres,(M00-M99),unknown
-M83.09,ostéomalacie puerpérale | siège non précisé,(M00-M99),unknown
-M83.10,ostéomalacie sénile | sièges multiples,(M00-M99),unknown
-M83.11,ostéomalacie sénile | région scapulaire,(M00-M99),unknown
-M83.12,ostéomalacie sénile | bras,(M00-M99),unknown
-M83.13,ostéomalacie sénile | avant-bras,(M00-M99),unknown
-M83.14,ostéomalacie sénile | main,(M00-M99),unknown
-M83.15,ostéomalacie sénile | région pelvienne et cuisse,(M00-M99),unknown
-M83.16,ostéomalacie sénile | jambe,(M00-M99),unknown
-M83.17,ostéomalacie sénile | cheville et pied,(M00-M99),unknown
-M83.18,ostéomalacie sénile | autres,(M00-M99),unknown
-M83.19,ostéomalacie sénile | siège non précisé,(M00-M99),unknown

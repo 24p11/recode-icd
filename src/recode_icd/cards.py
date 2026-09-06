@@ -649,6 +649,21 @@ def _title(code: str, ctx: ExplorationContext) -> str:
     return f"# {code}"
 
 
+def codes_codables(merged: pl.DataFrame) -> frozenset[str]:
+    """Les codes codables en MCO selon le kit joint à `merged` (D4).
+
+    Exige la colonne `codable_mco` **et** un kit effectivement joint :
+    sans lui, le profil `generation` est inapplicable — on le dit,
+    plutôt que de construire 16 000 fiches en croyant filtrer.
+    """
+    if "codable_mco" not in merged.columns or merged["codable_mco"].null_count() == merged.height:
+        raise ValueError(
+            "Profil `generation` : merged_codes ne porte pas le statut MCO du kit ATIH "
+            "(lancer `recode-icd build atih` puis `build merged`)."
+        )
+    return frozenset(merged.filter(pl.col("codable_mco"))["code"].to_list())
+
+
 def statut_mco_de(code: str, ctx: ExplorationContext) -> tuple[int | None, str] | None:
     """`(type_mco, statut)` du code selon le kit ATIH, ou None sans kit.
 
@@ -779,6 +794,10 @@ class BuildSummary:
     n_consignes: int = 0
     consignes_par_chapitre: tuple[tuple[str, int], ...] = ()
     avertissements: tuple[str, ...] = ()
+    #: Profil de bibliothèque (D4) et nombre de codes du CSV écartés
+    #: parce que non codables en MCO (0 pour le profil `controle`).
+    profil: str = policy_module.PROFIL_DEFAUT
+    n_exclus_non_codables: int = 0
 
 
 def _detect_sections(card: str) -> dict[str, bool]:
@@ -815,6 +834,20 @@ def _code_to_chapter_map(merged: pl.DataFrame) -> dict[str, str]:
     return {r["code"]: r["chap"] for r in rows.iter_rows(named=True)}
 
 
+def _label_merged(merged: pl.DataFrame, code: str) -> str:
+    """Libellé d'un code via `merged` (codes sans ligne au CSV, D3)."""
+    row = merged.filter(pl.col("code") == code)
+    return "" if row.is_empty() else (row["label"][0] or "")
+
+
+def _source_existence(merged: pl.DataFrame, code: str) -> str | None:
+    """`OWL_ANS` ou `ATIH` (code injecté depuis le kit, D3) ; None sans la colonne."""
+    if "source_existence" not in merged.columns:
+        return None
+    row = merged.filter(pl.col("code") == code)
+    return None if row.is_empty() else str(row["source_existence"][0])
+
+
 def _libelle_of(csv: pl.DataFrame, code: str) -> str:
     """Libellé d'un code via la colonne `libelle` du CSV (1ère ligne)."""
     row = csv.filter(pl.col("code") == code)
@@ -834,8 +867,13 @@ def build_cards_library(
     progress: bool = True,
     policy_path: Path | None = None,
     lexicons_dir: Path | None = None,
+    profil: str = policy_module.PROFIL_DEFAUT,
 ) -> BuildSummary:
     """Génère la bibliothèque complète de fiches CIM-10.
+
+    `profil` (D4) : `generation` (défaut) ne construit que les codes
+    codables en MCO — statut du kit ATIH joint à `merged` ; `controle`
+    construit tout. Chaque profil a sa bibliothèque et son `_index.csv`.
 
     Args:
         ctx : contexte d'exploration ; chargé automatiquement avec
@@ -866,15 +904,28 @@ def build_cards_library(
 
     # Liste des codes uniques du CSV, dans l'ordre lexicographique
     # déterministe.
-    codes_all = sorted(csv["code"].unique().to_list())
-    codes = [c for c in codes_all if code_to_chap.get(c) is not None]
+    # Codes construits : ceux du CSV, plus les codes codables du référentiel
+    # (D3 — un code codable auquel aucune source n'attache de ligne a
+    # quand même une fiche : titre, position, statut, consignes, notes
+    # ANS). Sans statut MCO dans merged, les seuls codes du CSV.
+    codes_all = set(csv["code"].unique().to_list())
+    if "codable_mco" in merged.columns and merged["codable_mco"].null_count() < merged.height:
+        codes_all |= set(codes_codables(merged))
+    codes = sorted(c for c in codes_all if code_to_chap.get(c) is not None)
+    outils = charge_politique(merged, policy_path, lexicons_dir)
+    regle_profil = outils.policy.profil(profil)
+    n_exclus_non_codables = 0
+    if regle_profil.codables_seulement:
+        codables = codes_codables(merged)
+        avant = len(codes)
+        codes = [c for c in codes if c in codables]
+        n_exclus_non_codables = avant - len(codes)
     if chapter_filter is not None:
         codes = [c for c in codes if code_to_chap.get(c) == chapter_filter]
     if limit is not None:
         codes = codes[:limit]
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    outils = charge_politique(merged, policy_path, lexicons_dir)
     avertissements: list[str] = []
     if ctx.recommendations is None or ctx.recommendation_codes is None:
         msg = (
@@ -904,9 +955,10 @@ def build_cards_library(
                     "code": code,
                     "chapter": chapter,
                     "filepath": f"{chapter}/{fname}",
-                    "libelle": _libelle_of(csv, code),
+                    "libelle": _libelle_of(csv, code) or _label_merged(merged, code),
                     "type_mco": None if statut is None else statut[0],
                     "statut_mco": None if statut is None else statut[1].partition(":")[0],
+                    "source_existence": _source_existence(merged, code),
                     "nb_chars": len(card),
                     **sections,
                 }
@@ -940,10 +992,16 @@ def build_cards_library(
             "has_formulations",
             "type_mco",
             "statut_mco",
+            "source_existence",
             "nb_chars",
         ]
         pl.DataFrame(
-            index_rows, schema_overrides={"type_mco": pl.Int64, "statut_mco": pl.String}
+            index_rows,
+            schema_overrides={
+                "type_mco": pl.Int64,
+                "statut_mco": pl.String,
+                "source_existence": pl.String,
+            },
         ).select(ordered_cols).write_csv(index_path)
 
     # Comptage des fiches portant la section Consignes, par chapitre,
@@ -968,6 +1026,8 @@ def build_cards_library(
         n_consignes=sum(par_chapitre.values()),
         consignes_par_chapitre=consignes_par_chapitre,
         avertissements=tuple(avertissements),
+        profil=profil,
+        n_exclus_non_codables=n_exclus_non_codables,
     )
 
 

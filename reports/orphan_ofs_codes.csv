@@ -86,17 +86,6 @@ K51.1,K511,iléo-colite ulcéreuse (chronique),category
 K58.0,K580,"syndrome de l'intestin irritable, avec diarrhée",category
 K58.9,K589,"syndrome de l'intestin irritable, sans diarrhée",category
 L41.2,L412,papulose lymphomatoïde,category
-M11.90,M1190,"arthropathie due à des microcristaux, sans précision | sièges multiples",category
-M11.91,M1191,"arthropathie due à des microcristaux, sans précision | région scapulaire",category
-M11.92,M1192,"arthropathie due à des microcristaux, sans précision | bras",category
-M11.93,M1193,"arthropathie due à des microcristaux, sans précision | avant-bras",category
-M11.94,M1194,"arthropathie due à des microcristaux, sans précision | main",category
-M11.95,M1195,"arthropathie due à des microcristaux, sans précision | région pelvienne et cuisse",category
-M11.96,M1196,"arthropathie due à des microcristaux, sans précision | jambe",category
-M11.97,M1197,"arthropathie due à des microcristaux, sans précision | cheville et pied",category
-M11.98,M1198,"arthropathie due à des microcristaux, sans précision | autres",category
-M11.99,M1199,"arthropathie due à des microcristaux, sans précision | siège non précisé",category
-M13.00,M1300,"polyarthrite, sans précision | sièges multiples",category
 M13.01,M1301,"polyarthrite, sans précision | région scapulaire",category
 M13.02,M1302,"polyarthrite, sans précision | bras",category
 M13.03,M1303,"polyarthrite, sans précision | avant-bras",category
@@ -107,15 +96,6 @@ M13.07,M1307,"polyarthrite, sans précision | cheville et pied",category
 M13.08,M1308,"polyarthrite, sans précision | autres",category
 M13.09,M1309,"polyarthrite, sans précision | siège non précisé",category
 M13.90,M1390,"arthrite, sans précision | sièges multiples",category
-M13.91,M1391,"arthrite, sans précision | région scapulaire",category
-M13.92,M1392,"arthrite, sans précision | bras",category
-M13.93,M1393,"arthrite, sans précision | avant-bras",category
-M13.94,M1394,"arthrite, sans précision | main",category
-M13.95,M1395,"arthrite, sans précision | région pelvienne et cuisse",category
-M13.96,M1396,"arthrite, sans précision | jambe",category
-M13.97,M1397,"arthrite, sans précision | cheville et pied",category
-M13.98,M1398,"arthrite, sans précision | autres",category
-M13.99,M1399,"arthrite, sans précision | siège non précisé",category
 M31.2,M312,granulome malin de la ligne médiane,category
 M45.X,M45X,"spondylarthrite ankylosante, sans précision",category
 M45.X0,M45X0,"spondylarthrite ankylosante, sans précision | localisations vertébrales multiples",category
@@ -128,16 +108,6 @@ M45.X6,M45X6,"spondylarthrite ankylosante, sans précision | région lombaire",c
 M45.X7,M45X7,"spondylarthrite ankylosante, sans précision | région lombo-sacrée",category
 M45.X8,M45X8,"spondylarthrite ankylosante, sans précision | région sacrée et sacro-coccygienne",category
 M45.X9,M45X9,"spondylarthrite ankylosante, sans précision | localisation non précisée",category
-M62.80,M6280,autres atteintes musculaires précisées | sièges multiples,category
-M62.81,M6281,autres atteintes musculaires précisées | région scapulaire,category
-M62.82,M6282,autres atteintes musculaires précisées | bras,category
-M62.83,M6283,autres atteintes musculaires précisées | avant-bras,category
-M62.84,M6284,autres atteintes musculaires précisées | main,category
-M62.85,M6285,autres atteintes musculaires précisées | région pelvienne et cuisse,category
-M62.86,M6286,autres atteintes musculaires précisées | jambe,category
-M62.87,M6287,autres atteintes musculaires précisées | cheville et pied,category
-M62.88,M6288,autres atteintes musculaires précisées | autres,category
-M62.89,M6289,autres atteintes musculaires précisées | siège non précisé,category
 M72.3,M723,fasciite nodulaire,category
 M72.30,M7230,fasciite nodulaire | sièges multiples,category
 M72.31,M7231,fasciite nodulaire | région scapulaire,category
@@ -160,26 +130,6 @@ M72.56,M7256,"fasciite, non classée ailleurs | jambe",category
 M72.57,M7257,"fasciite, non classée ailleurs | cheville et pied",category
 M72.58,M7258,"fasciite, non classée ailleurs | autres",category
 M72.59,M7259,"fasciite, non classée ailleurs | siège non précisé",category
-M83.00,M8300,ostéomalacie puerpérale | sièges multiples,category
-M83.01,M8301,ostéomalacie puerpérale | région scapulaire,category
-M83.02,M8302,ostéomalacie puerpérale | bras,category
-M83.03,M8303,ostéomalacie puerpérale | avant-bras,category
-M83.04,M8304,ostéomalacie puerpérale | main,category
-M83.05,M8305,ostéomalacie puerpérale | région pelvienne et cuisse,category
-M83.06,M8306,ostéomalacie puerpérale | jambe,category
-M83.07,M8307,ostéomalacie puerpérale | cheville et pied,category
-M83.08,M8308,ostéomalacie puerpérale | autres,category
-M83.09,M8309,ostéomalacie puerpérale | siège non précisé,category
-M83.10,M8310,ostéomalacie sénile | sièges multiples,category
-M83.11,M8311,ostéomalacie sénile | région scapulaire,category
-M83.12,M8312,ostéomalacie sénile | bras,category
-M83.13,M8313,ostéomalacie sénile | avant-bras,category
-M83.14,M8314,ostéomalacie sénile | main,category
-M83.15,M8315,ostéomalacie sénile | région pelvienne et cuisse,category
-M83.16,M8316,ostéomalacie sénile | jambe,category
-M83.17,M8317,ostéomalacie sénile | cheville et pied,category
-M83.18,M8318,ostéomalacie sénile | autres,category
-M83.19,M8319,ostéomalacie sénile | siège non précisé,category
 N18.0,N180,insuffisance rénale terminale,category
 N18.8,N188,autres insuffisances rénales chroniques,category
 O04.0,O040,"avortement médical | incomplet, compliqué d'une infection de l'appareil génital et des organes pelviens",category

@@ -1,16 +1,24 @@
 # Couverture ATIH des fiches CIM-10 — ce qui manque, et pourquoi
 
-*Note pour les data scientists — 2026-09-05. Mesure de la phase 1 du
-chantier « couverture ATIH » ; les fiches manquantes viendront en phase 2.*
+*Note pour les data scientists — 2026-09-05, mise à jour en fin de
+palier 2 du chantier « couverture ATIH » (D2, D3, D4 livrés).*
 
 ## En une phrase
 
-**Sur les 40 419 codes autorisés en MCO par le kit ATIH 2025, 14 140 ont
-une fiche aujourd'hui.** Hors chapitre XX (causes externes), la couverture
-est de **93,8 %** (14 140 / 15 071) ; les 931 manquants ont chacun une
-cause identifiée, listée ci-dessous. Le chapitre XX pèse à lui seul
-25 348 codes absents — c'est une sous-nomenclature lieu × activité que
-les fiches ne couvrent pas encore.
+**Sur les 40 419 codes autorisés en MCO par le kit ATIH 2025, 15 071 —
+tous ceux hors chapitre XX — ont une fiche dans la bibliothèque de
+génération (`outputs/cards_library`, 100 %).** Les 89 codes « notation
+divergente » de la mesure ci-dessous ont aussi leur fiche, sous
+l'écriture du maître (`O0490` → `O04.-0.9`) : le résolveur la trouve.
+Restent les 25 348 codes du chapitre XX (sous-nomenclature lieu ×
+activité, jamais DP/DR) : ils se couvriront par composition à partir
+de la fiche du tronc (palier 3, D5) — le résolveur répond déjà
+`tronc_chapitre_xx` avec le tronc.
+
+État du 2026-09-05 au matin, pour mémoire : 14 140 fiches (93,8 %
+hors chapitre XX), 931 manquants en quatre classes — toutes traitées
+depuis (800 intermédiaires codables, 59 feuilles sans ligne, 72
+extensions ATIH absentes, 89 notations divergentes).
 
 ## Avant tout : le résolveur
 
@@ -25,7 +33,9 @@ envoyez-nous ce fichier. Détail dans `docs/csv_usage_guide.md`.
 ## Le fichier à ouvrir en premier
 
 **`a_atih_autorises_sans_fiche.csv`** — un enregistrement par code
-autorisé MCO (Type MCO ≠ 3) **sans fiche** : 26 368 lignes.
+autorisé MCO (Type MCO ≠ 3) **sans fiche sous son écriture ATIH** :
+25 437 lignes — 25 348 du chapitre XX et les 89 notations divergentes
+(qui ont une fiche sous l'écriture du maître, colonne `code_maitre`).
 
 | Colonne | Contenu |
 |---|---|
@@ -37,15 +47,21 @@ autorisé MCO (Type MCO ≠ 3) **sans fiche** : 26 368 lignes.
 | `code_maitre` | l'écriture du même code dans nos livrables quand elle existe (`O04.-0.9` pour `O0490`) |
 | `ancetre_maitre` | pour un code absent, l'ancêtre le plus proche qui a une fiche |
 
-Les classes, par ordre d'importance pour vous :
+Les classes encore présentes, et ce qu'il en reste :
 
-| `classe` | n | Ce que ça veut dire | Quoi faire en attendant |
+| `classe` | n | Ce que ça veut dire | Quoi faire |
 |---|---|---|---|
-| `réellement absent` / `extension chapitre XX (lieu/activité)` | 25 348 | code ATIH `W0004` = W00 + lieu `0` + activité `4` ; nos livrables s'arrêtent au tronc OMS (`W00`, `V01.0`) | utiliser la fiche du tronc (`ancetre_maitre`) ; lieu (4e/5e car.) et activité (5e/6e) sont deux tables de 10 et 7 valeurs, constantes sur tout le chapitre |
-| `niveau intermédiaire autorisé` | 800 | le code est codable **et** subdivisé chez nous (`M00.0` codable, fiches seulement sur `M00.00`…`M00.09`) ; pour 110 d'entre eux l'ATIH ne connaît pas nos subdivisions (`M16.0`) | prendre la fiche d'une subdivision, ou l'union de leurs fiches ; pour les 110, la subdivision est un raffinement OMS non codable en MCO |
-| `notation divergente` | 89 | la fiche existe sous une autre écriture (`O0490` → `O04.-0.9`, `M62810` → `M62.8-01`, `B24+0` → `B24.+0`) | utiliser `code_maitre` — **`notations_divergentes.csv` donne la table complète** |
-| `réellement absent` (hors chapitre XX) | 72 | extensions ATIH récentes absentes de la classification ANS : `I70.00/01` (athérosclérose ± gangrène), `J96.1xx`, `M45+x`, localisations `M11.9x`, `M13.9x`, `M83.xx`, `M62.8x` | fiche de l'ancêtre (`ancetre_maitre`) + libellé ATIH |
-| `feuille du nested set sans ligne au maître` | 59 | le code existe chez nous mais **aucune source** ne lui attache de texte : `Z37.10…71`, `U07.2…9`, `U08.9`, `U09.9`, `U12.9`, résistances `U82/U83+x`, `Y90.x`, `Y97`, `Y98` | libellé seul ; pas de contenu clinique disponible avant la phase 2 |
+| `réellement absent` / `extension chapitre XX (lieu/activité)` | 25 348 | code ATIH `W0004` = W00 + lieu `0` + activité `4` ; nos livrables s'arrêtent au tronc OMS (`W00`, `V01.0`) | utiliser la fiche du tronc (`ancetre_maitre`, ou le résolveur : `tronc_chapitre_xx`) ; lieu (4e/5e car.) et activité (5e/6e) sont deux tables de 10 et 7 valeurs, constantes sur tout le chapitre — la composition sera outillée en D5 |
+| `notation divergente` | 89 | la fiche existe sous une autre écriture (`O0490` → `O04.-0.9`, `M62810` → `M62.8-01`, `B24+0` → `B24.+0`) | utiliser `code_maitre` ou le résolveur — **`notations_divergentes.csv` donne la table complète** |
+
+Classes **soldées** au palier 2 (elles n'apparaissent plus dans le
+fichier) : `niveau intermédiaire autorisé` (800 — `M00.0`, `F00.0`,
+`M16.0`… ont désormais une fiche par héritage, D2), `feuille du nested
+set sans ligne` (59 — `Z37.10…71`, `U07.2…9`, résistances `U82/U83+x`,
+`Y90.x`… ont une fiche, D3), `réellement absent` hors chapitre XX (72 —
+`I70.00/01`, `J96.1xx`, `M45+x`, localisations `M11.9x`… injectés dans
+le référentiel depuis le kit, D3 ; `source_existence=ATIH` dans
+l'index).
 
 ## L'autre sens : des fiches à ne pas utiliser en MCO
 

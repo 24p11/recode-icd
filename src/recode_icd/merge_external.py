@@ -23,7 +23,8 @@ Workflow Phase 2 :
    - **Pas de match** → ajouté à `to_add` ET à `dedup_index` (pour la
      dédup inter-externes des sources suivantes).
 
-3. Les entrées dont le code n'est pas terminal (`leaves`) tombent
+3. Les entrées dont le code est hors du périmètre du CSV (`leaves` :
+   feuilles + codes intermédiaires codables en MCO depuis D2) tombent
    silencieusement au join final dans `flat_csv.build()`. Un
    compteur `entries_dropped_non_terminal` les comptabilise dans le
    summary pour audit (cohérent avec backlog
@@ -549,9 +550,11 @@ def to_parquet_and_reports(
     owl = pl.read_parquet(owl_path)
     ofs = pl.read_parquet(ofs_path)
 
-    leaves = merged.filter(
-        (pl.col("type") == "category") & ((pl.col("right") - pl.col("left")) == 1)
-    ).select("code", pl.col("label").alias("libelle"))
+    # Périmètre du CSV : feuilles + codes intermédiaires codables en MCO
+    # (D2). La même fonction que l'exporter, pour ne pas décider deux fois.
+    from recode_icd.exporters.flat_csv import codes_du_csv
+
+    leaves = codes_du_csv(merged)
     valid_codes = merged.select("code")
 
     external_frames = load_external_frames(orphanet_xml, hector_xlsx, cepidc_csv)

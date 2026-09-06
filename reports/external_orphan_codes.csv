@@ -240,7 +240,6 @@ D76.0,Histiocytose langerhansienne SAI,APHP_DERMATOLOGIE,pre_2006_dropped_by_ati
 D76.0,Xanthome osseux,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
 G56.4,Causalgies,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
 I84.9,Hémorroïdes SAI,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
-M13.91,Arthropathie sans précision,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
 M31.2,Granulome facial (Lever),APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
 M31.2,Granulome malin centrofacial,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
 M72.51,Fasciite nodulaire,APHP_DERMATOLOGIE,pre_2006_dropped_by_atih
@@ -259,7 +258,6 @@ C96.1,Histiocytose maligne {sauf sarcome histiocytaire},APHP_RHUMATOLOGIE,pre_20
 C96.1,Sarcome histiocytaire [Histiocytose maligne vraie],APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
 D76.0,Granulome éosinophile osseux,APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
 D76.0,Syndrome de Hand-Schuller-Christian,APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
-M13.95,Arthropathie de la symphyse pubienne SAI,APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
 M62.898,Dégénérescence musculaire paravertébrale [Proclinorachie],APHP_RHUMATOLOGIE,truly_absent
 M62.898,Hernie musculaire,APHP_RHUMATOLOGIE,truly_absent
 M72.5,Fasciite paranéoplasique,APHP_RHUMATOLOGIE,pre_2006_dropped_by_atih
@@ -6165,7 +6163,6 @@ K72.99,syndrome encéphalo-hépatique,CEPIDC_2015,truly_absent
 K72.99,syndrome hépato-cellulaire,CEPIDC_2015,truly_absent
 K72.99,séquelles coma hépatique,CEPIDC_2015,truly_absent
 K72.99,troubles hépatocellulaires,CEPIDC_2015,truly_absent
-M13.98,arthrite temporo-mandibulaire,CEPIDC_2015,pre_2006_dropped_by_atih
 M31.2,granulome malin centro-facial,CEPIDC_2015,pre_2006_dropped_by_atih
 M31.2,granulome malin face,CEPIDC_2015,pre_2006_dropped_by_atih
 M31.2,granulome malin médio-facial,CEPIDC_2015,pre_2006_dropped_by_atih

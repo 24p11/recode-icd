@@ -295,7 +295,7 @@ Politique par champ, à respecter :
 | Champ                    | Source primaire    | Fallback   |
 |--------------------------|--------------------|------------|
 | `libelle` du code        | OWL_ANS            | OFS        |
-| Existence du code        | OWL_ANS            | —          |
+| Existence du code        | OWL_ANS            | ATIH (codables hors chap. XX, D3) |
 | Inclusions typées        | OFS                | OWL_ANS    |
 | Exclusions typées        | OFS                | OWL_ANS    |
 | Notes éditoriales        | OFS                | OWL_ANS    |
@@ -546,16 +546,19 @@ virus Zika).
 
 > **Pitfall — ne pas prendre `U07.1` comme témoin CSV.** `U07.1`
 > (COVID-19) reste le code post-2006 emblématique, mais il porte les
-> sous-divisions ATIH `U07.10`..`U07.15` : ce n'est donc pas une feuille
-> stricte du nested set, et `_leaf_codes()` l'élimine du CSV final. Tout
-> test de régression qui le vise sur le CSV se skippe silencieusement.
+> sous-divisions ATIH `U07.10`..`U07.15` et il est **type 3 (père
+> interdit) au kit ATIH** : non codable, donc hors du CSV, dont le
+> périmètre est « feuilles + codes intermédiaires codables »
+> (`codes_du_csv`, D2). Tout test de régression qui le vise sur le CSV se
+> skippe silencieusement.
 > Les témoins ci-dessus sont de vraies feuilles ; `U07.13` hérite en
 > prime des redirections `(B34.2)`, `(B97.2)`, `(U04.9)` propagées
 > depuis `U07.1`, ce qui préserve la valeur du test. L'absence de
 > `U07.1` est verrouillée par un test dédié
-> (`test_u07_1_absent_du_csv`). Cf
-> `docs/backlog/inclure_codes_intermediaires.md` — si ce backlog est
-> implémenté, ce test doit être inversé. `U07.1` reste en revanche
+> (`test_u07_1_absent_du_csv`). Le backlog
+> `inclure_codes_intermediaires.md` a été appliqué le 2026-09-05 pour
+> les seuls codes **codables** (800) : `U07.1` reste absent, à raison.
+> `U07.1` reste en revanche
 > parfaitement valide dans les tests unitaires sur données
 > synthétiques.
 
@@ -599,6 +602,23 @@ R1/R2/R3 gouvernent la **seule** section Formulations. La section
 section guide MCO) n'y est **pas** soumise — contrat `(code, ctx)` sans
 `rng` ni `outils`, et `test_section_hors_chapter_policy` l'affirme.
 
+### Profils de bibliothèque (chantier couverture ATIH, D4)
+
+Clé `profils:` du même YAML — premier axe réel du backlog « profils de
+fiches par usage » : le **statut MCO** du code. `generation` (défaut de
+`cards build`, `outputs/cards_library`) ne construit que les codes
+codables en MCO (`merged.codable_mco`, kit ATIH joint) ; `controle`
+(`cards build --profil controle`, `outputs/cards_library_controle`)
+construit tout, avec la ligne de statut. **Un `_index.csv` par
+bibliothèque** (autoportance). Pas d'héritage entre profils : une
+valeur par clé. Invariant dual, testé (`test_couverture_invariants.py`) :
+**aucun père interdit, code supprimé ou inconnu du kit dans la
+bibliothèque de génération** — on n'en retire rien du CSV maître ni du
+nested set, on ne les construit pas dans ce profil. Sans kit joint, le
+profil `generation` échoue bruyamment plutôt que de « filtrer » sur
+rien. Les fiches catégories (3-car) ne sont pas profilées : une
+catégorie n'est pas un code à tirer.
+
 ### Résolution par REMPLACEMENT, pas par fusion
 
 L'ordre est **bloc > chapitre > défaut**, et la règle la plus spécifique
@@ -640,7 +660,8 @@ sources en silence. Verrouillé par `test_remplacement_et_non_fusion`.
 
 ```bash
 uv run recode-icd build lexicons          # les trois lexiques (déterministe)
-uv run recode-icd cards build             # --policy / --lexicons-dir
+uv run recode-icd cards build             # profil generation (codables MCO) → outputs/cards_library
+uv run recode-icd cards build --profil controle   # tous les codes → outputs/cards_library_controle
 uv run recode-icd cards build-categories
 uv run python scripts/explore/relectures/export_relecture_index.py --graine 4242
 ```
@@ -896,7 +917,13 @@ sous son titre et les `_index.csv` les colonnes `type_mco` /
    MCO (1 618 localisations du chapitre XIII, `N06.9`). Null ne veut dire
    qu'une chose — le kit n'a pas été joint (`build merged` sans
    `atih_codes.parquet`).
-3. **Trois écritures d'un même code, une seule table.** Compacte
+3. **Les codes injectés depuis le kit (D3) sont des codes comme les
+   autres.** `build owl --atih` rattache les codables absents de l'ANS
+   (72, hors chapitre XX) à leur ancêtre ; `source_existence=ATIH` les
+   trace dans `merged` et les index, `reports/atih_only_codes.csv` les
+   liste. Pas de ligne au CSV pour le dire. Le chapitre XX ne s'injecte
+   pas (composition, D5) ; un type 3 absent non plus (nœud parallèle).
+4. **Trois écritures d'un même code, une seule table.** Compacte
    (`O0490`), pointée (`O04.90`), maître (`O04.-0.9`) : la traduction
    vit dans `referentials/curation/notations_codes.yaml` lue par
    `recode_icd.notations`, deux familles inversées (O04, M62.8) et neuf
@@ -922,6 +949,8 @@ JSONL) — c'est la mesure d'usage qui priorise la suite.
 
 ```bash
 uv run recode-icd build atih          # kit → atih_codes.parquet + reports/atih_kit_summary.csv
+uv run recode-icd build owl --rdf-path data/CIM_ANS_2026/dat/terminologie-cim-10-2025-01-01.rdf
+                                      # injecte les codables absents de l'ANS (--atih, défaut : le parquet)
 uv run recode-icd build merged        # joint le statut (option --atih, défaut : le parquet)
 uv run recode-icd resoudre O0490 M000 W0004 --journal outputs/usage/resolutions.jsonl
 uv run recode-icd resoudre A18.1 --json

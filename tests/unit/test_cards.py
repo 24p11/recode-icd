@@ -146,8 +146,10 @@ def test_build_cards_library_chapter_filter(ctx: ExplorationContext, tmp_path) -
         chapter_filter="XXII",
         progress=False,
     )
-    # Chapitre XXII : 33 codes attendus (codes U post-2006).
-    assert 20 <= summary.n_written <= 50
+    # Chapitre XXII : 33 codes en juin 2026 ; depuis D3/D4, les codables
+    # sans ligne (U07.2..9, U08.9, U09.9, U12.9, résistances U82/U83+x)
+    # s'ajoutent et les non-codables sortent du profil `generation`.
+    assert 20 <= summary.n_written <= 70
     # Toutes les fiches doivent être sous tmp_path/lib/XXII/.
     chap_dir = tmp_path / "lib" / "XXII"
     assert chap_dir.is_dir()
@@ -178,6 +180,7 @@ def test_build_cards_library_index_csv_schema(ctx: ExplorationContext, tmp_path)
         "has_formulations",
         "type_mco",
         "statut_mco",
+        "source_existence",
         "nb_chars",
     }
     assert set(index.columns) == expected
@@ -294,3 +297,52 @@ def test_lindex_porte_type_et_statut_mco(ctx: ExplorationContext, tmp_path) -> N
         "supprime",
         "inconnu_atih",
     }
+
+
+# ----------------------------------------------------------------------
+# Profils de bibliothèque (chantier couverture ATIH, D4)
+# ----------------------------------------------------------------------
+
+
+def test_le_profil_generation_exclut_les_non_codables(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
+    """Chapitre XXII (codes U) : `controle` construit tout, `generation`
+    écarte ce qui n'est pas codable — et l'index de chaque bibliothèque
+    en témoigne, autoportant."""
+    if ctx.atih is None:
+        pytest.skip("atih_codes.parquet absent (`recode-icd build atih`).")
+    import polars as pl
+
+    controle = build_cards_library(
+        ctx=ctx,
+        output_dir=tmp_path / "controle",
+        chapter_filter="XXII",
+        progress=False,
+        profil="controle",
+    )
+    generation = build_cards_library(
+        ctx=ctx, output_dir=tmp_path / "generation", chapter_filter="XXII", progress=False
+    )
+    idx_controle = pl.read_csv(controle.index_path)
+    idx_generation = pl.read_csv(generation.index_path)
+    non_codables = {"pere_interdit", "supprime", "inconnu_atih"}
+    assert generation.profil == "generation" and controle.n_exclus_non_codables == 0
+    assert idx_generation.filter(pl.col("statut_mco").is_in(non_codables)).is_empty()
+    assert idx_controle.height >= idx_generation.height
+    assert generation.n_exclus_non_codables > 0, "le CSV porte des non-codables avant D4"
+
+
+def test_profil_generation_sans_kit_joint_echoue_bruyamment() -> None:
+    """Sans statut MCO dans merged, filtrer « les codables » serait un mensonge."""
+    import polars as pl
+
+    from recode_icd.cards import codes_codables
+
+    with pytest.raises(ValueError, match="statut MCO"):
+        codes_codables(pl.DataFrame({"code": ["A00"]}))
+    with pytest.raises(ValueError, match="statut MCO"):
+        codes_codables(
+            pl.DataFrame(
+                {"code": ["A00"], "codable_mco": [None]},
+                schema_overrides={"codable_mco": pl.Boolean},
+            )
+        )
