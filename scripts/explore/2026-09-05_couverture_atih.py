@@ -184,6 +184,13 @@ def ancetre_maitre(code_atih: str) -> str | None:
 
 
 chapitre_xx = re.compile(r"^[VWXY]\d{2}")
+# Codes composés du chapitre XX (D5) : couverts par la fiche de leur tronc.
+_CODES_XX = ROOT / "referentials" / "processed" / "chapitre_xx_codes.parquet"
+tronc_de: dict[str, str] = {}
+if _CODES_XX.is_file():
+    _cx = pl.read_parquet(_CODES_XX)
+    tronc_de = dict(zip(_cx["code_atih"].to_list(), _cx["tronc"].to_list(), strict=True))
+    print(f"composition : {len(tronc_de)} codes composés du chapitre XX (D5)")
 lignes_a: list[dict[str, object]] = []
 for r in atih.filter(pl.col("type_mco") != 3).sort("code").iter_rows(named=True):
     code_atih = r["code"]
@@ -191,6 +198,12 @@ for r in atih.filter(pl.col("type_mco") != 3).sort("code").iter_rows(named=True)
     code_maitre = code_par_cle.get(code_atih)
     if naive in csv_feuilles:
         classe, sous_classe = "fiche (écriture directe)", ""
+    elif code_atih in tronc_de:
+        classe = "composé (fiche du tronc)"
+        sous_classe = (
+            "tronc avec fiche" if tronc_de[code_atih] in csv_feuilles else "tronc SANS fiche"
+        )
+        code_maitre = tronc_de[code_atih]
     elif code_maitre is not None and code_maitre in csv_feuilles:
         classe, sous_classe = "notation divergente", famille_divergence(code_atih, code_maitre)
     elif code_maitre is not None and not feuille_par_code[code_maitre]:

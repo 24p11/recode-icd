@@ -87,6 +87,26 @@ def _suffixe(libelle: str, libelle_parent: str) -> str | None:
     return None
 
 
+def _candidats(libelle: str, libelle_parent: str) -> set[str]:
+    """Suffixes candidats d'un libellé : celui dérivé du parent, et les
+    queues à chaque virgule.
+
+    Le kit réécrit parfois le libellé du parent dans ses enfants (`W20`
+    « … chute (d'un)(d') objet(s) » devient « … chute d'un objet,
+    domicile » ; `X38` « Victime d'inondation » devient « Inondation,
+    domicile ») : le préfixe ne suffit pas, les queues à la virgule
+    retrouvent la table — par valeur, donc sans faux positif possible
+    hors d'un libellé qui *est* celui du lieu ou de l'activité.
+    """
+    out: set[str] = set()
+    s = _suffixe(libelle, libelle_parent)
+    if s is not None:
+        out.add(s)
+    morceaux = libelle.split(", ")
+    out.update(", ".join(morceaux[i:]).strip() for i in range(1, len(morceaux)))
+    return out
+
+
 def _tables_majoritaires(
     codes_xx: list[str], lib: dict[str, str]
 ) -> tuple[dict[str, str], dict[str, str], pl.DataFrame, dict[str, set[str]], dict[str, set[str]]]:
@@ -175,10 +195,10 @@ def _detecte_role(
     valeur = enfant.split("+")[-1][-1]
     if "+" in enfant and "+" not in parent:
         return "activite"
-    suffixe = _suffixe(lib[enfant], lib.get(parent, ""))
-    if suffixe is not None and suffixe in lieu.get(valeur, set()) and "lieu" not in roles_amont:
+    candidats = _candidats(lib[enfant], lib.get(parent, ""))
+    if candidats & lieu.get(valeur, set()) and "lieu" not in roles_amont:
         return "lieu"
-    if suffixe is not None and suffixe in act.get(valeur, set()) and "activite" not in roles_amont:
+    if candidats & act.get(valeur, set()) and "activite" not in roles_amont:
         return "activite"
     if "activite" in roles_amont:
         return "precision"

@@ -83,6 +83,14 @@ def composition():  # type: ignore[no-untyped-def]
     # W01 : idem, canonique — c'est lui qui fait la majorité.
     lignes += _lieu_activite("W01", "Chute de plain-pied par glissade")
     lignes += _lieu_activite("W02", "Chute impliquant patins")
+    # W20 / X38 : le kit réécrit le libellé du parent dans ses enfants
+    # (« (d'un)(d') objet(s) » → « d'un objet » ; « Victime d'inondation »
+    # → « Inondation ») — le préfixe ne suffit pas, la queue à la virgule
+    # retrouve la table.
+    lignes += [("W20", 3, "Heurt causé par la chute (d'un)(d') objet(s)")]
+    lignes += _lieu_activite("W20", "Heurt causé par la chute d'un objet")[1:]
+    lignes += [("X38", 3, "Victime d'inondation")]
+    lignes += _lieu_activite("X38", "Inondation")[1:]
     # V01 : OMS (4e) + activité (5e).
     lignes += [("V01", 3, "Piéton blessé"), ("V010", 2, "Piéton blessé, accident hors circulation")]
     lignes += [
@@ -126,6 +134,11 @@ def test_les_patrons_et_les_classes(composition) -> None:  # type: ignore[no-unt
         "la variante « école, lieu public » reste le lieu 2"
     )
     assert par["W00"]["n_codes_composes"] == 80
+    for cat in ("W20", "X38"):
+        assert (
+            par[cat]["patron"] == "lieu_activite" and par[cat]["classe"] == "tronc_composition"
+        ), "un parent réécrit par ses enfants reste un tronc lieu + activité"
+        assert f"{cat}.0" not in par, "le lieu n'est pas un sous-code OMS"
     assert par["V01.0"]["patron"] == "oms_activite" and par["V01.0"]["classe"] == "tronc_codable"
     assert par["W26.0"]["patron"] == "oms_lieu_activite" and par["W26.0"]["forme_plus"]
     assert par["X59"]["patron"] == "lieu_seul" and par["X59"]["valeurs_lieu"] == "12345678"
