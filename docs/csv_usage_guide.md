@@ -381,7 +381,7 @@ réponses négatives ; **envoyez-le**, il priorise les fiches à produire.
 
 ## Chapitre XX : un code se compose, il ne se cherche pas
 
-Les 25 308 codes de causes externes du kit (`W0009`, `V0104`,
+Les 25 348 codes de causes externes du kit (`W0009`, `V0104`,
 `W260+4`…) n'ont pas de fiche propre : **la fiche est celle du tronc**
 (`W00`, `V01.0`, `W26.0`), qui porte une section « Composition MCO »
 avec les tables — lieu (4ᵉ ou 5ᵉ caractère, 10 valeurs) et activité

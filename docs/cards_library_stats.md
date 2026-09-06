@@ -9,14 +9,19 @@
 
 | Bibliothèque | Profil | Fiches | Dont consignes | Durée |
 |---|---|---|---|---|
-| `outputs/cards_library/` | `generation` — codables MCO seulement | **15 071** | 3 490 | 618 s |
-| `outputs/cards_library_controle/` | `controle` — tous les codes | **16 986** | 3 525 | 791 s |
+| `outputs/cards_library/` | `generation` — codables MCO + troncs de composition (exception déclarée) | **15 282** = 15 071 émissibles + 211 troncs | 3 519 | 331 s |
+| `outputs/cards_library_controle/` | `controle` — tous les codes | **16 988** | 3 525 | 361 s |
 | `outputs/cards_library_categories/` | (non profilée) | 2 054 | — | 125 s |
 
-**15 071 = le nombre de codes autorisés MCO hors chapitre XX** (kit
-ATIH 2025) : l'invariant « tout code autorisé hors chapitre XX a une
-fiche » est vert (`tests/regression/test_couverture_invariants.py`),
-comme son dual « aucun non-codable dans la bibliothèque de génération ».
+**15 071 émissibles = le nombre de codes autorisés MCO hors chapitre XX**
+(kit ATIH 2025) ; **211 troncs de composition** (catégories du chapitre
+XX, `classe_generation = tronc_composition`) couvrent par composition
+les 25 348 codes lieu × activité (D5). Les invariants sont verts
+(`tests/regression/test_couverture_invariants.py`) : I1 « tout code
+autorisé hors chapitre XX a une fiche » + « tout code composé a un
+tronc avec fiche » ; I2 reformulé « aucun code non codable présenté
+comme émissible » — la seule classe non codable admise est
+`tronc_composition`, inscrite dans `chapitre_xx_troncs.parquet`.
 
 Répartition par statut MCO (colonne `statut_mco` des `_index.csv`) :
 
@@ -26,8 +31,8 @@ Répartition par statut MCO (colonne `statut_mco` des `_index.csv`) :
 | `cause_externe` (chap. XX, jamais DP/DR) | 1 188 | 1 188 |
 | `interdit_dp_dr` | 441 | 441 |
 | `interdit_dp` | 76 | 76 |
+| `pere_interdit` — **troncs de composition seulement** en génération | 211 | 219 |
 | `inconnu_atih` (localisations chap. XIII…) | — | 1 619 |
-| `pere_interdit` | — | 217 |
 | `supprime` | — | 79 |
 
 Ce qui a changé depuis le 2026-06-08 (16 058 fiches, un seul profil) :
@@ -42,8 +47,13 @@ Ce qui a changé depuis le 2026-06-08 (16 058 fiches, un seul profil) :
   inconnus du kit) sortent du profil `generation` et restent dans
   `controle` ;
 - chaque fiche porte une ligne « Statut MCO (kit ATIH 2025) » sous son
-  titre (D1). Durée de génération ≈ 40 ms/fiche (lecture du statut par
-  code).
+  titre (D1) ;
+- **D5** — les 211 catégories du chapitre XX sont des fiches de tronc :
+  marquage « non codable seul — se compose du lieu (4ᵉ) et de
+  l'activité (5ᵉ) » en première ligne, section « Composition MCO »
+  (tables lieu 10 / activité 7, forme `+`) ; les 810 codes OMS à 4
+  caractères du chapitre (`V01.0`, `W26.0`) portent la section sans le
+  marquage. Durée de génération ≈ 24 ms/fiche.
 
 Les sections ci-dessous décrivent la bibliothèque telle qu'elle était
 avant ce chantier ; les mesures de couverture des sections restent

@@ -40,11 +40,11 @@ corrigées) :
 |---|---|
 | 0 domicile · 1 établissement collectif · 2 école et lieu public (2 variantes : « école, lieu public », « lieu public ») · 3 lieu de sport · 4 rue ou route · 5 zone de commerce · 6 local industriel et chantier · 7 exploitation agricole · 8 autres lieux précisés · 9 lieu sans précision (variante « sans précision ») | 0 en pratiquant un sport · 1 en participant à un jeu et à des activités de loisirs · 2 en exerçant un travail à des fins lucratives · 3 en exerçant d'autres formes de travail · 4 en se reposant, en dormant, en mangeant ou en participant à d'autres activités essentielles · 8 en participant à d'autres activités précisées · 9 en participant à une activité non précisée |
 
-**Troncs à admettre par exception** : les **207** catégories 3-car des
+**Troncs à admettre par exception** : les **211** catégories 3-car des
 patrons « lieu + activité », « lieu seul » et « lieu + activité +
 précision » (toutes type 3) — chiffre de la dérivation, qui décide le
 rôle par valeur et absorbe `X59` (hybride OMS/lieu en 4ᵉ) et `Y34`. Les troncs des patrons « OMS + … » sont
-des codes 4-car déjà codables et déjà dans la génération (850 codes
+des codes 4-car déjà codables et déjà dans la génération (810 codes
 `V01.0`, `W26.0`…) : ils reçoivent la section de composition, pas
 d'exception. Les 52 + 10 catégories sans extension ne sont pas des
 troncs.
@@ -88,7 +88,7 @@ troncs.
 | Volet | Code | Tests | Livrables |
 |---|---|---|---|
 | dérivation (`composition.py`, schémas, `build atih`) | ~250 lignes | 12 (kit synthétique, kit réel : 27 097 couverts, tables constantes) | +3 parquets, +1 rapport |
-| profil, index, fiches (`policy.py`, `cards.py`, YAML) | ~120 | 8 | génération 15 071 → **15 278** fiches (+207 troncs), contrôle +207 |
+| profil, index, fiches (`policy.py`, `cards.py`, YAML) | ~120 | 8 | génération 15 071 → **15 282** fiches (+211 troncs), contrôle +2 (les autres troncs y étaient déjà comme feuilles du CSV) |
 | invariants (`couverture.verifie_generation`, I1 par composition) | ~60 | 6 (deux sens) | — |
 | résolveur (`compose`, `composition_invalide`) | ~80 | 10 | statuts, docs DS |
 | docs (source_mapping, CLAUDE.md, guide DS, README) | — | — | — |
@@ -98,10 +98,19 @@ change hors des 1 080 troncs codables qui gagnent une section.
 
 ## Mesuré à la dérivation (2026-09-06, après implémentation)
 
-- 1 057 troncs : 207 `tronc_composition` (catégories, type 3) + 850
-  `tronc_codable` ; 25 308 codes composés ; **200 codes de type 3 en
+- 1 021 troncs : 211 `tronc_composition` (catégories, type 3) + 810
+  `tronc_codable` ; 25 348 codes composés ; **200 codes de type 3 en
   branches mortes** (`W261`…, `X342`… : ancien encodage « lieu en 4ᵉ »
   conservé dans le kit), ni troncs ni composés, comptés au rapport ;
+- **quatre catégories réécrivent le libellé du parent dans leurs enfants**
+  (`W20` « … chute (d'un)(d') objet(s) » → « … chute d'un objet,
+  domicile » ; `W22`, `W24` ; `X38` « Victime d'inondation » →
+  « Inondation, domicile ») : la première dérivation (1 057 troncs,
+  25 308 composés) les avait pris pour des sous-codes OMS et l'invariant
+  I1 par composition l'a signalé (40 codes de lieu sans fiche). La
+  détection cherche désormais aussi les queues à la virgule du libellé,
+  toujours par valeur — c'est ce qui donne 1 021 / 25 348, soit exactement
+  les 25 348 « extensions chapitre XX » de la phase 1 ;
 - deux cas absorbés par la décision **par valeur** : `X59` (0 et 9 =
   sous-codes OMS codables, 1-8 = lieu → tronc partiel) et `X49` (6ᵉ =
   agent, table « précision » par tronc) ;

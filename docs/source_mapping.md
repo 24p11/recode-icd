@@ -1364,13 +1364,13 @@ par `build atih`) :
 
 | Table | Contenu |
 |---|---|
-| `chapitre_xx_troncs.parquet` | 1 057 troncs : 207 catégories (`W00`, `Y34`, `X49`, `X59`… — classe `tronc_composition`, type 3) et 850 codes OMS à 4 caractères (`V01.0`, `W26.0` — classe `tronc_codable`, déjà codables) ; patron, positions, forme `+`, valeurs de lieu/activité observées, nombre de codes composés |
+| `chapitre_xx_troncs.parquet` | 1 021 troncs : 211 catégories (`W00`, `Y34`, `X49`, `X59`… — classe `tronc_composition`, type 3) et 810 codes OMS à 4 caractères (`V01.0`, `W26.0` — classe `tronc_codable`, déjà codables) ; patron, positions, forme `+`, valeurs de lieu/activité observées, nombre de codes composés |
 | `chapitre_xx_valeurs.parquet` | tables lieu (10) et activité (7) — libellé **majoritaire** du kit —, précisions par tronc (`X49` : agent) |
-| `chapitre_xx_codes.parquet` | les 25 308 codes composés décomposés (tronc, lieu, activité, précision, forme `+`) |
+| `chapitre_xx_codes.parquet` | les 25 348 codes composés décomposés (tronc, lieu, activité, précision, forme `+`) |
 | `reports/chapitre_xx_composition.csv` | effectifs par patron, branches mortes, variantes de libellé |
 
-Patrons mesurés : lieu + activité (207 catégories), OMS + activité
-(99), OMS + lieu + activité avec forme `+` (6 : `W26`, `X34`, `X47`,
+Patrons mesurés : lieu + activité (211 catégories), OMS + activité
+(95), OMS + lieu + activité avec forme `+` (6 : `W26`, `X34`, `X47`,
 `X67`, `X88`, `Y17`), OMS seul (51), sans subdivision (10). Deux cas
 absorbés par une décision **par valeur** plutôt que par position :
 `X59` (0 et 9 = sous-codes OMS codables, 1-8 = lieu) et `X49` (6ᵉ

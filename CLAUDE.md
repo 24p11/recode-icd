@@ -932,7 +932,7 @@ sous son titre et les `_index.csv` les colonnes `type_mco` /
    « non codable seul — se compose du lieu et de l'activité », admise en
    génération par l'exception `tronc_composition` du profil — la seule
    classe non codable admise, inscrite dans `chapitre_xx_troncs.parquet`.
-   Les tables (lieu 10, activité 7) et les 25 308 codes composés sont
+   Les tables (lieu 10, activité 7) et les 25 348 codes composés sont
    dérivés du kit par `recode_icd.composition` (`build atih`), jamais
    écrits à la main ; rôle décidé par valeur (`X59` mêle OMS et lieu en
    4ᵉ). Un code composé se résout par `recode-icd resoudre` (`compose` /
