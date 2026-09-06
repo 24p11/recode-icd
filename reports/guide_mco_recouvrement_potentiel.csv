@@ -44675,7 +44675,7 @@ GM2026-V-ANT-01,I69.8,interdit,CIM-10 frères,Séquelles d'autres hémorragies i
 GM2026-V-ANT-01,I69.8,interdit,CIM-10 frères,Séquelles d'hémorragie intracérébrale (I69.1),non
 GM2026-V-ANT-01,I69.8,interdit,CIM-10 frères,Séquelles d'hémorragie sousarachnoïdienne (I69.0),non
 GM2026-V-ANT-01,I69.8,interdit,CIM-10 frères,Séquelles d'infarctus cérébral (I69.3),non
-GM2026-V-ANT-01,I70.0,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
+GM2026-V-ANT-01,I70.00,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
 affections disséminées du tissu conjonctif (M30-M36)
 certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines maladies infectieuses et parasitaires (A00-B99)
@@ -44686,15 +44686,35 @@ malformations congénitales et anomalies chromosomiques (Q00-Q99)
 symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,I70.0,interdit,ANS,"cérébrale (I67.2)
+GM2026-V-ANT-01,I70.00,interdit,ANS,"cérébrale (I67.2)
 coronaire (I25.1)
 mésentérique (K55.1)
 pulmonaire (I27.0)
 ",oui
-GM2026-V-ANT-01,I70.0,interdit,CIM-10,coronaire,non
-GM2026-V-ANT-01,I70.0,interdit,CIM-10,cérébrale,non
-GM2026-V-ANT-01,I70.0,interdit,CIM-10,mésentérique,non
-GM2026-V-ANT-01,I70.0,interdit,CIM-10,pulmonaire,non
+GM2026-V-ANT-01,I70.00,interdit,CIM-10,coronaire,non
+GM2026-V-ANT-01,I70.00,interdit,CIM-10,cérébrale,non
+GM2026-V-ANT-01,I70.00,interdit,CIM-10,mésentérique,non
+GM2026-V-ANT-01,I70.00,interdit,CIM-10,pulmonaire,non
+GM2026-V-ANT-01,I70.01,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
+affections disséminées du tissu conjonctif (M30-M36)
+certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,I70.01,interdit,ANS,"cérébrale (I67.2)
+coronaire (I25.1)
+mésentérique (K55.1)
+pulmonaire (I27.0)
+",oui
+GM2026-V-ANT-01,I70.01,interdit,CIM-10,coronaire,non
+GM2026-V-ANT-01,I70.01,interdit,CIM-10,cérébrale,non
+GM2026-V-ANT-01,I70.01,interdit,CIM-10,mésentérique,non
+GM2026-V-ANT-01,I70.01,interdit,CIM-10,pulmonaire,non
 GM2026-V-ANT-01,I70.1,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
 affections disséminées du tissu conjonctif (M30-M36)
 certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
@@ -44798,7 +44818,7 @@ GM2026-V-ANT-01,I70.211,interdit,CIM-10,coronaire,non
 GM2026-V-ANT-01,I70.211,interdit,CIM-10,cérébrale,non
 GM2026-V-ANT-01,I70.211,interdit,CIM-10,mésentérique,non
 GM2026-V-ANT-01,I70.211,interdit,CIM-10,pulmonaire,non
-GM2026-V-ANT-01,I70.8,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
+GM2026-V-ANT-01,I70.80,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
 affections disséminées du tissu conjonctif (M30-M36)
 certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines maladies infectieuses et parasitaires (A00-B99)
@@ -44809,19 +44829,16 @@ malformations congénitales et anomalies chromosomiques (Q00-Q99)
 symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,I70.8,interdit,ANS,"cérébrale (I67.2)
+GM2026-V-ANT-01,I70.80,interdit,ANS,"cérébrale (I67.2)
 coronaire (I25.1)
 mésentérique (K55.1)
 pulmonaire (I27.0)
 ",oui
-GM2026-V-ANT-01,I70.8,interdit,CIM-10,coronaire,non
-GM2026-V-ANT-01,I70.8,interdit,CIM-10,cérébrale,non
-GM2026-V-ANT-01,I70.8,interdit,CIM-10,mésentérique,non
-GM2026-V-ANT-01,I70.8,interdit,CIM-10,pulmonaire,non
-GM2026-V-ANT-01,I70.8,interdit,CIM-10 frères,Athérosclérose de l'aorte (I70.0),non
-GM2026-V-ANT-01,I70.8,interdit,CIM-10 frères,Athérosclérose de l'artère rénale (I70.1),non
-GM2026-V-ANT-01,I70.8,interdit,CIM-10 frères,Athérosclérose des artères distales (I70.2),non
-GM2026-V-ANT-01,I70.9,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
+GM2026-V-ANT-01,I70.80,interdit,CIM-10,coronaire,non
+GM2026-V-ANT-01,I70.80,interdit,CIM-10,cérébrale,non
+GM2026-V-ANT-01,I70.80,interdit,CIM-10,mésentérique,non
+GM2026-V-ANT-01,I70.80,interdit,CIM-10,pulmonaire,non
+GM2026-V-ANT-01,I70.81,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
 affections disséminées du tissu conjonctif (M30-M36)
 certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines maladies infectieuses et parasitaires (A00-B99)
@@ -44832,15 +44849,55 @@ malformations congénitales et anomalies chromosomiques (Q00-Q99)
 symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,I70.9,interdit,ANS,"cérébrale (I67.2)
+GM2026-V-ANT-01,I70.81,interdit,ANS,"cérébrale (I67.2)
 coronaire (I25.1)
 mésentérique (K55.1)
 pulmonaire (I27.0)
 ",oui
-GM2026-V-ANT-01,I70.9,interdit,CIM-10,coronaire,non
-GM2026-V-ANT-01,I70.9,interdit,CIM-10,cérébrale,non
-GM2026-V-ANT-01,I70.9,interdit,CIM-10,mésentérique,non
-GM2026-V-ANT-01,I70.9,interdit,CIM-10,pulmonaire,non
+GM2026-V-ANT-01,I70.81,interdit,CIM-10,coronaire,non
+GM2026-V-ANT-01,I70.81,interdit,CIM-10,cérébrale,non
+GM2026-V-ANT-01,I70.81,interdit,CIM-10,mésentérique,non
+GM2026-V-ANT-01,I70.81,interdit,CIM-10,pulmonaire,non
+GM2026-V-ANT-01,I70.90,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
+affections disséminées du tissu conjonctif (M30-M36)
+certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,I70.90,interdit,ANS,"cérébrale (I67.2)
+coronaire (I25.1)
+mésentérique (K55.1)
+pulmonaire (I27.0)
+",oui
+GM2026-V-ANT-01,I70.90,interdit,CIM-10,coronaire,non
+GM2026-V-ANT-01,I70.90,interdit,CIM-10,cérébrale,non
+GM2026-V-ANT-01,I70.90,interdit,CIM-10,mésentérique,non
+GM2026-V-ANT-01,I70.90,interdit,CIM-10,pulmonaire,non
+GM2026-V-ANT-01,I70.91,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
+affections disséminées du tissu conjonctif (M30-M36)
+certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,I70.91,interdit,ANS,"cérébrale (I67.2)
+coronaire (I25.1)
+mésentérique (K55.1)
+pulmonaire (I27.0)
+",oui
+GM2026-V-ANT-01,I70.91,interdit,CIM-10,coronaire,non
+GM2026-V-ANT-01,I70.91,interdit,CIM-10,cérébrale,non
+GM2026-V-ANT-01,I70.91,interdit,CIM-10,mésentérique,non
+GM2026-V-ANT-01,I70.91,interdit,CIM-10,pulmonaire,non
 GM2026-V-ANT-01,I71.0,interdit,ANS,"accidents ischémiques cérébraux transitoires et syndromes apparentés (G45.-)
 affections disséminées du tissu conjonctif (M30-M36)
 certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
@@ -51329,7 +51386,7 @@ GM2026-V-ANT-01,J96.1+1,interdit,CIM-10,insuffisance cardiopulmonaire,non
 GM2026-V-ANT-01,J96.1+1,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
 GM2026-V-ANT-01,J96.1+1,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
 GM2026-V-ANT-01,J96.1+1,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
-GM2026-V-ANT-01,J96.10,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,J96.100,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
 lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
@@ -51338,16 +51395,16 @@ malformations congénitales et anomalies chromosomiques (Q00-Q99)
 symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,J96.10,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
+GM2026-V-ANT-01,J96.100,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
 insuffisance cardiopulmonaire (R09.2)
 syndrome de détresse respiratoire de l’adulte (J80)
 troubles respiratoires après un acte à visée diagnostique et thérapeutique (J95.-)
 ",oui
-GM2026-V-ANT-01,J96.10,interdit,CIM-10,insuffisance cardiopulmonaire,non
-GM2026-V-ANT-01,J96.10,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
-GM2026-V-ANT-01,J96.10,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
-GM2026-V-ANT-01,J96.10,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
-GM2026-V-ANT-01,J96.11,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,J96.100,interdit,CIM-10,insuffisance cardiopulmonaire,non
+GM2026-V-ANT-01,J96.100,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
+GM2026-V-ANT-01,J96.100,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
+GM2026-V-ANT-01,J96.100,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
+GM2026-V-ANT-01,J96.101,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
 lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
@@ -51356,16 +51413,16 @@ malformations congénitales et anomalies chromosomiques (Q00-Q99)
 symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,J96.11,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
+GM2026-V-ANT-01,J96.101,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
 insuffisance cardiopulmonaire (R09.2)
 syndrome de détresse respiratoire de l’adulte (J80)
 troubles respiratoires après un acte à visée diagnostique et thérapeutique (J95.-)
 ",oui
-GM2026-V-ANT-01,J96.11,interdit,CIM-10,insuffisance cardiopulmonaire,non
-GM2026-V-ANT-01,J96.11,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
-GM2026-V-ANT-01,J96.11,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
-GM2026-V-ANT-01,J96.11,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
-GM2026-V-ANT-01,J96.19,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,J96.101,interdit,CIM-10,insuffisance cardiopulmonaire,non
+GM2026-V-ANT-01,J96.101,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
+GM2026-V-ANT-01,J96.101,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
+GM2026-V-ANT-01,J96.101,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
+GM2026-V-ANT-01,J96.110,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
 lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
@@ -51374,15 +51431,69 @@ malformations congénitales et anomalies chromosomiques (Q00-Q99)
 symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,J96.19,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
+GM2026-V-ANT-01,J96.110,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
 insuffisance cardiopulmonaire (R09.2)
 syndrome de détresse respiratoire de l’adulte (J80)
 troubles respiratoires après un acte à visée diagnostique et thérapeutique (J95.-)
 ",oui
-GM2026-V-ANT-01,J96.19,interdit,CIM-10,insuffisance cardiopulmonaire,non
-GM2026-V-ANT-01,J96.19,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
-GM2026-V-ANT-01,J96.19,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
-GM2026-V-ANT-01,J96.19,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
+GM2026-V-ANT-01,J96.110,interdit,CIM-10,insuffisance cardiopulmonaire,non
+GM2026-V-ANT-01,J96.110,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
+GM2026-V-ANT-01,J96.110,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
+GM2026-V-ANT-01,J96.110,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
+GM2026-V-ANT-01,J96.111,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,J96.111,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
+insuffisance cardiopulmonaire (R09.2)
+syndrome de détresse respiratoire de l’adulte (J80)
+troubles respiratoires après un acte à visée diagnostique et thérapeutique (J95.-)
+",oui
+GM2026-V-ANT-01,J96.111,interdit,CIM-10,insuffisance cardiopulmonaire,non
+GM2026-V-ANT-01,J96.111,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
+GM2026-V-ANT-01,J96.111,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
+GM2026-V-ANT-01,J96.111,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
+GM2026-V-ANT-01,J96.190,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,J96.190,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
+insuffisance cardiopulmonaire (R09.2)
+syndrome de détresse respiratoire de l’adulte (J80)
+troubles respiratoires après un acte à visée diagnostique et thérapeutique (J95.-)
+",oui
+GM2026-V-ANT-01,J96.190,interdit,CIM-10,insuffisance cardiopulmonaire,non
+GM2026-V-ANT-01,J96.190,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
+GM2026-V-ANT-01,J96.190,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
+GM2026-V-ANT-01,J96.190,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
+GM2026-V-ANT-01,J96.191,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,J96.191,interdit,ANS,"détresse respiratoire du nouveau-né [P22.–]
+insuffisance cardiopulmonaire (R09.2)
+syndrome de détresse respiratoire de l’adulte (J80)
+troubles respiratoires après un acte à visée diagnostique et thérapeutique (J95.-)
+",oui
+GM2026-V-ANT-01,J96.191,interdit,CIM-10,insuffisance cardiopulmonaire,non
+GM2026-V-ANT-01,J96.191,interdit,CIM-10,syndrome de détresse respiratoire de adulte,non
+GM2026-V-ANT-01,J96.191,interdit,CIM-10,syndrome de détresse respiratoire de nouveau-né,non
+GM2026-V-ANT-01,J96.191,interdit,CIM-10,troubles respiratoires après un acte à visée diagnostique et thérapeutique,non
 GM2026-V-ANT-01,J96.90,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
@@ -77407,7 +77518,106 @@ symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire,
 syndrome de loge musculaire (T79.6)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,M11.9,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,M11.90,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.91,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.92,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.93,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.94,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.95,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.96,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.97,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.98,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M11.99,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
@@ -78868,9 +79078,9 @@ tumeurs (C00-D48)
 GM2026-V-ANT-01,M12.89,interdit,CIM-10,arthropathie  SAI,non
 GM2026-V-ANT-01,M12.89,interdit,CIM-10,arthropathie crico-aryténoïdienne,non
 GM2026-V-ANT-01,M12.89,interdit,CIM-10,arthrose,non
-GM2026-V-ANT-01,M13.0,interdit,ANS,"arthrose (M15-M19)
+GM2026-V-ANT-01,M13.00,interdit,ANS,"arthrose (M15-M19)
 ",oui
-GM2026-V-ANT-01,M13.0,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,M13.00,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
@@ -78881,7 +79091,7 @@ symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire,
 syndrome de loge musculaire (T79.6)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,M13.0,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.00,interdit,CIM-10,arthrose,non
 GM2026-V-ANT-01,M13.10,interdit,ANS,"arthrose (M15-M19)
 ",oui
 GM2026-V-ANT-01,M13.10,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
@@ -79162,9 +79372,9 @@ syndrome de loge musculaire (T79.6)
 tumeurs (C00-D48)
 ",oui
 GM2026-V-ANT-01,M13.89,interdit,CIM-10,arthrose,non
-GM2026-V-ANT-01,M13.9,interdit,ANS,"arthrose (M15-M19)
+GM2026-V-ANT-01,M13.91,interdit,ANS,"arthrose (M15-M19)
 ",oui
-GM2026-V-ANT-01,M13.9,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,M13.91,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
@@ -79175,7 +79385,119 @@ symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire,
 syndrome de loge musculaire (T79.6)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,M13.9,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.91,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.92,interdit,ANS,"arthrose (M15-M19)
+",oui
+GM2026-V-ANT-01,M13.92,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M13.92,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.93,interdit,ANS,"arthrose (M15-M19)
+",oui
+GM2026-V-ANT-01,M13.93,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M13.93,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.94,interdit,ANS,"arthrose (M15-M19)
+",oui
+GM2026-V-ANT-01,M13.94,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M13.94,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.95,interdit,ANS,"arthrose (M15-M19)
+",oui
+GM2026-V-ANT-01,M13.95,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M13.95,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.96,interdit,ANS,"arthrose (M15-M19)
+",oui
+GM2026-V-ANT-01,M13.96,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M13.96,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.97,interdit,ANS,"arthrose (M15-M19)
+",oui
+GM2026-V-ANT-01,M13.97,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M13.97,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.98,interdit,ANS,"arthrose (M15-M19)
+",oui
+GM2026-V-ANT-01,M13.98,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M13.98,interdit,CIM-10,arthrose,non
+GM2026-V-ANT-01,M13.99,interdit,ANS,"arthrose (M15-M19)
+",oui
+GM2026-V-ANT-01,M13.99,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M13.99,interdit,CIM-10,arthrose,non
 GM2026-V-ANT-01,M14.00,interdit,ANS,"arthropathie (au cours de) :
  - affections hématologiques (M36.2-M36.3) 
  - avec réaction d'hypersensibilité (M36.4) 
@@ -106978,11 +107300,11 @@ GM2026-V-ANT-01,M43.99,interdit,CIM-10,platyspondylie,non
 GM2026-V-ANT-01,M43.99,interdit,CIM-10,spina bifida occulta,non
 GM2026-V-ANT-01,M43.99,interdit,CIM-10,spondylolyse congénitale et spondylolisthésis congénital,non
 GM2026-V-ANT-01,M43.99,interdit,CIM-10,syndrome de Klippel-Feil,non
-GM2026-V-ANT-01,M45,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+GM2026-V-ANT-01,M45+0,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
 spondylarthrite (ankylosante) juvénile (M08.1)
 maladie de Behçet (M35.2)
 ",oui
-GM2026-V-ANT-01,M45,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,M45+0,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
@@ -106993,9 +107315,171 @@ symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire,
 syndrome de loge musculaire (T79.6)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,M45,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
-GM2026-V-ANT-01,M45,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
-GM2026-V-ANT-01,M45,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+0,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+0,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+0,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+1,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+1,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+1,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+1,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+1,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+2,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+2,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+2,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+2,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+2,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+3,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+3,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+3,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+3,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+3,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+4,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+4,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+4,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+4,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+4,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+5,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+5,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+5,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+5,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+5,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+6,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+6,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+6,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+6,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+6,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+7,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+7,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+7,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+7,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+7,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+8,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+8,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+8,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+8,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+8,interdit,CIM-10,syndrome de Behçet,non
+GM2026-V-ANT-01,M45+9,interdit,ANS,"arthropathie au cours du syndrome de Reiter (M02.3)
+spondylarthrite (ankylosante) juvénile (M08.1)
+maladie de Behçet (M35.2)
+",oui
+GM2026-V-ANT-01,M45+9,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M45+9,interdit,CIM-10,arthropathie au cours du syndrome de Reiter,non
+GM2026-V-ANT-01,M45+9,interdit,CIM-10,spondylarthrite (ankylosante) juvénile,non
+GM2026-V-ANT-01,M45+9,interdit,CIM-10,syndrome de Behçet,non
 GM2026-V-ANT-01,M46.00,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)
@@ -120996,6 +121480,416 @@ GM2026-V-ANT-01,M62.8-89,interdit,CIM-10,myopathie au cours de amylose sclérode
 GM2026-V-ANT-01,M62.8-89,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
 GM2026-V-ANT-01,M62.8-89,interdit,CIM-10,myopathie médicamenteuse,non
 GM2026-V-ANT-01,M62.8-89,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.80,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.80,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.80,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.80,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.81,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.81,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.81,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.81,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.82,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.82,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.82,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.82,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.83,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.83,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.83,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.83,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.84,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.84,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.84,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.84,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.85,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.85,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.85,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.85,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.86,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.86,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.86,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.86,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.87,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.87,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.87,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.87,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.88,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.88,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.88,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.88,interdit,CIM-10,syndrome de l'homme raide,non
+GM2026-V-ANT-01,M62.89,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M62.89,interdit,ANS,"crampe et spasme (R25.2)
+myalgie (M79.1)
+myopathie :
+ - alcoolique (G72.1) 
+ - médicamenteuse (G72.0) 
+syndrome de l'homme raide (G25.8) 
+",oui
+GM2026-V-ANT-01,M62.89,interdit,ANS,"dermatopolymyosite (M33.-)
+dystrophies musculaires et myopathies (G71-G72)
+myopathie au cours de :
+ - amylose (E85.-) 
+ - lupus érythémateux disséminé (M32.-) 
+ - périartérite noueuse (M30.0) 
+ - polyarthrite rhumatoïde (M05.3) 
+ - sclérodermie (M34.-) 
+ - syndrome de Gougerot-Sjögren (M35.0) 
+",oui
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,crampe et spasme,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,dermatopolymyosite,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,dystrophies musculaires et myopathies,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myalgie,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myopathie alcoolique,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myopathie au cours de amylose,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myopathie au cours de amylose lupus érythémateux disséminé,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myopathie au cours de amylose polyarthrite rhumatoïde,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myopathie au cours de amylose périartérite noueuse,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myopathie au cours de amylose sclérodermie,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myopathie au cours de amylose syndrome de Gougerot-Sjögren,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,myopathie médicamenteuse,non
+GM2026-V-ANT-01,M62.89,interdit,CIM-10,syndrome de l'homme raide,non
 GM2026-V-ANT-01,M62.90,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)
@@ -140904,7 +141798,7 @@ symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire,
 syndrome de loge musculaire (T79.6)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,M83.0,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,M83.00,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
@@ -140915,20 +141809,20 @@ symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire,
 syndrome de loge musculaire (T79.6)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,M83.0,interdit,ANS,"ostéodystrophie rénale (N25.0)
+GM2026-V-ANT-01,M83.00,interdit,ANS,"ostéodystrophie rénale (N25.0)
 ostéomalacie :
  - infantile et juvénile (E55.0) 
  - résistante à la vitamine D (E83.3) 
 - rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
  - séquelles (E64.3) 
 ",oui
-GM2026-V-ANT-01,M83.0,interdit,CIM-10,ostéodystrophie rénale,non
-GM2026-V-ANT-01,M83.0,interdit,CIM-10,ostéomalacie infantile et juvénile,non
-GM2026-V-ANT-01,M83.0,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
-GM2026-V-ANT-01,M83.0,interdit,CIM-10,rachitisme (évolutif),non
-GM2026-V-ANT-01,M83.0,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
-GM2026-V-ANT-01,M83.0,interdit,CIM-10,rachitisme (évolutif) séquelles,non
-GM2026-V-ANT-01,M83.1,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+GM2026-V-ANT-01,M83.00,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.00,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.00,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.00,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.00,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.00,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.01,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)
 complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
@@ -140939,19 +141833,451 @@ symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire,
 syndrome de loge musculaire (T79.6)
 tumeurs (C00-D48)
 ",oui
-GM2026-V-ANT-01,M83.1,interdit,ANS,"ostéodystrophie rénale (N25.0)
+GM2026-V-ANT-01,M83.01,interdit,ANS,"ostéodystrophie rénale (N25.0)
 ostéomalacie :
  - infantile et juvénile (E55.0) 
  - résistante à la vitamine D (E83.3) 
 - rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
  - séquelles (E64.3) 
 ",oui
-GM2026-V-ANT-01,M83.1,interdit,CIM-10,ostéodystrophie rénale,non
-GM2026-V-ANT-01,M83.1,interdit,CIM-10,ostéomalacie infantile et juvénile,non
-GM2026-V-ANT-01,M83.1,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
-GM2026-V-ANT-01,M83.1,interdit,CIM-10,rachitisme (évolutif),non
-GM2026-V-ANT-01,M83.1,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
-GM2026-V-ANT-01,M83.1,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.01,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.01,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.01,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.01,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.01,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.01,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.02,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.02,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.02,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.02,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.02,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.02,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.02,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.02,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.03,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.03,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.03,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.03,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.03,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.03,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.03,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.03,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.04,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.04,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.04,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.04,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.04,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.04,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.04,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.04,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.05,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.05,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.05,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.05,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.05,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.05,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.05,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.05,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.06,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.06,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.06,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.06,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.06,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.06,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.06,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.06,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.07,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.07,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.07,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.07,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.07,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.07,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.07,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.07,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.08,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.08,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.08,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.08,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.08,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.08,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.08,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.08,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.09,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.09,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.09,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.09,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.09,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.09,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.09,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.09,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.10,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.10,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.10,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.10,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.10,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.10,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.10,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.10,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.11,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.11,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.11,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.11,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.11,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.11,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.11,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.11,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.12,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.12,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.12,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.12,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.12,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.12,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.12,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.12,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.13,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.13,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.13,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.13,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.13,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.13,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.13,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.13,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.14,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.14,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.14,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.14,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.14,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.14,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.14,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.14,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.15,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.15,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.15,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.15,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.15,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.15,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.15,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.15,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.16,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.16,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.16,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.16,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.16,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.16,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.16,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.16,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.17,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.17,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.17,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.17,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.17,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.17,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.17,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.17,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.18,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.18,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.18,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.18,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.18,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.18,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.18,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.18,interdit,CIM-10,rachitisme (évolutif) séquelles,non
+GM2026-V-ANT-01,M83.19,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
+certaines lésions de l’articulation temporomandibulaire (K07.6)
+certaines maladies infectieuses et parasitaires (A00-B99)
+complications de la grossesse, de l'accouchement et de la puerpéralité (O00-O99)
+lésions traumatiques, empoisonnements et certaines autres conséquences de causes externes (S00-T98)
+maladies endocriniennes, nutritionnelles et métaboliques (E00-E90)
+malformations congénitales et anomalies chromosomiques (Q00-Q99)
+symptômes, signes et résultats anormaux d'examens cliniques et de laboratoire, non classés ailleurs (R00-R99)
+syndrome de loge musculaire (T79.6)
+tumeurs (C00-D48)
+",oui
+GM2026-V-ANT-01,M83.19,interdit,ANS,"ostéodystrophie rénale (N25.0)
+ostéomalacie :
+ - infantile et juvénile (E55.0) 
+ - résistante à la vitamine D (E83.3) 
+- rachitisme (évolutif) (E55.0)  - résistant à la vitamine D (E83.3) 
+ - séquelles (E64.3) 
+",oui
+GM2026-V-ANT-01,M83.19,interdit,CIM-10,ostéodystrophie rénale,non
+GM2026-V-ANT-01,M83.19,interdit,CIM-10,ostéomalacie infantile et juvénile,non
+GM2026-V-ANT-01,M83.19,interdit,CIM-10,ostéomalacie résistante à la vitamine D,non
+GM2026-V-ANT-01,M83.19,interdit,CIM-10,rachitisme (évolutif),non
+GM2026-V-ANT-01,M83.19,interdit,CIM-10,rachitisme (évolutif) résistant à la vitamine D,non
+GM2026-V-ANT-01,M83.19,interdit,CIM-10,rachitisme (évolutif) séquelles,non
 GM2026-V-ANT-01,M83.20,interdit,ANS,"certaines affections dont l'origine se situe dans la période périnatale (P00-P96)
 certaines lésions de l’articulation temporomandibulaire (K07.6)
 certaines maladies infectieuses et parasitaires (A00-B99)

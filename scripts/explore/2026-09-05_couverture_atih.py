@@ -101,7 +101,16 @@ def ecriture_naive(code_atih: str) -> str:
 
 merged = ctx.merged.with_columns((pl.col("right") == pl.col("left") + 1).alias("feuille"))
 categories = merged.filter(pl.col("type") == "category")
-csv_feuilles = set(ctx.flat["code"].unique().to_list())
+# « A une fiche » = figure dans l'index de la bibliothèque de génération
+# (profil `generation`, D4) ; à défaut d'index, les codes du CSV maître —
+# la liste que `cards build` construisait avant D3.
+_INDEX_GENERATION = ROOT / "outputs" / "cards_library" / "_index.csv"
+if _INDEX_GENERATION.is_file():
+    csv_feuilles = set(pl.read_csv(_INDEX_GENERATION, columns=["code"])["code"].to_list())
+    print(f"fiches : index de génération ({len(csv_feuilles)} fiches)")
+else:
+    csv_feuilles = set(ctx.flat["code"].unique().to_list())
+    print(f"fiches : codes du CSV maître ({len(csv_feuilles)} codes, index absent)")
 
 cles: dict[str, str] = {}
 collisions: list[tuple[str, str, str]] = []
@@ -304,7 +313,7 @@ def _bloc(titre: str, table: pl.DataFrame) -> None:
 
 
 print(f"ATIH : {atih.height} codes | type MCO : {dict(sorted(Counter(atih['type_mco']).items()))}")
-print(f"maître : {categories.height} nœuds catégorie, {csv_feuilles.__len__()} feuilles avec fiche")
+print(f"maître : {categories.height} nœuds catégorie, {len(csv_feuilles)} codes avec fiche")
 print(
     f"appariements par clé : {sum(k in atih_codes for k in cle_par_code.values())} nœuds du maître connus de l'ATIH"
 )

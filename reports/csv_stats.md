@@ -2,67 +2,67 @@
 
 > Rapport déterministe généré par `recode_icd.reports.csv_stats.generate_csv_stats` (commande `recode-icd build stats`). Aucune observation interprétative — uniquement des chiffres bruts.
 
-- **Généré le** : 2026-08-09
-- **Lignes totales** : 321097
-- **Codes uniques** : 16058
+- **Généré le** : 2026-09-05
+- **Lignes totales** : 338623
+- **Codes uniques** : 16927
 - **Moyenne notes/code** : 20.0
 
 ## Distribution par source
 
 | source | lignes | % |
 |---|---:|---:|
-| CepiDc 2015 | 121127 | 37.7 % |
-| CIM-10 | 74105 | 23.1 % |
-| ANS | 62365 | 19.4 % |
-| CIM-10 index | 36627 | 11.4 % |
-| ORPHANET | 17989 | 5.6 % |
-| CIM-10 frères | 5031 | 1.6 % |
-| AP-HP Dermatologie | 1551 | 0.5 % |
-| AP-HP Rhumatologie | 617 | 0.2 % |
-| AP-HP Néphrologie | 565 | 0.2 % |
+| CepiDc 2015 | 128492 | 37.9 % |
+| CIM-10 | 77676 | 22.9 % |
+| ANS | 65086 | 19.2 % |
+| CIM-10 index | 39262 | 11.6 % |
+| ORPHANET | 18410 | 5.4 % |
+| CIM-10 frères | 5402 | 1.6 % |
+| AP-HP Dermatologie | 1587 | 0.5 % |
+| AP-HP Rhumatologie | 986 | 0.3 % |
+| AP-HP Néphrologie | 590 | 0.2 % |
 | AP-HP Ophtalmologie | 281 | 0.1 % |
-| AP-HP Endocrinologie | 263 | 0.1 % |
+| AP-HP Endocrinologie | 265 | 0.1 % |
 | AP-HP Troubles métaboliques | 221 | 0.1 % |
 | AP-HP Germes (SPILF) | 193 | 0.1 % |
-| AP-HP GRONES | 117 | 0.0 % |
-| AP-HP SRLF | 45 | 0.0 % |
+| AP-HP GRONES | 126 | 0.0 % |
+| AP-HP SRLF | 46 | 0.0 % |
 
 ## Distribution par type
 
 | type | lignes | % |
 |---|---:|---:|
-| synonyme | 176226 | 54.9 % |
-| exclusion | 90631 | 28.2 % |
-| inclusion | 54240 | 16.9 % |
+| synonyme | 187430 | 55.4 % |
+| exclusion | 95438 | 28.2 % |
+| inclusion | 55755 | 16.5 % |
 
 ## Croisé source × type
 
 | source | total | synonyme | inclusion | exclusion |
 |---|---:|---:|---:|---:|
-| CepiDc 2015 | 121127 | 121127 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
-| CIM-10 | 74105 | 7123 (9.6 %) | 13868 (18.7 %) | 53114 (71.7 %) |
-| ANS | 62365 | 6162 (9.9 %) | 23717 (38.0 %) | 32486 (52.1 %) |
-| CIM-10 index | 36627 | 36627 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
-| ORPHANET | 17989 | 1334 (7.4 %) | 16655 (92.6 %) | 0 (0.0 %) |
-| CIM-10 frères | 5031 | 0 (0.0 %) | 0 (0.0 %) | 5031 (100.0 %) |
-| AP-HP Dermatologie | 1551 | 1551 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
-| AP-HP Rhumatologie | 617 | 617 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
-| AP-HP Néphrologie | 565 | 565 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
+| CepiDc 2015 | 128492 | 128492 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
+| CIM-10 | 77676 | 7532 (9.7 %) | 14404 (18.5 %) | 55740 (71.8 %) |
+| ANS | 65086 | 6441 (9.9 %) | 24349 (37.4 %) | 34296 (52.7 %) |
+| CIM-10 index | 39262 | 39262 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
+| ORPHANET | 18410 | 1408 (7.6 %) | 17002 (92.4 %) | 0 (0.0 %) |
+| CIM-10 frères | 5402 | 0 (0.0 %) | 0 (0.0 %) | 5402 (100.0 %) |
+| AP-HP Dermatologie | 1587 | 1587 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
+| AP-HP Rhumatologie | 986 | 986 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
+| AP-HP Néphrologie | 590 | 590 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
 | AP-HP Ophtalmologie | 281 | 281 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
-| AP-HP Endocrinologie | 263 | 263 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
+| AP-HP Endocrinologie | 265 | 265 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
 | AP-HP Troubles métaboliques | 221 | 221 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
 | AP-HP Germes (SPILF) | 193 | 193 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
-| AP-HP GRONES | 117 | 117 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
-| AP-HP SRLF | 45 | 45 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
+| AP-HP GRONES | 126 | 126 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
+| AP-HP SRLF | 46 | 46 (100.0 %) | 0 (0.0 %) | 0 (0.0 %) |
 
 ## Distribution par source_level
 
 | source_level | lignes | % |
 |---|---:|---:|
-| code | 218751 | 68.1 % |
-| block | 44301 | 13.8 % |
-| category | 42705 | 13.3 % |
-| chapter | 15340 | 4.8 % |
+| code | 231304 | 68.3 % |
+| block | 46004 | 13.6 % |
+| category | 44885 | 13.3 % |
+| chapter | 16430 | 4.9 % |
 
 ## Quantiles du nombre de notes par code
 
@@ -72,12 +72,13 @@
 
 ## Codes dépassant 100 notes
 
-397 code(s) concerné(s).
+416 code(s) concerné(s).
 
 | code | libellé | notes |
 |---|---|---:|
 | Q87.8 | Autres syndromes congénitaux malformatifs précisés, non classés ailleurs | 1269 |
 | C79.8 | Tumeur maligne secondaire d'autres sièges précisés | 1235 |
+| S06.2 | Lésion traumatique cérébrale diffuse | 1067 |
 | C85.9 | Lymphome non hodgkinien, non précisé | 1015 |
 | C34.9 | Tumeur maligne de bronche ou du poumon, sans précision | 881 |
 | Z92.4 | Antécédents personnels d'intervention chirurgicale importante, non classée ailleurs | 865 |
@@ -113,6 +114,7 @@
 | G31.9 | Affection dégénérative du système nerveux, sans précision | 386 |
 | T85.7 | Infection et réaction inflammatoire dues à d'autres prothèses, implants et greffes internes | 383 |
 | G93.8 | Autres affections précisées du cerveau | 382 |
+| M89.9 | Maladie osseuse, sans précision | 379 |
 | T66 | Effets de rayonnements, sans précision | 371 |
 | Z95.2 | Présence de prothèse d'une valvule cardiaque | 365 |
 | T82.7 | Infection et réaction inflammatoire dues à d'autres prothèses, implants et greffes cardiaques et vasculaires | 362 |
@@ -128,7 +130,6 @@
 | I25.8 | Autres formes de cardiopathie ischémique chronique | 339 |
 | R09.2 | Arrêt respiratoire | 336 |
 | C71.0 | Tumeur maligne du cerveau, sauf lobes et ventricules | 323 |
-| I70.9 | Athérosclérose généralisée et sans précision | 320 |
 | T81.0 | Hémorragie et hématome compliquant un acte à visée diagnostique et thérapeutique, non classés ailleurs | 320 |
 | I50.09 | Insuffisance cardiaque congestive, avec fraction d'éjection ventriculaire gauche [FEVG] non précisée | 318 |
 | Z96.6 | Présence d'implants d'articulations orthopédiques | 317 |
@@ -153,6 +154,7 @@
 | D18.0 | Hémangiome, tout siège | 279 |
 | C56 | Tumeur maligne de l'ovaire | 277 |
 | J20.9 | Bronchite aigüe, sans précision | 276 |
+| M86.9 | Ostéomyélite, sans précision | 276 |
 | K65.0 | Péritonite aigüe | 275 |
 | C41.0 | Tumeur maligne des os du crâne et de la face | 274 |
 | J98.0 | Affections des bronches, non classées ailleurs | 273 |
@@ -172,11 +174,14 @@
 | G11.4 | Paraplégie spastique héréditaire | 254 |
 | G93.9 | Affection du cerveau, sans précision | 252 |
 | A41.9 | Sepsis, sans précision | 250 |
+| M84.4 | Fracture pathologique, non classée ailleurs | 247 |
 | Q04.3 | Autres anomalies localisées du développement de l'encéphale | 245 |
 | C76.0 | Tumeur maligne de siège mal défini de la tête, de la face et du cou | 244 |
 | C85.1 | Lymphomes à cellules B, sans précision | 242 |
 | I67.9 | Maladie cérébrovasculaire, sans précision | 240 |
 | T82.0 | Complication mécanique d'une prothèse valvulaire cardiaque | 240 |
+| F03 | Démence, sans précision | 238 |
+| F10.2 | Troubles mentaux et du comportement liés à l'utilisation d'alcool - " Syndrome de dépendance " | 237 |
 | A41.5 | Sepsis à d'autres microorganismes Gram négatif | 236 |
 | R57.9 | Choc, sans précision | 234 |
 | I80.2 | Phlébite et thrombophlébite d'autres vaisseaux profonds des membres inférieurs | 232 |
@@ -215,11 +220,13 @@
 | T90.5 | Séquelles de lésion traumatique intracrânienne | 193 |
 | Z96.8 | Présence d'autres implants fonctionnels précisés | 193 |
 | C44.9 | Tumeur maligne de la peau, sans précision | 192 |
+| S06.5 | Hémorragie sousdurale traumatique | 192 |
 | L98.4 | Ulcérations chroniques de la peau, non classées ailleurs | 191 |
 | R57.2 | Choc septique | 191 |
 | Q99.8 | Autres anomalies précisées des chromosomes | 187 |
 | Y60.0 | Coupure, piqûre, perforation ou hémorragie accidentelles au cours d'une intervention chirurgicale | 187 |
 | J69.0 | Pneumopathie due à des aliments et des vomissements | 186 |
+| F45.3 | Dysfonctionnement neurovégétatif somatoforme | 184 |
 | C78.7 | Tumeur maligne secondaire du foie et des voies biliaires intrahépatiques | 182 |
 | F99 | Trouble mental, sans autre indication | 182 |
 | H35.5 | Dystrophie rétinienne héréditaire | 182 |
@@ -244,6 +251,7 @@
 | D32.0 | Tumeur bénigne des méninges cérébrales | 172 |
 | J20.8 | Bronchite aigüe due à d'autres microorganismes précisés | 172 |
 | A09.0 | Gastroentérites et colites d’origine infectieuse, autres et non précisées | 170 |
+| C16.9 | Tumeur maligne de l'estomac, sans précision | 169 |
 | D38.1 | Tumeur à évolution imprévisible ou inconnue de la trachée, des bronches et du poumon | 169 |
 | C77.2 | Tumeur maligne secondaire et non précisée des ganglions lymphatiques intraabdominaux | 168 |
 | J39.8 | Autres maladies des voies respiratoires supérieures précisées | 168 |
@@ -251,6 +259,7 @@
 | E71.3 | Anomalie du métabolisme des acides gras | 167 |
 | J38.7 | Autres maladies du larynx | 166 |
 | L02.2 | Abcès cutané, furoncle et anthrax du tronc | 166 |
+| Z99.1 | Dépendance envers un respirateur | 166 |
 | D48.5 | Tumeur à évolution imprévisible et inconnue de la peau | 165 |
 | J81 | Œdème pulmonaire | 165 |
 | J90 | Épanchement pleural, non classé ailleurs | 165 |
@@ -264,8 +273,8 @@
 | C78.6 | Tumeur maligne secondaire du rétropéritoine et du péritoine | 159 |
 | C84.4 | Lymphome périphérique à cellules T, non classé ailleurs | 159 |
 | K92.2 | Hémorragie gastro-intestinale, sans précision | 159 |
-| A18.0 | Tuberculose des os et des articulations | 158 |
 | I71.0 | Dissection de l'aorte [toute localisation] | 158 |
+| A18.0 | Tuberculose des os et des articulations | 157 |
 | W23 | Compression, écrasement ou blocage dans des objets ou entre des objets | 157 |
 | C76.3 | Tumeur maligne de siège mal défini du pelvis | 156 |
 | E88.9 | Anomalie métabolique, sans précision | 156 |
@@ -295,6 +304,7 @@
 | P03.1 | Fœtus et nouveau-né affectés par d'autres présentations et positions vicieuses du fœtus et disproportions fœtopelviennes au cours du travail et de l'accouchement | 147 |
 | X50 | Surmenage et mouvements épuisants ou répétés | 147 |
 | N39.0 | Infection des voies urinaires, siège non précisé | 146 |
+| S06.8 | Autres lésions traumatiques intracrâniennes | 146 |
 | C44.2 | Tumeur maligne de la peau de l'oreille et du conduit auditif externe | 144 |
 | J86.0 | Pyothorax avec fistule | 144 |
 | C49.1 | Tumeur maligne du tissu conjonctif et des autres tissus mous du membre supérieur, y compris l'épaule | 143 |
@@ -324,10 +334,11 @@
 | G80.9 | Paralysie cérébrale, sans précision | 137 |
 | Y11 | Intoxication par des antiépileptiques, sédatifs, hypnotiques, antiparkinsoniens et psychotropes et exposition à ces produits, non classés ailleurs, intention non déterminée | 136 |
 | C39.8 | Tumeur maligne à localisations contiguës des organes respiratoires et intrathoraciques | 135 |
+| M80.9 | Ostéoporose avec fracture pathologique, sans précision | 135 |
+| M89.5 | Ostéolyse | 135 |
 | Y65.8 | Autres accidents et complications précisés au cours d'actes médicaux et chirurgicaux | 135 |
 | B18.2 | Hépatite virale chronique C | 134 |
 | D48.1 | Tumeur à évolution imprévisible et inconnue du tissu conjonctif et des autres tissus mous | 134 |
-| I70.0 | Athérosclérose de l'aorte | 134 |
 | Z90.2 | Absence acquise [de partie] de poumon | 134 |
 | C76.1 | Tumeur maligne de siège mal défini du thorax | 133 |
 | I25.9 | Cardiopathie ischémique chronique, sans précision | 133 |
@@ -348,6 +359,7 @@
 | Z51.5 | Soins palliatifs | 130 |
 | Z90.0 | Absence acquise d'une partie de la tête et du cou | 130 |
 | C14.8 | Tumeur maligne à localisations contiguës de la lèvre, de la cavité buccale et du pharynx | 129 |
+| C25.9 | Tumeur maligne du pancréas, sans précision | 129 |
 | Q79.6 | Syndrome d'Ehlers–Danlos | 129 |
 | X78 | Lésion auto-infligée par utilisation d'objet tranchant | 129 |
 | C22.9 | Tumeur maligne du foie, sans précision | 128 |
@@ -368,6 +380,7 @@
 | I71.3 | Anévrisme aortique abdominal, rompu | 124 |
 | J44.8 | Autres maladies pulmonaires obstructives chroniques précisées | 124 |
 | K86.8 | Autres maladies précisées du pancréas | 124 |
+| M00.9 | Arthrite à bactéries pyogènes, sans précision | 124 |
 | X68 | Auto-intoxication par des pesticides et exposition à ces produits | 124 |
 | A52.1 | Syphilis nerveuse symptomatique | 123 |
 | D81.8 | Autres déficits immunitaires combinés | 123 |
@@ -377,10 +390,13 @@
 | G90.9 | Affection du système nerveux autonome, sans précision | 122 |
 | I08.0 | Atteintes des valvules mitrale et aortique | 122 |
 | K62.8 | Autres maladies précisées de l'anus et du rectum | 122 |
+| S06.9 | Lésion traumatique intracrânienne, sans précision | 122 |
 | I51.3 | Thrombose intracardiaque, non classée ailleurs | 121 |
 | K22.8 | Autres maladies précisées de l'œsophage | 121 |
+| C18.9 | Tumeur maligne du côlon, sans précision | 120 |
 | C26.9 | Tumeur maligne de sièges mal définis de l'appareil digestif | 120 |
 | I67.1 | Anévrisme cérébral, non rompu | 120 |
+| S36.8 | Lésion traumatique d'autres organes intraabdominaux | 120 |
 | C44.4 | Tumeur maligne de la peau du cuir chevelu et du cou | 119 |
 | C68.9 | Tumeur maligne d'un organe urinaire, sans précision | 119 |
 | C73 | Tumeur maligne de la thyroïde | 119 |
@@ -400,6 +416,7 @@
 | F22.0 | Trouble délirant | 115 |
 | I74.0 | Embolie et thrombose de l'aorte abdominale | 115 |
 | K80.5 | Calcul des canaux biliaires sans angiocholite ni cholécystite | 115 |
+| S36.1 | Lésion traumatique du foie et de la vésicule biliaire | 115 |
 | Z95.0 | Présence de dispositifs électroniques cardiaques | 115 |
 | A18.8 | Tuberculose d'autres organes précisés | 114 |
 | C43.5 | Mélanome malin du tronc | 114 |
@@ -449,6 +466,7 @@
 | T82.1 | Complication mécanique d'un appareil cardiaque électronique | 105 |
 | T98.3 | Séquelles de complications de soins chirurgicaux et médicaux, non classées ailleurs | 105 |
 | C90.3 | Plasmocytome solitaire | 104 |
+| F43.2 | Troubles de l'adaptation | 104 |
 | I69.8 | Séquelles de maladies cérébrovasculaires, autres et non précisées | 104 |
 | I74.8 | Embolie et thrombose d'autres artères | 104 |
 | J15.9 | Pneumopathie bactérienne, sans précision | 104 |
@@ -465,6 +483,7 @@
 | J43.9 | Emphysème pulmonaire, sans précision | 102 |
 | K81.0 | Cholécystite aigüe | 102 |
 | Q74.2 | Autres malformations congénitales d'un (des) membre(s) inférieur(s), y compris la ceinture pelvienne | 102 |
+| S27.3 | Autres lésions traumatiques du poumon | 102 |
 | Z95.1 | Présence d'un pontage aortocoronaire | 102 |
 | D84.9 | Déficit immunitaire, sans précision | 101 |
 | G30.9 | Maladie d'Alzheimer, sans précision | 101 |

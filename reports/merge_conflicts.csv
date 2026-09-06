@@ -2376,6 +2376,16 @@ M11.86,label,"Autres arthropathies dues à des microcristaux précisés - "" Jam
 M11.87,label,"Autres arthropathies dues à des microcristaux précisés - "" Cheville et pied """,autres arthropathies dues à des microcristaux précisés | cheville et pied,OWL_ANS
 M11.88,label,"Autres arthropathies dues à des microcristaux précisés - "" Autres """,autres arthropathies dues à des microcristaux précisés | autres,OWL_ANS
 M11.89,label,"Autres arthropathies dues à des microcristaux précisés - "" Siège non précisé """,autres arthropathies dues à des microcristaux précisés | siège non précisé,OWL_ANS
+M11.90,label,"Arthropathie due à des microcristaux, sans précision - Sièges multiples","arthropathie due à des microcristaux, sans précision | sièges multiples",OWL_ANS
+M11.91,label,"Arthropathie due à des microcristaux, sans précision - Articulations acromio-claviculaire, scapulo-humérale, et sterno-claviculaire","arthropathie due à des microcristaux, sans précision | région scapulaire",OWL_ANS
+M11.92,label,"Arthropathie due à des microcristaux, sans précision - Articulation du coude","arthropathie due à des microcristaux, sans précision | bras",OWL_ANS
+M11.93,label,"Arthropathie due à des microcristaux, sans précision - Articulation du poignet","arthropathie due à des microcristaux, sans précision | avant-bras",OWL_ANS
+M11.94,label,"Arthropathie due à des microcristaux, sans précision - Articulations de la main","arthropathie due à des microcristaux, sans précision | main",OWL_ANS
+M11.95,label,"Arthropathie due à des microcristaux, sans précision - Articulations de la hanche et sacro-iliaque","arthropathie due à des microcristaux, sans précision | région pelvienne et cuisse",OWL_ANS
+M11.96,label,"Arthropathie due à des microcristaux, sans précision - Articulation du genou","arthropathie due à des microcristaux, sans précision | jambe",OWL_ANS
+M11.97,label,"Arthropathie due à des microcristaux, sans précision - Articulations de la cheville et du pied","arthropathie due à des microcristaux, sans précision | cheville et pied",OWL_ANS
+M11.98,label,"Arthropathie due à des microcristaux, sans précision - Autres articulations","arthropathie due à des microcristaux, sans précision | autres",OWL_ANS
+M11.99,label,"Arthropathie due à des microcristaux, sans précision - Siège non précisé","arthropathie due à des microcristaux, sans précision | siège non précisé",OWL_ANS
 M12.0,label,Arthropathie chronique postrhumatismale [Jaccoud],arthropathie chronique post-rhumatismale [Jaccoud],OWL_ANS
 M12.00,label,"Arthropathie chronique postrhumatismale [Jaccoud] - "" Sièges multiples """,arthropathie chronique post-rhumatismale [Jaccoud] | sièges multiples,OWL_ANS
 M12.01,label,"Arthropathie chronique postrhumatismale [Jaccoud] - "" Région scapulaire """,arthropathie chronique post-rhumatismale [Jaccoud] | région scapulaire,OWL_ANS
@@ -2448,6 +2458,7 @@ M12.86,label,"Autres arthropathies spécifiques, non classées ailleurs - "" Jam
 M12.87,label,"Autres arthropathies spécifiques, non classées ailleurs - "" Cheville et pied ""","autres arthropathies spécifiques, non classées ailleurs | cheville et pied",OWL_ANS
 M12.88,label,"Autres arthropathies spécifiques, non classées ailleurs - "" Autres ""","autres arthropathies spécifiques, non classées ailleurs | autres",OWL_ANS
 M12.89,label,"Autres arthropathies spécifiques, non classées ailleurs - "" Siège non précisé ""","autres arthropathies spécifiques, non classées ailleurs | siège non précisé",OWL_ANS
+M13.00,label,"Polyarthrite, sans précision - Sièges multiples","polyarthrite, sans précision | sièges multiples",OWL_ANS
 M13.10,label,"Monoarthrite, non classée ailleurs - "" Sièges multiples ""","monoarthrite, non classée ailleurs | sièges multiples",OWL_ANS
 M13.11,label,"Monoarthrite, non classée ailleurs - "" Région scapulaire ""","monoarthrite, non classée ailleurs | région scapulaire",OWL_ANS
 M13.12,label,"Monoarthrite, non classée ailleurs - "" Bras ""","monoarthrite, non classée ailleurs | bras",OWL_ANS
@@ -2468,6 +2479,15 @@ M13.86,label,"Autres arthrites précisées - "" Jambe """,autres arthrites préc
 M13.87,label,"Autres arthrites précisées - "" Cheville et pied """,autres arthrites précisées | cheville et pied,OWL_ANS
 M13.88,label,"Autres arthrites précisées - "" Autres """,autres arthrites précisées | autres,OWL_ANS
 M13.89,label,"Autres arthrites précisées - "" Siège non précisé """,autres arthrites précisées | siège non précisé,OWL_ANS
+M13.91,label,"Arthrite, sans précision - Articulations acromio-claviculaire, scapulo-humérale, et sterno-claviculaire","arthrite, sans précision | région scapulaire",OWL_ANS
+M13.92,label,"Arthrite, sans précision - Articulation du coude","arthrite, sans précision | bras",OWL_ANS
+M13.93,label,"Arthrite, sans précision - Articulation du poignet","arthrite, sans précision | avant-bras",OWL_ANS
+M13.94,label,"Arthrite, sans précision - Articulations de la main","arthrite, sans précision | main",OWL_ANS
+M13.95,label,"Arthrite, sans précision - Articulations de la hanche et sacro-iliaque","arthrite, sans précision | région pelvienne et cuisse",OWL_ANS
+M13.96,label,"Arthrite, sans précision - Articulation du genou","arthrite, sans précision | jambe",OWL_ANS
+M13.97,label,"Arthrite, sans précision - Articulations de la cheville et du pied","arthrite, sans précision | cheville et pied",OWL_ANS
+M13.98,label,"Arthrite, sans précision - Autres articulations","arthrite, sans précision | autres",OWL_ANS
+M13.99,label,"Arthrite, sans précision - Siège non précisé","arthrite, sans précision | siège non précisé",OWL_ANS
 M14.2,label,Arthropathie diabétique ( avec le quatrième caractère .6) ,arthropathie diabétique,OWL_ANS
 M14.3,label,Dermatoarthrite lipoïde ,dermato-arthrite lipoïde,OWL_ANS
 M14.6,label,Arthropathie nerveuse,arthropathie neuropathique,OWL_ANS
@@ -3818,6 +3838,16 @@ M62.66,label,"Claquage musculaire - "" Jambe """,foulure musculaire | jambe,OWL_
 M62.67,label,"Claquage musculaire - "" Cheville et pied """,foulure musculaire | cheville et pied,OWL_ANS
 M62.68,label,"Claquage musculaire - "" Autres """,foulure musculaire | autres,OWL_ANS
 M62.69,label,"Claquage musculaire - "" Siège non précisé """,foulure musculaire | siège non précisé,OWL_ANS
+M62.80,label,Autres atteintes musculaires précisées - Sièges multiples,autres atteintes musculaires précisées | sièges multiples,OWL_ANS
+M62.81,label,Autres atteintes musculaires précisées - Région scapulaire,autres atteintes musculaires précisées | région scapulaire,OWL_ANS
+M62.82,label,Autres atteintes musculaires précisées - Bras,autres atteintes musculaires précisées | bras,OWL_ANS
+M62.83,label,Autres atteintes musculaires précisées - Avant-bras,autres atteintes musculaires précisées | avant-bras,OWL_ANS
+M62.84,label,Autres atteintes musculaires précisées - Main,autres atteintes musculaires précisées | main,OWL_ANS
+M62.85,label,Autres atteintes musculaires précisées - Région pelvienne et cuisse,autres atteintes musculaires précisées | région pelvienne et cuisse,OWL_ANS
+M62.86,label,Autres atteintes musculaires précisées - Jambe,autres atteintes musculaires précisées | jambe,OWL_ANS
+M62.87,label,Autres atteintes musculaires précisées - Cheville et pied,autres atteintes musculaires précisées | cheville et pied,OWL_ANS
+M62.88,label,Autres atteintes musculaires précisées - Autres localisations,autres atteintes musculaires précisées | autres,OWL_ANS
+M62.89,label,Autres atteintes musculaires précisées - Siège non précisé,autres atteintes musculaires précisées | siège non précisé,OWL_ANS
 M62.90,label,"Atteinte musculaire, sans précision - "" Sièges multiples ""","atteinte musculaire, sans précision | sièges multiples",OWL_ANS
 M62.91,label,"Atteinte musculaire, sans précision - "" Région scapulaire ""","atteinte musculaire, sans précision | région scapulaire",OWL_ANS
 M62.92,label,"Atteinte musculaire, sans précision - "" Bras ""","atteinte musculaire, sans précision | bras",OWL_ANS
@@ -4712,6 +4742,26 @@ M82.86,label,"Ostéoporose au cours d'autres maladies classées ailleurs - "" Ja
 M82.87,label,"Ostéoporose au cours d'autres maladies classées ailleurs - "" Cheville et pied """,ostéoporose au cours d'autres maladies classées ailleurs | cheville et pied,OWL_ANS
 M82.88,label,"Ostéoporose au cours d'autres maladies classées ailleurs - "" Autres """,ostéoporose au cours d'autres maladies classées ailleurs | autres,OWL_ANS
 M82.89,label,"Ostéoporose au cours d'autres maladies classées ailleurs - "" Siège non précisé """,ostéoporose au cours d'autres maladies classées ailleurs | siège non précisé,OWL_ANS
+M83.00,label,Ostéomalacie puerpérale - Sièges multiples,ostéomalacie puerpérale | sièges multiples,OWL_ANS
+M83.01,label,Ostéomalacie puerpérale - Région scapulaire,ostéomalacie puerpérale | région scapulaire,OWL_ANS
+M83.02,label,Ostéomalacie puerpérale - Bras,ostéomalacie puerpérale | bras,OWL_ANS
+M83.03,label,Ostéomalacie puerpérale - Avant-bras,ostéomalacie puerpérale | avant-bras,OWL_ANS
+M83.04,label,Ostéomalacie puerpérale - Main,ostéomalacie puerpérale | main,OWL_ANS
+M83.05,label,Ostéomalacie puerpérale - Région pelvienne et cuisse,ostéomalacie puerpérale | région pelvienne et cuisse,OWL_ANS
+M83.06,label,Ostéomalacie puerpérale - Jambe,ostéomalacie puerpérale | jambe,OWL_ANS
+M83.07,label,Ostéomalacie puerpérale - Cheville et pied,ostéomalacie puerpérale | cheville et pied,OWL_ANS
+M83.08,label,Ostéomalacie puerpérale - Autres localisations,ostéomalacie puerpérale | autres,OWL_ANS
+M83.09,label,Ostéomalacie puerpérale - Siège non précisé,ostéomalacie puerpérale | siège non précisé,OWL_ANS
+M83.10,label,Ostéomalacie sénile - Sièges multiples,ostéomalacie sénile | sièges multiples,OWL_ANS
+M83.11,label,Ostéomalacie sénile - Région scapulaire,ostéomalacie sénile | région scapulaire,OWL_ANS
+M83.12,label,Ostéomalacie sénile - Bras,ostéomalacie sénile | bras,OWL_ANS
+M83.13,label,Ostéomalacie sénile - Avant-bras,ostéomalacie sénile | avant-bras,OWL_ANS
+M83.14,label,Ostéomalacie sénile - Main,ostéomalacie sénile | main,OWL_ANS
+M83.15,label,Ostéomalacie sénile - Région pelvienne et cuisse,ostéomalacie sénile | région pelvienne et cuisse,OWL_ANS
+M83.16,label,Ostéomalacie sénile - Jambe,ostéomalacie sénile | jambe,OWL_ANS
+M83.17,label,Ostéomalacie sénile - Cheville et pied,ostéomalacie sénile | cheville et pied,OWL_ANS
+M83.18,label,Ostéomalacie sénile - Autres localisations,ostéomalacie sénile | autres,OWL_ANS
+M83.19,label,Ostéomalacie sénile - Siège non précisé,ostéomalacie sénile | siège non précisé,OWL_ANS
 M83.20,label,"Ostéomalacie de l'adulte par malabsorption - "" Sièges multiples """,ostéomalacie de l'adulte par malabsorption | sièges multiples,OWL_ANS
 M83.21,label,"Ostéomalacie de l'adulte par malabsorption - "" Région scapulaire """,ostéomalacie de l'adulte par malabsorption | région scapulaire,OWL_ANS
 M83.22,label,"Ostéomalacie de l'adulte par malabsorption - "" Bras """,ostéomalacie de l'adulte par malabsorption | bras,OWL_ANS

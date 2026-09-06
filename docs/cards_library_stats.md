@@ -2,7 +2,53 @@
 
 > Document de référence sur le contenu de `outputs/cards_library/`,
 > généré par `recode-icd cards build`. Dernière mise à jour :
-> 2026-06-08 (intégration CepiDc 2015).
+> 2026-09-05 (chantier couverture ATIH, palier 2 — profils, codes
+> intermédiaires codables, codes injectés depuis le kit ATIH).
+
+## État au 2026-09-05 — deux bibliothèques feuilles, par profil
+
+| Bibliothèque | Profil | Fiches | Dont consignes | Durée |
+|---|---|---|---|---|
+| `outputs/cards_library/` | `generation` — codables MCO seulement | **15 071** | 3 490 | 618 s |
+| `outputs/cards_library_controle/` | `controle` — tous les codes | **16 986** | 3 525 | 791 s |
+| `outputs/cards_library_categories/` | (non profilée) | 2 054 | — | 125 s |
+
+**15 071 = le nombre de codes autorisés MCO hors chapitre XX** (kit
+ATIH 2025) : l'invariant « tout code autorisé hors chapitre XX a une
+fiche » est vert (`tests/regression/test_couverture_invariants.py`),
+comme son dual « aucun non-codable dans la bibliothèque de génération ».
+
+Répartition par statut MCO (colonne `statut_mco` des `_index.csv`) :
+
+| `statut_mco` | generation | controle |
+|---|---|---|
+| `codable` | 13 366 | 13 366 |
+| `cause_externe` (chap. XX, jamais DP/DR) | 1 188 | 1 188 |
+| `interdit_dp_dr` | 441 | 441 |
+| `interdit_dp` | 76 | 76 |
+| `inconnu_atih` (localisations chap. XIII…) | — | 1 619 |
+| `pere_interdit` | — | 217 |
+| `supprime` | — | 79 |
+
+Ce qui a changé depuis le 2026-06-08 (16 058 fiches, un seul profil) :
+
+- **D2** — 800 codes intermédiaires codables entrent au CSV maître et
+  ont une fiche par héritage (`M00.0`, `F00.0`, `M16.0`…) ;
+- **D3** — 59 codes codables sans aucune ligne au CSV ont une fiche
+  (titre, position, statut, consignes) ; 72 codes du kit ATIH absents
+  de l'ANS sont injectés dans le nested set (`source_existence=ATIH`
+  dans l'index) ;
+- **D4** — les 1 915 codes non codables (pères interdits, supprimés,
+  inconnus du kit) sortent du profil `generation` et restent dans
+  `controle` ;
+- chaque fiche porte une ligne « Statut MCO (kit ATIH 2025) » sous son
+  titre (D1). Durée de génération ≈ 40 ms/fiche (lecture du statut par
+  code).
+
+Les sections ci-dessous décrivent la bibliothèque telle qu'elle était
+avant ce chantier ; les mesures de couverture des sections restent
+indicatives.
+
 
 ---
 

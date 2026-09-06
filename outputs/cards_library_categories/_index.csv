@@ -1,6 +1,6 @@
 code,chapter,filepath,libelle,n_enfants,has_perimetre,has_exclusions,has_formulations,type_mco,statut_mco,nb_chars
 A00,I,I/A00.md,Choléra,3,true,true,true,3,pere_interdit,1502
-A01,I,I/A01.md,Fièvres typhoïde et paratyphoïde,5,true,true,true,3,pere_interdit,2402
+A01,I,I/A01.md,Fièvres typhoïde et paratyphoïde,5,true,true,true,3,pere_interdit,2477
 A02,I,I/A02.md,Autres salmonelloses,5,true,true,true,3,pere_interdit,2857
 A03,I,I/A03.md,Shigellose,6,true,true,true,3,pere_interdit,2260
 A04,I,I/A04.md,Autres infections intestinales bactériennes,10,true,true,true,3,pere_interdit,3149
@@ -12,7 +12,7 @@ A09,I,I/A09.md,Autres gastroentérites et colites d'origine infectieuse et non p
 A15,I,I/A15.md,"Tuberculose de l'appareil respiratoire, avec confirmation bactériologique et histologique",10,true,true,true,3,pere_interdit,6901
 A16,I,I/A16.md,"Tuberculose de l'appareil respiratoire, sans confirmation bactériologique ou histologique",9,true,true,true,3,pere_interdit,9290
 A17,I,I/A17.md,Tuberculose du système nerveux,4,true,true,true,3,pere_interdit,3765
-A18,I,I/A18.md,Tuberculose d'autres organes,9,true,true,true,3,pere_interdit,6971
+A18,I,I/A18.md,Tuberculose d'autres organes,9,true,true,true,3,pere_interdit,6929
 A19,I,I/A19.md,Tuberculose miliaire,5,true,true,true,3,pere_interdit,2832
 A20,I,I/A20.md,Peste,7,true,true,true,3,pere_interdit,1992
 A21,I,I/A21.md,Tularémie,7,true,true,true,3,pere_interdit,2205
@@ -32,7 +32,7 @@ A35,I,I/A35.md,Autres formes de tétanos,0,true,true,true,0,codable,1368
 A36,I,I/A36.md,Diphtérie,6,true,true,true,3,pere_interdit,2565
 A37,I,I/A37.md,Coqueluche,4,true,true,true,3,pere_interdit,1558
 A38,I,I/A38.md,Scarlatine,0,true,true,true,0,codable,1409
-A39,I,I/A39.md,Infection à méningocoques,8,true,true,true,3,pere_interdit,3936
+A39,I,I/A39.md,Infection à méningocoques,8,true,true,true,3,pere_interdit,3901
 A40,I,I/A40.md,Sepsis à streptocoques,6,true,true,true,3,pere_interdit,3383
 A41,I,I/A41.md,Autres sepsis,8,true,true,true,3,pere_interdit,4866
 A42,I,I/A42.md,Actinomycose,6,true,true,true,3,pere_interdit,2557
@@ -43,9 +43,9 @@ A48,I,I/A48.md,"Autres maladies bactériennes, non classées ailleurs",6,true,tr
 A49,I,I/A49.md,"Infection bactérienne, siège non précisé",6,true,true,true,3,pere_interdit,3216
 A50,I,I/A50.md,Syphilis congénitale,9,true,true,true,3,pere_interdit,6597
 A51,I,I/A51.md,Syphilis précoce,7,true,true,true,3,pere_interdit,3874
-A52,I,I/A52.md,Syphilis tardive,7,true,true,true,3,pere_interdit,6814
+A52,I,I/A52.md,Syphilis tardive,7,true,true,true,3,pere_interdit,6823
 A53,I,I/A53.md,"Syphilis, autres et sans précision",2,true,true,true,3,pere_interdit,2200
-A54,I,I/A54.md,Infection gonococcique,9,true,true,true,3,pere_interdit,5106
+A54,I,I/A54.md,Infection gonococcique,9,true,true,true,3,pere_interdit,5075
 A55,I,I/A55.md,Lymphogranulomatose vénérienne à Chlamydia,0,true,true,true,0,codable,2125
 A56,I,I/A56.md,Autres infections à Chlamydia transmises par voie sexuelle,6,true,true,true,3,pere_interdit,3259
 A57,I,I/A57.md,Chancre mou,0,true,true,true,0,codable,1768
@@ -64,7 +64,7 @@ A71,I,I/A71.md,Trachome,3,true,true,true,3,pere_interdit,1968
 A74,I,I/A74.md,Autres infections à Chlamydia,3,true,true,true,3,pere_interdit,2254
 A75,I,I/A75.md,Typhus,5,true,true,true,3,pere_interdit,2561
 A77,I,I/A77.md,Fièvre pourprée [rickettsioses à tiques],6,true,true,true,3,pere_interdit,2858
-A78,I,I/A78.md,Fièvre Q,0,true,true,true,0,codable,1734
+A78,I,I/A78.md,Fièvre Q,0,true,true,true,0,codable,1705
 A79,I,I/A79.md,Autres rickettsioses,4,true,true,true,3,pere_interdit,2207
 A80,I,I/A80.md,Poliomyélite aigüe,6,true,true,true,3,pere_interdit,1823
 A81,I,I/A81.md,"Infections atypiques à virus, du système nerveux central",5,true,true,true,3,pere_interdit,3342
@@ -97,7 +97,7 @@ B09,I,I/B09.md,"Infection virale caractérisée par des lésions cutanéomuqueus
 B15,I,I/B15.md,Hépatite aigüe A,2,true,true,true,3,pere_interdit,1784
 B16,I,I/B16.md,Hépatite aigüe B,4,true,true,true,3,pere_interdit,2462
 B17,I,I/B17.md,Autres hépatites virales aigües,5,true,true,true,3,pere_interdit,2592
-B18,I,I/B18.md,Hépatite virale chronique,5,true,true,true,3,pere_interdit,2513
+B18,I,I/B18.md,Hépatite virale chronique,5,true,true,true,3,pere_interdit,2563
 B19,I,I/B19.md,"Hépatite virale, sans précision",2,true,true,true,3,pere_interdit,1999
 B20,I,I/B20.md,"Immunodéficience humaine virale [VIH], à l'origine de maladies infectieuses et parasitaires",10,true,true,true,3,pere_interdit,3137
 B21,I,I/B21.md,"Immunodéficience humaine virale [VIH], à l'origine de tumeurs malignes",7,true,true,true,3,pere_interdit,2414
@@ -110,7 +110,7 @@ B27,I,I/B27.md,Mononucléose infectieuse,4,true,true,true,3,pere_interdit,1852
 B30,I,I/B30.md,Conjonctivite virale,6,true,true,true,3,pere_interdit,2765
 B33,I,I/B33.md,"Autres maladies à virus, non classées ailleurs",6,true,true,true,3,pere_interdit,2976
 B34,I,I/B34.md,"Infection virale, siège non précisé",7,true,true,true,3,pere_interdit,3212
-B35,I,I/B35.md,Dermatophytose,9,true,true,true,3,pere_interdit,4268
+B35,I,I/B35.md,Dermatophytose,9,true,true,true,3,pere_interdit,4299
 B36,I,I/B36.md,Autres mycoses superficielles,6,true,true,true,3,pere_interdit,2749
 B37,I,I/B37.md,Candidose,10,true,true,true,3,pere_interdit,4046
 B38,I,I/B38.md,Coccidioïdomycose,8,true,true,true,3,pere_interdit,2017
@@ -162,7 +162,7 @@ B88,I,I/B88.md,Autres infestations,6,true,true,true,3,pere_interdit,2958
 B89,I,I/B89.md,"Parasitose, sans précision",0,true,true,true,1,interdit_dp_dr,1468
 B90,I,I/B90.md,Séquelles de tuberculose,5,true,true,true,3,pere_interdit,2322
 B91,I,I/B91.md,Séquelles de poliomyélite,0,true,true,true,4,interdit_dp,1932
-B92,I,I/B92.md,Séquelles de lèpre,0,true,true,true,4,interdit_dp,1281
+B92,I,I/B92.md,Séquelles de lèpre,0,true,true,true,4,interdit_dp,1284
 B94,I,I/B94.md,"Séquelles de maladies infectieuses et parasitaires, autres et non précisées",5,true,true,true,3,pere_interdit,2347
 B95,I,I/B95.md,"Streptocoques et staphylocoques, cause de maladies classées dans d'autres chapitres",9,true,true,true,3,pere_interdit,3600
 B96,I,I/B96.md,"Autres agents bactériens précisés, cause de maladies classées dans d'autres chapitres",9,true,true,true,3,pere_interdit,2893
@@ -185,16 +185,16 @@ C12,II,II/C12.md,Tumeur maligne du sinus piriforme,0,true,false,true,0,codable,1
 C13,II,II/C13.md,Tumeur maligne de l'hypopharynx,5,true,true,true,3,pere_interdit,2072
 C14,II,II/C14.md,"Tumeur maligne de la lèvre, de la cavité buccale et du pharynx, de sièges autres et mal définis",3,true,true,true,3,pere_interdit,1949
 C15,II,II/C15.md,Tumeur maligne de l'oesophage,8,false,false,true,3,pere_interdit,1750
-C16,II,II/C16.md,Tumeur maligne de l'estomac,9,true,false,true,3,pere_interdit,2487
+C16,II,II/C16.md,Tumeur maligne de l'estomac,9,true,false,true,3,pere_interdit,2554
 C17,II,II/C17.md,Tumeur maligne de l'intestin grêle,6,false,true,true,3,pere_interdit,1535
-C18,II,II/C18.md,Tumeur maligne du côlon,10,true,true,true,3,pere_interdit,2039
+C18,II,II/C18.md,Tumeur maligne du côlon,10,true,true,true,3,pere_interdit,2053
 C19,II,II/C19.md,Tumeur maligne de la jonction rectosigmoïdienne,0,true,false,true,0,codable,1401
 C20,II,II/C20.md,Tumeur maligne du rectum,0,true,false,true,0,codable,1271
 C21,II,II/C21.md,Tumeur maligne de l'anus et du canal anal,4,true,true,true,3,pere_interdit,2149
 C22,II,II/C22.md,Tumeur maligne du foie et des voies biliaires intrahépatiques,7,true,true,true,3,pere_interdit,2410
 C23,II,II/C23.md,Tumeur maligne de la vésicule biliaire,0,false,false,true,0,codable,1258
 C24,II,II/C24.md,"Tumeurs malignes des voies biliaires, autres et non précisées",4,true,true,true,3,pere_interdit,2138
-C25,II,II/C25.md,Tumeur maligne du pancréas,8,true,false,true,3,pere_interdit,1819
+C25,II,II/C25.md,Tumeur maligne du pancréas,8,true,false,true,3,pere_interdit,1918
 C26,II,II/C26.md,"Tumeur maligne des organes digestifs, de sièges autres et mal définis",4,true,true,true,3,pere_interdit,2339
 C30,II,II/C30.md,Tumeur maligne des fosses nasales et de l'oreille moyenne,2,true,true,true,3,pere_interdit,2468
 C31,II,II/C31.md,Tumeur maligne des sinus de la face,6,true,true,true,3,pere_interdit,1937
@@ -269,7 +269,7 @@ D07,II,II/D07.md,"Carcinome in situ d'organes génitaux, autres et non précisé
 D09,II,II/D09.md,Carcinome in situ de sièges autres et non précisés,6,true,true,true,3,pere_interdit,1821
 D10,II,II/D10.md,Tumeur bénigne de la bouche et du pharynx,9,true,true,true,3,pere_interdit,2363
 D11,II,II/D11.md,Tumeur bénigne des glandes salivaires principales,3,true,true,true,3,pere_interdit,1529
-D12,II,II/D12.md,"Tumeur bénigne du côlon, du rectum, de l'anus et du canal anal",10,true,true,true,3,pere_interdit,2104
+D12,II,II/D12.md,"Tumeur bénigne du côlon, du rectum, de l'anus et du canal anal",10,true,true,true,3,pere_interdit,2421
 D13,II,II/D13.md,Tumeurs bénignes de parties autres et mal définies de l'appareil digestif,9,true,true,true,3,pere_interdit,2116
 D14,II,II/D14.md,Tumeur bénigne de l'oreille moyenne et de l'appareil respiratoire,5,true,true,true,3,pere_interdit,2068
 D15,II,II/D15.md,"Tumeur bénigne des organes intrathoraciques, autres et non précisés",5,true,true,true,3,pere_interdit,1503
@@ -368,7 +368,7 @@ E29,IV,IV/E29.md,Dysfonction testiculaire,4,true,true,true,3,pere_interdit,2645
 E30,IV,IV/E30.md,"Anomalies de la puberté, non classées ailleurs",4,true,true,true,3,pere_interdit,2158
 E31,IV,IV/E31.md,Dysfonctionnement pluriglandulaire,4,true,true,true,3,pere_interdit,2165
 E32,IV,IV/E32.md,Maladies du thymus,4,true,true,true,3,pere_interdit,1823
-E34,IV,IV/E34.md,Autres troubles endocriniens,8,true,true,true,3,pere_interdit,4538
+E34,IV,IV/E34.md,Autres troubles endocriniens,8,true,true,true,3,pere_interdit,4506
 E35,IV,IV/E35.md,Anomalies endocriniennes au cours de maladies classées ailleurs,3,true,true,true,3,pere_interdit,1522
 E40,IV,IV/E40.md,Kwashiorkor,0,true,true,true,0,codable,1110
 E41,IV,IV/E41.md,Marasme nutritionnel,0,true,true,true,0,codable,1443
@@ -398,7 +398,7 @@ E70,IV,IV/E70.md,Anomalies du métabolisme des acides aminés aromatiques,6,true
 E71,IV,IV/E71.md,Anomalies du métabolisme des acides aminés à chaine ramifiée et du métabolisme des acides gras,4,true,true,true,3,pere_interdit,4278
 E72,IV,IV/E72.md,Autres anomalies du métabolisme des acides aminés,8,true,true,true,3,pere_interdit,5558
 E73,IV,IV/E73.md,Intolérance au lactose,4,false,true,true,3,pere_interdit,1328
-E74,IV,IV/E74.md,Autres anomalies du métabolisme des hydrates de carbone,7,true,true,true,3,pere_interdit,5215
+E74,IV,IV/E74.md,Autres anomalies du métabolisme des hydrates de carbone,7,true,true,true,3,pere_interdit,5220
 E75,IV,IV/E75.md,Anomalies du métabolisme des sphingolipides et autres anomalies du stockage des lipides,7,true,true,true,3,pere_interdit,4939
 E76,IV,IV/E76.md,Anomalies du métabolisme des glucosaminoglycanes,6,true,true,true,3,pere_interdit,3837
 E77,IV,IV/E77.md,Anomalies du métabolisme des glycoprotéines,4,true,true,true,3,pere_interdit,2925
@@ -413,56 +413,56 @@ E87,IV,IV/E87.md,Autres déséquilibres hydroélectrolytiques et acidobasiques,9
 E88,IV,IV/E88.md,Autres anomalies métaboliques,6,true,true,true,3,pere_interdit,4388
 E89,IV,IV/E89.md,"Anomalies endocriniennes et métaboliques après un acte à visée diagnostique et thérapeutique, non classées ailleurs",9,true,true,true,3,pere_interdit,4810
 E90,IV,IV/E90.md,Anomalies nutritionnelles et métaboliques au cours de maladies classées ailleurs,0,false,true,false,0,codable,967
-F00,V,V/F00.md,Démence de la maladie d'Alzheimer,4,true,true,false,3,pere_interdit,1188
-F01,V,V/F01.md,Démence vasculaire,6,true,true,false,3,pere_interdit,963
-F02,V,V/F02.md,Démence au cours d'autres maladies classées ailleurs,6,true,true,false,3,pere_interdit,1594
-F03,V,V/F03.md,"Démence, sans précision",0,false,false,false,0,codable,251
+F00,V,V/F00.md,Démence de la maladie d'Alzheimer,4,true,true,false,3,pere_interdit,1869
+F01,V,V/F01.md,Démence vasculaire,6,true,true,true,3,pere_interdit,1948
+F02,V,V/F02.md,Démence au cours d'autres maladies classées ailleurs,6,true,true,true,3,pere_interdit,3365
+F03,V,V/F03.md,"Démence, sans précision",0,true,true,true,0,codable,1840
 F04,V,V/F04.md,"Syndrome amnésique organique, non induit par l'alcool et d'autres substances psychoactives",0,true,true,true,0,codable,1601
 F05,V,V/F05.md,"Délirium, non induit par l'alcool et d'autres substances psychoactives",4,true,true,true,3,pere_interdit,2040
-F06,V,V/F06.md,"Autres troubles mentaux dus à une lésion cérébrale et un dysfonctionnement cérébral, et à une affection somatique",10,true,true,true,3,pere_interdit,3328
+F06,V,V/F06.md,"Autres troubles mentaux dus à une lésion cérébrale et un dysfonctionnement cérébral, et à une affection somatique",10,true,true,true,3,pere_interdit,3455
 F07,V,V/F07.md,"Troubles de la personnalité et du comportement dus à une affection, une lésion et un dysfonctionnement cérébraux",5,true,true,true,3,pere_interdit,3161
 F09,V,V/F09.md,"Trouble mental organique ou symptomatique, sans précision",0,true,true,true,0,codable,939
-F10,V,V/F10.md,Troubles mentaux et du comportement liés à l'utilisation d'alcool,10,true,true,true,3,pere_interdit,4527
-F11,V,V/F11.md,Troubles mentaux et du comportement liés à l'utilisation d'opiacés,10,true,true,true,3,pere_interdit,3611
-F12,V,V/F12.md,Troubles mentaux et du comportement liés à l'utilisation de dérivés du cannabis,10,true,true,true,3,pere_interdit,4154
-F13,V,V/F13.md,Troubles mentaux et du comportement liés à l'utilisation de sédatifs ou d'hypnotiques,10,true,true,true,3,pere_interdit,4066
-F14,V,V/F14.md,Troubles mentaux et du comportement liés à l'utilisation de cocaïne,10,true,true,true,3,pere_interdit,3629
-F15,V,V/F15.md,"Troubles mentaux et du comportement liés à l'utilisation d'autres stimulants, y compris la caféine",10,true,true,true,3,pere_interdit,3987
-F16,V,V/F16.md,Troubles mentaux et du comportement liés à l'utilisation d'hallucinogènes,10,true,true,true,3,pere_interdit,3662
-F17,V,V/F17.md,Troubles mentaux et du comportement liés à l'utilisation de tabac,10,true,true,true,3,pere_interdit,4118
-F18,V,V/F18.md,Troubles mentaux et du comportement liés à l'utilisation de solvants volatils,10,true,true,true,3,pere_interdit,3787
-F19,V,V/F19.md,Troubles mentaux et du comportement liés à l'utilisation de drogues multiples et troubles liés à l'utilisation d'autres substances psychoactives,10,true,true,true,3,pere_interdit,5259
-F20,V,V/F20.md,Schizophrénie,9,true,true,false,3,pere_interdit,1777
+F10,V,V/F10.md,Troubles mentaux et du comportement liés à l'utilisation d'alcool,10,true,true,true,3,pere_interdit,5861
+F11,V,V/F11.md,Troubles mentaux et du comportement liés à l'utilisation d'opiacés,10,true,true,true,3,pere_interdit,4909
+F12,V,V/F12.md,Troubles mentaux et du comportement liés à l'utilisation de dérivés du cannabis,10,true,true,true,3,pere_interdit,4774
+F13,V,V/F13.md,Troubles mentaux et du comportement liés à l'utilisation de sédatifs ou d'hypnotiques,10,true,true,true,3,pere_interdit,4960
+F14,V,V/F14.md,Troubles mentaux et du comportement liés à l'utilisation de cocaïne,10,true,true,true,3,pere_interdit,4275
+F15,V,V/F15.md,"Troubles mentaux et du comportement liés à l'utilisation d'autres stimulants, y compris la caféine",10,true,true,true,3,pere_interdit,4613
+F16,V,V/F16.md,Troubles mentaux et du comportement liés à l'utilisation d'hallucinogènes,10,true,true,true,3,pere_interdit,4270
+F17,V,V/F17.md,Troubles mentaux et du comportement liés à l'utilisation de tabac,10,true,true,true,3,pere_interdit,4724
+F18,V,V/F18.md,Troubles mentaux et du comportement liés à l'utilisation de solvants volatils,10,true,true,true,3,pere_interdit,4636
+F19,V,V/F19.md,Troubles mentaux et du comportement liés à l'utilisation de drogues multiples et troubles liés à l'utilisation d'autres substances psychoactives,10,true,true,true,3,pere_interdit,5876
+F20,V,V/F20.md,Schizophrénie,9,true,true,true,3,pere_interdit,4432
 F21,V,V/F21.md,Trouble schizotypique,0,true,true,true,0,codable,1210
 F22,V,V/F22.md,Troubles délirants persistants,3,true,true,true,3,pere_interdit,2452
-F23,V,V/F23.md,Troubles psychotiques aigus et transitoires,6,true,true,false,3,pere_interdit,1753
+F23,V,V/F23.md,Troubles psychotiques aigus et transitoires,6,true,true,true,3,pere_interdit,3969
 F24,V,V/F24.md,Trouble délirant induit,0,true,true,true,0,codable,819
-F25,V,V/F25.md,Troubles schizoaffectifs,5,true,true,false,3,pere_interdit,1111
+F25,V,V/F25.md,Troubles schizoaffectifs,5,true,true,true,3,pere_interdit,1970
 F28,V,V/F28.md,Autres troubles psychotiques non organiques,0,true,true,true,0,codable,1494
 F29,V,V/F29.md,"Psychose non organique, sans précision",0,true,true,true,0,codable,1463
-F30,V,V/F30.md,Épisode maniaque,5,true,true,true,3,pere_interdit,1672
+F30,V,V/F30.md,Épisode maniaque,5,true,true,true,3,pere_interdit,1917
 F31,V,V/F31.md,Trouble affectif bipolaire,10,true,true,true,3,pere_interdit,2856
-F32,V,V/F32.md,Épisodes dépressifs,6,true,true,true,3,pere_interdit,3210
-F33,V,V/F33.md,Trouble dépressif récurrent,7,true,true,true,3,pere_interdit,3237
+F32,V,V/F32.md,Épisodes dépressifs,6,true,true,true,3,pere_interdit,3626
+F33,V,V/F33.md,Trouble dépressif récurrent,7,true,true,true,3,pere_interdit,3993
 F34,V,V/F34.md,Troubles de l'humeur [affectifs] persistants,4,true,true,true,3,pere_interdit,1881
-F38,V,V/F38.md,Autres troubles de l'humeur [affectifs],3,true,true,true,3,pere_interdit,796
+F38,V,V/F38.md,Autres troubles de l'humeur [affectifs],3,true,true,true,3,pere_interdit,915
 F39,V,V/F39.md,"Trouble de l'humeur [affectif], sans précision",0,true,true,true,0,codable,884
-F40,V,V/F40.md,Troubles anxieux phobiques,5,true,true,true,3,pere_interdit,2024
-F41,V,V/F41.md,Autres troubles anxieux,6,true,true,true,3,pere_interdit,2375
+F40,V,V/F40.md,Troubles anxieux phobiques,5,true,true,true,3,pere_interdit,2182
+F41,V,V/F41.md,Autres troubles anxieux,6,true,true,true,3,pere_interdit,2499
 F42,V,V/F42.md,Trouble obsessionnel-compulsif,5,true,true,true,3,pere_interdit,2195
-F43,V,V/F43.md,"Réaction à un facteur de stress sévère, et troubles de l'adaptation",5,true,true,true,3,pere_interdit,1792
-F44,V,V/F44.md,Troubles dissociatifs [de conversion],10,true,true,true,3,pere_interdit,3961
-F45,V,V/F45.md,Troubles somatoformes,7,true,true,true,3,pere_interdit,5376
+F43,V,V/F43.md,"Réaction à un facteur de stress sévère, et troubles de l'adaptation",5,true,true,true,3,pere_interdit,2771
+F44,V,V/F44.md,Troubles dissociatifs [de conversion],10,true,true,true,3,pere_interdit,4111
+F45,V,V/F45.md,Troubles somatoformes,7,true,true,true,3,pere_interdit,6196
 F48,V,V/F48.md,Autres troubles névrotiques,4,true,true,true,3,pere_interdit,2569
 F50,V,V/F50.md,Troubles de l'alimentation,8,true,true,true,3,pere_interdit,2793
 F51,V,V/F51.md,Troubles du sommeil non organiques,8,true,true,true,3,pere_interdit,1963
-F52,V,V/F52.md,"Dysfonctionnement sexuel, non dû à un trouble ou à une maladie organique",10,true,true,true,3,pere_interdit,2567
+F52,V,V/F52.md,"Dysfonctionnement sexuel, non dû à un trouble ou à une maladie organique",10,true,true,true,3,pere_interdit,2697
 F53,V,V/F53.md,"Troubles mentaux et du comportement associés à la puerpéralité, non classés ailleurs",4,true,true,true,3,pere_interdit,1501
 F54,V,V/F54.md,Facteurs psychologiques et comportementaux associés à des maladies ou des troubles classés ailleurs,0,true,true,false,0,codable,1609
-F55,V,V/F55.md,Abus de substances n'entraînant pas de dépendance,0,true,true,false,0,codable,714
+F55,V,V/F55.md,Abus de substances n'entraînant pas de dépendance,0,true,true,true,0,codable,1738
 F59,V,V/F59.md,Syndromes comportementaux non précisés associés à des perturbations physiologiques et à des facteurs physiques,0,true,true,false,0,codable,742
-F60,V,V/F60.md,Troubles spécifiques de la personnalité,10,true,true,true,3,pere_interdit,4456
-F61,V,V/F61.md,Troubles mixtes de la personnalité et autres troubles de la personnalité,0,true,true,false,0,codable,908
+F60,V,V/F60.md,Troubles spécifiques de la personnalité,10,true,true,true,3,pere_interdit,4598
+F61,V,V/F61.md,Troubles mixtes de la personnalité et autres troubles de la personnalité,0,true,true,true,0,codable,1094
 F62,V,V/F62.md,Modification durable de la personnalité non attribuable à une lésion et une maladie cérébrales,4,true,true,true,3,pere_interdit,2348
 F63,V,V/F63.md,Troubles des habitudes et des impulsions,6,true,true,true,3,pere_interdit,2550
 F64,V,V/F64.md,Troubles de l'identité sexuelle,5,true,true,true,3,pere_interdit,1396
@@ -480,16 +480,16 @@ F80,V,V/F80.md,Troubles spécifiques du développement de la parole et du langag
 F81,V,V/F81.md,Troubles spécifiques du développement des acquisitions scolaires,6,true,true,true,3,pere_interdit,2702
 F82,V,V/F82.md,Trouble spécifique du développement moteur,0,true,true,true,0,codable,1085
 F83,V,V/F83.md,Troubles spécifiques mixtes du développement,0,true,true,false,0,codable,540
-F84,V,V/F84.md,Troubles envahissants du développement,8,true,true,true,3,pere_interdit,2873
+F84,V,V/F84.md,Troubles envahissants du développement,8,true,true,true,3,pere_interdit,3063
 F88,V,V/F88.md,Autres troubles du développement psychologique,0,true,true,true,0,codable,671
 F89,V,V/F89.md,"Trouble du développement psychologique, sans précision",0,true,true,true,0,codable,681
 F90,V,V/F90.md,Troubles hyperkinétiques,4,true,true,true,3,pere_interdit,1877
 F91,V,V/F91.md,Troubles des conduites,6,true,true,true,3,pere_interdit,2453
 F92,V,V/F92.md,Troubles mixtes des conduites et troubles émotionnels,3,true,true,false,3,pere_interdit,1235
-F93,V,V/F93.md,Troubles émotionnels apparaissant spécifiquement dans l'enfance,6,true,true,true,3,pere_interdit,1770
+F93,V,V/F93.md,Troubles émotionnels apparaissant spécifiquement dans l'enfance,6,true,true,true,3,pere_interdit,2051
 F94,V,V/F94.md,Troubles du fonctionnement social apparaissant spécifiquement durant l'enfance et l'adolescence,5,true,true,true,3,pere_interdit,2066
 F95,V,V/F95.md,Tics,5,true,true,true,3,pere_interdit,1150
-F98,V,V/F98.md,Autres troubles du comportement et troubles émotionnels apparaissant habituellement durant l'enfance et l'adolescence,9,true,true,true,3,pere_interdit,3524
+F98,V,V/F98.md,Autres troubles du comportement et troubles émotionnels apparaissant habituellement durant l'enfance et l'adolescence,9,true,true,true,3,pere_interdit,4867
 F99,V,V/F99.md,"Trouble mental, sans autre indication",0,true,true,true,1,interdit_dp_dr,1526
 G00,VI,VI/G00.md,"Méningite bactérienne, non classée ailleurs",6,true,true,true,3,pere_interdit,3017
 G01,VI,VI/G01.md,Méningite au cours d'affections bactériennes classées ailleurs,0,true,true,false,0,codable,2070
@@ -500,7 +500,7 @@ G05,VI,VI/G05.md,"Encéphalite, myélite et encéphalomyélite au cours d'affect
 G06,VI,VI/G06.md,Abcès et granulome intracrâniens et intrarachidiens,3,true,true,true,3,pere_interdit,3327
 G07,VI,VI/G07.md,Abcès et granulome intracrâniens et intrarachidiens au cours d'affections classées ailleurs,0,true,true,false,0,codable,1413
 G08,VI,VI/G08.md,Phlébite et thrombophlébite intracrâniennes et intrarachidiennes,0,true,true,true,0,codable,3233
-G09,VI,VI/G09.md,Séquelles d'affections inflammatoires du système nerveux central,0,false,true,true,4,interdit_dp,1872
+G09,VI,VI/G09.md,Séquelles d'affections inflammatoires du système nerveux central,0,false,true,true,4,interdit_dp,1941
 G10,VI,VI/G10.md,Chorée de Huntington,0,false,true,true,0,codable,1239
 G11,VI,VI/G11.md,Ataxie héréditaire,7,true,true,true,3,pere_interdit,4432
 G12,VI,VI/G12.md,Amyotrophie spinale et syndromes apparentés,5,true,true,true,3,pere_interdit,3821
@@ -534,7 +534,7 @@ G54,VI,VI/G54.md,Affections des racines et des plexus nerveux,10,true,true,true,
 G55,VI,VI/G55.md,Compression des racines et des plexus nerveux au cours de maladies classées ailleurs,5,false,true,true,3,pere_interdit,1873
 G56,VI,VI/G56.md,Mononévrite du membre supérieur,6,true,true,true,3,pere_interdit,2542
 G57,VI,VI/G57.md,Mononévrite du membre inférieur,9,true,true,true,3,pere_interdit,3710
-G58,VI,VI/G58.md,Autres mononévrites,4,false,true,true,3,pere_interdit,1920
+G58,VI,VI/G58.md,Autres mononévrites,4,false,true,true,3,pere_interdit,1959
 G59,VI,VI/G59.md,Mononévrite au cours de maladies classées ailleurs,2,false,true,true,3,pere_interdit,1833
 G60,VI,VI/G60.md,Neuropathie héréditaire et idiopathique,6,true,true,true,3,pere_interdit,4454
 G61,VI,VI/G61.md,Polynévrites inflammatoires,4,true,true,true,3,pere_interdit,2646
@@ -547,7 +547,7 @@ G72,VI,VI/G72.md,Autres myopathies,7,true,true,true,3,pere_interdit,3022
 G73,VI,VI/G73.md,Affections musculaires et neuromusculaires au cours de maladies classées ailleurs,8,true,true,true,3,pere_interdit,3139
 G80,VI,VI/G80.md,Paralysie cérébrale,7,true,true,true,3,pere_interdit,3266
 G81,VI,VI/G81.md,Hémiplégie,3,true,true,true,3,pere_interdit,2214
-G82,VI,VI/G82.md,Paraplégie et tétraplégie,6,true,true,false,3,pere_interdit,1392
+G82,VI,VI/G82.md,Paraplégie et tétraplégie,6,true,true,true,3,pere_interdit,2447
 G83,VI,VI/G83.md,Autres syndromes paralytiques,9,true,true,true,3,pere_interdit,3623
 G90,VI,VI/G90.md,Affections du système nerveux autonome,9,true,true,true,3,pere_interdit,3110
 G91,VI,VI/G91.md,Hydrocéphalie,6,true,true,true,3,pere_interdit,2729
@@ -555,7 +555,7 @@ G92,VI,VI/G92.md,Encéphalopathie toxique,0,false,true,true,0,codable,1684
 G93,VI,VI/G93.md,Autres affections du cerveau,10,true,true,true,3,pere_interdit,4221
 G94,VI,VI/G94.md,Autres affections du cerveau au cours de maladies classées ailleurs,5,false,true,true,3,pere_interdit,1428
 G95,VI,VI/G95.md,Autres affections de la moelle épinière,5,true,true,true,3,pere_interdit,4063
-G96,VI,VI/G96.md,Autres affections du système nerveux central,4,true,true,true,3,pere_interdit,2333
+G96,VI,VI/G96.md,Autres affections du système nerveux central,4,true,true,true,3,pere_interdit,2369
 G97,VI,VI/G97.md,"Affections du système nerveux après un acte à visée diagnostique et thérapeutique, non classées ailleurs",5,false,true,true,3,pere_interdit,1933
 G98,VI,VI/G98.md,"Autres affections du système nerveux, non classées ailleurs",0,true,true,true,0,codable,1929
 G99,VI,VI/G99.md,Autres affections du système nerveux au cours de maladies classées ailleurs,4,true,true,true,3,pere_interdit,2724
@@ -569,7 +569,7 @@ H06,VII,VII/H06.md,Affections de l'appareil lacrymal et de l'orbite au cours de 
 H10,VII,VII/H10.md,Conjonctivite,8,false,true,true,3,pere_interdit,2305
 H11,VII,VII/H11.md,Autres affections de la conjonctive,7,true,true,true,3,pere_interdit,2971
 H13,VII,VII/H13.md,Affections de la conjonctive au cours de maladies classées ailleurs,5,true,true,true,3,pere_interdit,2370
-H15,VII,VII/H15.md,Affections de la sclérotique,4,true,true,true,3,pere_interdit,1975
+H15,VII,VII/H15.md,Affections de la sclérotique,4,true,true,true,3,pere_interdit,2016
 H16,VII,VII/H16.md,Kératite,7,true,true,true,3,pere_interdit,3581
 H17,VII,VII/H17.md,Cicatrices et opacités cornéennes,4,false,true,true,3,pere_interdit,1469
 H18,VII,VII/H18.md,Autres affections de la cornée,10,true,true,true,3,pere_interdit,4449
@@ -590,8 +590,8 @@ H35,VII,VII/H35.md,Autres affections rétiniennes,10,true,true,true,3,pere_inter
 H36,VII,VII/H36.md,Affections rétiniennes au cours de maladies classées ailleurs,2,true,true,true,3,pere_interdit,2263
 H40,VII,VII/H40.md,Glaucome,9,true,true,true,3,pere_interdit,3759
 H42,VII,VII/H42.md,Glaucome au cours de maladies classées ailleurs,2,true,true,false,3,pere_interdit,1372
-H43,VII,VII/H43.md,Affections du corps vitré,6,true,true,true,3,pere_interdit,2649
-H44,VII,VII/H44.md,Affections du globe oculaire,10,true,true,true,3,pere_interdit,5233
+H43,VII,VII/H43.md,Affections du corps vitré,6,true,true,true,3,pere_interdit,2678
+H44,VII,VII/H44.md,Affections du globe oculaire,10,true,true,true,3,pere_interdit,5217
 H45,VII,VII/H45.md,Affections du corps vitré et du globe oculaire au cours de maladies classées ailleurs,3,true,true,false,3,pere_interdit,1524
 H46,VII,VII/H46.md,Névrite optique,0,true,true,true,0,codable,1880
 H47,VII,VII/H47.md,Autres affections du nerf [II] et des voies optiques,8,true,true,true,3,pere_interdit,2980
@@ -607,7 +607,7 @@ H57,VII,VII/H57.md,Autres affections de l'œil et de ses annexes,4,false,true,tr
 H58,VII,VII/H58.md,Autres affections de l'œil et de ses annexes au cours de maladies classées ailleurs,3,true,true,false,3,pere_interdit,1844
 H59,VII,VII/H59.md,"Affections de l'œil et de ses annexes après un acte à visée diagnostique et thérapeutique, non classées ailleurs",3,true,true,true,3,pere_interdit,2236
 H60,VIII,VIII/H60.md,Otite externe,8,true,true,true,3,pere_interdit,3216
-H61,VIII,VIII/H61.md,Autres affections de l'oreille externe,6,true,true,true,3,pere_interdit,2389
+H61,VIII,VIII/H61.md,Autres affections de l'oreille externe,6,true,true,true,3,pere_interdit,2424
 H62,VIII,VIII/H62.md,Affections de l'oreille externe au cours de maladies classées ailleurs,6,true,true,true,3,pere_interdit,2216
 H65,VIII,VIII/H65.md,Otite moyenne non suppurée,6,true,true,true,3,pere_interdit,3386
 H66,VIII,VIII/H66.md,Otite moyenne suppurée et sans précision,6,true,true,true,3,pere_interdit,2761
@@ -644,7 +644,7 @@ I12,IX,IX/I12.md,Néphropathie hypertensive,2,true,true,true,3,pere_interdit,351
 I13,IX,IX/I13.md,Cardionéphropathie hypertensive,4,true,true,true,3,pere_interdit,2795
 I15,IX,IX/I15.md,Hypertension secondaire,5,false,true,true,3,pere_interdit,3452
 I20,IX,IX/I20.md,Angine de poitrine,4,true,true,true,3,pere_interdit,3528
-I21,IX,IX/I21.md,Infarctus aigu du myocarde,6,true,true,true,3,pere_interdit,2714
+I21,IX,IX/I21.md,Infarctus aigu du myocarde,6,true,true,true,3,pere_interdit,3497
 I22,IX,IX/I22.md,Infarctus du myocarde à répétition,4,true,true,false,3,pere_interdit,2170
 I23,IX,IX/I23.md,Certaines complications récentes d'un infarctus aigu du myocarde,8,true,true,true,3,pere_interdit,3125
 I24,IX,IX/I24.md,Autres cardiopathies ischémiques aigües,4,true,true,true,3,pere_interdit,3317
@@ -685,7 +685,7 @@ I66,IX,IX/I66.md,"Occlusion et sténose des artères cérébrales, n'entraînant
 I67,IX,IX/I67.md,Autres maladies cérébrovasculaires,10,true,true,true,3,pere_interdit,4767
 I68,IX,IX/I68.md,Troubles cérébrovasculaires au cours de maladies classées ailleurs,4,true,true,true,3,pere_interdit,2279
 I69,IX,IX/I69.md,Séquelles de maladies cérébrovasculaires,6,true,true,true,3,pere_interdit,2798
-I70,IX,IX/I70.md,Athérosclérose,5,true,true,true,3,pere_interdit,3722
+I70,IX,IX/I70.md,Athérosclérose,5,true,true,true,3,pere_interdit,3419
 I71,IX,IX/I71.md,Anévrisme aortique et dissection,9,true,true,true,3,pere_interdit,2996
 I72,IX,IX/I72.md,Autres anévrismes et dissections,9,true,true,true,3,pere_interdit,3686
 I73,IX,IX/I73.md,Autres maladies vasculaires périphériques,4,true,true,true,3,pere_interdit,4004
@@ -734,8 +734,8 @@ J34,X,X/J34.md,Autres maladies du nez et des sinus du nez,5,true,true,true,3,per
 J35,X,X/J35.md,Maladies chroniques des amygdales et des végétations adénoïdes,6,true,true,true,3,pere_interdit,2762
 J36,X,X/J36.md,Angine phlegmoneuse,0,true,true,true,0,codable,1632
 J37,X,X/J37.md,Laryngite et laryngotrachéite chroniques,2,true,true,true,3,pere_interdit,2096
-J38,X,X/J38.md,"Maladies des cordes vocales et du larynx, non classées ailleurs",8,true,true,true,3,pere_interdit,4324
-J39,X,X/J39.md,Autres maladies des voies respiratoires supérieures,6,true,true,true,3,pere_interdit,3767
+J38,X,X/J38.md,"Maladies des cordes vocales et du larynx, non classées ailleurs",8,true,true,true,3,pere_interdit,4325
+J39,X,X/J39.md,Autres maladies des voies respiratoires supérieures,6,true,true,true,3,pere_interdit,3768
 J40,X,X/J40.md,"Bronchite, non précisée aigüe ou chronique",0,true,true,true,0,codable,2093
 J41,X,X/J41.md,Bronchite chronique simple et mucopurulente,3,false,true,true,3,pere_interdit,2092
 J42,X,X/J42.md,"Bronchite chronique, sans précision",0,true,true,true,0,codable,2503
@@ -767,8 +767,8 @@ J92,X,X/J92.md,Plaque pleurale,2,true,true,true,3,pere_interdit,2064
 J93,X,X/J93.md,Pneumothorax,4,false,true,true,3,pere_interdit,2263
 J94,X,X/J94.md,Autres affections pleurales,5,true,true,true,3,pere_interdit,2596
 J95,X,X/J95.md,"Troubles respiratoires après un acte à visée diagnostique et thérapeutique, non classés ailleurs",8,true,true,true,3,pere_interdit,4244
-J96,X,X/J96.md,"Insuffisance respiratoire, non classée ailleurs",3,false,true,true,3,pere_interdit,2170
-J98,X,X/J98.md,Autres troubles respiratoires,10,true,true,true,3,pere_interdit,4913
+J96,X,X/J96.md,"Insuffisance respiratoire, non classée ailleurs",3,false,true,true,3,pere_interdit,2764
+J98,X,X/J98.md,Autres troubles respiratoires,10,true,true,true,3,pere_interdit,4943
 J99,X,X/J99.md,Troubles respiratoires au cours de maladies classées ailleurs,3,true,true,true,3,pere_interdit,2564
 K00,XI,XI/K00.md,Troubles de l'odontogénèse,10,true,true,true,3,pere_interdit,4986
 K01,XI,XI/K01.md,Dents incluses et enclavées,2,true,true,true,3,pere_interdit,1523
@@ -818,7 +818,7 @@ K59,XI,XI/K59.md,Autres troubles fonctionnels de l'intestin,7,true,true,true,3,p
 K60,XI,XI/K60.md,Fissure et fistule des régions anale et rectale,6,true,true,true,3,pere_interdit,2298
 K61,XI,XI/K61.md,Abcès des régions anale et rectale,5,true,true,true,3,pere_interdit,2710
 K62,XI,XI/K62.md,Autres maladies de l'anus et du rectum,10,true,true,true,3,pere_interdit,3690
-K63,XI,XI/K63.md,Autres maladies de l'intestin,8,true,true,true,3,pere_interdit,3554
+K63,XI,XI/K63.md,Autres maladies de l'intestin,8,true,true,true,3,pere_interdit,3701
 K64,XI,XI/K64.md,Hémorroïdes et thrombose veineuse périanale,8,true,true,true,3,pere_interdit,3033
 K65,XI,XI/K65.md,Péritonite,3,true,true,true,3,pere_interdit,4681
 K66,XI,XI/K66.md,Autres maladies du péritoine,5,true,true,true,3,pere_interdit,3118
@@ -836,7 +836,7 @@ K81,XI,XI/K81.md,Cholécystite,4,true,true,true,3,pere_interdit,2894
 K82,XI,XI/K82.md,Autres maladies de la vésicule biliaire,7,true,true,true,3,pere_interdit,4517
 K83,XI,XI/K83.md,Autres maladies des voies biliaires,8,true,true,true,3,pere_interdit,4343
 K85,XI,XI/K85.md,Pancréatite aigüe,6,true,true,true,3,pere_interdit,2334
-K86,XI,XI/K86.md,Autres maladies du pancréas,6,true,true,true,3,pere_interdit,3679
+K86,XI,XI/K86.md,Autres maladies du pancréas,6,true,true,true,3,pere_interdit,3992
 K87,XI,XI/K87.md,"Atteintes de la vésicule biliaire, des voies biliaires et du pancréas au cours de maladies classées ailleurs",2,true,true,false,3,pere_interdit,1404
 K90,XI,XI/K90.md,Malabsorption intestinale,7,true,true,true,3,pere_interdit,3782
 K91,XI,XI/K91.md,"Atteintes de l'appareil digestif après un acte à visée diagnostique et thérapeutique, non classées ailleurs",8,true,true,true,3,pere_interdit,4244
@@ -844,11 +844,11 @@ K92,XI,XI/K92.md,Autres maladies du système digestif,5,true,true,true,3,pere_in
 K93,XI,XI/K93.md,Atteintes d'autres organes de l'appareil digestif au cours de maladies classées ailleurs,3,false,true,false,3,pere_interdit,1292
 L00,XII,XII/L00.md,Syndrome d'épidermolyse staphylococcique du nourrisson,0,true,true,true,0,codable,2746
 L01,XII,XII/L01.md,Impétigo,2,true,true,true,3,pere_interdit,2783
-L02,XII,XII/L02.md,"Abcès cutané, furoncle et anthrax",7,true,true,true,3,pere_interdit,4828
-L03,XII,XII/L03.md,Phlegmon,6,true,true,true,3,pere_interdit,5255
+L02,XII,XII/L02.md,"Abcès cutané, furoncle et anthrax",7,true,true,true,3,pere_interdit,4825
+L03,XII,XII/L03.md,Phlegmon,6,true,true,true,3,pere_interdit,5183
 L04,XII,XII/L04.md,Lymphadénite aigüe,6,true,true,true,3,pere_interdit,3642
 L05,XII,XII/L05.md,Sinus pilonidal,2,true,true,true,3,pere_interdit,2425
-L08,XII,XII/L08.md,Autres infections localisées de la peau et du tissu cellulaire souscutané,4,true,true,true,3,pere_interdit,4012
+L08,XII,XII/L08.md,Autres infections localisées de la peau et du tissu cellulaire souscutané,4,true,true,true,3,pere_interdit,4031
 L10,XII,XII/L10.md,Pemphigus,8,true,true,true,3,pere_interdit,2650
 L11,XII,XII/L11.md,Autres acantholyses,4,false,true,true,3,pere_interdit,1851
 L12,XII,XII/L12.md,Pemphigoïde,6,true,true,true,3,pere_interdit,3136
@@ -914,31 +914,31 @@ L95,XII,XII/L95.md,"Vascularite [angéite] limitée à la peau, non classée ail
 L97,XII,XII/L97.md,"Ulcère du membre inférieur, non classé ailleurs",0,false,true,true,0,codable,2225
 L98,XII,XII/L98.md,"Autres affections de la peau et du tissu cellulaire souscutané, non classées ailleurs",10,true,true,true,3,pere_interdit,4492
 L99,XII,XII/L99.md,Autres affections de la peau et du tissu cellulaire souscutané au cours de maladies classées ailleurs,2,true,true,true,3,pere_interdit,1885
-M00,XIII,XIII/M00.md,Arthrites à bactéries pyogènes,5,true,true,true,3,pere_interdit,1703
-M01,XIII,XIII/M01.md,Arthrites infectieuses directes au cours de maladies infectieuses et parasitaires classées ailleurs,8,true,true,false,3,pere_interdit,2156
-M02,XIII,XIII/M02.md,Arthropathies réactionnelles,6,false,true,false,3,pere_interdit,1503
-M03,XIII,XIII/M03.md,Arthropathies postinfectieuses et réactionnelles au cours de maladies classées ailleurs,4,true,true,false,3,pere_interdit,1972
-M05,XIII,XIII/M05.md,Polyarthrite rhumatoïde séropositive,6,true,true,true,3,pere_interdit,1963
-M06,XIII,XIII/M06.md,Autres polyarthrites rhumatoïdes,7,false,true,true,3,pere_interdit,1591
-M07,XIII,XIII/M07.md,Arthropathies psoriasiques et entéropathiques,7,false,true,false,3,pere_interdit,1583
-M08,XIII,XIII/M08.md,Polyarthrites juvéniles,7,true,true,false,3,pere_interdit,1903
-M09,XIII,XIII/M09.md,Polyarthrite juvénile au cours de maladies classées ailleurs,4,false,true,false,3,pere_interdit,1521
-M10,XIII,XIII/M10.md,Goutte,6,true,true,false,3,pere_interdit,1417
-M11,XIII,XIII/M11.md,Autres arthropathies dues à des microcristaux,5,true,true,true,3,pere_interdit,1902
-M12,XIII,XIII/M12.md,Autres arthropathies spécifiques,7,true,true,false,3,pere_interdit,1845
-M13,XIII,XIII/M13.md,Autres arthrites,4,true,true,true,3,pere_interdit,2457
-M14,XIII,XIII/M14.md,Arthropathies au cours d'autres maladies classées ailleurs,8,true,true,false,3,pere_interdit,3358
-M15,XIII,XIII/M15.md,Polyarthrose,7,true,true,false,3,pere_interdit,2315
-M16,XIII,XIII/M16.md,Coxarthrose [arthrose de la hanche],9,true,true,false,3,pere_interdit,2430
-M17,XIII,XIII/M17.md,Gonarthrose [arthrose du genou],7,true,true,false,3,pere_interdit,2277
-M18,XIII,XIII/M18.md,Arthrose de la première articulation carpométacarpienne,7,true,true,false,3,pere_interdit,2740
-M19,XIII,XIII/M19.md,Autres arthroses,5,true,true,true,3,pere_interdit,3473
-M20,XIII,XIII/M20.md,Déformations des doigts et des orteils,7,true,true,false,3,pere_interdit,2587
-M21,XIII,XIII/M21.md,Autres déformations des membres,10,false,true,true,3,pere_interdit,2347
-M22,XIII,XIII/M22.md,Lésion de la rotule,7,true,true,false,3,pere_interdit,2172
-M23,XIII,XIII/M23.md,Lésion interne du genou,9,true,true,false,3,pere_interdit,2157
-M24,XIII,XIII/M24.md,Autres affections articulaires spécifiques,10,true,true,true,3,pere_interdit,3911
-M25,XIII,XIII/M25.md,"Autres affections articulaires, non classées ailleurs",10,true,true,true,3,pere_interdit,3126
+M00,XIII,XIII/M00.md,Arthrites à bactéries pyogènes,5,true,true,true,3,pere_interdit,3409
+M01,XIII,XIII/M01.md,Arthrites infectieuses directes au cours de maladies infectieuses et parasitaires classées ailleurs,8,true,true,true,3,pere_interdit,4109
+M02,XIII,XIII/M02.md,Arthropathies réactionnelles,6,false,true,true,3,pere_interdit,2189
+M03,XIII,XIII/M03.md,Arthropathies postinfectieuses et réactionnelles au cours de maladies classées ailleurs,4,true,true,true,3,pere_interdit,3428
+M05,XIII,XIII/M05.md,Polyarthrite rhumatoïde séropositive,6,true,true,true,3,pere_interdit,4134
+M06,XIII,XIII/M06.md,Autres polyarthrites rhumatoïdes,7,false,true,true,3,pere_interdit,2757
+M07,XIII,XIII/M07.md,Arthropathies psoriasiques et entéropathiques,7,false,true,true,3,pere_interdit,2102
+M08,XIII,XIII/M08.md,Polyarthrites juvéniles,7,true,true,true,3,pere_interdit,3034
+M09,XIII,XIII/M09.md,Polyarthrite juvénile au cours de maladies classées ailleurs,4,false,true,true,3,pere_interdit,1884
+M10,XIII,XIII/M10.md,Goutte,6,true,true,true,3,pere_interdit,3575
+M11,XIII,XIII/M11.md,Autres arthropathies dues à des microcristaux,5,true,true,true,3,pere_interdit,2909
+M12,XIII,XIII/M12.md,Autres arthropathies spécifiques,7,true,true,true,3,pere_interdit,2496
+M13,XIII,XIII/M13.md,Autres arthrites,4,true,true,true,3,pere_interdit,2652
+M14,XIII,XIII/M14.md,Arthropathies au cours d'autres maladies classées ailleurs,8,true,true,true,3,pere_interdit,6593
+M15,XIII,XIII/M15.md,Polyarthrose,7,true,true,true,3,pere_interdit,3728
+M16,XIII,XIII/M16.md,Coxarthrose [arthrose de la hanche],9,true,true,true,3,pere_interdit,4216
+M17,XIII,XIII/M17.md,Gonarthrose [arthrose du genou],7,true,true,true,3,pere_interdit,4882
+M18,XIII,XIII/M18.md,Arthrose de la première articulation carpométacarpienne,7,true,true,true,3,pere_interdit,4047
+M19,XIII,XIII/M19.md,Autres arthroses,5,true,true,true,3,pere_interdit,3841
+M20,XIII,XIII/M20.md,Déformations des doigts et des orteils,7,true,true,true,3,pere_interdit,3371
+M21,XIII,XIII/M21.md,Autres déformations des membres,10,false,true,true,3,pere_interdit,4180
+M22,XIII,XIII/M22.md,Lésion de la rotule,7,true,true,true,3,pere_interdit,2675
+M23,XIII,XIII/M23.md,Lésion interne du genou,9,true,true,true,3,pere_interdit,3744
+M24,XIII,XIII/M24.md,Autres affections articulaires spécifiques,10,true,true,true,3,pere_interdit,6441
+M25,XIII,XIII/M25.md,"Autres affections articulaires, non classées ailleurs",10,true,true,true,3,pere_interdit,4554
 M30,XIII,XIII/M30.md,Périartérite noueuse et affections apparentées,5,true,true,true,3,pere_interdit,3539
 M31,XIII,XIII/M31.md,Autres vasculopathies nécrosantes,9,true,true,true,3,pere_interdit,4525
 M32,XIII,XIII/M32.md,Lupus érythémateux disséminé,4,true,true,true,3,pere_interdit,3848
@@ -946,58 +946,58 @@ M33,XIII,XIII/M33.md,Dermatopolymyosite,4,true,true,true,3,pere_interdit,2889
 M34,XIII,XIII/M34.md,Sclérodermie systémique,5,true,true,true,3,pere_interdit,4228
 M35,XIII,XIII/M35.md,Autres atteintes systémiques du tissu conjonctif,10,true,true,true,3,pere_interdit,5203
 M36,XIII,XIII/M36.md,Atteintes systémiques du tissu conjonctif au cours de maladies classées ailleurs,6,true,true,true,3,pere_interdit,3635
-M40,XIII,XIII/M40.md,Cyphose et lordose,6,true,true,false,3,pere_interdit,1609
-M41,XIII,XIII/M41.md,Scoliose,8,true,true,false,3,pere_interdit,1890
-M42,XIII,XIII/M42.md,Ostéochondrite vertébrale,3,true,true,false,3,pere_interdit,1427
-M43,XIII,XIII/M43.md,Autres dorsopathies avec déformation,9,true,true,true,3,pere_interdit,2827
+M40,XIII,XIII/M40.md,Cyphose et lordose,6,true,true,true,3,pere_interdit,2562
+M41,XIII,XIII/M41.md,Scoliose,8,true,true,true,3,pere_interdit,3661
+M42,XIII,XIII/M42.md,Ostéochondrite vertébrale,3,true,true,true,3,pere_interdit,1928
+M43,XIII,XIII/M43.md,Autres dorsopathies avec déformation,9,true,true,true,3,pere_interdit,5318
 M45,XIII,XIII/M45.md,Spondylarthrite ankylosante,0,true,true,true,0,codable,2361
-M46,XIII,XIII/M46.md,Autres spondylopathies inflammatoires,8,true,true,false,3,pere_interdit,1586
-M47,XIII,XIII/M47.md,Spondylarthrose,5,true,true,true,3,pere_interdit,2666
-M48,XIII,XIII/M48.md,Autres spondylopathies,8,true,true,true,3,pere_interdit,2236
-M49,XIII,XIII/M49.md,Spondylopathies au cours de maladies classées ailleurs,7,true,true,false,3,pere_interdit,1904
+M46,XIII,XIII/M46.md,Autres spondylopathies inflammatoires,8,true,true,true,3,pere_interdit,3005
+M47,XIII,XIII/M47.md,Spondylarthrose,5,true,true,true,3,pere_interdit,4377
+M48,XIII,XIII/M48.md,Autres spondylopathies,8,true,true,true,3,pere_interdit,3846
+M49,XIII,XIII/M49.md,Spondylopathies au cours de maladies classées ailleurs,7,true,true,true,3,pere_interdit,2582
 M50,XIII,XIII/M50.md,Atteintes des disques cervicaux,6,true,true,true,3,pere_interdit,2378
-M51,XIII,XIII/M51.md,Atteintes d'autres disques intervertébraux,7,true,true,true,3,pere_interdit,3408
-M53,XIII,XIII/M53.md,"Autres dorsopathies, non classées ailleurs",6,true,true,true,3,pere_interdit,1988
-M54,XIII,XIII/M54.md,Dorsalgies,9,true,true,false,3,pere_interdit,2444
-M60,XIII,XIII/M60.md,Myosite,5,true,true,false,3,pere_interdit,1891
-M61,XIII,XIII/M61.md,Calcification et ossification de muscles,7,true,true,false,3,pere_interdit,2155
-M62,XIII,XIII/M62.md,Autres atteintes musculaires,9,true,true,false,3,pere_interdit,3244
-M63,XIII,XIII/M63.md,Atteintes musculaires au cours de maladies classées ailleurs,5,true,true,false,3,pere_interdit,2895
-M65,XIII,XIII/M65.md,Synovite et ténosynovite,7,true,true,false,3,pere_interdit,1892
-M66,XIII,XIII/M66.md,Déchirure spontanée de la synoviale et du tendon,6,true,true,true,3,pere_interdit,2620
-M67,XIII,XIII/M67.md,Autres atteintes de la synoviale et du tendon,7,true,true,false,3,pere_interdit,2553
-M68,XIII,XIII/M68.md,Atteintes de la synoviale et du tendon au cours de maladies classées ailleurs,2,true,true,false,3,pere_interdit,2094
-M70,XIII,XIII/M70.md,Affections des tissus mous par sollicitation excessive de l'articulation,10,true,true,false,3,pere_interdit,1942
-M71,XIII,XIII/M71.md,Autres bursopathies,8,true,true,true,3,pere_interdit,2370
-M72,XIII,XIII/M72.md,Affections fibroblastiques,7,true,true,true,3,pere_interdit,2474
-M73,XIII,XIII/M73.md,Affections des tissus mous au cours de maladies classées ailleurs,3,false,true,false,3,pere_interdit,1291
-M75,XIII,XIII/M75.md,Lésions de l'épaule,9,true,true,true,3,pere_interdit,2992
-M76,XIII,XIII/M76.md,"Enthésopathies du membre inférieur, sauf le pied",10,true,true,true,3,pere_interdit,2278
-M77,XIII,XIII/M77.md,Autres enthésopathies,8,true,true,true,3,pere_interdit,2197
-M79,XIII,XIII/M79.md,"Autres affections des tissus mous, non classées ailleurs",10,true,true,true,3,pere_interdit,2925
-M80,XIII,XIII/M80.md,Ostéoporose avec fracture pathologique,8,true,true,false,3,pere_interdit,1968
-M81,XIII,XIII/M81.md,Ostéoporose sans fracture pathologique,9,true,true,false,3,pere_interdit,1740
-M82,XIII,XIII/M82.md,Ostéoporose au cours de maladies classées ailleurs,3,false,true,false,3,pere_interdit,1326
-M83,XIII,XIII/M83.md,Ostéomalacie de l'adulte,8,true,true,true,3,pere_interdit,2015
-M84,XIII,XIII/M84.md,Anomalie de la continuité osseuse,7,true,true,false,3,pere_interdit,1931
-M85,XIII,XIII/M85.md,Autres anomalies de la densité et de la structure osseuses,9,true,true,false,3,pere_interdit,2260
-M86,XIII,XIII/M86.md,Ostéomyélite,9,true,true,false,3,pere_interdit,1879
-M87,XIII,XIII/M87.md,Ostéonécrose,6,true,true,false,3,pere_interdit,1729
-M88,XIII,XIII/M88.md,Maladie osseuse de Paget [ostéite déformante],3,false,true,true,3,pere_interdit,1452
-M89,XIII,XIII/M89.md,Autres maladies osseuses,9,true,true,true,3,pere_interdit,2198
-M90,XIII,XIII/M90.md,Ostéopathie au cours de maladies classées ailleurs,9,true,true,false,3,pere_interdit,2354
-M91,XIII,XIII/M91.md,Ostéochondrite juvénile de la hanche et du bassin,6,true,true,false,3,pere_interdit,2064
-M92,XIII,XIII/M92.md,Autres ostéochondrites juvéniles,10,true,true,false,3,pere_interdit,3427
-M93,XIII,XIII/M93.md,Autres ostéochondropathies,5,true,true,false,3,pere_interdit,2613
-M94,XIII,XIII/M94.md,Autres affections du cartilage,6,true,true,false,3,pere_interdit,1679
-M95,XIII,XIII/M95.md,"Autres déformations du système ostéoarticulaire, des muscles et du tissu conjonctif",8,true,true,false,3,pere_interdit,2818
-M96,XIII,XIII/M96.md,"Affections du système ostéoarticulaire et des muscles après un acte à visée diagnostique et thérapeutique, non classées ailleurs",9,true,true,false,3,pere_interdit,2844
+M51,XIII,XIII/M51.md,Atteintes d'autres disques intervertébraux,7,true,true,true,3,pere_interdit,3466
+M53,XIII,XIII/M53.md,"Autres dorsopathies, non classées ailleurs",6,true,true,true,3,pere_interdit,3482
+M54,XIII,XIII/M54.md,Dorsalgies,9,true,true,true,3,pere_interdit,5082
+M60,XIII,XIII/M60.md,Myosite,5,true,true,true,3,pere_interdit,3450
+M61,XIII,XIII/M61.md,Calcification et ossification de muscles,7,true,true,true,3,pere_interdit,3087
+M62,XIII,XIII/M62.md,Autres atteintes musculaires,9,true,true,true,3,pere_interdit,4999
+M63,XIII,XIII/M63.md,Atteintes musculaires au cours de maladies classées ailleurs,5,true,true,true,3,pere_interdit,3889
+M65,XIII,XIII/M65.md,Synovite et ténosynovite,7,true,true,true,3,pere_interdit,3699
+M66,XIII,XIII/M66.md,Déchirure spontanée de la synoviale et du tendon,6,true,true,true,3,pere_interdit,3305
+M67,XIII,XIII/M67.md,Autres atteintes de la synoviale et du tendon,7,true,true,true,3,pere_interdit,4452
+M68,XIII,XIII/M68.md,Atteintes de la synoviale et du tendon au cours de maladies classées ailleurs,2,true,true,true,3,pere_interdit,2680
+M70,XIII,XIII/M70.md,Affections des tissus mous par sollicitation excessive de l'articulation,10,true,true,true,3,pere_interdit,3124
+M71,XIII,XIII/M71.md,Autres bursopathies,8,true,true,true,3,pere_interdit,3558
+M72,XIII,XIII/M72.md,Affections fibroblastiques,7,true,true,true,3,pere_interdit,4004
+M73,XIII,XIII/M73.md,Affections des tissus mous au cours de maladies classées ailleurs,3,false,true,true,3,pere_interdit,1470
+M75,XIII,XIII/M75.md,Lésions de l'épaule,9,true,true,true,3,pere_interdit,4551
+M76,XIII,XIII/M76.md,"Enthésopathies du membre inférieur, sauf le pied",10,true,true,true,3,pere_interdit,3961
+M77,XIII,XIII/M77.md,Autres enthésopathies,8,true,true,true,3,pere_interdit,3933
+M79,XIII,XIII/M79.md,"Autres affections des tissus mous, non classées ailleurs",10,true,true,true,3,pere_interdit,5072
+M80,XIII,XIII/M80.md,Ostéoporose avec fracture pathologique,8,true,true,true,3,pere_interdit,4016
+M81,XIII,XIII/M81.md,Ostéoporose sans fracture pathologique,9,true,true,true,3,pere_interdit,3711
+M82,XIII,XIII/M82.md,Ostéoporose au cours de maladies classées ailleurs,3,false,true,true,3,pere_interdit,1708
+M83,XIII,XIII/M83.md,Ostéomalacie de l'adulte,8,true,true,true,3,pere_interdit,3520
+M84,XIII,XIII/M84.md,Anomalie de la continuité osseuse,7,true,true,true,3,pere_interdit,3431
+M85,XIII,XIII/M85.md,Autres anomalies de la densité et de la structure osseuses,9,true,true,true,3,pere_interdit,4209
+M86,XIII,XIII/M86.md,Ostéomyélite,9,true,true,true,3,pere_interdit,3946
+M87,XIII,XIII/M87.md,Ostéonécrose,6,true,true,true,3,pere_interdit,3068
+M88,XIII,XIII/M88.md,Maladie osseuse de Paget [ostéite déformante],3,false,true,true,3,pere_interdit,2021
+M89,XIII,XIII/M89.md,Autres maladies osseuses,9,true,true,true,3,pere_interdit,4351
+M90,XIII,XIII/M90.md,Ostéopathie au cours de maladies classées ailleurs,9,true,true,true,3,pere_interdit,3564
+M91,XIII,XIII/M91.md,Ostéochondrite juvénile de la hanche et du bassin,6,true,true,true,3,pere_interdit,3600
+M92,XIII,XIII/M92.md,Autres ostéochondrites juvéniles,10,true,true,true,3,pere_interdit,7060
+M93,XIII,XIII/M93.md,Autres ostéochondropathies,5,true,true,true,3,pere_interdit,3937
+M94,XIII,XIII/M94.md,Autres affections du cartilage,6,true,true,true,3,pere_interdit,2502
+M95,XIII,XIII/M95.md,"Autres déformations du système ostéoarticulaire, des muscles et du tissu conjonctif",8,true,true,true,3,pere_interdit,4576
+M96,XIII,XIII/M96.md,"Affections du système ostéoarticulaire et des muscles après un acte à visée diagnostique et thérapeutique, non classées ailleurs",9,true,true,true,3,pere_interdit,4308
 M99,XIII,XIII/M99.md,"Lésions biomécaniques, non classées ailleurs",10,true,true,false,3,pere_interdit,2056
 N00,XIV,XIV/N00.md,Syndrome néphritique aigu,10,true,true,true,3,pere_interdit,3412
-N01,XIV,XIV/N01.md,Syndrome néphritique d'évolution rapide,10,true,true,true,3,pere_interdit,3484
-N02,XIV,XIV/N02.md,Hématurie récidivante et persistante,10,true,true,true,3,pere_interdit,3890
-N03,XIV,XIV/N03.md,Syndrome néphritique chronique,10,true,true,true,3,pere_interdit,4381
-N04,XIV,XIV/N04.md,Syndrome néphrotique,10,true,true,true,3,pere_interdit,3592
+N01,XIV,XIV/N01.md,Syndrome néphritique d'évolution rapide,10,true,true,true,3,pere_interdit,3783
+N02,XIV,XIV/N02.md,Hématurie récidivante et persistante,10,true,true,true,3,pere_interdit,4133
+N03,XIV,XIV/N03.md,Syndrome néphritique chronique,10,true,true,true,3,pere_interdit,4865
+N04,XIV,XIV/N04.md,Syndrome néphrotique,10,true,true,true,3,pere_interdit,3733
 N05,XIV,XIV/N05.md,"Syndrome néphritique, sans précision",10,true,true,true,3,pere_interdit,4594
 N06,XIV,XIV/N06.md,Protéinurie isolée avec lésions morphologiques précisées,10,true,true,true,3,pere_interdit,3516
 N07,XIV,XIV/N07.md,"Néphropathie héréditaire, non classée ailleurs",10,true,true,true,3,pere_interdit,3633
@@ -1038,7 +1038,7 @@ N44,XIV,XIV/N44.md,Torsion du testicule,0,true,true,true,0,codable,1174
 N45,XIV,XIV/N45.md,Orchite et épididymite,2,true,true,true,3,pere_interdit,2233
 N46,XIV,XIV/N46.md,"Stérilité, chez l'homme",0,true,true,true,0,codable,1352
 N47,XIV,XIV/N47.md,"Hypertrophie du prépuce, phimosis et paraphimosis",0,true,true,true,0,codable,1212
-N48,XIV,XIV/N48.md,Autres affections de la verge,9,true,true,true,3,pere_interdit,4052
+N48,XIV,XIV/N48.md,Autres affections de la verge,9,true,true,true,3,pere_interdit,4063
 N49,XIV,XIV/N49.md,"Affections inflammatoires des organes génitaux de l'homme, non classées ailleurs",5,true,true,true,3,pere_interdit,3607
 N50,XIV,XIV/N50.md,Autres affections des organes génitaux de l'homme,4,true,true,true,3,pere_interdit,4630
 N51,XIV,XIV/N51.md,Affections des organes génitaux de l'homme au cours de maladies classées ailleurs,4,true,true,true,3,pere_interdit,2802
@@ -1128,7 +1128,7 @@ O68,XV,XV/O68.md,Travail et accouchement compliqués d'une détresse fœtale,6,t
 O69,XV,XV/O69.md,Travail et accouchement compliqués d'anomalies du cordon ombilical,8,true,true,true,3,pere_interdit,2657
 O70,XV,XV/O70.md,Déchirure obstétricale du périnée,5,true,true,false,3,pere_interdit,4343
 O71,XV,XV/O71.md,Autres traumatismes obstétricaux,10,true,true,true,3,pere_interdit,3164
-O72,XV,XV/O72.md,Hémorragie du postpartum,4,true,true,true,3,pere_interdit,2332
+O72,XV,XV/O72.md,Hémorragie du postpartum,4,true,true,true,3,pere_interdit,3504
 O73,XV,XV/O73.md,"Rétention du placenta et des membranes, sans hémorragie",2,true,true,false,3,pere_interdit,1238
 O74,XV,XV/O74.md,Complications de l'anesthésie au cours du travail et de l'accouchement,10,true,true,true,3,pere_interdit,3676
 O75,XV,XV/O75.md,"Autres complications du travail et de l'accouchement, non classées ailleurs",10,true,true,true,3,pere_interdit,4520
@@ -1237,27 +1237,27 @@ Q26,XVII,XVII/Q26.md,Malformations congénitales des grandes veines,9,true,true,
 Q27,XVII,XVII/Q27.md,Autres malformations congénitales de l'appareil circulatoire périphérique,7,true,true,true,3,pere_interdit,3659
 Q28,XVII,XVII/Q28.md,Autres malformations congénitales de l'appareil circulatoire,6,true,true,true,3,pere_interdit,3261
 Q30,XVII,XVII/Q30.md,Malformations congénitales du nez,6,true,true,true,3,pere_interdit,1925
-Q31,XVII,XVII/Q31.md,Malformations congénitales du larynx,7,true,true,true,3,pere_interdit,3371
+Q31,XVII,XVII/Q31.md,Malformations congénitales du larynx,7,true,true,true,3,pere_interdit,3380
 Q32,XVII,XVII/Q32.md,Malformations congénitales de la trachée et des bronches,5,true,true,true,3,pere_interdit,2660
 Q33,XVII,XVII/Q33.md,Malformations congénitales du poumon,9,true,true,true,3,pere_interdit,2500
 Q34,XVII,XVII/Q34.md,Autres malformations congénitales de l'appareil respiratoire,4,true,true,true,3,pere_interdit,1748
 Q35,XVII,XVII/Q35.md,Fente palatine,5,true,true,true,3,pere_interdit,1261
 Q36,XVII,XVII/Q36.md,Fente labiale,3,true,true,true,3,pere_interdit,1113
 Q37,XVII,XVII/Q37.md,Fente labiopalatine,8,true,true,true,3,pere_interdit,1830
-Q38,XVII,XVII/Q38.md,"Autres malformations congénitales de la langue, de la bouche et du pharynx",9,true,true,true,3,pere_interdit,4243
+Q38,XVII,XVII/Q38.md,"Autres malformations congénitales de la langue, de la bouche et du pharynx",9,true,true,true,3,pere_interdit,4283
 Q39,XVII,XVII/Q39.md,Malformations congénitales de l'œsophage,9,true,true,true,3,pere_interdit,2829
 Q40,XVII,XVII/Q40.md,Autres malformations congénitales des voies digestives supérieures,6,true,true,true,3,pere_interdit,3119
 Q41,XVII,XVII/Q41.md,"Absence, atrésie et sténose congénitales de l'intestin grêle",5,true,true,true,3,pere_interdit,2321
 Q42,XVII,XVII/Q42.md,"Absence, atrésie et sténose congénitales du gros intestin",6,true,true,true,3,pere_interdit,2060
-Q43,XVII,XVII/Q43.md,Autres malformations congénitales de l'intestin,10,true,true,true,3,pere_interdit,4063
+Q43,XVII,XVII/Q43.md,Autres malformations congénitales de l'intestin,10,true,true,true,3,pere_interdit,4073
 Q44,XVII,XVII/Q44.md,"Malformations congénitales de la vésicule biliaire, des voies biliaires et du foie",8,true,true,true,3,pere_interdit,3408
 Q45,XVII,XVII/Q45.md,Autres malformations congénitales de l'appareil digestif,6,true,true,true,3,pere_interdit,2849
 Q50,XVII,XVII/Q50.md,"Malformations congénitales des ovaires, des trompes de Fallope et des ligaments larges",7,true,true,true,3,pere_interdit,2382
-Q51,XVII,XVII/Q51.md,Malformations congénitales de l'utérus et du col de l'utérus,10,true,true,true,3,pere_interdit,1822
+Q51,XVII,XVII/Q51.md,Malformations congénitales de l'utérus et du col de l'utérus,10,true,true,true,3,pere_interdit,1864
 Q52,XVII,XVII/Q52.md,Autres malformations congénitales des organes génitaux de la femme,10,true,true,true,3,pere_interdit,2828
 Q53,XVII,XVII/Q53.md,Cryptorchidie,4,true,true,true,3,pere_interdit,1187
 Q54,XVII,XVII/Q54.md,Hypospadias,7,true,true,true,3,pere_interdit,1390
-Q55,XVII,XVII/Q55.md,Autres malformations congénitales des organes génitaux de l'homme,9,true,true,true,3,pere_interdit,3720
+Q55,XVII,XVII/Q55.md,Autres malformations congénitales des organes génitaux de l'homme,9,true,true,true,3,pere_interdit,3734
 Q56,XVII,XVII/Q56.md,Non-différenciation sexuelle et pseudohermaphrodisme,5,true,true,true,3,pere_interdit,1833
 Q60,XVII,XVII/Q60.md,Agénésie rénale et autres défauts de développement rénal,7,true,true,true,3,pere_interdit,1776
 Q61,XVII,XVII/Q61.md,Maladies kystiques du rein,8,true,true,true,3,pere_interdit,2921
@@ -1269,23 +1269,23 @@ Q66,XVII,XVII/Q66.md,Anomalies morphologiques congénitales du pied,10,true,true
 Q67,XVII,XVII/Q67.md,"Anomalies morphologiques congénitales de la tête, de la face, du rachis et du thorax",9,true,true,true,3,pere_interdit,3048
 Q68,XVII,XVII/Q68.md,Autres anomalies morphologiques congénitales ostéoarticulaires et des muscles,7,true,true,true,3,pere_interdit,2775
 Q69,XVII,XVII/Q69.md,Polydactylie,4,true,true,true,3,pere_interdit,787
-Q70,XVII,XVII/Q70.md,Syndactylie,6,true,true,true,3,pere_interdit,1078
-Q71,XVII,XVII/Q71.md,Raccourcissement du membre supérieur,9,true,true,true,3,pere_interdit,2123
+Q70,XVII,XVII/Q70.md,Syndactylie,6,true,true,true,3,pere_interdit,1114
+Q71,XVII,XVII/Q71.md,Raccourcissement du membre supérieur,9,true,true,true,3,pere_interdit,2098
 Q72,XVII,XVII/Q72.md,Raccourcissement du membre inférieur,10,true,true,true,3,pere_interdit,2001
 Q73,XVII,XVII/Q73.md,Raccourcissement d'un membre non précisé,3,true,true,true,3,pere_interdit,1419
-Q74,XVII,XVII/Q74.md,Autres malformations congénitales d'un (des) membre(s),6,true,true,true,3,pere_interdit,4089
-Q75,XVII,XVII/Q75.md,Autres malformations congénitales des os du crâne et de la face,8,true,true,true,3,pere_interdit,3928
+Q74,XVII,XVII/Q74.md,Autres malformations congénitales d'un (des) membre(s),6,true,true,true,3,pere_interdit,4095
+Q75,XVII,XVII/Q75.md,Autres malformations congénitales des os du crâne et de la face,8,true,true,true,3,pere_interdit,3936
 Q76,XVII,XVII/Q76.md,Malformations congénitales du rachis et du thorax osseux,10,true,true,true,3,pere_interdit,5466
-Q77,XVII,XVII/Q77.md,Ostéo-chondro-dysplasie avec anomalies de la croissance des os longs et du rachis,10,true,true,true,3,pere_interdit,3301
-Q78,XVII,XVII/Q78.md,Autres ostéo-chondro-dysplasies,9,true,true,true,3,pere_interdit,3338
-Q79,XVII,XVII/Q79.md,"Malformations congénitales du système ostéoarticulaire et des muscles, non classées ailleurs",9,true,true,true,3,pere_interdit,3618
+Q77,XVII,XVII/Q77.md,Ostéo-chondro-dysplasie avec anomalies de la croissance des os longs et du rachis,10,true,true,true,3,pere_interdit,3305
+Q78,XVII,XVII/Q78.md,Autres ostéo-chondro-dysplasies,9,true,true,true,3,pere_interdit,3344
+Q79,XVII,XVII/Q79.md,"Malformations congénitales du système ostéoarticulaire et des muscles, non classées ailleurs",9,true,true,true,3,pere_interdit,3607
 Q80,XVII,XVII/Q80.md,Ichtyose congénitale,7,true,true,true,3,pere_interdit,1998
 Q81,XVII,XVII/Q81.md,Épidermolyse bulleuse,5,true,true,true,3,pere_interdit,1863
 Q82,XVII,XVII/Q82.md,Autres malformations congénitales de la peau,8,true,true,true,3,pere_interdit,4036
 Q83,XVII,XVII/Q83.md,Malformations congénitales du sein,6,true,true,true,3,pere_interdit,1351
 Q84,XVII,XVII/Q84.md,Autres malformations congénitales de la peau et des phanères,9,true,true,true,3,pere_interdit,3255
 Q85,XVII,XVII/Q85.md,"Phacomatoses, non classées ailleurs",4,true,true,true,3,pere_interdit,3311
-Q86,XVII,XVII/Q86.md,"Syndromes congénitaux malformatifs dus à des causes exogènes connues, non classés ailleurs",4,true,true,true,3,pere_interdit,1321
+Q86,XVII,XVII/Q86.md,"Syndromes congénitaux malformatifs dus à des causes exogènes connues, non classés ailleurs",4,true,true,true,3,pere_interdit,1272
 Q87,XVII,XVII/Q87.md,Autres syndromes congénitaux malformatifs précisés atteignant plusieurs systèmes,7,true,true,true,3,pere_interdit,4979
 Q89,XVII,XVII/Q89.md,"Autres malformations congénitales, non classées ailleurs",8,true,true,true,3,pere_interdit,3786
 Q90,XVII,XVII/Q90.md,Syndrome de Down,4,true,true,true,3,pere_interdit,961
@@ -1390,11 +1390,11 @@ R98,XVIII,XVIII/R98.md,Décès sans témoin,0,true,true,true,0,codable,1622
 R99,XVIII,XVIII/R99.md,Autres causes de mortalité mal définies et non précisées,0,true,true,true,0,codable,960
 S00,XIX,XIX/S00.md,Lésion traumatique superficielle de la tête,9,true,true,true,3,pere_interdit,3646
 S01,XIX,XIX/S01.md,Plaie ouverte de la tête,9,true,true,true,3,pere_interdit,3411
-S02,XIX,XIX/S02.md,Fracture du crâne et des os de la face,10,true,true,false,3,pere_interdit,2724
+S02,XIX,XIX/S02.md,Fracture du crâne et des os de la face,10,true,true,false,3,pere_interdit,2769
 S03,XIX,XIX/S03.md,"Luxation, entorse et foulure d'articulations et de ligaments de la tête",6,true,true,true,3,pere_interdit,2786
 S04,XIX,XIX/S04.md,Lésion traumatique des nerfs crâniens,10,true,true,true,3,pere_interdit,2968
 S05,XIX,XIX/S05.md,Lésion traumatique de l'œil et de l'orbite,10,true,true,true,3,pere_interdit,4381
-S06,XIX,XIX/S06.md,Lésion traumatique intracrânienne,10,true,true,false,3,pere_interdit,2688
+S06,XIX,XIX/S06.md,Lésion traumatique intracrânienne,10,true,true,true,3,pere_interdit,4084
 S07,XIX,XIX/S07.md,Écrasement de la tête,4,true,true,false,3,pere_interdit,1864
 S08,XIX,XIX/S08.md,Amputation traumatique d'une partie de la tête,4,true,true,false,3,pere_interdit,2000
 S09,XIX,XIX/S09.md,"Lésions traumatiques de la tête, autres et sans précision",6,true,true,true,3,pere_interdit,2742
@@ -1414,8 +1414,8 @@ S22,XIX,XIX/S22.md,"Fracture de côte(s), du sternum et du rachis dorsal",8,true
 S23,XIX,XIX/S23.md,"Luxation, entorse et foulure des articulations et des ligaments du thorax",6,true,true,true,3,pere_interdit,2284
 S24,XIX,XIX/S24.md,Lésion traumatique des nerfs et de la moelle épinière au niveau du thorax,7,true,true,false,3,pere_interdit,2286
 S25,XIX,XIX/S25.md,Lésion traumatique de vaisseaux sanguins du thorax,9,true,true,false,3,pere_interdit,2111
-S26,XIX,XIX/S26.md,Lésion traumatique du cœur,3,true,true,false,3,pere_interdit,1788
-S27,XIX,XIX/S27.md,"Lésions traumatiques d'organes intrathoraciques, autres et non précisés",10,true,true,false,3,pere_interdit,2231
+S26,XIX,XIX/S26.md,Lésion traumatique du cœur,3,true,true,true,3,pere_interdit,1924
+S27,XIX,XIX/S27.md,"Lésions traumatiques d'organes intrathoraciques, autres et non précisés",10,true,true,true,3,pere_interdit,2863
 S28,XIX,XIX/S28.md,Écrasement du thorax et amputation traumatique d'une partie du thorax,2,true,true,true,3,pere_interdit,1718
 S29,XIX,XIX/S29.md,"Lésions traumatiques du thorax, autres et sans précision",4,true,true,false,3,pere_interdit,1913
 S30,XIX,XIX/S30.md,"Lésion traumatique superficielle de l'abdomen, des lombes et du bassin",6,true,true,true,3,pere_interdit,2987
@@ -1424,8 +1424,8 @@ S32,XIX,XIX/S32.md,Fracture du rachis lombaire et du bassin,8,true,true,false,3,
 S33,XIX,XIX/S33.md,"Luxation, entorse et foulure des articulations et des ligaments du rachis lombaire et du bassin",8,true,true,true,3,pere_interdit,2737
 S34,XIX,XIX/S34.md,"Lésion traumatique des nerfs et de la moelle épinière lombaire au niveau de l'abdomen, des lombes et du bassin",8,true,true,false,3,pere_interdit,2299
 S35,XIX,XIX/S35.md,"Lésion traumatique de vaisseaux sanguins au niveau de l'abdomen, des lombes et du bassin",9,true,true,false,3,pere_interdit,2807
-S36,XIX,XIX/S36.md,Lésion traumatique d'organes intraabdominaux,10,true,true,false,3,pere_interdit,1957
-S37,XIX,XIX/S37.md,Lésion traumatique des organes urinaires et pelviens,10,true,true,false,3,pere_interdit,2151
+S36,XIX,XIX/S36.md,Lésion traumatique d'organes intraabdominaux,10,true,true,true,3,pere_interdit,2196
+S37,XIX,XIX/S37.md,Lésion traumatique des organes urinaires et pelviens,10,true,true,false,3,pere_interdit,2228
 S38,XIX,XIX/S38.md,"Écrasement et amputation traumatique d'une partie de l'abdomen, des lombes et du bassin",4,true,true,true,3,pere_interdit,2072
 S39,XIX,XIX/S39.md,"Lésions traumatiques de l'abdomen, des lombes et du bassin, autres et sans précision",5,true,true,false,3,pere_interdit,2194
 S40,XIX,XIX/S40.md,Lésion traumatique superficielle de l'épaule et du bras,4,true,true,true,3,pere_interdit,1668
@@ -1448,7 +1448,7 @@ S56,XIX,XIX/S56.md,Lésion traumatique de muscles et de tendons au niveau de l'a
 S57,XIX,XIX/S57.md,Écrasement de l'avant-bras,3,false,true,false,3,pere_interdit,1322
 S58,XIX,XIX/S58.md,Amputation traumatique de l'avant-bras,3,false,true,false,3,pere_interdit,1399
 S59,XIX,XIX/S59.md,"Lésions traumatiques de l'avant-bras, autres et sans précision",3,true,true,false,3,pere_interdit,1725
-S60,XIX,XIX/S60.md,Lésion traumatique superficielle du poignet et de la main,6,true,true,true,3,pere_interdit,1727
+S60,XIX,XIX/S60.md,Lésion traumatique superficielle du poignet et de la main,6,true,true,true,3,pere_interdit,1701
 S61,XIX,XIX/S61.md,Plaie ouverte du poignet et de la main,5,true,true,true,3,pere_interdit,1792
 S62,XIX,XIX/S62.md,Fracture au niveau du poignet et de la main,9,true,true,false,3,pere_interdit,1664
 S63,XIX,XIX/S63.md,"Luxation, entorse et foulure d'articulations et de ligaments au niveau du poignet et de la main",8,true,true,true,3,pere_interdit,3519
@@ -1544,7 +1544,7 @@ T52,XIX,XIX/T52.md,Effet toxique de solvants organiques,7,true,true,false,3,pere
 T53,XIX,XIX/T53.md,Effet toxique de dérivés halogénés d'hydrocarbures aliphatiques et aromatiques,9,true,true,false,3,pere_interdit,1724
 T54,XIX,XIX/T54.md,Effet toxique de substances corrosives,5,true,true,false,3,pere_interdit,1511
 T55,XIX,XIX/T55.md,Effet toxique de savons et détergents,0,false,true,false,0,codable,859
-T56,XIX,XIX/T56.md,Effet toxique des métaux,10,true,true,true,3,pere_interdit,2508
+T56,XIX,XIX/T56.md,Effet toxique des métaux,10,true,true,true,3,pere_interdit,2510
 T57,XIX,XIX/T57.md,Effet toxique d'autres substances non organiques,6,false,true,true,3,pere_interdit,1382
 T58,XIX,XIX/T58.md,Effet toxique du monoxyde de carbone,0,true,true,true,0,codable,1035
 T59,XIX,XIX/T59.md,"Effets toxiques d'autres émanations, gaz et fumées",10,true,true,true,3,pere_interdit,1744
@@ -2009,9 +2009,9 @@ Z45,XXI,XXI/Z45.md,Ajustement et entretien d'une prothèse interne,6,true,true,t
 Z46,XXI,XXI/Z46.md,Mise en place et ajustement d'autres appareils,10,true,true,true,3,pere_interdit,2925
 Z47,XXI,XXI/Z47.md,Autres soins de contrôle orthopédiques,3,true,true,true,3,pere_interdit,1925
 Z48,XXI,XXI/Z48.md,Autres soins de contrôle chirurgicaux,3,true,true,true,3,pere_interdit,1604
-Z49,XXI,XXI/Z49.md,Surveillance d'une dialyse,3,true,true,true,3,pere_interdit,1248
+Z49,XXI,XXI/Z49.md,Surveillance d'une dialyse,3,true,true,true,3,pere_interdit,1308
 Z50,XXI,XXI/Z50.md,Soins impliquant une rééducation,10,true,true,true,3,pere_interdit,2178
-Z51,XXI,XXI/Z51.md,Autres soins médicaux,9,true,true,true,3,pere_interdit,1614
+Z51,XXI,XXI/Z51.md,Autres soins médicaux,9,true,true,true,3,pere_interdit,1722
 Z52,XXI,XXI/Z52.md,Donneurs d'organes et de tissus,10,true,true,true,3,pere_interdit,1404
 Z53,XXI,XXI/Z53.md,"Sujets ayant recours aux services de santé pour des actes médicaux spécifiques, non effectués",5,false,true,true,3,pere_interdit,1333
 Z54,XXI,XXI/Z54.md,Convalescence,8,true,true,true,3,pere_interdit,1332
@@ -2042,7 +2042,7 @@ Z85,XXI,XXI/Z85.md,Antécédents personnels de tumeur maligne,10,true,true,false
 Z86,XXI,XXI/Z86.md,Antécédents personnels de certaines autres maladies,8,true,true,false,3,pere_interdit,3144
 Z87,XXI,XXI/Z87.md,Antécédents personnels d'autres maladies,9,true,true,false,3,pere_interdit,3040
 Z88,XXI,XXI/Z88.md,Antécédents personnels d'allergie à des médicaments et des substances biologiques,10,false,true,false,3,pere_interdit,1539
-Z89,XXI,XXI/Z89.md,Absence acquise d'un membre,10,true,true,true,3,pere_interdit,2369
+Z89,XXI,XXI/Z89.md,Absence acquise d'un membre,10,true,true,true,3,pere_interdit,2345
 Z90,XXI,XXI/Z90.md,"Absence acquise d'organes, non classée ailleurs",9,true,true,true,3,pere_interdit,2466
 Z91,XXI,XXI/Z91.md,"Antécédents personnels de facteurs de risque, non classés ailleurs",9,true,true,false,3,pere_interdit,2278
 Z92,XXI,XXI/Z92.md,Antécédents personnels de traitement médical,9,true,true,true,3,pere_interdit,2101
@@ -2052,4 +2052,4 @@ Z95,XXI,XXI/Z95.md,Présence d'implants et de greffes cardiaques et vasculaires,
 Z96,XXI,XXI/Z96.md,Présence d'autres implants fonctionnels,10,true,true,true,3,pere_interdit,2620
 Z97,XXI,XXI/Z97.md,Présence d'autres appareils,7,false,true,true,3,pere_interdit,1935
 Z98,XXI,XXI/Z98.md,Autres états postchirurgicaux,4,true,true,true,3,pere_interdit,1584
-Z99,XXI,XXI/Z99.md,"Dépendance envers des machines et appareils auxiliaires, non classée ailleurs",7,true,true,true,3,pere_interdit,1792
+Z99,XXI,XXI/Z99.md,"Dépendance envers des machines et appareils auxiliaires, non classée ailleurs",7,true,true,true,3,pere_interdit,2315
