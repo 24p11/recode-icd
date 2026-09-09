@@ -602,6 +602,28 @@ R1/R2/R3 gouvernent la **seule** section Formulations. La section
 section guide MCO) n'y est **pas** soumise — contrat `(code, ctx)` sans
 `rng` ni `outils`, et `test_section_hors_chapter_policy` l'affirme.
 
+### Registre des formulations écartées (registre archaïque)
+
+Quatrième filtre de rendu de la section Formulations, déclaré dans
+`referentials/curation/registre_formulations.yaml` (chantier du
+2026-09-09) : les formulations de registre archaïque — vocabulaire de
+certificat de décès, terminologie désuète (« apoplexie congestive »,
+« misère physiologique ») — validées **ligne à ligne** par RF sont
+écartées à l'assemblage. Chargement par
+`registre_formulations.load_registre` (via `cards.charge_politique`),
+application dans `_candidates_formulations` sur la **forme source
+exacte** `(code, source, texte)`, avant R3. Le CSV maître est intouché.
+Une formulation s'écarte **entière**, jamais ne se réécrit. Seules les
+familles de la section Formulations (INDEX, APHP, CEPIDC, **LLM
+comprise** — le point d'application est testé par fixture avant toute
+source réelle) sont admissibles : une entrée OFS ou ANS est refusée
+bruyamment au chargement. Témoins dans
+`tests/regression/test_registre_formulations_witnesses.py` (paires
+écartée/gardée à même sonde, fiche I64 avant/après, ancrage des entrées
+sur le CSV). Re-mesure et fiches à section vidée/quasi-vidée (l'entrée
+du chantier synonymes LLM) :
+`docs/analyses/2026-09-09_registre_formulations_re_mesure.md`.
+
 ### Profils de bibliothèque (chantier couverture ATIH, D4)
 
 Clé `profils:` du même YAML — premier axe réel du backlog « profils de
@@ -660,6 +682,17 @@ sources en silence. Verrouillé par `test_remplacement_et_non_fusion`.
    en queue provoquent une **exclusion, jamais une amputation**. Ce sont
    deux validations distinctes ; ne jamais conclure de l'une à l'autre.
 
+4. **Sonde ≠ verdict — granularité formulation, validation
+   clinicienne.** Les sondes lexicales du registre archaïque ne sont
+   qu'un instrument de collecte : la même sonde porte des écartées et
+   des gardées (« maladie tabès » s'écarte, « tabès syphilitique » se
+   garde ; « croup » s'écarte sur A36.0, « séquelles croup » se garde
+   sur B94.8). Le partage archaïque / vivant est **clinicien, pas
+   lexical**, et se juge sur la **forme rendue** (ce que le lecteur de
+   la fiche voit : « Catalepsie (hystérique) » rend « catalepsie »,
+   sans archaïsme). Ne jamais transformer le registre en règle par
+   terme, ne jamais écarter sans verdict humain ligne à ligne.
+
 ### Commandes
 
 ```bash
@@ -668,6 +701,10 @@ uv run recode-icd cards build             # profil generation (codables MCO) →
 uv run recode-icd cards build --profil controle   # tous les codes → outputs/cards_library_controle
 uv run recode-icd cards build-categories
 uv run python scripts/explore/relectures/export_relecture_index.py --graine 4242
+uv run python scripts/explore/relectures/export_relecture_registre_formulations.py
+                                          # candidates registre archaïque (sondes)
+uv run python scripts/explore/mesure_registre_formulations.py
+                                          # re-mesure post-filtre + fiches à compléter
 ```
 
 `VERSION_REGLE` dans le script de relecture doit être **incrémentée à
