@@ -54,6 +54,7 @@ from collections import Counter
 from pathlib import Path
 
 import polars as pl
+from xlsxwriter import Workbook
 
 from recode_icd._normalize import normalize_for_match
 from recode_icd.cards import charge_politique
@@ -226,7 +227,10 @@ def main() -> None:
     config = outils.config_normalisation
 
     # -- attestations contemporaines par code (signal d'isolement) -----
+    # Au passage, le libellé officiel de chaque code (celui du CSV
+    # maître, le même que le titre de fiche) pour la lecture humaine.
     contemporaines: dict[str, set[str]] = {}
+    libelles: dict[str, str] = {}
     for ligne in flat.iter_rows(named=True):
         famille = policy.famille_de(ligne["source"])
         if famille not in FAMILLES_CONTEMPORAINES:
@@ -235,6 +239,8 @@ def main() -> None:
         if cle:
             contemporaines.setdefault(ligne["code"], set()).add(cle)
     for code, libelle in flat.select("code", "libelle").unique().iter_rows():
+        if libelle:
+            libelles.setdefault(code, libelle)
         cle = normalize_for_match(libelle)
         if cle:
             contemporaines.setdefault(code, set()).add(cle)
@@ -274,6 +280,7 @@ def main() -> None:
         lignes.append(
             {
                 "code": code,
+                "libelle_officiel": libelles.get(code, ""),
                 "chapitre": chapitre or "",
                 "forme_rendue": rendue,
                 "forme_source": texte,
@@ -343,6 +350,7 @@ def main() -> None:
             impact.append(
                 {
                     "code": code,
+                    "libelle_officiel": libelles.get(code, ""),
                     "chapitre": chapitre or "",
                     "formulations_avant": n_avant,
                     "formulations_apres": n_apres,
@@ -359,6 +367,17 @@ def main() -> None:
         f"\nFiches touchées par ≥1 écart proposé : {len(ecartes_par_code)} ; "
         f"section vidée : {videes} ; réduite à ≤2 : {len(impact) - videes} → {chemin_impact}"
     )
+
+    # -- classeur xlsx de relecture (les deux tables, en-têtes figés) --
+    # Support de la relecture humaine ; les CSV restent la trace
+    # canonique (diffables, committés).
+    chemin_xlsx = SORTIE / f"relecture_registre_formulations_{VERSION_REGLE}.xlsx"
+    with Workbook(chemin_xlsx) as classeur:
+        df.write_excel(workbook=classeur, worksheet="candidates", autofit=True, freeze_panes="A2")
+        df_impact.write_excel(
+            workbook=classeur, worksheet="fiches_impact", autofit=True, freeze_panes="A2"
+        )
+    print(f"Classeur de relecture : {chemin_xlsx}")
     print("Remplir/corriger la colonne `proposition` : ecarter | garder — le verdict RF fait foi.")
 
 
