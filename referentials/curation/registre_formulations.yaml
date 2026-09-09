@@ -1,0 +1,576 @@
+# Registre des formulations écartées de la section « Formulations
+# cliniques alternatives » pour registre archaïque (vocabulaire de
+# certificat de décès, terminologie désuète — « apoplexie congestive »,
+# « misère physiologique »…).
+#
+# ─────────────────────────────────────────────────────────────────────
+# DOCTRINE — sonde ≠ verdict, granularité formulation, validation
+# clinicienne.
+#
+#   La liste ci-dessous est le VERDICT LIGNE À LIGNE de RF sur le
+#   support de relecture scripts/explore/relectures/
+#   relecture_registre_formulations_v1.{csv,xlsx} (sondes lexicales +
+#   signal d'isolement). Une formulation s'écarte ENTIÈRE, jamais ne se
+#   réécrit. Le partage archaïque / vivant est clinicien, pas lexical :
+#   la même sonde porte des écartées et des gardées (« maladie tabès »
+#   s'écarte, « tabès syphilitique » se garde, sur le même code).
+# ─────────────────────────────────────────────────────────────────────
+#
+# Filtre de RENDU, au même titre que R1/R3 (chapter_policy) : appliqué
+# à l'assemblage des fiches, sur la FORME SOURCE EXACTE (code, source,
+# texte). Le CSV maître, les Parquets et la colonne `texte` ne sont
+# JAMAIS modifiés.
+#
+# Seules les familles de la section Formulations (INDEX, APHP, CEPIDC,
+# LLM) peuvent y figurer — une entrée OFS ou ANS est refusée au
+# chargement (`registre_formulations.load_registre`).
+
+version: 1
+
+validation:
+  relecteur: RF
+  date: 2026-09-09
+  support: scripts/explore/relectures/relecture_registre_formulations_v1.xlsx
+
+ecartees:
+- code: A18.4
+  source: CIM-10 index
+  texte: Abcès (embolique) (infectieux) (multiple) (pyogène) (septique) (de), scrofuleux
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: A18.4
+  source: CIM-10 index
+  texte: Lichen, scrofulosorum (primaire)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: A18.4
+  source: CIM-10 index
+  texte: Ulcère (à) (de), scrofuleux (tuberculeux)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: A36.0
+  source: CIM-10 index
+  texte: Croup (canada j05.0)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: A36.0
+  source: CIM-10 index
+  texte: Croup (canada j05.0), diphtérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: A36.0
+  source: CepiDc 2015
+  texte: croup
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: A52.1
+  source: CIM-10 index
+  texte: Paralysie (de), générale (syphilitique)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: A52.1
+  source: CepiDc 2015
+  texte: maladie tabès
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: A52.1
+  source: CepiDc 2015
+  texte: paralysie générale
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: D22.9
+  source: AP-HP Dermatologie
+  texte: Naevus mongolien
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: D50.8
+  source: CIM-10 index
+  texte: Chlorose
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E00.0
+  source: CIM-10 index
+  texte: Crétinisme (congénital) (endémique) (sporadique), neurologique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E00.1
+  source: CIM-10 index
+  texte: Crétinisme (congénital) (endémique) (sporadique), hypothyroïdien
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E00.1
+  source: CIM-10 index
+  texte: Crétinisme (congénital) (endémique) (sporadique), myxoedémateux
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E00.2
+  source: CIM-10 index
+  texte: Crétinisme (congénital) (endémique) (sporadique), mixte
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E00.9
+  source: CIM-10 index
+  texte: Crétinisme (congénital) (endémique) (sporadique)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E00.9
+  source: CepiDc 2015
+  texte: crétinisme congénital
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E41
+  source: CIM-10 index
+  texte: Athrepsie (due à dénutrition)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E41
+  source: CepiDc 2015
+  texte: athrepsie
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E75.4
+  source: CIM-10 index
+  texte: Idiotie (congénitale) (qi au-dessous de 20), amaurotique (de bielschowsky(-jansky))
+    (familiale) (infantile(tardive)) (juvénile(tardive)) (de spielmeyer-vogt)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: E75.4
+  source: CIM-10 index
+  texte: Jansky-bielschowsky, idiotie amaurotique familiale de
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F03
+  source: CepiDc 2015
+  texte: sénilité démentielle
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F03
+  source: CepiDc 2015
+  texte: sénilité mentale
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F03
+  source: CepiDc 2015
+  texte: sénilité psychique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F29
+  source: CepiDc 2015
+  texte: aliénation mentale
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F32.9
+  source: CepiDc 2015
+  texte: ictus dépressif
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.3
+  source: CIM-10 index
+  texte: Agitation, hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Attitude(s), hystériques
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Automatisme, ambulatoire hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Automatisme, hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Balancement hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Chorée (de), hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Claudication (vasculaire), hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Contracture (de), hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Hémiplégie, hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Monoplégie (de), hystérique (transitoire)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Mouvement(s), hystériques
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Paralysie (de), hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Spasme (de), hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Torticolis, hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.4
+  source: CIM-10 index
+  texte: Tremblement (de), hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.5
+  source: CIM-10 index
+  texte: Convulsions (idiopathiques) (de), hystériques
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.5
+  source: CIM-10 index
+  texte: Tétanie, hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.8
+  source: CIM-10 index
+  texte: Manie (monopolaire), hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.8
+  source: CIM-10 index
+  texte: Vertige (de), hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: conversion hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: hystérie
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: hystérie conversion
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: névrose hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: névrose hystérique ancienne
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: névrose hystérique chronique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: personnalité névrotico-hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: psychopathie hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: syndrome conversion hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: syndrome hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: terrain hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F44.9
+  source: CepiDc 2015
+  texte: état névrotique type hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F45.8
+  source: CIM-10 index
+  texte: Dysphagie, hystérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F48.0
+  source: CIM-10 index
+  texte: Neurasthénie
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F71.9
+  source: CepiDc 2015
+  texte: imbécillité
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F73.9
+  source: CepiDc 2015
+  texte: idiotie
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: F99
+  source: CIM-10 index
+  texte: Folie
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G31.1
+  source: CepiDc 2015
+  texte: sénilité cérébrale
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G45.9
+  source: CepiDc 2015
+  texte: ictus cérébral transitoire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G45.9
+  source: CepiDc 2015
+  texte: ictus transitoire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G83.9
+  source: CepiDc 2015
+  texte: paralysie générale
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CIM-10 index
+  texte: Congestion (chronique) (passive) (de), cérébrale
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CIM-10 index
+  texte: Ramollissement (de), cérébral
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissement cérébral ancien
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissement cérébral bihémisphérique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissement cérébral bilatéral
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissement fonctions cérébrales
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissement hémi-cérébelleux
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissement pariétal ancien
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissement pariéto-temporal
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissement temporal
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G93.8
+  source: CepiDc 2015
+  texte: ramollissements bi-hémisphériques multiples
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: G95.8
+  source: CIM-10 index
+  texte: Ramollissement (de), moelle (épinière)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: H65.9
+  source: CIM-10 index
+  texte: Catarrhe (de(s)), oreille moyenne
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: H65.9
+  source: CIM-10 index
+  texte: Catarrhe (de(s)), tubo-tympanique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: H68.0
+  source: CIM-10 index
+  texte: Catarrhe (de(s)), tubaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I27.9
+  source: CepiDc 2015
+  texte: ictus cardio-pulmonaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I51.6
+  source: CepiDc 2015
+  texte: ictus cardio-circulatoire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I51.6
+  source: CepiDc 2015
+  texte: ictus cardio-vasculaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I51.6
+  source: CepiDc 2015
+  texte: ictus cardiovasculaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I62.9
+  source: CepiDc 2015
+  texte: ramollissements hémorragiques intracrâniens
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I64
+  source: CIM-10 index
+  texte: Apoplexie (de)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I64
+  source: CIM-10 index
+  texte: Apoplexie (de), basilaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I64
+  source: CIM-10 index
+  texte: Apoplexie (de), bulbaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I64
+  source: CIM-10 index
+  texte: Apoplexie (de), cerveau
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I64
+  source: CIM-10 index
+  texte: Apoplexie (de), congestive
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I64
+  source: CIM-10 index
+  texte: Apoplexie (de), cérébrale
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I64
+  source: CIM-10 index
+  texte: Coma, apoplectique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I67.8
+  source: CepiDc 2015
+  texte: congestion cérébrale ischémique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I69.8
+  source: CepiDc 2015
+  texte: antécédent ramollissement cérébral
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I69.8
+  source: CepiDc 2015
+  texte: antécédent ramollissement sylvien
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I97.8
+  source: CepiDc 2015
+  texte: ramollissement cérébral post-opératoire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I97.8
+  source: CepiDc 2015
+  texte: ramollissement hémorragique post-fibrinolyse
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: I97.8
+  source: CepiDc 2015
+  texte: ramollissement tronc cérébral post-opératoire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J02.9
+  source: CIM-10 index
+  texte: Catarrhe (de(s)), pharyngé (aigu)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J05.0
+  source: CIM-10 index
+  texte: Croup (canada j05.0), faux (canada j38.7)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J05.0
+  source: CIM-10 index
+  texte: Faux, croup (canada j38.7)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J31.0
+  source: CepiDc 2015
+  texte: catarrhe nasal
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J31.0
+  source: CepiDc 2015
+  texte: catarrhe oculo-nasal
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J31.1
+  source: CIM-10 index
+  texte: Catarrhe (de(s)), rhinopharyngé (chronique)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J31.2
+  source: CIM-10 index
+  texte: Catarrhe (de(s)), fumeurs
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J37.0
+  source: CIM-10 index
+  texte: Catarrhe (de(s)), laryngé (chronique)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J38.0
+  source: CepiDc 2015
+  texte: ictus laryngé
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J38.7
+  source: CepiDc 2015
+  texte: ictus laryngé
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J39.2
+  source: CepiDc 2015
+  texte: ictus pharyngé
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: J40
+  source: CepiDc 2015
+  texte: catarrhe bronchique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: K31.8
+  source: CepiDc 2015
+  texte: embarras gastrique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: K35.8
+  source: CepiDc 2015
+  texte: sphacèle appendiculaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: K62.8
+  source: CepiDc 2015
+  texte: sphacèle rectum
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: K80.2
+  source: CepiDc 2015
+  texte: sphacèle vésicule biliaire lithiasique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: K81.0
+  source: CepiDc 2015
+  texte: sphacèle vésiculaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: O45.9
+  source: CepiDc 2015
+  texte: apoplexie utéro-placentaire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: P83.2
+  source: CIM-10 index
+  texte: Hydropisie, foetus
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: P91.0
+  source: CepiDc 2015
+  texte: ramollissement encéphalique périnatal
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: P91.0
+  source: CepiDc 2015
+  texte: ramollissement ischémique diffus
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: Q82.5
+  source: AP-HP Dermatologie
+  texte: Tache mongolique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: Q90.9
+  source: AP-HP Dermatologie
+  texte: Mongolisme
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: Q90.9
+  source: AP-HP Dermatologie
+  texte: Trisomie 21 (mongolisme)
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: Q90.9
+  source: CepiDc 2015
+  texte: mongolien
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R02
+  source: CepiDc 2015
+  texte: sphacèle orteil
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R09.2
+  source: CepiDc 2015
+  texte: ictus cardio-respiratoire
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R15
+  source: CepiDc 2015
+  texte: gâtisme
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R41.8
+  source: CepiDc 2015
+  texte: sénilité précoce
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R60.1
+  source: CIM-10 index
+  texte: Hydropisie
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R63.4
+  source: CepiDc 2015
+  texte: consomption
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R63.4
+  source: CepiDc 2015
+  texte: consomption terminale
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R64
+  source: CepiDc 2015
+  texte: misère physiologique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R64
+  source: CepiDc 2015
+  texte: misère physiologique ancienne
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R64
+  source: CepiDc 2015
+  texte: misère physiologique extrême
+  motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: R64
+  source: CepiDc 2015
+  texte: état misère physiologique
+  motif: registre archaïque (certificat de décès / terminologie désuète)
