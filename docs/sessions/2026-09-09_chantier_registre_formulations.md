@@ -20,13 +20,27 @@ contextuelles à périmètre par code. **157 candidates** (122 ecarter /
 35 garder proposés) ; 103 entrées d'Index à sonde déjà écartées par R3,
 non listées. Support xlsx à deux feuilles pour la relecture.
 
-## Verdict RF (2026-09-09)
+## Verdict RF (2026-09-09, complété le 2026-09-12)
 
-**135 écartées / 22 gardées**, ligne à ligne dans le xlsx (CSV
-synchronisé). 15 verdicts ont corrigé les propositions — dont croup
-écarté partout sauf « séquelles croup » (B94.8), « paralysie
-générale » et « lichen scrofulosorum » écartés, « démence précoce »
-(F03) gardée.
+**135 écartées / 22 gardées** au verdict initial, ligne à ligne dans
+le xlsx (CSV synchronisé). 15 verdicts ont corrigé les propositions —
+dont croup, « paralysie générale » et « lichen scrofulosorum »
+écartés.
+
+Deux lignes signalées à RF, tranchées le 2026-09-12 (**bilan final :
+136 écartées / 21 gardées**) :
+
+- **F03 « démence précoce » : gardée, décision explicite.** Lecture
+  moderne « démence à début précoce », vivante en gériatrie, qui prime
+  sur l'origine kraepelinienne probable de la ligne CepiDc.
+- **B94.8 « séquelles croup » : écartée** (correction du verdict
+  initial). Le mot « croup » est vivant (laryngite pédiatrique, J05.0),
+  mais cette formulation-ci est du registre diphtérique de certificat
+  de décès. Entrée ajoutée au YAML avec ce motif.
+
+Témoins dorés mis à jour en conséquence : croup écarté partout
+(A36.0, J05.0, B94.8), et F03 « démence précoce » gardée / « sénilité
+mentale » écartée sur le même code.
 
 ## Phase 2 — implémentation
 
@@ -41,12 +55,14 @@ générale » et « lichen scrofulosorum » écartés, « démence précoce »
 
 ## Chiffres
 
-132 formulations retirées (post-dédup) de 65 fiches. Par source :
-CepiDc 73, Index 58, AP-HP Dermatologie 4. Chapitres de tête : V 41,
-IX 18, VI 16, X 12, XVIII 11, IV 10. **Sections vidées : E00.0, E00.2,
-H65.9 ; réduites à ≤2 : E00.1, E00.9, I64 (8→1, reste « accident
-vasculaire cérébral SAI »), F44.5, J31.1** — ces 8 fiches sont
-l'entrée du chantier synonymes LLM.
+133 formulations retirées (post-dédup) de 66 fiches (après le
+complément du 2026-09-12). Par source : CepiDc 74, Index 58, AP-HP
+Dermatologie 4. Chapitres de tête : V 41, IX 18, VI 16, X 12, XVIII
+11, IV 10. **Sections vidées : E00.0, E00.2, H65.9 ; réduites à ≤2 :
+E00.1, E00.9, I64 (8→1, reste « accident vasculaire cérébral SAI »),
+F44.5, J31.1** — ces 8 fiches sont l'entrée du chantier synonymes LLM
+(B94.8 garde 80+ formulations CepiDc, sa section ne bouge pas de
+liste).
 
 ## Décisions consignées
 

@@ -4,7 +4,8 @@
 `feat/registre-formulations`. Verdict ligne à ligne de RF du 2026-09-09
 sur 157 candidates (support :
 `scripts/explore/relectures/relecture_registre_formulations_v1.{csv,xlsx}`) :
-**135 écartées, 22 gardées**. La liste validée vit dans
+**135 écartées, 22 gardées** — porté à **136 / 21** par le complément
+du 2026-09-12 (cf. addendum en fin de note). La liste validée vit dans
 `referentials/curation/registre_formulations.yaml`, consommée par
 l'assemblage des fiches (`cards._candidates_formulations`, avant R3) au
 même titre que les règles de la chapter_policy. Le CSV maître est
@@ -14,7 +15,7 @@ code, avec puis sans registre).
 
 ## Volumétrie des écartées
 
-Par source : **CepiDc 73**, **Index vol3 58**, **AP-HP Dermatologie 4**
+Par source : **CepiDc 74**, **Index vol3 58**, **AP-HP Dermatologie 4**
 (« Mongolisme », « Trisomie 21 (mongolisme) », « Naevus mongolien »,
 « Tache mongolique »). OFS et ANS ne sont jamais filtrés (refus au
 chargement, testé).
@@ -27,11 +28,12 @@ croup), **XVIII : 11** (misère physiologique, consomption, gâtisme),
 **IV : 10** (crétinisme, athrepsie), **I : 9** (croup, scrofule,
 paralysie générale). Queue : VIII 3, XI 5, XV-XVII 8, II/III 2.
 
-Sur les 135 écartées, **132 formulations disparaissent effectivement**
-des sections (post-dédup) de **65 fiches**. Témoins dorés (mêmes sondes,
+Sur les 136 écartées, **133 formulations disparaissent effectivement**
+des sections (post-dédup) de **66 fiches**. Témoin doré (même sonde,
 verdicts opposés — le partage est clinicien, pas lexical) : « maladie
-tabès » s'écarte, « tabès syphilitique » se garde (A52.1) ; « croup »
-s'écarte (A36.0, J05.0), « séquelles croup » se garde (B94.8).
+tabès » s'écarte, « tabès syphilitique » se garde (A52.1) ; même code,
+verdicts opposés : « démence précoce » se garde sur F03 quand les
+« sénilité … » s'écartent.
 
 ## Fiches à compléter — l'entrée du chantier synonymes LLM
 
@@ -67,3 +69,19 @@ n'atteignent pas les fiches et ne sont pas au registre — si R3
 s'assouplit un jour, la re-passe des sondes est à refaire
 (`export_relecture_registre_formulations.py`, `VERSION_REGLE` à
 incrémenter).
+
+## Addendum — complément de verdict (2026-09-12)
+
+Deux lignes signalées à la relecture, tranchées par RF :
+
+- **F03 « démence précoce » : gardée, décision explicite** — lecture
+  moderne « démence à début précoce », vivante en gériatrie, prime sur
+  l'origine kraepelinienne probable de la ligne CepiDc.
+- **B94.8 « séquelles croup » : écartée** (correction du verdict
+  initial « garder ») — le mot « croup » est vivant (laryngite
+  pédiatrique, J05.0), mais cette formulation-ci est du registre
+  diphtérique de certificat de décès.
+
+Bilan : 136 écartées / 21 gardées, 133 formulations retirées de 66
+fiches. B94.8 conserve 80+ formulations CepiDc : la liste des fiches à
+compléter ci-dessus est inchangée.

@@ -163,7 +163,7 @@ B89,I,I/B89.md,"Parasitose, sans précision",0,true,true,true,1,interdit_dp_dr,1
 B90,I,I/B90.md,Séquelles de tuberculose,5,true,true,true,3,pere_interdit,2322
 B91,I,I/B91.md,Séquelles de poliomyélite,0,true,true,true,4,interdit_dp,1932
 B92,I,I/B92.md,Séquelles de lèpre,0,true,true,true,4,interdit_dp,1284
-B94,I,I/B94.md,"Séquelles de maladies infectieuses et parasitaires, autres et non précisées",5,true,true,true,3,pere_interdit,2347
+B94,I,I/B94.md,"Séquelles de maladies infectieuses et parasitaires, autres et non précisées",5,true,true,true,3,pere_interdit,2360
 B95,I,I/B95.md,"Streptocoques et staphylocoques, cause de maladies classées dans d'autres chapitres",9,true,true,true,3,pere_interdit,3600
 B96,I,I/B96.md,"Autres agents bactériens précisés, cause de maladies classées dans d'autres chapitres",9,true,true,true,3,pere_interdit,2893
 B97,I,I/B97.md,"Virus, cause de maladies classées dans d'autres chapitres",9,true,true,true,3,pere_interdit,2834

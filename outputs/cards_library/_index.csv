@@ -759,7 +759,7 @@ B92,I,I/B92.md,Séquelles de lèpre,true,false,true,true,true,4,interdit_dp,OWL_
 B94.0,I,I/B94.0.md,Séquelles du trachome,true,false,true,true,false,4,interdit_dp,OWL_ANS,emissible,1765
 B94.1,I,I/B94.1.md,Séquelles d'encéphalite virale,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,2163
 B94.2,I,I/B94.2.md,Séquelles d'hépatite virale,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,1865
-B94.8,I,I/B94.8.md,Séquelles d'autres maladies infectieuses et parasitaires précisées,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,2319
+B94.8,I,I/B94.8.md,Séquelles d'autres maladies infectieuses et parasitaires précisées,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,2325
 B94.9,I,I/B94.9.md,"Séquelles de maladie infectieuse ou parasitaire, sans précision",true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,2151
 B95.0,I,I/B95.0.md,"Streptocoques, groupe A, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1,interdit_dp_dr,OWL_ANS,emissible,1844
 B95.1,I,I/B95.1.md,"Streptocoques, groupe B, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1,interdit_dp_dr,OWL_ANS,emissible,1869

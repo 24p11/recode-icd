@@ -31,6 +31,13 @@ validation:
   relecteur: RF
   date: 2026-09-09
   support: scripts/explore/relectures/relecture_registre_formulations_v1.xlsx
+  # Complément du 2026-09-12, deux verdicts signalés et tranchés :
+  # - F03 « démence précoce » CONFIRMÉE gardée (décision explicite) —
+  #   lecture moderne « démence à début précoce », vivante en gériatrie,
+  #   prime sur l'origine kraepelinienne probable de la ligne ;
+  # - B94.8 « séquelles croup » AJOUTÉE aux écartées (entrée ci-dessous,
+  #   motif propre) — correction du verdict initial.
+  complement: 2026-09-12
 
 ecartees:
 - code: A18.4
@@ -69,6 +76,12 @@ ecartees:
   source: CepiDc 2015
   texte: paralysie générale
   motif: registre archaïque (certificat de décès / terminologie désuète)
+- code: B94.8
+  source: CepiDc 2015
+  texte: séquelles croup
+  motif: registre diphtérique de certificat de décès — le mot « croup » reste
+    vivant (laryngite pédiatrique, J05.0) mais cette formulation-ci ne l'est
+    pas (verdict RF 2026-09-12, correction du verdict initial « garder »)
 - code: D22.9
   source: AP-HP Dermatologie
   texte: Naevus mongolien

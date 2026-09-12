@@ -686,8 +686,9 @@ sources en silence. Verrouillé par `test_remplacement_et_non_fusion`.
    clinicienne.** Les sondes lexicales du registre archaïque ne sont
    qu'un instrument de collecte : la même sonde porte des écartées et
    des gardées (« maladie tabès » s'écarte, « tabès syphilitique » se
-   garde ; « croup » s'écarte sur A36.0, « séquelles croup » se garde
-   sur B94.8). Le partage archaïque / vivant est **clinicien, pas
+   garde, sur A52.1 ; « démence précoce » se garde sur F03 — lecture
+   moderne « démence à début précoce » — quand « sénilité mentale »
+   s'écarte). Le partage archaïque / vivant est **clinicien, pas
    lexical**, et se juge sur la **forme rendue** (ce que le lecteur de
    la fiche voit : « Catalepsie (hystérique) » rend « catalepsie »,
    sans archaïsme). Ne jamais transformer le registre en règle par

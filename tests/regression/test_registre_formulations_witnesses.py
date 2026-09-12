@@ -5,7 +5,9 @@ Ce que ces verrous affirment, sur données réelles :
 1. **Préserver le vivant vaut autant qu'écarter l'archaïque.** Les
    dorés sont pris dans la liste validée : sur un même code et une même
    sonde, une formulation écartée disparaît ET une formulation gardée
-   reste (« maladie tabès » / « tabès syphilitique » sur A52.1).
+   reste (« maladie tabès » / « tabès syphilitique » sur A52.1) ; sur
+   F03, « démence précoce » se garde par décision explicite quand les
+   « sénilité … » s'écartent.
 2. **I64, le cas d'école** : le nuage « apoplexie » de l'Index vol3
    disparaît de la section, le reste de la fiche est intouché.
 3. **OFS/ANS jamais filtrés** : la section « Périmètre clinique » est
@@ -82,12 +84,31 @@ def test_meme_sonde_ecartee_et_gardee_tabes_a52_1(
     assert "tabès syphilitique" in apres, "gardée par verdict RF, doit rester"
 
 
-def test_meme_sonde_ecartee_et_gardee_croup(
+def test_croup_ecarte_partout(ctx: ExplorationContext, outils: cards.PolitiqueFiches) -> None:
+    """« croup » écarté sur A36.0, J05.0 ET B94.8 (correction RF 2026-09-12).
+
+    « séquelles croup » (B94.8) était gardée au verdict initial ; RF a
+    tranché : le mot est vivant (laryngite pédiatrique) mais cette
+    formulation-ci est du registre diphtérique de certificat de décès.
+    """
+    for code in ("A36.0", "J05.0", "B94.8"):
+        assert all("croup" not in t.lower() for t in _candidates(ctx, outils, code)), (
+            f"{code} : une formulation croup subsiste"
+        )
+
+
+def test_f03_demence_precoce_gardee_par_decision_explicite(
     ctx: ExplorationContext, outils: cards.PolitiqueFiches
 ) -> None:
-    """Doré inter-codes : « croup » écarté sur A36.0, gardé sur B94.8."""
-    assert all("croup" not in t.lower() for t in _candidates(ctx, outils, "A36.0"))
-    assert "séquelles croup" in _candidates(ctx, outils, "B94.8")
+    """Doré même code, verdicts opposés : F03 (RF 2026-09-12, confirmé).
+
+    « démence précoce » se garde — lecture moderne « démence à début
+    précoce », vivante en gériatrie, prime sur l'origine kraepelinienne
+    probable de la ligne. Les « sénilité … » du même code s'écartent.
+    """
+    apres = _candidates(ctx, outils, "F03")
+    assert "démence précoce" in apres, "gardée par décision explicite RF"
+    assert "sénilité mentale" not in apres and "sénilité démentielle" not in apres
 
 
 def test_i64_le_nuage_apoplexie_disparait(
