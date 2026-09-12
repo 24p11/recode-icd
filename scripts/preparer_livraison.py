@@ -124,7 +124,18 @@ Retours et codes non résolus : joindre le journal du résolveur
         _ajoute_texte("LIVRAISON.md", livraison_md)
         tar.add(docs / "guide_usage_fiches.md", arcname=f"{nom}/guide_usage_fiches.md")
         tar.add(docs / "resolveur_mode_emploi.md", arcname=f"{nom}/resolveur_mode_emploi.md")
-        tar.add(BIBLIOTHEQUE, arcname=f"{nom}/cards_library")
+        # L'archive se construit depuis L'INDEX, jamais depuis le
+        # répertoire : le build ne nettoie pas, et des fiches d'anciens
+        # builds (codes sortis du profil generation — pères interdits,
+        # inconnus du kit) traînent sur disque. Les embarquer violerait
+        # l'invariant I2 dans le paquet livré. Mesuré le 2026-09-12 :
+        # 1 709 fiches périmées sur disque pour 15 282 à l'index.
+        tar.add(BIBLIOTHEQUE / "_index.csv", arcname=f"{nom}/cards_library/_index.csv")
+        for filepath in sorted(index["filepath"].to_list()):
+            fiche = BIBLIOTHEQUE / filepath
+            if not fiche.exists():
+                raise SystemExit(f"Fiche à l'index mais absente du disque : {filepath}")
+            tar.add(fiche, arcname=f"{nom}/cards_library/{filepath}")
 
     taille = chemin.stat().st_size / 1_048_576
     print(f"{chemin} ({taille:.1f} Mo) — {n_total} fiches, commit {sha}, kit {millesime}")
