@@ -57,6 +57,7 @@ dev = [
     # Kernel pour l'exécution interactive des cellules `# %%` dans VSCode / Jupyter.
     # Voir scripts/explore/*.py.
     "ipykernel>=6.29",
+    "xlsxwriter>=3.2",
 ]
 
 [build-system]

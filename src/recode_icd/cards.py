@@ -34,6 +34,11 @@ from recode_icd._normalize import normalize_for_match
 from recode_icd.lexicons import Lexiques
 from recode_icd.policy import ChapterPolicy, NormalisationIndex
 from recode_icd.recommendations.rendu import rendre_section_consignes
+from recode_icd.registre_formulations import (
+    REGISTRE_VIDE,
+    RegistreFormulations,
+    load_registre,
+)
 from recode_icd.utils.loaders_dev import ExplorationContext, load_exploration_context
 
 log = logging.getLogger(__name__)
@@ -92,6 +97,9 @@ class PolitiqueFiches:
     lexiques: Lexiques
     #: `code → (chapitre, blocs)`, dérivé de `merged_codes`.
     hierarchie: dict[str, tuple[str | None, list[str]]]
+    #: Formulations écartées pour registre archaïque (verdict RF) —
+    #: filtre de rendu sur la forme source, cf. `registre_formulations`.
+    registre: RegistreFormulations = REGISTRE_VIDE
 
     @property
     def config_normalisation(self) -> NormalisationIndex:
@@ -105,15 +113,21 @@ def charge_politique(
     merged: pl.DataFrame,
     policy_path: Path | None = None,
     lexicons_dir: Path | None = None,
+    registre_path: Path | None = None,
 ) -> PolitiqueFiches:
-    """Charge politique, lexiques et hiérarchie pour un build de fiches."""
+    """Charge politique, lexiques, hiérarchie et registre pour un build."""
     pol = policy_module.load_policy(policy_path)
     lex = lexicons.load_lexicons(lexicons_dir or policy_module.DEFAULT_LEXICONS_DIR)
     hier = {
         r["code"]: (r["chapitre"], list(r["blocs"] or []))
         for r in hierarchie.chapitre_et_blocs(merged).iter_rows(named=True)
     }
-    return PolitiqueFiches(policy=pol, lexiques=lex, hierarchie=hier)
+    return PolitiqueFiches(
+        policy=pol,
+        lexiques=lex,
+        hierarchie=hier,
+        registre=load_registre(pol, registre_path),
+    )
 
 
 # ----------------------------------------------------------------------
@@ -561,6 +575,11 @@ def _candidates_formulations(
             continue
         famille = outils.policy.famille_de(ligne["source"])
         if famille not in admises or famille not in retenues:
+            continue
+        # Registre des formulations écartées (registre archaïque, verdict
+        # RF) : filtre sur la FORME SOURCE, donc avant R3. Couvre toutes
+        # les familles de la section, LLM comprise.
+        if outils.registre.est_ecartee(str(ligne["code"]), str(ligne["source"]), texte):
             continue
         if famille == "INDEX" and outils.config_normalisation.active:
             texte = normalize_index.forme_normalisee(

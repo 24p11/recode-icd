@@ -1,0 +1,9 @@
+code,libelle_officiel,chapitre,formulations_avant,formulations_apres,section_videe,version_regle
+E00.0,Syndrome d'insuffisance thyroïdienne congénitale de type neurologique,IV,1,0,true,v1
+E00.1,Syndrome d'insuffisance thyroïdienne congénitale de type myxœdémateux,IV,3,1,false,v1
+E00.2,Syndrome d'insuffisance thyroïdienne congénitale de type mixte,IV,1,0,true,v1
+E00.9,"Syndrome d'insuffisance thyroïdienne congénitale, sans précision",IV,3,1,false,v1
+F44.5,Convulsions dissociatives,V,4,2,false,v1
+H65.9,"Otite moyenne non suppurée, sans précision",VIII,2,0,true,v1
+I64,"Accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",IX,8,1,false,v1
+J31.1,Rhinopharyngite chronique,X,3,2,false,v1

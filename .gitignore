@@ -50,3 +50,6 @@ config/secrets.yaml
 # Sauvegarde de curations manuelles en cours — filet de sécurité,
 # à supprimer une fois trié.
 data/guide_mco/_curation_rf_sauvegarde/
+
+# Archives de livraison (régénérables par scripts/preparer_livraison.py)
+outputs/livraisons/

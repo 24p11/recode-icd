@@ -86,7 +86,7 @@ A18.0,I,I/A18.0.md,Tuberculose des os et des articulations,true,false,true,false
 A18.1,I,I/A18.1.md,Tuberculose de l'appareil génito-urinaire,true,false,true,false,true,0,codable,OWL_ANS,emissible,2413
 A18.2,I,I/A18.2.md,Adénopathie tuberculeuse périphérique,true,false,true,false,true,0,codable,OWL_ANS,emissible,2229
 A18.3,I,I/A18.3.md,"Tuberculose de l'intestin, du péritoine et des ganglions mésentériques",true,false,true,false,true,0,codable,OWL_ANS,emissible,2314
-A18.4,I,I/A18.4.md,Tuberculose de la peau et du tissu cellulaire souscutané,true,false,true,false,true,0,codable,OWL_ANS,emissible,2333
+A18.4,I,I/A18.4.md,Tuberculose de la peau et du tissu cellulaire souscutané,true,false,true,false,true,0,codable,OWL_ANS,emissible,2344
 A18.5,I,I/A18.5.md,Tuberculose de l'œil,true,false,true,false,true,0,codable,OWL_ANS,emissible,2122
 A18.6,I,I/A18.6.md,Tuberculose de l'oreille,true,false,true,false,true,0,codable,OWL_ANS,emissible,1757
 A18.7,I,I/A18.7.md,Tuberculose des surrénales ,true,false,true,false,true,0,codable,OWL_ANS,emissible,1741
@@ -162,7 +162,7 @@ A32.9,I,I/A32.9.md,"Listériose, sans précision",true,false,true,false,true,0,c
 A33,I,I/A33.md,Tétanos du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1272
 A34,I,I/A34.md,Tétanos obstétrical,true,false,true,false,true,0,codable,OWL_ANS,emissible,1295
 A35,I,I/A35.md,Autres formes de tétanos,true,false,true,false,true,0,codable,OWL_ANS,emissible,1406
-A36.0,I,I/A36.0.md,Diphtérie pharyngée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1539
+A36.0,I,I/A36.0.md,Diphtérie pharyngée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1536
 A36.1,I,I/A36.1.md,Diphtérie rhinopharyngée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1265
 A36.2,I,I/A36.2.md,Diphtérie laryngée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1422
 A36.3,I,I/A36.3.md,Diphtérie cutanée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1312
@@ -239,7 +239,7 @@ A51.4,I,I/A51.4.md,Autres formes de syphilis secondaire,true,false,true,false,tr
 A51.5,I,I/A51.5.md,"Syphilis précoce, latente",true,false,true,false,false,0,codable,OWL_ANS,emissible,1623
 A51.9,I,I/A51.9.md,"Syphilis précoce, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1540
 A52.0,I,I/A52.0.md,Syphilis cardiovasculaire,true,false,true,false,true,0,codable,OWL_ANS,emissible,1907
-A52.1,I,I/A52.1.md,Syphilis nerveuse symptomatique,true,false,true,false,true,0,codable,OWL_ANS,emissible,2347
+A52.1,I,I/A52.1.md,Syphilis nerveuse symptomatique,true,false,true,false,true,0,codable,OWL_ANS,emissible,2336
 A52.2,I,I/A52.2.md,Syphilis nerveuse asymptomatique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1550
 A52.3,I,I/A52.3.md,"Syphilis nerveuse, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1842
 A52.7,I,I/A52.7.md,Autres formes tardives de syphilis symptomatique,true,false,true,false,true,0,codable,OWL_ANS,emissible,2612
@@ -759,7 +759,7 @@ B92,I,I/B92.md,Séquelles de lèpre,true,false,true,true,true,4,interdit_dp,OWL_
 B94.0,I,I/B94.0.md,Séquelles du trachome,true,false,true,true,false,4,interdit_dp,OWL_ANS,emissible,1765
 B94.1,I,I/B94.1.md,Séquelles d'encéphalite virale,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,2163
 B94.2,I,I/B94.2.md,Séquelles d'hépatite virale,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,1865
-B94.8,I,I/B94.8.md,Séquelles d'autres maladies infectieuses et parasitaires précisées,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,2319
+B94.8,I,I/B94.8.md,Séquelles d'autres maladies infectieuses et parasitaires précisées,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,2325
 B94.9,I,I/B94.9.md,"Séquelles de maladie infectieuse ou parasitaire, sans précision",true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,2151
 B95.0,I,I/B95.0.md,"Streptocoques, groupe A, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1,interdit_dp_dr,OWL_ANS,emissible,1844
 B95.1,I,I/B95.1.md,"Streptocoques, groupe B, cause de maladies classées dans d'autres chapitres",true,false,true,true,true,1,interdit_dp_dr,OWL_ANS,emissible,1869
@@ -1582,7 +1582,7 @@ D48.7,II,II/D48.7.md,Tumeur à évolution imprévisible et inconnue d'autres si�
 D48.9,II,II/D48.9.md,"Tumeur à évolution imprévisible ou inconnue, sans précision",true,false,true,true,true,1,interdit_dp_dr,OWL_ANS,emissible,1919
 D50.0,III,III/D50.0.md,Anémie par carence en fer secondaire à une perte de sang (chronique),true,false,true,false,true,0,codable,OWL_ANS,emissible,1893
 D50.1,III,III/D50.1.md,Dysphagie sidéropénique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1441
-D50.8,III,III/D50.8.md,Autres anémies par carence en fer,true,false,true,false,true,0,codable,OWL_ANS,emissible,1924
+D50.8,III,III/D50.8.md,Autres anémies par carence en fer,true,false,true,false,true,0,codable,OWL_ANS,emissible,1913
 D50.9,III,III/D50.9.md,"Anémie par carence en fer, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1683
 D51.0,III,III/D51.0.md,Anémie par carence en vitamine B_12 due à une carence en facteur intrinsèque,true,false,true,false,true,0,codable,OWL_ANS,emissible,1900
 D51.1,III,III/D51.1.md,"Anémie par carence en vitamine B_12 due à une malabsorption sélective de la vitamine B_12, avec protéinurie",true,false,true,false,true,0,codable,OWL_ANS,emissible,1524
@@ -1745,10 +1745,10 @@ D89.2,III,III/D89.2.md,"Hypergammaglobulinémie, sans précision",true,false,tru
 D89.3,III,III/D89.3.md,Syndrome de restauration immunitaire,true,false,true,false,true,0,codable,OWL_ANS,emissible,2154
 D89.8,III,III/D89.8.md,"Autres anomalies précisées du système immunitaire, non classées ailleurs",true,false,true,false,true,0,codable,OWL_ANS,emissible,2597
 D89.9,III,III/D89.9.md,"Anomalie du système immunitaire, sans précision",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,2070
-E00.0,IV,IV/E00.0.md,Syndrome d'insuffisance thyroïdienne congénitale de type neurologique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1832
-E00.1,IV,IV/E00.1.md,Syndrome d'insuffisance thyroïdienne congénitale de type myxœdémateux,true,false,true,false,true,0,codable,OWL_ANS,emissible,1929
-E00.2,IV,IV/E00.2.md,Syndrome d'insuffisance thyroïdienne congénitale de type mixte,true,false,true,false,true,0,codable,OWL_ANS,emissible,1811
-E00.9,IV,IV/E00.9.md,"Syndrome d'insuffisance thyroïdienne congénitale, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1871
+E00.0,IV,IV/E00.0.md,Syndrome d'insuffisance thyroïdienne congénitale de type neurologique,true,false,true,false,false,0,codable,OWL_ANS,emissible,1766
+E00.1,IV,IV/E00.1.md,Syndrome d'insuffisance thyroïdienne congénitale de type myxœdémateux,true,false,true,false,true,0,codable,OWL_ANS,emissible,1874
+E00.2,IV,IV/E00.2.md,Syndrome d'insuffisance thyroïdienne congénitale de type mixte,true,false,true,false,false,0,codable,OWL_ANS,emissible,1752
+E00.9,IV,IV/E00.9.md,"Syndrome d'insuffisance thyroïdienne congénitale, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1834
 E01.0,IV,IV/E01.0.md,Goitre diffus (endémique) lié à une carence en iode,false,false,true,false,true,0,codable,OWL_ANS,emissible,949
 E01.1,IV,IV/E01.1.md,Goitre multinodulaire (endémique) lié à une carence en iode,true,false,true,false,false,0,codable,OWL_ANS,emissible,988
 E01.2,IV,IV/E01.2.md,"Goitre (endémique) lié à une carence en iode, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1026
@@ -1931,7 +1931,7 @@ E35.0,IV,IV/E35.0.md,Anomalies de la glande thyroïde au cours de maladies class
 E35.1,IV,IV/E35.1.md,Anomalies de la glande surrénale au cours de maladies classées ailleurs,true,false,true,false,true,0,codable,OWL_ANS,emissible,1095
 E35.8,IV,IV/E35.8.md,Anomalies d'autres glandes endocrines au cours de maladies classées ailleurs,false,false,true,false,false,0,codable,OWL_ANS,emissible,1049
 E40,IV,IV/E40.md,Kwashiorkor,true,false,true,true,true,0,codable,OWL_ANS,emissible,2699
-E41,IV,IV/E41.md,Marasme nutritionnel,true,false,true,true,true,0,codable,OWL_ANS,emissible,2925
+E41,IV,IV/E41.md,Marasme nutritionnel,true,false,true,true,true,0,codable,OWL_ANS,emissible,2913
 E42,IV,IV/E42.md,Kwashiorkor avec marasme,true,false,true,true,true,0,codable,OWL_ANS,emissible,2738
 E43,IV,IV/E43.md,"Malnutrition protéinoénergétique grave, sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,5241
 E44.0,IV,IV/E44.0.md,Malnutrition protéinoénergétique modérée,false,false,true,true,true,0,codable,OWL_ANS,emissible,4952
@@ -2056,7 +2056,7 @@ E75.0,IV,IV/E75.0.md,Gangliosidose GM_2,true,false,true,false,true,0,codable,OWL
 E75.1,IV,IV/E75.1.md,Autres gangliosidoses,true,false,true,false,true,0,codable,OWL_ANS,emissible,1523
 E75.2,IV,IV/E75.2.md,Autres sphingolipidoses,true,false,true,false,true,0,codable,OWL_ANS,emissible,2485
 E75.3,IV,IV/E75.3.md,"Sphingolipidose, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,1171
-E75.4,IV,IV/E75.4.md,Lipofuscinose à céroïdes neuronaux,true,false,true,false,true,0,codable,OWL_ANS,emissible,2503
+E75.4,IV,IV/E75.4.md,Lipofuscinose à céroïdes neuronaux,true,false,true,false,true,0,codable,OWL_ANS,emissible,2511
 E75.5,IV,IV/E75.5.md,Autres anomalies du stockage des lipides,true,false,true,false,true,0,codable,OWL_ANS,emissible,1731
 E75.6,IV,IV/E75.6.md,"Anomalie du stockage des lipides, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,1438
 E76.0,IV,IV/E76.0.md,"Mucopolysaccharidose, type I",true,false,true,false,true,0,codable,OWL_ANS,emissible,1698
@@ -3115,7 +3115,7 @@ F25.9,V,V/F25.9.md,"Trouble schizoaffectif, sans précision",true,false,true,fal
 F25.90,V,V/F25.90.md,"Trouble schizoaffectif, sans précision - "" présence simultanée de symptômes affectifs et schizophréniques, sans persistance de symptômes schizophréniques après la disparition des symptômes affectifs """,true,false,true,false,false,0,codable,OWL_ANS,emissible,863
 F25.91,V,V/F25.91.md,"Trouble schizoaffectif, sans précision - "" présence simultanée de symptômes affectifs et schizophréniques, avec persistance de symptômes schizophréniques après la disparition des symptômes affectifs """,true,false,true,false,false,0,codable,OWL_ANS,emissible,863
 F28,V,V/F28.md,Autres troubles psychotiques non organiques,true,false,true,false,true,0,codable,OWL_ANS,emissible,1110
-F29,V,V/F29.md,"Psychose non organique, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1095
+F29,V,V/F29.md,"Psychose non organique, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1118
 F30.0,V,V/F30.0.md,Hypomanie,true,false,true,false,true,0,codable,OWL_ANS,emissible,707
 F30.1,V,V/F30.1.md,Manie sans symptômes psychotiques,true,false,true,false,true,0,codable,OWL_ANS,emissible,755
 F30.2,V,V/F30.2.md,Manie avec symptômes psychotiques,true,false,true,false,true,0,codable,OWL_ANS,emissible,992
@@ -3150,7 +3150,7 @@ F32.3,V,V/F32.3.md,Épisode dépressif sévère avec symptômes psychotiques,tru
 F32.30,V,V/F32.30.md,"Épisode dépressif sévère, avec symptômes psychotiques congruents à l’humeur",true,false,true,true,false,0,codable,OWL_ANS,emissible,1511
 F32.31,V,V/F32.31.md,"Épisode dépressif sévère, avec symptômes psychotiques non congruents à l’humeur",true,false,true,true,false,0,codable,OWL_ANS,emissible,1515
 F32.8,V,V/F32.8.md,Autres épisodes dépressifs,true,false,true,true,true,0,codable,OWL_ANS,emissible,1793
-F32.9,V,V/F32.9.md,"Épisode dépressif, sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,1642
+F32.9,V,V/F32.9.md,"Épisode dépressif, sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,1630
 F33.0,V,V/F33.0.md,"Trouble dépressif récurrent, épisode actuel léger",true,false,true,false,false,0,codable,OWL_ANS,emissible,1075
 F33.00,V,V/F33.00.md,"Trouble dépressif récurrent, épisode actuel léger, sans syndrome somatique",true,false,true,false,false,0,codable,OWL_ANS,emissible,1102
 F33.01,V,V/F33.01.md,"Trouble dépressif récurrent, épisode actuel léger, avec syndrome somatique",true,false,true,false,false,0,codable,OWL_ANS,emissible,1102
@@ -3212,17 +3212,17 @@ F43.9,V,V/F43.9.md,"Réaction à un facteur de stress sévère, sans précision"
 F44.0,V,V/F44.0.md,Amnésie dissociative,true,false,true,false,true,0,codable,OWL_ANS,emissible,1424
 F44.1,V,V/F44.1.md,Fugue dissociative,true,false,true,false,true,0,codable,OWL_ANS,emissible,1190
 F44.2,V,V/F44.2.md,Stupeur dissociative,true,false,true,false,true,0,codable,OWL_ANS,emissible,1299
-F44.3,V,V/F44.3.md,États de transe et de possession,true,false,true,false,true,0,codable,OWL_ANS,emissible,1690
-F44.4,V,V/F44.4.md,Troubles moteurs dissociatifs,true,false,true,false,true,0,codable,OWL_ANS,emissible,1496
-F44.5,V,V/F44.5.md,Convulsions dissociatives,true,false,true,false,true,0,codable,OWL_ANS,emissible,1169
+F44.3,V,V/F44.3.md,États de transe et de possession,true,false,true,false,true,0,codable,OWL_ANS,emissible,1667
+F44.4,V,V/F44.4.md,Troubles moteurs dissociatifs,true,false,true,false,true,0,codable,OWL_ANS,emissible,1397
+F44.5,V,V/F44.5.md,Convulsions dissociatives,true,false,true,false,true,0,codable,OWL_ANS,emissible,1122
 F44.6,V,V/F44.6.md,Anesthésie et atteintes sensorielles dissociatives,true,false,true,false,true,0,codable,OWL_ANS,emissible,1355
 F44.7,V,V/F44.7.md,Trouble dissociatif [de conversion] mixte,true,false,true,false,false,0,codable,OWL_ANS,emissible,1156
-F44.8,V,V/F44.8.md,Autres troubles dissociatifs [de conversion],true,false,true,false,true,0,codable,OWL_ANS,emissible,2040
+F44.8,V,V/F44.8.md,Autres troubles dissociatifs [de conversion],true,false,true,false,true,0,codable,OWL_ANS,emissible,2000
 F44.80,V,V/F44.80.md,Syndrome de Ganser,true,false,true,false,false,0,codable,OWL_ANS,emissible,1078
 F44.81,V,V/F44.81.md,Personnalité multiple,true,false,true,false,false,0,codable,OWL_ANS,emissible,1081
 F44.82,V,V/F44.82.md,Troubles dissociatifs [de conversion] transitoires survenant dans l’enfance ou dans l’adolescence,true,false,true,false,false,0,codable,OWL_ANS,emissible,1157
 F44.88,V,V/F44.88.md,Autres troubles dissociatifs [de conversion] précisés,true,false,true,false,false,0,codable,OWL_ANS,emissible,1113
-F44.9,V,V/F44.9.md,"Trouble dissociatif [de conversion], sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1339
+F44.9,V,V/F44.9.md,"Trouble dissociatif [de conversion], sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1328
 F45.0,V,V/F45.0.md,Somatisation,true,false,true,false,true,0,codable,OWL_ANS,emissible,1543
 F45.1,V,V/F45.1.md,Trouble somatoforme indifférencié,true,false,true,false,false,0,codable,OWL_ANS,emissible,1384
 F45.2,V,V/F45.2.md,Trouble hypocondriaque,true,false,true,false,true,0,codable,OWL_ANS,emissible,1879
@@ -3234,9 +3234,9 @@ F45.33,V,V/F45.33.md,Dysfonctionnement neurovégétatif d’expression respirato
 F45.34,V,V/F45.34.md,Dysfonctionnement neurovégétatif d’expression génito-urinaire,true,false,true,false,false,0,codable,OWL_ANS,emissible,1556
 F45.38,V,V/F45.38.md,Dysfonctionnement neurovégétatif d’expression autre,true,false,true,false,false,0,codable,OWL_ANS,emissible,1449
 F45.4,V,V/F45.4.md,Syndrome douloureux somatoforme persistant,true,false,true,false,true,0,codable,OWL_ANS,emissible,1936
-F45.8,V,V/F45.8.md,Autres troubles somatoformes,true,false,true,false,true,0,codable,OWL_ANS,emissible,2337
+F45.8,V,V/F45.8.md,Autres troubles somatoformes,true,false,true,false,true,0,codable,OWL_ANS,emissible,2339
 F45.9,V,V/F45.9.md,"Trouble somatoforme, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1410
-F48.0,V,V/F48.0.md,Neurasthénie,true,false,true,false,true,0,codable,OWL_ANS,emissible,1151
+F48.0,V,V/F48.0.md,Neurasthénie,true,false,true,false,true,0,codable,OWL_ANS,emissible,1136
 F48.1,V,V/F48.1.md,Syndrome de dépersonnalisation-déréalisation,true,false,true,false,true,0,codable,OWL_ANS,emissible,867
 F48.8,V,V/F48.8.md,Autres troubles névrotiques précisés,true,false,true,false,true,0,codable,OWL_ANS,emissible,1384
 F48.9,V,V/F48.9.md,"Trouble névrotique, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1078
@@ -3339,7 +3339,7 @@ F70.9,V,V/F70.9.md,"Retard mental léger - "" Sans mention d'une déficience du 
 F71.0,V,V/F71.0.md,"Retard mental moyen - "" Déficience du comportement absent ou minime """,true,false,true,false,false,0,codable,OWL_ANS,emissible,682
 F71.1,V,V/F71.1.md,"Retard mental moyen - "" Déficience du comportement significatif, nécessitant une surveillance ou traitement """,true,false,true,false,false,0,codable,OWL_ANS,emissible,722
 F71.8,V,V/F71.8.md,"Retard mental moyen - "" Autres déficiences du comportement """,true,false,true,false,false,0,codable,OWL_ANS,emissible,918
-F71.9,V,V/F71.9.md,"Retard mental moyen - "" Sans mention d'une déficience du comportement """,true,false,true,false,true,0,codable,OWL_ANS,emissible,971
+F71.9,V,V/F71.9.md,"Retard mental moyen - "" Sans mention d'une déficience du comportement """,true,false,true,false,true,0,codable,OWL_ANS,emissible,957
 F72.0,V,V/F72.0.md,"Retard mental grave - "" Déficience du comportement absent ou minime """,true,false,true,false,false,0,codable,OWL_ANS,emissible,680
 F72.1,V,V/F72.1.md,"Retard mental grave - "" Déficience du comportement significatif, nécessitant une surveillance ou traitement """,true,false,true,false,false,0,codable,OWL_ANS,emissible,720
 F72.8,V,V/F72.8.md,"Retard mental grave - "" Autres déficiences du comportement """,true,false,true,false,false,0,codable,OWL_ANS,emissible,916
@@ -3347,7 +3347,7 @@ F72.9,V,V/F72.9.md,"Retard mental grave - "" Sans mention d'une déficience du c
 F73.0,V,V/F73.0.md,"Retard mental profond - "" Déficience du comportement absent ou minime """,true,false,true,false,false,0,codable,OWL_ANS,emissible,685
 F73.1,V,V/F73.1.md,"Retard mental profond - "" Déficience du comportement significatif, nécessitant une surveillance ou traitement """,true,false,true,false,false,0,codable,OWL_ANS,emissible,725
 F73.8,V,V/F73.8.md,"Retard mental profond - "" Autres déficiences du comportement """,true,false,true,false,false,0,codable,OWL_ANS,emissible,925
-F73.9,V,V/F73.9.md,"Retard mental profond - "" Sans mention d'une déficience du comportement """,true,false,true,false,true,0,codable,OWL_ANS,emissible,990
+F73.9,V,V/F73.9.md,"Retard mental profond - "" Sans mention d'une déficience du comportement """,true,false,true,false,true,0,codable,OWL_ANS,emissible,1020
 F78.0,V,V/F78.0.md,"Autres formes de retard mental - "" Déficience du comportement absent ou minime """,true,false,true,false,false,0,codable,OWL_ANS,emissible,620
 F78.1,V,V/F78.1.md,"Autres formes de retard mental - "" Déficience du comportement significatif, nécessitant une surveillance ou traitement """,true,false,true,false,false,0,codable,OWL_ANS,emissible,660
 F78.8,V,V/F78.8.md,"Autres formes de retard mental - "" Autres déficiences du comportement """,true,false,true,false,false,0,codable,OWL_ANS,emissible,878
@@ -3431,7 +3431,7 @@ F98.5,V,V/F98.5.md,Bégaiement,true,false,true,false,true,0,codable,OWL_ANS,emis
 F98.6,V,V/F98.6.md,Bredouillement [langage précipité],true,false,true,false,true,0,codable,OWL_ANS,emissible,1117
 F98.8,V,V/F98.8.md,Autres troubles précisés du comportement et troubles émotionnels apparaissant habituellement durant l'enfance et l'adolescence,true,false,true,false,true,0,codable,OWL_ANS,emissible,1623
 F98.9,V,V/F98.9.md,"Trouble du comportement et trouble émotionnel apparaissant habituellement durant l'enfance et l'adolescence, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1089
-F99,V,V/F99.md,"Trouble mental, sans autre indication",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1149
+F99,V,V/F99.md,"Trouble mental, sans autre indication",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1141
 G00.0,VI,VI/G00.0.md,Méningite à Hæmophilus,true,false,true,false,true,0,codable,OWL_ANS,emissible,1577
 G00.1,VI,VI/G00.1.md,Méningite à pneumocoques,true,false,true,false,true,0,codable,OWL_ANS,emissible,1624
 G00.2,VI,VI/G00.2.md,Méningite à streptocoques,true,false,true,false,true,0,codable,OWL_ANS,emissible,1760
@@ -3518,7 +3518,7 @@ G30.1,VI,VI/G30.1.md,Maladie d'Alzheimer à début tardif,true,false,true,false,
 G30.8,VI,VI/G30.8.md,Autres formes de la maladie d'Alzheimer,true,false,true,false,true,0,codable,OWL_ANS,emissible,1425
 G30.9,VI,VI/G30.9.md,"Maladie d'Alzheimer, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1578
 G31.0,VI,VI/G31.0.md,Atrophie cérébrale circonscrite,true,false,true,false,true,0,codable,OWL_ANS,emissible,1487
-G31.1,VI,VI/G31.1.md,"Dégénérescence cérébrale sénile, non classée ailleurs",false,false,true,false,true,0,codable,OWL_ANS,emissible,1500
+G31.1,VI,VI/G31.1.md,"Dégénérescence cérébrale sénile, non classée ailleurs",false,false,true,false,true,0,codable,OWL_ANS,emissible,1509
 G31.2,VI,VI/G31.2.md,Dégénérescence du système nerveux liée à l'alcool,true,false,true,false,true,0,codable,OWL_ANS,emissible,1730
 G31.8,VI,VI/G31.8.md,Autres affections dégénératives précisées du système nerveux,true,false,true,false,true,0,codable,OWL_ANS,emissible,2081
 G31.9,VI,VI/G31.9.md,"Affection dégénérative du système nerveux, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,1538
@@ -3570,7 +3570,7 @@ G45.2,VI,VI/G45.2.md,Accident ischémique transitoire de territoires artériels 
 G45.3,VI,VI/G45.3.md,Amaurose fugace,false,false,true,true,false,0,codable,OWL_ANS,emissible,1468
 G45.4,VI,VI/G45.4.md,Amnésie globale transitoire,false,false,true,true,true,0,codable,OWL_ANS,emissible,1627
 G45.8,VI,VI/G45.8.md,Autres accidents ischémiques cérébraux transitoires et syndromes apparentés,false,false,true,true,true,0,codable,OWL_ANS,emissible,2181
-G45.9,VI,VI/G45.9.md,"Accident ischémique cérébral transitoire, sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,1979
+G45.9,VI,VI/G45.9.md,"Accident ischémique cérébral transitoire, sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,1970
 G46.0,VI,VI/G46.0.md,Syndrome de l'artère cérébrale moyenne ,false,false,true,true,false,0,codable,OWL_ANS,emissible,1474
 G46.1,VI,VI/G46.1.md,Syndrome de l'artère cérébrale antérieure ,false,false,true,true,false,0,codable,OWL_ANS,emissible,1477
 G46.2,VI,VI/G46.2.md,Syndrome de l'artère cérébrale postérieure ,false,false,true,true,false,0,codable,OWL_ANS,emissible,1478
@@ -3738,7 +3738,7 @@ G83.4,VI,VI/G83.4.md,Syndrome de la queue de cheval,true,false,true,false,true,0
 G83.5,VI,VI/G83.5.md,Syndrome de déefférentation motrice [Locked-in syndrome],true,false,true,false,false,0,codable,OWL_ANS,emissible,1238
 G83.6,VI,VI/G83.6.md,Paralysie faciale du neurone moteur supérieur [NMS] [MNS],true,false,true,false,false,0,codable,OWL_ANS,emissible,1513
 G83.8,VI,VI/G83.8.md,Autres syndromes paralytiques,true,false,true,false,true,0,codable,OWL_ANS,emissible,2096
-G83.9,VI,VI/G83.9.md,"Syndrome paralytique, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1556
+G83.9,VI,VI/G83.9.md,"Syndrome paralytique, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1554
 G90.0,VI,VI/G90.0.md,Neuropathie autonome périphérique idiopathique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1548
 G90.1,VI,VI/G90.1.md,Dysautonomie familiale [Riley–Day],false,false,true,false,true,0,codable,OWL_ANS,emissible,1163
 G90.2,VI,VI/G90.2.md,Syndrome de Claude Bernard–Horner,true,false,true,false,true,0,codable,OWL_ANS,emissible,1317
@@ -3763,7 +3763,7 @@ G93.4,VI,VI/G93.4.md,"Encéphalopathie, sans précision",false,false,true,false,
 G93.5,VI,VI/G93.5.md,Compression du cerveau,true,false,true,false,true,0,codable,OWL_ANS,emissible,1575
 G93.6,VI,VI/G93.6.md,Œdème cérébral,false,false,true,false,true,0,codable,OWL_ANS,emissible,1478
 G93.7,VI,VI/G93.7.md,Syndrome de Reye,false,false,true,false,true,0,codable,OWL_ANS,emissible,1016
-G93.8,VI,VI/G93.8.md,Autres affections précisées du cerveau,true,false,true,false,true,0,codable,OWL_ANS,emissible,2074
+G93.8,VI,VI/G93.8.md,Autres affections précisées du cerveau,true,false,true,false,true,0,codable,OWL_ANS,emissible,2005
 G93.9,VI,VI/G93.9.md,"Affection du cerveau, sans précision",false,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1319
 G94.0,VI,VI/G94.0.md,Hydrocéphalie au cours de maladies infectieuses et parasitaires classées ailleurs,false,false,true,false,false,0,codable,OWL_ANS,emissible,999
 G94.1,VI,VI/G94.1.md,Hydrocéphalie au cours de maladies tumorales,false,false,true,false,false,0,codable,OWL_ANS,emissible,962
@@ -3773,7 +3773,7 @@ G94.8,VI,VI/G94.8.md,Autres affections précisées du cerveau au cours de maladi
 G95.0,VI,VI/G95.0.md,Syringomyélie et syringobulbie,false,false,true,false,true,0,codable,OWL_ANS,emissible,1385
 G95.1,VI,VI/G95.1.md,Myélopathies vasculaires,true,false,true,false,true,0,codable,OWL_ANS,emissible,2161
 G95.2,VI,VI/G95.2.md,"Compression médullaire, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,1366
-G95.8,VI,VI/G95.8.md,Autres affections précisées de la moelle épinière,true,false,true,false,true,0,codable,OWL_ANS,emissible,2106
+G95.8,VI,VI/G95.8.md,Autres affections précisées de la moelle épinière,true,false,true,false,true,0,codable,OWL_ANS,emissible,2076
 G95.9,VI,VI/G95.9.md,"Affection de la moelle épinière, sans précision",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1438
 G96.0,VI,VI/G96.0.md,Écoulement du liquide céphalorachidien,false,false,true,false,true,0,codable,OWL_ANS,emissible,1240
 G96.1,VI,VI/G96.1.md,"Affection des méninges, non classée ailleurs",true,false,true,false,true,0,codable,OWL_ANS,emissible,1437
@@ -4080,7 +4080,7 @@ H65.1,VIII,VIII/H65.1.md,"Autres otites moyennes aigües, non suppurées",true,f
 H65.2,VIII,VIII/H65.2.md,Otite moyenne séreuse chronique,true,false,true,false,false,0,codable,OWL_ANS,emissible,1141
 H65.3,VIII,VIII/H65.3.md,Otite moyenne mucoïde chronique,true,false,true,false,false,0,codable,OWL_ANS,emissible,1317
 H65.4,VIII,VIII/H65.4.md,"Autres otites moyennes chroniques, non suppurées",true,false,true,false,false,0,codable,OWL_ANS,emissible,1335
-H65.9,VIII,VIII/H65.9.md,"Otite moyenne non suppurée, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1483
+H65.9,VIII,VIII/H65.9.md,"Otite moyenne non suppurée, sans précision",true,false,true,false,false,0,codable,OWL_ANS,emissible,1379
 H66.0,VIII,VIII/H66.0.md,Otite moyenne aigüe suppurée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1383
 H66.1,VIII,VIII/H66.1.md,Otite moyenne suppurée chronique tubotympanique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1301
 H66.2,VIII,VIII/H66.2.md,Otite moyenne chronique atticoantrale suppurée,true,false,true,false,false,0,codable,OWL_ANS,emissible,1154
@@ -4090,7 +4090,7 @@ H66.9,VIII,VIII/H66.9.md,"Otite moyenne, sans précision",true,false,true,false,
 H67.0,VIII,VIII/H67.0.md,Otite moyenne au cours de maladies bactériennes classées ailleurs,true,false,true,false,false,0,codable,OWL_ANS,emissible,1157
 H67.1,VIII,VIII/H67.1.md,Otite moyenne au cours de maladies virales classées ailleurs,true,false,true,false,false,0,codable,OWL_ANS,emissible,1145
 H67.8,VIII,VIII/H67.8.md,Otite moyenne au cours d'autres maladies classées ailleurs,false,false,true,false,false,0,codable,OWL_ANS,emissible,1211
-H68.0,VIII,VIII/H68.0.md,Salpingite de la trompe d'Eustache,false,false,true,false,true,0,codable,OWL_ANS,emissible,1140
+H68.0,VIII,VIII/H68.0.md,Salpingite de la trompe d'Eustache,false,false,true,false,true,0,codable,OWL_ANS,emissible,1116
 H68.1,VIII,VIII/H68.1.md,Obstruction de la trompe d'Eustache,true,false,true,false,true,0,codable,OWL_ANS,emissible,1239
 H69.0,VIII,VIII/H69.0.md,Distension de la trompe d'Eustache,false,false,true,false,false,0,codable,OWL_ANS,emissible,995
 H69.8,VIII,VIII/H69.8.md,Autres affections précisées de la trompe d'Eustache,false,false,true,false,false,0,codable,OWL_ANS,emissible,1100
@@ -4286,7 +4286,7 @@ I27.0,IX,IX/I27.0.md,Hypertension pulmonaire primitive,true,false,true,false,tru
 I27.1,IX,IX/I27.1.md,Cardiopathie due à cyphoscoliose,false,false,true,false,true,0,codable,OWL_ANS,emissible,1195
 I27.2,IX,IX/I27.2.md,Autres hypertensions pulmonaires secondaires,false,false,true,false,true,0,codable,OWL_ANS,emissible,1466
 I27.8,IX,IX/I27.8.md,Autres affections cardiopulmonaires précisées,false,false,true,false,true,0,codable,OWL_ANS,emissible,1819
-I27.9,IX,IX/I27.9.md,"Affection cardiopulmonaire, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1632
+I27.9,IX,IX/I27.9.md,"Affection cardiopulmonaire, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1636
 I28.0,IX,IX/I28.0.md,Fistule artérioveineuse des vaisseaux pulmonaires,false,false,true,false,true,0,codable,OWL_ANS,emissible,1573
 I28.1,IX,IX/I28.1.md,Anévrisme de l'artère pulmonaire,false,false,true,false,true,0,codable,OWL_ANS,emissible,1403
 I28.8,IX,IX/I28.8.md,Autres maladies précisées des vaisseaux pulmonaires,true,false,true,false,true,0,codable,OWL_ANS,emissible,1770
@@ -4408,7 +4408,7 @@ I51.2,IX,IX/I51.2.md,"Rupture du muscle papillaire, non classée ailleurs",false
 I51.3,IX,IX/I51.3.md,"Thrombose intracardiaque, non classée ailleurs",true,false,true,false,true,0,codable,OWL_ANS,emissible,1894
 I51.4,IX,IX/I51.4.md,"Myocardite, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1522
 I51.5,IX,IX/I51.5.md,Dégénérescence du myocarde,true,false,true,false,true,0,codable,OWL_ANS,emissible,1576
-I51.6,IX,IX/I51.6.md,"Maladie cardiovasculaire, sans précision",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1901
+I51.6,IX,IX/I51.6.md,"Maladie cardiovasculaire, sans précision",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1922
 I51.7,IX,IX/I51.7.md,Cardiomégalie,true,false,true,false,true,0,codable,OWL_ANS,emissible,1805
 I51.8,IX,IX/I51.8.md,Autres cardiopathies mal définies,true,false,true,false,true,0,codable,OWL_ANS,emissible,2251
 I51.9,IX,IX/I51.9.md,"Cardiopathie, sans précision",false,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1611
@@ -4436,7 +4436,7 @@ I61.8,IX,IX/I61.8.md,Autres hémorragies intracérébrales,true,false,true,true,
 I61.9,IX,IX/I61.9.md,"Hémorragie intracérébrale, sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,2831
 I62.0,IX,IX/I62.0.md,Hémorragie sousdurale non traumatique,true,false,true,true,true,0,codable,OWL_ANS,emissible,3259
 I62.1,IX,IX/I62.1.md,Hémorragie extradurale non traumatique,true,false,true,true,true,0,codable,OWL_ANS,emissible,3198
-I62.9,IX,IX/I62.9.md,"Hémorragie intracrânienne (non traumatique), sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,3168
+I62.9,IX,IX/I62.9.md,"Hémorragie intracrânienne (non traumatique), sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,3171
 I63.0,IX,IX/I63.0.md,Infarctus cérébral dû à une thrombose des artères précérébrales,true,false,true,true,true,0,codable,OWL_ANS,emissible,3223
 I63.1,IX,IX/I63.1.md,Infarctus cérébral dû à une embolie des artères précérébrales,true,false,true,true,false,0,codable,OWL_ANS,emissible,3089
 I63.2,IX,IX/I63.2.md,"Infarctus cérébral dû à une occlusion ou sténose des artères précérébrales, de mécanisme non précisé",true,false,true,true,true,0,codable,OWL_ANS,emissible,3222
@@ -4446,7 +4446,7 @@ I63.5,IX,IX/I63.5.md,"Infarctus cérébral dû à une occlusion ou sténose des 
 I63.6,IX,IX/I63.6.md,"Infarctus cérébral dû à une thrombose veineuse cérébrale, non pyogène",true,false,true,true,true,0,codable,OWL_ANS,emissible,3498
 I63.8,IX,IX/I63.8.md,Autres infarctus cérébraux,true,false,true,true,false,0,codable,OWL_ANS,emissible,3694
 I63.9,IX,IX/I63.9.md,"Infarctus cérébral, sans précision",true,false,true,true,true,0,codable,OWL_ANS,emissible,3137
-I64,IX,IX/I64.md,"Accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",true,false,true,true,true,0,codable,OWL_ANS,emissible,2573
+I64,IX,IX/I64.md,"Accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",true,false,true,true,true,0,codable,OWL_ANS,emissible,2430
 I65.0,IX,IX/I65.0.md,Occlusion et sténose de l'artère vertébrale,true,false,true,true,true,0,codable,OWL_ANS,emissible,3041
 I65.1,IX,IX/I65.1.md,Occlusion et sténose de l'artère basilaire,true,false,true,true,true,0,codable,OWL_ANS,emissible,3077
 I65.2,IX,IX/I65.2.md,Occlusion et sténose de l'artère carotide,true,false,true,true,true,0,codable,OWL_ANS,emissible,3044
@@ -4468,7 +4468,7 @@ I67.4,IX,IX/I67.4.md,Encéphalopathie hypertensive,true,false,true,true,true,0,c
 I67.5,IX,IX/I67.5.md,Maladie de Moyamoya,true,false,true,false,true,0,codable,OWL_ANS,emissible,1703
 I67.6,IX,IX/I67.6.md,Thrombose non pyogène du système veineux intracrânien,true,false,true,false,true,0,codable,OWL_ANS,emissible,2093
 I67.7,IX,IX/I67.7.md,"Artérite cérébrale, non classée ailleurs",true,false,true,false,true,0,codable,OWL_ANS,emissible,2015
-I67.8,IX,IX/I67.8.md,Autres maladies cérébrovasculaires précisées,true,false,true,false,true,0,codable,OWL_ANS,emissible,2716
+I67.8,IX,IX/I67.8.md,Autres maladies cérébrovasculaires précisées,true,false,true,false,true,0,codable,OWL_ANS,emissible,2771
 I67.9,IX,IX/I67.9.md,"Maladie cérébrovasculaire, sans précision",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,2085
 I68.0,IX,IX/I68.0.md,Angiopathie amyloïde cérébrale ,true,false,true,false,true,0,codable,OWL_ANS,emissible,1497
 I68.1,IX,IX/I68.1.md,Artérite cérébrale au cours de maladies infectieuses et parasitaires,true,false,true,false,false,0,codable,OWL_ANS,emissible,1613
@@ -4479,7 +4479,7 @@ I69.1,IX,IX/I69.1.md,Séquelles d'hémorragie intracérébrale,true,false,true,t
 I69.2,IX,IX/I69.2.md,Séquelles d'autres hémorragies intracrâniennes non traumatiques,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,4047
 I69.3,IX,IX/I69.3.md,Séquelles d'infarctus cérébral,true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,3715
 I69.4,IX,IX/I69.4.md,"Séquelles d'accident vasculaire cérébral, non précisé comme étant hémorragique ou par infarctus",true,false,true,true,false,4,interdit_dp,OWL_ANS,emissible,3709
-I69.8,IX,IX/I69.8.md,"Séquelles de maladies cérébrovasculaires, autres et non précisées",true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,4439
+I69.8,IX,IX/I69.8.md,"Séquelles de maladies cérébrovasculaires, autres et non précisées",true,false,true,true,true,4,interdit_dp,OWL_ANS,emissible,4477
 I70.00,IX,IX/I70.00.md,"Athérosclérose de l'aorte, sans gangrène",true,false,true,false,false,0,codable,ATIH,emissible,1806
 I70.01,IX,IX/I70.01.md,"Athérosclérose de l'aorte, avec gangrène",true,false,true,false,false,0,codable,ATIH,emissible,1806
 I70.1,IX,IX/I70.1.md,Athérosclérose de l'artère rénale,true,false,true,false,true,0,codable,OWL_ANS,emissible,2298
@@ -4586,7 +4586,7 @@ I95.9,IX,IX/I95.9.md,"Hypotension, sans précision",false,false,true,false,true,
 I97.0,IX,IX/I97.0.md,Syndrome postcardiotomie,false,false,true,false,true,0,codable,OWL_ANS,emissible,1286
 I97.1,IX,IX/I97.1.md,Autres troubles fonctionnels après chirurgie cardiaque,true,false,true,false,true,0,codable,OWL_ANS,emissible,1919
 I97.2,IX,IX/I97.2.md,Lymphœdème après mastectomie,true,false,true,true,true,0,codable,OWL_ANS,emissible,2441
-I97.8,IX,IX/I97.8.md,"Autres troubles de l'appareil circulatoire après un acte à visée diagnostique et thérapeutique, non classés ailleurs",false,false,true,true,true,0,codable,OWL_ANS,emissible,2750
+I97.8,IX,IX/I97.8.md,"Autres troubles de l'appareil circulatoire après un acte à visée diagnostique et thérapeutique, non classés ailleurs",false,false,true,true,true,0,codable,OWL_ANS,emissible,2754
 I97.9,IX,IX/I97.9.md,"Trouble de l'appareil circulatoire après un acte à visée diagnostique et thérapeutique, sans précision",false,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1319
 I98.0,IX,IX/I98.0.md,Syphilis cardiovasculaire,true,false,true,false,true,0,codable,OWL_ANS,emissible,1458
 I98.1,IX,IX/I98.1.md,Troubles cardiovasculaires au cours d'autres maladies infectieuses et parasitaires classées ailleurs,true,false,true,false,false,0,codable,OWL_ANS,emissible,1490
@@ -4604,14 +4604,14 @@ J01.8,X,X/J01.8.md,Autres sinusites aigües,true,false,true,false,false,0,codabl
 J01.9,X,X/J01.9.md,"Sinusite aigüe, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1885
 J02.0,X,X/J02.0.md,Pharyngite à streptocoques,true,false,true,false,true,0,codable,OWL_ANS,emissible,1840
 J02.8,X,X/J02.8.md,Pharyngite aigüe due à d'autres microorganismes précisés,true,false,true,false,true,0,codable,OWL_ANS,emissible,1970
-J02.9,X,X/J02.9.md,"Pharyngite aigüe, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,2058
+J02.9,X,X/J02.9.md,"Pharyngite aigüe, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,2033
 J03.0,X,X/J03.0.md,Amygdalite à streptocoques,false,false,true,false,true,0,codable,OWL_ANS,emissible,1359
 J03.8,X,X/J03.8.md,Amygdalite aigüe due à d'autres microorganismes précisés,false,false,true,false,true,0,codable,OWL_ANS,emissible,1606
 J03.9,X,X/J03.9.md,"Amygdalite aigüe, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1726
 J04.0,X,X/J04.0.md,Laryngite aigüe,true,false,true,false,true,0,codable,OWL_ANS,emissible,2029
 J04.1,X,X/J04.1.md,Trachéite aigüe,true,false,true,false,true,0,codable,OWL_ANS,emissible,1743
 J04.2,X,X/J04.2.md,Laryngotrachéite aigüe,true,false,true,false,true,0,codable,OWL_ANS,emissible,1714
-J05.0,X,X/J05.0.md,Laryngite obstructive aigüe [croup],true,false,true,false,true,0,codable,OWL_ANS,emissible,1330
+J05.0,X,X/J05.0.md,Laryngite obstructive aigüe [croup],true,false,true,false,true,0,codable,OWL_ANS,emissible,1304
 J05.1,X,X/J05.1.md,Épiglottite aigüe,true,false,true,false,true,0,codable,OWL_ANS,emissible,1289
 J06.0,X,X/J06.0.md,Laryngopharyngite aigüe,false,false,true,false,true,0,codable,OWL_ANS,emissible,1411
 J06.8,X,X/J06.8.md,"Autres infections aigües des voies respiratoires supérieures, à localisations multiples",false,false,true,false,true,0,codable,OWL_ANS,emissible,1827
@@ -4673,9 +4673,9 @@ J30.1,X,X/J30.1.md,Rhinite allergique due au pollen,true,false,true,false,true,0
 J30.2,X,X/J30.2.md,Autres rhinites allergiques saisonnières,true,false,true,false,false,0,codable,OWL_ANS,emissible,1206
 J30.3,X,X/J30.3.md,Autres rhinites allergiques,true,false,true,false,true,0,codable,OWL_ANS,emissible,1325
 J30.4,X,X/J30.4.md,"Rhinite allergique, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1287
-J31.0,X,X/J31.0.md,Rhinite chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1531
-J31.1,X,X/J31.1.md,Rhinopharyngite chronique,false,false,true,false,true,0,codable,OWL_ANS,emissible,1168
-J31.2,X,X/J31.2.md,Pharyngite chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1422
+J31.0,X,X/J31.0.md,Rhinite chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1491
+J31.1,X,X/J31.1.md,Rhinopharyngite chronique,false,false,true,false,true,0,codable,OWL_ANS,emissible,1138
+J31.2,X,X/J31.2.md,Pharyngite chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1398
 J32.0,X,X/J32.0.md,Sinusite maxillaire chronique,true,false,true,true,true,0,codable,OWL_ANS,emissible,2336
 J32.1,X,X/J32.1.md,Sinusite frontale chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1663
 J32.2,X,X/J32.2.md,Sinusite ethmoïdale chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1709
@@ -4699,23 +4699,23 @@ J35.3,X,X/J35.3.md,Hypertrophie des amygdales et des végétations adénoïdes,f
 J35.8,X,X/J35.8.md,Autres maladies chroniques des amygdales et des végétations adénoïdes,true,false,true,false,true,0,codable,OWL_ANS,emissible,1683
 J35.9,X,X/J35.9.md,"Maladie chronique des amygdales et des végétations adénoïdes, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1347
 J36,X,X/J36.md,Angine phlegmoneuse,true,false,true,false,true,0,codable,OWL_ANS,emissible,1528
-J37.0,X,X/J37.0.md,Laryngite chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1415
+J37.0,X,X/J37.0.md,Laryngite chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1391
 J37.1,X,X/J37.1.md,Laryngotrachéite chronique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1429
-J38.0,X,X/J38.0.md,Paralysie des cordes vocales et du larynx,true,false,true,false,true,0,codable,OWL_ANS,emissible,1778
+J38.0,X,X/J38.0.md,Paralysie des cordes vocales et du larynx,true,false,true,false,true,0,codable,OWL_ANS,emissible,1758
 J38.1,X,X/J38.1.md,Polype des cordes vocales et du larynx,false,false,true,false,true,0,codable,OWL_ANS,emissible,1471
 J38.2,X,X/J38.2.md,Nodules des cordes vocales,true,false,true,false,true,0,codable,OWL_ANS,emissible,1408
 J38.3,X,X/J38.3.md,Autres maladies des cordes vocales,true,false,true,false,true,0,codable,OWL_ANS,emissible,2033
 J38.4,X,X/J38.4.md,Œdème du larynx,true,false,true,false,true,0,codable,OWL_ANS,emissible,1750
 J38.5,X,X/J38.5.md,Spasme laryngé,true,false,true,false,true,0,codable,OWL_ANS,emissible,1645
 J38.6,X,X/J38.6.md,Sténose du larynx,false,false,true,false,true,0,codable,OWL_ANS,emissible,1517
-J38.7,X,X/J38.7.md,Autres maladies du larynx,true,false,true,false,true,0,codable,OWL_ANS,emissible,1912
+J38.7,X,X/J38.7.md,Autres maladies du larynx,true,false,true,false,true,0,codable,OWL_ANS,emissible,1928
 J39.0,X,X/J39.0.md,Abcès parapharyngé et rétropharyngé,true,false,true,false,true,0,codable,OWL_ANS,emissible,1533
 J39.1,X,X/J39.1.md,Autres abcès du pharynx,true,false,true,false,true,0,codable,OWL_ANS,emissible,1783
-J39.2,X,X/J39.2.md,Autres maladies du pharynx,true,false,true,false,true,0,codable,OWL_ANS,emissible,2062
+J39.2,X,X/J39.2.md,Autres maladies du pharynx,true,false,true,false,true,0,codable,OWL_ANS,emissible,2029
 J39.3,X,X/J39.3.md,"Réaction anaphylactique des voies respiratoires supérieures, localisation non précisée",false,false,true,false,false,0,codable,OWL_ANS,emissible,1319
 J39.8,X,X/J39.8.md,Autres maladies des voies respiratoires supérieures précisées,false,false,true,false,true,0,codable,OWL_ANS,emissible,2052
 J39.9,X,X/J39.9.md,"Maladie des voies respiratoires supérieures, sans précision",false,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1462
-J40,X,X/J40.md,"Bronchite, non précisée aigüe ou chronique",true,false,true,false,true,0,codable,OWL_ANS,emissible,1746
+J40,X,X/J40.md,"Bronchite, non précisée aigüe ou chronique",true,false,true,false,true,0,codable,OWL_ANS,emissible,1738
 J41.0,X,X/J41.0.md,Bronchite chronique simple,false,false,true,false,true,0,codable,OWL_ANS,emissible,1306
 J41.1,X,X/J41.1.md,Bronchite chronique mucopurulente,false,false,true,false,true,0,codable,OWL_ANS,emissible,1760
 J41.8,X,X/J41.8.md,Bronchite chronique simple et mucopurulente,false,false,true,false,false,0,codable,OWL_ANS,emissible,1375
@@ -5029,11 +5029,11 @@ K31.4,XI,XI/K31.4.md,Diverticule gastrique,true,false,true,false,true,0,codable,
 K31.5,XI,XI/K31.5.md,Obstruction du duodénum,true,false,true,false,true,0,codable,OWL_ANS,emissible,1958
 K31.6,XI,XI/K31.6.md,Fistule de l'estomac et du duodénum,true,false,true,false,true,0,codable,OWL_ANS,emissible,1755
 K31.7,XI,XI/K31.7.md,Polype de l'estomac et du duodénum,true,false,true,false,true,0,codable,OWL_ANS,emissible,1757
-K31.8,XI,XI/K31.8.md,Autres maladies précisées de l'estomac et du duodénum,true,false,true,false,true,0,codable,OWL_ANS,emissible,2431
+K31.8,XI,XI/K31.8.md,Autres maladies précisées de l'estomac et du duodénum,true,false,true,false,true,0,codable,OWL_ANS,emissible,2418
 K31.9,XI,XI/K31.9.md,"Maladie de l'estomac et du duodénum, sans précision",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1395
 K35.2,XI,XI/K35.2.md,Appendicite aigüe avec péritonite généralisée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1231
 K35.3,XI,XI/K35.3.md,Appendicite aigüe avec péritonite localisée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1514
-K35.8,XI,XI/K35.8.md,"Appendicite aigüe, autre et non précisée",true,false,true,false,true,0,codable,OWL_ANS,emissible,1511
+K35.8,XI,XI/K35.8.md,"Appendicite aigüe, autre et non précisée",true,false,true,false,true,0,codable,OWL_ANS,emissible,1534
 K36,XI,XI/K36.md,Autres formes d'appendicite,true,false,true,false,true,0,codable,OWL_ANS,emissible,1234
 K37,XI,XI/K37.md,"Appendicite, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,1169
 K38.0,XI,XI/K38.0.md,Hyperplasie de l'appendice,false,false,true,false,false,0,codable,OWL_ANS,emissible,935
@@ -5144,7 +5144,7 @@ K62.4,XI,XI/K62.4.md,Sténose de l'anus et du rectum,true,false,true,false,true,
 K62.5,XI,XI/K62.5.md,Hémorragie de l'anus et du rectum,true,false,true,false,true,0,codable,OWL_ANS,emissible,1660
 K62.6,XI,XI/K62.6.md,Ulcère de l'anus et du rectum,true,false,true,false,true,0,codable,OWL_ANS,emissible,1810
 K62.7,XI,XI/K62.7.md,Rectite due à une irradiation,true,false,true,false,true,0,codable,OWL_ANS,emissible,1649
-K62.8,XI,XI/K62.8.md,Autres maladies précisées de l'anus et du rectum,true,false,true,false,true,0,codable,OWL_ANS,emissible,2265
+K62.8,XI,XI/K62.8.md,Autres maladies précisées de l'anus et du rectum,true,false,true,false,true,0,codable,OWL_ANS,emissible,2261
 K62.9,XI,XI/K62.9.md,"Maladie de l'anus et du rectum, sans précision",true,false,true,false,true,1,interdit_dp_dr,OWL_ANS,emissible,1538
 K63.0,XI,XI/K63.0.md,Abcès de l'intestin,false,false,true,false,true,0,codable,OWL_ANS,emissible,1457
 K63.1,XI,XI/K63.1.md,Perforation de l'intestin (non traumatique),false,false,true,false,false,0,codable,OWL_ANS,emissible,1124
@@ -5229,12 +5229,12 @@ K77.0,XI,XI/K77.0.md,Atteintes hépatiques au cours de maladies infectieuses et 
 K77.8,XI,XI/K77.8.md,Atteintes hépatiques au cours d'autres maladies classées ailleurs,true,false,true,false,true,0,codable,OWL_ANS,emissible,1609
 K80.0,XI,XI/K80.0.md,Calcul de la vésicule biliaire avec cholécystite aigüe,true,false,true,false,true,0,codable,OWL_ANS,emissible,1566
 K80.1,XI,XI/K80.1.md,Calcul de la vésicule biliaire avec une autre forme de cholécystite,true,false,true,false,true,0,codable,OWL_ANS,emissible,1524
-K80.2,XI,XI/K80.2.md,Calcul de la vésicule biliaire sans cholécystite,true,false,true,false,true,0,codable,OWL_ANS,emissible,1728
+K80.2,XI,XI/K80.2.md,Calcul de la vésicule biliaire sans cholécystite,true,false,true,false,true,0,codable,OWL_ANS,emissible,1725
 K80.3,XI,XI/K80.3.md,Calcul des canaux biliaires avec angiocholite,true,false,true,false,true,0,codable,OWL_ANS,emissible,1365
 K80.4,XI,XI/K80.4.md,Calcul des canaux biliaires avec cholécystite,true,false,true,false,true,0,codable,OWL_ANS,emissible,1196
 K80.5,XI,XI/K80.5.md,Calcul des canaux biliaires sans angiocholite ni cholécystite,true,false,true,false,true,0,codable,OWL_ANS,emissible,1859
 K80.8,XI,XI/K80.8.md,Autres cholélithiases,false,false,true,false,false,0,codable,OWL_ANS,emissible,1414
-K81.0,XI,XI/K81.0.md,Cholécystite aigüe,true,false,true,false,true,0,codable,OWL_ANS,emissible,1830
+K81.0,XI,XI/K81.0.md,Cholécystite aigüe,true,false,true,false,true,0,codable,OWL_ANS,emissible,1823
 K81.1,XI,XI/K81.1.md,Cholécystite chronique,false,false,true,false,true,0,codable,OWL_ANS,emissible,1291
 K81.8,XI,XI/K81.8.md,Autres cholécystites,false,false,true,false,true,0,codable,OWL_ANS,emissible,1361
 K81.9,XI,XI/K81.9.md,"Cholécystite, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,1265
@@ -11756,7 +11756,7 @@ O44.0,XV,XV/O44.0.md,Placenta prævia précisé sans hémorragie,true,false,true
 O44.1,XV,XV/O44.1.md,Placenta prævia avec hémorragie,true,false,true,false,true,0,codable,OWL_ANS,emissible,1550
 O45.0,XV,XV/O45.0.md,Décollement prématuré du placenta avec anomalie de la coagulation,true,false,true,false,true,0,codable,OWL_ANS,emissible,1598
 O45.8,XV,XV/O45.8.md,Autres décollements prématurés du placenta,false,false,true,false,false,0,codable,OWL_ANS,emissible,1139
-O45.9,XV,XV/O45.9.md,"Décollement prématuré du placenta, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1466
+O45.9,XV,XV/O45.9.md,"Décollement prématuré du placenta, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1442
 O46.0,XV,XV/O46.0.md,Hémorragie précédant l'accouchement avec anomalie de la coagulation,true,false,true,false,true,0,codable,OWL_ANS,emissible,1860
 O46.8,XV,XV/O46.8.md,Autres hémorragies précédant l'accouchement,false,false,true,false,true,0,codable,OWL_ANS,emissible,1560
 O46.9,XV,XV/O46.9.md,"Hémorragie précédant l'accouchement, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,1481
@@ -12276,7 +12276,7 @@ P81.8,XVI,XVI/P81.8.md,Autres troubles précisés de la régulation thermique du
 P81.9,XVI,XVI/P81.9.md,"Trouble de la régulation thermique du nouveau-né, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1255
 P83.0,XVI,XVI/P83.0.md,Sclérème du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1496
 P83.1,XVI,XVI/P83.1.md,Érythème toxique du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1437
-P83.2,XVI,XVI/P83.2.md,Anasarque fœtoplacentaire non due à une maladie hémolytique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1743
+P83.2,XVI,XVI/P83.2.md,Anasarque fœtoplacentaire non due à une maladie hémolytique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1723
 P83.3,XVI,XVI/P83.3.md,"Œdèmes autres et sans précision, spécifiques du fœtus et du nouveau-né",true,false,true,false,true,0,codable,OWL_ANS,emissible,1457
 P83.4,XVI,XVI/P83.4.md,Engorgement du sein chez le nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1494
 P83.5,XVI,XVI/P83.5.md,Hydrocèle congénitale,true,false,true,false,true,0,codable,OWL_ANS,emissible,1420
@@ -12284,7 +12284,7 @@ P83.6,XVI,XVI/P83.6.md,Polype ombilical du nouveau-né,true,false,true,false,fal
 P83.8,XVI,XVI/P83.8.md,Autres affections précisées des téguments spécifiques du fœtus et du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,2134
 P83.9,XVI,XVI/P83.9.md,"Affection des téguments spécifiques du fœtus et du nouveau-né, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1452
 P90,XVI,XVI/P90.md,Convulsions du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1387
-P91.0,XVI,XVI/P91.0.md,Ischémie cérébrale du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1342
+P91.0,XVI,XVI/P91.0.md,Ischémie cérébrale du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1334
 P91.1,XVI,XVI/P91.1.md,Kystes périventriculaires acquis du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1035
 P91.2,XVI,XVI/P91.2.md,Leucomalacie cérébrale du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1380
 P91.3,XVI,XVI/P91.3.md,Irritabilité cérébrale du nouveau-né,true,false,true,false,true,0,codable,OWL_ANS,emissible,1021
@@ -12831,7 +12831,7 @@ Q82.1,XVII,XVII/Q82.1.md,Xeroderma pigmentosum,false,false,true,false,true,0,cod
 Q82.2,XVII,XVII/Q82.2.md,Mastocytose,true,false,true,false,true,0,codable,OWL_ANS,emissible,1169
 Q82.3,XVII,XVII/Q82.3.md,Incontinentia pigmenti,false,false,true,false,true,0,codable,OWL_ANS,emissible,849
 Q82.4,XVII,XVII/Q82.4.md,Dysplasie ectodermique (anhidrotique),false,false,true,false,true,0,codable,OWL_ANS,emissible,1017
-Q82.5,XVII,XVII/Q82.5.md,Nævus congénital non néoplasique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1445
+Q82.5,XVII,XVII/Q82.5.md,Nævus congénital non néoplasique,true,false,true,false,true,0,codable,OWL_ANS,emissible,1455
 Q82.8,XVII,XVII/Q82.8.md,Autres malformations congénitales précisées de la peau,true,false,true,false,true,0,codable,OWL_ANS,emissible,2146
 Q82.9,XVII,XVII/Q82.9.md,"Malformation congénitale de la peau, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,826
 Q83.0,XVII,XVII/Q83.0.md,Absence congénitale de sein avec absence de mamelon,false,false,true,false,false,0,codable,OWL_ANS,emissible,559
@@ -12875,7 +12875,7 @@ Q89.9,XVII,XVII/Q89.9.md,"Malformation congénitale, sans précision",true,false
 Q90.0,XVII,XVII/Q90.0.md,"Trisomie 21, non-disjonction méïotique",false,false,true,false,true,0,codable,OWL_ANS,emissible,526
 Q90.1,XVII,XVII/Q90.1.md,"Trisomie 21, mosaïque chromosomique (non-disjonction mitotique)",false,false,true,false,true,0,codable,OWL_ANS,emissible,545
 Q90.2,XVII,XVII/Q90.2.md,"Trisomie 21, translocation",false,false,true,false,false,0,codable,OWL_ANS,emissible,445
-Q90.9,XVII,XVII/Q90.9.md,"Syndrome de Down, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,684
+Q90.9,XVII,XVII/Q90.9.md,"Syndrome de Down, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,632
 Q91.0,XVII,XVII/Q91.0.md,"Trisomie 18, non-disjonction méïotique",false,false,true,false,false,0,codable,OWL_ANS,emissible,457
 Q91.1,XVII,XVII/Q91.1.md,"Trisomie 18, mosaïque chromosomique (non-disjonction mitotique)",false,false,true,false,true,0,codable,OWL_ANS,emissible,568
 Q91.2,XVII,XVII/Q91.2.md,"Trisomie 18, translocation",false,false,true,false,true,0,codable,OWL_ANS,emissible,531
@@ -12973,7 +12973,7 @@ R07.3,XVIII,XVIII/R07.3.md,Autres douleurs thoraciques,true,false,true,false,tru
 R07.4,XVIII,XVIII/R07.4.md,"Douleur thoracique, sans précision",false,false,true,false,true,0,codable,OWL_ANS,emissible,1173
 R09.0,XVIII,XVIII/R09.0.md,Asphyxie,false,false,true,false,true,0,codable,OWL_ANS,emissible,1339
 R09.1,XVIII,XVIII/R09.1.md,Inflammation de la plèvre,false,false,true,false,true,0,codable,OWL_ANS,emissible,1220
-R09.2,XVIII,XVIII/R09.2.md,Arrêt respiratoire,true,false,true,false,true,0,codable,OWL_ANS,emissible,1407
+R09.2,XVIII,XVIII/R09.2.md,Arrêt respiratoire,true,false,true,false,true,0,codable,OWL_ANS,emissible,1410
 R09.3,XVIII,XVIII/R09.3.md,Expectoration anormale,true,false,true,false,true,0,codable,OWL_ANS,emissible,1488
 R09.8,XVIII,XVIII/R09.8.md,Autres symptômes et signes précisés relatifs aux appareils circulatoire et respiratoire,true,false,true,false,true,0,codable,OWL_ANS,emissible,1753
 R10.0,XVIII,XVIII/R10.0.md,Syndrome abdominal aigu,true,false,true,false,true,0,codable,OWL_ANS,emissible,1679
@@ -12985,7 +12985,7 @@ R11,XVIII,XVIII/R11.md,Nausées et vomissements,false,false,true,false,true,0,co
 R12,XVIII,XVIII/R12.md,Pyrosis,false,false,true,false,true,0,codable,OWL_ANS,emissible,1158
 R13,XVIII,XVIII/R13.md,Dysphagie,true,false,true,false,true,0,codable,OWL_ANS,emissible,1461
 R14,XVIII,XVIII/R14.md,Flatulence et troubles apparentés,true,false,true,false,true,0,codable,OWL_ANS,emissible,1633
-R15,XVIII,XVIII/R15.md,Incontinence des matières fécales,true,false,true,false,true,0,codable,OWL_ANS,emissible,1454
+R15,XVIII,XVIII/R15.md,Incontinence des matières fécales,true,false,true,false,true,0,codable,OWL_ANS,emissible,1444
 R16.0,XVIII,XVIII/R16.0.md,"Hépatomégalie, non classée ailleurs",true,false,true,false,true,0,codable,OWL_ANS,emissible,1399
 R16.1,XVIII,XVIII/R16.1.md,"Splénomégalie, non classée ailleurs",true,false,true,false,true,0,codable,OWL_ANS,emissible,1335
 R16.2,XVIII,XVIII/R16.2.md,"Hépatomégalie avec splénomégalie, non classées ailleurs",true,false,true,false,true,0,codable,OWL_ANS,emissible,1354
@@ -13061,7 +13061,7 @@ R41.0,XVIII,XVIII/R41.0.md,"Désorientation, sans précision",true,false,true,fa
 R41.1,XVIII,XVIII/R41.1.md,Amnésie antérograde,false,false,true,false,true,0,codable,OWL_ANS,emissible,961
 R41.2,XVIII,XVIII/R41.2.md,Amnésie rétrograde,false,false,true,false,true,0,codable,OWL_ANS,emissible,959
 R41.3,XVIII,XVIII/R41.3.md,Autres formes d'amnésie,true,false,true,false,true,0,codable,OWL_ANS,emissible,1481
-R41.8,XVIII,XVIII/R41.8.md,"Symptômes et signes relatifs aux fonctions cognitives et à la conscience, autres et non précisés",false,false,true,false,true,0,codable,OWL_ANS,emissible,1533
+R41.8,XVIII,XVIII/R41.8.md,"Symptômes et signes relatifs aux fonctions cognitives et à la conscience, autres et non précisés",false,false,true,false,true,0,codable,OWL_ANS,emissible,1538
 R42,XVIII,XVIII/R42.md,Étourdissements et éblouissements,true,false,true,false,true,0,codable,OWL_ANS,emissible,1117
 R43.0,XVIII,XVIII/R43.0.md,Anosmie,false,false,true,false,true,0,codable,OWL_ANS,emissible,823
 R43.1,XVIII,XVIII/R43.1.md,Parosmie,false,false,true,false,true,0,codable,OWL_ANS,emissible,825
@@ -13132,7 +13132,7 @@ R59.0,XVIII,XVIII/R59.0.md,Adénopathies localisées,true,false,true,false,true,
 R59.1,XVIII,XVIII/R59.1.md,Adénopathies généralisées,true,false,true,false,true,0,codable,OWL_ANS,emissible,1302
 R59.9,XVIII,XVIII/R59.9.md,"Adénopathie, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1061
 R60.0,XVIII,XVIII/R60.0.md,Œdème localisé,false,false,true,false,true,0,codable,OWL_ANS,emissible,1342
-R60.1,XVIII,XVIII/R60.1.md,Œdème généralisé,false,false,true,false,true,0,codable,OWL_ANS,emissible,1362
+R60.1,XVIII,XVIII/R60.1.md,Œdème généralisé,false,false,true,false,true,0,codable,OWL_ANS,emissible,1349
 R60.9,XVIII,XVIII/R60.9.md,"Œdème, sans précision",true,false,true,false,true,0,codable,OWL_ANS,emissible,1400
 R61.0,XVIII,XVIII/R61.0.md,Hyperhidrose localisée,false,false,true,false,true,0,codable,OWL_ANS,emissible,667
 R61.1,XVIII,XVIII/R61.1.md,Hyperhidrose généralisée,false,false,true,false,true,0,codable,OWL_ANS,emissible,671
@@ -13144,11 +13144,11 @@ R63.0,XVIII,XVIII/R63.0.md,Anorexie,true,false,true,false,true,0,codable,OWL_ANS
 R63.1,XVIII,XVIII/R63.1.md,Polydipsie,true,false,true,false,true,0,codable,OWL_ANS,emissible,907
 R63.2,XVIII,XVIII/R63.2.md,Polyphagie,true,false,true,false,true,0,codable,OWL_ANS,emissible,1005
 R63.3,XVIII,XVIII/R63.3.md,Difficultés nutritionnelles et nutrition inadaptée,true,false,true,false,true,0,codable,OWL_ANS,emissible,1521
-R63.4,XVIII,XVIII/R63.4.md,Perte de poids anormale,false,false,true,false,true,0,codable,OWL_ANS,emissible,1043
+R63.4,XVIII,XVIII/R63.4.md,Perte de poids anormale,false,false,true,false,true,0,codable,OWL_ANS,emissible,1048
 R63.5,XVIII,XVIII/R63.5.md,Prise de poids anormale,false,false,true,false,true,0,codable,OWL_ANS,emissible,965
 R63.6,XVIII,XVIII/R63.6.md,Ingestion insuffisante d'aliments et de liquides,true,false,true,false,false,0,codable,OWL_ANS,emissible,1125
 R63.8,XVIII,XVIII/R63.8.md,Autres symptômes et signes relatifs à l'absorption d'aliments et de liquides,false,false,true,false,true,0,codable,OWL_ANS,emissible,1407
-R64,XVIII,XVIII/R64.md,Cachexie,false,false,true,false,true,0,codable,OWL_ANS,emissible,1013
+R64,XVIII,XVIII/R64.md,Cachexie,false,false,true,false,true,0,codable,OWL_ANS,emissible,993
 R65.0,XVIII,XVIII/R65.0.md,Syndrome de réponse inflammatoire systémique d'origine infectieuse sans défaillance d'organe,false,false,true,true,false,0,codable,OWL_ANS,emissible,991
 R65.1,XVIII,XVIII/R65.1.md,Syndrome de réponse inflammatoire systémique d'origine infectieuse avec défaillance d'organe,true,false,true,true,true,3,supprime,OWL_ANS,emissible,1479
 R65.2,XVIII,XVIII/R65.2.md,Syndrome de réponse inflammatoire systémique d'origine non infectieuse sans défaillance d'organe,false,false,true,false,false,0,codable,OWL_ANS,emissible,676
