@@ -82,6 +82,66 @@ def _eager(frame: pl.DataFrame | pl.LazyFrame | None) -> pl.DataFrame:
 DEFAULT_SEED = 42
 INDEX_SAMPLE_SIZE = 10
 
+#: Version du format d'index — contrat consommateurs (CONTRAT.md).
+#: À incrémenter sur toute rupture du noyau garanti
+#: (code, fichier, statut_mco, format_version).
+FORMAT_VERSION = "1"
+
+#: Source canonique du contrat, copiée à la racine de chaque
+#: bibliothèque et embarquée dans le paquet de livraison.
+_CHEMIN_CONTRAT = Path(__file__).resolve().parents[2] / "docs" / "livraison" / "CONTRAT.md"
+
+
+def _ecrit_index(
+    output_dir: Path,
+    index_rows: list[dict[str, object]],
+    ordered_cols: list[str],
+    schema_overrides: dict[str, Any],
+) -> Path:
+    """Écrit l'index canonique `index.csv` et la copie dépréciée `_index.csv`.
+
+    Contrat (CONTRAT.md) : le canonique porte le noyau garanti
+    `code, fichier, statut_mco, format_version` — `fichier` est le nom
+    contractuel de l'ancien `filepath`. `_index.csv` garde le schéma
+    historique, double-écrit pendant un cycle de livraison puis retiré.
+    """
+    df = pl.DataFrame(index_rows, schema_overrides=schema_overrides).select(ordered_cols)
+    df.write_csv(output_dir / "_index.csv")  # déprécié — un cycle
+    canonique = df.rename({"filepath": "fichier"}).with_columns(
+        pl.lit(FORMAT_VERSION).alias("format_version")
+    )
+    chemin = output_dir / "index.csv"
+    canonique.write_csv(chemin)
+    return chemin
+
+
+def _copie_contrat(output_dir: Path) -> None:
+    """Pose CONTRAT.md à la racine de la bibliothèque (l'index fait foi)."""
+    if _CHEMIN_CONTRAT.exists():
+        (output_dir / "CONTRAT.md").write_text(
+            _CHEMIN_CONTRAT.read_text(encoding="utf-8"), encoding="utf-8"
+        )
+    else:  # dépôt tronqué (tests hors repo) : on le dit, sans échouer
+        log.warning("CONTRAT.md introuvable (%s) — non copié.", _CHEMIN_CONTRAT)
+
+
+def _nettoie_residus(output_dir: Path, fichiers_attendus: set[str]) -> int:
+    """Supprime les fiches hors index — l'index fait foi (CONTRAT.md).
+
+    Les résidus sont des fiches d'anciens builds dont le code est sorti
+    du profil (1 709 mesurés le 2026-09-12, codes pères interdits ou
+    inconnus du kit). Ne s'applique qu'aux builds COMPLETS : un build
+    partiel (`--limit`, `--chapter`) écrirait un index partiel et
+    raserait le reste de la bibliothèque.
+    """
+    n = 0
+    for fiche in output_dir.rglob("*.md"):
+        rel = str(fiche.relative_to(output_dir))
+        if rel not in fichiers_attendus and fiche.name != "CONTRAT.md":
+            fiche.unlink()
+            n += 1
+    return n
+
 
 @dataclass(frozen=True)
 class PolitiqueFiches:
@@ -911,6 +971,9 @@ class BuildSummary:
     #: parce que non codables en MCO (0 pour le profil `controle`).
     profil: str = policy_module.PROFIL_DEFAUT
     n_exclus_non_codables: int = 0
+    #: Fiches hors index supprimées par le build (l'index fait foi —
+    #: CONTRAT.md). 0 sur un build partiel, qui ne nettoie pas.
+    n_residus_nettoyes: int = 0
 
 
 def _detect_sections(card: str) -> dict[str, bool]:
@@ -1098,8 +1161,10 @@ def build_cards_library(
                 time.perf_counter() - t0,
             )
 
-    # Écriture _index.csv (colonnes ordonnées explicitement).
-    index_path = output_dir / "_index.csv"
+    # Écriture de l'index (canonique index.csv + _index.csv déprécié),
+    # copie du contrat, nettoyage des résidus sur build complet.
+    index_path = output_dir / "index.csv"
+    n_residus = 0
     if index_rows:
         ordered_cols = [
             "code",
@@ -1117,15 +1182,20 @@ def build_cards_library(
             "classe_generation",
             "nb_chars",
         ]
-        pl.DataFrame(
+        index_path = _ecrit_index(
+            output_dir,
             index_rows,
-            schema_overrides={
+            ordered_cols,
+            {
                 "type_mco": pl.Int64,
                 "statut_mco": pl.String,
                 "source_existence": pl.String,
                 "classe_generation": pl.String,
             },
-        ).select(ordered_cols).write_csv(index_path)
+        )
+        _copie_contrat(output_dir)
+        if limit is None and chapter_filter is None:
+            n_residus = _nettoie_residus(output_dir, {str(r["filepath"]) for r in index_rows})
 
     # Comptage des fiches portant la section Consignes, par chapitre,
     # dans l'ordre de la classification. Le nested set ANS ne convient
@@ -1151,6 +1221,7 @@ def build_cards_library(
         avertissements=tuple(avertissements),
         profil=profil,
         n_exclus_non_codables=n_exclus_non_codables,
+        n_residus_nettoyes=n_residus,
     )
 
 
@@ -1576,7 +1647,8 @@ def build_categories_library(
                 time.perf_counter() - t0,
             )
 
-    index_path = output_dir / "_index.csv"
+    index_path = output_dir / "index.csv"
+    n_residus = 0
     if index_rows:
         ordered_cols = [
             "code",
@@ -1591,9 +1663,15 @@ def build_categories_library(
             "statut_mco",
             "nb_chars",
         ]
-        pl.DataFrame(
-            index_rows, schema_overrides={"type_mco": pl.Int64, "statut_mco": pl.String}
-        ).select(ordered_cols).write_csv(index_path)
+        index_path = _ecrit_index(
+            output_dir,
+            index_rows,
+            ordered_cols,
+            {"type_mco": pl.Int64, "statut_mco": pl.String},
+        )
+        _copie_contrat(output_dir)
+        if limit is None and chapter_filter is None:
+            n_residus = _nettoie_residus(output_dir, {str(r["filepath"]) for r in index_rows})
 
     elapsed = time.perf_counter() - t0
     return BuildSummary(
@@ -1604,4 +1682,5 @@ def build_categories_library(
         output_dir=output_dir,
         index_path=index_path,
         errors=tuple(errors),
+        n_residus_nettoyes=n_residus,
     )
