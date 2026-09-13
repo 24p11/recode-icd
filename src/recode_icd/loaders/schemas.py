@@ -284,13 +284,21 @@ class FlatCsvSchema(pa.DataFrameModel):
 
     code: str = pa.Field(str_matches=_CODE_RE)
     libelle: str = pa.Field(nullable=True)
-    type: str = pa.Field(isin=["inclusion", "exclusion", "synonyme"])
+    type: str = pa.Field(isin=["inclusion", "exclusion", "synonyme", "note"])
     source: str = pa.Field()
     texte: str = pa.Field(nullable=True)
     source_level: str = pa.Field(isin=["chapter", "block", "category", "code"])
     inherited_from_code: str = pa.Field(nullable=True)
     is_dagger_in_pair: bool = pa.Field()
     is_asterisk_in_pair: bool = pa.Field()
+    # Chantier notes OFS/ANS (2026-09-14) : les notes de la CIM-10
+    # entrent au CSV comme type `note`, avec leur classe, leur
+    # destination de rendu (les non-rendues entrent aussi — la base
+    # sait tout, la fiche n'affiche que le verdict) et leur provenance
+    # (MEMO <mid> / ClaML <rubric_id>). Null sur les autres types.
+    classe_note: str = pa.Field(nullable=True)
+    note_destination: str = pa.Field(nullable=True)
+    note_provenance: str = pa.Field(nullable=True)
 
     class Config:
         strict = True

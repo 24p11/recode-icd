@@ -565,6 +565,91 @@ def _section_exclusions_from_ans(code: str, ctx: ExplorationContext) -> str | No
 # ----------------------------------------------------------------------
 
 
+# ----------------------------------------------------------------------
+# Sections des notes de la CIM-10 (chantier notes OFS/ANS, RF 2026-09-14)
+# ----------------------------------------------------------------------
+# Trois destinations rendues sur une fiche de code : « Définition
+# (CIM-10) » et « Description clinique (OMS) » entre le Périmètre
+# clinique et les consignes, « Notes de la CIM-10 » après les consignes
+# du guide (provenances et millésimes différents, jamais fondus). Les
+# non-rendues restent dans la base (type note du CSV), la fiche
+# n'affiche que le verdict. Une note héritée d'un bloc (héritage borné,
+# verdict par ligne) porte sa provenance ; une note de chapitre ne
+# descend jamais (jurisprudence).
+
+_DEST_NOTE_DEFINITION = "fiche du code (définition)"
+_DEST_NOTE_DESCRIPTION = "section Description clinique (OMS)"
+_DEST_NOTE_NOTES = "section Notes de la CIM-10"
+_DEST_NOTE_BLOC = "fiche de bloc (bibliothèque catégories) + héritage borné vers les feuilles"
+
+
+def _notes_par_section(sub: pl.DataFrame) -> dict[str, list[str]]:
+    """Répartit les lignes `type=note` d'un code entre les trois sections.
+
+    Une note héritée par verdict de bloc se range selon sa CLASSE
+    (description → Description clinique, définition → Définition, le
+    reste → Notes de la CIM-10) et porte sa provenance de bloc.
+    """
+    if "note_destination" not in sub.columns:
+        return {}
+    sections: dict[str, list[str]] = {"definition": [], "description": [], "notes": []}
+    vus: set[str] = set()
+    lignes = sub.filter(pl.col("type") == "note").sort("texte")
+    for ligne in lignes.iter_rows(named=True):
+        dest = ligne["note_destination"] or ""
+        texte = ligne["texte"] or ""
+        cle = normalize_for_match(texte) or ""
+        if not texte or cle in vus or dest == "non_rendue":
+            continue
+        vus.add(cle)
+        herite = ligne["inherited_from_code"]
+        suffixe = f" *(note du bloc {herite})*" if herite else ""
+        if dest == _DEST_NOTE_DEFINITION:
+            sections["definition"].append(texte + suffixe)
+        elif dest == _DEST_NOTE_DESCRIPTION:
+            sections["description"].append(texte + suffixe)
+        elif dest == _DEST_NOTE_NOTES:
+            sections["notes"].append(texte + suffixe)
+        elif dest == _DEST_NOTE_BLOC:
+            classe = ligne["classe_note"] or ""
+            if classe == "description_clinique":
+                sections["description"].append(texte + suffixe)
+            elif classe == "definition":
+                sections["definition"].append(texte + suffixe)
+            else:
+                sections["notes"].append(texte + suffixe)
+    return sections
+
+
+def _section_definition_cim(code: str, ctx: ExplorationContext) -> str | None:
+    """« ## Définition (CIM-10) » — prose, entre Périmètre et consignes."""
+    sub = _eager(ctx.flat).filter(pl.col("code") == code)
+    textes = _notes_par_section(sub).get("definition", [])
+    if not textes:
+        return None
+    return "## Définition (CIM-10)\n\n" + "\n\n".join(textes)
+
+
+def _section_description_clinique(code: str, ctx: ExplorationContext) -> str | None:
+    """« ## Description clinique (OMS) » — prose, avant les consignes."""
+    sub = _eager(ctx.flat).filter(pl.col("code") == code)
+    textes = _notes_par_section(sub).get("description", [])
+    if not textes:
+        return None
+    return "## Description clinique (OMS)\n\n" + "\n\n".join(textes)
+
+
+def _section_notes_cim(code: str, ctx: ExplorationContext) -> str | None:
+    """« ## Notes de la CIM-10 » — après les consignes du guide."""
+    sub = _eager(ctx.flat).filter(pl.col("code") == code)
+    textes = _notes_par_section(sub).get("notes", [])
+    if not textes:
+        return None
+    lignes = ["## Notes de la CIM-10"]
+    lignes.extend(f"- {t}" for t in textes)
+    return "\n".join(lignes)
+
+
 def _section_consignes(code: str, ctx: ExplorationContext) -> str | None:
     """Section « Consignes de codage » depuis les tables du guide MCO.
 
@@ -933,8 +1018,11 @@ def build_card(
         _section_composition(code, ctx),
         _section_localisations(code, ctx),
         _section_perimeter(code, ctx),
+        _section_definition_cim(code, ctx),
+        _section_description_clinique(code, ctx),
         _section_exclusions(code, ctx),
         _section_consignes(code, ctx),
+        _section_notes_cim(code, ctx),
         _section_formulations(code, ctx, rng, outils or charge_politique(_eager(ctx.merged))),
     ]
     body = "\n\n".join(s for s in sections if s)
@@ -1553,6 +1641,7 @@ def build_category_card(
         _section_hierarchy(category_code, ctx),
         _category_section_children(category_code, ctx),
         _category_section_perimeter(category_code, ctx),
+        _sections_notes_attachees(category_code, ctx),
         _category_section_exclusions(category_code, ctx),
         _category_section_formulations(
             category_code, ctx, rng, outils or charge_politique(_eager(ctx.merged))
@@ -1560,6 +1649,81 @@ def build_category_card(
     ]
     body = "\n\n".join(s for s in sections if s)
     return f'<fiche_category code="{category_code}">\n\n{body}\n\n</fiche_category>\n'
+
+
+# ----------------------------------------------------------------------
+# Notes attachées à un nœud (catégorie, bloc, chapitre) — parquet
+# ----------------------------------------------------------------------
+# Les fiches de la bibliothèque des catégories lisent le PARQUET des
+# notes (`notes_cim.parquet`), pas le CSV : une catégorie père interdit
+# (F20, A15) ou un bloc n'ont pas de ligne au CSV, mais leurs notes
+# rendues vivent sur leur fiche (verdict RF 2026-09-14).
+
+_TITRES_NOTES = {
+    "definition": "## Définition (CIM-10)",
+    "description": "## Description clinique (OMS)",
+    "notes": "## Notes de la CIM-10",
+}
+
+
+def _sections_notes_attachees(code: str, ctx: ExplorationContext) -> str | None:
+    """Sections de notes d'un nœud, depuis `notes_cim.parquet`."""
+    if ctx.notes_cim is None:
+        return None
+    notes = _eager(ctx.notes_cim).filter(
+        (pl.col("code") == code) & (pl.col("destination") != "non_rendue")
+    )
+    if notes.is_empty():
+        return None
+    groupes: dict[str, list[str]] = {"definition": [], "description": [], "notes": []}
+    vus: set[str] = set()
+    for ligne in notes.sort("texte").iter_rows(named=True):
+        texte = str(ligne["texte"])
+        cle = normalize_for_match(texte) or ""
+        if cle in vus:
+            continue
+        vus.add(cle)
+        dest, classe = str(ligne["destination"]), str(ligne["classe_note"])
+        if dest == _DEST_NOTE_DEFINITION or (
+            dest not in (_DEST_NOTE_DESCRIPTION, _DEST_NOTE_NOTES) and classe == "definition"
+        ):
+            groupes["definition"].append(texte)
+        elif dest == _DEST_NOTE_DESCRIPTION or classe == "description_clinique":
+            groupes["description"].append(texte)
+        else:
+            groupes["notes"].append(texte)
+    blocs: list[str] = []
+    for nom in ("definition", "description"):
+        if groupes[nom]:
+            blocs.append(_TITRES_NOTES[nom] + "\n\n" + "\n\n".join(groupes[nom]))
+    if groupes["notes"]:
+        blocs.append("\n".join([_TITRES_NOTES["notes"], *[f"- {t}" for t in groupes["notes"]]]))
+    return "\n\n".join(blocs) if blocs else None
+
+
+def build_node_note_card(code: str, ctx: ExplorationContext) -> str | None:
+    """Fiche d'un BLOC ou d'un CHAPITRE porteur de notes rendues.
+
+    Nouvelles fiches de la bibliothèque des catégories (chantier notes,
+    RF 2026-09-14) : un bloc dont une note est rendue (« fiche de bloc
+    + héritage borné ») et un chapitre dont une note l'est (« fiche de
+    chapitre, sans descente ») reçoivent une fiche minimale — titre,
+    position, sections de notes. `None` si le nœud n'a aucune note
+    rendue.
+    """
+    sections_notes = _sections_notes_attachees(code, ctx)
+    if sections_notes is None:
+        return None
+    merged = _eager(ctx.merged)
+    row = merged.filter(pl.col("code") == code)
+    label = row.row(0, named=True)["label"] if not row.is_empty() else ""
+    sections = [
+        f"# {code} — {label}" if label else f"# {code}",
+        _section_hierarchy(code, ctx),
+        sections_notes,
+    ]
+    body = "\n\n".join(s for s in sections if s)
+    return f'<fiche_node code="{code}">\n\n{body}\n\n</fiche_node>\n'
 
 
 def _detect_category_sections(card: str) -> dict[str, bool]:
@@ -1646,6 +1810,57 @@ def build_categories_library(
                 n_total,
                 time.perf_counter() - t0,
             )
+
+    # Fiches de BLOC et de CHAPITRE porteuses de notes rendues (chantier
+    # notes OFS/ANS, RF 2026-09-14) : nouvelles fiches de cette
+    # bibliothèque — un bloc dont une note est rendue, un chapitre dont
+    # une note l'est (jamais de descente depuis un chapitre). Sur un
+    # build partiel par chapitre, seuls les nœuds du chapitre filtré.
+    if ctx.notes_cim is not None and limit is None:
+        notes_noeuds = (
+            _eager(ctx.notes_cim)
+            .filter(
+                pl.col("type_noeud").is_in(["bloc", "chapitre"])
+                & (pl.col("destination") != "non_rendue")
+            )
+            .select("code", "type_noeud", "chapitre")
+            .unique(subset=["code"])
+            .sort("code")
+        )
+        for ligne_noeud in notes_noeuds.iter_rows(named=True):
+            code = str(ligne_noeud["code"])
+            chapter = (
+                code if ligne_noeud["type_noeud"] == "chapitre" else str(ligne_noeud["chapitre"])
+            )
+            if chapter_filter is not None and chapter != chapter_filter:
+                continue
+            try:
+                carte_noeud = build_node_note_card(code, ctx)
+                if carte_noeud is None:
+                    continue
+                chap_dir = output_dir / chapter
+                chap_dir.mkdir(parents=True, exist_ok=True)
+                (chap_dir / f"{code}.md").write_text(carte_noeud, encoding="utf-8")
+                statut = statut_mco_de(code, ctx)
+                index_rows.append(
+                    {
+                        "code": code,
+                        "chapter": chapter,
+                        "filepath": f"{chapter}/{code}.md",
+                        "libelle": _label_merged(_eager(ctx.merged), code),
+                        "n_enfants": 0,
+                        "type_mco": None if statut is None else statut[0],
+                        "statut_mco": None if statut is None else statut[1].partition(":")[0],
+                        "nb_chars": len(carte_noeud),
+                        "has_perimetre": False,
+                        "has_exclusions": False,
+                        "has_formulations": False,
+                    }
+                )
+                n_written += 1
+            except Exception as exc:
+                errors.append((code, str(exc)))
+                log.warning("Échec build_node_note_card(%s) : %s", code, exc)
 
     index_path = output_dir / "index.csv"
     n_residus = 0

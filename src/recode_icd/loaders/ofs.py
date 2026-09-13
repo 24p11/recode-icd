@@ -107,11 +107,13 @@ def load_codes(ofs_dir: Path) -> pl.DataFrame:
         .agg(pl.col("redirect_code").drop_nulls().unique().alias("exclusions_redirect"))
     )
 
-    note = _read(ofs_dir / "NOTE.txt")
     # MEMO utilise un quoting `'…'` distinct du reste d'OFS (cf. _read).
+    # ⚠ Join réparé (chantier notes, 2026-09-14) : chaque mémo porte son
+    # SID — joindre via NOTE.txt perdait les 347 notes du GLOSSAIRE et
+    # 5 orphelines (A15.1/2/3, A16.1, E00) : 352 des 614 notes.
     memo = _read(ofs_dir / "MEMO.txt", quote_char="'").filter(pl.col("valid") == "Yes")
     notes = (
-        note.join(memo.select(["MID", "memo"]), on="MID")
+        memo.with_columns(pl.coalesce("memo", "FR_OMS").alias("memo"))
         .group_by("SID")
         .agg(pl.col("memo").drop_nulls().unique().alias("notes_editorial"))
     )
@@ -219,3 +221,40 @@ def to_parquet(ofs_dir: Path, output_dir: Path) -> tuple[Path, Path]:
     core.write_parquet_with_metadata(load_codes(ofs_dir), codes_path, metadata)
     core.write_parquet_with_metadata(load_dagger_asterisk(ofs_dir), pairs_path, metadata)
     return codes_path, pairs_path
+
+
+def load_ofs_notes(ofs_dir: Path) -> pl.DataFrame:
+    """Les 614 notes du modèle OFS, une ligne par mémo (chantier notes).
+
+    Chaque mémo est attaché à UN code par sa colonne `SID` — `NOTE.txt`
+    (262) et `GLOSSAIRE.txt` (347) ne sont que des marqueurs de
+    rattachement 1:1, et cinq mémos ne figurent dans aucune des deux
+    (A15.1/2/3, A16.1, E00). Le texte retenu est `coalesce(memo,
+    FR_OMS)` — 4 mémos n'ont que la forme OMS.
+
+    Colonnes : `code` (écriture maître, plages parenthésées pour les
+    chapitres/blocs), `mid`, `source` (E/N/G), `table_attache`
+    (NOTE | GLOSSAIRE | aucune), `texte`.
+    """
+    memo = _read(ofs_dir / "MEMO.txt", quote_char="'").filter(pl.col("valid") == "Yes")
+    note = _read(ofs_dir / "NOTE.txt")
+    glossaire = _read(ofs_dir / "GLOSSAIRE.txt")
+    master = _read(ofs_dir / "MASTER.txt")
+
+    marqueurs = pl.concat(
+        [
+            note.select(pl.col("MID"), pl.lit("NOTE").alias("table_attache")),
+            glossaire.select(pl.col("MID"), pl.lit("GLOSSAIRE").alias("table_attache")),
+        ]
+    ).unique(subset="MID", keep="first")
+    return (
+        memo.join(master.select(["SID", "code"]), on="SID", how="left")
+        .join(marqueurs, on="MID", how="left")
+        .with_columns(
+            pl.coalesce("memo", "FR_OMS").alias("texte"),
+            pl.col("MID").alias("mid"),
+            pl.col("table_attache").fill_null("aucune"),
+        )
+        .select("code", "mid", "source", "table_attache", "texte")
+        .sort("code", "mid")
+    )

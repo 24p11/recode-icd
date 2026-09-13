@@ -435,6 +435,35 @@ def build_external(
         typer.echo(f"Écrit ({label}) : {path}")
 
 
+@build_app.command("notes-cim")
+def build_notes_cim_cmd(
+    curated_path: Annotated[
+        Path,
+        typer.Option("--curated", exists=True, dir_okay=False, readable=True),
+    ] = Path("referentials/curation/notes_cim_curated.csv"),
+    output_path: Annotated[
+        Path,
+        typer.Option("--output", "-o", dir_okay=False),
+    ] = Path("referentials/processed/notes_cim.parquet"),
+) -> None:
+    """Notes de la CIM-10 (OFS ⊕ ClaML ANS) → notes_cim.parquet.
+
+    La table curée (verdicts RF ligne à ligne) est la source de vérité ;
+    chaque note est réancrée sur sa source (MEMO / ClaML), les manquantes
+    partent à reports/notes_cim_ancrage.csv — jamais au silence.
+    """
+    from recode_icd.notes_cim import build_notes_cim
+
+    chemin, n, n_manquantes = build_notes_cim(curated_path=curated_path, parquet_path=output_path)
+    typer.echo(f"Écrit : {chemin} ({n} notes)")
+    if n_manquantes:
+        typer.echo(
+            f"⚠ {n_manquantes} note(s) curée(s) sans ancrage source — "
+            "voir reports/notes_cim_ancrage.csv",
+            err=True,
+        )
+
+
 @build_app.command("flat-csv")
 def build_flat_csv(
     merged_path: Annotated[
@@ -484,12 +513,29 @@ def build_flat_csv(
             ),
         ),
     ] = Path("referentials/processed/external_to_add.parquet"),
+    notes_path: Annotated[
+        Path | None,
+        typer.Option(
+            "--notes",
+            dir_okay=False,
+            help=(
+                "Parquet notes_cim produit par `build notes-cim`. "
+                "Si fourni et existant, les lignes type=note entrent au CSV."
+            ),
+        ),
+    ] = Path("referentials/processed/notes_cim.parquet"),
 ) -> None:
     """Construire le CSV maître à 9 colonnes (inclusions / exclusions / synonymes + dague/astérisque)."""
     effective_external = external_path if (external_path and external_path.is_file()) else None
     if external_path and not effective_external:
         typer.echo(
             f"⚠ External Parquet introuvable ({external_path}) — build sans externes.",
+            err=True,
+        )
+    effective_notes = notes_path if (notes_path and notes_path.is_file()) else None
+    if notes_path and not effective_notes:
+        typer.echo(
+            f"⚠ Parquet notes introuvable ({notes_path}) — build sans notes CIM.",
             err=True,
         )
     path = flat_csv.to_csv(
@@ -502,6 +548,7 @@ def build_flat_csv(
         output_path,
         curation_report_path=curation_report,
         external_path=effective_external,
+        notes_path=effective_notes,
     )
     typer.echo(f"Écrit : {path}")
 

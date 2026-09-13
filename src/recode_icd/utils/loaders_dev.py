@@ -185,6 +185,9 @@ class ExplorationContext:
     composition_troncs: Frame | None = None
     composition_valeurs: Frame | None = None
     composition_codes: Frame | None = None
+    #: `notes_cim.parquet` (notes OFS ⊕ ClaML ANS, verdicts RF — la base
+    #: sait tout, la fiche n'affiche que le verdict).
+    notes_cim: Frame | None = None
     external: dict[str, pl.DataFrame] = field(default_factory=dict)
     reports: dict[str, Frame] = field(default_factory=dict)
     # Graphe RDF ANS chargé via rdflib (opt-in via `load_rdf=True`).
@@ -402,6 +405,7 @@ def load_exploration_context(
     ofs_dagger_asterisk = _load_parquet(actual_processed / "ofs_dagger_asterisk.parquet", lazy=lazy)
     owl_dagger_asterisk = _load_parquet(actual_processed / "owl_dagger_asterisk.parquet", lazy=lazy)
     recommendations = _load_parquet(actual_processed / "recommendations.parquet", lazy=lazy)
+    notes_cim = _load_parquet(actual_processed / "notes_cim.parquet", lazy=lazy)
     recommendation_codes = _load_parquet(
         actual_processed / "recommendation_codes.parquet", lazy=lazy
     )
@@ -442,6 +446,7 @@ def load_exploration_context(
         ofs_dagger_asterisk=ofs_dagger_asterisk,
         owl_dagger_asterisk=owl_dagger_asterisk,
         recommendations=recommendations,
+        notes_cim=notes_cim,
         recommendation_codes=recommendation_codes,
         atih=atih,
         composition_troncs=composition_troncs,

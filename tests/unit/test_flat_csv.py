@@ -553,6 +553,10 @@ def test_to_csv_writes_file(tmp_path: Path) -> None:
         "inherited_from_code",
         "is_dagger_in_pair",
         "is_asterisk_in_pair",
+        # Chantier notes OFS/ANS (2026-09-14) : null hors type=note.
+        "classe_note",
+        "note_destination",
+        "note_provenance",
     ]
     row = loaded.row(0, named=True)
     # Le code de test A00.0 n'a aucune paire dague/astérisque.

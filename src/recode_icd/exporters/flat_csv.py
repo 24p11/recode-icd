@@ -26,7 +26,7 @@ _SOURCE_CSV_MAP: dict[str, str] = {
     "CEPIDC_2015": "CepiDc 2015",
 }
 
-_TYPE_ORDER: dict[str, int] = {"inclusion": 0, "exclusion": 1, "synonyme": 2}
+_TYPE_ORDER: dict[str, int] = {"inclusion": 0, "exclusion": 1, "synonyme": 2, "note": 3}
 
 # Ordre de priorité du niveau de propagation (cf docs/source_mapping.md
 # §"Propagation des notes hiérarchiques"). En cas de doublon
@@ -55,6 +55,10 @@ _FINAL_COLUMNS: tuple[str, ...] = (
     "inherited_from_code",
     "is_dagger_in_pair",
     "is_asterisk_in_pair",
+    # Chantier notes OFS/ANS (2026-09-14) : null hors des lignes `note`.
+    "classe_note",
+    "note_destination",
+    "note_provenance",
 )
 
 
@@ -233,6 +237,78 @@ def _filter_redundant_dagger_synonyms(
     return kept, n_filtered
 
 
+def _build_notes_rows(
+    notes: pl.DataFrame, merged: pl.DataFrame, leaves: pl.DataFrame
+) -> pl.DataFrame:
+    """Lignes `type=note` du CSV maître (chantier notes OFS/ANS).
+
+    Périmètre : les notes dont une cible est un code du CSV entrent à
+    ce code (les non-rendues aussi — la base sait tout) ; une note de
+    BLOC dont le verdict commande l'héritage descend sur les feuilles
+    du bloc (`source_level=block`, `inherited_from_code=<bloc>`) ; une
+    cible hors CSV (père interdit) qui hérite descend sur ses feuilles
+    (`source_level=category`). Les notes de CHAPITRE ne descendent
+    JAMAIS (jurisprudence RF 2026-09-14) : elles vivent au parquet et
+    sur la fiche de chapitre de la bibliothèque des catégories.
+    """
+    codes_csv = set(leaves["code"].to_list())
+    libelles = dict(leaves.iter_rows())
+    positions = {
+        r["code"]: (r["left"], r["right"])
+        for r in merged.select("code", "left", "right").iter_rows(named=True)
+    }
+    feuilles_pos = sorted((positions[c][0], c) for c in codes_csv if c in positions)
+
+    def _feuilles_sous(code: str) -> list[str]:
+        borne = positions.get(code)
+        if borne is None:
+            return []
+        gauche, droite = borne
+        return [c for left, c in feuilles_pos if gauche < left < droite]
+
+    lignes: list[dict[str, object]] = []
+    for r in notes.iter_rows(named=True):
+        if r["type_noeud"] == "chapitre":
+            continue  # jamais au CSV : hors périmètre, jamais de descente
+        base = {
+            "type": "note",
+            "source": r["source_csv"],
+            "texte": r["texte"],
+            "classe_note": r["classe_note"],
+            "note_destination": r["destination"],
+            "note_provenance": r["note_provenance"],
+        }
+        for cible in r["cibles"] or []:
+            if cible in codes_csv:
+                lignes.append(
+                    {
+                        **base,
+                        "code": cible,
+                        "libelle": libelles.get(cible),
+                        "source_level": "code",
+                        "inherited_from_code": None,
+                    }
+                )
+            if not r["herite_aux_feuilles"]:
+                continue
+            niveau = "block" if "-" in cible else "category"
+            for feuille in _feuilles_sous(cible):
+                if feuille == cible:
+                    continue
+                lignes.append(
+                    {
+                        **base,
+                        "code": feuille,
+                        "libelle": libelles.get(feuille),
+                        "source_level": niveau,
+                        "inherited_from_code": cible,
+                    }
+                )
+    if not lignes:
+        return pl.DataFrame()
+    return pl.DataFrame(lignes).unique(subset=["code", "texte", "note_provenance"], keep="first")
+
+
 def _compute_dagger_flags(
     dagger_asterisk: pl.DataFrame,
 ) -> tuple[set[str], set[str]]:
@@ -265,6 +341,7 @@ def build(
     ofs: pl.DataFrame,
     dagger_asterisk: pl.DataFrame,
     external: pl.DataFrame | None = None,
+    notes: pl.DataFrame | None = None,
 ) -> tuple[pl.DataFrame, FlatCsvStats]:
     """Construit le CSV maître à 9 colonnes (cf source_mapping.md
     §"Schéma final du CSV principal", §"Couples dague/astérisque :
@@ -351,6 +428,16 @@ def build(
         )
     )
 
+    base = base.with_columns(
+        pl.lit(None, dtype=pl.String).alias("classe_note"),
+        pl.lit(None, dtype=pl.String).alias("note_destination"),
+        pl.lit(None, dtype=pl.String).alias("note_provenance"),
+    )
+    if notes is not None and not notes.is_empty():
+        lignes_notes = _build_notes_rows(notes, merged, leaves)
+        if not lignes_notes.is_empty():
+            base = pl.concat([base, lignes_notes.select(base.columns)], how="vertical")
+
     dagger_codes, asterisk_codes = _compute_dagger_flags(dagger_asterisk)
 
     final = (
@@ -380,6 +467,7 @@ def to_csv(
     output_path: Path,
     curation_report_path: Path | None = None,
     external_path: Path | None = None,
+    notes_path: Path | None = None,
 ) -> Path:
     """Construit le CSV maître à 9 colonnes et l'écrit sur disque.
 
@@ -402,8 +490,11 @@ def to_csv(
         if external_path is not None and external_path.is_file()
         else None
     )
+    notes = pl.read_parquet(notes_path) if notes_path is not None and notes_path.is_file() else None
 
-    csv_df, stats = build(merged, propagated, siblings, owl, ofs, dag_aster, external=external)
+    csv_df, stats = build(
+        merged, propagated, siblings, owl, ofs, dag_aster, external=external, notes=notes
+    )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     csv_df.write_csv(output_path)
