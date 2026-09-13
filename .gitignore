@@ -54,3 +54,7 @@ data/guide_mco/_curation_rf_sauvegarde/
 
 # Archives de livraison (régénérables par scripts/preparer_livraison.py)
 outputs/livraisons/
+
+# Verrous Excel (fichiers ~$*.xlsx ouverts)
+~$*.xlsx
+**/~$*.xlsx

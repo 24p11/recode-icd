@@ -576,6 +576,18 @@ périmètre du code. Quand le comportement mesuré et une consigne écrite
 divergent, c'est cette finalité qui fait foi — et le bon réflexe reste
 de poser la question.
 
+> **Cadrage général des fiches (RF, 2026-09-14, chantier notes
+> OFS/ANS) : elles servent TROIS usages** — aider un modèle à générer
+> du texte, aider à vérifier qu'un codage est correct, entraîner des
+> modèles à reconnaître les bons codes dans le texte. Toute note
+> explicative **opérante** (définition, équivalence terminologique,
+> règle de priorité, extension/restriction de périmètre, règle de
+> résolution) sert au moins l'un des trois ; le critère « aide le
+> rédacteur seul » ne gouverne que le tri `rendu_fiche` des cas
+> extrêmes, jamais une exclusion par famille. La leçon ANT-01 vise les
+> descentes NON BORNÉES sans contenu spécifique, pas les notes de bloc
+> à périmètre borné.
+
 Toute la configuration vit dans
 `referentials/curation/chapter_policy.yaml`. **Aucune règle n'est en
 dur dans le code** : `policy.py` lit le YAML, `cards.py` l'applique.
