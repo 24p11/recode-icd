@@ -45,10 +45,13 @@
 
 ## Objectifs métier
 
-1. **Fichier maître `inclusions_exclusions_synonymes.csv`** (9 colonnes) :
+1. **Fichier maître `inclusions_exclusions_synonymes.csv`** (12 colonnes) :
     `code`, `libelle`, `type` ∈ {inclusion, exclusion, synonyme, note},
     `source`, `texte`, `source_level`, `inherited_from_code`,
-    `is_dagger_in_pair`, `is_asterisk_in_pair`.
+    `is_dagger_in_pair`, `is_asterisk_in_pair`, plus trois colonnes
+    propres aux lignes `type=note` (chantier notes OFS/ANS,
+    2026-09-14) : `classe_note`, `note_destination`,
+    `note_provenance` — nulles sur les autres types.
     Regroupe toutes les informations textuelles associées à un code
     CIM-10, avec propagation des notes des niveaux supérieurs (chapitre,
     bloc, catégorie) vers les codes feuilles. La propagation est rendue
@@ -964,6 +967,51 @@ bruts, on ne recale rien.
 uv run recode-icd build guide-mco                    # les deux Parquet + rapport
 uv run pytest -k transcription                       # intégrité des curés
 uv run python scripts/rendre_candidates_guide_mco.py # fiches de relecture (générées)
+```
+
+## Notes de la CIM-10 (chantier notes OFS/ANS, 2026-09-14)
+
+> Les textes de type « note » des classifications — 614 mémos du modèle
+> OFS 2006 (MEMO/NOTE/GLOSSAIRE), 955 rubriques du ClaML ANS 2025
+> (coding-hint, definition, note, text… — le RDF ne les porte pas) —
+> forment une famille propre : `referentials/curation/
+> notes_cim_curated.csv` (**verdict RF ligne à ligne du 2026-09-14,
+> source de vérité**, 1 003 notes après fusion « texte ANS prioritaire,
+> OFS complément ») → `build notes-cim` → `notes_cim.parquet`, réancré
+> sur les deux loaders à chaque build (`reports/notes_cim_ancrage.csv`,
+> jamais au silence).
+
+**La base sait tout, la fiche n'affiche que le verdict.** Les 1 003
+notes entrent au CSV maître (type `note`, y compris les non-rendues à
+leur code d'attache) ; le rendu suit `note_destination` : sections
+« Définition (CIM-10) » et « Description clinique (OMS) » entre le
+Périmètre clinique et les consignes, « Notes de la CIM-10 » après les
+consignes du guide (provenances et millésimes différents, jamais
+fondues) ; fiches de BLOC et de CHAPITRE nouvelles dans la
+bibliothèque des catégories.
+
+### Jurisprudences (RF, 2026-09-14)
+
+1. **Boilerplate** : une instruction de pure permission OMS
+   (« utiliser, au besoin, un code supplémentaire… », 221 lignes) ne se
+   rend pas — sa substance, quand elle compte, vit dans les consignes
+   du guide et les règles ATIH ; une instruction SUBSTANTIELLE
+   (définition, priorité, équivalence, périmètre, résolution) se rend.
+   Le partage est par patron quand il est homogène, ligne à ligne
+   sinon. Les écartées restent en base (récupérables pour un profil
+   vérificateur).
+2. **Niveau chapitre** : une note de chapitre ne descend JAMAIS sur
+   les feuilles — elle vit sur la fiche de chapitre de la bibliothèque
+   des catégories. Les notes de bloc héritent vers leurs feuilles
+   quand le verdict le dit (héritage borné, `source_level=block`,
+   `inherited_from_code`) ; les rubriques de modificateur ClaML se
+   déploient sur leurs codes concrets.
+
+### Commandes
+
+```bash
+uv run recode-icd build notes-cim   # curated + MEMO + ClaML → notes_cim.parquet
+uv run recode-icd build flat-csv    # --notes (défaut) : lignes type=note au CSV
 ```
 
 ## Kit ATIH : statut MCO des codes (chantier couverture ATIH)

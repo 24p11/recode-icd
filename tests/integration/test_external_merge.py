@@ -358,6 +358,10 @@ def test_csv_final_schema_unchanged_after_external_merge(
         "inherited_from_code",
         "is_dagger_in_pair",
         "is_asterisk_in_pair",
+        # Chantier notes OFS/ANS (2026-09-14) : null hors type=note.
+        "classe_note",
+        "note_destination",
+        "note_provenance",
     ]
     assert df.columns == expected_columns
     # Les entrées externes ont source_level=code et inherited_from_code null.

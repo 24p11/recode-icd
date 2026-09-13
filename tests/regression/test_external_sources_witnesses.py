@@ -331,6 +331,10 @@ def test_csv_final_schema_unchanged(csv_final_df: pl.DataFrame) -> None:
         "inherited_from_code",
         "is_dagger_in_pair",
         "is_asterisk_in_pair",
+        # Chantier notes OFS/ANS (2026-09-14) : null hors type=note.
+        "classe_note",
+        "note_destination",
+        "note_provenance",
     ]
     assert csv_final_df.columns == expected, (
         f"colonnes inattendues : {csv_final_df.columns} vs {expected}"
