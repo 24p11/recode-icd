@@ -631,8 +631,8 @@ fiches par usage » : le **statut MCO** du code. `generation` (défaut de
 `cards build`, `outputs/cards_library`) ne construit que les codes
 codables en MCO (`merged.codable_mco`, kit ATIH joint) ; `controle`
 (`cards build --profil controle`, `outputs/cards_library_controle`)
-construit tout, avec la ligne de statut. **Un `_index.csv` par
-bibliothèque** (autoportance). Pas d'héritage entre profils : une
+construit tout, avec la ligne de statut. **Un index par bibliothèque**
+(autoportance, D4). Pas d'héritage entre profils : une
 valeur par clé. Invariant dual, testé (`test_couverture_invariants.py`) :
 **aucun père interdit, code supprimé ou inconnu du kit dans la
 bibliothèque de génération** — on n'en retire rien du CSV maître ni du
@@ -644,6 +644,30 @@ non-codable n'est présenté comme émissible. Sans kit joint, le profil
 `generation` échoue bruyamment plutôt que de « filtrer » sur rien. Les
 fiches catégories (3-car) ne sont pas profilées : une catégorie n'est
 pas un code à tirer.
+
+### Contrat d'index (CONTRAT.md, 2026-09-13)
+
+Source canonique `docs/livraison/CONTRAT.md`, posé par le build à la
+racine de chaque bibliothèque et embarqué dans le paquet de livraison.
+Décisions verrouillées (`tests/unit/test_contrat_index.py`) :
+
+- **`index.csv` est le nom canonique** ; `_index.csv` est déprécié,
+  double-écrit pendant UN cycle de livraison puis retiré. Le canonique
+  renomme `filepath → fichier` et ajoute `format_version`.
+- **Noyau garanti** (`format_version` 1) : `code`, `fichier`,
+  `statut_mco`, `format_version`. Toute rupture incrémente la version.
+- **L'index fait foi** : un build COMPLET supprime les fiches hors
+  index (résidus pré-profils — 1 709 mesurés le 2026-09-12) et
+  rapporte le compte ; un build partiel (`--limit`, `--chapter`) ne
+  nettoie JAMAIS (son index est partiel, il raserait la bibliothèque).
+  Aucun consommateur ne parcourt le répertoire — le résolveur lit
+  l'index (`couverture.charge_contexte`, repli `_index.csv` pendant la
+  transition).
+- **Canal officiel des consommateurs externes** : le paquet de
+  livraison versionné (`scripts/preparer_livraison.py`), jamais
+  `outputs/`. Consommateurs connus : fictomed (CHU Brest), Stream
+  (AP-HP) — liste tenue dans CONTRAT.md, avec la sémantique
+  `tronc_composition`.
 
 ### Résolution par REMPLACEMENT, pas par fusion
 

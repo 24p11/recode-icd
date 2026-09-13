@@ -23,8 +23,8 @@ import pytest
 pytestmark = pytest.mark.regression
 
 _RACINE = Path(__file__).resolve().parents[2]
-_INDEX_GENERATION = _RACINE / "outputs" / "cards_library" / "_index.csv"
-_INDEX_CONTROLE = _RACINE / "outputs" / "cards_library_controle" / "_index.csv"
+_INDEX_GENERATION = _RACINE / "outputs" / "cards_library" / "index.csv"
+_INDEX_CONTROLE = _RACINE / "outputs" / "cards_library_controle" / "index.csv"
 _ATIH = _RACINE / "referentials" / "processed" / "atih_codes.parquet"
 _MERGED = _RACINE / "referentials" / "processed" / "merged_codes.parquet"
 

@@ -18,7 +18,7 @@ from recode_icd.couverture import charge_contexte, resoudre_code
 pytestmark = pytest.mark.regression
 
 _RACINE = Path(__file__).resolve().parents[2]
-_INDEX_CONTROLE = _RACINE / "outputs" / "cards_library_controle" / "_index.csv"
+_INDEX_CONTROLE = _RACINE / "outputs" / "cards_library_controle" / "index.csv"
 
 
 @pytest.fixture(scope="module")

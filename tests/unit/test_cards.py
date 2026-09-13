@@ -134,9 +134,11 @@ def test_build_cards_library_with_limit(ctx: ExplorationContext, tmp_path) -> No
     assert summary.n_written == 5
     assert summary.n_errors == 0
     assert summary.index_path.is_file()
-    # 5 fiches .md doivent exister sous des sous-dossiers chapter/.
-    md_files = list((tmp_path / "lib").rglob("*.md"))
+    # 5 fiches .md doivent exister sous des sous-dossiers chapter/ —
+    # CONTRAT.md, posé à la racine par le build, n'est pas une fiche.
+    md_files = [f for f in (tmp_path / "lib").rglob("*.md") if f.name != "CONTRAT.md"]
     assert len(md_files) == 5
+    assert (tmp_path / "lib" / "CONTRAT.md").is_file()
 
 
 def test_build_cards_library_chapter_filter(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
@@ -159,7 +161,7 @@ def test_build_cards_library_chapter_filter(ctx: ExplorationContext, tmp_path) -
 
 
 def test_build_cards_library_index_csv_schema(ctx: ExplorationContext, tmp_path) -> None:  # type: ignore[no-untyped-def]
-    """Le _index.csv contient les colonnes attendues."""
+    """L'index canonique contient les colonnes attendues (contrat v1)."""
     import polars as pl
 
     summary = build_cards_library(
@@ -172,7 +174,8 @@ def test_build_cards_library_index_csv_schema(ctx: ExplorationContext, tmp_path)
     expected = {
         "code",
         "chapter",
-        "filepath",
+        "fichier",
+        "format_version",
         "libelle",
         "has_perimetre",
         "has_localisations",

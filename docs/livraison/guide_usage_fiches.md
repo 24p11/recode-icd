@@ -48,13 +48,15 @@ Points d'attention :
   composé (`W0009`) n'a pas de fiche propre : sa fiche est celle du
   tronc (cf. mode d'emploi du résolveur).
 
-## `_index.csv` — le point d'entrée programmatique
+## `index.csv` — le point d'entrée programmatique (cf. CONTRAT.md)
 
-Une ligne par fiche, 14 colonnes ; les principales :
+Une ligne par fiche. Le **noyau garanti** par le contrat
+(`CONTRAT.md`, `format_version` 1) : `code`, `fichier`, `statut_mco`,
+`format_version`. Les principales colonnes :
 
 | Colonne | Contenu |
 |---|---|
-| `code`, `chapter`, `filepath` | identité et chemin relatif de la fiche |
+| `code`, `chapter`, `fichier` | identité et chemin relatif de la fiche |
 | `libelle` | libellé officiel |
 | `has_perimetre` … `has_formulations` | présence de chaque section (booléens) |
 | `type_mco`, `statut_mco` | statut d'autorisation au kit ATIH |
@@ -65,7 +67,7 @@ Usage type (polars) :
 
 ```python
 import polars as pl
-idx = pl.read_csv("cards_library/_index.csv")
+idx = pl.read_csv("cards_library/index.csv")
 emissibles = idx.filter(pl.col("classe_generation") == "emissible")
 ```
 

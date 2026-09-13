@@ -48,7 +48,10 @@ from recode_icd.policy import _RACINE_DEPOT
 from recode_icd.recommendations.code_expr import CodeExprError
 
 DEFAULT_PROCESSED_DIR = _RACINE_DEPOT / "referentials/processed"
-DEFAULT_INDEX_PATH = _RACINE_DEPOT / "outputs/cards_library/_index.csv"
+#: Index canonique de la bibliothèque de génération (CONTRAT.md) ;
+#: `_index.csv` reste lu en repli pendant le cycle de transition.
+DEFAULT_INDEX_PATH = _RACINE_DEPOT / "outputs/cards_library/index.csv"
+_DEPRECIE_INDEX_PATH = _RACINE_DEPOT / "outputs/cards_library/_index.csv"
 
 STATUTS_RESOLUTION = (
     "fiche",
@@ -125,11 +128,16 @@ def charge_contexte(
     """
     processed = processed_dir if processed_dir is not None else DEFAULT_PROCESSED_DIR
     index = index_path if index_path is not None else DEFAULT_INDEX_PATH
+    if index_path is None and not index.is_file() and _DEPRECIE_INDEX_PATH.is_file():
+        index = _DEPRECIE_INDEX_PATH  # transition : bibliothèque pré-contrat
     atih = pl.read_parquet(processed / "atih_codes.parquet")
     merged = pl.read_parquet(processed / "merged_codes.parquet")
     if index.is_file():
-        idx = pl.read_csv(index, columns=["code", "filepath"])
-        fiches = dict(zip(idx["code"].to_list(), idx["filepath"].to_list(), strict=True))
+        # `fichier` est le nom contractuel (index.csv) ; `filepath` celui
+        # du schéma historique (_index.csv, déprécié).
+        idx = pl.read_csv(index)
+        col = "fichier" if "fichier" in idx.columns else "filepath"
+        fiches = dict(zip(idx["code"].to_list(), idx[col].to_list(), strict=True))
         bibliotheque = str(index.parent)
     else:
         csv = pl.read_csv(processed / "inclusions_exclusions_synonymes.csv", columns=["code"])

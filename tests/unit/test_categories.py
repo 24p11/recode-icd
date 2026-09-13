@@ -189,14 +189,15 @@ def test_build_categories_library_with_limit(ctx: ExplorationContext, tmp_path) 
     assert summary.n_codes_total == 5
     assert summary.n_written == 5
     assert summary.n_errors == 0
-    md_files = list((tmp_path / "cat").rglob("*.md"))
+    md_files = [f for f in (tmp_path / "cat").rglob("*.md") if f.name != "CONTRAT.md"]
     assert len(md_files) == 5
 
     index = pl.read_csv(summary.index_path)
     expected = {
         "code",
         "chapter",
-        "filepath",
+        "fichier",
+        "format_version",
         "libelle",
         "n_enfants",
         "has_perimetre",

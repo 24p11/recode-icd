@@ -114,6 +114,8 @@ def build_library_cmd(
         typer.echo(f"  par chapitre           : {repartition}")
     typer.echo(f"Durée                    : {summary.elapsed_seconds:.1f}s")
     typer.echo(f"Index                    : {summary.index_path}")
+    if summary.n_residus_nettoyes:
+        typer.echo(f"Résidus hors index nettoyés : {summary.n_residus_nettoyes} (l'index fait foi)")
     for avertissement in summary.avertissements:
         typer.echo(f"⚠ {avertissement}")
     if summary.errors:
@@ -197,6 +199,8 @@ def build_categories_cmd(
     typer.echo(f"Erreurs                     : {summary.n_errors}")
     typer.echo(f"Durée                       : {summary.elapsed_seconds:.1f}s")
     typer.echo(f"Index                       : {summary.index_path}")
+    if summary.n_residus_nettoyes:
+        typer.echo(f"Résidus hors index nettoyés : {summary.n_residus_nettoyes} (l'index fait foi)")
     if summary.errors:
         typer.echo("\nPremières erreurs :")
         for code, err in summary.errors[:10]:

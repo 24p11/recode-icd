@@ -3,7 +3,7 @@
 Contenu de l'archive :
 
 - `cards_library/` — la bibliothèque du profil `generation` complète,
-  `_index.csv` compris ;
+  index et CONTRAT.md compris ;
 - `LIVRAISON.md` — une page générée : version, chiffres, contenu ;
 - `guide_usage_fiches.md` et `resolveur_mode_emploi.md` — copiés de
   `docs/livraison/`.
@@ -51,12 +51,14 @@ def main() -> None:
             "Arbre git non propre : committer ou remiser avant de livrer "
             "(le nom de l'archive certifie un état exact du dépôt)."
         )
-    if not (BIBLIOTHEQUE / "_index.csv").exists():
-        raise SystemExit("Bibliothèque absente : lancer `recode-icd cards build` d'abord.")
+    if not (BIBLIOTHEQUE / "index.csv").exists():
+        raise SystemExit(
+            "Index canonique absent (index.csv) : lancer `recode-icd cards build` d'abord."
+        )
 
     sha = _git("rev-parse", "--short", "HEAD")
     millesime = _millesime_kit()
-    index = pl.read_csv(BIBLIOTHEQUE / "_index.csv")
+    index = pl.read_csv(BIBLIOTHEQUE / "index.csv")
     n_total = index.height
     n_troncs = index.filter(pl.col("classe_generation") == "tronc_composition").height
     registre = yaml.safe_load(
@@ -75,7 +77,8 @@ def main() -> None:
 | Fichier | Rôle |
 |---|---|
 | `cards_library/` | {n_total} fiches Markdown, une par code codable en MCO ({n_total - n_troncs} émissibles + {n_troncs} troncs de composition du chapitre XX), rangées par chapitre |
-| `cards_library/_index.csv` | index programmatique (code, chemin, sections, statut MCO, `classe_generation`) — **commencer ici** |
+| `cards_library/index.csv` | index canonique (noyau garanti : `code`, `fichier`, `statut_mco`, `format_version`) — **commencer ici** ; `_index.csv` déprécié, dernier cycle |
+| `cards_library/CONTRAT.md` | le contrat de l'index : noyau garanti, sémantique `tronc_composition`, canal officiel |
 | `guide_usage_fiches.md` | structure des fiches, usage de l'index, les quatre « à ne pas faire » |
 | `resolveur_mode_emploi.md` | `recode-icd resoudre` : toute écriture d'un code → fiche ou raison motivée |
 
@@ -96,8 +99,8 @@ def main() -> None:
 
 ## Point d'entrée conseillé
 
-1. Charger `_index.csv`, filtrer `classe_generation == "emissible"`.
-2. Lire la fiche via `filepath`.
+1. Lire `CONTRAT.md`, charger `index.csv`, filtrer `classe_generation == "emissible"`.
+2. Lire la fiche via `fichier`.
 3. Pour tout code venant d'ailleurs (autre écriture, code composé,
    code interdit) : passer par le résolveur, jamais par une jointure
    manuelle — cf. `resolveur_mode_emploi.md`.
@@ -125,13 +128,13 @@ Retours et codes non résolus : joindre le journal du résolveur
         tar.add(docs / "guide_usage_fiches.md", arcname=f"{nom}/guide_usage_fiches.md")
         tar.add(docs / "resolveur_mode_emploi.md", arcname=f"{nom}/resolveur_mode_emploi.md")
         # L'archive se construit depuis L'INDEX, jamais depuis le
-        # répertoire : le build ne nettoie pas, et des fiches d'anciens
-        # builds (codes sortis du profil generation — pères interdits,
-        # inconnus du kit) traînent sur disque. Les embarquer violerait
-        # l'invariant I2 dans le paquet livré. Mesuré le 2026-09-12 :
-        # 1 709 fiches périmées sur disque pour 15 282 à l'index.
+        # répertoire (CONTRAT.md : l'index fait foi). Le build nettoie
+        # désormais ses résidus, mais la règle reste : 1 709 fiches
+        # périmées mesurées le 2026-09-12 avant le contrat.
+        tar.add(BIBLIOTHEQUE / "index.csv", arcname=f"{nom}/cards_library/index.csv")
         tar.add(BIBLIOTHEQUE / "_index.csv", arcname=f"{nom}/cards_library/_index.csv")
-        for filepath in sorted(index["filepath"].to_list()):
+        tar.add(BIBLIOTHEQUE / "CONTRAT.md", arcname=f"{nom}/cards_library/CONTRAT.md")
+        for filepath in sorted(index["fichier"].to_list()):
             fiche = BIBLIOTHEQUE / filepath
             if not fiche.exists():
                 raise SystemExit(f"Fiche à l'index mais absente du disque : {filepath}")
