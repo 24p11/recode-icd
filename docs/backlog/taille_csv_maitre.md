@@ -1,7 +1,15 @@
 # Backlog — Taille du CSV maître versionné
 
-> Statut : **à instruire**, pas urgent. Signalé le 2026-08-09 lors du push
-> du merge CepiDc.
+> Statut : **à instruire à la revue d'architecture — le déclencheur
+> approche**. Signalé le 2026-08-09 (merge CepiDc, 53,15 Mo) ; mesuré
+> à 55,9 Mo au palier 2 couverture ATIH (2026-09-06, 338 623 lignes),
+> puis à **72,8 Mo** après le chantier notes OFS/ANS (2026-09-14,
+> 359 755 lignes de données — 21 132 lignes `type=note` + 3 colonnes
+> nouvelles sur toutes les lignes). Trajectoire : 53 → 56 → 73 Mo en
+> cinq semaines, pour une limite dure GitHub à 100 Mo — le
+> partitionnement (formalisation des deux couches) doit être tranché
+> AVANT le prochain gros apport de lignes (chantier synonymes LLM
+> notamment).
 
 ## Constat
 

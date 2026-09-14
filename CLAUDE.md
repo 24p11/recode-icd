@@ -42,6 +42,16 @@
    branche courante avant tout commit, et un conflit sur un parquet de
    recommandations se résout par rebuild (`build guide-mco` puis
    rebuild des fiches), jamais à la main.
+9. **Les chantiers se font directement sur `main` ; la règle de
+   sécurité vit au PUSH, pas au merge** (décision RF, 2026-09-14, pour
+   le confort de relecture à deux postes). Commits locaux libres —
+   petits, par chemins explicites — mais **`git push` sur `main`
+   uniquement sur accord explicite de RF**. Plus de branches `feat/*`
+   pour les chantiers courants ; les worktrees restent la règle quand
+   plusieurs sessions travaillent en parallèle (consigne n° 8
+   inchangée). Les relectures de phase (STOP, verdicts ligne à ligne)
+   restent ce qu'elles sont — c'est l'accord de push qui remplace
+   l'accord de merge.
 
 ## Objectifs métier
 
