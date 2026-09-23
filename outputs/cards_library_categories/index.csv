@@ -2079,7 +2079,7 @@ O80-O84,XV,XV/O80-O84.md,Accouchement,0,false,false,false,,inconnu_atih,287,1
 O85-O92,XV,XV/O85-O92.md,Complications principalement liées à la puerpéralité,0,false,false,false,,inconnu_atih,364,1
 O94-O99,XV,XV/O94-O99.md,"Autres problèmes obstétricaux, non classés ailleurs",0,false,false,false,,inconnu_atih,350,1
 T90-T98,XIX,XIX/T90-T98.md,"Séquelles de lésions traumatiques, d'empoisonnements et d'autres conséquences de causes externes",0,false,false,false,,inconnu_atih,848,1
-U00-U49,"",/U00-U49.md,Classement provisoire d’affections nouvelles d’étiologie incertaine,0,false,false,false,,inconnu_atih,834,1
+U00-U49,XXII,XXII/U00-U49.md,Classement provisoire d’affections nouvelles d’étiologie incertaine,0,false,false,false,,inconnu_atih,834,1
 U82-U85,XXII,XXII/U82-U85.md,Résistance aux médicaments antimicrobiens et antinéoplasiques,0,false,false,false,,inconnu_atih,496,1
 V,V,V/V.md,Troubles mentaux et du comportement,0,false,false,false,,inconnu_atih,302,1
 V01-V99,XX,XX/V01-V99.md,Accidents de transport,0,false,false,false,,inconnu_atih,4528,1

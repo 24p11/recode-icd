@@ -1832,6 +1832,12 @@ def build_categories_library(
             chapter = (
                 code if ligne_noeud["type_noeud"] == "chapitre" else str(ligne_noeud["chapitre"])
             )
+            if not chapter:
+                # Jamais d'écriture à la racine : une fiche sans chapitre
+                # serait ensuite nettoyée comme résidu (cas U00-U49,
+                # attrapé le 2026-09-23) — erreur bruyante, pas de fichier.
+                errors.append((code, "chapitre vide au parquet des notes — fiche de nœud omise"))
+                continue
             if chapter_filter is not None and chapter != chapter_filter:
                 continue
             try:

@@ -127,9 +127,17 @@ def assemble_notes(
     positions = dict(merged.select("code", "left").iter_rows())
 
     def _chapitre_romain(code_plage: str) -> str:
-        """`(F00-F99)` → `V` : le chapitre du maître qui contient la plage."""
-        premier = code_plage.strip("()").split("-")[0]
-        gauche = positions.get(premier)
+        """`(F00-F99)` → `V` : le chapitre du maître qui contient la plage.
+
+        Cherche d'abord la position du premier code de la plage, puis
+        celle de la plage elle-même : `U00-U49` n'a pas de catégorie
+        `U00` au maître, mais le BLOC `U00-U49` y est (chapitre XXII) —
+        sans ce repli, son chapitre sortait vide et la fiche de bloc
+        s'écrivait à la racine avant d'être nettoyée comme résidu
+        (attrapé par le contrat d'index le 2026-09-23).
+        """
+        nu = code_plage.strip("()")
+        gauche = positions.get(nu.split("-")[0], positions.get(nu))
         if gauche is None:
             return code_plage
         for r in chapitres.iter_rows(named=True):
@@ -200,7 +208,10 @@ def assemble_notes(
             {
                 "code": code.strip("()") if noeud != "chapitre" else code,
                 "type_noeud": noeud,
-                "chapitre": str(r["chapitre"] or ""),
+                # Chapitre recalculé s'il manque à la table curée (cas
+                # U00-U49 : pas de catégorie U00 au maître).
+                "chapitre": str(r["chapitre"] or "")
+                or (code if noeud == "chapitre" else _chapitre_romain(code)),
                 "classe_note": str(r["classe_note"]),
                 "destination": destination,
                 "texte": texte,
