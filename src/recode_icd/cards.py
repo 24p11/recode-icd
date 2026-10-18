@@ -242,6 +242,12 @@ _SECTION_TITLES = {
     "has_exclusions": re.escape("À ne pas décrire"),
     "has_consignes": r"Consignes de codage \(guide méthodologique [^)]+\)",
     "has_formulations": re.escape("Formulations cliniques alternatives"),
+    # Sections des notes de la CIM-10 (phase A du chantier codeur,
+    # 2026-10-18) : colonnes informatives de l'index — `codeur` arbitre
+    # lui-même quelles fiches valent leur coût en tokens.
+    "has_definition": re.escape("Définition (CIM-10)"),
+    "has_description_clinique": re.escape("Description clinique (OMS)"),
+    "has_notes_cim": re.escape("Notes de la CIM-10"),
 }
 
 
@@ -1264,6 +1270,9 @@ def build_cards_library(
             "has_exclusions",
             "has_consignes",
             "has_formulations",
+            "has_definition",
+            "has_description_clinique",
+            "has_notes_cim",
             "type_mco",
             "statut_mco",
             "source_existence",

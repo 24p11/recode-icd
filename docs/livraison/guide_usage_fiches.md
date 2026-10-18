@@ -22,9 +22,12 @@ I2, une exception déclarée : les troncs du chapitre XX, marqués).
 # I64 — Accident vasculaire cérébral, non précisé …    ← titre officiel
 Statut MCO (kit ATIH 2025) : …                          ← autorisation de codage
 ## Périmètre clinique du code                           ← inclusions officielles (OFS/ANS)
+## Définition (CIM-10)                                  ← définition officielle, si elle existe
+## Description clinique (OMS)                           ← glossaire officiel (chapitre F surtout)
 ## Localisations / subdivisions                         ← si pertinent
 ## À ne pas décrire                                     ← exclusions (l'affection vit AILLEURS)
 ## Consignes de codage (guide méthodologique 2026)      ← consignes [rec_id], si le code est régi
+## Notes de la CIM-10                                   ← règles d'emploi officielles de la classification
 ## Formulations cliniques alternatives                  ← langage réel des CRH (voir ci-dessous)
 ```
 
@@ -58,7 +61,7 @@ Une ligne par fiche. Le **noyau garanti** par le contrat
 |---|---|
 | `code`, `chapter`, `fichier` | identité et chemin relatif de la fiche |
 | `libelle` | libellé officiel |
-| `has_perimetre` … `has_formulations` | présence de chaque section (booléens) |
+| `has_perimetre` … `has_notes_cim` | présence de chaque section (booléens — y compris `has_definition`, `has_description_clinique`, `has_notes_cim`) : de quoi arbitrer quelles fiches valent leur coût en tokens |
 | `type_mco`, `statut_mco` | statut d'autorisation au kit ATIH |
 | `classe_generation` | `emissible` ou `tronc_composition` (chapitre XX) |
 | `nb_chars` | taille de la fiche |
@@ -86,3 +89,12 @@ emissibles = idx.filter(pl.col("classe_generation") == "emissible")
 4. **Ne pas éditer les fiches** : elles sont régénérées de façon
    déterministe à chaque build ; toute correction passe par les données
    ou la curation amont.
+
+## Les autres fichiers du paquet
+
+- **`codes.csv`** : TOUS les codes du kit ATIH (codables ou non), avec
+  la clé `code_atih` (sans point, extension collée) — la seule source
+  de la liste des codes ; voir CONTRAT.md.
+- **`formulations.csv`** : le vivier de recherche par mots-clés
+  (formulations rendues, sans plafond).
+- **`extensions_preambule.md`** : les extensions PMSI expliquées.

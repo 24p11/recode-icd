@@ -4,6 +4,10 @@ Contenu de l'archive :
 
 - `cards_library/` — la bibliothèque du profil `generation` complète,
   index et CONTRAT.md compris ;
+- `codes.csv` — les 42 897 codes du kit ATIH, deux écritures, codable,
+  statut (phase A chantier codeur) ;
+- `formulations.csv` — le vivier de recherche (rendu, sans plafond R2) ;
+- `extensions_preambule.md` — généré du kit ;
 - `LIVRAISON.md` — une page générée : version, chiffres, contenu ;
 - `guide_usage_fiches.md` et `resolveur_mode_emploi.md` — copiés de
   `docs/livraison/`.
@@ -26,6 +30,14 @@ from pathlib import Path
 
 import polars as pl
 import yaml
+
+from recode_icd.cards import _eager, charge_politique
+from recode_icd.livraison import (
+    construit_codes_csv,
+    construit_formulations_csv,
+    redige_preambule_extensions,
+)
+from recode_icd.utils.loaders_dev import load_exploration_context
 
 RACINE = Path(__file__).resolve().parents[1]
 BIBLIOTHEQUE = RACINE / "outputs" / "cards_library"
@@ -59,6 +71,12 @@ def main() -> None:
     sha = _git("rev-parse", "--short", "HEAD")
     millesime = _millesime_kit()
     index = pl.read_csv(BIBLIOTHEQUE / "index.csv")
+    atih = pl.read_parquet(RACINE / "referentials/processed/atih_codes.parquet")
+    ctx = load_exploration_context()
+    outils = charge_politique(_eager(ctx.merged))
+    codes_csv = construit_codes_csv(atih, sha)
+    formulations_csv, n_hors_kit = construit_formulations_csv(_eager(ctx.flat), atih, outils, sha)
+    preambule = redige_preambule_extensions(atih)
     n_total = index.height
     n_troncs = index.filter(pl.col("classe_generation") == "tronc_composition").height
     registre = yaml.safe_load(
@@ -79,6 +97,9 @@ def main() -> None:
 | `cards_library/` | {n_total} fiches Markdown, une par code codable en MCO ({n_total - n_troncs} émissibles + {n_troncs} troncs de composition du chapitre XX), rangées par chapitre |
 | `cards_library/index.csv` | index canonique (noyau garanti : `code`, `fichier`, `statut_mco`, `format_version`) — **commencer ici** ; `_index.csv` déprécié, dernier cycle |
 | `cards_library/CONTRAT.md` | le contrat de l'index : noyau garanti, sémantique `tronc_composition`, canal officiel |
+| `codes.csv` | TOUS les codes du kit ATIH ({codes_csv.height}) : `code_atih` (sans point, extension collée — la clé des consommateurs), forme pointée, libellé, `codable_mco`, `statut_mco` — la seule source de la liste des codes |
+| `formulations.csv` | {formulations_csv.height} formulations rendues (après R1/R3/registre archaïque, SANS plafond R2) pour la recherche par mots-clés |
+| `extensions_preambule.md` | les extensions PMSI expliquées, généré du kit |
 | `guide_usage_fiches.md` | structure des fiches, usage de l'index, les quatre « à ne pas faire » |
 | `resolveur_mode_emploi.md` | `recode-icd resoudre` : toute écriture d'un code → fiche ou raison motivée |
 
@@ -125,6 +146,11 @@ Retours et codes non résolus : joindre le journal du résolveur
             tar.addfile(info, io.BytesIO(donnees))
 
         _ajoute_texte("LIVRAISON.md", livraison_md)
+        _ajoute_texte("codes.csv", codes_csv.write_csv())
+        _ajoute_texte("formulations.csv", formulations_csv.write_csv())
+        _ajoute_texte("extensions_preambule.md", preambule)
+        if n_hors_kit:
+            print(f"formulations hors kit écartées (codes inconnus du kit) : {n_hors_kit}")
         tar.add(docs / "guide_usage_fiches.md", arcname=f"{nom}/guide_usage_fiches.md")
         tar.add(docs / "resolveur_mode_emploi.md", arcname=f"{nom}/resolveur_mode_emploi.md")
         # L'archive se construit depuis L'INDEX, jamais depuis le

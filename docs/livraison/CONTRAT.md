@@ -65,8 +65,42 @@ Le canal officiel est le **paquet de livraison versionné**
 répertoire `outputs/` du dépôt**, qui est un espace de travail sans
 garantie de stabilité entre deux commits.
 
-Consommateurs connus : **fictomed** (CHU Brest), **Stream** (AP-HP).
-Tout nouveau consommateur se déclare ici.
+Consommateurs connus : **fictomed** (CHU Brest), **Stream** (AP-HP),
+**codeur** (24p11/codeur — outil de codage assisté, inscrit le
+2026-10-18). Tout nouveau consommateur se déclare ici.
+
+## Livrables additifs du paquet (2026-10-18, chantier codeur)
+
+Trois fichiers accompagnent la bibliothèque dans l'archive — additifs,
+le noyau garanti d'`index.csv` est inchangé :
+
+- **`codes.csv`** — TOUS les codes du kit ATIH (42 897), une ligne par
+  code : `code_atih` (sans point, extension PMSI collée : `Z992+0` —
+  **la clé des consommateurs**), `code` (forme pointée), `libelle`,
+  `codable_mco` (la règle gravée : type ≠ 3 et non supprimé),
+  `statut_mco`, `interdit_dp/dr/das`, `millesime_kit`,
+  `version_livraison`. recode-icd est **la seule source de la liste
+  des codes** : ne retraitez pas le fichier ATIH vous-mêmes. Un code
+  codable peut avoir des descendants codables plus précis (ex.
+  `Z992` ET `Z992+0`) : proposer le moins précis n'est pas une erreur
+  de RUM — l'affinage se propose, la correction n'est obligatoire que
+  pour un code `codable_mco=false`.
+- **`formulations.csv`** — le vivier de recherche par mots-clés :
+  formulations RENDUES (après les filtres de qualité R1/R3/registre
+  archaïque) et SANS le plafond R2 (le plafond contient les fiches ;
+  pour la recherche, c'est le rappel qui compte). Colonnes :
+  `code_atih`, `formulation`, `source`, `version_livraison`.
+- **`extensions_preambule.md`** — les extensions PMSI expliquées,
+  généré du kit. À retenir : pas de sémantique transversale des « + »
+  (le sens est dans le libellé de chaque extension) ; « ni » n'existe
+  pas au kit.
+
+Colonnes informatives ajoutées à `index.csv` (generation/contrôle, sans
+incrément de `format_version`) : `has_definition`,
+`has_description_clinique`, `has_notes_cim` — avec les `has_*`
+existantes, elles permettent au consommateur d'arbitrer quelles fiches
+valent leur coût en tokens. Une fiche reste TOUJOURS présente pour un
+code de l'index, même peu informative.
 
 ## Historique (confirmé contre le git log)
 
