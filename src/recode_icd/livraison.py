@@ -181,3 +181,75 @@ __all__ = (
     "construit_formulations_csv",
     "redige_preambule_extensions",
 )
+
+
+def construit_descendants_codables(
+    ctx_resolution: object,
+    atih: pl.DataFrame,
+    version_livraison: str,
+) -> pl.DataFrame:
+    """`descendants_codables.csv` — la liste de la boucle de correction.
+
+    Une ligne par couple (nœud du kit, descendant codable avec fiche).
+    Périmètre : tout nœud du kit ayant au moins un descendant codable,
+    qu'il soit lui-même NON codable (E11, R521 — correction
+    obligatoire) ou CODABLE avec des descendants plus précis (Z992,
+    M142, 49 cas — affinage proposé, verdict RF 2026-10-18) : les deux
+    régimes de la boucle consomment la même liste.
+
+    **Même logique que le résolveur, pas une seconde implémentation** :
+    les descendants viennent de `couverture._descendants` et le filtre
+    « avec fiche » de la carte `ctx.fiches` — exactement ce que
+    `resoudre_code` renvoie dans `codes_avec_fiche` (invariant testé).
+    L'ordre (`ordre_kit`) est l'ordre du fichier du kit ATIH.
+    """
+    from recode_icd import couverture
+
+    ctx = ctx_resolution  # ContexteResolution (import différé : cycle)
+    merged: pl.DataFrame = ctx.merged  # type: ignore[attr-defined]
+    fiches: dict[str, str] = ctx.fiches  # type: ignore[attr-defined]
+
+    ordre_kit = {c: i for i, c in enumerate(atih["code_atih"].to_list())}
+    kit_par_code: dict[str, tuple[str, str]] = {
+        r["code"]: (
+            r["code_atih"],
+            str(r["libelle_long"] or r["libelle_court"] or ""),
+        )
+        for r in atih.iter_rows(named=True)
+    }
+
+    lignes: list[dict[str, object]] = []
+    for noeud in merged.iter_rows(named=True):
+        code = str(noeud["code"])
+        if code not in kit_par_code:
+            continue  # blocs, chapitres, codes du maître inconnus du kit
+        if _entier_nœud(noeud["right"]) == _entier_nœud(noeud["left"]) + 1:
+            continue  # feuille : rien à lister
+        descendants = couverture._descendants(merged, noeud)
+        avec_fiche = [d for d in descendants if d in fiches and d in kit_par_code]
+        if not avec_fiche:
+            continue
+        noeud_atih, noeud_libelle = kit_par_code[code]
+        for descendant in avec_fiche:
+            code_atih, libelle = kit_par_code[descendant]
+            lignes.append(
+                {
+                    "noeud_atih": noeud_atih,
+                    "noeud_libelle": noeud_libelle,
+                    "code_atih": code_atih,
+                    "libelle": libelle,
+                    "ordre_kit": ordre_kit.get(code_atih, 10**9),
+                    "_ordre_noeud": ordre_kit.get(noeud_atih, 10**9),
+                }
+            )
+    return (
+        pl.DataFrame(lignes)
+        .sort("_ordre_noeud", "ordre_kit")
+        .drop("_ordre_noeud")
+        .with_columns(pl.lit(version_livraison).alias("version_livraison"))
+    )
+
+
+def _entier_nœud(valeur: object) -> int:
+    assert isinstance(valeur, int)
+    return valeur

@@ -97,4 +97,8 @@ emissibles = idx.filter(pl.col("classe_generation") == "emissible")
   de la liste des codes ; voir CONTRAT.md.
 - **`formulations.csv`** : le vivier de recherche par mots-clés
   (formulations rendues, sans plafond).
+- **`descendants_codables.csv`** : pour un code proposé non codable
+  (ou codable mais tronqué), la liste de ses descendants codables avec
+  libellés, dans l'ordre du kit — la matière de la boucle de
+  correction/affinage.
 - **`extensions_preambule.md`** : les extensions PMSI expliquées.

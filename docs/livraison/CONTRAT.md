@@ -94,6 +94,17 @@ le noyau garanti d'`index.csv` est inchangé :
   généré du kit. À retenir : pas de sémantique transversale des « + »
   (le sens est dans le libellé de chaque extension) ; « ni » n'existe
   pas au kit.
+- **`descendants_codables.csv`** (phase B, 2026-10-18) — une ligne par
+  couple (nœud du kit, descendant codable avec fiche) : `noeud_atih`,
+  `noeud_libelle`, `code_atih`, `libelle`, `ordre_kit` (l'ordre du
+  fichier du kit), `version_livraison`. Périmètre : tout nœud du kit à
+  descendants codables — NON codable (E11, R521 : correction
+  obligatoire) comme CODABLE à descendants plus précis (Z992 :
+  affinage proposé, jamais imposé). Calculé par la même logique que le
+  résolveur (`couverture`), invariant testé : pour tout nœud non
+  codable, l'export égale `resoudre_code(...).codes_avec_fiche`. Un
+  nœud absent du fichier n'a AUCUN descendant codable au kit (cas
+  M142 : les M14.2x sont inconnus du kit 2025).
 
 Colonnes informatives ajoutées à `index.csv` (generation/contrôle, sans
 incrément de `format_version`) : `has_definition`,

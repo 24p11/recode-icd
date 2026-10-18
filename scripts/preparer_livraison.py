@@ -6,6 +6,8 @@ Contenu de l'archive :
   index et CONTRAT.md compris ;
 - `codes.csv` — les 42 897 codes du kit ATIH, deux écritures, codable,
   statut (phase A chantier codeur) ;
+- `descendants_codables.csv` — la liste de la boucle de correction
+  (phase B) ;
 - `formulations.csv` — le vivier de recherche (rendu, sans plafond R2) ;
 - `extensions_preambule.md` — généré du kit ;
 - `LIVRAISON.md` — une page générée : version, chiffres, contenu ;
@@ -32,8 +34,10 @@ import polars as pl
 import yaml
 
 from recode_icd.cards import _eager, charge_politique
+from recode_icd.couverture import charge_contexte
 from recode_icd.livraison import (
     construit_codes_csv,
+    construit_descendants_codables,
     construit_formulations_csv,
     redige_preambule_extensions,
 )
@@ -75,6 +79,7 @@ def main() -> None:
     ctx = load_exploration_context()
     outils = charge_politique(_eager(ctx.merged))
     codes_csv = construit_codes_csv(atih, sha)
+    descendants_csv = construit_descendants_codables(charge_contexte(), atih, sha)
     formulations_csv, n_hors_kit = construit_formulations_csv(_eager(ctx.flat), atih, outils, sha)
     preambule = redige_preambule_extensions(atih)
     n_total = index.height
@@ -99,6 +104,7 @@ def main() -> None:
 | `cards_library/CONTRAT.md` | le contrat de l'index : noyau garanti, sémantique `tronc_composition`, canal officiel |
 | `codes.csv` | TOUS les codes du kit ATIH ({codes_csv.height}) : `code_atih` (sans point, extension collée — la clé des consommateurs), forme pointée, libellé, `codable_mco`, `statut_mco` — la seule source de la liste des codes |
 | `formulations.csv` | {formulations_csv.height} formulations rendues (après R1/R3/registre archaïque, SANS plafond R2) pour la recherche par mots-clés |
+| `descendants_codables.csv` | {descendants_csv.height} couples (nœud du kit, descendant codable avec fiche) pour la boucle de correction/affinage — même logique que le résolveur |
 | `extensions_preambule.md` | les extensions PMSI expliquées, généré du kit |
 | `guide_usage_fiches.md` | structure des fiches, usage de l'index, les quatre « à ne pas faire » |
 | `resolveur_mode_emploi.md` | `recode-icd resoudre` : toute écriture d'un code → fiche ou raison motivée |
@@ -147,6 +153,7 @@ Retours et codes non résolus : joindre le journal du résolveur
 
         _ajoute_texte("LIVRAISON.md", livraison_md)
         _ajoute_texte("codes.csv", codes_csv.write_csv())
+        _ajoute_texte("descendants_codables.csv", descendants_csv.write_csv())
         _ajoute_texte("formulations.csv", formulations_csv.write_csv())
         _ajoute_texte("extensions_preambule.md", preambule)
         if n_hors_kit:
