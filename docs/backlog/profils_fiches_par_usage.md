@@ -73,3 +73,14 @@ Le verrou `test_orphanet_reste_hors_des_formulations` doit rester en place :
 il garantit que le profil génération ne s'élargit pas en silence. Le jour où
 les profils existent, ce test devient « ORPHANET est dans le profil contrôle
 et pas dans le profil génération ».
+
+
+## Profil « revue » (chantier codeur, différé le 2026-10-18)
+
+Verdict RF : DIFFÉRÉ avec déclencheur. Le budget mesuré tient (fiche
+médiane ≈ 580 tokens ; 15 fiches ≈ 8 700 tokens, 17 600 au p90 — cf.
+`docs/analyses/2026-10-18_besoins_codeur_conception.md`).
+**Déclencheur** : si l'usage de la revue de dossier côté `codeur`
+réclame un plafond, construire un profil compact (titre + périmètre +
+à-ne-pas-décrire + consignes, sans formulations) — pas un plafond en
+tranchant dans les fiches existantes.

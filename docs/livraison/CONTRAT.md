@@ -26,9 +26,13 @@ en violation de l'invariant « aucun code non codable présenté comme
 ## Nom canonique et transition
 
 - **`index.csv`** est le nom canonique.
-- `_index.csv` est **déprécié** : double écriture pendant un cycle de
-  livraison (contenu identique au schéma historique près), retrait au
-  cycle suivant. Nouveaux consommateurs : `index.csv` uniquement.
+- `_index.csv` est **déprécié** : double écriture maintenue (contenu
+  identique au schéma historique près). **Le retrait est déclenché par
+  la confirmation de bascule des consommateurs connus** (fictomed,
+  Stream, codeur), pas par un numéro de cycle — la note « nouveautés »
+  du 2026-10-18 vaut préavis formel. Le retrait fera l'objet d'un
+  petit chantier dédié (écriture, repli du résolveur, tests).
+  Nouveaux consommateurs : `index.csv` uniquement.
 
 ## Noyau garanti (stable sous `format_version` 1)
 

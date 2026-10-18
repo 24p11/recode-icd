@@ -40,6 +40,26 @@ XIII étaient ce symptôme — les codes de scénario se tirent de
 dédiée dans la note nouveautés. Notebook de contre-lecture du kit :
 `scripts/explore/explore_kit_atih.py`.
 
+## Bilan des sept points du brief
+
+| # | Attente codeur | Sort |
+|---|---|---|
+| 1 | Index complet, seule source des codes | **Traité (A)** : `codes.csv` |
+| 2 | Fiches « utiles ou vides » | **Traité (A)** : colonnes `has_*` (marquage, jamais d'absence) |
+| 3 | Navigation des nœuds non codables | **Traité (B, recadré)** : `descendants_codables.csv` + `noeud_codable` |
+| 4 | Catégories longues par axe | **Différé avec déclencheur** : `docs/backlog/axe_discriminant_claml.md` |
+| 5 | Explication des extensions PMSI | **Traité (A)** : `extensions_preambule.md` (généré du kit) |
+| 6 | Budget de taille / profil revue | **Différé avec déclencheur** : `docs/backlog/profils_fiches_par_usage.md` § profil revue |
+| 7 | Export des formulations | **Traité (A)** : `formulations.csv` (sans plafond R2) |
+
+Différé transversal : **retrait de `_index.csv`** — déclenché par la
+confirmation de bascule des consommateurs connus (CONTRAT reformulé le
+2026-10-18, la note nouveautés vaut préavis formel), petit chantier
+dédié le moment venu.
+
+**Chantier CLOS le 2026-10-18** (livraison
+`recode-icd_fiches_generation_65701d6_atih-2025.tar.gz`).
+
 ## Phase C
 
 Archive groupée (profil generation, commit de fin), note
