@@ -217,6 +217,7 @@ def construit_descendants_codables(
         )
         for r in atih.iter_rows(named=True)
     }
+    codable_kit: dict[str, bool] = dict(atih.select("code", "codable_mco").iter_rows())
 
     lignes: list[dict[str, object]] = []
     for noeud in merged.iter_rows(named=True):
@@ -236,6 +237,10 @@ def construit_descendants_codables(
                 {
                     "noeud_atih": noeud_atih,
                     "noeud_libelle": noeud_libelle,
+                    # Les deux régimes de la boucle sans re-jointure :
+                    # False = correction obligatoire (E11), True =
+                    # affinage proposé, jamais imposé (Z992).
+                    "noeud_codable": bool(codable_kit.get(code, False)),
                     "code_atih": code_atih,
                     "libelle": libelle,
                     "ordre_kit": ordre_kit.get(code_atih, 10**9),

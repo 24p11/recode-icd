@@ -118,6 +118,9 @@ def test_descendants_temoins_du_brief(descendants: pl.DataFrame, atih: pl.DataFr
     assert _liste(descendants, "Z992") == ["Z992+0", "Z992+1", "Z992+8"], (
         "père CODABLE à descendants plus précis — régime affinage"
     )
+    # noeud_codable porte le régime : affinage (Z992) vs correction (E11).
+    regimes = dict(descendants.select("noeud_atih", "noeud_codable").unique().iter_rows())
+    assert regimes["Z992"] is True and regimes["E11"] is False
     assert _liste(descendants, "R521") == ["R5210", "R5218"]
     e11 = _liste(descendants, "E11")
     assert len(e11) == 20 and "E1100" in e11, "père interdit — régime correction"

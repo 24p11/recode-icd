@@ -96,11 +96,14 @@ le noyau garanti d'`index.csv` est inchangé :
   pas au kit.
 - **`descendants_codables.csv`** (phase B, 2026-10-18) — une ligne par
   couple (nœud du kit, descendant codable avec fiche) : `noeud_atih`,
-  `noeud_libelle`, `code_atih`, `libelle`, `ordre_kit` (l'ordre du
-  fichier du kit), `version_livraison`. Périmètre : tout nœud du kit à
-  descendants codables — NON codable (E11, R521 : correction
-  obligatoire) comme CODABLE à descendants plus précis (Z992 :
-  affinage proposé, jamais imposé). Calculé par la même logique que le
+  `noeud_libelle`, **`noeud_codable`** (bool), `code_atih`, `libelle`,
+  `ordre_kit` (l'ordre du fichier du kit), `version_livraison`.
+  Périmètre : tout nœud du kit à descendants codables, et
+  `noeud_codable` porte le régime sans re-jointure —
+  **`false` = correction OBLIGATOIRE** (le nœud ne se code pas : E11,
+  R521), **`true` = affinage PROPOSÉ, jamais imposé** (le nœud est un
+  code valide, ses descendants sont plus précis : Z992 ; politique DIM
+  éventuelle à déclarer côté consommateur). Calculé par la même logique que le
   résolveur (`couverture`), invariant testé : pour tout nœud non
   codable, l'export égale `resoudre_code(...).codes_avec_fiche`. Un
   nœud absent du fichier n'a AUCUN descendant codable au kit (cas
